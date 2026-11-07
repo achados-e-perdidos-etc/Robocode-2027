@@ -1,0 +1,1663 @@
+{
+  "robocode": "1.12.0",
+  "java": "OpenJDK 21.0.13",
+  "source_target": "Java 8",
+  "arena": [
+    800,
+    600
+  ],
+  "cooling": 0.1,
+  "cpu_constant_ns": 5344295,
+  "source_sha256": "25695355f54a50e31be28e929d6caf8268db5c67266fdca8dc1ab480c888440d",
+  "diamond_source_commit": "2d1c6a2b911cf077c5f13d2baa45da7d18d6babb",
+  "seed": "not fixed; initial positions random",
+  "scenarios": [
+    {
+      "name": "walls",
+      "results": [
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 4880,
+          "wins": 30
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 0,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 28,
+          "hits": 10,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 24,
+          "hits": 10,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 28,
+          "hits": 10,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 25,
+          "hits": 11,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 25,
+          "hits": 11,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 25,
+          "hits": 11,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 19,
+          "hits": 11,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 20,
+          "hits": 10,
+          "waves": 5,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 31,
+          "hits": 11,
+          "waves": 7,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 26,
+          "hits": 10,
+          "waves": 11,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 28,
+          "hits": 11,
+          "waves": 8,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 22,
+          "hits": 11,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 26,
+          "hits": 9,
+          "waves": 8,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 20,
+          "hits": 9,
+          "waves": 6,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 22,
+          "hits": 11,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 33,
+          "hits": 10,
+          "waves": 10,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 29,
+          "hits": 10,
+          "waves": 9,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 29,
+          "hits": 11,
+          "waves": 7,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 29,
+          "hits": 11,
+          "waves": 8,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 23,
+          "hits": 11,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 20,
+          "shots": 16,
+          "hits": 9,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 21,
+          "shots": 19,
+          "hits": 10,
+          "waves": 6,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 22,
+          "shots": 23,
+          "hits": 11,
+          "waves": 8,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 23,
+          "shots": 21,
+          "hits": 10,
+          "waves": 7,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 24,
+          "shots": 22,
+          "hits": 11,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 25,
+          "shots": 24,
+          "hits": 11,
+          "waves": 8,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 26,
+          "shots": 22,
+          "hits": 10,
+          "waves": 7,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 27,
+          "shots": 19,
+          "hits": 10,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 28,
+          "shots": 30,
+          "hits": 10,
+          "waves": 8,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 29,
+          "shots": 23,
+          "hits": 10,
+          "waves": 7,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "corners",
+      "results": [
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 5238,
+          "wins": 30
+        },
+        {
+          "robot": "sample.Corners",
+          "score": 0,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 16,
+          "hits": 12,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 17,
+          "hits": 12,
+          "waves": 4,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 16,
+          "hits": 10,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 16,
+          "hits": 12,
+          "waves": 4,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 17,
+          "hits": 12,
+          "waves": 9,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 17,
+          "hits": 12,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 18,
+          "hits": 12,
+          "waves": 5,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 14,
+          "hits": 11,
+          "waves": 9,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 17,
+          "hits": 12,
+          "waves": 3,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 17,
+          "hits": 13,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 17,
+          "hits": 13,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 17,
+          "hits": 12,
+          "waves": 2,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 16,
+          "hits": 11,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 18,
+          "hits": 13,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 17,
+          "hits": 11,
+          "waves": 2,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 16,
+          "hits": 10,
+          "waves": 4,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 17,
+          "hits": 12,
+          "waves": 8,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 17,
+          "hits": 11,
+          "waves": 4,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 18,
+          "hits": 11,
+          "waves": 7,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 16,
+          "hits": 11,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 20,
+          "shots": 17,
+          "hits": 12,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 21,
+          "shots": 17,
+          "hits": 12,
+          "waves": 2,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 22,
+          "shots": 20,
+          "hits": 12,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 23,
+          "shots": 16,
+          "hits": 12,
+          "waves": 4,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 24,
+          "shots": 16,
+          "hits": 12,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 25,
+          "shots": 17,
+          "hits": 12,
+          "waves": 3,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 26,
+          "shots": 19,
+          "hits": 11,
+          "waves": 12,
+          "matched": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 27,
+          "shots": 18,
+          "hits": 12,
+          "waves": 4,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 28,
+          "shots": 17,
+          "hits": 12,
+          "waves": 9,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 29,
+          "shots": 18,
+          "hits": 12,
+          "waves": 5,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "tracker",
+      "results": [
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 5368,
+          "wins": 30
+        },
+        {
+          "robot": "sample.Tracker",
+          "score": 0,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 13,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 13,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 12,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 14,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 12,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 11,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 11,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 12,
+          "hits": 10,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 13,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 11,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 8,
+          "hits": 7,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 10,
+          "hits": 9,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 11,
+          "hits": 10,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 11,
+          "hits": 9,
+          "waves": 1,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 14,
+          "hits": 11,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 13,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 16,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 10,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 14,
+          "hits": 8,
+          "waves": 2,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 12,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 20,
+          "shots": 9,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 21,
+          "shots": 11,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 22,
+          "shots": 11,
+          "hits": 9,
+          "waves": 2,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 23,
+          "shots": 12,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 24,
+          "shots": 12,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 25,
+          "shots": 13,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 26,
+          "shots": 13,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 27,
+          "shots": 11,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 28,
+          "shots": 12,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 29,
+          "shots": 11,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "two",
+      "results": [
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 9324,
+          "wins": 30
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 1858,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Tracker",
+          "score": 300,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 66,
+          "hits": 16,
+          "waves": 21,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 73,
+          "hits": 19,
+          "waves": 24,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 35,
+          "hits": 20,
+          "waves": 10,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 54,
+          "hits": 23,
+          "waves": 14,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 33,
+          "hits": 18,
+          "waves": 10,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 61,
+          "hits": 21,
+          "waves": 21,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 59,
+          "hits": 22,
+          "waves": 17,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 66,
+          "hits": 22,
+          "waves": 16,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 32,
+          "hits": 16,
+          "waves": 9,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 60,
+          "hits": 21,
+          "waves": 18,
+          "matched": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 32,
+          "hits": 19,
+          "waves": 9,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 50,
+          "hits": 25,
+          "waves": 15,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 49,
+          "hits": 22,
+          "waves": 15,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 60,
+          "hits": 18,
+          "waves": 20,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 47,
+          "hits": 20,
+          "waves": 12,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 29,
+          "hits": 17,
+          "waves": 9,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 36,
+          "hits": 19,
+          "waves": 10,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 38,
+          "hits": 22,
+          "waves": 12,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 58,
+          "hits": 22,
+          "waves": 17,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 64,
+          "hits": 17,
+          "waves": 17,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 20,
+          "shots": 48,
+          "hits": 25,
+          "waves": 11,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 21,
+          "shots": 28,
+          "hits": 18,
+          "waves": 6,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 22,
+          "shots": 37,
+          "hits": 23,
+          "waves": 9,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 23,
+          "shots": 27,
+          "hits": 19,
+          "waves": 7,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 24,
+          "shots": 44,
+          "hits": 20,
+          "waves": 14,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 25,
+          "shots": 31,
+          "hits": 18,
+          "waves": 10,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 26,
+          "shots": 37,
+          "hits": 19,
+          "waves": 13,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 27,
+          "shots": 47,
+          "hits": 18,
+          "waves": 15,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 28,
+          "shots": 59,
+          "hits": 18,
+          "waves": 20,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 29,
+          "shots": 41,
+          "hits": 19,
+          "waves": 14,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "three",
+      "results": [
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 11734,
+          "wins": 30
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 4401,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Tracker",
+          "score": 3252,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Corners",
+          "score": 1844,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 42,
+          "hits": 23,
+          "waves": 17,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 33,
+          "hits": 23,
+          "waves": 18,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 44,
+          "hits": 23,
+          "waves": 24,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 44,
+          "hits": 15,
+          "waves": 42,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 38,
+          "hits": 23,
+          "waves": 17,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 47,
+          "hits": 26,
+          "waves": 25,
+          "matched": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 27,
+          "hits": 15,
+          "waves": 13,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 33,
+          "hits": 16,
+          "waves": 11,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 31,
+          "hits": 20,
+          "waves": 10,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 28,
+          "hits": 19,
+          "waves": 16,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 35,
+          "hits": 23,
+          "waves": 14,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 60,
+          "hits": 29,
+          "waves": 31,
+          "matched": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 37,
+          "hits": 25,
+          "waves": 13,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 36,
+          "hits": 27,
+          "waves": 24,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 42,
+          "hits": 22,
+          "waves": 17,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 31,
+          "hits": 15,
+          "waves": 10,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 79,
+          "hits": 26,
+          "waves": 32,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 41,
+          "hits": 23,
+          "waves": 21,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 54,
+          "hits": 20,
+          "waves": 23,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 32,
+          "hits": 17,
+          "waves": 18,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 20,
+          "shots": 31,
+          "hits": 18,
+          "waves": 12,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 21,
+          "shots": 37,
+          "hits": 26,
+          "waves": 15,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 22,
+          "shots": 35,
+          "hits": 21,
+          "waves": 32,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 23,
+          "shots": 29,
+          "hits": 15,
+          "waves": 14,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 24,
+          "shots": 42,
+          "hits": 21,
+          "waves": 20,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 25,
+          "shots": 61,
+          "hits": 19,
+          "waves": 27,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 26,
+          "shots": 26,
+          "hits": 17,
+          "waves": 25,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 27,
+          "shots": 32,
+          "hits": 23,
+          "waves": 10,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 28,
+          "shots": 40,
+          "hits": 26,
+          "waves": 12,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 29,
+          "shots": 38,
+          "hits": 19,
+          "waves": 29,
+          "matched": 1,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    },
+    {
+      "name": "diamond",
+      "results": [
+        {
+          "robot": "voidious.Diamond*",
+          "score": 2449,
+          "wins": 20
+        },
+        {
+          "robot": "equipe.Nemesis 2.0*",
+          "score": 246,
+          "wins": 0
+        }
+      ],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 72,
+          "hits": 3,
+          "waves": 76,
+          "matched": 14,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 61,
+          "hits": 6,
+          "waves": 68,
+          "matched": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 89,
+          "hits": 5,
+          "waves": 94,
+          "matched": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 70,
+          "hits": 3,
+          "waves": 68,
+          "matched": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 88,
+          "hits": 4,
+          "waves": 97,
+          "matched": 26,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 63,
+          "hits": 3,
+          "waves": 58,
+          "matched": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 77,
+          "hits": 3,
+          "waves": 79,
+          "matched": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 106,
+          "hits": 9,
+          "waves": 111,
+          "matched": 25,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 28,
+          "hits": 1,
+          "waves": 27,
+          "matched": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 62,
+          "hits": 3,
+          "waves": 63,
+          "matched": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 97,
+          "hits": 5,
+          "waves": 102,
+          "matched": 24,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 89,
+          "hits": 3,
+          "waves": 99,
+          "matched": 20,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 12,
+          "shots": 28,
+          "hits": 2,
+          "waves": 28,
+          "matched": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 13,
+          "shots": 53,
+          "hits": 2,
+          "waves": 51,
+          "matched": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 14,
+          "shots": 30,
+          "hits": 2,
+          "waves": 27,
+          "matched": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 15,
+          "shots": 67,
+          "hits": 3,
+          "waves": 65,
+          "matched": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 16,
+          "shots": 36,
+          "hits": 2,
+          "waves": 37,
+          "matched": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 17,
+          "shots": 52,
+          "hits": 0,
+          "waves": 51,
+          "matched": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 18,
+          "shots": 115,
+          "hits": 8,
+          "waves": 132,
+          "matched": 24,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 19,
+          "shots": 31,
+          "hits": 1,
+          "waves": 33,
+          "matched": 11,
+          "walls": 0,
+          "skipped": 0
+        }
+      ]
+    }
+  ]
+}
