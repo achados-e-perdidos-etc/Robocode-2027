@@ -1,6 +1,6 @@
-# Robocode 2027 — Nêmesis
+# Robocode 2027 — Titan Prime
 
-Melhoria de robô para o **Robocode clássico**, em Java. O código completo do robô está em **[robots/equipe/Nemesis.java](robots/equipe/Nemesis.java)**. Todos os componentes são classes internas desse único arquivo. Não há bibliotecas externas para instalar no robô, nem serviços de IA ou internet durante a batalha.
+Melhoria de robô para o **Robocode clássico**, em Java. O código completo do robô está em **[robots/equipe/TitanPrime.java](robots/equipe/TitanPrime.java)**. Todos os componentes são classes internas desse único arquivo. Não há bibliotecas externas para instalar no robô, nem serviços de IA ou internet durante a batalha.
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
@@ -36,4 +36,4 @@ Esta implementação foi escrita para este projeto a partir dos conceitos públi
 - [GuessFactor](https://robowiki.net/wiki/GuessFactor) e [física do Robocode](https://robowiki.net/wiki/Robocode/Game_Physics): normalização dos ângulos e limites de movimento.
 - [API oficial do AdvancedRobot](https://robocode.sourceforge.io/docs/robocode/robocode/AdvancedRobot.html): comandos assíncronos e eventos.
 
-Essas referências orientam o projeto; não significam que o Nêmesis tenha o desempenho de um campeão. O confronto com Diamond também consta na validação.
+Essas referências orientam o projeto; não significam que o Titan Prime tenha o desempenho de um campeão. O confronto com Diamond também consta na validação.

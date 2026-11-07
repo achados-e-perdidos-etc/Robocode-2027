@@ -23,7 +23,7 @@ def compile_titan(args, paths):
                    "-d", str(args.home / "robots")] + [str(p) for p in paths], check=True)
 
 
-def install_nemesis(args, name, source):
+def install_titan_prime(args, name, source):
     source = train.variant(source, name, export=False)
     marker = 'if (getRoundNum() == 0) out.println("COLD_START gun=" + GENERAL_GUN.samples + " surf=" + GENERAL_SURF.samples);'
     source = source.replace("public void run() {", "public void run() {\n        " + marker, 1)
@@ -87,15 +87,15 @@ def main():
     compile_titan(args, modules)
     titan = (args.titan_project / "src/main/java/titan/TitanVingation.java").read_text(encoding="utf-8")
     baseline = args.baseline.read_text(encoding="utf-8")
-    template = (train.ROOT / "robots/equipe/Nemesis.java").read_text(encoding="utf-8")
+    template = (train.ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
     sources = {"TitanBase": baseline}
     for name, threats, flatten in (("Threat", True, False), ("Flatten", False, True), ("Combined", True, True)):
         source = re.sub(r"USE_THREATS = (true|false)", "USE_THREATS = " + str(threats).lower(), template)
         source = re.sub(r"USE_FLATTENER = (true|false)", "USE_FLATTENER = " + str(flatten).lower(), source)
         if "USE_THREATS" not in source: raise ValueError("Prototype missing from source")
         sources[name] = source
-    install_nemesis(args, "TitanAnchor", baseline)
-    for name, source in sources.items(): install_nemesis(args, name, source)
+    install_titan_prime(args, "TitanAnchor", baseline)
+    for name, source in sources.items(): install_titan_prime(args, name, source)
     selection = phase(args, "selection", list(sources), SEEDS_TRAIN, titan)
     ranking = sorted(sources, key=lambda name: bo3.ranking_key(selection[name]), reverse=True)
     selected = ranking[0]
@@ -107,8 +107,8 @@ def main():
     (args.output / "progress.json").write_text(json.dumps(result, indent=2) + "\n")
     print("SELECTED", selected, result["selection_keys"], flush=True)
     source = sources[selected]
-    (args.output / "Nemesis.java").write_text(source, encoding="utf-8")
-    install_nemesis(args, "TitanFinal", source)
+    (args.output / "TitanPrime.java").write_text(source, encoding="utf-8")
+    install_titan_prime(args, "TitanFinal", source)
     validation = phase(args, "validation", ["TitanBase", "TitanFinal"], SEEDS_TEST, titan)
     result["validation"] = validation
     result["validation_keys"] = {name: bo3.ranking_key(rows) for name, rows in validation.items()}

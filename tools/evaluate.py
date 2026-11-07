@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--home", required=True, type=pathlib.Path)
     parser.add_argument("--baseline", required=True, type=pathlib.Path)
-    parser.add_argument("--candidate", type=pathlib.Path, default=train.ROOT / "robots/equipe/Nemesis.java")
+    parser.add_argument("--candidate", type=pathlib.Path, default=train.ROOT / "robots/equipe/TitanPrime.java")
     parser.add_argument("--ecj", type=pathlib.Path)
     parser.add_argument("--rounds", type=int, default=3)
     parser.add_argument("--position-seed", type=int, default=1000)

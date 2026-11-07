@@ -1,9 +1,9 @@
 {
-  "baseline_sha256": "b1c91979dfc253862b5936daf797a6ef65cde50761842ec14b4c0d53c3c21300",
+  "baseline_sha256": "cf050905c02f4f57ec6612f1082ba45a69f2e01df40909dd28bbe9a87131fef3",
   "changes": [
     {
-      "old": "/**\n * Nemesis 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
-      "new": "/**\n * Nemesis 3.2 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+      "old": "/**\n * TitanPrime 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * TitanPrime 3.2 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
     },
     {
       "old": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",

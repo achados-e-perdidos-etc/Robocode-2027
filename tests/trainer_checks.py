@@ -12,7 +12,7 @@ import train
 
 
 def main():
-    source = (ROOT / "robots/equipe/Nemesis.java").read_text(encoding="utf-8")
+    source = (ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
     model = base64.b64encode(struct.pack(">ii", 0x4E4D5333, 123) + bytes(4028)).decode()
     production = source
     import re
@@ -35,8 +35,8 @@ def main():
         assert min(math.dist(a[:2], b[:2]) for i, a in enumerate(points) for b in points[i + 1:]) > 72
     result = {"scores": [{"robot": "treino.Candidate*", "score": 200, "wins": 2},
                          {"robot": "sample.Walls", "score": 100, "wins": 1}],
-              "block": "[treino.Candidate*] Nemesis round=0 shots=12 hits=4 skipped=2\n"
-                       "[treino.Candidate2*] Nemesis round=0 shots=99 hits=99 skipped=99\n"}
+              "block": "[treino.Candidate*] TitanPrime round=0 shots=12 hits=4 skipped=2\n"
+                       "[treino.Candidate2*] TitanPrime round=0 shots=99 hits=99 skipped=99\n"}
     own = train.score_for(result, "Candidate")
     assert own["skipped"] == 2 and own["shots"] == 12 and own["hits"] == 4
     assert abs(own["score_share"] - 2 / 3) < 1e-12

@@ -53,7 +53,7 @@ def summarize_series(result, name):
         raise ValueError("Expected exactly one cold start per three-round series")
     stats = [dict(zip(("round", "shots", "hits", "waves", "matched", "walls", "skipped", "virtual"),
                       (int(value or 0) for value in row))) for row in re.findall(
-        r"Nemesis round=(\d+) shots=(\d+) hits=(\d+) waves=(\d+) matched=(\d+) walls=(\d+) skipped=(\d+)(?: virtual=(\d+))?",
+        r"(?:TitanPrime|Nemesis) round=(\d+) shots=(\d+) hits=(\d+) waves=(\d+) matched=(\d+) walls=(\d+) skipped=(\d+)(?: virtual=(\d+))?",
         "\n".join(own_lines))]
     return {**own, "round_wins": round_wins,
             "series_win": winner is not None and robot_key(winner) == key,
@@ -116,7 +116,7 @@ def main():
     runner.write_text(train.RUNNER, encoding="utf-8")
     train.compile_java(args, [runner], args.output)
     baseline = args.baseline.read_text(encoding="utf-8")
-    template = prepare_template((train.ROOT / "robots/equipe/Nemesis.java").read_text(encoding="utf-8"))
+    template = prepare_template((train.ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8"))
     sources = {"Baseline": baseline}
     for name, observe, warm in (("Observe", True, False), ("Warm", False, True), ("Both", True, True)):
         sources[name] = re.sub(r"FAST_OBSERVATION = (true|false)", "FAST_OBSERVATION = " + str(observe).lower(), template)
@@ -134,7 +134,7 @@ def main():
     (args.output / "progress.json").write_text(json.dumps(progress, indent=2) + "\n")
     print("SELECTED", selected, "RANKINGS", progress["selection_keys"], flush=True)
     candidate = sources[selected]
-    (args.output / "Nemesis.java").write_text(candidate, encoding="utf-8")
+    (args.output / "TitanPrime.java").write_text(candidate, encoding="utf-8")
     install(args, "Candidate", candidate)
     validation = evaluate(args, "validation", ["Baseline", "Candidate"], VALIDATION_SEEDS)
     progress["validation"] = validation

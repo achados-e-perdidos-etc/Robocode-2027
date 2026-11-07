@@ -89,7 +89,7 @@ def compile_java(args, sources, destination):
 
 def variant(template, name, genome=None, models=None, export=True):
     text = template.replace("package equipe;", "package treino;", 1)
-    text = text.replace("public class Nemesis extends", "public class " + name + " extends", 1)
+    text = re.sub(r"public class (?:TitanPrime|Nemesis) extends", "public class " + name + " extends", text, count=1)
     if genome is not None:
         text = re.sub(r"static final double\[\] GENOME = \{[^}]+\};",
                       "static final double[] GENOME = " + str(genome).replace("[", "{").replace("]", "}") + ";", text)
@@ -184,7 +184,7 @@ def main():
     # Java source is embedded here; only the robot .java lives in the repository.
     runner.write_text(RUNNER, encoding="utf-8")
     compile_java(args, [runner], args.output)
-    template = (ROOT / "robots/equipe/Nemesis.java").read_text(encoding="utf-8")
+    template = (ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
     original = args.baseline.read_text(encoding="utf-8")
     genome = json.loads("[" + re.search(r"GENOME = \{([^}]+)\}", template)[1] + "]")
     if args.initial_genome:
@@ -252,8 +252,8 @@ def main():
                                     "scores": evaluated[name + "-" + key]["scores"]} for key, _ in HOLDOUT}
                          for name in ("Baseline", "Candidate")}
     # Resultado proposto e autocontido; a promocao requer revisar o holdout.
-    production = final.replace("package treino;", "package equipe;", 1).replace("public class Candidate extends", "public class Nemesis extends", 1)
-    (args.output / "Nemesis.java").write_text(production, encoding="utf-8")
+    production = final.replace("package treino;", "package equipe;", 1).replace("public class Candidate extends", "public class TitanPrime extends", 1)
+    (args.output / "TitanPrime.java").write_text(production, encoding="utf-8")
     report["candidate_sha256"] = hashlib.sha256(production.encode()).hexdigest()
     (args.output / "results.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report["holdout"], indent=2), flush=True)

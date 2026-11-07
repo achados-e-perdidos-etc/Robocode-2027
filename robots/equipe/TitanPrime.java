@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * Nemesis 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -21,7 +21,7 @@ import robocode.util.Utils;
  * Memoria estatistica por adversario, preservada entre rounds da batalha;
  * nao grava arquivos nem promete persistencia entre batalhas independentes.
  */
-public class Nemesis extends AdvancedRobot {
+public class TitanPrime extends AdvancedRobot {
     static final int BINS = 47, SEGMENTS = 24, HISTORY = 256;
     static final double TWO_PI = Math.PI * 2;
     // Genes: surfing, distancia, taxa neural, mistura neural, repulsao, potencia,
@@ -617,7 +617,7 @@ public class Nemesis extends AdvancedRobot {
     }
 
     public void onRoundEnded(RoundEndedEvent e) {
-        out.println("Nemesis round=" + getRoundNum() + " shots=" + shots + " hits=" + hits
+        out.println("TitanPrime round=" + getRoundNum() + " shots=" + shots + " hits=" + hits
                 + " waves=" + wavesDetected + " matched=" + wavesMatched
                 + " walls=" + wallHits + " skipped=" + skipped);
         for (Enemy enemy : enemies.values()) {
@@ -655,7 +655,7 @@ public class Nemesis extends AdvancedRobot {
             g.drawOval((int) destination.x - 6, (int) destination.y - 6, 12, 12);
         }
         g.setColor(Color.WHITE);
-        g.drawString("Nemesis | " + (getOthers() == 1 ? "DUEL SURF" : "MELEE RISK+WAVES")
+        g.drawString("Titan Prime | " + (getOthers() == 1 ? "DUEL SURF" : "MELEE RISK+WAVES")
                 + " | waves " + incoming.size() + " | neural " + GENERAL_GUN.samples + " | V: visao", 15, 20);
     }
 
@@ -851,7 +851,7 @@ public class Nemesis extends AdvancedRobot {
                 for (double[] row : first) for (int i = 0; i < row.length; i++) row[i] = checkedWeight(data.readFloat());
                 for (double[] row : second) for (int i = 0; i < row.length; i++) row[i] = checkedWeight(data.readFloat());
                 data.close();
-            } catch (java.io.IOException e) { throw new IllegalArgumentException("Invalid Nemesis model", e); }
+            } catch (java.io.IOException e) { throw new IllegalArgumentException("Invalid TitanPrime model", e); }
         }
 
         private double checkedWeight(double value) throws java.io.IOException {

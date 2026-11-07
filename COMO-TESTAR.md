@@ -1,4 +1,4 @@
-# Como instalar e testar o Nêmesis
+# Como instalar e testar o Titan Prime
 
 Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para o Tank Royale. O código usa sintaxe Java 8 e foi validado no Java 21 com Robocode 1.12.0.
 
@@ -7,10 +7,10 @@ Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para 
 1. No GitHub, abra **Code > Download ZIP** e extraia o projeto.
 2. Abra a pasta de instalação do seu Robocode e entre em `robots`.
 3. Crie a pasta `equipe`, se ainda não existir.
-4. Copie somente `robots/equipe/Nemesis.java` do projeto para essa pasta. O caminho final deve ser `robocode/robots/equipe/Nemesis.java`.
-5. Se você instalou a versão anterior, remova os arquivos `Sentinela.java`, `Sentinela.class` e eventuais `Sentinela$*.class` da sua instalação para não selecionar o robô antigo.
-6. No jogo, abra **Robot > Source Editor**, abra `Nemesis.java` e selecione **Compiler > Compile**.
-7. Em **Battle > New**, procure `equipe.Nemesis` (pode aparecer com `*`, indicando uma versão em desenvolvimento).
+4. Copie somente `robots/equipe/TitanPrime.java` do projeto para essa pasta. O caminho final deve ser `robocode/robots/equipe/TitanPrime.java`.
+5. Para evitar selecionar o robô antigo, remova `Nemesis.java`, `Nemesis.class` e `Nemesis$*.class` da sua pasta `robots/equipe`. Se você instalou a primeira versão, remova os arquivos `Sentinela.java`, `Sentinela.class` e eventuais `Sentinela$*.class` da sua instalação para não selecionar o robô antigo.
+6. No jogo, abra **Robot > Source Editor**, abra `TitanPrime.java` e selecione **Compiler > Compile**.
+7. Em **Battle > New**, procure `equipe.TitanPrime` (pode aparecer com `*`, indicando uma versão em desenvolvimento).
 
 O compilador gera vários arquivos `.class` para as classes internas. Isso é normal: todo o código fonte continua em um único `.java`.
 
@@ -18,13 +18,13 @@ O compilador gera vários arquivos `.class` para as classes internas. Isso é no
 
 Comece com arena **800 × 600**, resfriamento **0,1** e **3 rounds**, mantendo as demais regras padrão. Teste separadamente:
 
-- Nêmesis contra `sample.Walls`.
-- Nêmesis contra `sample.Corners`.
-- Nêmesis contra `sample.Tracker`.
-- Nêmesis contra `sample.Walls` e `sample.Tracker` juntos.
-- Nêmesis contra `sample.Walls`, `sample.Tracker` e `sample.Corners` juntos.
+- Titan Prime contra `sample.Walls`.
+- Titan Prime contra `sample.Corners`.
+- Titan Prime contra `sample.Tracker`.
+- Titan Prime contra `sample.Walls` e `sample.Tracker` juntos.
+- Titan Prime contra `sample.Walls`, `sample.Tracker` e `sample.Corners` juntos.
 
-Os arquivos `.battle` prontos estão na pasta `battles`. Copie-os para `robocode/battles` e abra no jogo. Eles usam o padrão `equipe.Nemesis*` para localizar o robô em desenvolvimento. Se você exportar uma versão com outro identificador, ajuste a seleção no arquivo ou na janela de batalha.
+Os arquivos `.battle` prontos estão na pasta `battles`. Copie-os para `robocode/battles` e abra no jogo. Eles usam o padrão `equipe.TitanPrime*` para localizar o robô em desenvolvimento. Se você exportar uma versão com outro identificador, ajuste a seleção no arquivo ou na janela de batalha.
 
 Esses testes com vários adversários são **todos contra todos**. Não são equipes coordenadas de dois ou três contra um. O robô considera todos os outros participantes inimigos; não implementa comunicação com aliados. Para avaliar desvantagem contra equipes reais, será necessário configurar essas equipes e registrar outro teste.
 
@@ -32,7 +32,7 @@ O cenário opcional `duelo-diamond.battle` exige instalar o [Diamond](https://gi
 
 ## Ver a percepção do robô
 
-Durante a batalha, abra a janela do Nêmesis e habilite **Paint**. Os nomes exatos podem variar com a versão do jogo. A tecla **V**, quando encaminhada ao robô pelo jogo, alterna o desenho.
+Durante a batalha, abra a janela do Titan Prime e habilite **Paint**. Os nomes exatos podem variar com a versão do jogo. A tecla **V**, quando encaminhada ao robô pelo jogo, alterna o desenho.
 
 - Círculos vermelhos: ondas de tiros estimadas.
 - Quadrado amarelo: alvo escolhido; cinza: outros adversários observados.
@@ -61,7 +61,7 @@ Se usar o compilador Eclipse em vez de `javac`, acrescente `--ecj /caminho/ecj.j
 
 ## Treinar várias versões
 
-Veja [TREINAMENTO.md](TREINAMENTO.md) para rodar o torneio por gerações em uma instalação separada e comparar uma candidata sem substituir o robô atual. Você não precisa de Python nem dessas ferramentas para jogar com `Nemesis.java`.
+Veja [TREINAMENTO.md](TREINAMENTO.md) para rodar o torneio por gerações em uma instalação separada e comparar uma candidata sem substituir o robô atual. Você não precisa de Python nem dessas ferramentas para jogar com `TitanPrime.java`.
 
 ## Regra da competição: melhor de três
 

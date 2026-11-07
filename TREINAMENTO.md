@@ -4,7 +4,7 @@ O pedido é combinar duas formas de aprendizado: uma rede neural que se adapta d
 
 ## Dentro do round
 
-O Nêmesis simula opções de tiro e movimento sem precisar executar todas elas na arena. Uma simulação é uma hipótese baseada no que o radar observou. Não usa posições ocultas nem controla a ação futura dos inimigos.
+O Titan Prime simula opções de tiro e movimento sem precisar executar todas elas na arena. Uma simulação é uma hipótese baseada no que o radar observou. Não usa posições ocultas nem controla a ação futura dos inimigos.
 
 - Avalia destinos e frenagem, simula até 100 ticks de movimento e estima onde cada rota cruza as quatro ondas mais próximas.
 - Compara cinco miras virtuais: direta, linear, circular, GuessFactor e neural. A pontuação recente de cada mira define qual usar.
@@ -38,7 +38,7 @@ Cada indivíduo tem dez genes: peso da esquiva, distância de duelo, taxa de apr
 
 Há elitismo, cruzamento dos dois melhores e mutação com limites. No formato atual, o treinador prioriza séries vencidas em três rounds: 70% para vencer a série, 20% para vitórias de rounds e 10% para pontuação relativa. Esses valores são combinados contra adversários fixos (80%) e na arena entre variantes (20%), com penalidade para turnos perdidos. O objetivo antigo, somente de pontuação, permanece disponível com `--objective score` para reproduzir experimentos históricos. A parcela da arena depende dos concorrentes da geração, portanto a fitness total não deve ser interpretada como uma curva absoluta de habilidade.
 
-Depois da seleção, há um pré-treino sequencial com os cenários de treino. Os pesos gerais são transferidos entre essas batalhas, enquanto o aprendizado por adversário continua ocorrendo dentro de cada batalha. A candidata resultante tem esses pesos incorporados como constantes no próprio `Nemesis.java`, dispensando arquivos de modelo na instalação do jogador.
+Depois da seleção, há um pré-treino sequencial com os cenários de treino. Os pesos gerais são transferidos entre essas batalhas, enquanto o aprendizado por adversário continua ocorrendo dentro de cada batalha. A candidata resultante tem esses pesos incorporados como constantes no próprio `TitanPrime.java`, dispensando arquivos de modelo na instalação do jogador.
 
 Os cenários reservados só são executados depois da seleção e do pré-treino. Alguns adversários já aparecem no treino em outras composições; isso mede novas condições, não generalização para uma coleção inteiramente desconhecida de robôs. A ferramenta **não publica no GitHub nem promove automaticamente** a candidata.
 
@@ -70,7 +70,7 @@ python tools/evaluate.py --home /caminho/robocode-testes --baseline /tmp/Nemesis
 
 O relatório medido deste ciclo está em [EVOLUCAO.md](EVOLUCAO.md). Para regenerar o gráfico a partir dos JSONs registrados, use `python tools/plot_training.py`; somente essa ferramenta opcional requer `matplotlib`.
 
-Os resultados ficam em `training-runs/latest`: rankings, composição das arenas, posições iniciais, logs, comparação reservada e um `Nemesis.java` proposto. Não copie a candidata sem revisar sua pontuação, comportamento e custo de CPU. Os arquivos temporários `.java` do treinador não fazem parte do código fonte entregue do robô.
+Os resultados ficam em `training-runs/latest`: rankings, composição das arenas, posições iniciais, logs, comparação reservada e um `TitanPrime.java` proposto. Não copie a candidata sem revisar sua pontuação, comportamento e custo de CPU. Os arquivos temporários `.java` do treinador não fazem parte do código fonte entregue do robô.
 
 ## Persistência
 
