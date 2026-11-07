@@ -21,7 +21,7 @@ import robocode.util.Utils;
  * Memoria estatistica por adversario, preservada entre rounds da batalha;
  * nao grava arquivos nem promete persistencia entre batalhas independentes.
  */
-public class TitanPrime extends AdvancedRobot {
+public class titanprime extends AdvancedRobot {
     static final int BINS = 47, SEGMENTS = 24, HISTORY = 256;
     static final double TWO_PI = Math.PI * 2;
     // Genes: surfing, distancia, taxa neural, mistura neural, repulsao, potencia,

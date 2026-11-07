@@ -38,7 +38,7 @@ import java.util.*;
 import robocode.control.*;
 import robocode.control.events.*;
 import robocode.control.snapshot.*;
-public class TrainingRunner extends BattleAdaptor {
+public class trainingrunner extends BattleAdaptor {
  boolean completed, failed;
  ITurnSnapshot latest;
  public void onBattleError(BattleErrorEvent e){failed=true;System.out.println("ERROR\t"+e.getError());}
@@ -60,7 +60,7 @@ public class TrainingRunner extends BattleAdaptor {
  }
  public static void main(String[] args)throws Exception {
   RobocodeEngine engine=new RobocodeEngine(new File(args[0]));
-  TrainingRunner listener=new TrainingRunner();engine.addBattleListener(listener);
+  trainingrunner listener=new trainingrunner();engine.addBattleListener(listener);
   for(String line:Files.readAllLines(Paths.get(args[1]),StandardCharsets.UTF_8)){
    if(line.trim().isEmpty())continue;
    String[] a=line.split("\\|",-1);
@@ -90,7 +90,7 @@ def compile_java(args, sources, destination):
 
 def variant(template, name, genome=None, models=None, export=True):
     text = template.replace("package equipe;", "package treino;", 1)
-    text = re.sub(r"public class (?:TitanPrime|Nemesis) extends", "public class " + name + " extends", text, count=1)
+    text = re.sub(r"public class (?:titanprime|TitanPrime|Nemesis) extends", "public class " + name + " extends", text, count=1)
     if genome is not None:
         text = re.sub(r"static final double\[\] GENOME = \{[^}]+\};",
                       "static final double[] GENOME = " + str(genome).replace("[", "{").replace("]", "}") + ";", text)
@@ -101,6 +101,12 @@ def variant(template, name, genome=None, models=None, export=True):
                       'static final String PRETRAINED_' + label + ' = "' + model + '";', text)
     text = text.replace("EXPORT_LEARNING = false", "EXPORT_LEARNING = " + str(export).lower())
     return text
+
+
+def production_source(text):
+    text = text.replace("package treino;", "package equipe;", 1)
+    return re.sub(r"public class [A-Za-z_][A-Za-z0-9_]* extends AdvancedRobot",
+                  "public class titanprime extends AdvancedRobot", text, count=1)
 
 
 def install(args, name, text):
@@ -130,7 +136,7 @@ def run_suite(args, label, scenarios, position_overrides=None):
         import os
         command = ["java", "-Xmx768m", "-Djava.awt.headless=true", "-cp",
                    str(args.output) + os.pathsep + str(args.home / "libs/*"),
-                   "TrainingRunner", str(args.home), str(suite)]
+                   "trainingrunner", str(args.home), str(suite)]
         subprocess.run(command, cwd=args.home, stdout=stream, stderr=subprocess.STDOUT, check=True, timeout=1800)
     text = log.read_text(encoding="utf-8")
     if "Exception" in text or "ERROR\t" in text:
@@ -183,11 +189,11 @@ def main():
     if args.objective == "series" and (args.rounds != 3 or args.validation_rounds != 3):
         parser.error("series objective requires exactly three rounds in training and validation")
     args.output.mkdir(parents=True, exist_ok=True)
-    runner = args.output / "TrainingRunner.java"
+    runner = args.output / "trainingrunner.java"
     # Java source is embedded here; only the robot .java lives in the repository.
     runner.write_text(RUNNER, encoding="utf-8")
     compile_java(args, [runner], args.output)
-    template = (ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
+    template = (ROOT / "robots/equipe/titanprime.java").read_text(encoding="utf-8")
     original = args.baseline.read_text(encoding="utf-8")
     genome = json.loads("[" + re.search(r"GENOME = \{([^}]+)\}", template)[1] + "]")
     if args.initial_genome:
@@ -255,8 +261,8 @@ def main():
                                     "scores": evaluated[name + "-" + key]["scores"]} for key, _ in HOLDOUT}
                          for name in ("Baseline", "Candidate")}
     # Resultado proposto e autocontido; a promocao requer revisar o holdout.
-    production = final.replace("package treino;", "package equipe;", 1).replace("public class Candidate extends", "public class TitanPrime extends", 1)
-    (args.output / "TitanPrime.java").write_text(production, encoding="utf-8")
+    production = final.replace("package treino;", "package equipe;", 1).replace("public class Candidate extends", "public class titanprime extends", 1)
+    (args.output / "titanprime.java").write_text(production, encoding="utf-8")
     report["candidate_sha256"] = hashlib.sha256(production.encode()).hexdigest()
     (args.output / "results.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps(report["holdout"], indent=2), flush=True)

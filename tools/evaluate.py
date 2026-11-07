@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--home", required=True, type=pathlib.Path)
     parser.add_argument("--baseline", required=True, type=pathlib.Path)
-    parser.add_argument("--candidate", type=pathlib.Path, default=train.ROOT / "robots/equipe/TitanPrime.java")
+    parser.add_argument("--candidate", type=pathlib.Path, default=train.ROOT / "robots/equipe/titanprime.java")
     parser.add_argument("--ecj", type=pathlib.Path)
     parser.add_argument("--rounds", type=int, default=3)
     parser.add_argument("--position-seed", type=int, default=1000)
@@ -22,7 +22,7 @@ def main():
         value = getattr(args, key)
         if value is not None: setattr(args, key, value.resolve())
     args.output.mkdir(parents=True, exist_ok=True)
-    runner = args.output / "TrainingRunner.java"
+    runner = args.output / "trainingrunner.java"
     runner.write_text(train.RUNNER, encoding="utf-8")
     train.compile_java(args, [runner], args.output)
     candidate = args.candidate.read_text(encoding="utf-8")

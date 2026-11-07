@@ -112,11 +112,11 @@ def main():
         value = getattr(args, key)
         if value is not None: setattr(args, key, value.resolve())
     args.output.mkdir(parents=True, exist_ok=True)
-    runner = args.output / "TrainingRunner.java"
+    runner = args.output / "trainingrunner.java"
     runner.write_text(train.RUNNER, encoding="utf-8")
     train.compile_java(args, [runner], args.output)
     baseline = args.baseline.read_text(encoding="utf-8")
-    template = prepare_template((train.ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8"))
+    template = prepare_template((train.ROOT / "robots/equipe/titanprime.java").read_text(encoding="utf-8"))
     sources = {"Baseline": baseline}
     for name, observe, warm in (("Observe", True, False), ("Warm", False, True), ("Both", True, True)):
         sources[name] = re.sub(r"FAST_OBSERVATION = (true|false)", "FAST_OBSERVATION = " + str(observe).lower(), template)
@@ -133,8 +133,8 @@ def main():
                 "selection_keys": {name: ranking_key(rows) for name, rows in selection.items()}}
     (args.output / "progress.json").write_text(json.dumps(progress, indent=2) + "\n")
     print("SELECTED", selected, "RANKINGS", progress["selection_keys"], flush=True)
-    candidate = sources[selected]
-    (args.output / "TitanPrime.java").write_text(candidate, encoding="utf-8")
+    candidate = train.production_source(sources[selected])
+    (args.output / "titanprime.java").write_text(candidate, encoding="utf-8")
     install(args, "Candidate", candidate)
     validation = evaluate(args, "validation", ["Baseline", "Candidate"], VALIDATION_SEEDS)
     progress["validation"] = validation

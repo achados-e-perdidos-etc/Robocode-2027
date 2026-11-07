@@ -1,6 +1,6 @@
 # Validação do Nêmesis 2.0
 
-Nome atual: **Titan Prime**, em `robots/equipe/TitanPrime.java`. Os nomes antigos neste relatório identificam as versões testadas.
+Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
 Testes feitos em 7 de novembro de 2026. Robocode clássico **1.12.0**, OpenJDK **21.0.13**, compilador Eclipse **3.37.0**, bytecode Java 8. Arena 800 × 600, resfriamento 0,1, inatividade 450 ticks. Cada cenário começa uma batalha independente e permite aprendizado entre os seus rounds. Posições iniciais aleatórias, sem semente fixada. CPU constante calibrada pelo motor: 5.344.295 ns. Não é um estudo estatístico com várias sementes.
 

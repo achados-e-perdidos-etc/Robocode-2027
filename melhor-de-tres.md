@@ -1,8 +1,8 @@
 # Competição: vencer dois dos três rounds
 
-Nome atual: **Titan Prime**, em `robots/equipe/TitanPrime.java`. Os nomes antigos neste relatório identificam as versões testadas.
+Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
-Este relatório registra a etapa anterior com a versão 3.0. A atualização posterior para 3.2 e sua comparação em séries de três rounds estão em [TITAN-ANALISE.md](TITAN-ANALISE.md). Para reproduzir exatamente o experimento antigo, use o robô e os scripts do commit `7354f0c2541aa7704ce76ff55eee10691eb8bb45`; os protótipos da branch atual acompanham o código novo.
+Este relatório registra a etapa anterior com a versão 3.0. A atualização posterior para 3.2 e sua comparação em séries de três rounds estão em [titan-analise.md](titan-analise.md). Para reproduzir exatamente o experimento antigo, use o robô e os scripts do commit `7354f0c2541aa7704ce76ff55eee10691eb8bb45`; os protótipos da branch atual acompanham o código novo.
 
 A regra confirmada é **vencer pelo menos dois rounds em uma batalha de exatamente três rounds**. A pontuação acumulada serve para análise, mas não substitui esse resultado. O placar padrão do Robocode pode ordenar por pontos; confira a coluna de primeiras colocações (`1sts`) para esta regra.
 

@@ -12,7 +12,7 @@ import train
 
 
 def main():
-    source = (ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
+    source = (ROOT / "robots/equipe/titanprime.java").read_text(encoding="utf-8")
     model = base64.b64encode(struct.pack(">ii", 0x4E4D5333, 123) + bytes(4028)).decode()
     production = source
     import re

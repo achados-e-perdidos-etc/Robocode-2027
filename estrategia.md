@@ -1,10 +1,10 @@
 # Robocode 2027 — Titan Prime
 
-Melhoria de robô para o **Robocode clássico**, em Java. O código completo do robô está em **[robots/equipe/TitanPrime.java](robots/equipe/TitanPrime.java)**. Todos os componentes são classes internas desse único arquivo. Não há bibliotecas externas para instalar no robô, nem serviços de IA ou internet durante a batalha.
+Melhoria de robô para o **Robocode clássico**, em Java. O código completo do robô está em **[robots/equipe/titanprime.java](robots/equipe/titanprime.java)**. Todos os componentes são classes internas desse único arquivo. Não há bibliotecas externas para instalar no robô, nem serviços de IA ou internet durante a batalha.
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
-A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. A versão 3.2 integra a redução de trajetórias repetidas avaliada a partir do Titan enviado pelo usuário; veja [TITAN-ANALISE.md](TITAN-ANALISE.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
+A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. A versão 3.2 integra a redução de trajetórias repetidas avaliada a partir do Titan enviado pelo usuário; veja [titan-analise.md](titan-analise.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
 
 ## Estratégia implementada
 
@@ -17,13 +17,13 @@ A competição foi definida como **vencer dois dos três rounds**. Os cenários 
 | Administração de energia | Potência considera distância, energia própria, precisão observada, quantidade de inimigos e energia necessária para finalizar o alvo. Mantém uma reserva para sobreviver. |
 | Um ou vários adversários | Em duelo, radar acompanha o alvo. Com vários inimigos, radar faz varredura completa, prioriza alvos e combina risco de proximidade com ondas. A estratégia muda automaticamente quando sobra um inimigo. |
 
-O aprendizado combina estatística, redes neurais pequenas e simulação física. Os pesos do pré-treino vêm incorporados no próprio arquivo Java. O aprendizado novo ocorre durante os rounds e é mantido entre os rounds da mesma batalha na memória do processo; esse progresso novo **não é salvo automaticamente ao encerrar uma batalha**. Veja [TREINAMENTO.md](TREINAMENTO.md) para o ciclo por gerações e a transferência de pesos.
+O aprendizado combina estatística, redes neurais pequenas e simulação física. Os pesos do pré-treino vêm incorporados no próprio arquivo Java. O aprendizado novo ocorre durante os rounds e é mantido entre os rounds da mesma batalha na memória do processo; esse progresso novo **não é salvo automaticamente ao encerrar uma batalha**. Veja [treinamento.md](treinamento.md) para o ciclo por gerações e a transferência de pesos.
 
 Robôs não enxergam as balas em voo na API clássica. As ondas são hipóteses, não a localização conhecida de cada bala. Em melee, danos e bônus de terceiros tornam a identificação de disparos menos confiável; essas ondas recebem peso menor. Nenhuma esquiva é garantida.
 
 ## Instalação e testes
 
-Siga [COMO-TESTAR.md](COMO-TESTAR.md). Os cenários de teste estão em [battles](battles) e os resultados da versão anterior em [VALIDACAO.md](VALIDACAO.md). O novo experimento e as comparações estão em [EVOLUCAO.md](EVOLUCAO.md).
+Siga [como-testar.md](como-testar.md). Os cenários de teste estão em [battles](battles) e os resultados da versão anterior em [validacao.md](validacao.md). O novo experimento e as comparações estão em [evolucao.md](evolucao.md).
 
 ## Referências pesquisadas
 

@@ -1,6 +1,6 @@
 # Titan analisado e ideia incorporada ao Nêmesis 3.2
 
-Nome atual: **Titan Prime**, em `robots/equipe/TitanPrime.java`. Os nomes antigos neste relatório identificam as versões testadas.
+Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
 Foi analisado o `Titan-Vingation-Projeto-Completo.zip` enviado pelo usuário, com **18 arquivos Java de produção**. O objetivo confirmado foi aproveitar suas boas ideias para melhorar o Nêmesis, mantendo o robô principal inteiro em um único Java e a competição em melhor de três.
 
@@ -103,4 +103,4 @@ git show 7354f0c2541aa7704ce76ff55eee10691eb8bb45:robots/equipe/Nemesis.java > /
 python tools/titan_compare.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-antes-titan.java --titan-project /caminho/titan-vingation
 ```
 
-Acrescente `--ecj /caminho/ecj.jar` se não houver `javac`. O projeto modular enviado não foi publicado no repositório: o robô de produção continua sendo somente [TitanPrime.java](robots/equipe/TitanPrime.java).
+Acrescente `--ecj /caminho/ecj.jar` se não houver `javac`. O projeto modular enviado não foi publicado no repositório: o robô de produção continua sendo somente [titanprime.java](robots/equipe/titanprime.java).

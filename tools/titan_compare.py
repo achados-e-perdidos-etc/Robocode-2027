@@ -80,14 +80,14 @@ def main():
         value = getattr(args, key)
         if value is not None: setattr(args, key, value.resolve())
     args.output.mkdir(parents=True, exist_ok=True)
-    runner = args.output / "TrainingRunner.java"; runner.write_text(train.RUNNER)
+    runner = args.output / "trainingrunner.java"; runner.write_text(train.RUNNER)
     train.compile_java(args, [runner], args.output)
     modules = sorted((args.titan_project / "src/main/java").rglob("*.java"))
     if len(modules) != 18: raise ValueError("Expected the 18 original Titan source modules")
     compile_titan(args, modules)
     titan = (args.titan_project / "src/main/java/titan/TitanVingation.java").read_text(encoding="utf-8")
     baseline = args.baseline.read_text(encoding="utf-8")
-    template = (train.ROOT / "robots/equipe/TitanPrime.java").read_text(encoding="utf-8")
+    template = (train.ROOT / "robots/equipe/titanprime.java").read_text(encoding="utf-8")
     sources = {"TitanBase": baseline}
     for name, threats, flatten in (("Threat", True, False), ("Flatten", False, True), ("Combined", True, True)):
         source = re.sub(r"USE_THREATS = (true|false)", "USE_THREATS = " + str(threats).lower(), template)
@@ -106,14 +106,14 @@ def main():
               "titan_sources": {str(p.relative_to(args.titan_project)): hashlib.sha256(p.read_bytes()).hexdigest() for p in modules}}
     (args.output / "progress.json").write_text(json.dumps(result, indent=2) + "\n")
     print("SELECTED", selected, result["selection_keys"], flush=True)
-    source = sources[selected]
-    (args.output / "TitanPrime.java").write_text(source, encoding="utf-8")
+    source = train.production_source(sources[selected])
+    (args.output / "titanprime.java").write_text(source, encoding="utf-8")
     install_titan_prime(args, "TitanFinal", source)
     validation = phase(args, "validation", ["TitanBase", "TitanFinal"], SEEDS_TEST, titan)
     result["validation"] = validation
     result["validation_keys"] = {name: bo3.ranking_key(rows) for name, rows in validation.items()}
     result["candidate_sha256"] = hashlib.sha256(source.encode()).hexdigest()
-    result["same_code_control"] = source == baseline
+    result["same_code_control"] = source == train.production_source(baseline)
     (args.output / "results.json").write_text(json.dumps(result, indent=2) + "\n")
     print("VALIDATION", result["validation_keys"], flush=True)
 

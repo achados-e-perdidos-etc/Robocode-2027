@@ -15,7 +15,7 @@ def match(wins, cumulative, own_score, other_score):
 
 
 def main():
-    source = (Path(__file__).resolve().parents[1] / "robots/equipe/TitanPrime.java").read_text()
+    source = (Path(__file__).resolve().parents[1] / "robots/equipe/titanprime.java").read_text()
     prototype = bo3.prepare_template(source)
     assert "FAST_OBSERVATION = true" in prototype and "WARM_DEFENSE = true" in prototype
     assert "Neural GENERAL_GUN" in prototype

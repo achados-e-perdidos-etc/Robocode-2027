@@ -1,8 +1,8 @@
 # Nêmesis 3.0 — experimento de evolução
 
-Nome atual: **Titan Prime**, em `robots/equipe/TitanPrime.java`. Os nomes antigos neste relatório identificam as versões testadas.
+Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
-Este é o experimento histórico anterior à confirmação da regra de três rounds. A avaliação específica de vencer dois dos três está em [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md).
+Este é o experimento histórico anterior à confirmação da regra de três rounds. A avaliação específica de vencer dois dos três está em [melhor-de-tres.md](melhor-de-tres.md).
 
 Experimento realizado em 7 de novembro de 2026. A versão entregue combina redes neurais que aprendem durante os rounds, simulações físicas e treino externo por gerações. Todo o robô, incluindo os pesos pré-treinados, continua em `robots/equipe/Nemesis.java`.
 
@@ -79,7 +79,7 @@ Os contadores da comparação registraram sete turnos perdidos na versão anteri
 
 ## Arquivos e reprodução
 
-- [TREINAMENTO.md](TREINAMENTO.md): funcionamento das redes, evolução e comandos.
+- [treinamento.md](treinamento.md): funcionamento das redes, evolução e comandos.
 - [tests/evolution-results.json](tests/evolution-results.json): genes, rankings, pesos de avaliação e primeiro lote reservado.
 - [tests/validation-second.json](tests/validation-second.json): segundo lote e contadores dos robôs.
 - [tests/training-scenarios.json](tests/training-scenarios.json): participantes, rounds e posições iniciais.
