@@ -1,0 +1,122 @@
+[
+  {
+    "scenario": "baseline-crowd",
+    "rounds": 12,
+    "initial_positions": "random, no fixed seed",
+    "scores": [
+      {
+        "robot": "equipe.Nemesis 2.0*",
+        "score": 7863,
+        "wins": 12
+      },
+      {
+        "robot": "sample.Walls",
+        "score": 3540,
+        "wins": 0
+      },
+      {
+        "robot": "sample.SpinBot",
+        "score": 2787,
+        "wins": 0
+      },
+      {
+        "robot": "sample.Crazy",
+        "score": 2075,
+        "wins": 0
+      },
+      {
+        "robot": "sample.RamFire",
+        "score": 2069,
+        "wins": 0
+      },
+      {
+        "robot": "sample.TrackFire",
+        "score": 1963,
+        "wins": 0
+      },
+      {
+        "robot": "sample.Corners",
+        "score": 1668,
+        "wins": 0
+      }
+    ]
+  },
+  {
+    "scenario": "baseline-mixed",
+    "rounds": 12,
+    "initial_positions": "random, no fixed seed",
+    "scores": [
+      {
+        "robot": "voidious.Diamond*",
+        "score": 4164,
+        "wins": 12
+      },
+      {
+        "robot": "equipe.Nemesis 2.0*",
+        "score": 2442,
+        "wins": 0
+      },
+      {
+        "robot": "sample.SpinBot",
+        "score": 729,
+        "wins": 0
+      },
+      {
+        "robot": "sample.TrackFire",
+        "score": 503,
+        "wins": 0
+      }
+    ]
+  },
+  {
+    "scenario": "baseline-spin",
+    "rounds": 12,
+    "initial_positions": "random, no fixed seed",
+    "scores": [
+      {
+        "robot": "equipe.Nemesis 2.0*",
+        "score": 1963,
+        "wins": 12
+      },
+      {
+        "robot": "sample.SpinBot",
+        "score": 0,
+        "wins": 0
+      }
+    ]
+  },
+  {
+    "scenario": "baseline-trackfire",
+    "rounds": 12,
+    "initial_positions": "random, no fixed seed",
+    "scores": [
+      {
+        "robot": "equipe.Nemesis 2.0*",
+        "score": 1826,
+        "wins": 12
+      },
+      {
+        "robot": "sample.TrackFire",
+        "score": 0,
+        "wins": 0
+      }
+    ]
+  },
+  {
+    "scenario": "baseline-veloci",
+    "rounds": 12,
+    "initial_positions": "random, no fixed seed",
+    "scores": [
+      {
+        "robot": "equipe.Nemesis 2.0*",
+        "score": 1796,
+        "wins": 12
+      },
+      {
+        "robot": "sample.VelociRobot",
+        "score": 16,
+        "wins": 0
+      }
+    ]
+  }
+]

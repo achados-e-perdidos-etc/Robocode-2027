@@ -1,0 +1,863 @@
+[
+  {
+    "suite": "generation-0",
+    "key": "G0C0-trackfire",
+    "robots": [
+      "treino.G0C0*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C0-three",
+    "robots": [
+      "treino.G0C0*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C0-crowd",
+    "robots": [
+      "treino.G0C0*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C0-mixed",
+    "robots": [
+      "treino.G0C0*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C1-trackfire",
+    "robots": [
+      "treino.G0C1*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C1-three",
+    "robots": [
+      "treino.G0C1*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C1-crowd",
+    "robots": [
+      "treino.G0C1*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C1-mixed",
+    "robots": [
+      "treino.G0C1*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C2-trackfire",
+    "robots": [
+      "treino.G0C2*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C2-three",
+    "robots": [
+      "treino.G0C2*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C2-crowd",
+    "robots": [
+      "treino.G0C2*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C2-mixed",
+    "robots": [
+      "treino.G0C2*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C3-trackfire",
+    "robots": [
+      "treino.G0C3*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C3-three",
+    "robots": [
+      "treino.G0C3*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C3-crowd",
+    "robots": [
+      "treino.G0C3*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-0",
+    "key": "G0C3-mixed",
+    "robots": [
+      "treino.G0C3*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-0",
+    "key": "league",
+    "robots": [
+      "treino.G0C0*",
+      "treino.G0C1*",
+      "treino.G0C2*",
+      "treino.G0C3*"
+    ],
+    "rounds": 4,
+    "initial_positions": "133.564864,221.028253,348.959976,514.509033,116.251631,153.627401,666.435136,378.971747,314.018564,285.490967,483.748369,69.416824"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C0-trackfire",
+    "robots": [
+      "treino.G1C0*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C0-three",
+    "robots": [
+      "treino.G1C0*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C0-crowd",
+    "robots": [
+      "treino.G1C0*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C0-mixed",
+    "robots": [
+      "treino.G1C0*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C1-trackfire",
+    "robots": [
+      "treino.G1C1*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C1-three",
+    "robots": [
+      "treino.G1C1*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C1-crowd",
+    "robots": [
+      "treino.G1C1*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C1-mixed",
+    "robots": [
+      "treino.G1C1*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C2-trackfire",
+    "robots": [
+      "treino.G1C2*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C2-three",
+    "robots": [
+      "treino.G1C2*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C2-crowd",
+    "robots": [
+      "treino.G1C2*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C2-mixed",
+    "robots": [
+      "treino.G1C2*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C3-trackfire",
+    "robots": [
+      "treino.G1C3*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C3-three",
+    "robots": [
+      "treino.G1C3*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C3-crowd",
+    "robots": [
+      "treino.G1C3*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-1",
+    "key": "G1C3-mixed",
+    "robots": [
+      "treino.G1C3*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-1",
+    "key": "league",
+    "robots": [
+      "treino.G1C0*",
+      "treino.G1C1*",
+      "treino.G1C2*",
+      "treino.G1C3*"
+    ],
+    "rounds": 4,
+    "initial_positions": "133.564864,221.028253,348.959976,514.509033,116.251631,153.627401,666.435136,378.971747,314.018564,285.490967,483.748369,69.416824"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C0-trackfire",
+    "robots": [
+      "treino.G2C0*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C0-three",
+    "robots": [
+      "treino.G2C0*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C0-crowd",
+    "robots": [
+      "treino.G2C0*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C0-mixed",
+    "robots": [
+      "treino.G2C0*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C1-trackfire",
+    "robots": [
+      "treino.G2C1*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C1-three",
+    "robots": [
+      "treino.G2C1*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C1-crowd",
+    "robots": [
+      "treino.G2C1*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C1-mixed",
+    "robots": [
+      "treino.G2C1*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C2-trackfire",
+    "robots": [
+      "treino.G2C2*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C2-three",
+    "robots": [
+      "treino.G2C2*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C2-crowd",
+    "robots": [
+      "treino.G2C2*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C2-mixed",
+    "robots": [
+      "treino.G2C2*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C3-trackfire",
+    "robots": [
+      "treino.G2C3*",
+      "sample.TrackFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C3-three",
+    "robots": [
+      "treino.G2C3*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 4,
+    "initial_positions": "329.614878,105.980088,65.713880,681.328873,251.458537,35.645656,470.385122,494.019912,130.418326,118.671127,348.541463,276.500366"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C3-crowd",
+    "robots": [
+      "treino.G2C3*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 4,
+    "initial_positions": "259.549606,125.020896,225.168737,510.796662,115.172285,209.798664,678.611571,244.502714,175.641819,636.626285,415.623731,295.524815,416.456580,499.677720,43.443255,183.894734,433.370313,101.849281,114.064561,266.632340,213.582091"
+  },
+  {
+    "suite": "generation-2",
+    "key": "G2C3-mixed",
+    "robots": [
+      "treino.G2C3*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 4,
+    "initial_positions": "687.146092,272.010516,140.922177,440.584752,498.031787,52.625320,112.853908,327.989484,349.777922,359.415248,101.968213,287.416383"
+  },
+  {
+    "suite": "generation-2",
+    "key": "league",
+    "robots": [
+      "treino.G2C0*",
+      "treino.G2C1*",
+      "treino.G2C2*",
+      "treino.G2C3*"
+    ],
+    "rounds": 4,
+    "initial_positions": "133.564864,221.028253,348.959976,514.509033,116.251631,153.627401,666.435136,378.971747,314.018564,285.490967,483.748369,69.416824"
+  },
+  {
+    "suite": "holdout",
+    "key": "Baseline-veloci",
+    "robots": [
+      "treino.Baseline*",
+      "sample.VelociRobot"
+    ],
+    "rounds": 12,
+    "initial_positions": "136.661711,383.766692,106.052091,663.338289,216.233308,210.054480"
+  },
+  {
+    "suite": "holdout",
+    "key": "Baseline-diamond",
+    "robots": [
+      "treino.Baseline*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 12,
+    "initial_positions": "602.878030,157.089029,230.003000,197.121970,442.910971,257.379633"
+  },
+  {
+    "suite": "holdout",
+    "key": "Baseline-crowd",
+    "robots": [
+      "treino.Baseline*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 12,
+    "initial_positions": "528.299581,120.637650,261.725601,683.328622,257.347784,139.680348,625.005431,426.175907,118.453614,397.248562,499.990998,180.802966,171.563582,423.208789,171.390025,117.895884,253.647848,150.738521,276.658339,118.991024,163.990904"
+  },
+  {
+    "suite": "holdout",
+    "key": "Baseline-mixed",
+    "robots": [
+      "treino.Baseline*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 12,
+    "initial_positions": "618.168134,431.763246,17.726082,208.943293,450.460782,68.104809,181.831866,168.236754,59.620383,591.056707,149.539218,266.968138"
+  },
+  {
+    "suite": "holdout",
+    "key": "Candidate-veloci",
+    "robots": [
+      "treino.Candidate*",
+      "sample.VelociRobot"
+    ],
+    "rounds": 12,
+    "initial_positions": "136.661711,383.766692,106.052091,663.338289,216.233308,210.054480"
+  },
+  {
+    "suite": "holdout",
+    "key": "Candidate-diamond",
+    "robots": [
+      "treino.Candidate*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 12,
+    "initial_positions": "602.878030,157.089029,230.003000,197.121970,442.910971,257.379633"
+  },
+  {
+    "suite": "holdout",
+    "key": "Candidate-crowd",
+    "robots": [
+      "treino.Candidate*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 12,
+    "initial_positions": "528.299581,120.637650,261.725601,683.328622,257.347784,139.680348,625.005431,426.175907,118.453614,397.248562,499.990998,180.802966,171.563582,423.208789,171.390025,117.895884,253.647848,150.738521,276.658339,118.991024,163.990904"
+  },
+  {
+    "suite": "holdout",
+    "key": "Candidate-mixed",
+    "robots": [
+      "treino.Candidate*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 12,
+    "initial_positions": "618.168134,431.763246,17.726082,208.943293,450.460782,68.104809,181.831866,168.236754,59.620383,591.056707,149.539218,266.968138"
+  },
+  {
+    "suite": "pretrain-0",
+    "key": "trackfire",
+    "robots": [
+      "treino.Warm0*",
+      "sample.TrackFire"
+    ],
+    "rounds": 8,
+    "initial_positions": "214.334894,146.362428,226.342009,585.665106,453.637572,86.732165"
+  },
+  {
+    "suite": "pretrain-1",
+    "key": "three",
+    "robots": [
+      "treino.Warm1*",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire"
+    ],
+    "rounds": 8,
+    "initial_positions": "669.029993,225.329537,296.968990,508.272171,485.537926,187.621525,130.970007,374.670463,91.930162,291.727829,114.462074,92.460491"
+  },
+  {
+    "suite": "pretrain-2",
+    "key": "crowd",
+    "robots": [
+      "treino.Warm2*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 8,
+    "initial_positions": "583.768435,454.718358,150.819576,339.180404,495.552179,249.075723,140.390770,389.131221,211.111947,137.092180,215.592635,145.569025,331.768542,105.614517,44.122571,577.824583,142.012632,83.804089,689.975086,297.378458,38.887462"
+  },
+  {
+    "suite": "pretrain-3",
+    "key": "mixed",
+    "robots": [
+      "treino.Warm3*",
+      "voidious.Diamond*",
+      "sample.TrackFire",
+      "sample.Walls"
+    ],
+    "rounds": 8,
+    "initial_positions": "687.423362,326.601487,26.869465,361.427844,498.223008,180.267142,112.576638,273.398513,270.437772,438.572156,101.776992,249.249565"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Baseline-veloci",
+    "robots": [
+      "treino.Baseline*",
+      "sample.VelociRobot"
+    ],
+    "rounds": 12,
+    "initial_positions": "113.520585,268.930713,36.583542,686.479415,331.069287,116.348033"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Baseline-diamond",
+    "robots": [
+      "treino.Baseline*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 12,
+    "initial_positions": "659.451317,389.349650,70.412234,140.548683,210.650350,99.808890"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Baseline-crowd",
+    "robots": [
+      "treino.Baseline*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 12,
+    "initial_positions": "572.668752,460.684478,183.055451,325.496339,493.287110,10.303516,134.426703,380.340606,143.510053,143.339176,206.895987,215.856145,345.522484,103.560588,283.932390,588.728473,148.148074,76.954193,689.818073,307.083157,235.516182"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Baseline-mixed",
+    "robots": [
+      "treino.Baseline*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 12,
+    "initial_positions": "341.724637,104.079681,129.255840,684.084463,259.810094,190.060232,458.275363,495.920319,3.949444,115.915537,340.189906,105.194389"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Candidate-veloci",
+    "robots": [
+      "treino.Candidate*",
+      "sample.VelociRobot"
+    ],
+    "rounds": 12,
+    "initial_positions": "113.520585,268.930713,36.583542,686.479415,331.069287,116.348033"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Candidate-diamond",
+    "robots": [
+      "treino.Candidate*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 12,
+    "initial_positions": "659.451317,389.349650,70.412234,140.548683,210.650350,99.808890"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Candidate-crowd",
+    "robots": [
+      "treino.Candidate*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 12,
+    "initial_positions": "572.668752,460.684478,183.055451,325.496339,493.287110,10.303516,134.426703,380.340606,143.510053,143.339176,206.895987,215.856145,345.522484,103.560588,283.932390,588.728473,148.148074,76.954193,689.818073,307.083157,235.516182"
+  },
+  {
+    "suite": "validation-second",
+    "key": "Candidate-mixed",
+    "robots": [
+      "treino.Candidate*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 12,
+    "initial_positions": "341.724637,104.079681,129.255840,684.084463,259.810094,190.060232,458.275363,495.920319,3.949444,115.915537,340.189906,105.194389"
+  }
+]

@@ -4,3 +4,4 @@ __pycache__/
 robot.database
 .robotcache/
 *.data/
+training-runs/

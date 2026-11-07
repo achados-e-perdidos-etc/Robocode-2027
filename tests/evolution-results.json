@@ -1,0 +1,1052 @@
+{
+  "seed": 2027,
+  "source_sha256": "ebabe8d9f44cf89cb39682b627b7a85c601cc2899635a06622f7a4aa15ee817e",
+  "baseline_sha256": "25695355f54a50e31be28e929d6caf8268db5c67266fdca8dc1ab480c888440d",
+  "generations": [
+    [
+      {
+        "name": "G0C0",
+        "genome": [
+          1.0,
+          430,
+          0.025,
+          0.4,
+          18000,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "fitness": 0.5162292592158133,
+        "matches": [
+          {
+            "robot": "treino.G0C0*",
+            "score": 631,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C0*",
+            "score": 1556,
+            "wins": 4,
+            "score_share": 0.6322633075985372,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C0*",
+            "score": 2439,
+            "wins": 4,
+            "score_share": 0.3273386122668098,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C0*",
+            "score": 908,
+            "wins": 1,
+            "score_share": 0.3455098934550989,
+            "skipped": 1
+          }
+        ],
+        "league": {
+          "robot": "treino.G0C0*",
+          "score": 652,
+          "wins": 1,
+          "score_share": 0.2810344827586207,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G0C2",
+        "genome": [
+          1.266801,
+          427.4606066,
+          0.0201235,
+          0.3655847,
+          18000,
+          1.0094116,
+          0.0,
+          1.094125,
+          0.0,
+          1.0
+        ],
+        "fitness": 0.5127233150860989,
+        "matches": [
+          {
+            "robot": "treino.G0C2*",
+            "score": 611,
+            "wins": 4,
+            "score_share": 0.9823151125401929,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C2*",
+            "score": 1647,
+            "wins": 4,
+            "score_share": 0.6697844652297682,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C2*",
+            "score": 2698,
+            "wins": 4,
+            "score_share": 0.37270341207349084,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C2*",
+            "score": 946,
+            "wins": 0,
+            "score_share": 0.3696756545525596,
+            "skipped": 1
+          }
+        ],
+        "league": {
+          "robot": "treino.G0C2*",
+          "score": 404,
+          "wins": 1,
+          "score_share": 0.17413793103448275,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G0C3",
+        "genome": [
+          0.7709226,
+          407.8964302,
+          0.025,
+          0.3924533,
+          18126.515003,
+          0.9561701,
+          0.0,
+          0.9981267,
+          -0.7422945,
+          1.0828799
+        ],
+        "fitness": 0.5049780934067266,
+        "matches": [
+          {
+            "robot": "treino.G0C3*",
+            "score": 612,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C3*",
+            "score": 1480,
+            "wins": 4,
+            "score_share": 0.5481481481481482,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C3*",
+            "score": 2719,
+            "wins": 4,
+            "score_share": 0.36877797368777976,
+            "skipped": 2
+          },
+          {
+            "robot": "treino.G0C3*",
+            "score": 881,
+            "wins": 1,
+            "score_share": 0.31520572450805007,
+            "skipped": 1
+          }
+        ],
+        "league": {
+          "robot": "treino.G0C3*",
+          "score": 714,
+          "wins": 2,
+          "score_share": 0.30775862068965515,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G0C1",
+        "genome": [
+          0.9742282,
+          431.0363602,
+          0.0278359,
+          0.3783968,
+          17313.5366074,
+          1.0826288,
+          0.0,
+          0.9950685,
+          0.0,
+          1.0
+        ],
+        "fitness": 0.4878800496370965,
+        "matches": [
+          {
+            "robot": "treino.G0C1*",
+            "score": 615,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 1
+          },
+          {
+            "robot": "treino.G0C1*",
+            "score": 1347,
+            "wins": 4,
+            "score_share": 0.5413987138263665,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G0C1*",
+            "score": 2749,
+            "wins": 4,
+            "score_share": 0.377765562731895,
+            "skipped": 2
+          },
+          {
+            "robot": "treino.G0C1*",
+            "score": 732,
+            "wins": 0,
+            "score_share": 0.29816700610997965,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G0C1*",
+          "score": 550,
+          "wins": 0,
+          "score_share": 0.23706896551724138,
+          "skipped": 0
+        }
+      }
+    ],
+    [
+      {
+        "name": "G1C2",
+        "genome": [
+          1.0,
+          430,
+          0.029185,
+          0.3655847,
+          15514.2661738,
+          1.0094116,
+          0.0,
+          1.094125,
+          -0.2893293,
+          1.0
+        ],
+        "fitness": 0.5194459297230202,
+        "matches": [
+          {
+            "robot": "treino.G1C2*",
+            "score": 602,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C2*",
+            "score": 1742,
+            "wins": 4,
+            "score_share": 0.6844793713163064,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C2*",
+            "score": 2646,
+            "wins": 4,
+            "score_share": 0.35814834867352463,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C2*",
+            "score": 734,
+            "wins": 0,
+            "score_share": 0.30143737166324436,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G1C2*",
+          "score": 580,
+          "wins": 1,
+          "score_share": 0.25316455696202533,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G1C1",
+        "genome": [
+          1.0299025,
+          397.0754321,
+          0.025,
+          0.3941545,
+          18000,
+          1.0340963,
+          0.6577154,
+          0.9761274,
+          -0.4635399,
+          1.0544508
+        ],
+        "fitness": 0.5175167743376071,
+        "matches": [
+          {
+            "robot": "treino.G1C1*",
+            "score": 638,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C1*",
+            "score": 1590,
+            "wins": 4,
+            "score_share": 0.6309523809523809,
+            "skipped": 3
+          },
+          {
+            "robot": "treino.G1C1*",
+            "score": 2715,
+            "wins": 4,
+            "score_share": 0.37829176536157166,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C1*",
+            "score": 815,
+            "wins": 0,
+            "score_share": 0.3198587127158556,
+            "skipped": 1
+          }
+        ],
+        "league": {
+          "robot": "treino.G1C1*",
+          "score": 638,
+          "wins": 1,
+          "score_share": 0.27848101265822783,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G1C3",
+        "genome": [
+          1.2331973,
+          430,
+          0.029135,
+          0.4231437,
+          18000,
+          1.0318406,
+          -0.4693,
+          1.094125,
+          -0.269748,
+          1.2214191
+        ],
+        "fitness": 0.5112702831423841,
+        "matches": [
+          {
+            "robot": "treino.G1C3*",
+            "score": 621,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C3*",
+            "score": 1661,
+            "wins": 4,
+            "score_share": 0.6880695940347971,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C3*",
+            "score": 2621,
+            "wins": 4,
+            "score_share": 0.35796230538104346,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C3*",
+            "score": 752,
+            "wins": 0,
+            "score_share": 0.2781065088757396,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G1C3*",
+          "score": 532,
+          "wins": 1,
+          "score_share": 0.23221300742034046,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G1C0",
+        "genome": [
+          1.0,
+          430,
+          0.025,
+          0.4,
+          18000,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        "fitness": 0.4708267521100219,
+        "matches": [
+          {
+            "robot": "treino.G1C0*",
+            "score": 608,
+            "wins": 4,
+            "score_share": 0.9822294022617124,
+            "skipped": 1
+          },
+          {
+            "robot": "treino.G1C0*",
+            "score": 1310,
+            "wins": 4,
+            "score_share": 0.4864463423691051,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C0*",
+            "score": 2733,
+            "wins": 4,
+            "score_share": 0.36625569552398823,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G1C0*",
+            "score": 719,
+            "wins": 0,
+            "score_share": 0.2880608974358974,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G1C0*",
+          "score": 541,
+          "wins": 1,
+          "score_share": 0.23614142295940638,
+          "skipped": 0
+        }
+      }
+    ],
+    [
+      {
+        "name": "G2C3",
+        "genome": [
+          1.2334466,
+          441.2925895,
+          0.026321,
+          0.3713866,
+          18000,
+          1.0094116,
+          1.2035665,
+          0.9761274,
+          -0.0066714,
+          1.0544508
+        ],
+        "fitness": 0.5517153561841294,
+        "matches": [
+          {
+            "robot": "treino.G2C3*",
+            "score": 613,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C3*",
+            "score": 1784,
+            "wins": 4,
+            "score_share": 0.7082175466454942,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C3*",
+            "score": 2688,
+            "wins": 4,
+            "score_share": 0.3690786763696279,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C3*",
+            "score": 715,
+            "wins": 0,
+            "score_share": 0.29705027004570006,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G2C3*",
+          "score": 921,
+          "wins": 2,
+          "score_share": 0.38423028785982477,
+          "skipped": 1
+        }
+      },
+      {
+        "name": "G2C0",
+        "genome": [
+          1.0,
+          430,
+          0.029185,
+          0.3655847,
+          15514.2661738,
+          1.0094116,
+          0.0,
+          1.094125,
+          -0.2893293,
+          1.0
+        ],
+        "fitness": 0.5421035947981543,
+        "matches": [
+          {
+            "robot": "treino.G2C0*",
+            "score": 633,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C0*",
+            "score": 1735,
+            "wins": 4,
+            "score_share": 0.6748346946713341,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C0*",
+            "score": 2538,
+            "wins": 4,
+            "score_share": 0.34371614301191766,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C0*",
+            "score": 764,
+            "wins": 0,
+            "score_share": 0.30523371953655615,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G2C0*",
+          "score": 927,
+          "wins": 2,
+          "score_share": 0.3867334167709637,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G2C2",
+        "genome": [
+          1.0955867,
+          448.9450365,
+          0.025,
+          0.3655847,
+          18000,
+          1.0094116,
+          -0.0847809,
+          0.8999547,
+          -0.2893293,
+          0.836373
+        ],
+        "fitness": 0.5060461576360722,
+        "matches": [
+          {
+            "robot": "treino.G2C2*",
+            "score": 607,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C2*",
+            "score": 1743,
+            "wins": 4,
+            "score_share": 0.6696119861698041,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C2*",
+            "score": 2722,
+            "wins": 4,
+            "score_share": 0.3780030551312318,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C2*",
+            "score": 813,
+            "wins": 0,
+            "score_share": 0.31782642689601254,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G2C2*",
+          "score": 395,
+          "wins": 0,
+          "score_share": 0.16478931998331248,
+          "skipped": 0
+        }
+      },
+      {
+        "name": "G2C1",
+        "genome": [
+          1.0299025,
+          466.0992508,
+          0.029185,
+          0.3941545,
+          12415.097982,
+          0.9537491,
+          0.025021,
+          1.0498856,
+          -0.2893293,
+          1.0770218
+        ],
+        "fitness": 0.43766930621632805,
+        "matches": [
+          {
+            "robot": "treino.G2C1*",
+            "score": 617,
+            "wins": 4,
+            "score_share": 1.0,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C1*",
+            "score": 1280,
+            "wins": 4,
+            "score_share": 0.48120300751879697,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C1*",
+            "score": 2492,
+            "wins": 4,
+            "score_share": 0.33103081827842723,
+            "skipped": 0
+          },
+          {
+            "robot": "treino.G2C1*",
+            "score": 799,
+            "wins": 0,
+            "score_share": 0.3118657298985168,
+            "skipped": 0
+          }
+        ],
+        "league": {
+          "robot": "treino.G2C1*",
+          "score": 154,
+          "wins": 0,
+          "score_share": 0.06424697538589905,
+          "skipped": 0
+        }
+      }
+    ]
+  ],
+  "train_scenarios": [
+    [
+      "trackfire",
+      "sample.TrackFire"
+    ],
+    [
+      "three",
+      "sample.SpinBot,sample.Crazy,sample.RamFire"
+    ],
+    [
+      "crowd",
+      "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners"
+    ],
+    [
+      "mixed",
+      "voidious.Diamond*,sample.TrackFire,sample.Walls"
+    ]
+  ],
+  "holdout_scenarios": [
+    [
+      "veloci",
+      "sample.VelociRobot"
+    ],
+    [
+      "diamond",
+      "voidious.Diamond*"
+    ],
+    [
+      "crowd",
+      "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners"
+    ],
+    [
+      "mixed",
+      "voidious.Diamond*,sample.SpinBot,sample.TrackFire"
+    ]
+  ],
+  "parameters": {
+    "home": "<robocode-test-installation>",
+    "ecj": "ecj-3.37.0.jar",
+    "baseline": "Nemesis-v2.java (commit e46aecb)",
+    "output": "<training-output>",
+    "population": 4,
+    "generations": 3,
+    "rounds": 4,
+    "validation_rounds": 12,
+    "seed": 2027,
+    "position_seed": 0,
+    "initial_genome": null
+  },
+  "champion": {
+    "name": "G2C3",
+    "genome": [
+      1.2334466,
+      441.2925895,
+      0.026321,
+      0.3713866,
+      18000,
+      1.0094116,
+      1.2035665,
+      0.9761274,
+      -0.0066714,
+      1.0544508
+    ],
+    "fitness": 0.5517153561841294,
+    "matches": [
+      {
+        "robot": "treino.G2C3*",
+        "score": 613,
+        "wins": 4,
+        "score_share": 1.0,
+        "skipped": 0
+      },
+      {
+        "robot": "treino.G2C3*",
+        "score": 1784,
+        "wins": 4,
+        "score_share": 0.7082175466454942,
+        "skipped": 0
+      },
+      {
+        "robot": "treino.G2C3*",
+        "score": 2688,
+        "wins": 4,
+        "score_share": 0.3690786763696279,
+        "skipped": 0
+      },
+      {
+        "robot": "treino.G2C3*",
+        "score": 715,
+        "wins": 0,
+        "score_share": 0.29705027004570006,
+        "skipped": 0
+      }
+    ],
+    "league": {
+      "robot": "treino.G2C3*",
+      "score": 921,
+      "wins": 2,
+      "score_share": 0.38423028785982477,
+      "skipped": 1
+    }
+  },
+  "holdout": {
+    "Baseline": {
+      "veloci": {
+        "own": {
+          "robot": "treino.Baseline*",
+          "score": 1844,
+          "wins": 12,
+          "score_share": 0.9913978494623656,
+          "shots": 379,
+          "hits": 114,
+          "waves": 239,
+          "matched": 22,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 1844,
+            "wins": 12
+          },
+          {
+            "robot": "sample.VelociRobot",
+            "score": 16,
+            "wins": 0
+          }
+        ]
+      },
+      "diamond": {
+        "own": {
+          "robot": "treino.Baseline*",
+          "score": 130,
+          "wins": 0,
+          "score_share": 0.08135168961201501,
+          "shots": 676,
+          "hits": 27,
+          "waves": 680,
+          "matched": 146,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1468,
+            "wins": 12
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 130,
+            "wins": 0
+          }
+        ]
+      },
+      "crowd": {
+        "own": {
+          "robot": "treino.Baseline*",
+          "score": 7475,
+          "wins": 12,
+          "score_share": 0.3415893616048988,
+          "shots": 647,
+          "hits": 360,
+          "waves": 723,
+          "matched": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 7475,
+            "wins": 12
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 4306,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 3155,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 2518,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 2041,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 1332,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 1056,
+            "wins": 0
+          }
+        ]
+      },
+      "mixed": {
+        "own": {
+          "robot": "treino.Baseline*",
+          "score": 2087,
+          "wins": 0,
+          "score_share": 0.2703017743815568,
+          "shots": 967,
+          "hits": 155,
+          "waves": 990,
+          "matched": 188,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 4246,
+            "wins": 12
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 2087,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 933,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 455,
+            "wins": 0
+          }
+        ]
+      }
+    },
+    "Candidate": {
+      "veloci": {
+        "own": {
+          "robot": "treino.Candidate*",
+          "score": 1910,
+          "wins": 12,
+          "score_share": 0.9979101358411703,
+          "shots": 308,
+          "hits": 98,
+          "waves": 196,
+          "matched": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 1910,
+            "wins": 12
+          },
+          {
+            "robot": "sample.VelociRobot",
+            "score": 4,
+            "wins": 0
+          }
+        ]
+      },
+      "diamond": {
+        "own": {
+          "robot": "treino.Candidate*",
+          "score": 144,
+          "wins": 0,
+          "score_share": 0.08856088560885608,
+          "shots": 743,
+          "hits": 40,
+          "waves": 740,
+          "matched": 172,
+          "walls": 0,
+          "skipped": 1
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1482,
+            "wins": 12
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 144,
+            "wins": 0
+          }
+        ]
+      },
+      "crowd": {
+        "own": {
+          "robot": "treino.Candidate*",
+          "score": 7143,
+          "wins": 12,
+          "score_share": 0.3257479022254652,
+          "shots": 611,
+          "hits": 309,
+          "waves": 644,
+          "matched": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 7143,
+            "wins": 12
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 3405,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 2992,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 2678,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 2510,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 2005,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 1195,
+            "wins": 0
+          }
+        ]
+      },
+      "mixed": {
+        "own": {
+          "robot": "treino.Candidate*",
+          "score": 2108,
+          "wins": 0,
+          "score_share": 0.29091912779464535,
+          "shots": 964,
+          "hits": 158,
+          "waves": 938,
+          "matched": 155,
+          "walls": 0,
+          "skipped": 0
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 4351,
+            "wins": 12
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 2108,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 734,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 53,
+            "wins": 0
+          }
+        ]
+      }
+    }
+  },
+  "candidate_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "runtime": {
+    "robocode": "1.12.0",
+    "java": "OpenJDK 21.0.13",
+    "compiler": "Eclipse ECJ 3.37.0",
+    "arena": [
+      800,
+      600
+    ],
+    "cooling": 0.1,
+    "cpu_constant_ns": 5344295,
+    "source_commit_baseline": "e46aecbe34f8a7171a6985d0261782766b79ec0d"
+  },
+  "pretrained_samples": {
+    "gun": 1228,
+    "surf": 128
+  }
+}
