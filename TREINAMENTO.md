@@ -36,7 +36,7 @@ O script [tools/train.py](tools/train.py) cria variantes temporárias numa insta
 
 Cada indivíduo tem dez genes: peso da esquiva, distância de duelo, taxa de aprendizado neural, mistura neural da defesa, repulsão de inimigos, potência de tiro e quatro parâmetros que definem fases/escalas dos pesos neurais iniciais. A busca genética altera essa parametrização compacta dos pesos; não muta cada uma das milhares de conexões de forma independente, nem altera a topologia como no NEAT.
 
-Há elitismo, cruzamento dos dois melhores e mutação com limites. A avaliação combina participação na pontuação total contra adversários fixos (80%) e na arena entre variantes (20%), com penalidade para turnos perdidos. A parcela da arena depende dos concorrentes da geração, portanto a fitness total não deve ser interpretada como uma curva absoluta de habilidade.
+Há elitismo, cruzamento dos dois melhores e mutação com limites. No formato atual, o treinador prioriza séries vencidas em três rounds: 70% para vencer a série, 20% para vitórias de rounds e 10% para pontuação relativa. Esses valores são combinados contra adversários fixos (80%) e na arena entre variantes (20%), com penalidade para turnos perdidos. O objetivo antigo, somente de pontuação, permanece disponível com `--objective score` para reproduzir experimentos históricos. A parcela da arena depende dos concorrentes da geração, portanto a fitness total não deve ser interpretada como uma curva absoluta de habilidade.
 
 Depois da seleção, há um pré-treino sequencial com os cenários de treino. Os pesos gerais são transferidos entre essas batalhas, enquanto o aprendizado por adversário continua ocorrendo dentro de cada batalha. A candidata resultante tem esses pesos incorporados como constantes no próprio `Nemesis.java`, dispensando arquivos de modelo na instalação do jogador.
 
@@ -55,7 +55,7 @@ git show e46aecbe34f8a7171a6985d0261782766b79ec0d:robots/equipe/Nemesis.java > /
 Execute com um JDK que tenha `javac`:
 
 ```sh
-python tools/train.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v2.java --population 4 --generations 3 --rounds 4 --validation-rounds 12
+python tools/train.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v2.java --population 4 --generations 3 --rounds 3 --validation-rounds 3
 ```
 
 Ou acrescente `--ecj /caminho/ecj.jar` para usar o compilador Eclipse. `--seed` define as mutações, e `--position-seed` varia as posições iniciais planejadas pelo treinador; essas opções não fixam todos os geradores aleatórios internos de cada adversário. As posições de um cenário se repetem entre seus rounds para permitir comparações com o mesmo início. Variar sementes e repetir lotes reduz o risco de especialização.
@@ -65,7 +65,7 @@ Por padrão, novos ciclos começam com os genes do arquivo atual, mas zeram os m
 Para comparar o arquivo atual com a versão anterior em outras posições, sem refazer o treino:
 
 ```sh
-python tools/evaluate.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v2.java --rounds 12 --position-seed 1000
+python tools/evaluate.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v2.java --rounds 3 --position-seed 1000
 ```
 
 O relatório medido deste ciclo está em [EVOLUCAO.md](EVOLUCAO.md). Para regenerar o gráfico a partir dos JSONs registrados, use `python tools/plot_training.py`; somente essa ferramenta opcional requer `matplotlib`.
@@ -77,3 +77,9 @@ Os resultados ficam em `training-runs/latest`: rankings, composição das arenas
 Os pesos pré-treinados incorporados ao arquivo são a base de cada nova batalha. Durante a batalha, redes e histogramas aprendem e são preservados entre os rounds. O progresso novo do jogador não é salvo automaticamente ao encerrar a batalha. Para atualizar a base incorporada, é necessário um novo ciclo externo de treino e validação.
 
 Mais gerações não garantem evolução: uma população pode ficar especializada, modelos podem piorar e a aleatoriedade pode produzir uma vitória enganosa. O relatório do experimento registra o que foi medido, inclusive regressões.
+
+## Formato oficial: três rounds
+
+A competição foi confirmada como **quem vence dois dos três rounds**. Por padrão, treino e validação genética agora usam exatamente três rounds e objetivo `series`. O pré-treino também usa séries curtas nesse modo. Os arquivos `.battle` foram ajustados para três rounds. Os relatórios antigos de 12 ou 30 rounds são históricos e não provam desempenho em melhor de três.
+
+Para a comparação específica de partidas curtas e início com memória nova, veja [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md) e use `tools/bo3.py`. Ele compara as alternativas de adaptação rápida contra um adversário com a versão anterior, Diamond e grupos de inimigos; seleciona em posições de treino e mede depois em outras posições.

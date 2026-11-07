@@ -1,5 +1,7 @@
 # Nêmesis 3.0 — experimento de evolução
 
+Este é o experimento histórico anterior à confirmação da regra de três rounds. A avaliação específica de vencer dois dos três está em [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md).
+
 Experimento realizado em 7 de novembro de 2026. A versão entregue combina redes neurais que aprendem durante os rounds, simulações físicas e treino externo por gerações. Todo o robô, incluindo os pesos pré-treinados, continua em `robots/equipe/Nemesis.java`.
 
 **Resultado:** o fluxo de treino funciona e a pontuação relativa média melhorou pouco nesta amostra. O robô continua vencendo adversários básicos, mas não alcançou o nível do Diamond. Esta é uma evolução experimental, não uma garantia de superioridade.

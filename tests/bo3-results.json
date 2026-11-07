@@ -1,0 +1,6496 @@
+{
+  "rounds_per_series": 3,
+  "selection_seeds": [
+    11,
+    23,
+    37
+  ],
+  "validation_seeds": [
+    101,
+    127,
+    149,
+    173
+  ],
+  "contexts": [
+    [
+      "mirror",
+      "treino.Anchor*"
+    ],
+    [
+      "diamond",
+      "voidious.Diamond*"
+    ],
+    [
+      "crowd",
+      "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners"
+    ],
+    [
+      "mixed",
+      "voidious.Diamond*,sample.SpinBot,sample.TrackFire"
+    ]
+  ],
+  "baseline_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "selection": {
+    "Baseline": [
+      {
+        "robot": "treino.Baseline*",
+        "score": 244,
+        "wins": 2,
+        "score_share": 0.6192893401015228,
+        "shots": 253,
+        "hits": 24,
+        "waves": 253,
+        "matched": 40,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 11,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 244,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 150,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 58,
+            "hits": 7,
+            "waves": 62,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 92,
+            "hits": 8,
+            "waves": 91,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 103,
+            "hits": 9,
+            "waves": 100,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 255,
+        "wins": 2,
+        "score_share": 0.6265356265356266,
+        "shots": 269,
+        "hits": 26,
+        "waves": 263,
+        "matched": 47,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          0
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 23,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 255,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 152,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 89,
+            "hits": 8,
+            "waves": 83,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 72,
+            "hits": 7,
+            "waves": 71,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 108,
+            "hits": 11,
+            "waves": 109,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 171,
+        "wins": 1,
+        "score_share": 0.37915742793791574,
+        "shots": 203,
+        "hits": 20,
+        "waves": 196,
+        "matched": 39,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          1
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 37,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 280,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 171,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 45,
+            "hits": 5,
+            "waves": 43,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 77,
+            "hits": 5,
+            "waves": 72,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 81,
+            "hits": 10,
+            "waves": 81,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 41,
+        "wins": 0,
+        "score_share": 0.10677083333333333,
+        "shots": 184,
+        "hits": 8,
+        "waves": 190,
+        "matched": 38,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 52,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 343,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 41,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 37,
+            "hits": 1,
+            "waves": 37,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 50,
+            "hits": 0,
+            "waves": 46,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 97,
+            "hits": 7,
+            "waves": 107,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 47,
+        "wins": 0,
+        "score_share": 0.10930232558139535,
+        "shots": 178,
+        "hits": 12,
+        "waves": 179,
+        "matched": 34,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 64,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 383,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 47,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 47,
+            "hits": 4,
+            "waves": 47,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 46,
+            "hits": 3,
+            "waves": 44,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 85,
+            "hits": 5,
+            "waves": 88,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 34,
+        "wins": 0,
+        "score_share": 0.081145584725537,
+        "shots": 162,
+        "hits": 9,
+        "waves": 172,
+        "matched": 39,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 78,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 385,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 34,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 92,
+            "hits": 8,
+            "waves": 105,
+            "matched": 22,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 31,
+            "hits": 0,
+            "waves": 30,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 39,
+            "hits": 1,
+            "waves": 37,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 2118,
+        "wins": 3,
+        "score_share": 0.38962472406181015,
+        "shots": 140,
+        "hits": 99,
+        "waves": 132,
+        "matched": 5,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 93,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 2118,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 905,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 715,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 715,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 390,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 383,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 210,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 48,
+            "hits": 31,
+            "waves": 50,
+            "matched": 4,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 47,
+            "hits": 34,
+            "waves": 38,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 45,
+            "hits": 34,
+            "waves": 44,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 2016,
+        "wins": 3,
+        "score_share": 0.3673469387755102,
+        "shots": 149,
+        "hits": 92,
+        "waves": 160,
+        "matched": 3,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 105,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 2016,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 989,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 893,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 553,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 467,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 305,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 265,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 47,
+            "hits": 22,
+            "waves": 59,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 53,
+            "hits": 37,
+            "waves": 47,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 49,
+            "hits": 33,
+            "waves": 54,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 1993,
+        "wins": 3,
+        "score_share": 0.36183732752360204,
+        "shots": 169,
+        "hits": 88,
+        "waves": 175,
+        "matched": 6,
+        "walls": 0,
+        "skipped": 2,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 119,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 1993,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 1051,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 698,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 696,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 450,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 364,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 256,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 63,
+            "hits": 27,
+            "waves": 62,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 54,
+            "hits": 32,
+            "waves": 50,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 52,
+            "hits": 29,
+            "waves": 63,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 815,
+        "wins": 1,
+        "score_share": 0.40386521308225964,
+        "shots": 304,
+        "hits": 49,
+        "waves": 334,
+        "matched": 70,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": true,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 134,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 911,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 815,
+            "wins": 1
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 164,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 128,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 116,
+            "hits": 18,
+            "waves": 137,
+            "matched": 29,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 126,
+            "hits": 19,
+            "waves": 139,
+            "matched": 29,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 62,
+            "hits": 12,
+            "waves": 58,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 532,
+        "wins": 0,
+        "score_share": 0.2878787878787879,
+        "shots": 224,
+        "hits": 39,
+        "waves": 225,
+        "matched": 40,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 146,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1054,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 532,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 238,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 24,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 60,
+            "hits": 11,
+            "waves": 64,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 96,
+            "hits": 14,
+            "waves": 96,
+            "matched": 18,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 68,
+            "hits": 14,
+            "waves": 65,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 455,
+        "wins": 0,
+        "score_share": 0.23897058823529413,
+        "shots": 174,
+        "hits": 26,
+        "waves": 187,
+        "matched": 30,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 160,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1136,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 455,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 182,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 131,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 51,
+            "hits": 7,
+            "waves": 55,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 57,
+            "hits": 11,
+            "waves": 58,
+            "matched": 7,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 66,
+            "hits": 8,
+            "waves": 74,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      }
+    ],
+    "Observe": [
+      {
+        "robot": "treino.Observe*",
+        "score": 154,
+        "wins": 2,
+        "score_share": 0.46107784431137727,
+        "shots": 275,
+        "hits": 28,
+        "waves": 272,
+        "matched": 51,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          1,
+          1
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": null,
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 283,
+        "context": "mirror",
+        "seed": 11,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 180,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 154,
+            "wins": 2
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 64,
+            "hits": 6,
+            "waves": 62,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 69
+          },
+          {
+            "round": 1,
+            "shots": 100,
+            "hits": 9,
+            "waves": 97,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 103
+          },
+          {
+            "round": 2,
+            "shots": 111,
+            "hits": 13,
+            "waves": 113,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 111
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 56,
+        "wins": 0,
+        "score_share": 0.15774647887323945,
+        "shots": 248,
+        "hits": 15,
+        "waves": 262,
+        "matched": 42,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 259,
+        "context": "mirror",
+        "seed": 23,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 299,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 56,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 65,
+            "hits": 5,
+            "waves": 66,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 71
+          },
+          {
+            "round": 1,
+            "shots": 109,
+            "hits": 6,
+            "waves": 122,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 111
+          },
+          {
+            "round": 2,
+            "shots": 74,
+            "hits": 4,
+            "waves": 74,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 77
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 219,
+        "wins": 2,
+        "score_share": 0.5703125,
+        "shots": 278,
+        "hits": 23,
+        "waves": 273,
+        "matched": 54,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Observe*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 287,
+        "context": "mirror",
+        "seed": 37,
+        "scores": [
+          {
+            "robot": "treino.Observe*",
+            "score": 219,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 165,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 96,
+            "hits": 7,
+            "waves": 91,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 101
+          },
+          {
+            "round": 1,
+            "shots": 73,
+            "hits": 4,
+            "waves": 72,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 75
+          },
+          {
+            "round": 2,
+            "shots": 109,
+            "hits": 12,
+            "waves": 110,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 111
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 62,
+        "wins": 0,
+        "score_share": 0.14351851851851852,
+        "shots": 188,
+        "hits": 13,
+        "waves": 216,
+        "matched": 43,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 199,
+        "context": "diamond",
+        "seed": 52,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 370,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 62,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 43,
+            "hits": 3,
+            "waves": 47,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 50
+          },
+          {
+            "round": 1,
+            "shots": 93,
+            "hits": 7,
+            "waves": 120,
+            "matched": 22,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 95
+          },
+          {
+            "round": 2,
+            "shots": 52,
+            "hits": 3,
+            "waves": 49,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 54
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 46,
+        "wins": 0,
+        "score_share": 0.11979166666666667,
+        "shots": 194,
+        "hits": 9,
+        "waves": 206,
+        "matched": 43,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 206,
+        "context": "diamond",
+        "seed": 64,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 338,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 46,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 40,
+            "hits": 2,
+            "waves": 39,
+            "matched": 6,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 46
+          },
+          {
+            "round": 1,
+            "shots": 83,
+            "hits": 3,
+            "waves": 94,
+            "matched": 21,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 86
+          },
+          {
+            "round": 2,
+            "shots": 71,
+            "hits": 4,
+            "waves": 73,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 74
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 38,
+        "wins": 0,
+        "score_share": 0.09405940594059406,
+        "shots": 167,
+        "hits": 9,
+        "waves": 165,
+        "matched": 25,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 178,
+        "context": "diamond",
+        "seed": 78,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 366,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 38,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 72,
+            "hits": 5,
+            "waves": 75,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 78
+          },
+          {
+            "round": 1,
+            "shots": 48,
+            "hits": 2,
+            "waves": 45,
+            "matched": 6,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 50
+          },
+          {
+            "round": 2,
+            "shots": 47,
+            "hits": 2,
+            "waves": 45,
+            "matched": 7,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 50
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 1946,
+        "wins": 3,
+        "score_share": 0.34375552022610845,
+        "shots": 127,
+        "hits": 84,
+        "waves": 163,
+        "matched": 10,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Observe*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 125,
+        "context": "crowd",
+        "seed": 93,
+        "scores": [
+          {
+            "robot": "treino.Observe*",
+            "score": 1946,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 981,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 759,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 682,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 553,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 396,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 344,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 50,
+            "hits": 29,
+            "waves": 61,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 47
+          },
+          {
+            "round": 1,
+            "shots": 37,
+            "hits": 28,
+            "waves": 46,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 38
+          },
+          {
+            "round": 2,
+            "shots": 40,
+            "hits": 27,
+            "waves": 56,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 40
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 2000,
+        "wins": 3,
+        "score_share": 0.3732736095558044,
+        "shots": 145,
+        "hits": 82,
+        "waves": 146,
+        "matched": 3,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Observe*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 144,
+        "context": "crowd",
+        "seed": 105,
+        "scores": [
+          {
+            "robot": "treino.Observe*",
+            "score": 2000,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 830,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 731,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 688,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 457,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 446,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 206,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 39,
+            "hits": 23,
+            "waves": 36,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 36
+          },
+          {
+            "round": 1,
+            "shots": 53,
+            "hits": 28,
+            "waves": 49,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 54
+          },
+          {
+            "round": 2,
+            "shots": 53,
+            "hits": 31,
+            "waves": 61,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 54
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 1904,
+        "wins": 3,
+        "score_share": 0.35944874457239945,
+        "shots": 133,
+        "hits": 79,
+        "waves": 180,
+        "matched": 7,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Observe*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 130,
+        "context": "crowd",
+        "seed": 119,
+        "scores": [
+          {
+            "robot": "treino.Observe*",
+            "score": 1904,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 816,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 812,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 657,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 488,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 338,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 282,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 48,
+            "hits": 31,
+            "waves": 62,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 42
+          },
+          {
+            "round": 1,
+            "shots": 36,
+            "hits": 21,
+            "waves": 60,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 34
+          },
+          {
+            "round": 2,
+            "shots": 49,
+            "hits": 27,
+            "waves": 58,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 54
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 612,
+        "wins": 0,
+        "score_share": 0.33406113537117904,
+        "shots": 214,
+        "hits": 32,
+        "waves": 224,
+        "matched": 45,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 221,
+        "context": "mixed",
+        "seed": 134,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1033,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 612,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 150,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 37,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 103,
+            "hits": 13,
+            "waves": 110,
+            "matched": 21,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 107
+          },
+          {
+            "round": 1,
+            "shots": 51,
+            "hits": 9,
+            "waves": 55,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 53
+          },
+          {
+            "round": 2,
+            "shots": 60,
+            "hits": 10,
+            "waves": 59,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 61
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 529,
+        "wins": 0,
+        "score_share": 0.26907426246185145,
+        "shots": 243,
+        "hits": 38,
+        "waves": 240,
+        "matched": 41,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 246,
+        "context": "mixed",
+        "seed": 146,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1064,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 529,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 257,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 116,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 96,
+            "hits": 14,
+            "waves": 104,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 101
+          },
+          {
+            "round": 1,
+            "shots": 92,
+            "hits": 15,
+            "waves": 85,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 90
+          },
+          {
+            "round": 2,
+            "shots": 55,
+            "hits": 9,
+            "waves": 51,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 55
+          }
+        ]
+      },
+      {
+        "robot": "treino.Observe*",
+        "score": 650,
+        "wins": 0,
+        "score_share": 0.3343621399176955,
+        "shots": 249,
+        "hits": 60,
+        "waves": 247,
+        "matched": 37,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 249,
+        "context": "mixed",
+        "seed": 160,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1058,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Observe*",
+            "score": 650,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 236,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 0,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 63,
+            "hits": 18,
+            "waves": 64,
+            "matched": 7,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 68
+          },
+          {
+            "round": 1,
+            "shots": 65,
+            "hits": 19,
+            "waves": 63,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 64
+          },
+          {
+            "round": 2,
+            "shots": 121,
+            "hits": 23,
+            "waves": 120,
+            "matched": 21,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 117
+          }
+        ]
+      }
+    ],
+    "Warm": [
+      {
+        "robot": "treino.Warm*",
+        "score": 221,
+        "wins": 2,
+        "score_share": 0.5972972972972973,
+        "shots": 249,
+        "hits": 22,
+        "waves": 254,
+        "matched": 43,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Warm*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 11,
+        "scores": [
+          {
+            "robot": "treino.Warm*",
+            "score": 221,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 149,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 63,
+            "hits": 7,
+            "waves": 64,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 73,
+            "hits": 5,
+            "waves": 83,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 113,
+            "hits": 10,
+            "waves": 107,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 149,
+        "wins": 1,
+        "score_share": 0.3850129198966408,
+        "shots": 263,
+        "hits": 21,
+        "waves": 254,
+        "matched": 54,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": true,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 23,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 238,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 149,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 68,
+            "hits": 7,
+            "waves": 66,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 99,
+            "hits": 8,
+            "waves": 96,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 96,
+            "hits": 6,
+            "waves": 92,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 245,
+        "wins": 2,
+        "score_share": 0.5764705882352941,
+        "shots": 272,
+        "hits": 30,
+        "waves": 264,
+        "matched": 52,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": false,
+        "majority_winner": "treino.Warm*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 37,
+        "scores": [
+          {
+            "robot": "treino.Warm*",
+            "score": 245,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 180,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 79,
+            "hits": 9,
+            "waves": 80,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 111,
+            "hits": 10,
+            "waves": 101,
+            "matched": 21,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 82,
+            "hits": 11,
+            "waves": 83,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 50,
+        "wins": 0,
+        "score_share": 0.12690355329949238,
+        "shots": 215,
+        "hits": 12,
+        "waves": 231,
+        "matched": 48,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 52,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 344,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 50,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 67,
+            "hits": 2,
+            "waves": 69,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 41,
+            "hits": 2,
+            "waves": 40,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 107,
+            "hits": 8,
+            "waves": 122,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 36,
+        "wins": 0,
+        "score_share": 0.09183673469387756,
+        "shots": 181,
+        "hits": 11,
+        "waves": 188,
+        "matched": 35,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 64,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 356,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 36,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 45,
+            "hits": 1,
+            "waves": 44,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 66,
+            "hits": 6,
+            "waves": 74,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 70,
+            "hits": 4,
+            "waves": 70,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 17,
+        "wins": 0,
+        "score_share": 0.0405727923627685,
+        "shots": 109,
+        "hits": 3,
+        "waves": 113,
+        "matched": 29,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 78,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 402,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 17,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 37,
+            "hits": 2,
+            "waves": 44,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 47,
+            "hits": 0,
+            "waves": 45,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 25,
+            "hits": 1,
+            "waves": 24,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 1875,
+        "wins": 3,
+        "score_share": 0.3399818676337262,
+        "shots": 187,
+        "hits": 92,
+        "waves": 169,
+        "matched": 6,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Warm*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 93,
+        "scores": [
+          {
+            "robot": "treino.Warm*",
+            "score": 1875,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 1177,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 925,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 499,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 464,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 447,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 128,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 60,
+            "hits": 31,
+            "waves": 51,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 70,
+            "hits": 34,
+            "waves": 62,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 57,
+            "hits": 27,
+            "waves": 56,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 2120,
+        "wins": 3,
+        "score_share": 0.3957438865036401,
+        "shots": 161,
+        "hits": 101,
+        "waves": 188,
+        "matched": 8,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Warm*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 105,
+        "scores": [
+          {
+            "robot": "treino.Warm*",
+            "score": 2120,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 992,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 752,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 681,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 412,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 328,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 72,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 61,
+            "hits": 35,
+            "waves": 48,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 56,
+            "hits": 33,
+            "waves": 72,
+            "matched": 5,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 44,
+            "hits": 33,
+            "waves": 68,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 1889,
+        "wins": 3,
+        "score_share": 0.34609747160131915,
+        "shots": 175,
+        "hits": 83,
+        "waves": 164,
+        "matched": 2,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Warm*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 119,
+        "scores": [
+          {
+            "robot": "treino.Warm*",
+            "score": 1889,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 1031,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 826,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 674,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 437,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 342,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 259,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 68,
+            "hits": 26,
+            "waves": 63,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 60,
+            "hits": 30,
+            "waves": 40,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 47,
+            "hits": 27,
+            "waves": 61,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 723,
+        "wins": 1,
+        "score_share": 0.36887755102040815,
+        "shots": 290,
+        "hits": 50,
+        "waves": 305,
+        "matched": 52,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          1,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 134,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 989,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 723,
+            "wins": 1
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 198,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 50,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 66,
+            "hits": 14,
+            "waves": 73,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 165,
+            "hits": 26,
+            "waves": 161,
+            "matched": 31,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 59,
+            "hits": 10,
+            "waves": 71,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 484,
+        "wins": 0,
+        "score_share": 0.25622022233986236,
+        "shots": 258,
+        "hits": 31,
+        "waves": 248,
+        "matched": 32,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 146,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1041,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 484,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 245,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 119,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 98,
+            "hits": 13,
+            "waves": 100,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 78,
+            "hits": 10,
+            "waves": 72,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 82,
+            "hits": 8,
+            "waves": 76,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Warm*",
+        "score": 568,
+        "wins": 0,
+        "score_share": 0.2929345023207839,
+        "shots": 270,
+        "hits": 43,
+        "waves": 283,
+        "matched": 47,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 160,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1074,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Warm*",
+            "score": 568,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 262,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 35,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 127,
+            "hits": 13,
+            "waves": 143,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 65,
+            "hits": 14,
+            "waves": 61,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 78,
+            "hits": 16,
+            "waves": 79,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      }
+    ],
+    "Both": [
+      {
+        "robot": "treino.Both*",
+        "score": 159,
+        "wins": 1,
+        "score_share": 0.39552238805970147,
+        "shots": 228,
+        "hits": 19,
+        "waves": 237,
+        "matched": 45,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": true,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 243,
+        "context": "mirror",
+        "seed": 11,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 243,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 159,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 61,
+            "hits": 8,
+            "waves": 63,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 72
+          },
+          {
+            "round": 1,
+            "shots": 102,
+            "hits": 9,
+            "waves": 108,
+            "matched": 20,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 104
+          },
+          {
+            "round": 2,
+            "shots": 65,
+            "hits": 2,
+            "waves": 66,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 67
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 184,
+        "wins": 1,
+        "score_share": 0.4289044289044289,
+        "shots": 248,
+        "hits": 24,
+        "waves": 260,
+        "matched": 46,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": true,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 261,
+        "context": "mirror",
+        "seed": 23,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 245,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 184,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 73,
+            "hits": 8,
+            "waves": 75,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 83
+          },
+          {
+            "round": 1,
+            "shots": 85,
+            "hits": 8,
+            "waves": 84,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 87
+          },
+          {
+            "round": 2,
+            "shots": 90,
+            "hits": 8,
+            "waves": 101,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 91
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 227,
+        "wins": 2,
+        "score_share": 0.6118598382749326,
+        "shots": 196,
+        "hits": 19,
+        "waves": 191,
+        "matched": 25,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          0,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Both*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 206,
+        "context": "mirror",
+        "seed": 37,
+        "scores": [
+          {
+            "robot": "treino.Both*",
+            "score": 227,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 144,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 61,
+            "hits": 8,
+            "waves": 59,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 67
+          },
+          {
+            "round": 1,
+            "shots": 68,
+            "hits": 3,
+            "waves": 66,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 71
+          },
+          {
+            "round": 2,
+            "shots": 67,
+            "hits": 8,
+            "waves": 66,
+            "matched": 5,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 68
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 32,
+        "wins": 0,
+        "score_share": 0.08333333333333333,
+        "shots": 175,
+        "hits": 6,
+        "waves": 178,
+        "matched": 38,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 187,
+        "context": "diamond",
+        "seed": 52,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 352,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 32,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 44,
+            "hits": 2,
+            "waves": 44,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 50
+          },
+          {
+            "round": 1,
+            "shots": 46,
+            "hits": 1,
+            "waves": 43,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 49
+          },
+          {
+            "round": 2,
+            "shots": 85,
+            "hits": 3,
+            "waves": 91,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 88
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 46,
+        "wins": 0,
+        "score_share": 0.10267857142857142,
+        "shots": 136,
+        "hits": 9,
+        "waves": 129,
+        "matched": 29,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 147,
+        "context": "diamond",
+        "seed": 64,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 402,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 46,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 44,
+            "hits": 3,
+            "waves": 42,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 49
+          },
+          {
+            "round": 1,
+            "shots": 46,
+            "hits": 2,
+            "waves": 43,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 49
+          },
+          {
+            "round": 2,
+            "shots": 46,
+            "hits": 4,
+            "waves": 44,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 49
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 40,
+        "wins": 0,
+        "score_share": 0.09324009324009325,
+        "shots": 149,
+        "hits": 8,
+        "waves": 153,
+        "matched": 33,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 159,
+        "context": "diamond",
+        "seed": 78,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 389,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 40,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 51,
+            "hits": 5,
+            "waves": 63,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 59
+          },
+          {
+            "round": 1,
+            "shots": 47,
+            "hits": 1,
+            "waves": 43,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 48
+          },
+          {
+            "round": 2,
+            "shots": 51,
+            "hits": 2,
+            "waves": 47,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 52
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 1857,
+        "wins": 3,
+        "score_share": 0.3370847703757488,
+        "shots": 118,
+        "hits": 75,
+        "waves": 139,
+        "matched": 5,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Both*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 125,
+        "context": "crowd",
+        "seed": 93,
+        "scores": [
+          {
+            "robot": "treino.Both*",
+            "score": 1857,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 1030,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 942,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 725,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 425,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 290,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 240,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 32,
+            "hits": 21,
+            "waves": 49,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 34
+          },
+          {
+            "round": 1,
+            "shots": 35,
+            "hits": 25,
+            "waves": 41,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 36
+          },
+          {
+            "round": 2,
+            "shots": 51,
+            "hits": 29,
+            "waves": 49,
+            "matched": 4,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 55
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 1723,
+        "wins": 3,
+        "score_share": 0.30398729710656314,
+        "shots": 184,
+        "hits": 76,
+        "waves": 163,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Both*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 171,
+        "context": "crowd",
+        "seed": 105,
+        "scores": [
+          {
+            "robot": "treino.Both*",
+            "score": 1723,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 988,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 874,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 674,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 654,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 443,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 312,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 58,
+            "hits": 23,
+            "waves": 60,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 58
+          },
+          {
+            "round": 1,
+            "shots": 65,
+            "hits": 28,
+            "waves": 49,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 58
+          },
+          {
+            "round": 2,
+            "shots": 61,
+            "hits": 25,
+            "waves": 54,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 55
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 2027,
+        "wins": 3,
+        "score_share": 0.3660166124954857,
+        "shots": 134,
+        "hits": 89,
+        "waves": 164,
+        "matched": 2,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Both*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 136,
+        "context": "crowd",
+        "seed": 119,
+        "scores": [
+          {
+            "robot": "treino.Both*",
+            "score": 2027,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 977,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 942,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 802,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 422,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 207,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 161,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 50,
+            "hits": 31,
+            "waves": 56,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 51
+          },
+          {
+            "round": 1,
+            "shots": 40,
+            "hits": 30,
+            "waves": 56,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 42
+          },
+          {
+            "round": 2,
+            "shots": 44,
+            "hits": 28,
+            "waves": 52,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 43
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 649,
+        "wins": 0,
+        "score_share": 0.3615598885793872,
+        "shots": 347,
+        "hits": 49,
+        "waves": 369,
+        "matched": 66,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 343,
+        "context": "mixed",
+        "seed": 134,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 949,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 649,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 182,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 15,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 65,
+            "hits": 14,
+            "waves": 66,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 66
+          },
+          {
+            "round": 1,
+            "shots": 135,
+            "hits": 18,
+            "waves": 142,
+            "matched": 24,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 131
+          },
+          {
+            "round": 2,
+            "shots": 147,
+            "hits": 17,
+            "waves": 161,
+            "matched": 34,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 146
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 507,
+        "wins": 0,
+        "score_share": 0.24780058651026393,
+        "shots": 208,
+        "hits": 39,
+        "waves": 192,
+        "matched": 32,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 209,
+        "context": "mixed",
+        "seed": 146,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1080,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 507,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 247,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 212,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 61,
+            "hits": 14,
+            "waves": 55,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 64
+          },
+          {
+            "round": 1,
+            "shots": 90,
+            "hits": 14,
+            "waves": 81,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 89
+          },
+          {
+            "round": 2,
+            "shots": 57,
+            "hits": 11,
+            "waves": 56,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 56
+          }
+        ]
+      },
+      {
+        "robot": "treino.Both*",
+        "score": 675,
+        "wins": 0,
+        "score_share": 0.352112676056338,
+        "shots": 406,
+        "hits": 67,
+        "waves": 430,
+        "matched": 77,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 397,
+        "context": "mixed",
+        "seed": 160,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 964,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Both*",
+            "score": 675,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 278,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 0,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 116,
+            "hits": 19,
+            "waves": 121,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 116
+          },
+          {
+            "round": 1,
+            "shots": 124,
+            "hits": 22,
+            "waves": 124,
+            "matched": 25,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 119
+          },
+          {
+            "round": 2,
+            "shots": 166,
+            "hits": 26,
+            "waves": 185,
+            "matched": 37,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 162
+          }
+        ]
+      }
+    ]
+  },
+  "ranking": [
+    "Baseline",
+    "Warm",
+    "Both",
+    "Observe"
+  ],
+  "selected": "Baseline",
+  "selection_keys": {
+    "Baseline": [
+      5,
+      6,
+      15,
+      0.3309770598143829,
+      -4
+    ],
+    "Observe": [
+      4,
+      4,
+      13,
+      0.29670681886795286,
+      -2
+    ],
+    "Warm": [
+      5,
+      5,
+      15,
+      0.3181624489337592,
+      -1
+    ],
+    "Both": [
+      4,
+      6,
+      13,
+      0.3070083736970706,
+      -2
+    ]
+  },
+  "validation": {
+    "Baseline": [
+      {
+        "robot": "treino.Baseline*",
+        "score": 60,
+        "wins": 0,
+        "score_share": 0.15873015873015872,
+        "shots": 244,
+        "hits": 13,
+        "waves": 244,
+        "matched": 33,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 101,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 318,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 60,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 83,
+            "hits": 8,
+            "waves": 89,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 87,
+            "hits": 4,
+            "waves": 82,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 74,
+            "hits": 1,
+            "waves": 73,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 241,
+        "wins": 2,
+        "score_share": 0.625974025974026,
+        "shots": 282,
+        "hits": 27,
+        "waves": 276,
+        "matched": 44,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": false,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 127,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 241,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 144,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 95,
+            "hits": 7,
+            "waves": 97,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 69,
+            "hits": 8,
+            "waves": 69,
+            "matched": 7,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 118,
+            "hits": 12,
+            "waves": 110,
+            "matched": 18,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 310,
+        "wins": 3,
+        "score_share": 0.7635467980295566,
+        "shots": 264,
+        "hits": 28,
+        "waves": 260,
+        "matched": 48,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 149,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 310,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 96,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 76,
+            "hits": 8,
+            "waves": 74,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 93,
+            "hits": 9,
+            "waves": 91,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 95,
+            "hits": 11,
+            "waves": 95,
+            "matched": 21,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 155,
+        "wins": 1,
+        "score_share": 0.3904282115869018,
+        "shots": 244,
+        "hits": 21,
+        "waves": 243,
+        "matched": 41,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          1
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 173,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 242,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 155,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 76,
+            "hits": 7,
+            "waves": 76,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 84,
+            "hits": 6,
+            "waves": 81,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 84,
+            "hits": 8,
+            "waves": 86,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 26,
+        "wins": 0,
+        "score_share": 0.06088992974238876,
+        "shots": 139,
+        "hits": 7,
+        "waves": 144,
+        "matched": 31,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 142,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 401,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 26,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 39,
+            "hits": 3,
+            "waves": 49,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 44,
+            "hits": 3,
+            "waves": 40,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 56,
+            "hits": 1,
+            "waves": 55,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 44,
+        "wins": 0,
+        "score_share": 0.1111111111111111,
+        "shots": 190,
+        "hits": 11,
+        "waves": 204,
+        "matched": 42,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 168,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 352,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 44,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 37,
+            "hits": 2,
+            "waves": 36,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 98,
+            "hits": 6,
+            "waves": 114,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 55,
+            "hits": 3,
+            "waves": 54,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 41,
+        "wins": 0,
+        "score_share": 0.09761904761904762,
+        "shots": 176,
+        "hits": 13,
+        "waves": 176,
+        "matched": 36,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 190,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 379,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 41,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 54,
+            "hits": 3,
+            "waves": 53,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 77,
+            "hits": 7,
+            "waves": 77,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 45,
+            "hits": 3,
+            "waves": 46,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 53,
+        "wins": 0,
+        "score_share": 0.12441314553990611,
+        "shots": 212,
+        "hits": 17,
+        "waves": 227,
+        "matched": 49,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 214,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 373,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 53,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 48,
+            "hits": 2,
+            "waves": 45,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 120,
+            "hits": 10,
+            "waves": 140,
+            "matched": 26,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 44,
+            "hits": 5,
+            "waves": 42,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 2050,
+        "wins": 3,
+        "score_share": 0.37885788209203475,
+        "shots": 148,
+        "hits": 85,
+        "waves": 158,
+        "matched": 5,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 183,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 2050,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 819,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 761,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 558,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 491,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 462,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 270,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 64,
+            "hits": 34,
+            "waves": 41,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 37,
+            "hits": 23,
+            "waves": 59,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 47,
+            "hits": 28,
+            "waves": 58,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 1920,
+        "wins": 3,
+        "score_share": 0.3473855617875882,
+        "shots": 142,
+        "hits": 81,
+        "waves": 173,
+        "matched": 6,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 209,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 1920,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 948,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 634,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 611,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 577,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 469,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 368,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 47,
+            "hits": 29,
+            "waves": 52,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 46,
+            "hits": 26,
+            "waves": 52,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 49,
+            "hits": 26,
+            "waves": 69,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 1891,
+        "wins": 3,
+        "score_share": 0.33901039799211186,
+        "shots": 129,
+        "hits": 74,
+        "waves": 167,
+        "matched": 8,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 231,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 1891,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 1106,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 813,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 629,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 582,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 409,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 148,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 37,
+            "hits": 23,
+            "waves": 55,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 46,
+            "hits": 26,
+            "waves": 53,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 46,
+            "hits": 25,
+            "waves": 59,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 2132,
+        "wins": 3,
+        "score_share": 0.38933528122717315,
+        "shots": 155,
+        "hits": 96,
+        "waves": 177,
+        "matched": 2,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Baseline*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 255,
+        "scores": [
+          {
+            "robot": "treino.Baseline*",
+            "score": 2132,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 906,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 839,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 707,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 510,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 339,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 43,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 50,
+            "hits": 30,
+            "waves": 60,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 53,
+            "hits": 32,
+            "waves": 56,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 52,
+            "hits": 34,
+            "waves": 61,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 521,
+        "wins": 0,
+        "score_share": 0.2899276572064552,
+        "shots": 274,
+        "hits": 37,
+        "waves": 291,
+        "matched": 45,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 224,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1082,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 521,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 182,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 12,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 78,
+            "hits": 13,
+            "waves": 77,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 61,
+            "hits": 9,
+            "waves": 68,
+            "matched": 7,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 135,
+            "hits": 15,
+            "waves": 146,
+            "matched": 27,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 717,
+        "wins": 0,
+        "score_share": 0.38138297872340426,
+        "shots": 310,
+        "hits": 47,
+        "waves": 348,
+        "matched": 65,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 250,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 943,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 717,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 150,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 70,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 66,
+            "hits": 12,
+            "waves": 71,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 170,
+            "hits": 23,
+            "waves": 201,
+            "matched": 39,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 74,
+            "hits": 12,
+            "waves": 76,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 539,
+        "wins": 0,
+        "score_share": 0.28264289459884634,
+        "shots": 213,
+        "hits": 35,
+        "waves": 208,
+        "matched": 29,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 272,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1131,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 539,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 162,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 75,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 63,
+            "hits": 12,
+            "waves": 63,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 72,
+            "hits": 13,
+            "waves": 67,
+            "matched": 11,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 78,
+            "hits": 10,
+            "waves": 78,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Baseline*",
+        "score": 589,
+        "wins": 0,
+        "score_share": 0.29762506316321374,
+        "shots": 245,
+        "hits": 43,
+        "waves": 245,
+        "matched": 45,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 296,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1022,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Baseline*",
+            "score": 589,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 281,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 87,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 105,
+            "hits": 14,
+            "waves": 117,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 70,
+            "hits": 15,
+            "waves": 64,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 70,
+            "hits": 14,
+            "waves": 64,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      }
+    ],
+    "Candidate": [
+      {
+        "robot": "treino.Candidate*",
+        "score": 281,
+        "wins": 2,
+        "score_share": 0.5805785123966942,
+        "shots": 238,
+        "hits": 27,
+        "waves": 241,
+        "matched": 37,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": false,
+        "majority_winner": "treino.Candidate*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 101,
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 281,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Anchor*",
+            "score": 203,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 65,
+            "hits": 11,
+            "waves": 72,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 84,
+            "hits": 8,
+            "waves": 80,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 89,
+            "hits": 8,
+            "waves": 89,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 67,
+        "wins": 0,
+        "score_share": 0.1717948717948718,
+        "shots": 222,
+        "hits": 14,
+        "waves": 232,
+        "matched": 38,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 127,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 323,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 67,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 71,
+            "hits": 5,
+            "waves": 70,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 64,
+            "hits": 5,
+            "waves": 60,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 87,
+            "hits": 4,
+            "waves": 102,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 136,
+        "wins": 1,
+        "score_share": 0.3655913978494624,
+        "shots": 257,
+        "hits": 19,
+        "waves": 271,
+        "matched": 45,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          1,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 149,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 236,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 136,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 54,
+            "hits": 3,
+            "waves": 54,
+            "matched": 14,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 96,
+            "hits": 7,
+            "waves": 94,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 107,
+            "hits": 9,
+            "waves": 123,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 148,
+        "wins": 1,
+        "score_share": 0.3884514435695538,
+        "shots": 222,
+        "hits": 16,
+        "waves": 218,
+        "matched": 37,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          1,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": true,
+        "majority_winner": "treino.Anchor*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mirror",
+        "seed": 173,
+        "scores": [
+          {
+            "robot": "treino.Anchor*",
+            "score": 233,
+            "wins": 2
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 148,
+            "wins": 1
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 55,
+            "hits": 7,
+            "waves": 55,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 81,
+            "hits": 5,
+            "waves": 80,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 86,
+            "hits": 4,
+            "waves": 83,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 59,
+        "wins": 0,
+        "score_share": 0.16032608695652173,
+        "shots": 238,
+        "hits": 14,
+        "waves": 268,
+        "matched": 48,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 142,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 309,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 59,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 37,
+            "hits": 1,
+            "waves": 35,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 80,
+            "hits": 5,
+            "waves": 89,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 121,
+            "hits": 8,
+            "waves": 144,
+            "matched": 24,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 34,
+        "wins": 0,
+        "score_share": 0.0819277108433735,
+        "shots": 157,
+        "hits": 6,
+        "waves": 151,
+        "matched": 34,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 168,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 381,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 34,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 62,
+            "hits": 4,
+            "waves": 63,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 48,
+            "hits": 1,
+            "waves": 45,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 47,
+            "hits": 1,
+            "waves": 43,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 61,
+        "wins": 0,
+        "score_share": 0.1425233644859813,
+        "shots": 209,
+        "hits": 16,
+        "waves": 225,
+        "matched": 40,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 190,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 367,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 61,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 29,
+            "hits": 2,
+            "waves": 30,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 105,
+            "hits": 10,
+            "waves": 122,
+            "matched": 19,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 75,
+            "hits": 4,
+            "waves": 73,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 28,
+        "wins": 0,
+        "score_share": 0.06572769953051644,
+        "shots": 136,
+        "hits": 6,
+        "waves": 126,
+        "matched": 28,
+        "walls": 0,
+        "skipped": 4,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 214,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 398,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 28,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 50,
+            "hits": 2,
+            "waves": 47,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 48,
+            "hits": 2,
+            "waves": 44,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 38,
+            "hits": 2,
+            "waves": 35,
+            "matched": 9,
+            "walls": 0,
+            "skipped": 4,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 1900,
+        "wins": 3,
+        "score_share": 0.3447024673439768,
+        "shots": 141,
+        "hits": 79,
+        "waves": 167,
+        "matched": 9,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Candidate*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 183,
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 1900,
+            "wins": 3
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 907,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 857,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 701,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 570,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 393,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 184,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 44,
+            "hits": 27,
+            "waves": 54,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 43,
+            "hits": 22,
+            "waves": 47,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 54,
+            "hits": 30,
+            "waves": 66,
+            "matched": 6,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 1940,
+        "wins": 3,
+        "score_share": 0.3620754012691303,
+        "shots": 153,
+        "hits": 95,
+        "waves": 196,
+        "matched": 5,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Candidate*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 209,
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 1940,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 842,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 761,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 649,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 542,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 422,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 202,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 48,
+            "hits": 24,
+            "waves": 57,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 55,
+            "hits": 35,
+            "waves": 70,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 50,
+            "hits": 36,
+            "waves": 69,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 1768,
+        "wins": 3,
+        "score_share": 0.32422519713918946,
+        "shots": 137,
+        "hits": 72,
+        "waves": 160,
+        "matched": 7,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Candidate*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 231,
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 1768,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 938,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 812,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 684,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 506,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 447,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 298,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 44,
+            "hits": 29,
+            "waves": 46,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 50,
+            "hits": 18,
+            "waves": 64,
+            "matched": 5,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 43,
+            "hits": 25,
+            "waves": 50,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 1925,
+        "wins": 3,
+        "score_share": 0.35204828090709583,
+        "shots": 130,
+        "hits": 78,
+        "waves": 145,
+        "matched": 5,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.Candidate*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "crowd",
+        "seed": 255,
+        "scores": [
+          {
+            "robot": "treino.Candidate*",
+            "score": 1925,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 797,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 789,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Crazy",
+            "score": 731,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 684,
+            "wins": 0
+          },
+          {
+            "robot": "sample.Corners",
+            "score": 485,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 57,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 53,
+            "hits": 28,
+            "waves": 56,
+            "matched": 2,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 42,
+            "hits": 29,
+            "waves": 49,
+            "matched": 3,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 35,
+            "hits": 21,
+            "waves": 40,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 571,
+        "wins": 0,
+        "score_share": 0.3045333333333333,
+        "shots": 236,
+        "hits": 38,
+        "waves": 228,
+        "matched": 33,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 224,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1082,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 571,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 166,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 56,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 75,
+            "hits": 12,
+            "waves": 76,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 89,
+            "hits": 16,
+            "waves": 81,
+            "matched": 15,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 72,
+            "hits": 10,
+            "waves": 71,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 716,
+        "wins": 0,
+        "score_share": 0.36400610066090494,
+        "shots": 239,
+        "hits": 46,
+        "waves": 243,
+        "matched": 46,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 250,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1025,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 716,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 214,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 12,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 83,
+            "hits": 17,
+            "waves": 88,
+            "matched": 17,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 93,
+            "hits": 18,
+            "waves": 91,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 63,
+            "hits": 11,
+            "waves": 64,
+            "matched": 16,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 635,
+        "wins": 0,
+        "score_share": 0.32086912582112176,
+        "shots": 194,
+        "hits": 43,
+        "waves": 187,
+        "matched": 25,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 272,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 1047,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 635,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 282,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 15,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 60,
+            "hits": 13,
+            "waves": 60,
+            "matched": 8,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 56,
+            "hits": 18,
+            "waves": 48,
+            "matched": 4,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 78,
+            "hits": 12,
+            "waves": 79,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.Candidate*",
+        "score": 506,
+        "wins": 0,
+        "score_share": 0.2619047619047619,
+        "shots": 253,
+        "hits": 35,
+        "waves": 261,
+        "matched": 43,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "virtual": 0,
+        "context": "mixed",
+        "seed": 296,
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 989,
+            "wins": 3
+          },
+          {
+            "robot": "treino.Candidate*",
+            "score": 506,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 304,
+            "wins": 0
+          },
+          {
+            "robot": "sample.TrackFire",
+            "score": 133,
+            "wins": 0
+          }
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 77,
+            "hits": 14,
+            "waves": 81,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 57,
+            "hits": 7,
+            "waves": 53,
+            "matched": 4,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 119,
+            "hits": 14,
+            "waves": 127,
+            "matched": 27,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ]
+      }
+    ]
+  },
+  "validation_keys": {
+    "Baseline": [
+      6,
+      5,
+      18,
+      0.31493000907024526,
+      -3
+    ],
+    "Candidate": [
+      5,
+      5,
+      16,
+      0.2869553597379056,
+      -6
+    ]
+  },
+  "candidate_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "position_seed": 0,
+  "retained_production_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "production_decision": "Retain version 3.0; experimental changes did not improve series wins in selection.",
+  "validation_note": "Baseline and Candidate use IDENTICAL retained code; repeated control, not a new-version comparison.",
+  "runtime": {
+    "robocode": "1.12.0",
+    "java": "OpenJDK 21.0.13",
+    "arena": [
+      800,
+      600
+    ],
+    "cooling": 0.1
+  }
+}

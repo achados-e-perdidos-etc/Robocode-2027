@@ -1,0 +1,45 @@
+{
+  "baseline_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "changes": [
+    {
+      "old": "/**\n * Nemesis 3.0 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * Nemesis 3.1 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+    },
+    {
+      "old": "    static final boolean EXPORT_LEARNING = false;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",
+      "new": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean FAST_OBSERVATION = true;\n    static final boolean WARM_DEFENSE = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n"
+    },
+    {
+      "old": "    private long lastPlan = -100;\n    private long solutionTime = -100;\n",
+      "new": "    private long lastPlan = -100;\n    private long lastObservation = -100;\n    private int virtualObservations;\n    private long solutionTime = -100;\n"
+    },
+    {
+      "old": "                    double prior = 0.12 + 0.38 * Math.exp(-gf * gf * 9);\n                    double learned = Math.min(0.88, w.owner.brain.surfSamples / 12.0);\n                    risk += (prior * (1 - learned) + density * learned * 5)\n",
+      "new": "                    double prior = 0.12 + 0.38 * Math.exp(-gf * gf * 9);\n                    double priorSamples = WARM_DEFENSE ? Math.min(4, GENERAL_SURF.samples / 32.0) : 0;\n                    double learned = Math.min(0.88, (w.owner.brain.surfSamples + priorSamples) / 12.0);\n                    risk += (prior * (1 - learned) + density * learned * 5)\n"
+    },
+    {
+      "old": "                + \" age=\" + (getTime() - e.time) + \" energy=\" + getEnergy());\n        if (getGunHeat() > 0 || Math.abs(error) > Math.atan2(14, d)\n",
+      "new": "                + \" age=\" + (getTime() - e.time) + \" energy=\" + getEnergy());\n        // Aprende trajetorias mesmo entre tiros reais. Sem gastar energia nem\n        // fingir que um tiro virtual acertou: o alvo e medido pelo radar depois.\n        if (FAST_OBSERVATION && getGunHeat() > 0 && getTime() - lastObservation >= 12\n                && getTime() == e.time && outgoing.size() < 96) {\n            queueGunWave(e, current, power, speed, direct, seg, angles, input, true);\n            virtualObservations++;\n            lastObservation = getTime();\n        }\n        if (getGunHeat() > 0 || Math.abs(error) > Math.atan2(14, d)\n"
+    },
+    {
+      "old": "            fired.put(bullet, e.brain);\n            GunWave w = new GunWave();\n            w.owner = e; w.x = getX(); w.y = getY();\n            w.time = getTime(); w.speed = bullet.getVelocity();\n            w.power = bullet.getPower(); w.bearing = direct; w.direction = e.direction;\n            w.segment = seg; w.angles = angles;\n            w.features = input;\n            w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();\n            if (outgoing.size() < 96) outgoing.add(w);\n        }\n    }\n",
+      "new": "            fired.put(bullet, e.brain);\n            queueGunWave(e, current, bullet.getPower(), bullet.getVelocity(), direct,\n                    seg, angles, input, false);\n        }\n    }\n\n    private void queueGunWave(Enemy e, Point2D.Double current, double power, double speed,\n            double bearing, int seg, double[] angles, double[] input, boolean virtual) {\n        if (outgoing.size() >= 96) return;\n        GunWave w = new GunWave();\n        w.owner = e; w.x = getX(); w.y = getY();\n        w.time = getTime(); w.speed = speed; w.power = power;\n        w.bearing = bearing; w.direction = e.direction;\n        w.segment = seg; w.angles = angles; w.features = input; w.virtual = virtual;\n        w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();\n        outgoing.add(w);\n    }\n"
+    },
+    {
+      "old": "                    double gf = guessFactor(w, x, y);\n                    learn(brain.gun[w.segment], gf, 1, 0.992);\n                    learn(brain.gunGlobal, gf, 1, 0.996);\n                    brain.gunSamples++;\n                    brain.gunNet.observe(w.features, gf);\n                    GENERAL_GUN.observe(w.features, gf);\n                    double actual = angle(w.x, w.y, x, y);\n",
+      "new": "                    double gf = guessFactor(w, x, y);\n                    double weight = w.virtual ? 0.35 : 1;\n                    learn(brain.gun[w.segment], gf, weight, Math.pow(0.992, weight));\n                    learn(brain.gunGlobal, gf, weight, Math.pow(0.996, weight));\n                    brain.gunSamples++;\n                    // O inimigo pode reagir a tiros reais. Observacoes virtuais\n                    // tem menos confianca e nao alteram o treino das redes.\n                    if (!w.virtual) {\n                        brain.gunNet.observe(w.features, gf);\n                        GENERAL_GUN.observe(w.features, gf);\n                    }\n                    double actual = angle(w.x, w.y, x, y);\n"
+    },
+    {
+      "old": "                    for (int gun = 0; gun < w.angles.length; gun++) {\n                        brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;\n                        brain.gunHits[gun] = brain.gunHits[gun] * 0.98\n                                + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? 1 : 0);\n                    }\n",
+      "new": "                    for (int gun = 0; gun < w.angles.length; gun++) {\n                        double decay = Math.pow(0.98, weight);\n                        brain.gunTrials[gun] = brain.gunTrials[gun] * decay + weight;\n                        brain.gunHits[gun] = brain.gunHits[gun] * decay\n                                + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? weight : 0);\n                    }\n"
+    },
+    {
+      "old": "                + \" waves=\" + wavesDetected + \" matched=\" + wavesMatched\n                + \" walls=\" + wallHits + \" skipped=\" + skipped);\n        for (Enemy enemy : enemies.values()) {\n",
+      "new": "                + \" waves=\" + wavesDetected + \" matched=\" + wavesMatched\n                + \" walls=\" + wallHits + \" skipped=\" + skipped + \" virtual=\" + virtualObservations);\n        for (Enemy enemy : enemies.values()) {\n"
+    },
+    {
+      "old": "    static class GunWave extends Wave {\n        double[] angles;\n",
+      "new": "    static class GunWave extends Wave {\n        boolean virtual;\n        double[] angles;\n"
+    }
+  ]
+}

@@ -40,12 +40,18 @@ import robocode.control.events.*;
 import robocode.control.snapshot.*;
 public class TrainingRunner extends BattleAdaptor {
  boolean completed, failed;
+ ITurnSnapshot latest;
  public void onBattleError(BattleErrorEvent e){failed=true;System.out.println("ERROR\t"+e.getError());}
  public void onTurnEnded(TurnEndedEvent e){
+  latest=e.getTurnSnapshot();
   for(IRobotSnapshot r:e.getTurnSnapshot().getRobots()) {
    String text=r.getOutputStreamSnapshot();
    if(text!=null&&!text.isEmpty())for(String line:text.split("\\r?\\n"))System.out.println("["+r.getName()+"] "+line);
   }
+ }
+ public void onRoundEnded(RoundEndedEvent e){
+  if(latest==null)throw new IllegalStateException("Missing round snapshot");
+  for(IRobotSnapshot r:latest.getRobots())System.out.println("ROUND_SCORE\t"+e.getRound()+"\t"+r.getName()+"\t"+r.getScoreSnapshot().getTotalFirsts());
  }
  public void onBattleCompleted(BattleCompletedEvent e){
   completed=true;
@@ -133,7 +139,9 @@ def run_suite(args, label, scenarios):
                   for name, score, wins in re.findall(r"RESULT\t([^\t\n]+)\t(\d+)\t(\d+)", block)]
         if len(scores) != int(count):
             raise RuntimeError("Incomplete roster " + key)
-        results[key] = {"scores": scores, "block": block}
+        rounds = [{"round": int(index), "robot": name, "firsts": int(wins)}
+                  for index, name, wins in re.findall(r"ROUND_SCORE\t(\d+)\t([^\t\n]+)\t(\d+)", block)]
+        results[key] = {"scores": scores, "round_scores": rounds, "block": block}
     if len(results) != len(scenarios):
         raise RuntimeError("Incomplete suite; inspect " + str(log))
     return results
@@ -157,8 +165,9 @@ def main():
     parser.add_argument("--output", type=pathlib.Path, default=ROOT / "training-runs/latest")
     parser.add_argument("--population", type=int, default=4)
     parser.add_argument("--generations", type=int, default=3)
-    parser.add_argument("--rounds", type=int, default=4)
-    parser.add_argument("--validation-rounds", type=int, default=12)
+    parser.add_argument("--rounds", type=int, default=3)
+    parser.add_argument("--validation-rounds", type=int, default=3)
+    parser.add_argument("--objective", choices=("series", "score"), default="series")
     parser.add_argument("--seed", type=int, default=2027)
     parser.add_argument("--position-seed", type=int, default=0)
     parser.add_argument("--initial-genome", help="Lista JSON opcional com os dez genes iniciais")
@@ -168,6 +177,8 @@ def main():
         if value is not None: setattr(args, key, value.resolve())
     if args.population < 2 or min(args.generations, args.rounds, args.validation_rounds) < 1:
         parser.error("population >= 2; generations and rounds >= 1")
+    if args.objective == "series" and (args.rounds != 3 or args.validation_rounds != 3):
+        parser.error("series objective requires exactly three rounds in training and validation")
     args.output.mkdir(parents=True, exist_ok=True)
     runner = args.output / "TrainingRunner.java"
     # Java source is embedded here; only the robot .java lives in the repository.
@@ -204,8 +215,11 @@ def main():
         for name, genes in zip(names, population):
             matches = [score_for(results[name + "-" + key], name) for key, _ in TRAIN]
             league = score_for(results["league"], name)
-            fitness = sum(row["score_share"] for row in matches) / len(matches)
-            fitness = 0.8 * fitness + 0.2 * league["score_share"] - 0.001 * sum(row["skipped"] for row in matches)
+            def quality(row):
+                if args.objective == "score": return row["score_share"]
+                return 0.70 * (row["wins"] >= 2) + 0.20 * row["wins"] / 3 + 0.10 * row["score_share"]
+            fitness = sum(quality(row) for row in matches) / len(matches)
+            fitness = 0.8 * fitness + 0.2 * quality(league) - 0.001 * sum(row["skipped"] for row in matches)
             ranking.append({"name": name, "genome": genes, "fitness": fitness, "matches": matches, "league": league})
         ranking.sort(key=lambda row: row["fitness"], reverse=True)
         report["generations"].append(ranking)
@@ -222,7 +236,8 @@ def main():
     for index, (key, bots) in enumerate(TRAIN):
         name = "Warm" + str(index)
         install(args, name, variant(template, name, champion["genome"], models))
-        result = run_suite(args, "pretrain-" + str(index), [(key, "treino." + name + "*," + bots, args.rounds * 2, 501 + index * 17)])
+        warm_rounds = args.rounds if args.objective == "series" else args.rounds * 2
+        result = run_suite(args, "pretrain-" + str(index), [(key, "treino." + name + "*," + bots, warm_rounds, 501 + index * 17)])
         block = result[key]["block"]
         models = tuple(re.findall(r"MODEL_" + label + r" ([A-Za-z0-9+/=]+)", block)[-1] for label in ("GUN", "SURF"))
         print("PRETRAIN", key, "complete", flush=True)

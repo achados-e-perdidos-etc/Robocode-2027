@@ -4,6 +4,8 @@ Melhoria de robô para o **Robocode clássico**, em Java. O código completo do 
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
+A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. O código 3.0 foi mantido após testar alternativas de adaptação rápida; veja os resultados em [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
+
 ## Estratégia implementada
 
 | Pedido | Implementação |

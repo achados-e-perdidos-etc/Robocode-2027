@@ -16,7 +16,7 @@ O compilador gera vários arquivos `.class` para as classes internas. Isso é no
 
 ## Primeiras batalhas
 
-Comece com arena **800 × 600**, resfriamento **0,1** e **30 rounds**, mantendo as demais regras padrão. Teste separadamente:
+Comece com arena **800 × 600**, resfriamento **0,1** e **3 rounds**, mantendo as demais regras padrão. Teste separadamente:
 
 - Nêmesis contra `sample.Walls`.
 - Nêmesis contra `sample.Corners`.
@@ -60,3 +60,9 @@ Se usar o compilador Eclipse em vez de `javac`, acrescente `--ecj /caminho/ecj.j
 ## Treinar várias versões
 
 Veja [TREINAMENTO.md](TREINAMENTO.md) para rodar o torneio por gerações em uma instalação separada e comparar uma candidata sem substituir o robô atual. Você não precisa de Python nem dessas ferramentas para jogar com `Nemesis.java`.
+
+## Regra da competição: melhor de três
+
+O objetivo é vencer **pelo menos dois dos três rounds**. O placar padrão do Robocode usa pontuação acumulada; para esta regra, conte as primeiras colocações (`1sts`) de cada robô. Uma pontuação maior, sozinha, não significa ganhar a série.
+
+Repita várias batalhas independentes de três rounds. Não use uma batalha única de 30 rounds e divida o resultado depois: o aprendizado acumulado tornaria a comparação diferente da competição. Use `tools/bo3.py` para comparar início, vitórias por round e vitórias de séries. Veja [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md).
