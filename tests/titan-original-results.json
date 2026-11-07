@@ -1,0 +1,722 @@
+{
+  "rounds_per_series": 3,
+  "fresh_data_owner_per_series": true,
+  "data_files_created": 36,
+  "archive_sha256": "70a86c844c84386e9de42d3d690aa52389c5f5164fea90e73c1667a6c7f87c83",
+  "cases": {
+    "nemesis-17": {
+      "scores": [
+        {
+          "robot": "treino.NemesisAudit*",
+          "score": 306,
+          "wins": 3
+        },
+        {
+          "robot": "titan.TitanAudit0*",
+          "score": 56,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit0*",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit0*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 2
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit0*",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 3
+        }
+      ]
+    },
+    "nemesis-43": {
+      "scores": [
+        {
+          "robot": "treino.NemesisAudit*",
+          "score": 204,
+          "wins": 2
+        },
+        {
+          "robot": "titan.TitanAudit1*",
+          "score": 203,
+          "wins": 1
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit1*",
+          "firsts": 1
+        },
+        {
+          "round": 0,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit1*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 1
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit1*",
+          "firsts": 1
+        },
+        {
+          "round": 2,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 2
+        }
+      ]
+    },
+    "nemesis-71": {
+      "scores": [
+        {
+          "robot": "treino.NemesisAudit*",
+          "score": 278,
+          "wins": 3
+        },
+        {
+          "robot": "titan.TitanAudit2*",
+          "score": 93,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit2*",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit2*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 2
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit2*",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "treino.NemesisAudit*",
+          "firsts": 3
+        }
+      ]
+    },
+    "diamond-17": {
+      "scores": [
+        {
+          "robot": "voidious.Diamond*",
+          "score": 313,
+          "wins": 3
+        },
+        {
+          "robot": "titan.TitanAudit3*",
+          "score": 77,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit3*",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "voidious.Diamond*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit3*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "voidious.Diamond*",
+          "firsts": 2
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit3*",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "voidious.Diamond*",
+          "firsts": 3
+        }
+      ]
+    },
+    "diamond-43": {
+      "scores": [
+        {
+          "robot": "voidious.Diamond*",
+          "score": 348,
+          "wins": 3
+        },
+        {
+          "robot": "titan.TitanAudit4*",
+          "score": 65,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit4*",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "voidious.Diamond*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit4*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "voidious.Diamond*",
+          "firsts": 2
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit4*",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "voidious.Diamond*",
+          "firsts": 3
+        }
+      ]
+    },
+    "diamond-71": {
+      "scores": [
+        {
+          "robot": "voidious.Diamond*",
+          "score": 233,
+          "wins": 2
+        },
+        {
+          "robot": "titan.TitanAudit5*",
+          "score": 164,
+          "wins": 1
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit5*",
+          "firsts": 1
+        },
+        {
+          "round": 0,
+          "robot": "voidious.Diamond*",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit5*",
+          "firsts": 1
+        },
+        {
+          "round": 1,
+          "robot": "voidious.Diamond*",
+          "firsts": 1
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit5*",
+          "firsts": 1
+        },
+        {
+          "round": 2,
+          "robot": "voidious.Diamond*",
+          "firsts": 2
+        }
+      ]
+    },
+    "crowd-17": {
+      "scores": [
+        {
+          "robot": "titan.TitanAudit6*",
+          "score": 1729,
+          "wins": 3
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 1078,
+          "wins": 0
+        },
+        {
+          "robot": "sample.SpinBot",
+          "score": 976,
+          "wins": 0
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 709,
+          "wins": 0
+        },
+        {
+          "robot": "sample.TrackFire",
+          "score": 566,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Corners",
+          "score": 538,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Crazy",
+          "score": 144,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit6*",
+          "firsts": 1
+        },
+        {
+          "round": 0,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit6*",
+          "firsts": 2
+        },
+        {
+          "round": 1,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit6*",
+          "firsts": 3
+        },
+        {
+          "round": 2,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Corners",
+          "firsts": 0
+        }
+      ]
+    },
+    "crowd-43": {
+      "scores": [
+        {
+          "robot": "titan.TitanAudit7*",
+          "score": 1648,
+          "wins": 3
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 1021,
+          "wins": 0
+        },
+        {
+          "robot": "sample.SpinBot",
+          "score": 990,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 859,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Crazy",
+          "score": 586,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Corners",
+          "score": 355,
+          "wins": 0
+        },
+        {
+          "robot": "sample.TrackFire",
+          "score": 170,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit7*",
+          "firsts": 1
+        },
+        {
+          "round": 0,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit7*",
+          "firsts": 2
+        },
+        {
+          "round": 1,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit7*",
+          "firsts": 3
+        },
+        {
+          "round": 2,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Corners",
+          "firsts": 0
+        }
+      ]
+    },
+    "crowd-71": {
+      "scores": [
+        {
+          "robot": "titan.TitanAudit8*",
+          "score": 1548,
+          "wins": 3
+        },
+        {
+          "robot": "sample.Walls",
+          "score": 1131,
+          "wins": 0
+        },
+        {
+          "robot": "sample.SpinBot",
+          "score": 924,
+          "wins": 0
+        },
+        {
+          "robot": "sample.TrackFire",
+          "score": 658,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Crazy",
+          "score": 600,
+          "wins": 0
+        },
+        {
+          "robot": "sample.Corners",
+          "score": 494,
+          "wins": 0
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 354,
+          "wins": 0
+        }
+      ],
+      "round_scores": [
+        {
+          "round": 0,
+          "robot": "titan.TitanAudit8*",
+          "firsts": 1
+        },
+        {
+          "round": 0,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 0,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "titan.TitanAudit8*",
+          "firsts": 2
+        },
+        {
+          "round": 1,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 1,
+          "robot": "sample.Corners",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "titan.TitanAudit8*",
+          "firsts": 3
+        },
+        {
+          "round": 2,
+          "robot": "sample.Walls",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.SpinBot",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Crazy",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.RamFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.TrackFire",
+          "firsts": 0
+        },
+        {
+          "round": 2,
+          "robot": "sample.Corners",
+          "firsts": 0
+        }
+      ]
+    }
+  }
+}

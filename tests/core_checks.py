@@ -30,6 +30,19 @@ public class CoreChecks {
   for(int i=0;i<150;i++)Nemesis.learn(one.surfGlobal,0.8,1,0.96);
   int peak=0;for(int i=0;i<Nemesis.BINS;i++){check(two.surfGlobal[i]==0,"isolated enemies");if(one.surfGlobal[i]>one.surfGlobal[peak])peak=i;}
   check(peak>Nemesis.BINS*0.8,"adapts to changed pattern");
+  near(Nemesis.threatPressure(2,0),2,"recent attacker pressure");
+  near(Nemesis.threatPressure(2,80),1,"threat half life");
+  near(Nemesis.threatPressure(2,321),0,"threat expiry");
+  near(Nemesis.threatPressure(20,0),4,"threat bound");
+  near(Nemesis.flattenAmount(7,3),0,"no flattening on tiny sample");
+  near(Nemesis.flattenAmount(20,0),0,"no flattening without hits");
+  check(Nemesis.flattenAmount(20,6)>Nemesis.flattenAmount(20,2),"adaptive flattening");
+  check(Nemesis.flattenAmount(10,10)<=0.30,"bounded flattening");
+  double[] visits=new double[Nemesis.BINS];
+  double[] uniform=Nemesis.normalizedVisits(visits);near(uniform[0],1.0/Nemesis.BINS,"smoothed empty visits");
+  Nemesis.learn(visits,0.7,1,0.99);double[] vd=Nemesis.normalizedVisits(visits);double vs=0;
+  for(double value:vd){check(Double.isFinite(value)&&value>0,"positive visit density");vs+=value;}
+  near(vs,1,"normalized visit profile");check(vd[Nemesis.gfBin(0.7)]>vd[Nemesis.gfBin(-0.7)],"repeated angle penalized");
   Nemesis.Neural net=new Nemesis.Neural("");
   double[] left=new double[12],right=new double[12];left[0]=-1;right[0]=1;
   double old=net.first[0][0],before=net.predict(left)[Nemesis.gfBin(-0.7)];

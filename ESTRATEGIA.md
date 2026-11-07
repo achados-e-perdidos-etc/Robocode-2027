@@ -4,13 +4,13 @@ Melhoria de robô para o **Robocode clássico**, em Java. O código completo do 
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
-A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. O código 3.0 foi mantido após testar alternativas de adaptação rápida; veja os resultados em [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
+A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. A versão 3.2 integra a redução de trajetórias repetidas avaliada a partir do Titan enviado pelo usuário; veja [TITAN-ANALISE.md](TITAN-ANALISE.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
 
 ## Estratégia implementada
 
 | Pedido | Implementação |
 | --- | --- |
-| Wave surfing e esquiva | Ondas estimadas por queda de energia, histórico dos últimos ticks, filtro de aquecimento do canhão e simulação das rotas até o cruzamento das quatro ondas mais próximas. |
+| Wave surfing e esquiva | Ondas estimadas, histórico, filtro de aquecimento, simulação de rotas até as quatro ondas mais próximas e mistura limitada de passagens recentes para reduzir previsibilidade sob impactos frequentes. |
 | Mira preditiva | Cinco miras virtuais: direta, linear, circular, GuessFactor e neural. A seleção usa os resultados recentes de cada uma por adversário. |
 | Aprendizado contínuo | Histogramas segmentados, redes neurais com retropropagação, replay limitado e perfis de ângulos de tiro por adversário. Dados antigos recebem menos peso. |
 | Visão da arena | Memória de posição, direção, velocidade, energia, idade da observação, previsão de movimento, alvo e ondas estimadas. Visualização pela pintura do Robocode. |

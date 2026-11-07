@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * Nemesis 3.0 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * Nemesis 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -30,6 +30,8 @@ public class Nemesis extends AdvancedRobot {
     static final String PRETRAINED_GUN = "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";
     static final String PRETRAINED_SURF = "Tk1TMwAAAIC+sw8tvhIbnj53AdQ+oxoqPC6rMb6h/BG+hotgPeEtBT6rP1A+E3ozvmN2Z76rSRu9N3f5PqF6Bb6hh/g96xeePhyuXb6m2aQ+mMV/vcfxvL4vNqo+qHVFvpZo2j2Pv04+QESkvq8RHb6Dy4w+F/EDvQJ9Lr28P7M+USVOvpXRZT6pgOO+rYiDPpPfs75a1rU9x+RGPLJB8r4dj4w+JhFdPp4jxb4yKmi+lAzfPkPG2j6RHTi+TJr1voVjcz5u920+g3XpvnfWcr5kb0Y+ip1ovO+UIr4pyPa+kTzFvqw7zb6pIGC+homGvhQfKLwB31Q+EmJCPod9zT6nqCQ+rj1OPpUQxL3QFKe+lx34vqv13r5WIgs82k3pPnWpuj6rXiE+fYB0PQoEgb5RAte+qfi9vp1pYr3ufuE+TZAwPjy9SL6o55M82k3pPqAg9r5yvXK+KbWGPqwffb2IDE++mq2WPoQT0j32ts++siy/vpJfrD6QUU2+h3wQPn6Nf75ufE4+YK5PvkaLSD45yHC+IkEsPhWDR733DTk91K1PvZVwDT6v5ga+TItWvhl+Kj6u4YW+IvxJvkWSeT6xVKS90S8mvnLB9D6qL5W9PHPrvoviIj6fWuC+rl2nvokYB7tOSr4+g8L+Pqz77z41ywi939O2vqHoTL6dcZm9qbDoPk8v/T6sQbE+bmcMPpFdrT5eBvw+EXRjPSJNcr2CVaG+Kv5NvoG2db6cvxO+r+i0vrG9C76epji+hWpFvjv6l75ZHtQ+fAoWPoPv3b5La/e+l38ZPg58zz6kczK9pIvLvq5p5TwmAEs+rpZbPU3M276rP6E9yRu4vnnEpz6nRSe+qvHMPoR9Xb38NbG9R3ODPk5Fkr6eWT4+rfSavpTPjD4ruL678PP9PKT2rL5tasw+q/hVvpd/GT4AP809xuqAvo3u4T6sQjC+g3z1PVF0SD4rstK+pHGDPqTxdL4LILU+ioNFPo8b1L3V0tK+rscFvYm0/T6f3fg+e06YviZSA76jFAS7ikdqPq7bWT5MMqs+eguTPldp7D45X8Q+EKHuPcyJmj1buYk8BcT+vQS40L2hXe+9/ARKviI6xr5M01i+cl6kPHlDHbx9Wa88qpgavSTribv/XIM9ZLhKPTAEXLx+zr69T/gMvCJxRz0PKrQ8pzGgPEG8Xj0ad6u7go8mPLh27b3SwcM9kh9+POZnnDubiZi9kGqAvGtmDD1MMyE8FdndvSPeNLyGG5o9T6WePVZaurwjRNC8YaIjPRRibLxzBJ+8Xxe0vdAB2zyyNpU8UQQePXBsFr2mnYy8+uFsPT7QMLv9pkg7PF1EvEkI97wxmW49pKiaPNyRx70Sg7Y9Dy8BvQ6IDbv1PXu9bUu3PYXhxDq7SpE9G9+SvVCDVb0zxdY9HqONO3PEpjw2TKC9WaMHPUywYTzMzyc9UzvSvRRbXj0EmKm9Tu4GPPkKAb3C/IU9AgF+PStnEbsfbOG8qedKvWWjpzzwqd09DFcWvRcgYzuwjWW8NE8gPZ+nXTw8qEq8c4CJPPbxmb11n/89PSTTvd8iOj1TVwe8frHDPR6kubzDwVC9gK70PJEQSz1ZEdm84eKKvT7rrD1AyQg9Y8HwvGcg2jxf3iA85hcJvW5QSTyDpyK9UEfdPRVlmz0x7us9JilSvVFj+L15/3c7tpJHPST9Hjytpwy8uQu2vFwqijynYPM8vXkRPPervTzXAk69KwYgvJGqJ72NKIk8cbEUu/qtCbzE3o29ezpwvU1YlrtypiQ7wyPzO3h93rtCTWo9H3dlPWiIbD0fBBY8zlwkPM3cg7xAyBC8I3BJvYwU4jyu1Ps8dK5zvEVDgr0gLGi9GZ/cu7+cg7yMOdy81lZZvVFVsbyAVmW8JSz4u5tCaDthpC48ybDsPJZGCDzBsWI7AHZqvJu2STyosv48i6SMOSKhNbyqPO68IEVovELI+TxwMmI8Kyy8PQ7rPLrtn4G8uzdnvI8Unjyo6wg9G5plPOOmp7wjfFw85UsfvILok7zTVlg8RhKGu6PN5byKSF08fSM6PRH/+L0ECeu8gP+CPO0kPzyX+/e8toXmPD072j0Xtpm7uulGvTFgzLwpjYY9Htf9vKDRDryVrkM7gmTIvK9gTT0kLYG8gq0KvKOl+Tz60Om8RG1zPP5iR7vaYgg6+f1pPJCdnrzXsEq7746bPUojQ7zKKdg9ArSSvSeDGjyPGaG810FSPQONBbzUVfY8NoBavITPwz0cc3m8iLeSPKNYILvIPcc5oWDqu6VsQryMqPG8SxU7POcMLzuBvhK9B9FhPL8QZLzIjJk67YqKPKLlHL0rAug8wmOMPLcUurzaKao9EsruvCNN0LyVd8U9ATOFvVn9Bj1hPko72hGZvNxD5rswn+Q8nd66vI8MBrzB62s7kxqyPF6pPrw2qjm681+cPIWMeTzsOnu8JrwsvRXI0D0ASwq70Q0Iu/1RZjwXZcE8izzqPNM7wzyLhlq8gfpEvNxBTr03l9C8uGAvPKa81D1LqZA8Tt22O8wUbLw0NYO9MN7Ku+R4Ejq6E5w9MSdYPSFm6DxaHLw8fY1JPCqHg7xK55K7YDQ3vKYzmbyYd6i8VxYgu8dNP70Z17a8gvQYvFjTqL0iTUO816zvvQQqWbmKOD+8ghVbvQbHgrzGBde72A/IOdGXBzzZYwo8lQM4PILktDxwtYk8JsW5vQao9LyzsUu8gF75vPlhdDsNgtE7z6GxPPcE6z0fcwe61+LqvQ7M57yiYUI8V7lEPO31Crxer8O9IkkEvAomrj0VA9w8lG26u7O0PbyhNtm8GiCkPQcamTxEvqQ7PtO/vJH72zzsAOe8R3p1vQS2TTzUxA87wDTlvQmhxDyAF/48SE34vLM7IzyefAA8nb8KvLiVszwwVqo8scp4vSykkzuju888ZiyGvLYHqDyxleK9DIrzPPoHAry/QAw8bftuvCcNibuLif08oTFEvMLcqj0JbQG8yUebPOPBlLyXlgg7nl4lu1IeUTwUkm28trT/POzNp7zEwEQ84J+lvQFLqjy3l0q8YXfjOzrZ4ruFbwe8kQ1lPMrEC7zSbA09FiGZvQK3HT0XYiy9Bm1/vJNrljyfFBY8AqXku8c85zy2tMC8S2NlvM82dT0bkxS8BKJOvVPVDzywo2G7E7PxvNnCDD0Oyou7dPyLO58c67vYwrY853QYvJAJvrwi7P48GIYrPKom4TyEs7u8UYaqvI3s6Lvu4us51cczO9l9H7znK0u82p1qPKzqyjyp1409MwjTvQ0o4r0FQCK9DhNnvAEKUzw/hIE80yphPQBEcz0HZZ4812EGuxeme7z5fPS9AkEbvRHEw7y+D+W7rWmpO7+yXj0mJWs8sAVOPKySHDyLD0E8vQ4cPKUSSDyu17Y8SZUaPDJyazule1a8CMdcvIPhDLxW4eO8jbYMvKNx47y10+K87n2NvLl4t7zfQ4e8hDzQPFf/ETzO8Vo8uiTTPIcz37xZyE+80LonvKRR5jtz9sw8/CKfPQHASDwmTAG8g3h+vRJyYrzVK2K8eb/rPR2TU7vPjhS87aQ1u4IB9zzTVfU8A+e0vKoGATxVXG087QT8vBCi1byxoho8NGE0POUJtrxZnNq9HCmsPEk6qjwSi129FX7FPCNoqzp/SnC8oqRJPRX4erwh1gu71960PSKOFrzAR7c7DGPKPBO+ab0WaVs80chUvEPTDryrGvg86J5gvKPgITxVnFe9E56ePF4RervbB2o9HLA3vL3cEzydCb+7uLW9PMfsMLzDMnK8KZ/ZvJ7PhjthOA28CBR5O2YYObqPpO08iEc2vTR6kDzx/w69F3DsPLRp5zzFgRO8yAMAPQGt17yDDXs8cFX+O4Pp7L0/1xg8leSfvLqpPbsBk548xZY2vQ6g1z1htxK6OsK0vNVqMby7V7Y9Mp+BPCQTnbzIHjo8Q4gxPPH9ubxqYgW8t1WUPAE6RrwEylC9As2gO0uo1T0tmE284jH7PBY3n70djwo8avpPPL4SQTzg22S7daQdvNBoHLyfnnU8koLwPS7R1jwyiGa9EgWdvSR13LyWHBY7v73gPUCwTTw23OQ8ZXDdvL0LKLwUds68tSasO+fOC7tYtMC9CRkyvSWa4LzGeOC7s2GhvQW6b704PHG8ULppPBcTBjuiVu09QCpVPKQtdD2kp8i9XCb5vQUvob1AKnU8iEBlO9/mDb0tZWe9E3/XO6QrFT0qz/y7PjQ4vO0llTxR3Mg8/9HtO4GQKj03CvS8jfPXPY7NsL1yBbc8D2ovO5njPj09dZ08EUshvSflxLw7AV89HjFLPUEHUL06lnS9vA67vJxfPTz9IW071yXZPQM9p70+bEY9mSfQvRT82b1J4g28AG97PZNF/Tvz0RK9EB67O2RId7s6Hz07f86HO4PO+b0lbLS9JK5YPCs84DxAnPY8cjkovNNybz3nj4u9R/w/PC4Ggr0l3WU9cqoIO80ARLzM4qO7wffjvNIq4z1chsy9IpVTvNMsWDu9g1i8drq+PJZZr7sEhEU8kjkSPUKJSTuzJRS9Cp4EPBSkOzxutpU8F7uEvCsNWbzy22w8rmPsvAdS3Tx+10y9TdtxPRiOv7zjz1E8wrzEvDygVjzQmVk8E1TIvPzcR7vwKEI83aKWvL6eXTxhfkQ762DjvSR4zjzRdHs8FO+TvP3UHzzKIgI3gSPQvKUgnTzV6Ry8YLRdu/szfT0WVKg803/oO+08PLy7W9q8CsBpPOR47Tx+xNC85VkbvMrnYDy+SGw829iRvHLn4LzxhUI7A5GuPLkavbtQM6G9Ao1SO4AP6r0h0uq86gPKuUKLZD0Ec9Q9JltMPJaJjTp/Xj68fn+kvJ+ZgLzvqcq8lX4XO1ljUjyizeQ8h6/MPDqrZrwvlGO8Imx/PIXE7zy/Ybc9DTICPV/J5z1C5rY8h/i4PJkV7j0BTqo9Ow4OPOHkqzyAh088mesIPKFJ/TwsiIk83FUIPK5wuz1qT5i9RcWsvTKTTbw0XXw9CWR4PS5kXzxoo/Q79JMmO/eahDpCkFm9CNZ7vT4S2rycO1i59qA8O8a2WD0MJs48d8O5PRXpVLu6SyS7rKe2vM1DXjyEfhQ9IqTVOzkfvr0EbAW8qoHAPMOVIjyvMfO8zzDJvPNRdrzBqCw6rp57PSUOdLzVgdk8+JICvVgG6r0K7/480T87PEtKiDyzzHa6h1JJvWMGWTymJ+A9OWlRvSi0WryuGow8rY3MvREpfTpBOFs82HxAvR4XWj2faIG6A2TzvQrqRTsWY2k8+bvjuoglljld1NO9Kcs2PSa6eryDekk8xxdZvVM19j0Q3lK8zbNAOyb9fjqplGm7i54SPR0IgQ==";
     static final boolean EXPORT_LEARNING = false;
+    static final boolean USE_THREATS = false;
+    static final boolean USE_FLATTENER = true;
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
     private static final Neural GENERAL_SURF = new Neural(PRETRAINED_SURF);
     // Statics sao preservados pelo Robocode entre rounds, dentro da batalha.
@@ -171,6 +173,10 @@ public class Nemesis extends AdvancedRobot {
     private void expireWaves() {
         for (Iterator<Wave> it = incoming.iterator(); it.hasNext();) {
             Wave w = it.next();
+            if (USE_FLATTENER && !w.visited
+                    && w.radius(getTime()) >= distance(w.x, w.y, getX(), getY())) {
+                recordPass(w, getX(), getY());
+            }
             if (w.radius(getTime()) > distance(w.x, w.y, getX(), getY()) + 55) it.remove();
         }
         for (Iterator<GunWave> it = outgoing.iterator(); it.hasNext();) {
@@ -186,8 +192,11 @@ public class Nemesis extends AdvancedRobot {
             updateVision();
             List<Wave> threats = nearestWaves();
             // Inferencia neural ocorre uma vez por onda/plano, nao por rota/tick.
-            for (Wave w : threats) w.neuralDanger = neuralPrediction(w.owner.brain.surfNet,
-                    GENERAL_SURF, w.features);
+            for (Wave w : threats) {
+                w.neuralDanger = neuralPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features);
+                w.flatten = USE_FLATTENER ? flattenAmount(w.owner.brain.passed, w.owner.brain.taken) : 0;
+                if (w.flatten > 0) w.visitDanger = normalizedVisits(w.owner.brain.visits);
+            }
             List<Point2D.Double> candidates = new ArrayList<Point2D.Double>();
             // Uma opcao de frear tambem pode evitar o proximo tiro.
             candidates.add(project(getX(), getY(), getHeadingRadians(), getVelocity() * 2));
@@ -268,6 +277,7 @@ public class Nemesis extends AdvancedRobot {
                             + GENERAL_SURF.samples * 0.15) / 40.0);
                     double mix = GENOME[3] * maturity;
                     density = density * (1 - mix) + w.neuralDanger[bin] * mix;
+                    if (w.flatten > 0) density = density * (1 - w.flatten) + w.visitDanger[bin] * w.flatten;
                     // Head-on como prior; os impactos reais passam a dominar.
                     double prior = 0.12 + 0.38 * Math.exp(-gf * gf * 9);
                     double learned = Math.min(0.88, w.owner.brain.surfSamples / 12.0);
@@ -294,7 +304,15 @@ public class Nemesis extends AdvancedRobot {
             Point2D.Double p = forecast.positions[future / 10 - 1];
             double d = distance(x, y, p.x, p.y);
             double weight = 0.6 + Math.min(100, e.energy) / 100;
+            if (USE_THREATS) weight *= 1 + 0.4 * forecast.pressure;
             risk += weight * GENOME[4] / Math.max(900, d * d);
+            if (USE_THREATS && forecast.pressure > 0) {
+                double dx = x - getX(), dy = y - getY();
+                double ex = p.x - getX(), ey = p.y - getY();
+                double lateral = Math.min(1, Math.abs(dx * ey - dy * ex)
+                        / Math.max(1, Math.hypot(dx, dy) * Math.hypot(ex, ey)));
+                risk += 0.12 * forecast.pressure * (1 - lateral) * (1 - lateral);
+            }
             if (d < 55) risk += 25;
             if (getOthers() == 1) {
                 risk += Math.abs(d - GENOME[1]) / 1600;
@@ -309,6 +327,7 @@ public class Nemesis extends AdvancedRobot {
         for (Enemy e : enemies.values()) {
             if (!e.alive || getTime() - e.time > 48) continue;
             Forecast forecast = new Forecast(e);
+            forecast.pressure = USE_THREATS ? threatPressure(e.threatScore, getTime() - e.threatTime) : 0;
             for (int i = 0; i < 10; i++) {
                 forecast.positions[i] = predict(e,
                         Math.min(16, getTime() - e.time + (i + 1) * 10), true);
@@ -516,7 +535,7 @@ public class Nemesis extends AdvancedRobot {
         return (brain.surf[segment][bin] + brain.surfGlobal[bin] * 0.4) / sum;
     }
 
-    private void matchBullet(Bullet bullet, double x, double y, String shooter) {
+    private void matchBullet(Bullet bullet, double x, double y, String shooter, boolean bodyHit) {
         Wave best = null;
         double error = Double.POSITIVE_INFINITY;
         for (Wave w : incoming) {
@@ -525,6 +544,10 @@ public class Nemesis extends AdvancedRobot {
             if (delta < error && delta < w.speed * 2.5 + 18) { error = delta; best = w; }
         }
         if (best != null) {
+            if (USE_FLATTENER && bodyHit && best.confidence >= 0.8) {
+                recordPass(best, getX(), getY());
+                best.owner.brain.taken = Math.min(best.owner.brain.passed, best.owner.brain.taken + 1);
+            }
             double gf = guessFactor(best, x, y);
             learn(best.owner.brain.surf[best.segment], gf, 1, 0.96);
             learn(best.owner.brain.surfGlobal, gf, 1, 0.98);
@@ -538,8 +561,13 @@ public class Nemesis extends AdvancedRobot {
 
     public void onHitByBullet(HitByBulletEvent e) {
         Enemy shooter = enemies.get(e.getName());
-        if (shooter != null) shooter.energy += Rules.getBulletHitBonus(e.getPower());
-        matchBullet(e.getBullet(), e.getBullet().getX(), e.getBullet().getY(), e.getName());
+        if (shooter != null) {
+            shooter.energy += Rules.getBulletHitBonus(e.getPower());
+            shooter.threatScore = Math.min(4, threatPressure(shooter.threatScore,
+                    getTime() - shooter.threatTime) + Rules.getBulletDamage(e.getPower()) / 8);
+            shooter.threatTime = getTime();
+        }
+        matchBullet(e.getBullet(), e.getBullet().getX(), e.getBullet().getY(), e.getName(), true);
         lastPlan = -100;
     }
 
@@ -554,7 +582,7 @@ public class Nemesis extends AdvancedRobot {
 
     public void onBulletHitBullet(BulletHitBulletEvent e) {
         Bullet other = e.getHitBullet();
-        matchBullet(other, other.getX(), other.getY(), other.getName());
+        matchBullet(other, other.getX(), other.getY(), other.getName(), false);
         finishShot(e.getBullet(), false);
     }
 
@@ -594,7 +622,8 @@ public class Nemesis extends AdvancedRobot {
                 + " walls=" + wallHits + " skipped=" + skipped);
         for (Enemy enemy : enemies.values()) {
             out.println("learn " + enemy.name + " gun=" + enemy.brain.gunSamples
-                    + " surf=" + enemy.brain.surfSamples + " neuralGun=" + enemy.brain.gunNet.samples);
+                    + " surf=" + enemy.brain.surfSamples + " neuralGun=" + enemy.brain.gunNet.samples
+                    + " passed=" + (int) enemy.brain.passed + " taken=" + (int) enemy.brain.taken);
         }
         if (EXPORT_LEARNING && getRoundNum() == getNumRounds() - 1) {
             out.println("MODEL_GUN " + GENERAL_GUN.pack());
@@ -644,6 +673,34 @@ public class Nemesis extends AdvancedRobot {
     static double normal(double a) { return Utils.normalRelativeAngle(a); }
     static double clamp(double min, double value, double max) { return Math.max(min, Math.min(value, max)); }
     static int sign(double value) { return value < 0 ? -1 : 1; }
+
+    // Inspirado nos conceitos de ThreatTracker e visitas do Titan enviado pelo
+    // usuario. Implementacao propria, com confianca de ondas e limites de CPU.
+    static double threatPressure(double score, long age) {
+        return age > 320 ? 0 : clamp(0, score, 4) * Math.pow(0.5, Math.max(0, age) / 80.0);
+    }
+
+    static double flattenAmount(double passed, double hits) {
+        if (passed < 8 || hits < 2) return 0;
+        return 0.30 * clamp(0, (hits / passed - 0.08) / 0.16, 1);
+    }
+
+    static double[] normalizedVisits(double[] visits) {
+        double total = 0.25 * BINS;
+        for (double value : visits) total += value;
+        double[] density = new double[BINS];
+        for (int i = 0; i < BINS; i++) density[i] = (visits[i] + 0.25) / total;
+        return density;
+    }
+
+    private void recordPass(Wave w, double x, double y) {
+        if (w.visited || w.confidence < 0.8) return;
+        w.visited = true;
+        Brain b = w.owner.brain;
+        b.passed = b.passed * 0.98 + 1;
+        b.taken *= 0.98;
+        learn(b.visits, guessFactor(w, x, y), 1, 0.99);
+    }
 
     private double[] features(double x, double y, double heading, double velocity,
             double acceleration, double bearing, double dist, double speed, int direction,
@@ -807,6 +864,8 @@ public class Nemesis extends AdvancedRobot {
         final double[][] gun = new double[SEGMENTS][BINS], surf = new double[SEGMENTS][BINS];
         final double[] gunGlobal = new double[BINS], surfGlobal = new double[BINS];
         final double[] gunTrials = new double[5], gunHits = new double[5];
+        final double[] visits = new double[BINS];
+        double passed, taken;
         final Neural gunNet = new Neural(""), surfNet = new Neural("");
         int gunSamples, surfSamples;
         double actualShots, actualHits;
@@ -815,6 +874,8 @@ public class Nemesis extends AdvancedRobot {
         final String name;
         final Brain brain;
         double x, y, heading, velocity, energy, turnRate, acceleration;
+        double threatScore;
+        long threatTime;
         long time = -1, nextFire;
         int direction = 1;
         boolean alive = true;
@@ -822,6 +883,7 @@ public class Nemesis extends AdvancedRobot {
     }
     static class Forecast {
         final Enemy enemy;
+        double pressure;
         final Point2D.Double[] positions = new Point2D.Double[10];
         Forecast(Enemy enemy) { this.enemy = enemy; }
     }
@@ -836,6 +898,9 @@ public class Nemesis extends AdvancedRobot {
         Enemy owner;
         double x, y, bearing, speed, power, confidence = 1;
         double[] features, neuralDanger;
+        double[] visitDanger;
+        double flatten;
+        boolean visited;
         int direction, segment;
         long time;
         double radius(long now) { return Math.max(0, now - time) * speed; }

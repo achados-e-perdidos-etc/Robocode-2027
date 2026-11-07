@@ -1,13 +1,13 @@
 {
-  "baseline_sha256": "d297edc2e4d835af07316870797e03280271169b5185c2893e37e9e2b19c0337",
+  "baseline_sha256": "b1c91979dfc253862b5936daf797a6ef65cde50761842ec14b4c0d53c3c21300",
   "changes": [
     {
-      "old": "/**\n * Nemesis 3.0 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
-      "new": "/**\n * Nemesis 3.1 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+      "old": "/**\n * Nemesis 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * Nemesis 3.2 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
     },
     {
-      "old": "    static final boolean EXPORT_LEARNING = false;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",
-      "new": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean FAST_OBSERVATION = true;\n    static final boolean WARM_DEFENSE = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n"
+      "old": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",
+      "new": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    static final boolean FAST_OBSERVATION = true;\n    static final boolean WARM_DEFENSE = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n"
     },
     {
       "old": "    private long lastPlan = -100;\n    private long solutionTime = -100;\n",

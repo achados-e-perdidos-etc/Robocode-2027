@@ -1,0 +1,905 @@
+[
+  {
+    "phase": "validation",
+    "case": "TitanBase-mirror-101",
+    "robots": [
+      "treino.TitanBase*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-mirror-151",
+    "robots": [
+      "treino.TitanBase*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "321.850171,107.398924,304.553276,478.149829,492.601076,342.282842"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-mirror-211",
+    "robots": [
+      "treino.TitanBase*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "133.775938,220.690409,266.680818,666.224062,379.309591,7.559008"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-titan-101",
+    "robots": [
+      "treino.TitanBase*",
+      "titan.TVTitanBase101*"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,651.823258,399.188255,175.339421"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-titan-151",
+    "robots": [
+      "treino.TitanBase*",
+      "titan.TVTitanBase151*"
+    ],
+    "rounds": 3,
+    "initial_positions": "197.093916,442.892027,107.770912,602.906084,157.107973,168.042651"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-titan-211",
+    "robots": [
+      "treino.TitanBase*",
+      "titan.TVTitanBase211*"
+    ],
+    "rounds": 3,
+    "initial_positions": "448.832741,102.855867,5.839453,351.167259,497.144133,247.208600"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-diamond-101",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,174.182304,174.516170,0.473424"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-diamond-151",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "280.622498,117.731285,226.195276,519.377502,482.268715,189.062823"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-diamond-211",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "112.872873,328.081865,41.114258,687.127127,271.918135,180.170249"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-crowd-101",
+    "robots": [
+      "treino.TitanBase*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "667.021396,378.024278,68.411325,478.032453,492.623710,27.656820,230.283482,462.173559,192.677839,110.334510,309.603410,81.857752,208.509561,149.801698,153.473154,450.880818,103.102370,334.275112,654.937781,204.670974,190.198113"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-crowd-151",
+    "robots": [
+      "treino.TitanBase*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "578.484157,457.633217,133.019453,332.581265,494.520312,15.962340,137.446056,384.929645,75.554127,140.019321,211.385223,237.678722,338.363341,104.569535,77.813951,583.121022,144.916974,278.207411,689.984838,302.045094,263.499780"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-crowd-211",
+    "robots": [
+      "treino.TitanBase*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "658.211928,208.958725,199.712948,664.201960,382.463048,323.055439,471.242527,493.871014,151.267185,224.636019,459.290152,129.495964,110.082165,304.760557,124.994168,213.842354,146.646165,281.161119,457.783048,104.010339,75.621941"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-mixed-101",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "505.595640,113.729818,172.103241,670.091764,372.824579,113.077172,294.404360,486.270182,188.259468,129.908236,227.175421,112.879412"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-mixed-151",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "155.179743,407.203212,149.006759,244.555342,131.158443,5.494117,644.820257,192.796788,210.283721,555.444658,468.841557,17.978091"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanBase-mixed-211",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "429.625368,498.953669,89.813886,111.517180,320.431288,157.479675,370.374632,101.046331,279.702676,688.482820,279.568712,95.591132"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mirror-101",
+    "robots": [
+      "treino.TitanFinal*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mirror-151",
+    "robots": [
+      "treino.TitanFinal*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "321.850171,107.398924,304.553276,478.149829,492.601076,342.282842"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mirror-211",
+    "robots": [
+      "treino.TitanFinal*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "133.775938,220.690409,266.680818,666.224062,379.309591,7.559008"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-titan-101",
+    "robots": [
+      "treino.TitanFinal*",
+      "titan.TVTitanFinal101*"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,651.823258,399.188255,175.339421"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-titan-151",
+    "robots": [
+      "treino.TitanFinal*",
+      "titan.TVTitanFinal151*"
+    ],
+    "rounds": 3,
+    "initial_positions": "197.093916,442.892027,107.770912,602.906084,157.107973,168.042651"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-titan-211",
+    "robots": [
+      "treino.TitanFinal*",
+      "titan.TVTitanFinal211*"
+    ],
+    "rounds": 3,
+    "initial_positions": "448.832741,102.855867,5.839453,351.167259,497.144133,247.208600"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-diamond-101",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,174.182304,174.516170,0.473424"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-diamond-151",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "280.622498,117.731285,226.195276,519.377502,482.268715,189.062823"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-diamond-211",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "112.872873,328.081865,41.114258,687.127127,271.918135,180.170249"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-crowd-101",
+    "robots": [
+      "treino.TitanFinal*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "667.021396,378.024278,68.411325,478.032453,492.623710,27.656820,230.283482,462.173559,192.677839,110.334510,309.603410,81.857752,208.509561,149.801698,153.473154,450.880818,103.102370,334.275112,654.937781,204.670974,190.198113"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-crowd-151",
+    "robots": [
+      "treino.TitanFinal*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "578.484157,457.633217,133.019453,332.581265,494.520312,15.962340,137.446056,384.929645,75.554127,140.019321,211.385223,237.678722,338.363341,104.569535,77.813951,583.121022,144.916974,278.207411,689.984838,302.045094,263.499780"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-crowd-211",
+    "robots": [
+      "treino.TitanFinal*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "658.211928,208.958725,199.712948,664.201960,382.463048,323.055439,471.242527,493.871014,151.267185,224.636019,459.290152,129.495964,110.082165,304.760557,124.994168,213.842354,146.646165,281.161119,457.783048,104.010339,75.621941"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mixed-101",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "505.595640,113.729818,172.103241,670.091764,372.824579,113.077172,294.404360,486.270182,188.259468,129.908236,227.175421,112.879412"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mixed-151",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "155.179743,407.203212,149.006759,244.555342,131.158443,5.494117,644.820257,192.796788,210.283721,555.444658,468.841557,17.978091"
+  },
+  {
+    "phase": "validation",
+    "case": "TitanFinal-mixed-211",
+    "robots": [
+      "treino.TitanFinal*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "429.625368,498.953669,89.813886,111.517180,320.431288,157.479675,370.374632,101.046331,279.702676,688.482820,279.568712,95.591132"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-mirror-19",
+    "robots": [
+      "treino.TitanBase*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "271.805728,120.601840,282.568088,528.194272,479.398160,187.367817"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-mirror-53",
+    "robots": [
+      "treino.TitanBase*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "185.067866,165.731067,320.449879,614.932134,434.268933,164.335399"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-titan-19",
+    "robots": [
+      "treino.TitanBase*",
+      "titan.TSTitanBase19*"
+    ],
+    "rounds": 3,
+    "initial_positions": "296.969624,486.952201,208.064836,503.030376,113.047799,95.622493"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-titan-53",
+    "robots": [
+      "treino.TitanBase*",
+      "titan.TSTitanBase53*"
+    ],
+    "rounds": 3,
+    "initial_positions": "122.448484,242.031392,44.682804,677.551516,357.968608,100.833701"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-diamond-19",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-diamond-53",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "259.549606,125.020896,225.168737,540.450394,474.979104,209.798664"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-crowd-19",
+    "robots": [
+      "treino.TitanBase*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,355.436092,102.375513,175.339421,596.252974,152.754550,174.972170,689.287364,314.012414,124.318696,564.482468,464.718645,300.126281,315.818919,491.388376,94.283150,130.545441,373.938756,35.262836"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-crowd-53",
+    "robots": [
+      "treino.TitanBase*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "684.965507,337.104857,276.277120,535.608956,476.786228,80.484517,284.136095,483.343963,40.011439,119.911118,351.839954,322.246348,166.598782,181.299403,228.950669,389.042323,100.142822,225.812907,619.737219,169.482773,205.584054"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-mixed-19",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,218.048446,455.736342,0.473424,174.182304,174.516170,108.696380,581.951554,144.263658,79.072248"
+  },
+  {
+    "phase": "selection",
+    "case": "TitanBase-mixed-53",
+    "robots": [
+      "treino.TitanBase*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.035989,250.658207,84.817297,471.545600,493.817923,90.579541,118.964011,349.341793,89.929917,328.454400,106.182077,122.752009"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-mirror-19",
+    "robots": [
+      "treino.Threat*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "271.805728,120.601840,282.568088,528.194272,479.398160,187.367817"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-mirror-53",
+    "robots": [
+      "treino.Threat*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "185.067866,165.731067,320.449879,614.932134,434.268933,164.335399"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-titan-19",
+    "robots": [
+      "treino.Threat*",
+      "titan.TSThreat19*"
+    ],
+    "rounds": 3,
+    "initial_positions": "296.969624,486.952201,208.064836,503.030376,113.047799,95.622493"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-titan-53",
+    "robots": [
+      "treino.Threat*",
+      "titan.TSThreat53*"
+    ],
+    "rounds": 3,
+    "initial_positions": "122.448484,242.031392,44.682804,677.551516,357.968608,100.833701"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-diamond-19",
+    "robots": [
+      "treino.Threat*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-diamond-53",
+    "robots": [
+      "treino.Threat*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "259.549606,125.020896,225.168737,540.450394,474.979104,209.798664"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-crowd-19",
+    "robots": [
+      "treino.Threat*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,355.436092,102.375513,175.339421,596.252974,152.754550,174.972170,689.287364,314.012414,124.318696,564.482468,464.718645,300.126281,315.818919,491.388376,94.283150,130.545441,373.938756,35.262836"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-crowd-53",
+    "robots": [
+      "treino.Threat*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "684.965507,337.104857,276.277120,535.608956,476.786228,80.484517,284.136095,483.343963,40.011439,119.911118,351.839954,322.246348,166.598782,181.299403,228.950669,389.042323,100.142822,225.812907,619.737219,169.482773,205.584054"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-mixed-19",
+    "robots": [
+      "treino.Threat*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,218.048446,455.736342,0.473424,174.182304,174.516170,108.696380,581.951554,144.263658,79.072248"
+  },
+  {
+    "phase": "selection",
+    "case": "Threat-mixed-53",
+    "robots": [
+      "treino.Threat*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.035989,250.658207,84.817297,471.545600,493.817923,90.579541,118.964011,349.341793,89.929917,328.454400,106.182077,122.752009"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-mirror-19",
+    "robots": [
+      "treino.Flatten*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "271.805728,120.601840,282.568088,528.194272,479.398160,187.367817"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-mirror-53",
+    "robots": [
+      "treino.Flatten*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "185.067866,165.731067,320.449879,614.932134,434.268933,164.335399"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-titan-19",
+    "robots": [
+      "treino.Flatten*",
+      "titan.TSFlatten19*"
+    ],
+    "rounds": 3,
+    "initial_positions": "296.969624,486.952201,208.064836,503.030376,113.047799,95.622493"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-titan-53",
+    "robots": [
+      "treino.Flatten*",
+      "titan.TSFlatten53*"
+    ],
+    "rounds": 3,
+    "initial_positions": "122.448484,242.031392,44.682804,677.551516,357.968608,100.833701"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-diamond-19",
+    "robots": [
+      "treino.Flatten*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-diamond-53",
+    "robots": [
+      "treino.Flatten*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "259.549606,125.020896,225.168737,540.450394,474.979104,209.798664"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-crowd-19",
+    "robots": [
+      "treino.Flatten*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,355.436092,102.375513,175.339421,596.252974,152.754550,174.972170,689.287364,314.012414,124.318696,564.482468,464.718645,300.126281,315.818919,491.388376,94.283150,130.545441,373.938756,35.262836"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-crowd-53",
+    "robots": [
+      "treino.Flatten*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "684.965507,337.104857,276.277120,535.608956,476.786228,80.484517,284.136095,483.343963,40.011439,119.911118,351.839954,322.246348,166.598782,181.299403,228.950669,389.042323,100.142822,225.812907,619.737219,169.482773,205.584054"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-mixed-19",
+    "robots": [
+      "treino.Flatten*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,218.048446,455.736342,0.473424,174.182304,174.516170,108.696380,581.951554,144.263658,79.072248"
+  },
+  {
+    "phase": "selection",
+    "case": "Flatten-mixed-53",
+    "robots": [
+      "treino.Flatten*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.035989,250.658207,84.817297,471.545600,493.817923,90.579541,118.964011,349.341793,89.929917,328.454400,106.182077,122.752009"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-mirror-19",
+    "robots": [
+      "treino.Combined*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "271.805728,120.601840,282.568088,528.194272,479.398160,187.367817"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-mirror-53",
+    "robots": [
+      "treino.Combined*",
+      "treino.TitanAnchor*"
+    ],
+    "rounds": 3,
+    "initial_positions": "185.067866,165.731067,320.449879,614.932134,434.268933,164.335399"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-titan-19",
+    "robots": [
+      "treino.Combined*",
+      "titan.TSCombined19*"
+    ],
+    "rounds": 3,
+    "initial_positions": "296.969624,486.952201,208.064836,503.030376,113.047799,95.622493"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-titan-53",
+    "robots": [
+      "treino.Combined*",
+      "titan.TSCombined53*"
+    ],
+    "rounds": 3,
+    "initial_positions": "122.448484,242.031392,44.682804,677.551516,357.968608,100.833701"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-diamond-19",
+    "robots": [
+      "treino.Combined*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "146.889072,202.383073,70.111618,653.110928,397.616927,347.490399"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-diamond-53",
+    "robots": [
+      "treino.Combined*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "259.549606,125.020896,225.168737,540.450394,474.979104,209.798664"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-crowd-19",
+    "robots": [
+      "treino.Combined*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "148.176742,200.811745,244.868449,355.436092,102.375513,175.339421,596.252974,152.754550,174.972170,689.287364,314.012414,124.318696,564.482468,464.718645,300.126281,315.818919,491.388376,94.283150,130.545441,373.938756,35.262836"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-crowd-53",
+    "robots": [
+      "treino.Combined*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "684.965507,337.104857,276.277120,535.608956,476.786228,80.484517,284.136095,483.343963,40.011439,119.911118,351.839954,322.246348,166.598782,181.299403,228.950669,389.042323,100.142822,225.812907,619.737219,169.482773,205.584054"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-mixed-19",
+    "robots": [
+      "treino.Combined*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "625.817696,425.483830,269.078983,218.048446,455.736342,0.473424,174.182304,174.516170,108.696380,581.951554,144.263658,79.072248"
+  },
+  {
+    "phase": "selection",
+    "case": "Combined-mixed-53",
+    "robots": [
+      "treino.Combined*",
+      "voidious.Diamond*",
+      "sample.SpinBot",
+      "sample.TrackFire"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.035989,250.658207,84.817297,471.545600,493.817923,90.579541,118.964011,349.341793,89.929917,328.454400,106.182077,122.752009"
+  },
+  {
+    "phase": "original",
+    "case": "nemesis-17",
+    "robots": [
+      "titan.TitanAudit0*",
+      "treino.NemesisAudit*"
+    ],
+    "rounds": 3,
+    "initial_positions": "112.762148,272.461969,290.408680,687.237852,327.538031,345.778119"
+  },
+  {
+    "phase": "original",
+    "case": "nemesis-43",
+    "robots": [
+      "titan.TitanAudit1*",
+      "treino.NemesisAudit*"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.533705,347.973303,250.640756,118.466295,252.026697,51.815960"
+  },
+  {
+    "phase": "original",
+    "case": "nemesis-71",
+    "robots": [
+      "titan.TitanAudit2*",
+      "treino.NemesisAudit*"
+    ],
+    "rounds": 3,
+    "initial_positions": "270.370746,478.907049,223.210615,529.629254,121.092951,3.052800"
+  },
+  {
+    "phase": "original",
+    "case": "diamond-17",
+    "robots": [
+      "titan.TitanAudit3*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "112.762148,272.461969,290.408680,687.237852,327.538031,345.778119"
+  },
+  {
+    "phase": "original",
+    "case": "diamond-43",
+    "robots": [
+      "titan.TitanAudit4*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.533705,347.973303,250.640756,118.466295,252.026697,51.815960"
+  },
+  {
+    "phase": "original",
+    "case": "diamond-71",
+    "robots": [
+      "titan.TitanAudit5*",
+      "voidious.Diamond*"
+    ],
+    "rounds": 3,
+    "initial_positions": "270.370746,478.907049,223.210615,529.629254,121.092951,3.052800"
+  },
+  {
+    "phase": "original",
+    "case": "crowd-17",
+    "robots": [
+      "titan.TitanAudit6*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "112.762148,272.461969,290.408680,252.128773,127.953356,345.778119,502.845448,112.999375,104.265136,676.117403,238.860679,275.798678,641.467321,410.761139,253.519152,424.987422,499.256202,238.097901,189.691484,437.707281,39.658338"
+  },
+  {
+    "phase": "original",
+    "case": "crowd-43",
+    "robots": [
+      "titan.TitanAudit7*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "681.533705,347.973303,250.640756,521.148188,481.712185,51.815960,269.535614,478.618086,166.511612,116.165384,341.020924,241.792835,176.528409,172.534170,285.462458,405.170100,100.031786,163.148122,629.918600,178.109545,179.378003"
+  },
+  {
+    "phase": "original",
+    "case": "crowd-71",
+    "robots": [
+      "titan.TitanAudit8*",
+      "sample.Walls",
+      "sample.SpinBot",
+      "sample.Crazy",
+      "sample.RamFire",
+      "sample.TrackFire",
+      "sample.Corners"
+    ],
+    "rounds": 3,
+    "initial_positions": "270.370746,478.907049,223.210615,116.358496,341.651388,3.052800,175.934083,173.031383,353.828803,404.235876,100.021336,295.977062,629.347968,177.599302,359.647124,681.756362,347.347490,94.806108,521.996469,481.442052,71.815914"
+  }
+]

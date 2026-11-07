@@ -47,6 +47,8 @@ Registre a versão do Robocode, versão do código, adversários, regras, rounds
 
 No console do robô, cada round registra tiros, acertos, ondas detectadas, ondas associadas a balas, colisões com paredes e turnos perdidos. As linhas `learn` mostram o histórico acumulado por inimigo, incluindo amostras neurais. As amostras de defesa incluem balas que acertaram o robô e colisões entre balas.
 
+Na versão 3.2, `passed` e `taken` indicam massas com decaimento usadas na defesa que reduz trajetórias repetidas. São estimativas de ondas observadas, não contadores exatos da precisão adversária. A análise do Titan e os testes dessa atualização estão em [TITAN-ANALISE.md](TITAN-ANALISE.md).
+
 ## Verificação numérica opcional
 
 Com Python 3 e um JDK instalado:
