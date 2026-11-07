@@ -51,6 +51,7 @@ public class TrainingRunner extends BattleAdaptor {
  }
  public void onRoundEnded(RoundEndedEvent e){
   if(latest==null)throw new IllegalStateException("Missing round snapshot");
+  System.out.println("ROUND_TURNS\t"+e.getRound()+"\t"+e.getTurns());
   for(IRobotSnapshot r:latest.getRobots())System.out.println("ROUND_SCORE\t"+e.getRound()+"\t"+r.getName()+"\t"+r.getScoreSnapshot().getTotalFirsts());
  }
  public void onBattleCompleted(BattleCompletedEvent e){
@@ -119,9 +120,10 @@ def positions(count, seed):
     return ",".join(f"{value:.6f}" for value in points)
 
 
-def run_suite(args, label, scenarios):
+def run_suite(args, label, scenarios, position_overrides=None):
+    overrides = position_overrides or {}
     suite = args.output / (label + ".suite")
-    suite.write_text("\n".join("|".join((key, bots, str(rounds), positions(len(bots.split(",")), seed + args.position_seed)))
+    suite.write_text("\n".join("|".join((key, bots, str(rounds), overrides[key] if key in overrides else positions(len(bots.split(",")), seed + args.position_seed)))
                                 for key, bots, rounds, seed in scenarios) + "\n")
     log = args.output / (label + ".log")
     with log.open("w", encoding="utf-8") as stream:
@@ -141,7 +143,8 @@ def run_suite(args, label, scenarios):
             raise RuntimeError("Incomplete roster " + key)
         rounds = [{"round": int(index), "robot": name, "firsts": int(wins)}
                   for index, name, wins in re.findall(r"ROUND_SCORE\t(\d+)\t([^\t\n]+)\t(\d+)", block)]
-        results[key] = {"scores": scores, "round_scores": rounds, "block": block}
+        turns = {int(index): int(value) for index, value in re.findall(r"ROUND_TURNS\t(\d+)\t(\d+)", block)}
+        results[key] = {"scores": scores, "round_scores": rounds, "round_turns": turns, "block": block}
     if len(results) != len(scenarios):
         raise RuntimeError("Incomplete suite; inspect " + str(log))
     return results

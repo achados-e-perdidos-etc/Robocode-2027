@@ -83,3 +83,7 @@ Mais gerações não garantem evolução: uma população pode ficar especializa
 A competição foi confirmada como **quem vence dois dos três rounds**. Por padrão, treino e validação genética agora usam exatamente três rounds e objetivo `series`. O pré-treino também usa séries curtas nesse modo. Os arquivos `.battle` foram ajustados para três rounds. Os relatórios antigos de 12 ou 30 rounds são históricos e não provam desempenho em melhor de três.
 
 Para a comparação específica de partidas curtas e início com memória nova, veja [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md) e use `tools/bo3.py`. Ele compara as alternativas de adaptação rápida contra um adversário com a versão anterior, Diamond e grupos de inimigos; seleciona em posições de treino e mede depois em outras posições.
+
+## Exercício dirigido: RamFire e SpinBot
+
+O script `tools/ram_spin.py` faz uma pequena busca de distância/potência, pré-treino neural, avaliação reservada e verificações adicionais, sempre em séries de três rounds. O relatório [RAMFIRE-SPINBOT.md](RAMFIRE-SPINBOT.md) registra a candidata e a decisão de manter o código atual neste experimento.

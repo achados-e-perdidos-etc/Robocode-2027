@@ -18,6 +18,9 @@ O compilador gera vários arquivos `.class` para as classes internas. Isso é no
 
 Comece com arena **800 × 600**, resfriamento **0,1** e **3 rounds**, mantendo as demais regras padrão. Teste separadamente:
 
+- Titan Prime contra `sample.RamFire`.
+- Titan Prime contra `sample.SpinBot`.
+- Titan Prime contra `sample.RamFire` e `sample.SpinBot` juntos.
 - Titan Prime contra `sample.Walls`.
 - Titan Prime contra `sample.Corners`.
 - Titan Prime contra `sample.Tracker`.
@@ -68,3 +71,7 @@ Veja [TREINAMENTO.md](TREINAMENTO.md) para rodar o torneio por gerações em uma
 O objetivo é vencer **pelo menos dois dos três rounds**. O placar padrão do Robocode usa pontuação acumulada; para esta regra, conte as primeiras colocações (`1sts`) de cada robô. Uma pontuação maior, sozinha, não significa ganhar a série.
 
 Repita várias batalhas independentes de três rounds. Não use uma batalha única de 30 rounds e divida o resultado depois: o aprendizado acumulado tornaria a comparação diferente da competição. Use `tools/bo3.py` para comparar início, vitórias por round e vitórias de séries. Veja [MELHOR-DE-TRES.md](MELHOR-DE-TRES.md).
+
+## Treinos RamFire e SpinBot
+
+Foram adicionados três cenários prontos de três rounds. O resultado dos treinos e o cenário de aproximação a 100 pixels estão em [RAMFIRE-SPINBOT.md](RAMFIRE-SPINBOT.md). O Java atual foi preservado após a comparação com a candidata treinada.

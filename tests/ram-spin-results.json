@@ -1,0 +1,4146 @@
+{
+  "baseline_sha256": "cf050905c02f4f57ec6612f1082ba45a69f2e01df40909dd28bbe9a87131fef3",
+  "profiles": {
+    "RSBase": [
+      1.2334466,
+      441.2925895,
+      0.026321,
+      0.3713866,
+      18000,
+      1.0094116,
+      1.2035665,
+      0.9761274,
+      -0.0066714,
+      1.0544508
+    ],
+    "RSPressure": [
+      1.2334466,
+      350,
+      0.026321,
+      0.3713866,
+      18000,
+      1.1,
+      1.2035665,
+      0.9761274,
+      -0.0066714,
+      1.0544508
+    ],
+    "RSRange": [
+      1.2334466,
+      510,
+      0.026321,
+      0.3713866,
+      18000,
+      0.85,
+      1.2035665,
+      0.9761274,
+      -0.0066714,
+      1.0544508
+    ]
+  },
+  "selection": {
+    "RSBase": [
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 27,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 31,
+        "round_turns": {
+          "0": 351,
+          "1": 351,
+          "2": 351
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 40,
+        "hits": 30,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 14,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 67,
+        "round_turns": {
+          "0": 372,
+          "1": 365,
+          "2": 365
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 26,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 15,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 31,
+        "round_turns": {
+          "0": 354,
+          "1": 397,
+          "2": 354
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 35,
+        "hits": 27,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 11,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 67,
+        "round_turns": {
+          "0": 330,
+          "1": 347,
+          "2": 347
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 42,
+        "hits": 33,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 14,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 14,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 14,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 31,
+        "round_turns": {
+          "0": 365,
+          "1": 365,
+          "2": 365
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 33,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 13,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 67,
+        "round_turns": {
+          "0": 363,
+          "1": 363,
+          "2": 363
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 846,
+        "wins": 3,
+        "score_share": 0.75,
+        "shots": 104,
+        "hits": 47,
+        "waves": 35,
+        "matched": 3,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 26,
+            "hits": 13,
+            "waves": 12,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 39,
+            "hits": 16,
+            "waves": 10,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 39,
+            "hits": 18,
+            "waves": 13,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 31,
+        "round_turns": {
+          "0": 542,
+          "1": 725,
+          "2": 704
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 846,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 162,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 120,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 1004,
+        "wins": 3,
+        "score_share": 0.8700173310225303,
+        "shots": 85,
+        "hits": 63,
+        "waves": 21,
+        "matched": 3,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 27,
+            "hits": 21,
+            "waves": 7,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 29,
+            "hits": 21,
+            "waves": 7,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 29,
+            "hits": 21,
+            "waves": 7,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 67,
+        "round_turns": {
+          "0": 568,
+          "1": 578,
+          "2": 578
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 1004,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 150,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      }
+    ],
+    "RSPressure": [
+      {
+        "robot": "treino.RSPressure*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 30,
+        "hits": 24,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 31,
+        "round_turns": {
+          "0": 316,
+          "1": 316,
+          "2": 316
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 30,
+        "hits": 21,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 11,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 11,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 8,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 67,
+        "round_turns": {
+          "0": 340,
+          "1": 340,
+          "2": 304
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 31,
+        "hits": 24,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 9,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 31,
+        "round_turns": {
+          "0": 320,
+          "1": 336,
+          "2": 336
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 35,
+        "hits": 24,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 67,
+        "round_turns": {
+          "0": 339,
+          "1": 357,
+          "2": 357
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 459,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 54,
+        "hits": 27,
+        "waves": 14,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 16,
+            "hits": 9,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 19,
+            "hits": 9,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 19,
+            "hits": 9,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 31,
+        "round_turns": {
+          "0": 395,
+          "1": 429,
+          "2": 432
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 459,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 27,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 9,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 9,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 67,
+        "round_turns": {
+          "0": 339,
+          "1": 339,
+          "2": 339
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 609,
+        "wins": 3,
+        "score_share": 0.4464809384164223,
+        "shots": 51,
+        "hits": 30,
+        "waves": 26,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 21,
+            "hits": 10,
+            "waves": 9,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 14,
+            "hits": 10,
+            "waves": 7,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 16,
+            "hits": 10,
+            "waves": 10,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 31,
+        "round_turns": {
+          "0": 445,
+          "1": 363,
+          "2": 385
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 609,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 576,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 179,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSPressure*",
+        "score": 698,
+        "wins": 3,
+        "score_share": 0.5548489666136724,
+        "shots": 63,
+        "hits": 39,
+        "waves": 37,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSPressure*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 20,
+            "hits": 14,
+            "waves": 9,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 26,
+            "hits": 15,
+            "waves": 13,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 17,
+            "hits": 10,
+            "waves": 15,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 67,
+        "round_turns": {
+          "0": 445,
+          "1": 526,
+          "2": 410
+        },
+        "scores": [
+          {
+            "robot": "treino.RSPressure*",
+            "score": 698,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 394,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 166,
+            "wins": 0
+          }
+        ]
+      }
+    ],
+    "RSRange": [
+      {
+        "robot": "treino.RSRange*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 45,
+        "hits": 37,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 17,
+            "hits": 13,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 14,
+            "hits": 12,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 14,
+            "hits": 12,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 31,
+        "round_turns": {
+          "0": 405,
+          "1": 358,
+          "2": 358
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 33,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 13,
+            "hits": 11,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 11,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 11,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 67,
+        "round_turns": {
+          "0": 348,
+          "1": 344,
+          "2": 348
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 49,
+        "hits": 39,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 17,
+            "hits": 13,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 16,
+            "hits": 13,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 16,
+            "hits": 13,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 31,
+        "round_turns": {
+          "0": 398,
+          "1": 384,
+          "2": 384
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 45,
+        "hits": 36,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 15,
+            "hits": 12,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 15,
+            "hits": 12,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 15,
+            "hits": 12,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 67,
+        "round_turns": {
+          "0": 381,
+          "1": 381,
+          "2": 381
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 497,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 51,
+        "hits": 42,
+        "waves": 12,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 17,
+            "hits": 14,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 17,
+            "hits": 14,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 17,
+            "hits": 14,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 31,
+        "round_turns": {
+          "0": 389,
+          "1": 389,
+          "2": 389
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 497,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 454,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 72,
+        "hits": 36,
+        "waves": 15,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 24,
+            "hits": 12,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 24,
+            "hits": 12,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 24,
+            "hits": 12,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 67,
+        "round_turns": {
+          "0": 482,
+          "1": 482,
+          "2": 482
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 454,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 861,
+        "wins": 3,
+        "score_share": 0.7979610750695088,
+        "shots": 111,
+        "hits": 61,
+        "waves": 29,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 38,
+            "hits": 22,
+            "waves": 9,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 32,
+            "hits": 17,
+            "waves": 9,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 41,
+            "hits": 22,
+            "waves": 11,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 31,
+        "round_turns": {
+          "0": 681,
+          "1": 594,
+          "2": 720
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 861,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 181,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 37,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSRange*",
+        "score": 729,
+        "wins": 3,
+        "score_share": 0.586484312148029,
+        "shots": 85,
+        "hits": 50,
+        "waves": 34,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSRange*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 29,
+            "hits": 16,
+            "waves": 12,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 19,
+            "hits": 15,
+            "waves": 10,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 37,
+            "hits": 19,
+            "waves": 12,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 67,
+        "round_turns": {
+          "0": 551,
+          "1": 429,
+          "2": 677
+        },
+        "scores": [
+          {
+            "robot": "treino.RSRange*",
+            "score": 729,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 350,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 164,
+            "wins": 0
+          }
+        ]
+      }
+    ]
+  },
+  "selected": "RSPressure",
+  "selection_rank": {
+    "RSBase": [
+      8,
+      8,
+      24,
+      -10163,
+      0.9525021663778163,
+      0
+    ],
+    "RSPressure": [
+      8,
+      8,
+      24,
+      -8824,
+      0.8751662381287618,
+      0
+    ],
+    "RSRange": [
+      8,
+      8,
+      24,
+      -10735,
+      0.9230556734021922,
+      0
+    ]
+  },
+  "validation": {
+    "RSBase": [
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 42,
+        "hits": 28,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 16,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 131,
+        "round_turns": {
+          "0": 403,
+          "1": 361,
+          "2": 361
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 30,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 197,
+        "round_turns": {
+          "0": 354,
+          "1": 354,
+          "2": 354
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 38,
+        "hits": 29,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 14,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 263,
+        "round_turns": {
+          "0": 378,
+          "1": 351,
+          "2": 352
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 34,
+        "hits": 26,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 131,
+        "round_turns": {
+          "0": 310,
+          "1": 348,
+          "2": 348
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 27,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 13,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 197,
+        "round_turns": {
+          "0": 363,
+          "1": 364,
+          "2": 364
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 37,
+        "hits": 26,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 15,
+            "hits": 10,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 263,
+        "round_turns": {
+          "0": 387,
+          "1": 340,
+          "2": 340
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 30,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 131,
+        "round_turns": {
+          "0": 346,
+          "1": 346,
+          "2": 346
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 466,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 45,
+        "hits": 26,
+        "waves": 12,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 1,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 15,
+            "hits": 8,
+            "waves": 4,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 1,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 15,
+            "hits": 9,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 15,
+            "hits": 9,
+            "waves": 4,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 197,
+        "round_turns": {
+          "0": 385,
+          "1": 386,
+          "2": 386
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 466,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 45,
+        "hits": 33,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 15,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 15,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 15,
+            "hits": 11,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 263,
+        "round_turns": {
+          "0": 379,
+          "1": 379,
+          "2": 379
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 966,
+        "wins": 3,
+        "score_share": 0.7976878612716763,
+        "shots": 73,
+        "hits": 48,
+        "waves": 24,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 22,
+            "hits": 16,
+            "waves": 8,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 31,
+            "hits": 16,
+            "waves": 11,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 20,
+            "hits": 16,
+            "waves": 5,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 131,
+        "round_turns": {
+          "0": 502,
+          "1": 615,
+          "2": 476
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 966,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 175,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 70,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 774,
+        "wins": 3,
+        "score_share": 0.6695501730103807,
+        "shots": 95,
+        "hits": 48,
+        "waves": 42,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 38,
+            "hits": 15,
+            "waves": 18,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 27,
+            "hits": 13,
+            "waves": 13,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 30,
+            "hits": 20,
+            "waves": 11,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 197,
+        "round_turns": {
+          "0": 685,
+          "1": 536,
+          "2": 598
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 774,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 192,
+            "wins": 0
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 190,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 951,
+        "wins": 3,
+        "score_share": 0.8255208333333334,
+        "shots": 83,
+        "hits": 61,
+        "waves": 20,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 28,
+            "hits": 20,
+            "waves": 7,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 30,
+            "hits": 20,
+            "waves": 7,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 25,
+            "hits": 21,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 263,
+        "round_turns": {
+          "0": 575,
+          "1": 594,
+          "2": 523
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 951,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 201,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      }
+    ],
+    "RSCandidate": [
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 28,
+        "hits": 21,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 8,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 10,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 10,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 131,
+        "round_turns": {
+          "0": 302,
+          "1": 331,
+          "2": 331
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 0.9926470588235294,
+        "shots": 35,
+        "hits": 23,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 11,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 7,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 197,
+        "round_turns": {
+          "0": 356,
+          "1": 357,
+          "2": 361
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 4,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 27,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire",
+        "seed": 263,
+        "round_turns": {
+          "0": 344,
+          "1": 344,
+          "2": 344
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 32,
+        "hits": 24,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 11,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 131,
+        "round_turns": {
+          "0": 322,
+          "1": 341,
+          "2": 344
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 36,
+        "hits": 24,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 12,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 197,
+        "round_turns": {
+          "0": 356,
+          "1": 351,
+          "2": 351
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 540,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 32,
+        "hits": 25,
+        "waves": 0,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 12,
+            "hits": 9,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 10,
+            "hits": 8,
+            "waves": 0,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "ramfire_close",
+        "seed": 263,
+        "round_turns": {
+          "0": 361,
+          "1": 326,
+          "2": 326
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 540,
+            "wins": 3
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 30,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 131,
+        "round_turns": {
+          "0": 352,
+          "1": 352,
+          "2": 352
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 510,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 33,
+        "hits": 24,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 11,
+            "hits": 8,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 11,
+            "hits": 8,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 11,
+            "hits": 8,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 197,
+        "round_turns": {
+          "0": 334,
+          "1": 334,
+          "2": 334
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 510,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 508,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 39,
+        "hits": 30,
+        "waves": 9,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 13,
+            "hits": 10,
+            "waves": 3,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "spinbot",
+        "seed": 263,
+        "round_turns": {
+          "0": 356,
+          "1": 356,
+          "2": 356
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 508,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 591,
+        "wins": 3,
+        "score_share": 0.47129186602870815,
+        "shots": 70,
+        "hits": 26,
+        "waves": 42,
+        "matched": 0,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 18,
+            "hits": 6,
+            "waves": 14,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 27,
+            "hits": 13,
+            "waves": 14,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 25,
+            "hits": 7,
+            "waves": 14,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 131,
+        "round_turns": {
+          "0": 419,
+          "1": 541,
+          "2": 513
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 591,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 421,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 242,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 844,
+        "wins": 3,
+        "score_share": 0.7238421955403087,
+        "shots": 94,
+        "hits": 50,
+        "waves": 30,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 23,
+            "hits": 11,
+            "waves": 13,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 31,
+            "hits": 19,
+            "waves": 7,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 40,
+            "hits": 20,
+            "waves": 10,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 197,
+        "round_turns": {
+          "0": 488,
+          "1": 605,
+          "2": 726
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 844,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 178,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 144,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 916,
+        "wins": 3,
+        "score_share": 0.7795744680851063,
+        "shots": 73,
+        "hits": 48,
+        "waves": 21,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 23,
+            "hits": 14,
+            "waves": 8,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 28,
+            "hits": 18,
+            "waves": 7,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 22,
+            "hits": 16,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "both",
+        "seed": 263,
+        "round_turns": {
+          "0": 495,
+          "1": 595,
+          "2": 503
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 916,
+            "wins": 3
+          },
+          {
+            "robot": "sample.SpinBot",
+            "score": 150,
+            "wins": 0
+          },
+          {
+            "robot": "sample.RamFire",
+            "score": 109,
+            "wins": 0
+          }
+        ]
+      }
+    ]
+  },
+  "guards": {
+    "RSBase": [
+      {
+        "robot": "treino.RSBase*",
+        "score": 497,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 64,
+        "hits": 30,
+        "waves": 18,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSBase*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 22,
+            "hits": 10,
+            "waves": 6,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 21,
+            "hits": 10,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 21,
+            "hits": 10,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "walls",
+        "seed": 307,
+        "round_turns": {
+          "0": 494,
+          "1": 479,
+          "2": 479
+        },
+        "scores": [
+          {
+            "robot": "treino.RSBase*",
+            "score": 497,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSBase*",
+        "score": 54,
+        "wins": 0,
+        "score_share": 0.13810741687979539,
+        "shots": 240,
+        "hits": 15,
+        "waves": 252,
+        "matched": 54,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1228,
+          128
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 65,
+            "hits": 2,
+            "waves": 67,
+            "matched": 13,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 80,
+            "hits": 6,
+            "waves": 83,
+            "matched": 18,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 95,
+            "hits": 7,
+            "waves": 102,
+            "matched": 23,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 307,
+        "round_turns": {
+          "0": 1061,
+          "1": 1220,
+          "2": 1440
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 337,
+            "wins": 3
+          },
+          {
+            "robot": "treino.RSBase*",
+            "score": 54,
+            "wins": 0
+          }
+        ]
+      }
+    ],
+    "RSCandidate": [
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 499,
+        "wins": 3,
+        "score_share": 1.0,
+        "shots": 70,
+        "hits": 27,
+        "waves": 17,
+        "matched": 1,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          1,
+          1,
+          1
+        ],
+        "series_win": true,
+        "first_round_win": true,
+        "majority_winner": "treino.RSCandidate*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 24,
+            "hits": 9,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 24,
+            "hits": 9,
+            "waves": 6,
+            "matched": 0,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 22,
+            "hits": 9,
+            "waves": 5,
+            "matched": 1,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "walls",
+        "seed": 307,
+        "round_turns": {
+          "0": 528,
+          "1": 528,
+          "2": 494
+        },
+        "scores": [
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 499,
+            "wins": 3
+          },
+          {
+            "robot": "sample.Walls",
+            "score": 0,
+            "wins": 0
+          }
+        ]
+      },
+      {
+        "robot": "treino.RSCandidate*",
+        "score": 73,
+        "wins": 0,
+        "score_share": 0.1738095238095238,
+        "shots": 233,
+        "hits": 22,
+        "waves": 253,
+        "matched": 50,
+        "walls": 0,
+        "skipped": 0,
+        "round_wins": [
+          0,
+          0,
+          0
+        ],
+        "series_win": false,
+        "first_round_win": false,
+        "majority_winner": "voidious.Diamond*",
+        "cold_start": [
+          1368,
+          129
+        ],
+        "round_stats": [
+          {
+            "round": 0,
+            "shots": 65,
+            "hits": 6,
+            "waves": 64,
+            "matched": 12,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 1,
+            "shots": 122,
+            "hits": 11,
+            "waves": 145,
+            "matched": 28,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          },
+          {
+            "round": 2,
+            "shots": 46,
+            "hits": 5,
+            "waves": 44,
+            "matched": 10,
+            "walls": 0,
+            "skipped": 0,
+            "virtual": 0
+          }
+        ],
+        "virtual": 0,
+        "context": "diamond",
+        "seed": 307,
+        "round_turns": {
+          "0": 1016,
+          "1": 1877,
+          "2": 780
+        },
+        "scores": [
+          {
+            "robot": "voidious.Diamond*",
+            "score": 347,
+            "wins": 3
+          },
+          {
+            "robot": "treino.RSCandidate*",
+            "score": 73,
+            "wins": 0
+          }
+        ]
+      }
+    ]
+  },
+  "validation_rank": {
+    "RSBase": [
+      12,
+      12,
+      36,
+      -14868,
+      0.9410632389679492,
+      -2
+    ],
+    "RSCandidate": [
+      12,
+      12,
+      36,
+      -14159,
+      0.9139462990398043,
+      0
+    ]
+  },
+  "candidate_sha256": "ba37eb835e53e3b3027faa5a2961e62e7775dd130a9e9a2f204f9e14b83e66ee",
+  "promotion_checks": {
+    "no_context_series_regression": true,
+    "first_round_preserved": true,
+    "guards_preserved": true,
+    "more_series_or_five_percent_faster": false
+  },
+  "promote": false,
+  "candidate_models": {
+    "gun": "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",
+    "surf": "Tk1TMwAAAIG+sx40vhIghj523OU+oxonPC6rLr6iBBe+hpIVPeEpAz6rL60+E1TzvmN2Y76rU1a9OAzwPqF3y76hiFI96wy7PhyuWr6m2aE+mMROvcf1rb4vNvI+qHL1vpZrlT2Pv0w+QEGdvq8T276D1os+F+1nvQLpPb28P7A+USVKvpXXQz6pe/a+rYk7PpPUQb5a8fM9x+RDPLHKA74dqs0+JiJfPp4lJr4yFYK+lAzcPkPG1z6RIcG+TJNYvoVi4D5vCRc+g4BwvnfWbr5kY6s+iqfxvO2zeL4pvyG+kRfkvqw7yr6pIF2+hnl4vhQEU7wBn4k+EqCrPoei/T6nqCE+rlHAPpU19r3PgkK+lxf6vqvI8b5WIgc82k3lPnXQzj6rbnU+fYVLPQs0qr5QqDS+qfi6vp1Qc73tyaI+TazePjzB9r6o1fQ82k3lPqAg875yrhq+KaizPqwgbr2H0K2+mpvQPoQT0D323eC+shr7vpJU5D6QUw2+h27VPn6Ne75ufEo+YLnNvkaBpj45ydu+IirHPhWd8r33DTU91MqkvZU6sj6v70S+TIhMvhlncT6u4YK+IvxGvkWIkz6xWMK90SyuvnKutj6qOwe9PHPovovb0z6fZlW+rmXFvokZWbtTR7M+g8L8Pqz77D41wla93+I2vqHo076degi9qdknPk8v+T6sPCU+blLrPpFSoD5eA1w+EVlIPSJNb72CVZ++KwoVvoG7YL6cv8y+r/QpvrHKs76epjW+hXHHvjwV7b5ZLgo+fAeUPoPmg75La/O+l38WPg50qj6kb8m9pI3Nvq5xyzwk0p4+rpZYPU2jXb6rSQ49yK7hvnnNiD6nI8C+qvHJPoR9W738b829R9SsPk5B8r6edYA+rdLnvpTPiT4rk627+V/sPKEW0b5tfw0+q6w9vpd/Fj4AP8s9xmYLvo4KjD6sPhC+g71bPU8OPT4rss++pJu3PqSks74LZuc+in2GPo7wvb3V0s6+rscCvYn/+T6fzkk+e0nrviaa8L6jP3e7ikdoPq7Dbz5L278+efFbPldloD45P5g+EKHsPcyJlj1bgYo8BQnQvQS/wr2hlF69/EUoviI6w75M5Sy+cn8VPHnr6bx+dXM8q9VwvSXvMLwCPJI9ZcjOPTFUd7x76s69ULRrvCDnxz0QTi08qDnePD6JuT0aAlq7hdn7PLjZcr3TqKk9kjTqPOXXezugktu9kO5bvG3+mz1NR+o8Gy9kvSMiULyHmkQ9UAmEPVeCw7whLAO8ZOGUPRPrRLx0sKG8Xk+KvdDsYDyyiuo8T+iKPXEKn72nH0W8/ChRPT/gf7vzJ2E7R+qpvEv56bwwEDs9pTo4PN2Z0b0TUDQ9DrnHvQ7xUbvzs6W9bxkpPYX2ADqyyIE9HHfKvVF8cL00YsM9H6kAO4P2EDw5Eny9Wle/PU0OvjzO/m49U7qRvRUftD0EKBy9T1MWPPlohL3D2gs9AivSPSsf47sVeie8q/A8vWZHuzzyzJ09Dag/vRZm0TuqpZa8MsRkPaA5jTw+unG8drW2PPYGO712Cao9PVY7veAJ2T1Tgk28f9TTPR9Hd7zF1fy9gQLXPJM/XD1aapm84GcNvT+s4z1BLew9ZOznvGUCvDxclm085SZfvW68VTyEDDC9UiGKPRWR3j0xpH09Js/BvVJ0Vr16qwo7v4FFPSZdrzyvKx28upbrvFqNxDypxHQ8vo5APPX+XTzWDDC9K3ShvJFCyb2OGr48cmavu/0PpLzDiR29fFHJvU4IkLtgUtY7znDkO4J3CrtO+D09H+E4PWnCAT0fkjo8zKPCPMzgFbxCjXG8IpxDvY0NTTyvPyU8c0l4vEIlIL0hcwa9Gm2eu7TmBLyI7EG81IT3vVJCpbx+vc+8H3JZu5YQyTtRjTI8yInKPJU8+TzCLU86uFBKvJtMAzyoAFk8jTQQuSRG1Lyr2M28Guj9vDwsVDxz1eQ8J3gNPQ9nErq/wKe8ueq0vJEX6zynw6c9GxW/POQir7wskec85a1FvIONlLzR5UQ8QVqUu6m/zryHznc8gZ9mPRLXFr0E5P+8gBqxPO/KNDyZL0e8uGHoPDsaIz0XPBC7uR7pvTN53Lwova49HoCjvJ9KWryYLZw7eDNVvKzBQT0ly0y8gOWQvKV10Dz7wxy8PtIIPP+nl7viQa865+/3PI+aM7zXNvm8AKlvPUpVrbzK0189A3IovSi5XDyNkrO81LYGPQUeorzSm+M8MvvyvIPkqj0dz8C8h3vOPKFvCLvMnx05RN6vu6OVUbyQ+Iq8SlASPOZmdzuHiHq9CQCdPL2SULzGEA47D02wPKSVJb0r3uU8w0lMPLm9hLzY9Qw9EdvrvCVxx7yWbdU9AW0LvVwYUz1hdUk71y3CvNqmOLtFx4M8nDRBvIxFhry+fyI7mqOuPFrS+rw0qUu6w+EgPIbk7TzqJOu8KR/PvRZSIj0Ai0C749y9u/ukTjwV/Rk8jNA1PNCnwDyJ5pG8foshvNjq+L02rLe8uj7+PKe22j1NG/w8UX1cO8Pzrrw2idO9MWSru+KDLjphbq49MVv4PSEOaTxdNFA8eH3XPCdXbLxFl/S7RgDUvKRmK7yaTY+8VStZu7vw6b0ZMum8hPKWvFsc3r0i0Ke81zIIvQZqT7lhZcO8gsD0vQYHmbzIeeq73j55OjsyEzzckAs8lsKlPIEdBTxykWo8LEfQvQYJJby1oFG8gXq2vPpgRjsRPCA7vi2aPPdmIT0fIUy6wQozvQ/3/7yj2hk8XKDvPPD7XLxbW3O9IyIAvAhhaz0WU5o8lZ4bu7sSJryiRRa8HAYOPQdTVjw8buQ7QeeJvJKhYzztcyC8TDY3vQV1IzzXP/I7zHX/vQjJ8jx8wNY8ShkHvLCS/zyfsEo8m+F+vLmnZzwuav88sj1pvS6/WDulOQU8ZOwWvLShUzyvS329DUOkPPxubby8SQA8cT7evCpgW7uIEWQ8o8N9vMGyRz0Iheq8ylCAPOLTpryXJsU7jhK+u1EAqTwUGl+8ti6+POvx9LzFSqU84YYyvQC9eTy4M8a8YrahOz1zrbuBlJy8kJ2aPMoW4rzSz0g9FfUFvQKiRD0WntO9Bs8+vJIi6jycNQE8DAu+u7tlpzyxxja8V42bvNKPYz0dR228CDG9vVZ4NjyuP0W67CZBvNeimD0PvpK7fB5YO8CKTrvjKj4869NzvJnRRbwC6wI8LLAdPJla6Txf+Oe8aFPevIJQkbwDka666f5SO7jqSbzajjO802KHPLNpETymzjw9QUP1vQ9iNb0BgxC9Fm/ru5SdQDxh/288tnFwPN0cSjz7TGY86zuxu2qXZL0MGp69CTeFvQb75LyxsuW7gP+ZO6rtlz0+ey08q2PXPLRa4DxzTJU82YvPPLcFFjyQ8KU7/6VRPAnaoTv4KXC8Hl2xvKPcerxz4IS8boLcvJaS17yqRJC88+VXvIbNPrziMly8fp04PEHxHTzg/RI8xYMaPGiGhryEQBO83ZUkvJc6Tzs9RZA85+DMPPpR2TxCvim8dqLpvQ7JLrzYl9q8OZAIPR0VwrvI9ZS88VRKu1O77zzXIz877nk7vLHV4zxMwyo88WXavBU1cry4aGc8LjziPOnLZrxUKOO9GvA7PEbwZjwoAsG9FXw5PCNXmzqA1k+8osN7PRXuo7whlIi71z0ePSKZMbzAXlc7DMJbPBQEdb0WYWg80a+4vEPvPLyrJ5486KRIvKQXoDxWWGS9E+2kPGDUh7vkEZc9G/n4vLt82jyf9qC7skUlPMZIcbzCV0G8JIz1vJ2pIDtS+CK8Ch8zO17CULqIyKs8hEJLvTQ/TjzxN9u9FpIsPLGQ3zzDtc28xQXaPQOFqryBBiI8bDQuO4g6pr0+Peg8l1eQvLznz7sL3l48xG5pvQ5brD1fLs+6LQ5EvNYie7y5u349MU41PCDBr7zFWjk8SlqMPPPeQbxuNMu8tlYDPAckuLwCG8+9A9dzO0Ii2T0tD3G84bH7PAzYQL0dVDQ8aW7BPL/MkDzeB4a7gfIQvM1wYryb9Xk8lIaVPS3LQDw0rNa9EG9VvSO9sLyYVpY7uqHTPUAdcTw374s8W2I1vLyI9rwWLHu8sz01O9tKHbtoeXm9B3TbvSOUdbzEPkO7vHYIvQUitL02et68TYtCPBIkajucr4E9P4fUPKTFaT2jQ6i9W+WOvQWdkb0/NIw8hRuSO9f6AL0rvwy9EXbxO60gZz0prAi7NK0FvOmeIjxVD888/VeWO3fDnz02Z6y8jVsjPY1n3L1xwZw8DaBYO6HjKD070q08DSt8vSYuFLwyiEk9H1u3PT/XYL0597y9uyOXvJq05jz6jQ070TvMPQKTrL0+HMg9l7NMvRS6JL1KUii7+QjePZJ4zDvrvO29DnAHO4K9uLsn2eI7bTMTO4iqq70joAy9I92GPCYvIzw9t2Y8b58mvNLWtT3mIqS9R7zxPCxc6r0k72w9cSSZO8VVsLzJsTW7sjdKvNAADD1bbES9IgHJvM/CEDvDtIi8e4ZqPJT507sOZEE8kszTPT/Uuzu03YO9CvqOPBfgMTxpa5s8FGXsvCV/QLzvbnQ8sEaIvAsp3jyAbEy9TF8uPRk7Grzl5UM8wYqxvD7GFDzRGd48CesPvPxvA7vzBtg83z1RvME+hzxeL1k79mbHvSLFwDzTU1A8ESA/vPzVdDzNFIk5Oyg1vKcyYjzUuW68YtXMu/k1Wz0T/vE80/HQO+o+Nry5r4m8EDo4POK/XDyCQgi84c3PvMj0DDy8S+g83OIWvGzCRbzwIJc65Jx7PLfeFLtZFq69AkrSO1krlb0hm1+86r55N2PNDT0DHic9JYQMPJlWuzq295u8erIJvKGJPrzupuW8kn8DO2RA9zygs048hnsVPDiA4rwukRW8K+sLPIY3UDy+oWk9DgkJPV5p/D1CCQM8itthPJyk8T0CSVg9Og6+POLvSDyDnVc8m1EkPJ8fRTwqDJ482zd2PK72QD1n3cK9RYqJvTL2rbww5FU9B/iyPS1/MzxumxU8AaULO/+znDoAljG9CEypvTx6gLyaySO6Qv03O8GTpT0LkzQ8eNfFPRNiZLu4aUK7r9G8vMt+bjyBmN89IbtbO1FvFb0CjEu8qHG5PMF7YzywSry8y/DAvPHYS7zD8Fc6mbDsPSR4FLzU9TU882vTvVfJVL0LV3w80w4yPEVfNDyx7ya6Kz5nvWEb9zyoQ5o9OFZ4vSgk07yqyAo8rw9PvRJUDjoWb1I810jUvR3PeD2eF6S56mpGvQtJpzsjuQg89wGUuqOkBToTEZK9KAdBPSezMbyFdOI8yB/hvVGuBT0Rj/i8z9maOx0hxzqX30O7iYwgPRqbkQ=="
+  },
+  "candidate_samples": {
+    "gun": 1368,
+    "surf": 129
+  },
+  "baseline_preserved": true,
+  "runtime": {
+    "robocode": "1.12.0",
+    "java": "OpenJDK 21.0.13",
+    "compiler": "ECJ 3.37.0 target Java 8",
+    "arena": [
+      800,
+      600
+    ],
+    "rounds_per_series": 3,
+    "cooling": 0.1
+  }
+}
