@@ -15,6 +15,9 @@ import re
 import subprocess
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+JAVA_OPTIONS = ["--add-opens=" + package + "=ALL-UNNAMED" for package in (
+    "java.base/sun.net.www.protocol.jar", "java.base/java.lang.reflect",
+    "java.desktop/javax.swing.text", "java.desktop/sun.awt")]
 BOUNDS = [(0.4, 2), (300, 580), (0.006, 0.06), (0.05, 0.65),
           (9000, 36000), (0.65, 1.2), (-3.14, 3.14), (0.6, 1.6), (-3.14, 3.14), (0.6, 1.6)]
 TRAIN = [
@@ -40,9 +43,22 @@ import robocode.control.events.*;
 import robocode.control.snapshot.*;
 public class trainingrunner extends BattleAdaptor {
  boolean completed, failed;
+ boolean checkStart;
+ int currentRound;
+ RobotSetup[] setups;
  ITurnSnapshot latest;
+ public void onRoundStarted(RoundStartedEvent e){currentRound=e.getRound();checkStart=true;}
  public void onBattleError(BattleErrorEvent e){failed=true;System.out.println("ERROR\t"+e.getError());}
  public void onTurnEnded(TurnEndedEvent e){
+  if(checkStart){
+   checkStart=false;
+   for(IRobotSnapshot r:e.getTurnSnapshot().getRobots()){
+    RobotSetup s=setups[r.getRobotIndex()];
+    if(Math.hypot(r.getX()-s.getX(),r.getY()-s.getY())>1.01){
+     System.out.println("POSITION_ADJUSTED\t"+currentRound+"\t"+r.getName());
+    }
+   }
+  }
   latest=e.getTurnSnapshot();
   for(IRobotSnapshot r:e.getTurnSnapshot().getRobots()) {
    String text=r.getOutputStreamSnapshot();
@@ -72,7 +88,11 @@ public class trainingrunner extends BattleAdaptor {
    }
    System.out.println("BEGIN\t"+a[0]+"\t"+bots.length);
    listener.completed=false;listener.failed=false;
-   engine.runBattle(new BattleSpecification(Integer.parseInt(a[2]),new BattlefieldSpecification(800,600),bots),a[3],true);
+   String[] coordinates=a[3].split(",");
+   if(coordinates.length!=bots.length*3)throw new IllegalStateException("Bad initial positions");
+   listener.setups=new RobotSetup[bots.length];
+   for(int i=0;i<bots.length;i++)listener.setups[i]=new RobotSetup(Double.valueOf(coordinates[i*3]),Double.valueOf(coordinates[i*3+1]),Double.valueOf(coordinates[i*3+2]));
+   engine.runBattle(new BattleSpecification(new BattlefieldSpecification(800,600),Integer.parseInt(a[2]),450,0.1,100,false,bots,listener.setups),true);
    if(listener.failed||!listener.completed)throw new IllegalStateException("Battle incomplete "+a[0]);
    System.out.println("END\t"+a[0]);
   }
@@ -134,7 +154,7 @@ def run_suite(args, label, scenarios, position_overrides=None):
     log = args.output / (label + ".log")
     with log.open("w", encoding="utf-8") as stream:
         import os
-        command = ["java", "-Xmx768m", "-Djava.awt.headless=true", "-cp",
+        command = ["java", "-Xmx768m", "-Djava.awt.headless=true", *JAVA_OPTIONS, "-cp",
                    str(args.output) + os.pathsep + str(args.home / "libs/*"),
                    "trainingrunner", str(args.home), str(suite)]
         subprocess.run(command, cwd=args.home, stdout=stream, stderr=subprocess.STDOUT, check=True, timeout=1800)
@@ -150,7 +170,10 @@ def run_suite(args, label, scenarios, position_overrides=None):
         rounds = [{"round": int(index), "robot": name, "firsts": int(wins)}
                   for index, name, wins in re.findall(r"ROUND_SCORE\t(\d+)\t([^\t\n]+)\t(\d+)", block)]
         turns = {int(index): int(value) for index, value in re.findall(r"ROUND_TURNS\t(\d+)\t(\d+)", block)}
-        results[key] = {"scores": scores, "round_scores": rounds, "round_turns": turns, "block": block}
+        adjustments = [{"round": int(index), "robot": name} for index, name in re.findall(
+            r"POSITION_ADJUSTED\t(\d+)\t([^\n]+)", block)]
+        results[key] = {"scores": scores, "round_scores": rounds, "round_turns": turns,
+                        "position_adjustments": adjustments, "block": block}
     if len(results) != len(scenarios):
         raise RuntimeError("Incomplete suite; inspect " + str(log))
     return results

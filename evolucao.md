@@ -1,5 +1,7 @@
 # Nêmesis 3.0 — experimento de evolução
 
+> **Nota de metodologia posterior:** os testes históricos que solicitavam posições por string não comprovaram as largadas planejadas. Os resultados observados foram preservados, mas a equivalência das posições entre versões não está demonstrada. A API e a verificação foram corrigidas; veja [robos-de-exemplo.md](robos-de-exemplo.md).
+
 Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
 Este é o experimento histórico anterior à confirmação da regra de três rounds. A avaliação específica de vencer dois dos três está em [melhor-de-tres.md](melhor-de-tres.md).

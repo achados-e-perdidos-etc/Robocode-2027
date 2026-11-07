@@ -1,6 +1,6 @@
 # Como instalar e testar o Titan Prime
 
-Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para o Tank Royale. O código usa sintaxe Java 8 e foi validado no Java 21 com Robocode 1.12.0.
+Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para o Tank Royale. O código usa sintaxe Java 8 e foi validado no Java 21 com Robocode 1.12.0 e com a sua instalação 1.11.1.
 
 ## Colocar o robô no jogo
 
@@ -79,3 +79,9 @@ Foram adicionados três cenários prontos de três rounds. O resultado dos trein
 Os nomes dos arquivos do projeto foram padronizados em minúsculas. O robô atual é `robots/equipe/titanprime.java`, com classe `equipe.titanprime`. Relatórios e comandos de commits antigos preservam os nomes usados nas respectivas versões.
 
 Ao atualizar uma instalação antiga, remova também `TitanPrime.java`, `TitanPrime.class` e `TitanPrime$*.class` antigos antes de copiar e compilar `titanprime.java`. O nome para selecionar na batalha passa a ser `equipe.titanprime`.
+
+## Todos os exemplos da instalação
+
+A versão 3.3 foi testada contra os exemplos autônomos, grupos de adversários e a equipe real de cinco robôs. Há cenários prontos em `battles/equipe-cinco.battle`, `battles/todos-autonomos.battle` e `battles/sentinela.battle`.
+
+Os resultados completos, os exemplos que dependem de controle humano e a correção das posições do treinador estão em [robos-de-exemplo.md](robos-de-exemplo.md). Para repetir automaticamente, use `python tools/samples.py --home /caminho/robocode-testes --output /caminho/resultados`, acrescentando `--ecj /caminho/ecj.jar` se necessário.

@@ -1,0 +1,6320 @@
+{
+  "position_control": false,
+  "reason": "Legacy runBattle string overload did not reproduce the requested x/y coordinates; these are exploratory outcomes, not a paired comparison.",
+  "runs": {
+    "baseline": {
+      "engine": "1.11.1",
+      "source_sha256": "bb70ab1588345bed22e33362136a19793273a11251bc75e3e6327d26eeba363c",
+      "summary": {
+        "duel": {
+          "attempts": 48,
+          "complete": 48,
+          "series_wins": 48,
+          "round_wins": 144,
+          "rounds": 144,
+          "complete_telemetry": 48,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "demo": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "interactive": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "dependent": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "melee": {
+          "attempts": 12,
+          "complete": 12,
+          "series_wins": 12,
+          "round_wins": 35,
+          "rounds": 36,
+          "complete_telemetry": 11,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "team": {
+          "attempts": 3,
+          "complete": 3,
+          "series_wins": 3,
+          "round_wins": 9,
+          "rounds": 9,
+          "complete_telemetry": 3,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "sentry": {
+          "attempts": 3,
+          "complete": 3,
+          "series_wins": 3,
+          "round_wins": 9,
+          "rounds": 9,
+          "complete_telemetry": 3,
+          "skipped": 0,
+          "sentry_shots": 78
+        },
+        "helper": {
+          "attempts": 1,
+          "complete": 0,
+          "series_wins": 0,
+          "round_wins": 0,
+          "rounds": 0,
+          "complete_telemetry": 0,
+          "skipped": 0,
+          "sentry_shots": 0
+        }
+      },
+      "series": [
+        {
+          "key": "sample.corners-401",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 513,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.corners-557",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 518,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.corners-719",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 509,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-401",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 493,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-557",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 511,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-719",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-401",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 521,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-557",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 509,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-719",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 511,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-401",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 482,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-557",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 434,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 12,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-719",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 465,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-401",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 504,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-557",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-719",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 509,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-401",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 502,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-557",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 499,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-719",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 498,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-401",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-557",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-719",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-401",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-557",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-719",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-401",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-557",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 529,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-719",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 529,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-401",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 464,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-557",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 457,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-719",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 459,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-401",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 450,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-557",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 475,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-719",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 457,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 8,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-401",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 503,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-557",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 490,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-719",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 482,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-401",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 494,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-557",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 510,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-719",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-401",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 490,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-557",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 499,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-719",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 506,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-401",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 503,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-557",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 506,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-719",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 462,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-401",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 497,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-557",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 502,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-719",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-401",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-557",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-719",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-401",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-557",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-719",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-401",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-557",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-719",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-401",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-557",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-719",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-401",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-557",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-719",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-401",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 530,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-557",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-719",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-401",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 833,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 182,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 122,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-557",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 921,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 214,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-719",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 779,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 295,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 77,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-401",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1111,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 396,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 349,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 74,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-557",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1088,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 530,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 190,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 120,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-719",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1151,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 338,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 269,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 52,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-401",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1851,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1073,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 851,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 770,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 729,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 364,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 27,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-557",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1568,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1270,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 996,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 653,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 628,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 324,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 205,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-719",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1788,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1049,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 758,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 652,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 460,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 424,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 318,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-401",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 4355,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 2227,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 2213,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 2166,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 2042,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 1781,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 1711,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 1446,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 1441,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1388,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1214,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1207,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 1154,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 1091,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1058,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 561,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 443,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-557",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "sample.Walls",
+              "score": 3414,
+              "wins": 1
+            },
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 3278,
+              "wins": 2
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 2475,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 2191,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 2082,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 2014,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 2002,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1709,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 1266,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1139,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 1122,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1041,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 973,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 923,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 633,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 629,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 611,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            0,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": false,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-719",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 4140,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 2889,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 2038,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1890,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 1860,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 1747,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1742,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1682,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 1560,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 1462,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 1451,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1136,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1100,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 988,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 859,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 653,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 530,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-401",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 2066,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 144,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-557",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1893,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 112,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-719",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1967,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 80,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sentry-401",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 350,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 27
+        },
+        {
+          "key": "sentry-557",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 279,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 24
+        },
+        {
+          "key": "sentry-719",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 289,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 27
+        },
+        {
+          "key": "slave",
+          "category": "helper",
+          "opponents": "sampleex.Slave",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 180,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Slave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "status": "invalid",
+          "series_win": null,
+          "eligible": false
+        }
+      ]
+    },
+    "candidate": {
+      "engine": "1.11.1",
+      "source_sha256": "db0a3c47aeeb5356d28ae544f96d559f586a76cd444b76c584d7c73cf200784b",
+      "summary": {
+        "duel": {
+          "attempts": 48,
+          "complete": 48,
+          "series_wins": 48,
+          "round_wins": 144,
+          "rounds": 144,
+          "complete_telemetry": 48,
+          "skipped": 1,
+          "sentry_shots": 0
+        },
+        "demo": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "interactive": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "dependent": {
+          "attempts": 6,
+          "complete": 6,
+          "series_wins": 6,
+          "round_wins": 18,
+          "rounds": 18,
+          "complete_telemetry": 6,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "melee": {
+          "attempts": 12,
+          "complete": 12,
+          "series_wins": 12,
+          "round_wins": 36,
+          "rounds": 36,
+          "complete_telemetry": 12,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "team": {
+          "attempts": 3,
+          "complete": 3,
+          "series_wins": 2,
+          "round_wins": 6,
+          "rounds": 9,
+          "complete_telemetry": 3,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "sentry": {
+          "attempts": 3,
+          "complete": 3,
+          "series_wins": 3,
+          "round_wins": 9,
+          "rounds": 9,
+          "complete_telemetry": 3,
+          "skipped": 0,
+          "sentry_shots": 0
+        },
+        "helper": {
+          "attempts": 1,
+          "complete": 0,
+          "series_wins": 0,
+          "round_wins": 0,
+          "rounds": 0,
+          "complete_telemetry": 0,
+          "skipped": 0,
+          "sentry_shots": 0
+        }
+      },
+      "series": [
+        {
+          "key": "sample.corners-401",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 515,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.corners-557",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 521,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.corners-719",
+          "category": "duel",
+          "opponents": "sample.Corners",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 514,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-401",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 459,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-557",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 463,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.crazy-719",
+          "category": "duel",
+          "opponents": "sample.Crazy",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 476,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-401",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 520,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-557",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 515,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.fire-719",
+          "category": "duel",
+          "opponents": "sample.Fire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-401",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 422,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-557",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 424,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstjuniorrobot-719",
+          "category": "duel",
+          "opponents": "sample.MyFirstJuniorRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 421,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-401",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 498,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-557",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 505,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.myfirstrobot-719",
+          "category": "duel",
+          "opponents": "sample.MyFirstRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 506,
+              "wins": 3
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-401",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 502,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-557",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 505,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.paintingrobot-719",
+          "category": "duel",
+          "opponents": "sample.PaintingRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 498,
+              "wins": 3
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-401",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-557",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.ramfire-719",
+          "category": "duel",
+          "opponents": "sample.RamFire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-401",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-557",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.spinbot-719",
+          "category": "duel",
+          "opponents": "sample.SpinBot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-401",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 529,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-557",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.tracker-719",
+          "category": "duel",
+          "opponents": "sample.Tracker",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-401",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 484,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-557",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 468,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.trackfire-719",
+          "category": "duel",
+          "opponents": "sample.TrackFire",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 453,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-401",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 500,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 12,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-557",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 455,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.velocirobot-719",
+          "category": "duel",
+          "opponents": "sample.VelociRobot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 492,
+              "wins": 3
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-401",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 480,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-557",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 482,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.walls-719",
+          "category": "duel",
+          "opponents": "sample.Walls",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 481,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-401",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-557",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 509,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.alien-719",
+          "category": "duel",
+          "opponents": "sampleex.Alien",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 502,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-401",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 500,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-557",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 506,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.aliencomposition-719",
+          "category": "duel",
+          "opponents": "sampleex.AlienComposition",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 506,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-401",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 488,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-557",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 508,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.masterandslave-719",
+          "category": "duel",
+          "opponents": "sampleex.MasterAndSlave",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 504,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 8,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-401",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 512,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-557",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 497,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 4,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleex.proxyofgreyeminence-719",
+          "category": "duel",
+          "opponents": "sampleex.ProxyOfGreyEminence",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 485,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-401",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-557",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.sittingduck-719",
+          "category": "demo",
+          "opponents": "sample.SittingDuck",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SittingDuck",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-401",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-557",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 529,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.target-719",
+          "category": "demo",
+          "opponents": "sample.Target",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Target",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-401",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-557",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive-719",
+          "category": "interactive",
+          "opponents": "sample.Interactive",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-401",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-557",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sample.interactive_v2-719",
+          "category": "interactive",
+          "opponents": "sample.Interactive_v2",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Interactive_v2",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-401",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-557",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstdroid-719",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstDroid",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 612,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstDroid",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-401",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-557",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 540,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sampleteam.myfirstleader-719",
+          "category": "dependent",
+          "opponents": "sampleteam.MyFirstLeader",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 533,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstLeader",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-401",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 664,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 302,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 280,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-557",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 628,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 561,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 169,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "two-719",
+          "category": "melee",
+          "opponents": "sample.RamFire,sample.SpinBot",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 809,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 300,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 110,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-401",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1275,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 389,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 160,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 84,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-557",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1286,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 218,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 201,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 151,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "three-719",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.Crazy,sample.Tracker",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1268,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 388,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 225,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 50,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-401",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1793,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1015,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 907,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 905,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 662,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 301,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 124,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-557",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1872,
+              "wins": 3
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1266,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 936,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 625,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 443,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 308,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 34,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "six-719",
+          "category": "melee",
+          "opponents": "sample.Walls,sample.SpinBot,sample.Crazy,sample.RamFire,sample.TrackFire,sample.Corners",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1945,
+              "wins": 3
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 1002,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 637,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 632,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 473,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 382,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 327,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-401",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 4173,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 2561,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 2397,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 2107,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 1859,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 1687,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1654,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 1544,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 1482,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 1394,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1345,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 1168,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1165,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 1088,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1076,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 640,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 284,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-557",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 4489,
+              "wins": 3
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 2818,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 2723,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 2202,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 1751,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1734,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 1686,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1628,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1628,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 1469,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1032,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 1002,
+              "wins": 0
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 920,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 847,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 678,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 334,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 333,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "all_autonomous-719",
+          "category": "melee",
+          "opponents": "sample.Corners,sample.Crazy,sample.Fire,sample.MyFirstJuniorRobot,sample.MyFirstRobot,sample.PaintingRobot,sample.RamFire,sample.SpinBot,sample.Tracker,sample.TrackFire,sample.VelociRobot,sample.Walls,sampleex.Alien,sampleex.AlienComposition,sampleex.MasterAndSlave,sampleex.ProxyOfGreyEminence",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 4258,
+              "wins": 3
+            },
+            {
+              "robot": "sample.TrackFire",
+              "score": 2897,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Tracker",
+              "score": 2376,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 2195,
+              "wins": 0
+            },
+            {
+              "robot": "sample.SpinBot",
+              "score": 2053,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.MasterAndSlave",
+              "score": 1692,
+              "wins": 0
+            },
+            {
+              "robot": "sample.PaintingRobot",
+              "score": 1513,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Fire",
+              "score": 1463,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Crazy",
+              "score": 1463,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.AlienComposition",
+              "score": 1359,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.Alien",
+              "score": 1237,
+              "wins": 0
+            },
+            {
+              "robot": "sampleex.ProxyOfGreyEminence",
+              "score": 1217,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstJuniorRobot",
+              "score": 1155,
+              "wins": 0
+            },
+            {
+              "robot": "sample.RamFire",
+              "score": 1116,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Corners",
+              "score": 810,
+              "wins": 0
+            },
+            {
+              "robot": "sample.MyFirstRobot",
+              "score": 578,
+              "wins": 0
+            },
+            {
+              "robot": "sample.VelociRobot",
+              "score": 174,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-401",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 1302,
+              "wins": 3
+            },
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 107,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            0,
+            0,
+            0
+          ],
+          "series_win": false,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-557",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 1990,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 96,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "team-719",
+          "category": "team",
+          "opponents": "sampleteam.MyFirstTeam",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 2009,
+              "wins": 3
+            },
+            {
+              "robot": "sampleteam.MyFirstTeam (1)",
+              "score": 305,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": true,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sentry-401",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 419,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sentry-557",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 557,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 389,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "sentry-719",
+          "category": "sentry",
+          "opponents": "sample.Walls,samplesentry.BorderGuard",
+          "seed": 719,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 364,
+              "wins": 3
+            },
+            {
+              "robot": "samplesentry.BorderGuard",
+              "score": 0,
+              "wins": 0
+            },
+            {
+              "robot": "sample.Walls",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "round_wins": [
+            1,
+            1,
+            1
+          ],
+          "series_win": true,
+          "cold_start": [
+            1228,
+            128
+          ],
+          "status": "complete",
+          "eligible": false,
+          "telemetry_complete": true,
+          "sentry_shots": 0
+        },
+        {
+          "key": "slave",
+          "category": "helper",
+          "opponents": "sampleex.Slave",
+          "seed": 401,
+          "scores": [
+            {
+              "robot": "treino.sampleaudit*",
+              "score": 180,
+              "wins": 3
+            },
+            {
+              "robot": "sampleex.Slave",
+              "score": 0,
+              "wins": 0
+            }
+          ],
+          "status": "invalid",
+          "series_win": null,
+          "eligible": false
+        }
+      ]
+    }
+  }
+}

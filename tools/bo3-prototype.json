@@ -1,9 +1,9 @@
 {
-  "baseline_sha256": "bb70ab1588345bed22e33362136a19793273a11251bc75e3e6327d26eeba363c",
+  "baseline_sha256": "db0a3c47aeeb5356d28ae544f96d559f586a76cd444b76c584d7c73cf200784b",
   "changes": [
     {
-      "old": "/**\n * TitanPrime 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
-      "new": "/**\n * TitanPrime 3.2 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+      "old": "/**\n * TitanPrime 3.3 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * TitanPrime 3.3 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
     },
     {
       "old": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",

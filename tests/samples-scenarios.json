@@ -1,0 +1,331 @@
+{
+  "engine": "1.11.1",
+  "source_sha256": "db0a3c47aeeb5356d28ae544f96d559f586a76cd444b76c584d7c73cf200784b",
+  "archive_sha256": "76b35ade2ed48c4b9bd822bdd07c9d76b85a5500c8962ff0b98bc53635d03426",
+  "seeds": [
+    401,
+    557,
+    719
+  ],
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "rounds": 3,
+    "inactivity": 450,
+    "cooling": 0.1,
+    "sentry_border": 100,
+    "win": "at least two round firsts"
+  },
+  "groups": {
+    "duel": {
+      "attempts": 48,
+      "complete": 48,
+      "series_wins": 48,
+      "round_wins": 144,
+      "rounds": 144,
+      "complete_telemetry": 48,
+      "verified_positions": 48,
+      "skipped": 4,
+      "sentry_shots": 0
+    },
+    "demo": {
+      "attempts": 6,
+      "complete": 6,
+      "series_wins": 6,
+      "round_wins": 18,
+      "rounds": 18,
+      "complete_telemetry": 6,
+      "verified_positions": 6,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "interactive": {
+      "attempts": 6,
+      "complete": 6,
+      "series_wins": 6,
+      "round_wins": 18,
+      "rounds": 18,
+      "complete_telemetry": 6,
+      "verified_positions": 6,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "dependent": {
+      "attempts": 6,
+      "complete": 6,
+      "series_wins": 6,
+      "round_wins": 18,
+      "rounds": 18,
+      "complete_telemetry": 6,
+      "verified_positions": 6,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "melee": {
+      "attempts": 12,
+      "complete": 12,
+      "series_wins": 12,
+      "round_wins": 36,
+      "rounds": 36,
+      "complete_telemetry": 12,
+      "verified_positions": 10,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "team": {
+      "attempts": 3,
+      "complete": 3,
+      "series_wins": 3,
+      "round_wins": 8,
+      "rounds": 9,
+      "complete_telemetry": 3,
+      "verified_positions": 3,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "sentry": {
+      "attempts": 3,
+      "complete": 3,
+      "series_wins": 3,
+      "round_wins": 9,
+      "rounds": 9,
+      "complete_telemetry": 3,
+      "verified_positions": 3,
+      "skipped": 1,
+      "sentry_shots": 0
+    },
+    "helper": {
+      "attempts": 1,
+      "complete": 0,
+      "series_wins": 0,
+      "round_wins": 0,
+      "rounds": 0,
+      "complete_telemetry": 0,
+      "verified_positions": 0,
+      "skipped": 0,
+      "sentry_shots": 0
+    }
+  },
+  "baseline_groups": {
+    "melee": {
+      "attempts": 12,
+      "complete": 12,
+      "series_wins": 12,
+      "round_wins": 36,
+      "rounds": 36,
+      "complete_telemetry": 12,
+      "verified_positions": 9,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "team": {
+      "attempts": 3,
+      "complete": 3,
+      "series_wins": 3,
+      "round_wins": 9,
+      "rounds": 9,
+      "complete_telemetry": 3,
+      "verified_positions": 3,
+      "skipped": 0,
+      "sentry_shots": 0
+    },
+    "sentry": {
+      "attempts": 3,
+      "complete": 3,
+      "series_wins": 3,
+      "round_wins": 9,
+      "rounds": 9,
+      "complete_telemetry": 3,
+      "verified_positions": 3,
+      "skipped": 0,
+      "sentry_shots": 177
+    }
+  },
+  "paired_series_comparison": [
+    {
+      "key": "two-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "two-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "two-719",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "three-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "three-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "three-719",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "six-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "six-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "six-719",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "all_autonomous-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": false,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "all_autonomous-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": false,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "all_autonomous-719",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": false,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "team-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "team-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "team-719",
+      "baseline_wins": 3,
+      "final_wins": 2,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 0,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "sentry-401",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 58,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "sentry-557",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 27,
+      "final_sentry_shots": 0
+    },
+    {
+      "key": "sentry-719",
+      "baseline_wins": 3,
+      "final_wins": 3,
+      "baseline_series_win": true,
+      "final_series_win": true,
+      "both_positions_verified": true,
+      "baseline_sentry_shots": 92,
+      "final_sentry_shots": 0
+    }
+  ],
+  "limits": [
+    "Only selected initial positions are seeded, not the engine RNG.",
+    "Engine can relocate robots in later rounds; start_positions and positions_verified record this.",
+    "One round fewer won against the team; no claim of a universal performance gain."
+  ]
+}

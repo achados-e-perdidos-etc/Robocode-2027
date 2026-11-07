@@ -1,11 +1,13 @@
 # Treinos contra RamFire e SpinBot
 
+> **Correção de metodologia:** este relatório histórico usou a API de posições como string. O diagnóstico posterior mostrou que ela não reproduziu os pares X/Y solicitados. O cenário descrito como “100 pixels” não teve essa distância confirmada, e a diferença de 4,77% não demonstra uma melhoria com largadas pareadas. Os resultados originais foram preservados. O teste foi refeito com a API corrigida na versão 3.3: **3/3 séries e 9/9 rounds contra RamFire a 100 pixels**, sem reposicionamento registrado. Veja [robos-de-exemplo.md](robos-de-exemplo.md) e [tests/contact-results.json](tests/contact-results.json).
+
 Foram executados **56 séries de três rounds, totalizando 168 rounds**, no motor real do Robocode. O objetivo principal foi vencer pelo menos dois rounds por série. O código de produção do Titan Prime foi **mantido**, porque a candidata não atingiu todos os critérios de promoção definidos antes dos resultados.
 
 ## O que foi testado
 
 - Duelo contra `sample.RamFire`, com início distante.
-- Duelo contra RamFire com **100 pixels de separação**, robôs inicialmente voltados um para o outro. Esse é um caso de estresse para aproximação e colisões.
+- Duelo contra RamFire com **100 pixels de separação solicitados, não confirmados**, robôs inicialmente voltados um para o outro. Esse é um caso de estresse para aproximação e colisões.
 - Duelo contra `sample.SpinBot`.
 - Arena com os dois adversários ao mesmo tempo, todos contra todos.
 
@@ -50,11 +52,11 @@ Os critérios definidos antes da avaliação foram: não perder séries em nenhu
 
 Robocode clássico 1.12.0, OpenJDK 21.0.13, compilador ECJ 3.37.0 com alvo Java 8, arena 800 × 600, resfriamento 0,1. Seleção: posições 31 e 67. Pré-treino: posição 83. Avaliação reservada: posições 131, 197 e 263. Verificações adicionais: posição 307.
 
-As posições de uma série se repetem nos três rounds. A aleatoriedade interna dos adversários e a carga da JVM não foram completamente fixadas. A comparação de duração é entre esses lotes, sem intervalo de confiança. RamFire e SpinBot são robôs de exemplo; vencê-los não demonstra força contra robôs de elite. A candidata alterou parâmetros e pesos juntos, sem isolar o efeito de cada um.
+Os scripts solicitavam a repetição das posições nos três rounds, mas não verificaram as coordenadas efetivas. A aleatoriedade interna dos adversários e a carga da JVM não foram completamente fixadas. A comparação de duração é entre esses lotes, sem intervalo de confiança. RamFire e SpinBot são robôs de exemplo; vencê-los não demonstra força contra robôs de elite. A candidata alterou parâmetros e pesos juntos, sem isolar o efeito de cada um.
 
 ## Repetir no computador
 
-Os cenários de três rounds estão em `battles/duelo-ramfire.battle`, `battles/duelo-spinbot.battle` e `battles/ramfire-spinbot.battle`. No Robocode, também é possível abrir **Battle > New**, selecionar `equipe.TitanPrime` e os adversários e configurar **3 rounds**.
+Os cenários de três rounds estão em `battles/duelo-ramfire.battle`, `battles/duelo-spinbot.battle` e `battles/ramfire-spinbot.battle`. No Robocode, também é possível abrir **Battle > New**, selecionar `equipe.titanprime` e os adversários e configurar **3 rounds**.
 
 Para repetir o treino em uma instalação separada:
 

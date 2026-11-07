@@ -1,5 +1,7 @@
 # Competição: vencer dois dos três rounds
 
+> **Nota de metodologia posterior:** os testes históricos que solicitavam posições por string não comprovaram as largadas planejadas. Os resultados observados foram preservados, mas a equivalência das posições entre versões não está demonstrada. A API e a verificação foram corrigidas; veja [robos-de-exemplo.md](robos-de-exemplo.md).
+
 Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
 Este relatório registra a etapa anterior com a versão 3.0. A atualização posterior para 3.2 e sua comparação em séries de três rounds estão em [titan-analise.md](titan-analise.md). Para reproduzir exatamente o experimento antigo, use o robô e os scripts do commit `7354f0c2541aa7704ce76ff55eee10691eb8bb45`; os protótipos da branch atual acompanham o código novo.

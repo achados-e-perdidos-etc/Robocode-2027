@@ -1,0 +1,42 @@
+{
+  "purpose": "API diagnostic; child process stops after first turn, not a completed battle",
+  "requested_positions": [
+    [
+      350,
+      300,
+      90
+    ],
+    [
+      450,
+      300,
+      270
+    ]
+  ],
+  "engine": "1.12.0",
+  "runs": {
+    "legacy": [
+      {
+        "robot": "sample.SittingDuck",
+        "x": 350.0,
+        "y": 233.7183623859643
+      },
+      {
+        "robot": "sample.Target",
+        "x": 300.0,
+        "y": 123.33158764410709
+      }
+    ],
+    "typed": [
+      {
+        "robot": "sample.SittingDuck",
+        "x": 350.0,
+        "y": 300.0
+      },
+      {
+        "robot": "sample.Target",
+        "x": 450.0,
+        "y": 300.0
+      }
+    ]
+  }
+}

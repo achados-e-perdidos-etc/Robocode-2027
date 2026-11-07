@@ -1,5 +1,7 @@
 # Titan analisado e ideia incorporada ao Nêmesis 3.2
 
+> **Nota de metodologia posterior:** os testes históricos que solicitavam posições por string não comprovaram as largadas planejadas. Os resultados observados foram preservados, mas a equivalência das posições entre versões não está demonstrada. A API e a verificação foram corrigidas; veja [robos-de-exemplo.md](robos-de-exemplo.md).
+
 Nome atual: **Titan Prime**, em `robots/equipe/titanprime.java`. Os nomes antigos neste relatório identificam as versões testadas.
 
 Foi analisado o `Titan-Vingation-Projeto-Completo.zip` enviado pelo usuário, com **18 arquivos Java de produção**. O objetivo confirmado foi aproveitar suas boas ideias para melhorar o Nêmesis, mantendo o robô principal inteiro em um único Java e a competição em melhor de três.

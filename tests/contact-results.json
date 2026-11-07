@@ -1,0 +1,250 @@
+{
+  "engine": "1.11.1",
+  "source_sha256": "db0a3c47aeeb5356d28ae544f96d559f586a76cd444b76c584d7c73cf200784b",
+  "rounds_per_series": 3,
+  "initial_distance": 100,
+  "position_api": "RobotSetup[] with per-round adjustment logging",
+  "seeds": [
+    401,
+    557,
+    719
+  ],
+  "requested_positions": {
+    "401": "399.2731896171084,349.99471718759213,179.16710731743524,400.7268103828916,250.00528281240787,359.16710731743524",
+    "557": "392.2837835880154,250.59898782126606,8.877611619584501,407.7162164119846,349.40101217873394,188.8776116195845",
+    "719": "350.68602679558785,308.2542138810744,99.5021303602686,449.31397320441215,291.7457861189256,279.5021303602686"
+  },
+  "series": [
+    {
+      "robot": "treino.closeaudit*",
+      "score": 540,
+      "wins": 3,
+      "score_share": 1.0,
+      "shots": 38,
+      "hits": 29,
+      "waves": 0,
+      "matched": 0,
+      "walls": 0,
+      "skipped": 0,
+      "round_wins": [
+        1,
+        1,
+        1
+      ],
+      "series_win": true,
+      "first_round_win": true,
+      "majority_winner": "treino.closeaudit*",
+      "cold_start": [
+        1228,
+        128
+      ],
+      "position_adjustments": [],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 12,
+          "hits": 9,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 1,
+          "shots": 13,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 2,
+          "shots": 13,
+          "hits": 10,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        }
+      ],
+      "virtual": 0,
+      "context": "ramfire_close",
+      "seed": 401,
+      "round_turns": {
+        "0": 346,
+        "1": 360,
+        "2": 360
+      },
+      "scores": [
+        {
+          "robot": "treino.closeaudit*",
+          "score": 540,
+          "wins": 3
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 0,
+          "wins": 0
+        }
+      ]
+    },
+    {
+      "robot": "treino.closeaudit*",
+      "score": 540,
+      "wins": 3,
+      "score_share": 1.0,
+      "shots": 33,
+      "hits": 24,
+      "waves": 0,
+      "matched": 0,
+      "walls": 0,
+      "skipped": 0,
+      "round_wins": [
+        1,
+        1,
+        1
+      ],
+      "series_win": true,
+      "first_round_win": true,
+      "majority_winner": "treino.closeaudit*",
+      "cold_start": [
+        1228,
+        128
+      ],
+      "position_adjustments": [],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 11,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 1,
+          "shots": 11,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 2,
+          "shots": 11,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        }
+      ],
+      "virtual": 0,
+      "context": "ramfire_close",
+      "seed": 557,
+      "round_turns": {
+        "0": 336,
+        "1": 336,
+        "2": 336
+      },
+      "scores": [
+        {
+          "robot": "treino.closeaudit*",
+          "score": 540,
+          "wins": 3
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 0,
+          "wins": 0
+        }
+      ]
+    },
+    {
+      "robot": "treino.closeaudit*",
+      "score": 540,
+      "wins": 3,
+      "score_share": 1.0,
+      "shots": 30,
+      "hits": 24,
+      "waves": 0,
+      "matched": 0,
+      "walls": 0,
+      "skipped": 0,
+      "round_wins": [
+        1,
+        1,
+        1
+      ],
+      "series_win": true,
+      "first_round_win": true,
+      "majority_winner": "treino.closeaudit*",
+      "cold_start": [
+        1228,
+        128
+      ],
+      "position_adjustments": [],
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 10,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 1,
+          "shots": 10,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        },
+        {
+          "round": 2,
+          "shots": 10,
+          "hits": 8,
+          "waves": 0,
+          "matched": 0,
+          "walls": 0,
+          "skipped": 0,
+          "virtual": 0
+        }
+      ],
+      "virtual": 0,
+      "context": "ramfire_close",
+      "seed": 719,
+      "round_turns": {
+        "0": 318,
+        "1": 318,
+        "2": 318
+      },
+      "scores": [
+        {
+          "robot": "treino.closeaudit*",
+          "score": 540,
+          "wins": 3
+        },
+        {
+          "robot": "sample.RamFire",
+          "score": 0,
+          "wins": 0
+        }
+      ]
+    }
+  ]
+}

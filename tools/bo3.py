@@ -59,6 +59,7 @@ def summarize_series(result, name):
             "series_win": winner is not None and robot_key(winner) == key,
             "first_round_win": round_wins[0] == 1, "majority_winner": winner,
             "cold_start": list(map(int, cold[0])),
+            "position_adjustments": result.get("position_adjustments", []),
             "round_stats": stats,
             "virtual": sum(int(value) for value in re.findall(r"virtual=(\d+)", "\n".join(own_lines)))}
 

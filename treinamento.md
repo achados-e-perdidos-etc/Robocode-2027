@@ -58,7 +58,7 @@ Execute com um JDK que tenha `javac`:
 python tools/train.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v2.java --population 4 --generations 3 --rounds 3 --validation-rounds 3
 ```
 
-Ou acrescente `--ecj /caminho/ecj.jar` para usar o compilador Eclipse. `--seed` define as mutações, e `--position-seed` varia as posições iniciais planejadas pelo treinador; essas opções não fixam todos os geradores aleatórios internos de cada adversário. As posições de um cenário se repetem entre seus rounds para permitir comparações com o mesmo início. Variar sementes e repetir lotes reduz o risco de especialização.
+Ou acrescente `--ecj /caminho/ecj.jar` para usar o compilador Eclipse. `--seed` define as mutações, e `--position-seed` varia as posições iniciais planejadas pelo treinador; essas opções não fixam todos os geradores aleatórios internos de cada adversário. O treinador usa `RobotSetup[]` para solicitar as mesmas posições entre rounds. O motor pode reposicionar participantes; os casos detectados ficam em `position_adjustments`, portanto é necessário conferir esse campo antes de tratar duas execuções como pareadas. Variar sementes e repetir lotes reduz o risco de especialização.
 
 Por padrão, novos ciclos começam com os genes do arquivo atual, mas zeram os modelos durante a seleção genética e refazem o pré-treino depois. Para começar com os genes originais do experimento registrado, acrescente `--initial-genome '[1,430,0.025,0.4,18000,1,0,1,0,1]'`.
 
@@ -87,3 +87,9 @@ Para a comparação específica de partidas curtas e início com memória nova, 
 ## Exercício dirigido: RamFire e SpinBot
 
 O script `tools/ram_spin.py` faz uma pequena busca de distância/potência, pré-treino neural, avaliação reservada e verificações adicionais, sempre em séries de três rounds. O relatório [ramfire-spinbot.md](ramfire-spinbot.md) registra a candidata e a decisão de manter o código atual neste experimento.
+
+## Correção das posições na versão 3.3
+
+Os treinadores anteriores passavam coordenadas como string. Um diagnóstico confirmou que essa chamada não reproduziu os pares X/Y planejados, inclusive na versão 1.12.0. As vitórias históricas continuam registradas, mas comparações que presumiam posições idênticas não estão demonstradas; o antigo cenário chamado de 100 pixels também não comprovava essa distância.
+
+`train.py` agora usa `RobotSetup[]`, informa reposicionamentos por round e inclui as opções de inicialização exigidas pela instalação 1.11.1 no Java deste ambiente. A bateria nova e o teste de contato corrigido estão em [robos-de-exemplo.md](robos-de-exemplo.md).

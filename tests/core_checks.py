@@ -11,9 +11,28 @@ import tempfile
 CORE = r"""
 package equipe;
 public class corechecks {
+ static class Probe extends titanprime {
+  public long getTime(){return 100;}
+  public double getX(){return 400;}
+  public double getY(){return 300;}
+ }
  static void check(boolean pass,String what){if(!pass)throw new AssertionError(what);}
  static void near(double a,double b,String what){check(Math.abs(a-b)<1e-8,what);}
- public static void main(String[] args){
+ public static void main(String[] args)throws Exception{
+  Probe robot=new Probe();
+  java.lang.reflect.Field enemies=titanprime.class.getDeclaredField("enemies");enemies.setAccessible(true);
+  @SuppressWarnings("unchecked") java.util.Map<String,titanprime.Enemy> observed=(java.util.Map<String,titanprime.Enemy>)enemies.get(robot);
+  titanprime.Enemy guard=new titanprime.Enemy("guard",new titanprime.Brain());
+  guard.x=400;guard.y=310;guard.energy=1;guard.time=100;guard.sentry=true;
+  titanprime.Enemy rival=new titanprime.Enemy("rival",new titanprime.Brain());
+  rival.x=750;rival.y=300;rival.energy=100;rival.time=100;
+  observed.put(guard.name,guard);observed.put(rival.name,rival);
+  java.lang.reflect.Method choose=titanprime.class.getDeclaredMethod("chooseTarget");choose.setAccessible(true);
+  java.lang.reflect.Field target=titanprime.class.getDeclaredField("target");target.setAccessible(true);
+  choose.invoke(robot);check(target.get(robot)==rival,"sentry is not a scoring target");
+  observed.remove(rival.name);choose.invoke(robot);check(target.get(robot)==null,"no firing target when only sentry observed");
+  check(observed.containsKey(guard.name),"sentry remains observed for defense");
+  guard.sentry=false;choose.invoke(robot);check(target.get(robot)==guard,"ordinary robot remains targetable");
   near(titanprime.nextVelocity(0,100),1,"acceleration");
   near(titanprime.nextVelocity(8,0),6,"braking");
   near(titanprime.nextVelocity(-8,100),-6,"reverse braking");

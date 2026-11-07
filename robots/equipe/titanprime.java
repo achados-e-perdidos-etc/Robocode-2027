@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * TitanPrime 3.2 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.3 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -49,7 +49,7 @@ public class titanprime extends AdvancedRobot {
     private long solutionTime = -100;
     private Enemy solutionTarget;
     private double firingSolution;
-    private boolean showVision = true;
+    private boolean showVision = true, roundReported;
 
     public void run() {
         width = getBattleFieldWidth();
@@ -103,6 +103,7 @@ public class titanprime extends AdvancedRobot {
             e.nextFire = (long) Math.ceil(3 / getGunCoolingRate());
             enemies.put(e.name, e);
         }
+        e.sentry = scan.isSentryRobot();
         long now = getTime(), gap = now - e.time;
         double abs = getHeadingRadians() + scan.getBearingRadians();
         Point2D.Double point = project(getX(), getY(), abs, scan.getDistance());
@@ -150,7 +151,8 @@ public class titanprime extends AdvancedRobot {
         Enemy best = null;
         double bestScore = Double.POSITIVE_INFINITY;
         for (Enemy e : enemies.values()) {
-            if (!e.alive || getTime() - e.time > 32) continue;
+            // Sentinelas sao ameacas, mas nao disputam a vitoria.
+            if (!e.alive || e.sentry || getTime() - e.time > 32) continue;
             double d = distance(getX(), getY(), e.x, e.y);
             double score = d * (0.65 + Math.min(100, e.energy) / 180.0)
                     * (1 + (getTime() - e.time) / 20.0);
@@ -616,7 +618,13 @@ public class titanprime extends AdvancedRobot {
         lastPlan = -100;
     }
 
-    public void onRoundEnded(RoundEndedEvent e) {
+    public void onDeath(DeathEvent e) { reportRound(); }
+
+    public void onRoundEnded(RoundEndedEvent e) { reportRound(); }
+
+    private void reportRound() {
+        if (roundReported) return;
+        roundReported = true;
         out.println("TitanPrime round=" + getRoundNum() + " shots=" + shots + " hits=" + hits
                 + " waves=" + wavesDetected + " matched=" + wavesMatched
                 + " walls=" + wallHits + " skipped=" + skipped);
@@ -878,7 +886,7 @@ public class titanprime extends AdvancedRobot {
         long threatTime;
         long time = -1, nextFire;
         int direction = 1;
-        boolean alive = true;
+        boolean alive = true, sentry;
         Enemy(String name, Brain brain) { this.name = name; this.brain = brain; }
     }
     static class Forecast {
