@@ -85,3 +85,7 @@ python tools/train.py --home /caminho/robocode-testes --baseline /tmp/Nemesis-v3
 O ciclo genético completo não foi reexecutado nesta etapa; aqui foram comparadas as duas mudanças de adaptação rápida. Os experimentos anteriores permanecem documentados como históricos, com suas regras e tamanhos de batalha originais.
 
 Dados: [tests/bo3-results.json](tests/bo3-results.json) e [tests/bo3-scenarios.json](tests/bo3-scenarios.json). Verificações da regra: `python tests/bo3_checks.py`.
+
+## Protótipo de comparação na 3.5
+
+O robô atual já tem ondas extras de observação. O protótipo de `bo3.py` foi adaptado: `FAST_OBSERVATION` liga ou desliga esse caminho, e `WARM_DEFENSE` continua controlando somente a defesa experimental. A avaliação das miras usa ondas de tiros reais. Os resultados antigos deste relatório pertencem às versões e hashes originais; os resultados da evolução ofensiva estão em [ataque-experimentos.md](ataque-experimentos.md).

@@ -93,3 +93,7 @@ O script `tools/ram_spin.py` faz uma pequena busca de distância/potência, pré
 Os treinadores anteriores passavam coordenadas como string. Um diagnóstico confirmou que essa chamada não reproduziu os pares X/Y planejados, inclusive na versão 1.12.0. As vitórias históricas continuam registradas, mas comparações que presumiam posições idênticas não estão demonstradas; o antigo cenário chamado de 100 pixels também não comprovava essa distância.
 
 `train.py` agora usa `RobotSetup[]`, informa reposicionamentos por round e inclui as opções de inicialização exigidas pela instalação 1.11.1 no Java deste ambiente. A bateria nova e o teste de contato corrigido estão em [robos-de-exemplo.md](robos-de-exemplo.md).
+
+## Aprendizado ofensivo na 3.5
+
+A versão atual mantém bancos KNN por adversário e coleta visitas entre tiros reais. Esses bancos são reiniciados em batalhas independentes; apenas o aprendizado da batalha atual atravessa os seus rounds. O treinamento genético e o pré-treino neural continuam sendo ferramentas externas. Os pesos pré-treinados foram preservados na adoção da 3.5. Veja [ataque-experimentos.md](ataque-experimentos.md).

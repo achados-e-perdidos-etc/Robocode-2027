@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * TitanPrime 3.4 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.5 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -32,6 +32,8 @@ public class titanprime extends AdvancedRobot {
     static final boolean EXPORT_LEARNING = false;
     static final boolean USE_THREATS = false;
     static final boolean USE_FLATTENER = true;
+    static final boolean USE_KNN_GUN = true;
+    static final boolean USE_VISIT_WAVES = true;
     // Um sorteio independente por batalha; statics permanecem entre rounds.
     private static final float BATTLE_HUE = new java.util.Random().nextFloat();
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
@@ -49,6 +51,9 @@ public class titanprime extends AdvancedRobot {
     private int skipped, wallHits, shots, hits, wavesDetected, wavesMatched;
     private long lastPlan = -100;
     private long solutionTime = -100;
+    private long lastVirtualWave = -100;
+    private int virtualWaves;
+    private final int[] gunUsage = new int[7];
     private Enemy solutionTarget;
     private double firingSolution;
     private boolean showVision = true, roundReported;
@@ -393,7 +398,7 @@ public class titanprime extends AdvancedRobot {
         double direct = angle(getX(), getY(), current.x, current.y);
         double lateral = Math.abs(e.velocity * Math.sin(e.heading - direct));
         int seg = segment(d, lateral, e.acceleration);
-        double[] angles = new double[5];
+        double[] angles = new double[USE_KNN_GUN ? 7 : 5];
         angles[0] = direct;
         angles[1] = intercept(e, speed, false);
         angles[2] = intercept(e, speed, true);
@@ -404,14 +409,23 @@ public class titanprime extends AdvancedRobot {
         double[] distribution = neuralPrediction(e.brain.gunNet, GENERAL_GUN, input);
         angles[4] = direct + e.direction * bestNeuralFactor(distribution,
                 Math.atan2(18, d) / Math.asin(8 / speed)) * Math.asin(8 / speed);
+        if (USE_KNN_GUN) {
+            double[] visits = e.brain.visitGun.predict(input), real = e.brain.realGun.predict(input);
+            double width = Math.atan2(18, d) / Math.asin(8 / speed);
+            angles[5] = direct + e.direction * bestNeuralFactor(visits, width) * Math.asin(8 / speed);
+            angles[6] = direct + e.direction * bestNeuralFactor(real, width) * Math.asin(8 / speed);
+        }
         // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais.
         int selected = 2;
         double best = -1;
         for (int i = 0; i < angles.length; i++) {
+            if (i == 6 && !USE_VISIT_WAVES) continue;
             double prior = i == 2 ? 0.22 : i == 1 ? 0.20 : 0.14;
             double score = (e.brain.gunHits[i] + prior * 8) / (e.brain.gunTrials[i] + 8);
             if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;
             if (i == 4 && e.brain.gunNet.samples + GENERAL_GUN.samples < 20) score *= 0.5;
+            if (i == 5 && e.brain.visitGun.size < 8) score *= 0.5;
+            if (i == 6 && e.brain.realGun.size < 8) score *= 0.5;
             if (score > best) { best = score; selected = i; }
         }
         double aim = angles[selected];
@@ -433,18 +447,28 @@ public class titanprime extends AdvancedRobot {
         if (getTime() % 25 == 0) setDebugProperty("gun", "mode=" + selected
                 + " error=" + (int) Math.toDegrees(error) + " heat=" + getGunHeat()
                 + " age=" + (getTime() - e.time) + " energy=" + getEnergy());
-        if (getGunHeat() > 0 || Math.abs(error) > Math.atan2(14, d)
-                || getEnergy() <= power + reserve()) return;
-        // O tiro sai ANTES da rotacao do canhao: testa o angulo atual acima.
-        Bullet bullet = setFireBullet(power);
-        if (bullet != null) {
+        // Ondas sem bala observam visitas; somente ondas de tiros avaliam as miras.
+        Bullet bullet = null;
+        if (getGunHeat() == 0 && Math.abs(error) <= Math.atan2(14, d)
+                && getEnergy() > power + reserve()) bullet = setFireBullet(power);
+        boolean realShot = bullet != null;
+        if (!realShot && (!USE_VISIT_WAVES || outgoing.size() >= 96
+                || getTime() - lastVirtualWave < (getOthers() == 1 ? 4 : 8))) return;
+        if (realShot) {
             shots++;
+            gunUsage[selected]++;
             solutionTarget = null;
             fired.put(bullet, e.brain);
+        } else {
+            virtualWaves++;
+            lastVirtualWave = getTime();
+        }
+        {
             GunWave w = new GunWave();
+            w.firing = realShot;
             w.owner = e; w.x = getX(); w.y = getY();
-            w.time = getTime(); w.speed = bullet.getVelocity();
-            w.power = bullet.getPower(); w.bearing = direct; w.direction = e.direction;
+            w.time = getTime(); w.speed = speed;
+            w.power = power; w.bearing = direct; w.direction = e.direction;
             w.segment = seg; w.angles = angles;
             w.features = input;
             w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();
@@ -519,9 +543,13 @@ public class titanprime extends AdvancedRobot {
                     brain.gunSamples++;
                     brain.gunNet.observe(w.features, gf);
                     GENERAL_GUN.observe(w.features, gf);
+                    if (USE_KNN_GUN) {
+                        brain.visitGun.observe(w.features, gf);
+                        if (w.firing) brain.realGun.observe(w.features, gf);
+                    }
                     double actual = angle(w.x, w.y, x, y);
                     double tolerance = Math.atan2(21, distance(w.x, w.y, x, y));
-                    for (int gun = 0; gun < w.angles.length; gun++) {
+                    if (w.firing) for (int gun = 0; gun < w.angles.length; gun++) {
                         brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;
                         brain.gunHits[gun] = brain.gunHits[gun] * 0.98
                                 + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? 1 : 0);
@@ -661,7 +689,8 @@ public class titanprime extends AdvancedRobot {
         roundReported = true;
         out.println("TitanPrime round=" + getRoundNum() + " shots=" + shots + " hits=" + hits
                 + " waves=" + wavesDetected + " matched=" + wavesMatched
-                + " walls=" + wallHits + " skipped=" + skipped);
+                + " walls=" + wallHits + " skipped=" + skipped + " virtual=" + virtualWaves);
+        out.println("GUN_USAGE " + java.util.Arrays.toString(gunUsage));
         for (Enemy enemy : enemies.values()) {
             out.println("learn " + enemy.name + " gun=" + enemy.brain.gunSamples
                     + " surf=" + enemy.brain.surfSamples + " neuralGun=" + enemy.brain.gunNet.samples
@@ -902,10 +931,56 @@ public class titanprime extends AdvancedRobot {
         }
     }
 
+    // KNN de mira por adversario: visitas e respostas a tiros usam bancos separados.
+    static class GunContext {
+        static final int CAPACITY = 256;
+        static final double[] WEIGHTS = {2, 5, 1, 1, 1, 0.5, 2, 2, 1, 1, 0.5, 1};
+        final double[][] inputs = new double[CAPACITY][];
+        final double[] factors = new double[CAPACITY];
+        final long[] stamps = new long[CAPACITY];
+        int size;
+        long seen;
+        void observe(double[] input, double factor) {
+            int slot = (int) (seen % CAPACITY);
+            inputs[slot] = input.clone(); factors[slot] = clamp(-1, factor, 1); stamps[slot] = seen++;
+            size = Math.min(CAPACITY, size + 1);
+        }
+        double[] predict(double[] input) {
+            int k = Math.min(size, Math.max(3, (int) Math.sqrt(size)));
+            int[] neighbors = new int[k];
+            double[] distances = new double[k];
+            java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);
+            for (int i = 0; i < size; i++) {
+                double distance = 0;
+                for (int j = 0; j < WEIGHTS.length; j++) {
+                    double d = inputs[i][j] - input[j]; distance += d * d * WEIGHTS[j];
+                }
+                for (int j = 0; j < k; j++) if (distance < distances[j]) {
+                    for (int n = k - 1; n > j; n--) {distances[n] = distances[n - 1]; neighbors[n] = neighbors[n - 1];}
+                    distances[j] = distance; neighbors[j] = i; break;
+                }
+            }
+            double[] density = new double[BINS];
+            java.util.Arrays.fill(density, 0.001);
+            for (int n = 0; n < k; n++) {
+                int i = neighbors[n];
+                double weight = Math.pow(0.995, seen - 1 - stamps[i]) / (0.05 + distances[n]);
+                for (int b = 0; b < BINS; b++) {
+                    double delta = (2.0 * b / (BINS - 1) - 1 - factors[i]) / 0.10;
+                    density[b] += weight / (1 + delta * delta);
+                }
+            }
+            double sum = 0; for (double d : density) sum += d;
+            for (int i = 0; i < BINS; i++) density[i] /= sum;
+            return density;
+        }
+    }
+
     static class Brain {
         final double[][] gun = new double[SEGMENTS][BINS], surf = new double[SEGMENTS][BINS];
         final double[] gunGlobal = new double[BINS], surfGlobal = new double[BINS];
-        final double[] gunTrials = new double[5], gunHits = new double[5];
+        final double[] gunTrials = new double[7], gunHits = new double[7];
+        final GunContext visitGun = new GunContext(), realGun = new GunContext();
         final double[] visits = new double[BINS];
         double passed, taken;
         final Neural gunNet = new Neural(""), surfNet = new Neural("");
@@ -948,6 +1023,7 @@ public class titanprime extends AdvancedRobot {
         double radius(long now) { return Math.max(0, now - time) * speed; }
     }
     static class GunWave extends Wave {
+        boolean firing;
         double[] angles;
         double previousX, previousY;
         long previousTime;

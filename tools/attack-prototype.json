@@ -1,0 +1,61 @@
+{
+  "baseline_sha256": "fa73d07340eae6e3b5281bf8c1b2b3fdc5875f5c565fa19f12014e313c862088",
+  "changes": [
+    {
+      "old": "    static final boolean USE_FLATTENER = true;",
+      "new": "    static final boolean USE_FLATTENER = true;\n    static final boolean USE_KNN_GUN = false;\n    static final boolean USE_VISIT_WAVES = false;"
+    },
+    {
+      "old": "    private long solutionTime = -100;",
+      "new": "    private long solutionTime = -100;\n    private long lastVirtualWave = -100;\n    private int virtualWaves;\n    private final int[] gunUsage = new int[7];"
+    },
+    {
+      "old": "        double[] angles = new double[5];",
+      "new": "        double[] angles = new double[USE_KNN_GUN ? 7 : 5];"
+    },
+    {
+      "old": "        // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais.",
+      "new": "        if (USE_KNN_GUN) {\n            double[] visits = e.brain.visitGun.predict(input), real = e.brain.realGun.predict(input);\n            double width = Math.atan2(18, d) / Math.asin(8 / speed);\n            angles[5] = direct + e.direction * bestNeuralFactor(visits, width) * Math.asin(8 / speed);\n            angles[6] = direct + e.direction * bestNeuralFactor(real, width) * Math.asin(8 / speed);\n        }\n        // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais."
+    },
+    {
+      "old": "        for (int i = 0; i < angles.length; i++) {",
+      "new": "        for (int i = 0; i < angles.length; i++) {\n            if (i == 6 && !USE_VISIT_WAVES) continue;"
+    },
+    {
+      "old": "            if (score > best) { best = score; selected = i; }",
+      "new": "            if (i == 5 && e.brain.visitGun.size < 8) score *= 0.5;\n            if (i == 6 && e.brain.realGun.size < 8) score *= 0.5;\n            if (score > best) { best = score; selected = i; }"
+    },
+    {
+      "old": "        if (getGunHeat() > 0 || Math.abs(error) > Math.atan2(14, d)\n                || getEnergy() <= power + reserve()) return;\n        // O tiro sai ANTES da rotacao do canhao: testa o angulo atual acima.\n        Bullet bullet = setFireBullet(power);\n        if (bullet != null) {\n            shots++;\n            solutionTarget = null;\n            fired.put(bullet, e.brain);\n            GunWave w = new GunWave();",
+      "new": "        // Ondas sem bala observam visitas; somente ondas de tiros avaliam as miras.\n        Bullet bullet = null;\n        if (getGunHeat() == 0 && Math.abs(error) <= Math.atan2(14, d)\n                && getEnergy() > power + reserve()) bullet = setFireBullet(power);\n        boolean realShot = bullet != null;\n        if (!realShot && (!USE_VISIT_WAVES || outgoing.size() >= 96\n                || getTime() - lastVirtualWave < (getOthers() == 1 ? 4 : 8))) return;\n        if (realShot) {\n            shots++;\n            gunUsage[selected]++;\n            solutionTarget = null;\n            fired.put(bullet, e.brain);\n        } else {\n            virtualWaves++;\n            lastVirtualWave = getTime();\n        }\n        {\n            GunWave w = new GunWave();\n            w.firing = realShot;"
+    },
+    {
+      "old": "            w.time = getTime(); w.speed = bullet.getVelocity();\n            w.power = bullet.getPower(); w.bearing = direct; w.direction = e.direction;",
+      "new": "            w.time = getTime(); w.speed = speed;\n            w.power = power; w.bearing = direct; w.direction = e.direction;"
+    },
+    {
+      "old": "                    brain.gunNet.observe(w.features, gf);\n                    GENERAL_GUN.observe(w.features, gf);",
+      "new": "                    brain.gunNet.observe(w.features, gf);\n                    GENERAL_GUN.observe(w.features, gf);\n                    if (USE_KNN_GUN) {\n                        brain.visitGun.observe(w.features, gf);\n                        if (w.firing) brain.realGun.observe(w.features, gf);\n                    }"
+    },
+    {
+      "old": "                    for (int gun = 0; gun < w.angles.length; gun++) {",
+      "new": "                    if (w.firing) for (int gun = 0; gun < w.angles.length; gun++) {"
+    },
+    {
+      "old": "                + \" walls=\" + wallHits + \" skipped=\" + skipped);",
+      "new": "                + \" walls=\" + wallHits + \" skipped=\" + skipped + \" virtual=\" + virtualWaves);\n        out.println(\"GUN_USAGE \" + java.util.Arrays.toString(gunUsage));"
+    },
+    {
+      "old": "        final double[] gunTrials = new double[5], gunHits = new double[5];",
+      "new": "        final double[] gunTrials = new double[7], gunHits = new double[7];\n        final GunContext visitGun = new GunContext(), realGun = new GunContext();"
+    },
+    {
+      "old": "    static class GunWave extends Wave {\n        double[] angles;",
+      "new": "    static class GunWave extends Wave {\n        boolean firing;\n        double[] angles;"
+    },
+    {
+      "old": "    static class Brain {",
+      "new": "    // KNN de mira por adversario: visitas e respostas a tiros usam bancos separados.\n    static class GunContext {\n        static final int CAPACITY = 256;\n        static final double[] WEIGHTS = {2, 5, 1, 1, 1, 0.5, 2, 2, 1, 1, 0.5, 1};\n        final double[][] inputs = new double[CAPACITY][];\n        final double[] factors = new double[CAPACITY];\n        final long[] stamps = new long[CAPACITY];\n        int size;\n        long seen;\n        void observe(double[] input, double factor) {\n            int slot = (int) (seen % CAPACITY);\n            inputs[slot] = input.clone(); factors[slot] = clamp(-1, factor, 1); stamps[slot] = seen++;\n            size = Math.min(CAPACITY, size + 1);\n        }\n        double[] predict(double[] input) {\n            int k = Math.min(size, Math.max(3, (int) Math.sqrt(size)));\n            int[] neighbors = new int[k];\n            double[] distances = new double[k];\n            java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);\n            for (int i = 0; i < size; i++) {\n                double distance = 0;\n                for (int j = 0; j < WEIGHTS.length; j++) {\n                    double d = inputs[i][j] - input[j]; distance += d * d * WEIGHTS[j];\n                }\n                for (int j = 0; j < k; j++) if (distance < distances[j]) {\n                    for (int n = k - 1; n > j; n--) {distances[n] = distances[n - 1]; neighbors[n] = neighbors[n - 1];}\n                    distances[j] = distance; neighbors[j] = i; break;\n                }\n            }\n            double[] density = new double[BINS];\n            java.util.Arrays.fill(density, 0.001);\n            for (int n = 0; n < k; n++) {\n                int i = neighbors[n];\n                double weight = Math.pow(0.995, seen - 1 - stamps[i]) / (0.05 + distances[n]);\n                for (int b = 0; b < BINS; b++) {\n                    double delta = (2.0 * b / (BINS - 1) - 1 - factors[i]) / 0.10;\n                    density[b] += weight / (1 + delta * delta);\n                }\n            }\n            double sum = 0; for (double d : density) sum += d;\n            for (int i = 0; i < BINS; i++) density[i] /= sum;\n            return density;\n        }\n    }\n\n    static class Brain {"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ O Titan Prime mantém o requisito de **um único `titanprime.java`**. Técnicas 
 | --- | --- |
 | Wave Surfing | Ondas estimadas a partir da energia adversária, simulação de movimento e avaliação de perigo. |
 | Minimum Risk | Avaliação de 32 destinos com risco de inimigos, paredes e ondas. |
-| Previsão e mira virtual | Miras direta, linear, circular, GuessFactor e neural comparadas por adversário. |
+| Previsão e mira virtual | Miras direta, linear, circular, GuessFactor e neural comparadas por adversário; a 3.5 acrescenta duas alternativas KNN. |
 | Aprendizado durante a batalha | Estatísticas por adversário e redes pequenas, conservadas entre os três rounds. |
 | Evitar trajetórias repetidas | Mistura limitada de perigo aprendido e visitas observadas, quando há evidência suficiente. |
 | Visualização | Desenho de ondas estimadas, inimigos observados, alvo e destino. |

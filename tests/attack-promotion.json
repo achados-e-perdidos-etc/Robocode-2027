@@ -1,0 +1,39 @@
+{
+  "adopted": true,
+  "version": "3.5",
+  "final_source_sha256": "0d5139b08fd5a6a4a2f8dea8ecda40ef87a162ca322e0ffa470cf3ebabec93a0",
+  "candidate_changes_after_confirmation": "Version comment only: 3.4 to 3.5.",
+  "guard_rule": {
+    "competitive_series": 63,
+    "minimum_round_wins": 188
+  },
+  "guard_results": {
+    "competitive_series_won": 63,
+    "round_wins": 188,
+    "first_round_wins": 63,
+    "skipped_all_valid_series": 1
+  },
+  "confirmation_ranking": {
+    "confirmbase": [
+      23,
+      23,
+      65,
+      0.5919692643409474,
+      -1
+    ],
+    "confirmcandidate": [
+      25,
+      24,
+      73,
+      0.6663068219919979,
+      -3
+    ]
+  },
+  "initial_protocol_passed": false,
+  "independent_confirmation_passed": true,
+  "notes": [
+    "Initial first-round veto was not passed; original result retained.",
+    "Additional confirmation was planned with frozen code and new positions, using BO3 wins as primary criterion.",
+    "Neural pretrained constants and defense algorithm unchanged; KNN/visit learning is online."
+  ]
+}
