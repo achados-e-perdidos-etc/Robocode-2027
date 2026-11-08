@@ -23,6 +23,7 @@ public class titanprime extends AdvancedRobot {
     static final boolean USE_KNN_GUN = true;
     static final boolean USE_VISIT_WAVES = true;
     static final boolean USE_EXTENDED_GUNS = false;
+    static final boolean USE_REACTIVE_GUN = true;
     static final boolean USE_FINISHER = true;
     private static final float BATTLE_HUE = new java.util.Random().nextFloat();
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
@@ -176,6 +177,10 @@ public class titanprime extends AdvancedRobot {
         e.heading = scan.getHeadingRadians(); e.velocity = scan.getVelocity();
         e.energy = scan.getEnergy(); e.time = now; e.alive = true;
         double lateral = e.velocity * Math.sin(e.heading - abs);
+        if (USE_REACTIVE_GUN) {
+            if (Math.abs(lateral) > 0.1 && sign(lateral) != e.direction) e.lastReverse = now;
+            if (Math.abs(e.acceleration) > 0.1) e.lastChange = now;
+        }
         if (Math.abs(lateral) > 0.1) e.direction = sign(lateral);
         if (USE_EXTENDED_GUNS) e.brain.motion.observe(getRoundNum(), now, e.heading, e.velocity);
         resolveGunWaves(e);
@@ -400,7 +405,7 @@ public class titanprime extends AdvancedRobot {
         double direct = angle(getX(), getY(), current.x, current.y);
         double lateral = Math.abs(e.velocity * Math.sin(e.heading - direct));
         int seg = segment(d, lateral, e.acceleration);
-        double[] angles = new double[USE_EXTENDED_GUNS ? 10 : USE_KNN_GUN ? 7 : 5];
+        double[] angles = new double[USE_EXTENDED_GUNS || USE_REACTIVE_GUN ? 10 : USE_KNN_GUN ? 7 : 5];
         angles[0] = direct;
         angles[1] = intercept(e, speed, false);
         angles[2] = intercept(e, speed, true);
@@ -432,12 +437,30 @@ public class titanprime extends AdvancedRobot {
             patternReady = e.patternReady; responseReady = e.responseReady;
             angles[7] = e.extra[0]; angles[8] = e.extra[1]; angles[9] = e.extra[2];
         }
+        double[] reactiveInput = null;
+        boolean reactiveReady = false;
+        if (USE_REACTIVE_GUN && getOthers() == 1) {
+            reactiveInput = java.util.Arrays.copyOf(input, 16);
+            reactiveInput[12] = clamp(0, (getTime() - e.lastReverse) / 60.0, 1);
+            reactiveInput[13] = clamp(0, (getTime() - e.lastChange) / 40.0, 1);
+            reactiveInput[14] = e.lastShot < 0 ? 1 : clamp(0, (getTime() - e.lastShot) / 60.0, 1);
+            reactiveInput[15] = clamp(-1, e.velocity / 8, 1) * e.direction;
+            reactiveReady = e.brain.reactive.size >= 8;
+            if (reactiveReady) {
+                double factor = bestNeuralFactor(e.brain.reactive.predict(reactiveInput),
+                        Math.atan2(18, d) / Math.asin(8 / speed));
+                double offset = e.direction * factor * Math.asin(8 / speed);
+                angles[9] = direct + offset;
+            }
+        }
         // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais.
         int selected = 2;
         double best = -1;
         for (int i = 0; i < angles.length; i++) {
             if (i == 6 && !USE_VISIT_WAVES) continue;
-            if (i == 8 && !patternReady || i == 9 && !responseReady) continue;
+            if (USE_REACTIVE_GUN && !USE_EXTENDED_GUNS && (i == 7 || i == 8)) continue;
+            if (i == 9 && USE_REACTIVE_GUN && !reactiveReady) continue;
+            if (i == 8 && !patternReady || i == 9 && !USE_REACTIVE_GUN && !responseReady) continue;
             double prior = i == 2 ? 0.22 : i == 1 ? 0.20 : 0.14;
             double score = (e.brain.gunHits[i] + prior * 8) / (e.brain.gunTrials[i] + 8);
             if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;
@@ -455,6 +478,7 @@ public class titanprime extends AdvancedRobot {
                     if (motionMode == 2 && i == 1 || motionMode == 3 && i == 2) score += 0.025;
                 }
             }
+            if (USE_REACTIVE_GUN && i == 9 && (e.brain.gunTrials[i] < 8 || score < best + 0.03)) continue;
             if (score > best) { best = score; selected = i; }
         }
         double aim = angles[selected];
@@ -489,6 +513,7 @@ public class titanprime extends AdvancedRobot {
                 telemetry.shot(bullet, bullet.getPower(), d, getTime() - e.time);
             gunUsage[selected]++;
             solutionTarget = null;
+            if (USE_REACTIVE_GUN) e.lastShot = getTime();
             fired.put(bullet, e.brain);
         } else {
             virtualWaves++;
@@ -504,6 +529,7 @@ public class titanprime extends AdvancedRobot {
             w.power = power; w.bearing = direct; w.direction = e.direction;
             w.segment = seg; w.angles = angles;
             w.features = input;
+            w.reactiveFeatures = reactiveInput; w.reactiveReady = reactiveReady;
             w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();
             if (outgoing.size() < 96) outgoing.add(w);
         }
@@ -642,6 +668,50 @@ public class titanprime extends AdvancedRobot {
         }
     }
 
+    static class ReactiveGun {
+        static final int CAPACITY = 384;
+        static final double[] WEIGHTS = {2,5,1,1,1,0.5,2,2,1,1,0.5,1,3,2,2,1};
+        final double[][] inputs = new double[CAPACITY][];
+        final double[] factors = new double[CAPACITY];
+        int seen, size;
+        void observe(double[] input, double factor) {
+            if (input.length != WEIGHTS.length) throw new IllegalArgumentException("reactive features");
+            int slot = seen++ % CAPACITY;
+            inputs[slot] = input.clone(); factors[slot] = clamp(-1, factor, 1);
+            size = Math.min(size + 1, CAPACITY);
+        }
+        double[] view(double[] input, int window) {
+            int count = Math.min(size, window), k = Math.min(count, Math.max(5, (int)Math.sqrt(count)));
+            double[] distances = new double[k], density = new double[BINS];
+            int[] ids = new int[k]; java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);
+            for (int age = 0; age < count; age++) {
+                int index = (seen - 1 - age) % CAPACITY; double distance = 0;
+                for (int f = 0; f < WEIGHTS.length; f++) {
+                    double delta = input[f] - inputs[index][f]; distance += delta * delta * WEIGHTS[f];
+                }
+                for (int j = 0; j < k; j++) if (distance < distances[j]) {
+                    for (int n = k-1; n > j; n--) { distances[n] = distances[n-1]; ids[n] = ids[n-1]; }
+                    distances[j] = distance; ids[j] = index; break;
+                }
+            }
+            double total = 0;
+            for (int j = 0; j < k; j++) {
+                double weight = 1 / (0.05 + distances[j]); total += weight;
+                for (int b = 0; b < BINS; b++) {
+                    double delta = (2.0*b/(BINS-1)-1-factors[ids[j]])/0.10;
+                    density[b] += weight / (1 + delta*delta);
+                }
+            }
+            if (total > 0) for (int b = 0; b < BINS; b++) density[b] /= total;
+            return density;
+        }
+        double[] predict(double[] input) {
+            double[] all = view(input, CAPACITY), recent = view(input, 48);
+            for (int b = 0; b < BINS; b++) all[b] = all[b]*0.65 + recent[b]*0.35;
+            return all;
+        }
+    }
+
     static class ResponseBank {
         static final int CAPACITY=256;
         final double[][] features=new double[CAPACITY][];
@@ -747,9 +817,13 @@ public class titanprime extends AdvancedRobot {
                         double forwardResponse = (dx * Math.sin(w.bearing) + dy * Math.cos(w.bearing)) / elapsed;
                         brain.response.observe(w.features, lateralResponse, forwardResponse);
                     }
+                    if (USE_REACTIVE_GUN && w.firing && w.duel && w.reactiveFeatures != null)
+                        brain.reactive.observe(w.reactiveFeatures, gf);
                     double actual = angle(w.x, w.y, x, y);
                     double tolerance = Math.atan2(21, distance(w.x, w.y, x, y));
                     if (w.firing) for (int gun = 0; gun < w.angles.length; gun++) {
+                        if (USE_REACTIVE_GUN && gun >= 7 && !USE_EXTENDED_GUNS
+                                && (gun != 9 || !w.reactiveReady)) continue;
                         brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;
                         brain.gunHits[gun] = brain.gunHits[gun] * 0.98
                                 + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? 1 : 0);
@@ -1241,6 +1315,7 @@ public class titanprime extends AdvancedRobot {
         final double[][] contextTrials = new double[5][10], contextHits = new double[5][10];
         final MotionLog motion = new MotionLog();
         final ResponseBank response = new ResponseBank();
+        final ReactiveGun reactive = new ReactiveGun();
         final GunContext visitGun = new GunContext(), realGun = new GunContext();
         final double[] visits = new double[BINS];
         double passed, taken;
@@ -1255,6 +1330,7 @@ public class titanprime extends AdvancedRobot {
         double threatScore;
         long threatTime;
         long time = -1, nextFire;
+        long lastReverse, lastChange, lastShot = -1;
         int direction = 1;
         boolean alive = true, sentry, patternReady, responseReady;
         long extraTime = -100;
@@ -1287,7 +1363,8 @@ public class titanprime extends AdvancedRobot {
         double radius(long now) { return Math.max(0, now - time) * speed; }
     }
     static class GunWave extends Wave {
-        boolean firing, duel;
+        boolean firing, duel, reactiveReady;
+        double[] reactiveFeatures;
         int motionMode;
         double startX, startY;
         double[] angles;

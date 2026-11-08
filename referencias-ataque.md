@@ -1,5 +1,7 @@
 # As 25 técnicas de ataque no Titan Prime
 
+**Atualizacao 3.8:** uma mira reativa independente foi adotada apos diagnostico e confirmacao contra adversarios fortes. Veja [mira-reativa.md](mira-reativa.md), incluindo as falhas do motor, a recuperacao do par e os limites dos resultados. O grupo antigo de miras experimentais continua desligado.
+
 A lista combina algoritmos de mira, formas de coletar dados, seleção de alvos e decisões de energia. Várias técnicas trabalham juntas. As estrelas de complexidade não medem a força em uma competição.
 
 A atualização das sete lacunas está em [ataque-completo.md](ataque-completo.md). O Titan Prime 3.7 contém todas as implementações em um Java; a finalização foi ativada após validação. As três novas miras, o classificador e a seleção contextual permanecem experimentais (`USE_EXTENDED_GUNS=false`).

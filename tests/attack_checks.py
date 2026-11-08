@@ -42,7 +42,7 @@ public class attackchecks {
   for(double trials:brain.gunTrials)near(trials,0,"no virtual-shot precision inflation");
   waves.add(wave(enemy,true));resolve.invoke(robot,enemy);
   check(brain.gunSamples==2&&brain.visitGun.size==2&&brain.realGun.size==1,"real shot trains both contexts");
-  for(double trials:brain.gunTrials)near(trials,1,"only real waves grade guns");
+  for(int i=0;i<7;i++)near(brain.gunTrials[i],1,"only real waves grade established guns");
   check(waves.isEmpty(),"resolved waves removed");
   System.out.println("ATTACK CHECKS PASSED: conditioned KNN, bounded memory, body-width aim, visits vs real-shot accounting");
  }

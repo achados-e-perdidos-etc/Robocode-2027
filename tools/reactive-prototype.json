@@ -1,0 +1,61 @@
+{
+  "baseline_sha256": "59dea6434bbd9a41aaf0f349eaaa91ccda503e057a851999ba9a3d9a41343e11",
+  "changes": [
+    {
+      "old": "    static final boolean USE_EXTENDED_GUNS = false;",
+      "new": "    static final boolean USE_EXTENDED_GUNS = false;\n    static final boolean USE_REACTIVE_GUN = false;"
+    },
+    {
+      "old": "        if (Math.abs(lateral) > 0.1) e.direction = sign(lateral);",
+      "new": "        if (USE_REACTIVE_GUN) {\n            if (Math.abs(lateral) > 0.1 && sign(lateral) != e.direction) e.lastReverse = now;\n            if (Math.abs(e.acceleration) > 0.1) e.lastChange = now;\n        }\n        if (Math.abs(lateral) > 0.1) e.direction = sign(lateral);"
+    },
+    {
+      "old": "new double[USE_EXTENDED_GUNS ? 10 : USE_KNN_GUN ? 7 : 5]",
+      "new": "new double[USE_EXTENDED_GUNS || USE_REACTIVE_GUN ? 10 : USE_KNN_GUN ? 7 : 5]"
+    },
+    {
+      "old": "        // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais.",
+      "new": "        double[] reactiveInput = null;\n        boolean reactiveReady = false;\n        if (USE_REACTIVE_GUN && getOthers() == 1) {\n            reactiveInput = java.util.Arrays.copyOf(input, 16);\n            reactiveInput[12] = clamp(0, (getTime() - e.lastReverse) / 60.0, 1);\n            reactiveInput[13] = clamp(0, (getTime() - e.lastChange) / 40.0, 1);\n            reactiveInput[14] = e.lastShot < 0 ? 1 : clamp(0, (getTime() - e.lastShot) / 60.0, 1);\n            reactiveInput[15] = clamp(-1, e.velocity / 8, 1) * e.direction;\n            reactiveReady = e.brain.reactive.size >= 8;\n            if (reactiveReady) {\n                double factor = bestNeuralFactor(e.brain.reactive.predict(reactiveInput),\n                        Math.atan2(18, d) / Math.asin(8 / speed));\n                double offset = e.direction * factor * Math.asin(8 / speed);\n                double left = escapeOffset(e, speed, direct, -1), right = escapeOffset(e, speed, direct, 1);\n                angles[9] = direct + clamp(Math.min(left, right), offset, Math.max(left, right));\n            }\n        }\n        // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais."
+    },
+    {
+      "old": "            if (i == 6 && !USE_VISIT_WAVES) continue;",
+      "new": "            if (i == 6 && !USE_VISIT_WAVES) continue;\n            if (USE_REACTIVE_GUN && !USE_EXTENDED_GUNS && (i == 7 || i == 8)) continue;\n            if (i == 9 && USE_REACTIVE_GUN && !reactiveReady) continue;"
+    },
+    {
+      "old": "            if (i == 8 && !patternReady || i == 9 && !responseReady) continue;",
+      "new": "            if (i == 8 && !patternReady || i == 9 && !USE_REACTIVE_GUN && !responseReady) continue;"
+    },
+    {
+      "old": "            solutionTarget = null;\n            fired.put(bullet, e.brain);",
+      "new": "            solutionTarget = null;\n            if (USE_REACTIVE_GUN) e.lastShot = getTime();\n            fired.put(bullet, e.brain);"
+    },
+    {
+      "old": "            w.features = input;",
+      "new": "            w.features = input;\n            w.reactiveFeatures = reactiveInput; w.reactiveReady = reactiveReady;"
+    },
+    {
+      "old": "                    double actual = angle(w.x, w.y, x, y);",
+      "new": "                    if (USE_REACTIVE_GUN && w.firing && w.duel && w.reactiveFeatures != null)\n                        brain.reactive.observe(w.reactiveFeatures, gf);\n                    double actual = angle(w.x, w.y, x, y);"
+    },
+    {
+      "old": "                        brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;",
+      "new": "                        if (USE_REACTIVE_GUN && gun >= 7 && !USE_EXTENDED_GUNS\n                                && (gun != 9 || !w.reactiveReady)) continue;\n                        brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;"
+    },
+    {
+      "old": "        final ResponseBank response = new ResponseBank();",
+      "new": "        final ResponseBank response = new ResponseBank();\n        final ReactiveGun reactive = new ReactiveGun();"
+    },
+    {
+      "old": "        long time = -1, nextFire;",
+      "new": "        long time = -1, nextFire;\n        long lastReverse, lastChange, lastShot = -1;"
+    },
+    {
+      "old": "        boolean firing, duel;",
+      "new": "        boolean firing, duel, reactiveReady;\n        double[] reactiveFeatures;"
+    },
+    {
+      "old": "    static class ResponseBank {",
+      "new": "    static class ReactiveGun {\n        static final int CAPACITY = 384;\n        static final double[] WEIGHTS = {2,5,1,1,1,0.5,2,2,1,1,0.5,1,3,2,2,1};\n        final double[][] inputs = new double[CAPACITY][];\n        final double[] factors = new double[CAPACITY];\n        int seen, size;\n        void observe(double[] input, double factor) {\n            if (input.length != WEIGHTS.length) throw new IllegalArgumentException(\"reactive features\");\n            int slot = seen++ % CAPACITY;\n            inputs[slot] = input.clone(); factors[slot] = clamp(-1, factor, 1);\n            size = Math.min(size + 1, CAPACITY);\n        }\n        double[] view(double[] input, int window) {\n            int count = Math.min(size, window), k = Math.min(count, Math.max(5, (int)Math.sqrt(count)));\n            double[] distances = new double[k], density = new double[BINS];\n            int[] ids = new int[k]; java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);\n            for (int age = 0; age < count; age++) {\n                int index = (seen - 1 - age) % CAPACITY; double distance = 0;\n                for (int f = 0; f < WEIGHTS.length; f++) {\n                    double delta = input[f] - inputs[index][f]; distance += delta * delta * WEIGHTS[f];\n                }\n                for (int j = 0; j < k; j++) if (distance < distances[j]) {\n                    for (int n = k-1; n > j; n--) { distances[n] = distances[n-1]; ids[n] = ids[n-1]; }\n                    distances[j] = distance; ids[j] = index; break;\n                }\n            }\n            double total = 0;\n            for (int j = 0; j < k; j++) {\n                double weight = 1 / (0.05 + distances[j]); total += weight;\n                for (int b = 0; b < BINS; b++) {\n                    double delta = (2.0*b/(BINS-1)-1-factors[ids[j]])/0.10;\n                    density[b] += weight / (1 + delta*delta);\n                }\n            }\n            if (total > 0) for (int b = 0; b < BINS; b++) density[b] /= total;\n            return density;\n        }\n        double[] predict(double[] input) {\n            double[] all = view(input, CAPACITY), recent = view(input, 48);\n            for (int b = 0; b < BINS; b++) all[b] = all[b]*0.65 + recent[b]*0.35;\n            return all;\n        }\n    }\n\n    static class ResponseBank {"
+    }
+  ]
+}
