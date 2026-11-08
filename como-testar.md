@@ -95,3 +95,7 @@ As referências das 20 técnicas de defesa estão em [referencias-defesa.md](ref
 ## Ataque híbrido (3.5)
 
 A versão 3.5 acrescenta KNN por contexto e ondas de observação entre tiros, preservando as cores e a comemoração. No indicador de mira, os modos 5 e 6 são KNN por visitas e KNN de ondas de tiros reais. Os modos 0 a 4 continuam disponíveis. O ganho medido e as derrotas remanescentes estão em [ataque-experimentos.md](ataque-experimentos.md); a relação com as 25 técnicas está em [referencias-ataque.md](referencias-ataque.md).
+
+## Diagnóstico de combate (3.6)
+
+A versão 3.6 acrescenta uma linha de telemetria por round, sem ativar nova estratégia de ataque ou defesa. A ferramenta externa gera CSV de dano nominal, energia investida, scans e associações de impactos: [telemetria.md](telemetria.md). A [arquitetura real](arquitetura.md) distingue os recursos implementados das propostas futuras.

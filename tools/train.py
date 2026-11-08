@@ -184,7 +184,8 @@ def score_for(result, name):
     total = sum(row["score"] for row in result["scores"])
     lines = [line for line in result["block"].splitlines() if line.startswith("[treino." + name + "*")
              or line.startswith("[treino." + name + " ") or line.startswith("[treino." + name + "]")]
-    counters = {key: sum(int(v) for v in re.findall(key + r"=(\d+)", "\n".join(lines)))
+    statistics = [line for line in lines if re.search(r"(?:TitanPrime|Nemesis) round=\d+ ", line)]
+    counters = {key: sum(int(v) for v in re.findall(key + r"=(\d+)", "\n".join(statistics)))
                 for key in ("shots", "hits", "waves", "matched", "walls", "skipped")}
     return {**own, "score_share": own["score"] / max(1, total), **counters}
 

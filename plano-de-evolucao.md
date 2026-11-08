@@ -88,3 +88,7 @@ Uma candidata promissora passa por confirmação em posições novas e testes de
 Esta revisão acrescenta planejamento e análise. Não modifica a estratégia do Java nem declara implementados os recursos pendentes.
 
 SHA-256 do documento analisado: `1a569cef1104fea7430d644f12f2f680e3a7af8a9c9e6f46553d904c168e091b`.
+
+## Primeira etapa executada: 3.6
+
+A instrumentação inicial foi implementada e comparada à 3.5 em 30 séries independentes / 90 rounds, sem regressão de séries por contexto. O primeiro diagnóstico contra Diamond encontrou radar atualizado e associações consistentes nos impactos registrados, mantendo as derrotas. Os dados orientam a investigação da mira e do perigo estatístico, sem assumir que mais controle de radar resolverá o problema. Veja [telemetria.md](telemetria.md) e [arquitetura.md](arquitetura.md). As demais etapas deste plano continuam propostas.

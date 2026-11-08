@@ -1,13 +1,13 @@
 {
   "purpose": "Cosmetic integration check against passive SittingDuck; not a competitive benchmark",
   "engine": "1.11.1",
-  "source_sha256": "0d5139b08fd5a6a4a2f8dea8ecda40ef87a162ca322e0ffa470cf3ebabec93a0",
+  "source_sha256": "0cf428460c2c95a139ef329fc2d5b89b882dd759c7eb6772067406fa7b6bdcac",
   "battles": 3,
   "rounds": [
     {
       "battle": 0,
       "round": 0,
-      "base_rgb": -1689550,
+      "base_rgb": -12569882,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -18,7 +18,7 @@
     {
       "battle": 0,
       "round": 1,
-      "base_rgb": -1689550,
+      "base_rgb": -12569882,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -29,7 +29,7 @@
     {
       "battle": 0,
       "round": 2,
-      "base_rgb": -1689550,
+      "base_rgb": -12569882,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -40,7 +40,7 @@
     {
       "battle": 1,
       "round": 0,
-      "base_rgb": -3611086,
+      "base_rgb": -1690965,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -51,7 +51,7 @@
     {
       "battle": 1,
       "round": 1,
-      "base_rgb": -3611086,
+      "base_rgb": -1690965,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -62,7 +62,7 @@
     {
       "battle": 1,
       "round": 2,
-      "base_rgb": -3611086,
+      "base_rgb": -1690965,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -73,18 +73,18 @@
     {
       "battle": 2,
       "round": 0,
-      "base_rgb": -13441307,
+      "base_rgb": -1686734,
       "combat_colors": 1,
       "victory_colors": 122,
-      "body_headings": 37,
-      "gun_headings": 37,
+      "body_headings": 38,
+      "gun_headings": 38,
       "won": true,
       "final_velocity": 0.0
     },
     {
       "battle": 2,
       "round": 1,
-      "base_rgb": -13441307,
+      "base_rgb": -1686734,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,
@@ -95,7 +95,7 @@
     {
       "battle": 2,
       "round": 2,
-      "base_rgb": -13441307,
+      "base_rgb": -1686734,
       "combat_colors": 1,
       "victory_colors": 122,
       "body_headings": 37,

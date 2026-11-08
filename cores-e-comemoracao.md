@@ -22,4 +22,6 @@ python tools/colors.py --home /caminho/robocode-testes --output /caminho/cores
 
 Acrescente `--ecj /caminho/ecj.jar` se precisar do compilador Eclipse. O teste usa snapshots do motor e pode ser executado sem interface gráfica. O código de uso normal continua somente em [robots/equipe/titanprime.java](robots/equipe/titanprime.java).
 
-A comemoração e as três paletas foram conferidas novamente após a evolução ofensiva na versão **3.5**, em nove rounds. O arquivo de dados acima corresponde agora à fonte 3.5, identificada pelo hash.
+A comemoração e as três paletas foram conferidas novamente após a evolução ofensiva na versão **3.5**, em nove rounds. A execução da 3.5 ficou registrada no histórico do repositório; o arquivo de dados acompanha a versão mais recente, identificada pelo hash.
+
+A instrumentação da **3.6** também passou pelo teste de nove rounds, com paleta por batalha e comemoração preservadas. Os dados atuais referem-se à fonte 3.6.

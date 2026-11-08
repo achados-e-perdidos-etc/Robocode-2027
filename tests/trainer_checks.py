@@ -36,6 +36,7 @@ def main():
     result = {"scores": [{"robot": "treino.Candidate*", "score": 200, "wins": 2},
                          {"robot": "sample.Walls", "score": 100, "wins": 1}],
               "block": "[treino.Candidate*] TitanPrime round=0 shots=12 hits=4 skipped=2\n"
+                       "[treino.Candidate*] TELEMETRY v=1 round=0 shots=12 hits=4 skipped=99\n"
                        "[treino.Candidate2*] TitanPrime round=0 shots=99 hits=99 skipped=99\n"}
     own = train.score_for(result, "Candidate")
     assert own["skipped"] == 2 and own["shots"] == 12 and own["hits"] == 4

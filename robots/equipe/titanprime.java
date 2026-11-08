@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * TitanPrime 3.5 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.6 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -59,6 +59,7 @@ public class titanprime extends AdvancedRobot {
     private boolean showVision = true, roundReported;
     private boolean celebrating;
     private int celebrationFrame;
+    private final Telemetry telemetry = new Telemetry();
 
     public void run() {
         width = getBattleFieldWidth();
@@ -83,6 +84,7 @@ public class titanprime extends AdvancedRobot {
             rememberSelf();
             expireWaves();
             chooseTarget();
+            if (!roundReported) telemetry.decision(target != null);
             radar();
             move();
             aimAndFire();
@@ -144,6 +146,8 @@ public class titanprime extends AdvancedRobot {
         }
         e.sentry = scan.isSentryRobot();
         long now = getTime(), gap = now - e.time;
+        if (!celebrating && !roundReported && !e.sentry)
+            telemetry.scan(e.time >= 0 ? gap : -1);
         double abs = getHeadingRadians() + scan.getBearingRadians();
         Point2D.Double point = project(getX(), getY(), abs, scan.getDistance());
         if (e.time >= 0 && gap > 0) {
@@ -456,6 +460,8 @@ public class titanprime extends AdvancedRobot {
                 || getTime() - lastVirtualWave < (getOthers() == 1 ? 4 : 8))) return;
         if (realShot) {
             shots++;
+            if (!celebrating && !roundReported)
+                telemetry.shot(bullet, bullet.getPower(), d, getTime() - e.time);
             gunUsage[selected]++;
             solutionTarget = null;
             fired.put(bullet, e.brain);
@@ -599,7 +605,7 @@ public class titanprime extends AdvancedRobot {
         return (brain.surf[segment][bin] + brain.surfGlobal[bin] * 0.4) / sum;
     }
 
-    private void matchBullet(Bullet bullet, double x, double y, String shooter, boolean bodyHit) {
+    private double matchBullet(Bullet bullet, double x, double y, String shooter, boolean bodyHit) {
         Wave best = null;
         double error = Double.POSITIVE_INFINITY;
         for (Wave w : incoming) {
@@ -608,6 +614,8 @@ public class titanprime extends AdvancedRobot {
             if (delta < error && delta < w.speed * 2.5 + 18) { error = delta; best = w; }
         }
         if (best != null) {
+            if (bodyHit && !celebrating && !roundReported)
+                telemetry.matchConfidence += best.confidence;
             if (USE_FLATTENER && bodyHit && best.confidence >= 0.8) {
                 recordPass(best, getX(), getY());
                 best.owner.brain.taken = Math.min(best.owner.brain.passed, best.owner.brain.taken + 1);
@@ -620,7 +628,9 @@ public class titanprime extends AdvancedRobot {
             GENERAL_SURF.observe(best.features, gf);
             incoming.remove(best);
             wavesMatched++;
+            return error;
         }
+        return -1;
     }
 
     public void onHitByBullet(HitByBulletEvent e) {
@@ -631,12 +641,14 @@ public class titanprime extends AdvancedRobot {
                     getTime() - shooter.threatTime) + Rules.getBulletDamage(e.getPower()) / 8);
             shooter.threatTime = getTime();
         }
-        matchBullet(e.getBullet(), e.getBullet().getX(), e.getBullet().getY(), e.getName(), true);
+        double radialError = matchBullet(e.getBullet(), e.getBullet().getX(), e.getBullet().getY(), e.getName(), true);
+        if (!celebrating && !roundReported) telemetry.received(e.getPower(), radialError);
         lastPlan = -100;
     }
 
     public void onBulletHit(BulletHitEvent e) {
         hits++;
+        if (!celebrating && !roundReported) telemetry.hit(e.getBullet(), e.getBullet().getPower());
         Enemy victim = enemies.get(e.getName());
         if (victim != null) victim.energy -= Rules.getBulletDamage(e.getBullet().getPower());
         finishShot(e.getBullet(), true);
@@ -654,6 +666,7 @@ public class titanprime extends AdvancedRobot {
     private final Map<Bullet, Brain> fired = new HashMap<Bullet, Brain>();
 
     private void finishShot(Bullet bullet, boolean hit) {
+        telemetry.release(bullet);
         Brain brain = fired.remove(bullet);
         if (brain != null) {
             brain.actualShots = brain.actualShots * 0.99 + 1;
@@ -691,6 +704,7 @@ public class titanprime extends AdvancedRobot {
                 + " waves=" + wavesDetected + " matched=" + wavesMatched
                 + " walls=" + wallHits + " skipped=" + skipped + " virtual=" + virtualWaves);
         out.println("GUN_USAGE " + java.util.Arrays.toString(gunUsage));
+        out.println(telemetry.line(getRoundNum()));
         for (Enemy enemy : enemies.values()) {
             out.println("learn " + enemy.name + " gun=" + enemy.brain.gunSamples
                     + " surf=" + enemy.brain.surfSamples + " neuralGun=" + enemy.brain.gunNet.samples
@@ -928,6 +942,51 @@ public class titanprime extends AdvancedRobot {
         private double checkedWeight(double value) throws java.io.IOException {
             if (!Double.isFinite(value) || Math.abs(value) > 4.001) throw new java.io.IOException("model weight");
             return value;
+        }
+    }
+
+    static class Telemetry {
+        long decisions, noTarget, scans, scanGaps, gapSum, gapMax;
+        long shots, hits, aimAgeSum, aimAgeMax, received, matched, unmatched, unknownHitRange;
+        double spent, dealtNominal, receivedNominal, hitBonusNominal;
+        double matchErrorSum, matchErrorMax, matchConfidence;
+        final long[] shotsByRange = new long[3], hitsByRange = new long[3];
+        final Map<Object, Integer> shotRanges = new HashMap<Object, Integer>();
+        void decision(boolean targetAvailable) { decisions++; if (!targetAvailable) noTarget++; }
+        void scan(long gap) {
+            scans++;
+            if (gap > 0) { scanGaps++; gapSum += gap; gapMax = Math.max(gapMax, gap); }
+        }
+        static int range(double distance) { return distance < 200 ? 0 : distance < 400 ? 1 : 2; }
+        void shot(Object bullet, double power, double distance, long age) {
+            shots++; spent += power;
+            aimAgeSum += age; aimAgeMax = Math.max(aimAgeMax, age);
+            int bin = range(distance); shotsByRange[bin]++;
+            if (shotRanges.size() < 64) shotRanges.put(bullet, bin);
+        }
+        void hit(Object bullet, double power) {
+            hits++; dealtNominal += Rules.getBulletDamage(power);
+            hitBonusNominal += Rules.getBulletHitBonus(power);
+            Integer bin = shotRanges.get(bullet);
+            if (bin == null) unknownHitRange++; else hitsByRange[bin]++;
+        }
+        void release(Object bullet) { shotRanges.remove(bullet); }
+        void received(double power, double error) {
+            received++; receivedNominal += Rules.getBulletDamage(power);
+            if (Double.isFinite(error) && error >= 0) {
+                matched++; matchErrorSum += error; matchErrorMax = Math.max(matchErrorMax, error);
+            } else unmatched++;
+        }
+        String line(int round) {
+            return "TELEMETRY v=1 round=" + round + " decisions=" + decisions + " no_target=" + noTarget
+                    + " scans=" + scans + " gap_count=" + scanGaps + " gap_sum=" + gapSum + " gap_max=" + gapMax
+                    + " shots=" + shots + " hits=" + hits + " aim_age_sum=" + aimAgeSum + " aim_age_max=" + aimAgeMax
+                    + " spent=" + spent + " dealt_nominal=" + dealtNominal + " received_nominal=" + receivedNominal
+                    + " bonus_nominal=" + hitBonusNominal + " received=" + received + " body_matched=" + matched
+                    + " body_unmatched=" + unmatched + " error_sum=" + matchErrorSum + " error_max=" + matchErrorMax
+                    + " confidence_sum=" + matchConfidence + " unknown_hit_range=" + unknownHitRange
+                    + " shots_range=" + shotsByRange[0] + "," + shotsByRange[1] + "," + shotsByRange[2]
+                    + " hits_range=" + hitsByRange[0] + "," + hitsByRange[1] + "," + hitsByRange[2];
         }
     }
 

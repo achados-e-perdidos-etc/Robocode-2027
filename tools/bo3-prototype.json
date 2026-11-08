@@ -1,10 +1,10 @@
 {
-  "baseline_sha256": "0d5139b08fd5a6a4a2f8dea8ecda40ef87a162ca322e0ffa470cf3ebabec93a0",
+  "baseline_sha256": "0cf428460c2c95a139ef329fc2d5b89b882dd759c7eb6772067406fa7b6bdcac",
   "adaptation": "3.5 already has visit waves; FAST_OBSERVATION toggles that existing path, preserving real-shot-only gun scoring.",
   "changes": [
     {
-      "old": "/**\n * TitanPrime 3.5 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
-      "new": "/**\n * TitanPrime 3.5 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+      "old": "/**\n * TitanPrime 3.6 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * TitanPrime 3.6 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
     },
     {
       "old": "    static final boolean USE_KNN_GUN = true;\n    static final boolean USE_VISIT_WAVES = true;",
