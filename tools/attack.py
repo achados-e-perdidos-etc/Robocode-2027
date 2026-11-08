@@ -66,9 +66,9 @@ def evaluate(args, label, names, seeds):
                 raise ValueError('Enemy memory leaked across battles')
             counts = [list(map(int, s.split(','))) for s in re.findall(r'GUN_USAGE \[([^\]]+)\]', own)]
             if counts:
-                if len(counts) != 3 or any(len(s) != 7 for s in counts):
+                if len(counts) != 3 or any(len(s) not in (7,10) or len(s) != len(counts[0]) for s in counts):
                     raise ValueError('Missing gun usage telemetry')
-                total = [sum(s[i] for s in counts) for i in range(7)]
+                total = [sum(s[i] for s in counts) for i in range(len(counts[0]))]
                 if sum(total) != row['reported_shots']:
                     raise ValueError('Gun usage differs from actual shots')
                 row['gun_usage'] = total

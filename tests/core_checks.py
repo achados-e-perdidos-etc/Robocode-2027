@@ -13,6 +13,7 @@ package equipe;
 public class corechecks {
  static class Probe extends titanprime {
   public long getTime(){return 100;}
+  public double getEnergy(){return 0;} // No finisher budget in this target-selection probe.
   public double getX(){return 400;}
   public double getY(){return 300;}
  }

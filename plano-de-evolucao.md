@@ -1,5 +1,7 @@
 # Plano de evolução a partir do documento TitanV2
 
+Atualização ofensiva: as lacunas da lista de 25 foram implementadas no Titan Prime 3.7. A finalização está ativa; as miras novas permanecem experimentais após comparação em batalhas. Veja [ataque-completo.md](ataque-completo.md).
+
 Análise de `TitanV2_Plano_Completo_de_Sistemas.docx`, enviado pelo usuário, comparado ao **Titan Prime 3.5** do commit `26af41108680157af4dab10ce3e004540bec65b6`. O documento apresenta **15 sistemas e 120 itens**, além dos anexos com as listas de defesa e ataque já discutidas.
 
 Este arquivo é um plano, não uma declaração de que as propostas foram implementadas. A versão de combate permanece 3.5. O documento original não foi publicado; esta análise registra apenas o conteúdo técnico relevante ao projeto.

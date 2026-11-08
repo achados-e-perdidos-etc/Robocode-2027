@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * TitanPrime 3.6 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.7 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -34,6 +34,8 @@ public class titanprime extends AdvancedRobot {
     static final boolean USE_FLATTENER = true;
     static final boolean USE_KNN_GUN = true;
     static final boolean USE_VISIT_WAVES = true;
+    static final boolean USE_EXTENDED_GUNS = false;
+    static final boolean USE_FINISHER = true;
     // Um sorteio independente por batalha; statics permanecem entre rounds.
     private static final float BATTLE_HUE = new java.util.Random().nextFloat();
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
@@ -53,7 +55,9 @@ public class titanprime extends AdvancedRobot {
     private long solutionTime = -100;
     private long lastVirtualWave = -100;
     private int virtualWaves;
-    private final int[] gunUsage = new int[7];
+    private final int[] gunUsage = new int[10];
+    private boolean finishing;
+    private double engagementDistance = GENOME[1];
     private Enemy solutionTarget;
     private double firingSolution;
     private boolean showVision = true, roundReported;
@@ -187,6 +191,7 @@ public class titanprime extends AdvancedRobot {
         e.energy = scan.getEnergy(); e.time = now; e.alive = true;
         double lateral = e.velocity * Math.sin(e.heading - abs);
         if (Math.abs(lateral) > 0.1) e.direction = sign(lateral);
+        if (USE_EXTENDED_GUNS) e.brain.motion.observe(getRoundNum(), now, e.heading, e.velocity);
         resolveGunWaves(e);
     }
 
@@ -203,6 +208,11 @@ public class titanprime extends AdvancedRobot {
             if (score < bestScore) { bestScore = score; best = e; }
         }
         target = best;
+        if (USE_FINISHER) {
+            finishing = finisherAllowed();
+            double desired = finishing ? 180 : GENOME[1];
+            engagementDistance += clamp(-4, desired - engagementDistance, 4);
+        }
     }
 
     private void radar() {
@@ -359,8 +369,10 @@ public class titanprime extends AdvancedRobot {
                 risk += 0.12 * forecast.pressure * (1 - lateral) * (1 - lateral);
             }
             if (d < 55) risk += 25;
+            if (USE_FINISHER && finishing && getOthers() > 1 && e == target)
+                risk += Math.abs(d - engagementDistance) / 1800;
             if (getOthers() == 1) {
-                risk += Math.abs(d - GENOME[1]) / 1600;
+                risk += Math.abs(d - (USE_FINISHER ? engagementDistance : GENOME[1])) / 1600;
                 risk += 0.12 * Math.abs(Math.cos(heading - angle(p.x, p.y, x, y)));
             }
         }
@@ -402,7 +414,7 @@ public class titanprime extends AdvancedRobot {
         double direct = angle(getX(), getY(), current.x, current.y);
         double lateral = Math.abs(e.velocity * Math.sin(e.heading - direct));
         int seg = segment(d, lateral, e.acceleration);
-        double[] angles = new double[USE_KNN_GUN ? 7 : 5];
+        double[] angles = new double[USE_EXTENDED_GUNS ? 10 : USE_KNN_GUN ? 7 : 5];
         angles[0] = direct;
         angles[1] = intercept(e, speed, false);
         angles[2] = intercept(e, speed, true);
@@ -419,17 +431,44 @@ public class titanprime extends AdvancedRobot {
             angles[5] = direct + e.direction * bestNeuralFactor(visits, width) * Math.asin(8 / speed);
             angles[6] = direct + e.direction * bestNeuralFactor(real, width) * Math.asin(8 / speed);
         }
+        int motionMode = USE_EXTENDED_GUNS ? e.brain.motion.mode() : 0;
+        boolean patternReady = false, responseReady = false;
+        if (USE_EXTENDED_GUNS) {
+            if (getTime() - e.extraTime >= 4 || e.extraTime < 0 || Math.abs(e.extraSpeed - speed) > 0.01) {
+                e.extraTime = getTime(); e.extraSpeed = speed;
+                e.extra[0] = physicalAim(e, speed, -1);
+                int continuation = e.brain.motion.match();
+                e.patternReady = continuation >= 0;
+                e.extra[1] = e.patternReady ? physicalAim(e, speed, continuation) : angles[2];
+                e.responseReady = getOthers() == 1 && e.brain.response.size >= 8;
+                e.extra[2] = e.responseReady ? responseAim(e, current, input, speed, direct) : angles[2];
+            }
+            patternReady = e.patternReady; responseReady = e.responseReady;
+            angles[7] = e.extra[0]; angles[8] = e.extra[1]; angles[9] = e.extra[2];
+        }
         // Sem historico, usa preditiva circular. Depois, competicao de miras virtuais.
         int selected = 2;
         double best = -1;
         for (int i = 0; i < angles.length; i++) {
             if (i == 6 && !USE_VISIT_WAVES) continue;
+            if (i == 8 && !patternReady || i == 9 && !responseReady) continue;
             double prior = i == 2 ? 0.22 : i == 1 ? 0.20 : 0.14;
             double score = (e.brain.gunHits[i] + prior * 8) / (e.brain.gunTrials[i] + 8);
             if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;
             if (i == 4 && e.brain.gunNet.samples + GENERAL_GUN.samples < 20) score *= 0.5;
             if (i == 5 && e.brain.visitGun.size < 8) score *= 0.5;
             if (i == 6 && e.brain.realGun.size < 8) score *= 0.5;
+            if (USE_EXTENDED_GUNS) {
+                double trials = e.brain.contextTrials[motionMode][i];
+                if (trials >= 8) {
+                    double contextual = (e.brain.contextHits[motionMode][i] + prior * 8) / (trials + 8);
+                    double weight = Math.min(0.45, trials / 80);
+                    score = score * (1 - weight) + contextual * weight;
+                }
+                if (e.brain.gunTrials[i] < 8) {
+                    if (motionMode == 2 && i == 1 || motionMode == 3 && i == 2) score += 0.025;
+                }
+            }
             if (score > best) { best = score; selected = i; }
         }
         double aim = angles[selected];
@@ -472,6 +511,8 @@ public class titanprime extends AdvancedRobot {
         {
             GunWave w = new GunWave();
             w.firing = realShot;
+            w.motionMode = motionMode; w.duel = getOthers() == 1;
+            w.startX = current.x; w.startY = current.y;
             w.owner = e; w.x = getX(); w.y = getY();
             w.time = getTime(); w.speed = speed;
             w.power = power; w.bearing = direct; w.direction = e.direction;
@@ -480,6 +521,166 @@ public class titanprime extends AdvancedRobot {
             w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();
             if (outgoing.size() < 96) outgoing.add(w);
         }
+    }
+
+    private boolean finisherAllowed() {
+        if (target == null || !target.alive || target.sentry || getTime() - target.time > 2
+                || target.energy <= 0 || target.energy > 12 || getEnergy() < 25
+                || distance(getX(), getY(), target.x, target.y) > 600) return false;
+        int known = 0;
+        for (Enemy other : enemies.values()) if (other.alive && !other.sentry && getTime() - other.time <= 16) known++;
+        if (known < getOthers()) return false;
+        for (Enemy other : enemies.values()) if (other != target && other.alive && !other.sentry
+                && (getTime() - other.time > 16 || distance(getX(), getY(), other.x, other.y) < 350)) return false;
+        for (Wave wave : incoming) if ((distance(wave.x, wave.y, getX(), getY()) - wave.radius(getTime())) / wave.speed < 15)
+            return false;
+        return true;
+    }
+
+    // Projecao fisica condicionada ao padrao observado; nao conhece comandos futuros.
+    private double physicalAim(Enemy e, double speed, int continuation) {
+        MotionState state = new MotionState(e.x, e.y, e.heading, e.velocity);
+        for (int age = 0; age < Math.min(8, getTime() - e.time); age++)
+            state.step(e.turnRate, clamp(-8, state.velocity + e.acceleration, 8), width, height);
+        for (int tick = 1; tick <= 96; tick++) {
+            double turn = e.turnRate, desired = clamp(-8, state.velocity + e.acceleration, 8);
+            if (continuation >= 0) {
+                int slot = (continuation + tick) % MotionLog.CAPACITY;
+                turn = e.brain.motion.turn[slot]; desired = e.brain.motion.velocity[slot];
+            }
+            state.step(turn, desired, width, height);
+            if (tick * speed >= distance(getX(), getY(), state.x, state.y)) break;
+        }
+        return angle(getX(), getY(), state.x, state.y);
+    }
+
+    private double responseAim(Enemy e, Point2D.Double current, double[] input, double speed, double direct) {
+        double[] vector = e.brain.response.predict(input);
+        double dx = vector[0] * e.direction * Math.cos(direct) + vector[1] * Math.sin(direct);
+        double dy = -vector[0] * e.direction * Math.sin(direct) + vector[1] * Math.cos(direct);
+        double flight = current.distance(getX(), getY()) / speed, px = current.x, py = current.y;
+        for (int i = 0; i < 6; i++) {
+            px = clamp(18, current.x + dx * flight, width - 18);
+            py = clamp(18, current.y + dy * flight, height - 18);
+            flight = distance(getX(), getY(), px, py) / speed;
+        }
+        double proposed = normal(angle(getX(), getY(), px, py) - direct);
+        double left = escapeOffset(e, speed, direct, -1), right = escapeOffset(e, speed, direct, 1);
+        return direct + clamp(Math.min(left, right), proposed, Math.max(left, right));
+    }
+
+    // Estimativa assimetrica de escape com velocidade, giro e paredes.
+    private double escapeOffset(Enemy e, double speed, double direct, int side) {
+        MotionState state = new MotionState(e.x, e.y, e.heading, e.velocity);
+        for (int t = 1; t <= 96; t++) {
+            double desiredHeading = angle(getX(), getY(), state.x, state.y) + side * Math.PI / 2;
+            for (int smooth = 0; smooth < 32; smooth++) {
+                Point2D.Double point = project(state.x, state.y, desiredHeading, 100);
+                if (inside(point.x, point.y, 20)) break;
+                desiredHeading += side * 0.05;
+            }
+            double turn = normal(desiredHeading - state.heading);int drive = 1;
+            if (Math.abs(turn) > Math.PI / 2) {turn = normal(turn + Math.PI);drive = -1;}
+            state.step(turn, 8 * drive, width, height);
+            if (t * speed >= distance(getX(), getY(), state.x, state.y)) break;
+        }
+        return normal(angle(getX(), getY(), state.x, state.y) - direct);
+    }
+
+    static class MotionState {
+        double x,y,heading,velocity;
+        MotionState(double x,double y,double h,double v){this.x=x;this.y=y;heading=h;velocity=v;}
+        static double advanceVelocity(double velocity,double goal) {
+            if (velocity * goal >= 0) {
+                double limit = Math.abs(goal) > Math.abs(velocity) ? 1 : 2;
+                return velocity + clamp(-limit,goal-velocity,limit);
+            }
+            double direction = sign(goal), next = nextVelocity(velocity * direction, 1000000) * direction;
+            return goal > velocity ? Math.min(goal,next) : Math.max(goal,next);
+        }
+        void step(double turn,double goal,double width,double height) {
+            double limit = Rules.getTurnRateRadians(velocity);
+            heading = normal(heading + clamp(-limit,turn,limit));
+            velocity = advanceVelocity(velocity,clamp(-8,goal,8));
+            double nx=x+Math.sin(heading)*velocity,ny=y+Math.cos(heading)*velocity;
+            x=clamp(18,nx,width-18);y=clamp(18,ny,height-18);
+            if(x!=nx||y!=ny)velocity=0;
+        }
+    }
+
+    static class MotionLog {
+        static final int CAPACITY=512, FUTURE=96, PREFIX=8;
+        final double[] velocity=new double[CAPACITY],turn=new double[CAPACITY];
+        final long[] tick=new long[CAPACITY];final int[] round=new int[CAPACITY];
+        int seen;double lastHeading;
+        void observe(int r,long time,double heading,double v) {
+            if(seen>0){int prev=(seen-1)%CAPACITY;if(round[prev]==r&&tick[prev]==time)return;}
+            int slot=seen%CAPACITY,prev=(seen-1+CAPACITY)%CAPACITY;
+            turn[slot]=seen>0&&round[prev]==r&&tick[prev]+1==time?normal(heading-lastHeading):Double.NaN;
+            velocity[slot]=v;round[slot]=r;tick[slot]=time;lastHeading=heading;seen++;
+        }
+        boolean contiguous(int start,int end) {
+            if(start<Math.max(0,seen-CAPACITY)||end>=seen)return false;
+            for(int i=start+1;i<=end;i++)if(!Double.isFinite(turn[i%CAPACITY]))return false;
+            return true;
+        }
+        int mode() {
+            if(seen<13||!contiguous(seen-13,seen-1))return 0;
+            double speed=0,mean=0,square=0;int reversals=0;
+            for(int i=seen-12;i<seen;i++){
+                int j=i%CAPACITY,p=(i-1)%CAPACITY;speed+=Math.abs(velocity[j]);mean+=turn[j];square+=turn[j]*turn[j];
+                if(velocity[j]*velocity[p]<0||turn[j]*turn[p]<-0.0001)reversals++;
+            }
+            speed/=12;mean/=12;square=square/12-mean*mean;
+            if(speed<0.4)return 1;
+            if(reversals>=2)return 4;
+            if(Math.abs(mean)<0.007&&square<0.0002)return 2;
+            if(Math.abs(mean)>0.01&&square<0.0003)return 3;
+            return 0;
+        }
+        int match() {
+            if(seen<PREFIX+FUTURE+2||!contiguous(seen-PREFIX,seen-1))return -1;
+            int best=-1;double bestError=1.5;
+            int first=Math.max(PREFIX,seen-CAPACITY+PREFIX);
+            for(int end=first;end+FUTURE<seen-PREFIX;end+=3){
+                if(!contiguous(end-PREFIX+1,end+FUTURE))continue;
+                double error=0;
+                for(int k=0;k<PREFIX;k++){
+                    int a=(seen-1-k)%CAPACITY,b=(end-k)%CAPACITY;
+                    double dv=(velocity[a]-velocity[b])/2,dt=(turn[a]-turn[b])/0.035;
+                    error+=(dv*dv+dt*dt)/PREFIX;
+                }
+                if(error<bestError){bestError=error;best=end;}
+            }
+            return best;
+        }
+    }
+
+    static class ResponseBank {
+        static final int CAPACITY=256;
+        final double[][] features=new double[CAPACITY][];
+        final double[] lateral=new double[CAPACITY],forward=new double[CAPACITY];
+        int seen,size;
+        void observe(double[] input,double lat,double fwd){
+            int i=seen%CAPACITY;double length=Math.hypot(lat,fwd),scale=length>8?8/length:1;
+            features[i]=input.clone();lateral[i]=lat*scale;forward[i]=fwd*scale;seen++;size=Math.min(CAPACITY,size+1);
+        }
+        double[] view(double[] input,int window,int k){
+            k=Math.min(k,Math.min(size,window));double[] distances=new double[k];int[] indices=new int[k];
+            java.util.Arrays.fill(distances,Double.POSITIVE_INFINITY);
+            for(int age=0;age<Math.min(size,window);age++){
+                int i=(seen-1-age)%CAPACITY;double d=0;
+                for(int f=0;f<12;f++){double delta=input[f]-features[i][f];d+=delta*delta*GunContext.WEIGHTS[f];}
+                for(int j=0;j<k;j++)if(d<distances[j]){
+                    for(int n=k-1;n>j;n--){distances[n]=distances[n-1];indices[n]=indices[n-1];}
+                    distances[j]=d;indices[j]=i;break;
+                }
+            }
+            double lat=0,fwd=0,total=0;
+            for(int j=0;j<k;j++){double weight=1/(0.05+distances[j]);lat+=lateral[indices[j]]*weight;fwd+=forward[indices[j]]*weight;total+=weight;}
+            return total>0?new double[]{lat/total,fwd/total}:new double[2];
+        }
+        double[] predict(double[] input){double[] all=view(input,256,8),recent=view(input,32,4);return new double[]{all[0]*0.65+recent[0]*0.35,all[1]*0.65+recent[1]*0.35};}
     }
 
     private double reserve() { return getOthers() > 1 ? 2.5 : 0.6; }
@@ -553,12 +754,24 @@ public class titanprime extends AdvancedRobot {
                         brain.visitGun.observe(w.features, gf);
                         if (w.firing) brain.realGun.observe(w.features, gf);
                     }
+                    if (USE_EXTENDED_GUNS && w.firing && w.duel) {
+                        double elapsed = Math.max(1, distance(w.x, w.y, x, y) / w.speed);
+                        double dx = x - w.startX, dy = y - w.startY;
+                        double lateralResponse = (dx * Math.cos(w.bearing) - dy * Math.sin(w.bearing)) * w.direction / elapsed;
+                        double forwardResponse = (dx * Math.sin(w.bearing) + dy * Math.cos(w.bearing)) / elapsed;
+                        brain.response.observe(w.features, lateralResponse, forwardResponse);
+                    }
                     double actual = angle(w.x, w.y, x, y);
                     double tolerance = Math.atan2(21, distance(w.x, w.y, x, y));
                     if (w.firing) for (int gun = 0; gun < w.angles.length; gun++) {
                         brain.gunTrials[gun] = brain.gunTrials[gun] * 0.98 + 1;
                         brain.gunHits[gun] = brain.gunHits[gun] * 0.98
                                 + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? 1 : 0);
+                        if (USE_EXTENDED_GUNS) {
+                            brain.contextTrials[w.motionMode][gun] = brain.contextTrials[w.motionMode][gun] * 0.98 + 1;
+                            brain.contextHits[w.motionMode][gun] = brain.contextHits[w.motionMode][gun] * 0.98
+                                    + (Math.abs(normal(w.angles[gun] - actual)) < tolerance ? 1 : 0);
+                        }
                     }
                 }
                 it.remove();
@@ -1038,7 +1251,10 @@ public class titanprime extends AdvancedRobot {
     static class Brain {
         final double[][] gun = new double[SEGMENTS][BINS], surf = new double[SEGMENTS][BINS];
         final double[] gunGlobal = new double[BINS], surfGlobal = new double[BINS];
-        final double[] gunTrials = new double[7], gunHits = new double[7];
+        final double[] gunTrials = new double[10], gunHits = new double[10];
+        final double[][] contextTrials = new double[5][10], contextHits = new double[5][10];
+        final MotionLog motion = new MotionLog();
+        final ResponseBank response = new ResponseBank();
         final GunContext visitGun = new GunContext(), realGun = new GunContext();
         final double[] visits = new double[BINS];
         double passed, taken;
@@ -1054,7 +1270,10 @@ public class titanprime extends AdvancedRobot {
         long threatTime;
         long time = -1, nextFire;
         int direction = 1;
-        boolean alive = true, sentry;
+        boolean alive = true, sentry, patternReady, responseReady;
+        long extraTime = -100;
+        double extraSpeed;
+        final double[] extra = new double[3];
         Enemy(String name, Brain brain) { this.name = name; this.brain = brain; }
     }
     static class Forecast {
@@ -1082,7 +1301,9 @@ public class titanprime extends AdvancedRobot {
         double radius(long now) { return Math.max(0, now - time) * speed; }
     }
     static class GunWave extends Wave {
-        boolean firing;
+        boolean firing, duel;
+        int motionMode;
+        double startX, startY;
         double[] angles;
         double previousX, previousY;
         long previousTime;

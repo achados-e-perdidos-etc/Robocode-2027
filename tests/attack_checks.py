@@ -17,7 +17,7 @@ public class attackchecks {
  static class Probe extends titanprime {public long getTime(){return 10;}}
  static titanprime.GunWave wave(titanprime.Enemy e,boolean firing){
   titanprime.GunWave w=new titanprime.GunWave();w.owner=e;w.firing=firing;w.speed=14;w.direction=1;w.time=0;w.segment=0;
-  w.features=new double[12];w.angles=new double[7];w.previousTime=9;w.previousX=0;w.previousY=100;return w;
+  w.features=new double[12];w.angles=new double[e.brain.gunTrials.length];w.previousTime=9;w.previousX=0;w.previousY=100;return w;
  }
  public static void main(String[] args)throws Exception {
   titanprime.GunContext model=new titanprime.GunContext();double[] left=new double[12],right=new double[12];left[1]=0.1;right[1]=0.9;
