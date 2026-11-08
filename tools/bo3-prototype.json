@@ -1,13 +1,13 @@
 {
-  "baseline_sha256": "db0a3c47aeeb5356d28ae544f96d559f586a76cd444b76c584d7c73cf200784b",
+  "baseline_sha256": "fa73d07340eae6e3b5281bf8c1b2b3fdc5875f5c565fa19f12014e313c862088",
   "changes": [
     {
-      "old": "/**\n * TitanPrime 3.3 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
-      "new": "/**\n * TitanPrime 3.3 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
+      "old": "/**\n * TitanPrime 3.4 - Robocode classico, Java 8+, um unico arquivo fonte.\n * Implementacao propria das tecnicas documentadas em:\n",
+      "new": "/**\n * TitanPrime 3.4 - Robocode classico, Java 8+, preparado para series de tres rounds.\n * Implementacao propria das tecnicas documentadas em:\n"
     },
     {
-      "old": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",
-      "new": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    static final boolean FAST_OBSERVATION = true;\n    static final boolean WARM_DEFENSE = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n"
+      "old": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    // Um sorteio independente por batalha; statics permanecem entre rounds.\n    private static final float BATTLE_HUE = new java.util.Random().nextFloat();\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n",
+      "new": "    static final boolean EXPORT_LEARNING = false;\n    static final boolean USE_THREATS = false;\n    static final boolean USE_FLATTENER = true;\n    // Um sorteio independente por batalha; statics permanecem entre rounds.\n    private static final float BATTLE_HUE = new java.util.Random().nextFloat();\n    static final boolean FAST_OBSERVATION = true;\n    static final boolean WARM_DEFENSE = true;\n    private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);\n"
     },
     {
       "old": "    private long lastPlan = -100;\n    private long solutionTime = -100;\n",

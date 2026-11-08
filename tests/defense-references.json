@@ -1,0 +1,54 @@
+{
+  "projects": {
+    "diamond": {
+      "repository": "Voidious/Diamond",
+      "commit": "2d1c6a2b911cf077c5f13d2baa45da7d18d6babb",
+      "license_observation": "modified zlib; LICENSE inspected"
+    },
+    "supermercutio": {
+      "repository": "mgalushka/robocode-robots",
+      "commit": "08e7384eb2bbc370e1045e3a546b4cff953485ad",
+      "license_observation": "No root license file identified"
+    },
+    "wsmovement": {
+      "repository": "camiloh12/robocode",
+      "commit": "35c4af54c0ba72874a75add50e0e1e604c69c5b9",
+      "license_observation": "No root license file identified"
+    },
+    "unfolding": {
+      "repository": "khoitnm/RoboCode",
+      "commit": "b026b93f2fb86a44a8feafe3db59a894c268f6fd",
+      "license_observation": "No root license file identified; bundled dependencies have separate licenses"
+    },
+    "wilde": {
+      "repository": "alexjamesmacpherson/robocode",
+      "commit": "8db2c570f397e2c587a8b0a6466dba4fbab47090",
+      "license_observation": "BSD-3-Clause; LICENSE inspected"
+    },
+    "antigrav": {
+      "repository": "parthnan/AntiGrav-WavesurfingBot",
+      "commit": "ff48d9598f2167c87103268f1bb9344f0d8ab0a3",
+      "license_observation": "No root license file identified"
+    },
+    "robotnikk": {
+      "repository": "ItaloSLeao/robotnikk-knn",
+      "commit": "4075bb20346672b5fb4eda1bcc22e905a9070e1a",
+      "license_observation": "MIT; LICENSE inspected; no Java sources in inspected tree"
+    }
+  },
+  "downloaded_text_sha256": {
+    "antigrav-leader.txt": "c968ab59e9cd71cadc599fd9e10e4808462a0353a9996187043aa2daedbd5791",
+    "antigrav-main.txt": "0564479905573b722af3e8fa0985e6a66b468a8998e2f5d4f11966109995846a",
+    "antigravity.txt": "92f1e48dc38817ecf0690dd476e41ed7cec6b6faf9a3e61ea4a5130fe7445e53",
+    "combinedmovement.txt": "c5cc6b9a4e50d39c766e7e3d512e4bf214a197cbc074bfae529fcec2744bb018",
+    "robotnikk-license.txt": "cc6540499a606fbec12edfb24d3b603e8562b58fd299811eab494c4f2e739fe5",
+    "robotnikk-readme.txt": "153f39aa3e43278a165ba24cda20db9a715399a8d57c4ebc42e761fc1621d76d",
+    "supermercutio.txt": "fd53ea062878d8b05bd4a0a448fce1c8f0c38a8f8c5628f0774449cac5d91f7f",
+    "unfolding.txt": "73c6c761882687e8e494b77d06ebbc85b132ca6d85aed39b9c9590bd642f40f5",
+    "wallsmooth.txt": "4b9a35fbafc3f2cdee1354304ec891113c6e13e5d1bb0d7aef7cb886de09cdcd",
+    "wilde-license.txt": "125679fa02e73a68f14b7c5d931c6a14a8a1fef81f53bd20fdb46bc2b6093451",
+    "wilde.txt": "e0e3aed141c2df1a6ce4e9dcd12fae6518686e87ee19d0cf57fd30cbf3ad0c89",
+    "wsmovement.txt": "0d510c546f14262049555019cd4175e5cb251d20a3b62f855a9b763dba83401f"
+  },
+  "integration": "Concept study and original experimental implementation; third-party robot sources not redistributed."
+}

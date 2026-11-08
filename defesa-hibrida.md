@@ -36,3 +36,7 @@ Um controlador adaptativo pode comparar defesas usando dano recebido, tempo de e
 Enemy Gun Modeling e Dynamic Clustering são candidatos para melhorar a defesa contra adversários fortes, como o Diamond. Bullet Shielding exige um projeto e uma validação próprios; não há resultado aqui que justifique ativá-lo.
 
 Os testes dos exemplos da instalação estão em [robos-de-exemplo.md](robos-de-exemplo.md). Eles avaliam o Titan Prime; não são testes do TitanD descrito no texto.
+
+## Experimentos posteriores
+
+As referências foram verificadas e duas alternativas foram implementadas para teste: interseção de ondas com o retângulo do robô e KNN por contexto. Após 84 séries, elas não justificaram substituir a defesa atual. Veja [referencias-defesa.md](referencias-defesa.md) e [defesa-experimentos.md](defesa-experimentos.md).

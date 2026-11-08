@@ -85,3 +85,9 @@ Ao atualizar uma instalação antiga, remova também `TitanPrime.java`, `TitanPr
 A versão 3.3 foi testada contra os exemplos autônomos, grupos de adversários e a equipe real de cinco robôs. Há cenários prontos em `battles/equipe-cinco.battle`, `battles/todos-autonomos.battle` e `battles/sentinela.battle`.
 
 Os resultados completos, os exemplos que dependem de controle humano e a correção das posições do treinador estão em [robos-de-exemplo.md](robos-de-exemplo.md). Para repetir automaticamente, use `python tools/samples.py --home /caminho/robocode-testes --output /caminho/resultados`, acrescentando `--ecj /caminho/ecj.jar` se necessário.
+
+## Cores e comemoração (3.4)
+
+Cada batalha sorteia uma paleta, mantida entre seus rounds. Após vencer um round, o Titan gira e troca de cores até o encerramento. Reduza a velocidade do jogo para ver a animação; **Paint** não é necessário. Detalhes e teste em [cores-e-comemoracao.md](cores-e-comemoracao.md).
+
+As referências das 20 técnicas de defesa estão em [referencias-defesa.md](referencias-defesa.md). Os testes de retângulo e KNN ficaram experimentais após não aumentarem as séries vencidas: [defesa-experimentos.md](defesa-experimentos.md).

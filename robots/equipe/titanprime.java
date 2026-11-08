@@ -12,7 +12,7 @@ import robocode.*;
 import robocode.util.Utils;
 
 /**
- * TitanPrime 3.3 - Robocode classico, Java 8+, um unico arquivo fonte.
+ * TitanPrime 3.4 - Robocode classico, Java 8+, um unico arquivo fonte.
  * Implementacao propria das tecnicas documentadas em:
  * https://robowiki.net/wiki/Wave_Surfing_Tutorial (Voidious / ABC)
  * https://jkflying.net/posts/understanding_drussgt/ (Julian Kent)
@@ -32,6 +32,8 @@ public class titanprime extends AdvancedRobot {
     static final boolean EXPORT_LEARNING = false;
     static final boolean USE_THREATS = false;
     static final boolean USE_FLATTENER = true;
+    // Um sorteio independente por batalha; statics permanecem entre rounds.
+    private static final float BATTLE_HUE = new java.util.Random().nextFloat();
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
     private static final Neural GENERAL_SURF = new Neural(PRETRAINED_SURF);
     // Statics sao preservados pelo Robocode entre rounds, dentro da batalha.
@@ -50,12 +52,13 @@ public class titanprime extends AdvancedRobot {
     private Enemy solutionTarget;
     private double firingSolution;
     private boolean showVision = true, roundReported;
+    private boolean celebrating;
+    private int celebrationFrame;
 
     public void run() {
         width = getBattleFieldWidth();
         height = getBattleFieldHeight();
-        setColors(new Color(25, 20, 45), new Color(190, 40, 220), Color.CYAN);
-        setBulletColor(Color.CYAN);
+        battleColors();
         setAdjustGunForRobotTurn(true);
         setAdjustRadarForGunTurn(true);
         setAdjustRadarForRobotTurn(true);
@@ -67,6 +70,11 @@ public class titanprime extends AdvancedRobot {
         setEventPriority("ScannedRobotEvent", 10);
         rememberSelf();
         while (true) {
+            if (celebrating) {
+                celebrate();
+                execute();
+                continue;
+            }
             rememberSelf();
             expireWaves();
             chooseTarget();
@@ -75,6 +83,32 @@ public class titanprime extends AdvancedRobot {
             aimAndFire();
             execute();
         }
+    }
+
+    private void battleColors() {
+        setColors(Color.getHSBColor(BATTLE_HUE, 0.78f, 0.90f),
+                Color.getHSBColor(BATTLE_HUE + 0.12f, 0.70f, 0.55f),
+                Color.getHSBColor(BATTLE_HUE + 0.50f, 0.70f, 1.0f));
+        setBulletColor(Color.getHSBColor(BATTLE_HUE + 0.50f, 0.70f, 1.0f));
+        setScanColor(Color.getHSBColor(BATTLE_HUE, 0.45f, 1.0f));
+    }
+
+    public void onWin(WinEvent e) {
+        celebrating = true;
+        celebrationFrame = 0;
+        out.println("Titan Prime venceu o round!");
+    }
+
+    private void celebrate() {
+        float hue = BATTLE_HUE + celebrationFrame++ * 0.035f;
+        setColors(Color.getHSBColor(hue, 0.90f, 1.0f),
+                Color.getHSBColor(hue + 0.33f, 0.90f, 1.0f),
+                Color.getHSBColor(hue + 0.66f, 0.90f, 1.0f));
+        setMaxVelocity(0);
+        setAhead(0);
+        setTurnRight(10);
+        setTurnGunLeft(20);
+        setTurnRadarRight(45);
     }
 
     private void rememberSelf() {

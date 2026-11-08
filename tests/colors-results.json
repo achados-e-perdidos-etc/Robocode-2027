@@ -1,0 +1,109 @@
+{
+  "purpose": "Cosmetic integration check against passive SittingDuck; not a competitive benchmark",
+  "engine": "1.11.1",
+  "source_sha256": "fa73d07340eae6e3b5281bf8c1b2b3fdc5875f5c565fa19f12014e313c862088",
+  "battles": 3,
+  "rounds": [
+    {
+      "battle": 0,
+      "round": 0,
+      "base_rgb": -11390234,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 0,
+      "round": 1,
+      "base_rgb": -11390234,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 0,
+      "round": 2,
+      "base_rgb": -11390234,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 1,
+      "round": 0,
+      "base_rgb": -1665998,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 1,
+      "round": 1,
+      "base_rgb": -1665998,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 1,
+      "round": 2,
+      "base_rgb": -1665998,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 2,
+      "round": 0,
+      "base_rgb": -1678542,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 2,
+      "round": 1,
+      "base_rgb": -1678542,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    },
+    {
+      "battle": 2,
+      "round": 2,
+      "base_rgb": -1678542,
+      "combat_colors": 1,
+      "victory_colors": 122,
+      "body_headings": 37,
+      "gun_headings": 37,
+      "won": true,
+      "final_velocity": 0.0
+    }
+  ],
+  "checks_passed": true,
+  "palette_note": "Random per battle; a future draw can repeat a color by chance."
+}
