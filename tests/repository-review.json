@@ -1,0 +1,320 @@
+{
+  "repository": "gustavoolyver/Titan-Robo",
+  "branches": {
+    "main": {
+      "commit": "70f1af3fc38ff665c7cd5d2a40c99320ba022ba3",
+      "files": [
+        {
+          "path": "Java.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d6f239366daa142b036d40c206b0ed3aef2317e1",
+          "size": 36368,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/d6f239366daa142b036d40c206b0ed3aef2317e1"
+        },
+        {
+          "path": "OBraboBot.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cfa664795936bfed648c186e261fe798e47d0a50",
+          "size": 45452,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/cfa664795936bfed648c186e261fe798e47d0a50"
+        },
+        {
+          "path": "Titan.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8531fcc425777cf4915ba679c3f44e47661c34b1",
+          "size": 59816,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/8531fcc425777cf4915ba679c3f44e47661c34b1"
+        },
+        {
+          "path": "TitanV2.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "6a0346dc0edce6c4d3bbba39f9ef29dadf495a5c",
+          "size": 70588,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/6a0346dc0edce6c4d3bbba39f9ef29dadf495a5c"
+        },
+        {
+          "path": "TitanVingation.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "7ff197c45f374491a4bc597c8093d907526482ef",
+          "size": 31899,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/7ff197c45f374491a4bc597c8093d907526482ef"
+        },
+        {
+          "path": "Titans.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "a3e8efa273b4305bfa8cb90eedcfe2c7762e1a30",
+          "size": 76220,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/a3e8efa273b4305bfa8cb90eedcfe2c7762e1a30"
+        }
+      ]
+    },
+    "Titan": {
+      "commit": "ebe7079b963bf66fba95175684e07205118e359a",
+      "files": [
+        {
+          "path": "titan-vingation/README.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "2e7c7563f571fa82c20691e710fd3f3d143ef9ef",
+          "size": 4900,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/2e7c7563f571fa82c20691e710fd3f3d143ef9ef"
+        },
+        {
+          "path": "titan-vingation/dist/titan-vingation.jar",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "8783a684c43f2663d874a9b3d132a4f5b05f3044",
+          "size": 33116,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/8783a684c43f2663d874a9b3d132a4f5b05f3044"
+        },
+        {
+          "path": "titan-vingation/docs/file-audit.json",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "27020968b29734213cc992553b1fa99dd28947d1",
+          "size": 2679,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/27020968b29734213cc992553b1fa99dd28947d1"
+        },
+        {
+          "path": "titan-vingation/docs/review-report.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "536187aa1a15c6828bcb14d9fe21b61fb4300c2d",
+          "size": 7719,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/536187aa1a15c6828bcb14d9fe21b61fb4300c2d"
+        },
+        {
+          "path": "titan-vingation/docs/validation-report.md",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "b0d8a7c34b829b5a10c6a27d0eea981ddc6d9e2b",
+          "size": 1101,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/b0d8a7c34b829b5a10c6a27d0eea981ddc6d9e2b"
+        },
+        {
+          "path": "titan-vingation/lib/robocode-api.jar",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "64f3dc6c2719fadede67223139407ada24fcf569",
+          "size": 265999,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/64f3dc6c2719fadede67223139407ada24fcf569"
+        },
+        {
+          "path": "titan-vingation/scripts/build.sh",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "60081973fabbeae9d62071a640cbdc92e97a3503",
+          "size": 946,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/60081973fabbeae9d62071a640cbdc92e97a3503"
+        },
+        {
+          "path": "titan-vingation/scripts/test.sh",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3a7c33f44cfc9a819d702e58390ba2503e6cc3c9",
+          "size": 740,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/3a7c33f44cfc9a819d702e58390ba2503e6cc3c9"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/TitanVingation.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "e308c444eb5901c5737185d0105e35c8773fdeb8",
+          "size": 4941,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/e308c444eb5901c5737185d0105e35c8773fdeb8"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/AdaptiveTargeting.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "3e72f906a4634aa7a3f3bd26fc9f5ee52e571d39",
+          "size": 5998,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/3e72f906a4634aa7a3f3bd26fc9f5ee52e571d39"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/CircularTargeting.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "6ba034c381bd30ddfbb6165a0b1f4d130fd8d434",
+          "size": 731,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/6ba034c381bd30ddfbb6165a0b1f4d130fd8d434"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/GuessFactorTargeting.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "64724b05d4deba384e71b560c15aec74fd686d01",
+          "size": 8253,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/64724b05d4deba384e71b560c15aec74fd686d01"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/GunController.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "4b685de965768d439873653170233fa72d6a1ddc",
+          "size": 2789,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/4b685de965768d439873653170233fa72d6a1ddc"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/LinearTargeting.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "e43ec1ea3762bf91706f8d5e42fa0ff230725742",
+          "size": 606,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/e43ec1ea3762bf91706f8d5e42fa0ff230725742"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/MotionPredictor.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "04d28d418ee81117c70a14cc75c21eaf5b881ec7",
+          "size": 1036,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/04d28d418ee81117c70a14cc75c21eaf5b881ec7"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/gun/TargetingStrategy.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "fc74ed1d3de29682894da09c498e08e43c6865ed",
+          "size": 1015,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/fc74ed1d3de29682894da09c498e08e43c6865ed"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/move/WaveSurfingMovement.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "7cc7e84bd62c80eff1013effd5bac3197333c37b",
+          "size": 20984,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/7cc7e84bd62c80eff1013effd5bac3197333c37b"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/radar/RadarController.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "f8d2cd8c5f80390c6e789f6d7d4196aeaff64b71",
+          "size": 1742,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/f8d2cd8c5f80390c6e789f6d7d4196aeaff64b71"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/stats/LearningRepository.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "d157429c8110275fe12fa00af0eb133130ac9a90",
+          "size": 5082,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/d157429c8110275fe12fa00af0eb133130ac9a90"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/stats/ShotStatistics.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "1123134d0cc4fae70f9bc0c18721a2bf82b2abd8",
+          "size": 1754,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/1123134d0cc4fae70f9bc0c18721a2bf82b2abd8"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/utils/BattlefieldBounds.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "5bec76ecb11f7cdb791c1e0728619d4a943c25ea",
+          "size": 780,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/5bec76ecb11f7cdb791c1e0728619d4a943c25ea"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/utils/EnemyState.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "7c4ad2ed510052f73edc66280d6497d230a75e61",
+          "size": 1435,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/7c4ad2ed510052f73edc66280d6497d230a75e61"
+        },
+        {
+          "path": "titan-vingation/src/main/java/titan/utils/Geometry.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "18177de3950b99393aad8fdef60d8c5370909cc0",
+          "size": 387,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/18177de3950b99393aad8fdef60d8c5370909cc0"
+        },
+        {
+          "path": "titan-vingation/src/main/resources/titan/TitanVingation.properties",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "05e3b2b8bbc12a24e9818a484e4e22e8862581d8",
+          "size": 236,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/05e3b2b8bbc12a24e9818a484e4e22e8862581d8"
+        },
+        {
+          "path": "titan-vingation/src/test/java/titan/tests/RobotRegressionTest.java",
+          "mode": "100644",
+          "type": "blob",
+          "sha": "cea97115c2ce6cf4618f21af4050e34a3d673541",
+          "size": 8754,
+          "url": "https://api.github.com/repos/gustavoolyver/Titan-Robo/git/blobs/cea97115c2ce6cf4618f21af4050e34a3d673541"
+        }
+      ]
+    }
+  },
+  "checks": [
+    {
+      "file": "TitanV2.java",
+      "public_class": "TitanV2",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "file": "TitanVingation.java",
+      "public_class": "TitanVingation",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "file": "Titan.java",
+      "public_class": "Titan",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "file": "Java.java",
+      "public_class": "ChimpazeComSarna",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "file": "OBraboBot.java",
+      "public_class": "OBraboBot",
+      "compiled": false,
+      "diagnostics": "----------\n1. ERROR in /workspace/robocode-user/repository-review/compilation/OBraboBot/OBraboBot.java (at line 631)\n\tSystem.out.printf(\"[OBraboBot] ? (Esquiva de Instinto Superior #%d | 10,000 hours in this game 💀)\n\t                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nString literal is not properly closed by a double-quote\n----------\n1 problem (1 error)\n"
+    },
+    {
+      "file": "Titans.java",
+      "public_class": "Titans",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "branch": "Titan",
+      "compiled": true,
+      "diagnostics": ""
+    },
+    {
+      "branch": "Titan",
+      "test_exit": 0,
+      "test_output": "Titan: memoria ignorada em memory.dat: Formato invalido\nTitan: memoria ignorada em memory.dat: Corrupt GZIP trailer\nPASS: 26 regression checks (mock robot; no live battles).\n"
+    }
+  ],
+  "scope": "Source inspection and compilation; no live battles of these repository versions; not the earlier JAR 1.7 or TitanV3 benchmark.",
+  "filename_adjustment": {
+    "Java.java": "ChimpazeComSarna.java"
+  },
+  "toolchain": {
+    "compiler": "ECJ, Java 8 target, UTF-8",
+    "runtime": "Java 21",
+    "api": "Robocode 1.11.1"
+  }
+}
