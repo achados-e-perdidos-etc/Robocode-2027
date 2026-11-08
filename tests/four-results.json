@@ -1,0 +1,416 @@
+{
+  "source_sha256": "5c73b414f1bd1e9ac33b29e66a33fb0a0801fa9ffd9da7101a1467e7c5b0aa98",
+  "variants_sha256": {
+    "base": "5c73b414f1bd1e9ac33b29e66a33fb0a0801fa9ffd9da7101a1467e7c5b0aa98",
+    "defense": "71ecbd9e926d27968fd4f9fa4e319c657b81c7534a0fb3bc54d27fc2f15862e2",
+    "melee": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+    "power": "80a9c1172eb15e8f780ae6181148062f35fa446ac5d60fc0772924030ba3d037",
+    "trust": "0091d32eed89b74c1bec7bc95829e205810bd68d7036e56fa033602bdb1b5024",
+    "all": "091465f9d96e98cf15d28f33483b632bd221b13be44c6ada91a66817d3674ffd"
+  },
+  "profiles": {
+    "base": null,
+    "defense": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "melee": [
+      0,
+      1,
+      0,
+      0
+    ],
+    "power": [
+      0,
+      0,
+      1,
+      0
+    ],
+    "trust": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "all": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "neutral": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "contexts": {
+    "diamond": [
+      "voidious.Diamond 1.8.28",
+      2
+    ],
+    "supermercutio": [
+      "reference.supermercutio*",
+      2
+    ],
+    "strong_melee": [
+      "voidious.Diamond 1.8.28,reference.supermercutio*",
+      3
+    ],
+    "vingation": [
+      "titan.TitanVingation 1.7",
+      2
+    ]
+  },
+  "selection_seeds": [
+    10103,
+    10331
+  ],
+  "validation_seeds": [
+    10709,
+    10949,
+    11213
+  ],
+  "selection_rounds": 8,
+  "validation_rounds": 12,
+  "metric": "All round wins, equal weight",
+  "promotion_rule": "At least four extra round wins in reserved validation; all included cases valid; at most three extra skipped turns. Report every context. No preference for first rounds or BO3.",
+  "invalid_policy": "One retry of entire paired context/seed group if any case invalid. Preserve all original attempts; never replace valid-only groups.",
+  "jar_sha256": "742d901f78391a697ef70359c5ee591e4d0abc7cf81ffbed29a0220404d1d8bc",
+  "saved_files": [
+    {
+      "path": "DuelFeedback.dat",
+      "sha256": "d283dd8b9813029ec55b18f024c53a6630d5de367440b034552816e481cb9c84"
+    },
+    {
+      "path": "DuelTargeting.dat",
+      "sha256": "81ea6f315ef3563a8722d03a77279655db414b7bd9fb6144357acb5db80ea08d"
+    },
+    {
+      "path": "GuessFactorTargeting.dat",
+      "sha256": "92ee0ed80a78dad7b7207707bb875fa3dc824d4cadef8b1ca4440b067cff3690"
+    },
+    {
+      "path": "SurfMovement.dat",
+      "sha256": "894080fa8c422c3d193cb63bd1075c7f8467e47ca703128175e9965350c4a841"
+    },
+    {
+      "path": "VirtualGuns.dat",
+      "sha256": "cd7750ad775b3ea7abbee03d04729e3329ad8c119a1d7dd70a370afd49ed0411"
+    },
+    {
+      "path": "round-diagnostics.csv",
+      "sha256": "6d5ceefe1ccd7a163bc57106f7c6e28da39427f3404010d79c7aebb9415890af"
+    },
+    {
+      "path": "stats.dat",
+      "sha256": "7ba6687f1ffd68e2b70af283f8dd3f3e45df11631332006f26f81434bd7e26a8"
+    }
+  ],
+  "selected": "melee",
+  "checks": {
+    "all_validation_valid": true,
+    "selection_complete": true,
+    "four_extra_round_wins": true,
+    "at_most_three_extra_skips": true
+  },
+  "proposed_promotion": true,
+  "baseline_version": "3.8",
+  "delivered_version": "3.9",
+  "delivered_source_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "enabled_modules": [
+    "TACTICAL_MELEE"
+  ],
+  "experimental_modules": [
+    "CONTEXT_DEFENSE",
+    "EFFICIENT_FIRE",
+    "PREDICTIVE_TRUST"
+  ],
+  "applicability_note": {
+    "recorded_utc": "2026-11-08T20:29:33.233487+00:00",
+    "stage": "before reserved validation",
+    "additional_delivery_guard": "If only tactical melee is selected, require an increase in strong_melee round wins in reserved validation; it does not alter duel commands. Require nonzero activation counters for every enabled selected module.",
+    "reason": "Do not attribute duel execution noise to a module that acts only with multiple opponents."
+  },
+  "delivery_checks": {
+    "melee_context_improved": true,
+    "selected_module_activated": true,
+    "all_original_promotion_checks": true
+  },
+  "selection_summary": {
+    "base": {
+      "round_wins": 19,
+      "rounds": 48,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 16,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 3,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 0,
+        "power_decisions": 0
+      }
+    },
+    "defense": {
+      "round_wins": 22,
+      "rounds": 48,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 16,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 5,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 43631,
+        "tactical_queries": 0,
+        "power_decisions": 0
+      }
+    },
+    "melee": {
+      "round_wins": 24,
+      "rounds": 48,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 16,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 7,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 600070,
+        "power_decisions": 0
+      }
+    },
+    "power": {
+      "round_wins": 21,
+      "rounds": 48,
+      "skipped": 1,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 14,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 7,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 0,
+        "power_decisions": 49060
+      }
+    },
+    "trust": {
+      "round_wins": 19,
+      "rounds": 48,
+      "skipped": 3,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 13,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 5,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 0,
+        "power_decisions": 0
+      }
+    },
+    "all": {
+      "round_wins": 24,
+      "rounds": 48,
+      "skipped": 2,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 16
+        },
+        "supermercutio": {
+          "wins": 16,
+          "rounds": 16
+        },
+        "strong_melee": {
+          "wins": 7,
+          "rounds": 16
+        },
+        "vingation": {
+          "wins": 0,
+          "rounds": 0
+        }
+      },
+      "activation": {
+        "context_queries": 65308,
+        "tactical_queries": 587720,
+        "power_decisions": 63875
+      }
+    }
+  },
+  "validation_summary": {
+    "base": {
+      "round_wins": 71,
+      "rounds": 144,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 36
+        },
+        "supermercutio": {
+          "wins": 36,
+          "rounds": 36
+        },
+        "strong_melee": {
+          "wins": 7,
+          "rounds": 36
+        },
+        "vingation": {
+          "wins": 27,
+          "rounds": 36
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 0,
+        "power_decisions": 0
+      }
+    },
+    "melee": {
+      "round_wins": 76,
+      "rounds": 144,
+      "skipped": 1,
+      "contexts": {
+        "diamond": {
+          "wins": 1,
+          "rounds": 36
+        },
+        "supermercutio": {
+          "wins": 34,
+          "rounds": 36
+        },
+        "strong_melee": {
+          "wins": 11,
+          "rounds": 36
+        },
+        "vingation": {
+          "wins": 30,
+          "rounds": 36
+        }
+      },
+      "activation": {
+        "context_queries": 0,
+        "tactical_queries": 1333130,
+        "power_decisions": 0
+      }
+    }
+  },
+  "execution": {
+    "selection": {
+      "attempts": 42,
+      "valid_attempts": 41,
+      "valid_rounds_executed": 328,
+      "invalid_attempts": [
+        {
+          "key": "selection-melee-strong_melee-10103",
+          "attempt": 0,
+          "errors": [
+            "Unable to stop thread: treino.fourmelee*",
+            "[treino.fourmelee*] SYSTEM: No score will be generated.",
+            "[treino.fourmelee*] ERROR\tUnable to stop thread: treino.fourmelee*",
+            "[treino.fourmelee*] SYSTEM: This robot has been stopped.  No score will be generated.",
+            "[treino.fourmelee*] robocode.exception.RobotException: You cannot take action in this thread!"
+          ],
+          "reasons": [
+            "battle_not_completed",
+            "runtime_errors"
+          ]
+        }
+      ],
+      "included_rounds": 288,
+      "adjusted_included_cases": 3
+    },
+    "validation": {
+      "attempts": 26,
+      "valid_attempts": 25,
+      "valid_rounds_executed": 300,
+      "invalid_attempts": [
+        {
+          "key": "validation-base-vingation-10709",
+          "attempt": 0,
+          "errors": [],
+          "reasons": [
+            "telemetry_rounds",
+            "legacy_stats_rounds",
+            "gun_usage_rounds"
+          ]
+        }
+      ],
+      "included_rounds": 288,
+      "adjusted_included_cases": 1
+    }
+  }
+}

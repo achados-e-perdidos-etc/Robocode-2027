@@ -1,5 +1,5 @@
 {
-  "baseline_sha256": "5c73b414f1bd1e9ac33b29e66a33fb0a0801fa9ffd9da7101a1467e7c5b0aa98",
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
   "adaptation": "3.5 already has visit waves; FAST_OBSERVATION toggles that existing path, preserving real-shot-only gun scoring.",
   "changes": [
     {

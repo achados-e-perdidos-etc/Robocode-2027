@@ -29,7 +29,7 @@ def ratio(numerator, denominator):
     return numerator / denominator if denominator else None
 
 
-def parse_telemetry(line):
+def parse_telemetry(line, rounds=3):
     pairs = re.findall(r'([a-z_]+)=([^\s]+)', line)
     fields = dict(pairs)
     expected = set(INTEGER_FIELDS + FLOAT_FIELDS + list(ARRAY_FIELDS))
@@ -40,7 +40,7 @@ def parse_telemetry(line):
     for k in ARRAY_FIELDS:
         row[k] = list(map(int, fields[k].split(',')))
         if len(row[k]) != 3 or any(x < 0 for x in row[k]): raise ValueError('Invalid range bins')
-    if row['v'] != 1 or row['round'] not in (0, 1, 2): raise ValueError('Unsupported schema or round')
+    if row['v'] != 1 or row['round'] not in range(rounds): raise ValueError('Unsupported schema or round')
     if any(row[k] < 0 for k in INTEGER_FIELDS + FLOAT_FIELDS): raise ValueError('Negative counter')
     if any(not math.isfinite(row[k]) for k in FLOAT_FIELDS): raise ValueError('Non-finite telemetry')
     if row['received'] != row['body_matched'] + row['body_unmatched']: raise ValueError('Body hit accounting')

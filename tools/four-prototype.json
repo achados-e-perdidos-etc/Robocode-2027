@@ -1,0 +1,81 @@
+{
+  "baseline_sha256": "5c73b414f1bd1e9ac33b29e66a33fb0a0801fa9ffd9da7101a1467e7c5b0aa98",
+  "changes": [
+    {
+      "old": "    static final boolean USE_FINISHER = true;",
+      "new": "    static final boolean USE_FINISHER = true;\n    static final boolean USE_CONTEXT_DEFENSE = false;\n    static final boolean USE_TACTICAL_MELEE = false;\n    static final boolean USE_EFFICIENT_FIRE = false;\n    static final boolean USE_PREDICTIVE_TRUST = false;"
+    },
+    {
+      "old": "    private int celebrationFrame;",
+      "new": "    private int celebrationFrame;\n    private long contextQueries, tacticalQueries, powerDecisions;\n    private final Point2D.Double[] tacticalNear = new Point2D.Double[4];\n    private final double[] tacticalDistances = new double[4];"
+    },
+    {
+      "old": "                w.confidence = (getOthers() == 1 ? 1.0 : 0.45) / (1 + (gap - 1) * 0.15);",
+      "new": "                if (USE_CONTEXT_DEFENSE) {\n                    Self before = selfAt(now - 3);\n                    double acceleration = before.time == observed.time - 1 ? observed.velocity - before.velocity : 0;\n                    double turn = before.time == observed.time - 1 ? normal(observed.heading - before.heading) : 0;\n                    w.features = features(observed.x, observed.y, observed.heading, observed.velocity,\n                            acceleration, w.bearing, distance(w.x, w.y, observed.x, observed.y),\n                            w.speed, w.direction, turn);\n                }\n                if (USE_PREDICTIVE_TRUST) {\n                    w.localForecast = e.brain.surfNet.predict(w.features);\n                    w.generalForecast = GENERAL_SURF.predict(w.features);\n                }\n                w.confidence = (getOthers() == 1 ? 1.0 : 0.45) / (1 + (gap - 1) * 0.15);"
+    },
+    {
+      "old": "                if (w.flatten > 0) w.visitDanger = normalizedVisits(w.owner.brain.visits);",
+      "new": "                if (w.flatten > 0) w.visitDanger = normalizedVisits(w.owner.brain.visits);\n                if (USE_CONTEXT_DEFENSE && w.owner.brain.surfContext.size >= 6) {\n                    w.contextDanger = w.owner.brain.surfContext.predict(w.features);\n                    w.contextWeight = 0.55 * w.owner.brain.surfContext.support\n                            * w.owner.brain.surfContext.size / (w.owner.brain.surfContext.size + 32.0);\n                    contextQueries++;\n                }"
+    },
+    {
+      "old": "                w.neuralDanger = neuralPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features);",
+      "new": "                w.neuralDanger = USE_PREDICTIVE_TRUST\n                        ? trustedPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features, w.owner.brain.surfTrust)\n                        : neuralPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features);"
+    },
+    {
+      "old": "                    if (w.flatten > 0) density = density * (1 - w.flatten) + w.visitDanger[bin] * w.flatten;",
+      "new": "                    if (USE_CONTEXT_DEFENSE && w.contextDanger != null)\n                        density = density * (1 - w.contextWeight) + w.contextDanger[bin] * w.contextWeight;\n                    if (w.flatten > 0) density = density * (1 - w.flatten) + w.visitDanger[bin] * w.flatten;"
+    },
+    {
+      "old": "            double d = distance(x, y, p.x, p.y);",
+      "new": "            double d = distance(x, y, p.x, p.y);\n            if (USE_TACTICAL_MELEE && getOthers() > 1)\n                d = Math.max(18, d - 0.25 * positionUncertainty(getTime() - e.time, future));"
+    },
+    {
+      "old": "        return risk;\n    }\n\n    private void updateVision()",
+      "new": "        if (USE_TACTICAL_MELEE && getOthers() > 1) {\n            risk += tacticalRisk(x, y, future); tacticalQueries++;\n        }\n        return risk;\n    }\n\n    private void updateVision()"
+    },
+    {
+      "old": "        double[] distribution = neuralPrediction(e.brain.gunNet, GENERAL_GUN, input);",
+      "new": "        double[] distribution = USE_PREDICTIVE_TRUST\n                ? trustedPrediction(e.brain.gunNet, GENERAL_GUN, input, e.brain.gunTrust)\n                : neuralPrediction(e.brain.gunNet, GENERAL_GUN, input);"
+    },
+    {
+      "old": "            if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;",
+      "new": "            if (USE_PREDICTIVE_TRUST)\n                score -= 0.35 * Math.sqrt(score * (1 - score) / (e.brain.gunTrials[i] + 9));\n            if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;"
+    },
+    {
+      "old": "        power = Math.min(power, getEnergy() / (getEnergy() < 15 ? 18 : 10));",
+      "new": "        if (USE_EFFICIENT_FIRE) {\n            power = e.brain.powerModel.choose(power, d, getEnergy(), e.energy,\n                    accuracy, getGunCoolingRate());\n            powerDecisions++;\n        }\n        power = Math.min(power, getEnergy() / (getEnergy() < 15 ? 18 : 10));"
+    },
+    {
+      "old": "                    brain.gunNet.observe(w.features, gf);",
+      "new": "                    if (USE_PREDICTIVE_TRUST && w.firing && w.localForecast != null)\n                        brain.gunTrust.observe(w.localForecast, w.generalForecast, gf);\n                    brain.gunNet.observe(w.features, gf);"
+    },
+    {
+      "old": "            best.owner.brain.surfNet.observe(best.features, gf);",
+      "new": "            if (USE_CONTEXT_DEFENSE && best.confidence >= 0.8 && error <= best.speed + 18)\n                best.owner.brain.surfContext.observe(best.features, gf, bodyHit ? 1 : 0.6);\n            if (USE_PREDICTIVE_TRUST && best.confidence >= 0.8 && best.localForecast != null)\n                best.owner.brain.surfTrust.observe(best.localForecast, best.generalForecast, gf);\n            best.owner.brain.surfNet.observe(best.features, gf);"
+    },
+    {
+      "old": "        telemetry.release(bullet);\n        Brain brain = fired.remove(bullet);",
+      "new": "        Integer powerRange = telemetry.shotRanges.get(bullet);\n        telemetry.release(bullet);\n        Brain brain = fired.remove(bullet);\n        if (USE_EFFICIENT_FIRE && brain != null && powerRange != null)\n            brain.powerModel.observe(powerRange, bullet.getPower(), hit);"
+    },
+    {
+      "old": "        out.println(telemetry.line(getRoundNum()));",
+      "new": "        out.println(telemetry.line(getRoundNum()));\n        long surfRecords = 0, trustRecords = 0, powerRecords = 0;\n        for (Brain b : MEMORY.values()) {\n            surfRecords += b.surfContext.seen; trustRecords += b.gunTrust.count + b.surfTrust.count;\n            powerRecords += b.powerModel.seen;\n        }\n        out.println(\"UPGRADES round=\" + getRoundNum() + \" context_queries=\" + contextQueries\n                + \" tactical_queries=\" + tacticalQueries + \" power_decisions=\" + powerDecisions\n                + \" surf_records=\" + surfRecords + \" trust_records=\" + trustRecords + \" power_records=\" + powerRecords);"
+    },
+    {
+      "old": "            w.features = input;",
+      "new": "            w.features = input;\n            if (USE_PREDICTIVE_TRUST && realShot) {\n                w.localForecast = e.brain.gunNet.predict(input);\n                w.generalForecast = GENERAL_GUN.predict(input);\n            }"
+    },
+    {
+      "old": "        final ReactiveGun reactive = new ReactiveGun();",
+      "new": "        final ReactiveGun reactive = new ReactiveGun();\n        final SurfMemory surfContext = new SurfMemory();\n        final PowerModel powerModel = new PowerModel();\n        final PredictiveTrust gunTrust = new PredictiveTrust(), surfTrust = new PredictiveTrust();"
+    },
+    {
+      "old": "        double[] visitDanger;",
+      "new": "        double[] visitDanger, contextDanger, localForecast, generalForecast;\n        double contextWeight;"
+    },
+    {
+      "old": "    static class ReactiveGun {",
+      "new": "    static double positionUncertainty(long scanAge, int future) {\n        return Math.min(120, 8 * Math.max(0, scanAge) + 2 * Math.max(0, future - 16));\n    }\n\n    static double crossfirePenalty(double ax, double ay, double bx, double by) {\n        double da = Math.hypot(ax, ay), db = Math.hypot(bx, by);\n        if (da < 1 || db < 1) return 1;\n        double opposition = (1 - clamp(-1, (ax * bx + ay * by) / (da * db), 1)) / 2;\n        return opposition * Math.exp(-(da + db) / 700);\n    }\n\n    static int wallEscapeLanes(double x, double y, double width, double height) {\n        int lanes = 0;\n        for (int i = 0; i < 8; i++) {\n            double nx = x + Math.sin(i * Math.PI / 4) * 80;\n            double ny = y + Math.cos(i * Math.PI / 4) * 80;\n            if (nx >= 18 && nx <= width - 18 && ny >= 18 && ny <= height - 18) lanes++;\n        }\n        return lanes;\n    }\n\n    private double tacticalRisk(double x, double y, int future) {\n        Point2D.Double[] near = tacticalNear; double[] distances = tacticalDistances;\n        java.util.Arrays.fill(near, null); java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);\n        for (Forecast f : vision) {\n            Point2D.Double p = f.positions[future / 10 - 1];\n            double d = distance(x, y, p.x, p.y);\n            for (int i = 0; i < 4; i++) if (d < distances[i]) {\n                for (int j = 3; j > i; j--) { near[j] = near[j-1]; distances[j] = distances[j-1]; }\n                near[i] = p; distances[i] = d; break;\n            }\n        }\n        double risk = 0;\n        for (int i = 0; i < 4; i++) if (near[i] != null)\n            for (int j = 0; j < i; j++) if (near[j] != null)\n                risk += 0.7 * crossfirePenalty(near[i].x-x, near[i].y-y, near[j].x-x, near[j].y-y);\n        double blocked = 1 - wallEscapeLanes(x, y, width, height) / 8.0;\n        return risk + 0.6 * blocked * blocked;\n    }\n\n    static class SurfMemory {\n        static final int CAPACITY = 192;\n        final double[][] inputs = new double[CAPACITY][];\n        final double[] factors = new double[CAPACITY], weights = new double[CAPACITY];\n        int seen, size; double support;\n        void observe(double[] input, double factor, double weight) {\n            if (input.length != 12 || !Double.isFinite(factor) || weight <= 0) return;\n            int i = seen++ % CAPACITY; inputs[i] = input.clone();\n            factors[i] = clamp(-1, factor, 1); weights[i] = Math.min(1, weight);\n            size = Math.min(CAPACITY, size + 1);\n        }\n        double[] predict(double[] input) {\n            int k = Math.min(size, Math.max(3, (int)Math.sqrt(size)));\n            double[] ds = new double[k], density = new double[BINS]; int[] ids = new int[k];\n            java.util.Arrays.fill(ds, Double.POSITIVE_INFINITY); java.util.Arrays.fill(density, 0.001);\n            for (int age = 0; age < size; age++) {\n                int i = (seen-1-age) % CAPACITY; double d = 0;\n                for (int f = 0; f < 12; f++) {\n                    double delta = input[f] - inputs[i][f]; d += delta*delta*GunContext.WEIGHTS[f];\n                }\n                for (int j = 0; j < k; j++) if (d < ds[j]) {\n                    for (int n = k-1; n > j; n--) { ds[n] = ds[n-1]; ids[n] = ids[n-1]; }\n                    ds[j] = d; ids[j] = i; break;\n                }\n            }\n            support = k == 0 ? 0 : 1 / (1 + ds[0]);\n            for (int j = 0; j < k; j++) {\n                int age = (seen - 1 - ids[j] + CAPACITY) % CAPACITY;\n                double weight = weights[ids[j]] * Math.pow(0.995, age) / (0.1 + ds[j]);\n                for (int b = 0; b < BINS; b++) {\n                    double delta = (2.0*b/(BINS-1)-1-factors[ids[j]])/0.12;\n                    density[b] += weight / (1 + delta*delta);\n                }\n            }\n            double total = 0; for (double d : density) total += d;\n            for (int b = 0; b < BINS; b++) density[b] /= total;\n            return density;\n        }\n    }\n\n    static class PredictiveTrust {\n        double localLoss, generalLoss; int count;\n        void observe(double[] local, double[] general, double gf) {\n            int center = gfBin(gf); double a = 0, b = 0;\n            for (int i = Math.max(0, center-1); i <= Math.min(BINS-1, center+1); i++) {\n                a += local[i]; b += general[i];\n            }\n            double la = -Math.log(Math.max(1e-9, a)), lb = -Math.log(Math.max(1e-9, b));\n            if (count == 0) {localLoss = la; generalLoss = lb;}\n            else {localLoss = localLoss*0.95 + la*0.05; generalLoss = generalLoss*0.95 + lb*0.05;}\n            count++;\n        }\n        double weight(int localSamples) {\n            double prior = Math.min(0.85, localSamples / 100.0);\n            if (count < 8) return prior;\n            return clamp(0, prior + 0.30 * Math.tanh((generalLoss-localLoss)*0.5)\n                    * Math.min(1, count/40.0), 0.90);\n        }\n    }\n\n    private static double[] trustedPrediction(Neural local, Neural general, double[] input, PredictiveTrust trust) {\n        double[] a = local.predict(input), b = general.predict(input); double weight = trust.weight(local.samples);\n        for (int i = 0; i < BINS; i++) a[i] = a[i]*weight + b[i]*(1-weight);\n        return a;\n    }\n\n    static class PowerModel {\n        final double[][] trials = new double[3][3], hits = new double[3][3]; int seen;\n        static int band(double power) {return power < 1.2 ? 0 : power < 2.2 ? 1 : 2;}\n        void observe(int range, double power, boolean hit) {\n            if (range < 0 || range > 2) return;\n            for (int j = 0; j < 3; j++) {trials[range][j] *= 0.985; hits[range][j] *= 0.985;}\n            int b = band(power); trials[range][b]++; if (hit) hits[range][b]++; seen++;\n        }\n        double probability(double power, int range, double prior) {\n            int b = band(power); return clamp(0.025, (hits[range][b]+8*prior)/(trials[range][b]+8), 0.95);\n        }\n        double choose(double baseline, double distance, double energy, double enemyEnergy, double accuracy, double cooling) {\n            baseline = clamp(0.1, baseline, 3);\n            double bestPower = baseline, best = -Double.MAX_VALUE;\n            double[] choices = {baseline,0.4,0.7,1.0,1.4,1.8,2.2,2.6,3.0};\n            for (double p : choices) {\n                if (p > Math.min(3, baseline*1.25)) continue;\n                double prior = clamp(0.025, accuracy * Math.pow(Rules.getBulletSpeed(p)/Rules.getBulletSpeed(baseline), 1.5), 0.95);\n                double probability = probability(p, Telemetry.range(distance), prior);\n                double damage = Math.min(Math.max(0.1, enemyEnergy), Rules.getBulletDamage(p));\n                double energyPrice = 0.65 + 0.5 * (1 - clamp(0, energy/50, 1));\n                double utility = (probability*damage + energyPrice*(probability*3*p-p))\n                        / ((1+p/5)/Math.max(0.01,cooling)+0.12*distance/Rules.getBulletSpeed(p));\n                if (utility > best) {best = utility; bestPower = p;}\n            }\n            return bestPower;\n        }\n    }\n\n    static class ReactiveGun {"
+    }
+  ]
+}

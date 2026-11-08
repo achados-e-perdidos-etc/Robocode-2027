@@ -1,12 +1,14 @@
 # Plano de evolução a partir do documento TitanV2
 
+**Criterios atuais:** vitorias em todos os rounds, batalhas longas quando uteis, foco em adversarios fortes e nenhuma preferencia por primeiros rounds ou melhor de tres. O texto abaixo registra o plano historico da versao 3.5. A implementacao das quatro melhorias seguintes esta em [quatro-melhorias.md](quatro-melhorias.md).
+
 Atualização ofensiva: as lacunas da lista de 25 foram implementadas no Titan Prime 3.7. A finalização está ativa; as miras novas permanecem experimentais após comparação em batalhas. Veja [ataque-completo.md](ataque-completo.md).
 
 Análise de `TitanV2_Plano_Completo_de_Sistemas.docx`, enviado pelo usuário, comparado ao **Titan Prime 3.5** do commit `26af41108680157af4dab10ce3e004540bec65b6`. O documento apresenta **15 sistemas e 120 itens**, além dos anexos com as listas de defesa e ataque já discutidas.
 
-Este arquivo é um plano, não uma declaração de que as propostas foram implementadas. A versão de combate permanece 3.5. O documento original não foi publicado; esta análise registra apenas o conteúdo técnico relevante ao projeto.
+Este arquivo registra o plano historico da 3.5, nao o estado atual de implementacao. A versao de uso atual e 3.9; veja quatro-melhorias.md. O documento original não foi publicado; esta análise registra apenas o conteúdo técnico relevante ao projeto.
 
-## Regras que continuam orientando o trabalho
+## Regras do plano historico
 
 - Um único `robots/equipe/titanprime.java`; organização por classes internas quando necessário.
 - Arquivos do repositório em minúsculas e atualizações na `main`.

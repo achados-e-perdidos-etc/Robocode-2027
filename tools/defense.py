@@ -37,9 +37,17 @@ def prepare_template(source):
     if hashlib.sha256(source.encode()).hexdigest() not in accepted:
         raise ValueError('Defense prototype does not match this robot version')
     for change in patch['changes']:
-        if source.count(change['old']) != 1:
+        before, after = change['old'], change['new']
+        # Preserve the contextual blend when testing the historical geometry prototype.
+        if 'USE_CONTEXT_DEFENSE' in source and 'private double routeRisk' in before:
+            line = '                    if (w.flatten > 0) density = density * (1 - w.flatten) + w.visitDanger[bin] * w.flatten;'
+            contextual = ('                    if (USE_CONTEXT_DEFENSE && w.contextDanger != null)\n'
+                          '                        density = density * (1 - w.contextWeight) + w.contextDanger[bin] * w.contextWeight;\n' + line)
+            before = before.replace(line, contextual)
+            after = after.replace(line, contextual)
+        if source.count(before) != 1:
             raise ValueError('Ambiguous defense patch')
-        source = source.replace(change['old'], change['new'], 1)
+        source = source.replace(before, after, 1)
     return source
 
 

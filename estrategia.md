@@ -4,14 +4,16 @@ Melhoria de robô para o **Robocode clássico**, em Java. O código completo do 
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
-A competição foi definida como **vencer dois dos três rounds**. Os cenários e o treinador usam esse formato por padrão. A versão 3.2 integra a redução de trajetórias repetidas avaliada a partir do Titan enviado pelo usuário; veja [titan-analise.md](titan-analise.md). Os pesos pré-treinados já estão carregados no início de cada batalha.
+O criterio atual e **vencer mais rounds, contando todos igualmente**, com batalhas longas e adversarios fortes. Os estudos e ferramentas antigos de melhor de tres ficam preservados como historico. As quatro melhorias mais recentes e seus resultados estao em [quatro-melhorias.md](quatro-melhorias.md). Os pesos pre-treinados ja estao carregados no inicio de cada batalha.
+
+**Versao de uso: Titan Prime 3.9.** O novo posicionamento melee esta ativo; os novos ajustes de defesa contextual, potencia e confianca estao disponiveis como experimentais. A decisao e os resultados estao em [quatro-melhorias.md](quatro-melhorias.md).
 
 ## Estratégia implementada
 
 | Pedido | Implementação |
 | --- | --- |
 | Wave surfing e esquiva | Ondas estimadas, histórico, filtro de aquecimento, simulação de rotas até as quatro ondas mais próximas e mistura limitada de passagens recentes para reduzir previsibilidade sob impactos frequentes. |
-| Mira preditiva | Cinco miras virtuais: direta, linear, circular, GuessFactor e neural. A seleção usa os resultados recentes de cada uma por adversário. |
+| Mira preditiva | Miras direta, linear, circular, GuessFactor, neural, KNN de visitas, KNN de tiros reais e reativa. A selecao usa os resultados observados por adversario; outras miras permanecem experimentais. |
 | Aprendizado contínuo | Histogramas segmentados, redes neurais com retropropagação, replay limitado e perfis de ângulos de tiro por adversário. Dados antigos recebem menos peso. |
 | Visão da arena | Memória de posição, direção, velocidade, energia, idade da observação, previsão de movimento, alvo e ondas estimadas. Visualização pela pintura do Robocode. |
 | Administração de energia | Potência considera distância, energia própria, precisão observada, quantidade de inimigos e energia necessária para finalizar o alvo. Mantém uma reserva para sobreviver. |

@@ -16,6 +16,10 @@ O Titan Prime simula opções de tiro e movimento sem precisar executar todas el
 
 A rede prevê distribuições de ângulos, não ordens diretas para acelerar ou virar. O planejamento físico continua escolhendo a rota. Isso mantém uma base funcional enquanto a rede aprende. Os exemplos de defesa são enviesados para os tiros que conseguimos observar; não constituem um mapa perfeito de todas as balas disparadas.
 
+## Criterio atual de avaliacao
+
+As novas comparacoes usam vitorias em todos os rounds, com o mesmo peso, e adversarios fortes. Nao usam primeiro round, melhor de tres ou pontuacao como objetivo principal. O treinador genetico descrito abaixo conserva os objetivos historicos; os estudos atuais e seu protocolo estao em [quatro-melhorias.md](quatro-melhorias.md).
+
 ## Fora do round
 
 ```mermaid
@@ -36,7 +40,7 @@ O script [tools/train.py](tools/train.py) cria variantes temporárias numa insta
 
 Cada indivíduo tem dez genes: peso da esquiva, distância de duelo, taxa de aprendizado neural, mistura neural da defesa, repulsão de inimigos, potência de tiro e quatro parâmetros que definem fases/escalas dos pesos neurais iniciais. A busca genética altera essa parametrização compacta dos pesos; não muta cada uma das milhares de conexões de forma independente, nem altera a topologia como no NEAT.
 
-Há elitismo, cruzamento dos dois melhores e mutação com limites. No formato atual, o treinador prioriza séries vencidas em três rounds: 70% para vencer a série, 20% para vitórias de rounds e 10% para pontuação relativa. Esses valores são combinados contra adversários fixos (80%) e na arena entre variantes (20%), com penalidade para turnos perdidos. O objetivo antigo, somente de pontuação, permanece disponível com `--objective score` para reproduzir experimentos históricos. A parcela da arena depende dos concorrentes da geração, portanto a fitness total não deve ser interpretada como uma curva absoluta de habilidade.
+Há elitismo, cruzamento dos dois melhores e mutação com limites. No treinador legado, mantido para reproduzir os estudos antigos, a funcao prioriza séries vencidas em três rounds: 70% para vencer a série, 20% para vitórias de rounds e 10% para pontuação relativa. Esses valores são combinados contra adversários fixos (80%) e na arena entre variantes (20%), com penalidade para turnos perdidos. O objetivo antigo, somente de pontuação, permanece disponível com `--objective score` para reproduzir experimentos históricos. A parcela da arena depende dos concorrentes da geração, portanto a fitness total não deve ser interpretada como uma curva absoluta de habilidade.
 
 Depois da seleção, há um pré-treino sequencial com os cenários de treino. Os pesos gerais são transferidos entre essas batalhas, enquanto o aprendizado por adversário continua ocorrendo dentro de cada batalha. A candidata resultante tem esses pesos incorporados como constantes no próprio `titanprime.java`, dispensando arquivos de modelo na instalação do jogador.
 

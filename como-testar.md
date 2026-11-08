@@ -14,24 +14,15 @@ Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para 
 
 O compilador gera vários arquivos `.class` para as classes internas. Isso é normal: todo o código fonte continua em um único `.java`.
 
-## Primeiras batalhas
+## Batalhas de avaliacao
 
-Comece com arena **800 × 600**, resfriamento **0,1** e **3 rounds**, mantendo as demais regras padrão. Teste separadamente:
+Use arena **800 x 600**, resfriamento **0,1** e, inicialmente, **10 rounds**. Conte todas as vitorias de round igualmente; nao escolha a versao por pontos nem por vencer dois dos tres primeiros rounds. Repita com outras largadas e batalhas novas para evitar selecionar por um resultado isolado.
 
-- Titan Prime contra `sample.RamFire`.
-- Titan Prime contra `sample.SpinBot`.
-- Titan Prime contra `sample.RamFire` e `sample.SpinBot` juntos.
-- Titan Prime contra `sample.Walls`.
-- Titan Prime contra `sample.Corners`.
-- Titan Prime contra `sample.Tracker`.
-- Titan Prime contra `sample.Walls` e `sample.Tracker` juntos.
-- Titan Prime contra `sample.Walls`, `sample.Tracker` e `sample.Corners` juntos.
+Priorize Diamond 1.8.28, SuperMercutio, os dois simultaneamente e os Titans fornecidos. Em cada confronto, adicione apenas uma copia do Prime, sem aliados. Em todos contra todos, os demais oponentes tambem se enfrentam; uma equipe coordenada e outro tipo de teste.
 
-Os arquivos `.battle` prontos estão na pasta `battles`. Copie-os para `robocode/battles` e abra no jogo. Eles usam o padrão `equipe.titanprime*` para localizar o robô em desenvolvimento. Se você exportar uma versão com outro identificador, ajuste a seleção no arquivo ou na janela de batalha.
+RamFire e SpinBot servem para uma verificacao curta de instalacao ou regressao. Nao e necessario repetir grandes baterias de exemplos a cada alteracao. Os arquivos `.battle` antigos e as ferramentas de melhor de tres permanecem para reproduzir estudos historicos, sem definir o criterio atual de melhoria.
 
-Esses testes com vários adversários são **todos contra todos**. Não são equipes coordenadas de dois ou três contra um. O robô considera todos os outros participantes inimigos; não implementa comunicação com aliados. Para avaliar desvantagem contra equipes reais, será necessário configurar essas equipes e registrar outro teste.
-
-O cenário opcional `duelo-diamond.battle` exige instalar o [Diamond](https://github.com/Voidious/Diamond) separadamente. O projeto não inclui código nem binário dele.
+A comparacao das quatro melhorias, os comandos de teste e os resultados estao em [quatro-melhorias.md](quatro-melhorias.md). O Prime precisa somente do Java unico; os adversarios devem estar instalados separadamente. O projeto nao redistribui seus fontes ou binarios.
 
 ## Ver a percepção do robô
 
@@ -42,7 +33,7 @@ Durante a batalha, abra a janela do Titan Prime e habilite **Paint**. Os nomes e
 - Linha azul: destino escolhido pela avaliação de risco.
 - `E`: energia conhecida; `age`: ticks desde o último scan.
 
-Os desenhos representam estimativas disponíveis ao robô, não revelam informações ocultas do jogo. Os dados de depuração também mostram o modo da mira: 0 direta, 1 linear, 2 circular, 3 GuessFactor e 4 neural.
+Os desenhos representam estimativas disponíveis ao robô, não revelam informações ocultas do jogo. Os dados de depuração também mostram o modo da mira: 0 direta, 1 linear, 2 circular, 3 GuessFactor, 4 neural, 5 KNN de visitas, 6 KNN de tiros reais e 9 reativa. Os indices 7 e 8 pertencem a miras experimentais que nao estao habilitadas por padrao.
 
 ## Comparar versões
 

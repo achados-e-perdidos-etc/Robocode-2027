@@ -25,6 +25,10 @@ public class titanprime extends AdvancedRobot {
     static final boolean USE_EXTENDED_GUNS = false;
     static final boolean USE_REACTIVE_GUN = true;
     static final boolean USE_FINISHER = true;
+    static final boolean USE_CONTEXT_DEFENSE = false;
+    static final boolean USE_TACTICAL_MELEE = true;
+    static final boolean USE_EFFICIENT_FIRE = false;
+    static final boolean USE_PREDICTIVE_TRUST = false;
     private static final float BATTLE_HUE = new java.util.Random().nextFloat();
     private static final Neural GENERAL_GUN = new Neural(PRETRAINED_GUN);
     private static final Neural GENERAL_SURF = new Neural(PRETRAINED_SURF);
@@ -50,6 +54,9 @@ public class titanprime extends AdvancedRobot {
     private boolean showVision = true, roundReported;
     private boolean celebrating;
     private int celebrationFrame;
+    private long contextQueries, tacticalQueries, powerDecisions;
+    private final Point2D.Double[] tacticalNear = new Point2D.Double[4];
+    private final double[] tacticalDistances = new double[4];
     private final Telemetry telemetry = new Telemetry();
 
     public void run() {
@@ -164,6 +171,18 @@ public class titanprime extends AdvancedRobot {
                 w.features = features(observed.x, observed.y, observed.heading,
                         observed.velocity, 0, w.bearing,
                         distance(w.x, w.y, observed.x, observed.y), w.speed, w.direction, 0);
+                if (USE_CONTEXT_DEFENSE) {
+                    Self before = selfAt(now - 3);
+                    double acceleration = before.time == observed.time - 1 ? observed.velocity - before.velocity : 0;
+                    double turn = before.time == observed.time - 1 ? normal(observed.heading - before.heading) : 0;
+                    w.features = features(observed.x, observed.y, observed.heading, observed.velocity,
+                            acceleration, w.bearing, distance(w.x, w.y, observed.x, observed.y),
+                            w.speed, w.direction, turn);
+                }
+                if (USE_PREDICTIVE_TRUST) {
+                    w.localForecast = e.brain.surfNet.predict(w.features);
+                    w.generalForecast = GENERAL_SURF.predict(w.features);
+                }
                 w.confidence = (getOthers() == 1 ? 1.0 : 0.45) / (1 + (gap - 1) * 0.15);
                 if (incoming.size() < 64) incoming.add(w);
                 wavesDetected++;
@@ -239,9 +258,17 @@ public class titanprime extends AdvancedRobot {
             List<Wave> threats = nearestWaves();
             // Inferencia neural ocorre uma vez por onda/plano, nao por rota/tick.
             for (Wave w : threats) {
-                w.neuralDanger = neuralPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features);
+                w.neuralDanger = USE_PREDICTIVE_TRUST
+                        ? trustedPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features, w.owner.brain.surfTrust)
+                        : neuralPrediction(w.owner.brain.surfNet, GENERAL_SURF, w.features);
                 w.flatten = USE_FLATTENER ? flattenAmount(w.owner.brain.passed, w.owner.brain.taken) : 0;
                 if (w.flatten > 0) w.visitDanger = normalizedVisits(w.owner.brain.visits);
+                if (USE_CONTEXT_DEFENSE && w.owner.brain.surfContext.size >= 6) {
+                    w.contextDanger = w.owner.brain.surfContext.predict(w.features);
+                    w.contextWeight = 0.55 * w.owner.brain.surfContext.support
+                            * w.owner.brain.surfContext.size / (w.owner.brain.surfContext.size + 32.0);
+                    contextQueries++;
+                }
             }
             List<Point2D.Double> candidates = new ArrayList<Point2D.Double>();
             // Uma opcao de frear tambem pode evitar o proximo tiro.
@@ -323,6 +350,8 @@ public class titanprime extends AdvancedRobot {
                             + GENERAL_SURF.samples * 0.15) / 40.0);
                     double mix = GENOME[3] * maturity;
                     density = density * (1 - mix) + w.neuralDanger[bin] * mix;
+                    if (USE_CONTEXT_DEFENSE && w.contextDanger != null)
+                        density = density * (1 - w.contextWeight) + w.contextDanger[bin] * w.contextWeight;
                     if (w.flatten > 0) density = density * (1 - w.flatten) + w.visitDanger[bin] * w.flatten;
                     // Head-on como prior; os impactos reais passam a dominar.
                     double prior = 0.12 + 0.38 * Math.exp(-gf * gf * 9);
@@ -349,6 +378,8 @@ public class titanprime extends AdvancedRobot {
             Enemy e = forecast.enemy;
             Point2D.Double p = forecast.positions[future / 10 - 1];
             double d = distance(x, y, p.x, p.y);
+            if (USE_TACTICAL_MELEE && getOthers() > 1)
+                d = Math.max(18, d - 0.25 * positionUncertainty(getTime() - e.time, future));
             double weight = 0.6 + Math.min(100, e.energy) / 100;
             if (USE_THREATS) weight *= 1 + 0.4 * forecast.pressure;
             risk += weight * GENOME[4] / Math.max(900, d * d);
@@ -366,6 +397,9 @@ public class titanprime extends AdvancedRobot {
                 risk += Math.abs(d - (USE_FINISHER ? engagementDistance : GENOME[1])) / 1600;
                 risk += 0.12 * Math.abs(Math.cos(heading - angle(p.x, p.y, x, y)));
             }
+        }
+        if (USE_TACTICAL_MELEE && getOthers() > 1) {
+            risk += tacticalRisk(x, y, future); tacticalQueries++;
         }
         return risk;
     }
@@ -413,7 +447,9 @@ public class titanprime extends AdvancedRobot {
         angles[3] = direct + e.direction * gf * Math.asin(8 / speed);
         double[] input = features(current.x, current.y, e.heading, e.velocity,
                 e.acceleration, direct, d, speed, e.direction, e.turnRate);
-        double[] distribution = neuralPrediction(e.brain.gunNet, GENERAL_GUN, input);
+        double[] distribution = USE_PREDICTIVE_TRUST
+                ? trustedPrediction(e.brain.gunNet, GENERAL_GUN, input, e.brain.gunTrust)
+                : neuralPrediction(e.brain.gunNet, GENERAL_GUN, input);
         angles[4] = direct + e.direction * bestNeuralFactor(distribution,
                 Math.atan2(18, d) / Math.asin(8 / speed)) * Math.asin(8 / speed);
         if (USE_KNN_GUN) {
@@ -463,6 +499,8 @@ public class titanprime extends AdvancedRobot {
             if (i == 8 && !patternReady || i == 9 && !USE_REACTIVE_GUN && !responseReady) continue;
             double prior = i == 2 ? 0.22 : i == 1 ? 0.20 : 0.14;
             double score = (e.brain.gunHits[i] + prior * 8) / (e.brain.gunTrials[i] + 8);
+            if (USE_PREDICTIVE_TRUST)
+                score -= 0.35 * Math.sqrt(score * (1 - score) / (e.brain.gunTrials[i] + 9));
             if (i == 3 && e.brain.gunSamples < 8) score *= 0.5;
             if (i == 4 && e.brain.gunNet.samples + GENERAL_GUN.samples < 20) score *= 0.5;
             if (i == 5 && e.brain.visitGun.size < 8) score *= 0.5;
@@ -529,6 +567,10 @@ public class titanprime extends AdvancedRobot {
             w.power = power; w.bearing = direct; w.direction = e.direction;
             w.segment = seg; w.angles = angles;
             w.features = input;
+            if (USE_PREDICTIVE_TRUST && realShot) {
+                w.localForecast = e.brain.gunNet.predict(input);
+                w.generalForecast = GENERAL_GUN.predict(input);
+            }
             w.reactiveFeatures = reactiveInput; w.reactiveReady = reactiveReady;
             w.previousX = current.x; w.previousY = current.y; w.previousTime = getTime();
             if (outgoing.size() < 96) outgoing.add(w);
@@ -668,6 +710,141 @@ public class titanprime extends AdvancedRobot {
         }
     }
 
+    static double positionUncertainty(long scanAge, int future) {
+        return Math.min(120, 8 * Math.max(0, scanAge) + 2 * Math.max(0, future - 16));
+    }
+
+    static double crossfirePenalty(double ax, double ay, double bx, double by) {
+        double da = Math.hypot(ax, ay), db = Math.hypot(bx, by);
+        if (da < 1 || db < 1) return 1;
+        double opposition = (1 - clamp(-1, (ax * bx + ay * by) / (da * db), 1)) / 2;
+        return opposition * Math.exp(-(da + db) / 700);
+    }
+
+    static int wallEscapeLanes(double x, double y, double width, double height) {
+        int lanes = 0;
+        for (int i = 0; i < 8; i++) {
+            double nx = x + Math.sin(i * Math.PI / 4) * 80;
+            double ny = y + Math.cos(i * Math.PI / 4) * 80;
+            if (nx >= 18 && nx <= width - 18 && ny >= 18 && ny <= height - 18) lanes++;
+        }
+        return lanes;
+    }
+
+    private double tacticalRisk(double x, double y, int future) {
+        Point2D.Double[] near = tacticalNear; double[] distances = tacticalDistances;
+        java.util.Arrays.fill(near, null); java.util.Arrays.fill(distances, Double.POSITIVE_INFINITY);
+        for (Forecast f : vision) {
+            Point2D.Double p = f.positions[future / 10 - 1];
+            double d = distance(x, y, p.x, p.y);
+            for (int i = 0; i < 4; i++) if (d < distances[i]) {
+                for (int j = 3; j > i; j--) { near[j] = near[j-1]; distances[j] = distances[j-1]; }
+                near[i] = p; distances[i] = d; break;
+            }
+        }
+        double risk = 0;
+        for (int i = 0; i < 4; i++) if (near[i] != null)
+            for (int j = 0; j < i; j++) if (near[j] != null)
+                risk += 0.7 * crossfirePenalty(near[i].x-x, near[i].y-y, near[j].x-x, near[j].y-y);
+        double blocked = 1 - wallEscapeLanes(x, y, width, height) / 8.0;
+        return risk + 0.6 * blocked * blocked;
+    }
+
+    static class SurfMemory {
+        static final int CAPACITY = 192;
+        final double[][] inputs = new double[CAPACITY][];
+        final double[] factors = new double[CAPACITY], weights = new double[CAPACITY];
+        int seen, size; double support;
+        void observe(double[] input, double factor, double weight) {
+            if (input.length != 12 || !Double.isFinite(factor) || weight <= 0) return;
+            int i = seen++ % CAPACITY; inputs[i] = input.clone();
+            factors[i] = clamp(-1, factor, 1); weights[i] = Math.min(1, weight);
+            size = Math.min(CAPACITY, size + 1);
+        }
+        double[] predict(double[] input) {
+            int k = Math.min(size, Math.max(3, (int)Math.sqrt(size)));
+            double[] ds = new double[k], density = new double[BINS]; int[] ids = new int[k];
+            java.util.Arrays.fill(ds, Double.POSITIVE_INFINITY); java.util.Arrays.fill(density, 0.001);
+            for (int age = 0; age < size; age++) {
+                int i = (seen-1-age) % CAPACITY; double d = 0;
+                for (int f = 0; f < 12; f++) {
+                    double delta = input[f] - inputs[i][f]; d += delta*delta*GunContext.WEIGHTS[f];
+                }
+                for (int j = 0; j < k; j++) if (d < ds[j]) {
+                    for (int n = k-1; n > j; n--) { ds[n] = ds[n-1]; ids[n] = ids[n-1]; }
+                    ds[j] = d; ids[j] = i; break;
+                }
+            }
+            support = k == 0 ? 0 : 1 / (1 + ds[0]);
+            for (int j = 0; j < k; j++) {
+                int age = (seen - 1 - ids[j] + CAPACITY) % CAPACITY;
+                double weight = weights[ids[j]] * Math.pow(0.995, age) / (0.1 + ds[j]);
+                for (int b = 0; b < BINS; b++) {
+                    double delta = (2.0*b/(BINS-1)-1-factors[ids[j]])/0.12;
+                    density[b] += weight / (1 + delta*delta);
+                }
+            }
+            double total = 0; for (double d : density) total += d;
+            for (int b = 0; b < BINS; b++) density[b] /= total;
+            return density;
+        }
+    }
+
+    static class PredictiveTrust {
+        double localLoss, generalLoss; int count;
+        void observe(double[] local, double[] general, double gf) {
+            int center = gfBin(gf); double a = 0, b = 0;
+            for (int i = Math.max(0, center-1); i <= Math.min(BINS-1, center+1); i++) {
+                a += local[i]; b += general[i];
+            }
+            double la = -Math.log(Math.max(1e-9, a)), lb = -Math.log(Math.max(1e-9, b));
+            if (count == 0) {localLoss = la; generalLoss = lb;}
+            else {localLoss = localLoss*0.95 + la*0.05; generalLoss = generalLoss*0.95 + lb*0.05;}
+            count++;
+        }
+        double weight(int localSamples) {
+            double prior = Math.min(0.85, localSamples / 100.0);
+            if (count < 8) return prior;
+            return clamp(0, prior + 0.30 * Math.tanh((generalLoss-localLoss)*0.5)
+                    * Math.min(1, count/40.0), 0.90);
+        }
+    }
+
+    private static double[] trustedPrediction(Neural local, Neural general, double[] input, PredictiveTrust trust) {
+        double[] a = local.predict(input), b = general.predict(input); double weight = trust.weight(local.samples);
+        for (int i = 0; i < BINS; i++) a[i] = a[i]*weight + b[i]*(1-weight);
+        return a;
+    }
+
+    static class PowerModel {
+        final double[][] trials = new double[3][3], hits = new double[3][3]; int seen;
+        static int band(double power) {return power < 1.2 ? 0 : power < 2.2 ? 1 : 2;}
+        void observe(int range, double power, boolean hit) {
+            if (range < 0 || range > 2) return;
+            for (int j = 0; j < 3; j++) {trials[range][j] *= 0.985; hits[range][j] *= 0.985;}
+            int b = band(power); trials[range][b]++; if (hit) hits[range][b]++; seen++;
+        }
+        double probability(double power, int range, double prior) {
+            int b = band(power); return clamp(0.025, (hits[range][b]+8*prior)/(trials[range][b]+8), 0.95);
+        }
+        double choose(double baseline, double distance, double energy, double enemyEnergy, double accuracy, double cooling) {
+            baseline = clamp(0.1, baseline, 3);
+            double bestPower = baseline, best = -Double.MAX_VALUE;
+            double[] choices = {baseline,0.4,0.7,1.0,1.4,1.8,2.2,2.6,3.0};
+            for (double p : choices) {
+                if (p > Math.min(3, baseline*1.25)) continue;
+                double prior = clamp(0.025, accuracy * Math.pow(Rules.getBulletSpeed(p)/Rules.getBulletSpeed(baseline), 1.5), 0.95);
+                double probability = probability(p, Telemetry.range(distance), prior);
+                double damage = Math.min(Math.max(0.1, enemyEnergy), Rules.getBulletDamage(p));
+                double energyPrice = 0.65 + 0.5 * (1 - clamp(0, energy/50, 1));
+                double utility = (probability*damage + energyPrice*(probability*3*p-p))
+                        / ((1+p/5)/Math.max(0.01,cooling)+0.12*distance/Rules.getBulletSpeed(p));
+                if (utility > best) {best = utility; bestPower = p;}
+            }
+            return bestPower;
+        }
+    }
+
     static class ReactiveGun {
         static final int CAPACITY = 384;
         static final double[] WEIGHTS = {2,5,1,1,1,0.5,2,2,1,1,0.5,1,3,2,2,1};
@@ -747,6 +924,11 @@ public class titanprime extends AdvancedRobot {
         power *= GENOME[5];
         if (e.brain.actualShots > 12 && accuracy < 0.16) power *= 0.7;
         if (getOthers() > 1 && d > 350) power *= 0.8;
+        if (USE_EFFICIENT_FIRE) {
+            power = e.brain.powerModel.choose(power, d, getEnergy(), e.energy,
+                    accuracy, getGunCoolingRate());
+            powerDecisions++;
+        }
         power = Math.min(power, getEnergy() / (getEnergy() < 15 ? 18 : 10));
         // Evita gastar mais energia que o necessario para eliminar o alvo.
         double lethal = e.energy <= 4 ? e.energy / 4 : (e.energy + 2) / 6;
@@ -804,6 +986,8 @@ public class titanprime extends AdvancedRobot {
                     learn(brain.gun[w.segment], gf, 1, 0.992);
                     learn(brain.gunGlobal, gf, 1, 0.996);
                     brain.gunSamples++;
+                    if (USE_PREDICTIVE_TRUST && w.firing && w.localForecast != null)
+                        brain.gunTrust.observe(w.localForecast, w.generalForecast, gf);
                     brain.gunNet.observe(w.features, gf);
                     GENERAL_GUN.observe(w.features, gf);
                     if (USE_KNN_GUN) {
@@ -897,6 +1081,10 @@ public class titanprime extends AdvancedRobot {
             learn(best.owner.brain.surf[best.segment], gf, 1, 0.96);
             learn(best.owner.brain.surfGlobal, gf, 1, 0.98);
             best.owner.brain.surfSamples++;
+            if (USE_CONTEXT_DEFENSE && best.confidence >= 0.8 && error <= best.speed + 18)
+                best.owner.brain.surfContext.observe(best.features, gf, bodyHit ? 1 : 0.6);
+            if (USE_PREDICTIVE_TRUST && best.confidence >= 0.8 && best.localForecast != null)
+                best.owner.brain.surfTrust.observe(best.localForecast, best.generalForecast, gf);
             best.owner.brain.surfNet.observe(best.features, gf);
             GENERAL_SURF.observe(best.features, gf);
             incoming.remove(best);
@@ -939,8 +1127,11 @@ public class titanprime extends AdvancedRobot {
     private final Map<Bullet, Brain> fired = new HashMap<Bullet, Brain>();
 
     private void finishShot(Bullet bullet, boolean hit) {
+        Integer powerRange = telemetry.shotRanges.get(bullet);
         telemetry.release(bullet);
         Brain brain = fired.remove(bullet);
+        if (USE_EFFICIENT_FIRE && brain != null && powerRange != null)
+            brain.powerModel.observe(powerRange, bullet.getPower(), hit);
         if (brain != null) {
             brain.actualShots = brain.actualShots * 0.99 + 1;
             brain.actualHits = brain.actualHits * 0.99 + (hit ? 1 : 0);
@@ -978,6 +1169,14 @@ public class titanprime extends AdvancedRobot {
                 + " walls=" + wallHits + " skipped=" + skipped + " virtual=" + virtualWaves);
         out.println("GUN_USAGE " + java.util.Arrays.toString(gunUsage));
         out.println(telemetry.line(getRoundNum()));
+        long surfRecords = 0, trustRecords = 0, powerRecords = 0;
+        for (Brain b : MEMORY.values()) {
+            surfRecords += b.surfContext.seen; trustRecords += b.gunTrust.count + b.surfTrust.count;
+            powerRecords += b.powerModel.seen;
+        }
+        out.println("UPGRADES round=" + getRoundNum() + " context_queries=" + contextQueries
+                + " tactical_queries=" + tacticalQueries + " power_decisions=" + powerDecisions
+                + " surf_records=" + surfRecords + " trust_records=" + trustRecords + " power_records=" + powerRecords);
         for (Enemy enemy : enemies.values()) {
             out.println("learn " + enemy.name + " gun=" + enemy.brain.gunSamples
                     + " surf=" + enemy.brain.surfSamples + " neuralGun=" + enemy.brain.gunNet.samples
@@ -1316,6 +1515,9 @@ public class titanprime extends AdvancedRobot {
         final MotionLog motion = new MotionLog();
         final ResponseBank response = new ResponseBank();
         final ReactiveGun reactive = new ReactiveGun();
+        final SurfMemory surfContext = new SurfMemory();
+        final PowerModel powerModel = new PowerModel();
+        final PredictiveTrust gunTrust = new PredictiveTrust(), surfTrust = new PredictiveTrust();
         final GunContext visitGun = new GunContext(), realGun = new GunContext();
         final double[] visits = new double[BINS];
         double passed, taken;
@@ -1355,7 +1557,8 @@ public class titanprime extends AdvancedRobot {
         Enemy owner;
         double x, y, bearing, speed, power, confidence = 1;
         double[] features, neuralDanger;
-        double[] visitDanger;
+        double[] visitDanger, contextDanger, localForecast, generalForecast;
+        double contextWeight;
         double flatten;
         boolean visited;
         int direction, segment;
