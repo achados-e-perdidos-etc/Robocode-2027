@@ -1,0 +1,17 @@
+diff --git a/Java.java b/ChimpazeComSarna.java
+similarity index 100%
+rename from Java.java
+rename to ChimpazeComSarna.java
+diff --git a/OBraboBot.java b/OBraboBot.java
+--- a/OBraboBot.java
++++ b/OBraboBot.java
+@@ -628,8 +628,7 @@
+                 dodgeStreak++;
+                 lastDodgeTime = getTime();
+                 if (dodgeStreak >= 2 && dodgeStreak % 2 == 0) {
+-                    System.out.printf("[OBraboBot] ? (Esquiva de Instinto Superior #%d | 10,000 hours in this game 💀)
+-", dodgeStreak);
++                    System.out.printf("[OBraboBot] ? (Esquiva de Instinto Superior #%d | 10,000 hours in this game 💀)%n", dodgeStreak);
+                 }
+                 ewIt.remove();
+             }

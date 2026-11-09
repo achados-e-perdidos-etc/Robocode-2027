@@ -1,0 +1,341 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "variants_sha256": {
+    "base": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+    "recovery": "862610601aa47c3660059065f503b902294774f56a8ce39b21011bd042a4bc51",
+    "clear": "acda9733bf5a823e9182e9f2cbd6a892a43f8b4b83aa0e895f559ddd7b3d0da0",
+    "both": "ef8e2cf36d1b65f0dd0bad64866053d6b9e3387485184743184006171d130f63"
+  },
+  "profiles": {
+    "base": null,
+    "recovery": [
+      1,
+      0
+    ],
+    "clear": [
+      0,
+      1
+    ],
+    "both": [
+      1,
+      1
+    ]
+  },
+  "contexts": {
+    "diamond": [
+      "voidious.Diamond 1.8.28",
+      2
+    ],
+    "repo_chimpaze": [
+      "review.main.chimpazecomsarna.ChimpazeComSarna*",
+      2
+    ],
+    "repo_obrabo": [
+      "review.main.obrabobot.OBraboBot*",
+      2
+    ],
+    "repo_titan": [
+      "review.main.titan.Titan*",
+      2
+    ],
+    "repo_titanv2": [
+      "review.main.titanv2.TitanV2*",
+      2
+    ],
+    "repo_vingation": [
+      "review.main.titanvingation.TitanVingation*",
+      2
+    ],
+    "repo_titans": [
+      "review.main.titans.Titans*",
+      2
+    ],
+    "repo_modular": [
+      "reviewmod.titan.TitanVingation*",
+      2
+    ],
+    "repo_all": [
+      "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      8
+    ]
+  },
+  "selection_seeds": [
+    13003,
+    13217
+  ],
+  "validation_seeds": [
+    13613,
+    13901
+  ],
+  "selection_rounds": 8,
+  "validation_rounds": 10,
+  "metric": "All round wins equally; no BO3 or first-round priority",
+  "rule": "At least four more reserved round wins; at most three extra skipped turns; all included cases valid. A single retry of the entire paired group after invalid execution, retaining original attempts.",
+  "source_manifest": [
+    {
+      "path": "Java.java",
+      "original_sha256": "6ce047cdb520242d490767b7722ec8171546648bcab2a61093a835581b3f5368",
+      "deployed_sha256": "734c4082a22d7a5dcf29b2277940a008c012f1c96bf62b9ccd89d652d18f0e0b",
+      "class": "review.main.chimpazecomsarna.ChimpazeComSarna"
+    },
+    {
+      "path": "OBraboBot.java",
+      "original_sha256": "72f1001f7d52aedfb9925bfdb1f79a8053bede6a15bc97f42643e595d233c05b",
+      "deployed_sha256": "639e5115f679554c325b134374078e2f8f2ebf713de541d46489c2135c21c4df",
+      "class": "review.main.obrabobot.OBraboBot"
+    },
+    {
+      "path": "Titan.java",
+      "original_sha256": "4e0c8d1eae238d7938e0f842d794439707bc3002e3e1d66ff81d81f450649f61",
+      "deployed_sha256": "4ab6367d76da06847d4417d3659a7cab7bd04f7c8568e475e1db63ad137b2766",
+      "class": "review.main.titan.Titan"
+    },
+    {
+      "path": "TitanV2.java",
+      "original_sha256": "99014b1800e292c2bb26048ecbd813cb200543064ccf36981234cb9ac2027e37",
+      "deployed_sha256": "45ff3450e27de6767c047a14839cecaa7483f4cb98add39ec950874df14e4f7d",
+      "class": "review.main.titanv2.TitanV2"
+    },
+    {
+      "path": "TitanVingation.java",
+      "original_sha256": "3b423d23015113047a3e48cf9807abf66f89098622ca6abc84e94a79b410e1d3",
+      "deployed_sha256": "145060c750fc18d7cdb0dc0807a4d1f52acc2f9da24ba64de993096d66a2ee7e",
+      "class": "review.main.titanvingation.TitanVingation"
+    },
+    {
+      "path": "Titans.java",
+      "original_sha256": "9cddacd4ef46a36eb354f332e6f543f4f45df72639617155c915c9b5e3952710",
+      "deployed_sha256": "27de5ce613896abd1e16f11c443cfa650d16c5fd0eda7f02b60ff2914224a888",
+      "class": "review.main.titans.Titans"
+    },
+    {
+      "path": "Titan/titan/TitanVingation.java",
+      "original_sha256": "29b1e241dfa4cc84bc7751c59ce98db44901b3c5f3757f7dcf6f9fc9c50ec344",
+      "deployed_sha256": "237f0381150f528f3baa35a4845078d321e1df3393bcde7c02ed1b3424d1e92e"
+    },
+    {
+      "path": "Titan/titan/gun/AdaptiveTargeting.java",
+      "original_sha256": "8d7f1341c7723f95aa29848c780df5484fc8c80d8f5e4b2987ba2300f45baffb",
+      "deployed_sha256": "567a9cc31fe8249b849379f0c695b1307080c0b41d3d1435adf0498f44a3ef2b"
+    },
+    {
+      "path": "Titan/titan/gun/CircularTargeting.java",
+      "original_sha256": "6b3d290c13a24d2eef285a0db3951199386b101bad1bdf2a1f68aa23919729aa",
+      "deployed_sha256": "344c3c176a6bcd4a4d369212a5ea89522f3a54a17c4574e08078defcec216382"
+    },
+    {
+      "path": "Titan/titan/gun/GuessFactorTargeting.java",
+      "original_sha256": "22a0adc5531c42957eea4c52fca9a073fd5f96ea16e506f6172bb2fc00244de2",
+      "deployed_sha256": "d12faaee46de894e758d928d4e043ab73e6aaa172ac8bfaf6372704335ece9e2"
+    },
+    {
+      "path": "Titan/titan/gun/GunController.java",
+      "original_sha256": "628e4bfad41800b25c5e7ca2733909613aa96347e4ab5553c911dd800bde6a83",
+      "deployed_sha256": "96358b89f734ae82b58b13a1210ad0a066ca232598ed0eb7f510cba6027c7132"
+    },
+    {
+      "path": "Titan/titan/gun/LinearTargeting.java",
+      "original_sha256": "480c9b6e20212a7bbb00192d71f8c0dd19ccab364c8cbfe79062b3b7de78c42f",
+      "deployed_sha256": "c0f51ae87594e1f07cab1ecf56fc27e61c086b4f3a6e2f2e43a4b0763765cdb9"
+    },
+    {
+      "path": "Titan/titan/gun/MotionPredictor.java",
+      "original_sha256": "1db2208292bf37f96582a6cf5b339111ba538ae88a777d620da4e840bfff294a",
+      "deployed_sha256": "a626aeb6b470a165ff0550c5b39a911d88fa641832aaec62c3b6d5666ef0d61c"
+    },
+    {
+      "path": "Titan/titan/gun/TargetingStrategy.java",
+      "original_sha256": "7009bb64b5713aa8774becfda783854f950ee9a28de81330f318fcef09e6522b",
+      "deployed_sha256": "b18da927a37ea55d5c08088cb046050a3fc8f1e63ad89b619e20ac6cc317a076"
+    },
+    {
+      "path": "Titan/titan/move/WaveSurfingMovement.java",
+      "original_sha256": "718a2afc5669c24d02176762c21263b39301c0aaca0b918946049dd048769ea1",
+      "deployed_sha256": "a74fb4268d698f64e785eaa0c797e4d9daaceb27bdad95fec35572561d757b25"
+    },
+    {
+      "path": "Titan/titan/radar/RadarController.java",
+      "original_sha256": "89bdc2f90e584a7a16363579092e3196a646535f924eb9f1a8da9981593d1704",
+      "deployed_sha256": "2d20ba02b43a7d3e6889de47ac4d7cbca8911ac295b9383af5abdc41f74f36c3"
+    },
+    {
+      "path": "Titan/titan/stats/LearningRepository.java",
+      "original_sha256": "dcf37119ddf4cc75274eb83510a6f83b7fdc203c7ade114942ab62eaa3c10f24",
+      "deployed_sha256": "575d3b72a86fc6ea0996fa48fa2c19b592363e180b892d0763a4cb13e455ac6a"
+    },
+    {
+      "path": "Titan/titan/stats/ShotStatistics.java",
+      "original_sha256": "e0d1d3a205e4a090bbe5822beb1558fad8341c8043c803d937f755690ba59116",
+      "deployed_sha256": "26026ef9dd24d037e61e72ff72376df97b75be4f5b92f9f4dd4c50bf3114ff76"
+    },
+    {
+      "path": "Titan/titan/utils/BattlefieldBounds.java",
+      "original_sha256": "95193a69c27617305faaf7727cae3de411fc9d4b267525be72f5db84b4c4af36",
+      "deployed_sha256": "6f7143914e10a2a09f3259df129cab619c8e8fe5c48d2da597781a1315b427e0"
+    },
+    {
+      "path": "Titan/titan/utils/EnemyState.java",
+      "original_sha256": "3e7a77eda5910de2d2f0c696690ad0bf70c9ada57cf46833d8596f76c597ffc2",
+      "deployed_sha256": "dfc263aa955373514840b9801a061c2dec4beeefaf438f2dda91e65b9b828ec9"
+    },
+    {
+      "path": "Titan/titan/utils/Geometry.java",
+      "original_sha256": "b30580241b2d50b5d67e61b87a6a77d1556e1148170a1410eb5fe6367f89013e",
+      "deployed_sha256": "79ce13144d589792493cb659a8153c79e22116e9ace612f748994fb05396089e"
+    }
+  ],
+  "selected": "both",
+  "checks": {
+    "valid": false,
+    "selection_valid": true,
+    "four_more_round_wins": false,
+    "cpu": false,
+    "modules_exercised": false
+  },
+  "proposed_promotion": false,
+  "official_outcomes": {
+    "base": {
+      "wins": 119,
+      "rounds": 160
+    },
+    "both": {
+      "wins": 113,
+      "rounds": 160
+    },
+    "all_included_scoreboards_complete": true,
+    "note": "Official round wins are distinct from strict telemetry validity; promotion remains rejected."
+  },
+  "execution": {
+    "selection": {
+      "attempts": 24,
+      "complete_outcome_rounds": 192,
+      "invalid_outcome_cases": [],
+      "strict_valid_rounds": 192
+    },
+    "validation": {
+      "attempts": 38,
+      "complete_outcome_rounds": 370,
+      "invalid_outcome_cases": [
+        "validation-base-repo_chimpaze-13901"
+      ],
+      "strict_valid_rounds": 310
+    }
+  },
+  "validation_by_opponent": {
+    "repo_chimpaze": {
+      "base": {
+        "wins": 16,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 15,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_obrabo": {
+      "base": {
+        "wins": 20,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 20,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_titan": {
+      "base": {
+        "wins": 11,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 12,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_titanv2": {
+      "base": {
+        "wins": 13,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 13,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_vingation": {
+      "base": {
+        "wins": 18,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 18,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_titans": {
+      "base": {
+        "wins": 12,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 13,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_modular": {
+      "base": {
+        "wins": 19,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      },
+      "both": {
+        "wins": 15,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 2
+      }
+    },
+    "repo_all": {
+      "base": {
+        "wins": 10,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 1
+      },
+      "both": {
+        "wins": 7,
+        "outcome_rounds": 20,
+        "telemetry_complete_battles": 0
+      }
+    }
+  },
+  "decision": "Keep Prime 3.9 unchanged; new pair remains experimental: no win gain and insufficient live recovery activations; missing telemetry does not erase complete official scoreboards.",
+  "fix_delivery": {
+    "external_repository": "gustavoolyver/Titan-Robo",
+    "original_commit": "70f1af3fc38ff665c7cd5d2a40c99320ba022ba3",
+    "external_commit": null,
+    "patch": "assets/titan-robo-compilacao.patch",
+    "patch_check": true,
+    "files": [
+      {
+        "path": "ChimpazeComSarna.java",
+        "sha256": "6ce047cdb520242d490767b7722ec8171546648bcab2a61093a835581b3f5368"
+      },
+      {
+        "path": "OBraboBot.java",
+        "sha256": "aeecb8c18dc161a676949aa72c9da9c70b311871131bc5e6face1c25ecc30f3e"
+      }
+    ],
+    "status": "Patch verified locally; direct external create_tree did not complete within 25 seconds; no external branch update was requested."
+  }
+}

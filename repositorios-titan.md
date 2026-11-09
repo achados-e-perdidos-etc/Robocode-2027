@@ -1,5 +1,7 @@
 # Revisao de gustavoolyver/Titan-Robo
 
+**Etapa posterior:** as correcoes reproduziveis e as batalhas contra todos os sete robos estao em [recuperacao-e-tiro.md](recuperacao-e-tiro.md). A revisao abaixo descreve os commits originais, anteriores a correcao.
+
 Os dois links recebidos identificam **duas branches do mesmo repositorio**, nao dois projetos independentes. A revisao foi fixada nestes commits:
 
 - `main`: `70f1af3fc38ff665c7cd5d2a40c99320ba022ba3`.

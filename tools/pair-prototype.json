@@ -1,0 +1,53 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "changes": [
+    {
+      "old": "    static final boolean USE_FINISHER = true;",
+      "new": "    static final boolean USE_FINISHER = true;\n    static final boolean USE_RECOVERY = false;\n    static final boolean USE_CLEAR_FIRE = false;"
+    },
+    {
+      "old": "    private int celebrationFrame;",
+      "new": "    private int celebrationFrame;\n    private final MobilityRecovery mobility = new MobilityRecovery();\n    private boolean wantedMotion;\n    private Enemy redirectTarget;\n    private long redirectUntil;\n    private int blockedShots, redirectedShots;"
+    },
+    {
+      "old": "            rememberSelf();\n            expireWaves();",
+      "new": "            rememberSelf();\n            if (USE_RECOVERY && mobility.observe(getTime(), getX(), getY(), getVelocity(), wantedMotion)) {\n                destination = null; lastPlan = -100;\n            }\n            expireWaves();"
+    },
+    {
+      "old": "        target = best;",
+      "new": "        target = best;\n        if (USE_CLEAR_FIRE && redirectTarget != null && getTime() <= redirectUntil\n                && redirectTarget.alive && !redirectTarget.sentry && getTime() - redirectTarget.time <= 2)\n            target = redirectTarget;"
+    },
+    {
+      "old": "        setAhead(d * drive);",
+      "new": "        setAhead(d * drive);\n        if (USE_RECOVERY) wantedMotion = d > 30;"
+    },
+    {
+      "old": "        risk += 0.12 / (1 + distance(getX(), getY(), goal.x, goal.y) / 40);",
+      "new": "        risk += 0.12 / (1 + distance(getX(), getY(), goal.x, goal.y) / 40);\n        if (USE_RECOVERY && mobility.active(getTime())) {\n            risk += 1.2 * Math.exp(-goal.distanceSq(mobility.blockX, mobility.blockY) / 5000);\n            risk -= 0.25 * Math.min(1, distance(getX(), getY(), goal.x, goal.y) / 125);\n        }"
+    },
+    {
+      "old": "        Bullet bullet = null;",
+      "new": "        Bullet bullet = null;\n        boolean clearLane = true;\n        if (USE_CLEAR_FIRE && getGunHeat() == 0 && Math.abs(error) < Math.atan2(18, d)) {\n            Enemy blocker = firstBlocker(e, aim, d, speed);\n            if (blocker != null) {\n                clearLane = false; blockedShots++;\n                if (!blocker.sentry && getTime() - blocker.time <= 2) {\n                    redirectTarget = blocker; redirectUntil = getTime() + 3;\n                    solutionTarget = null; redirectedShots++;\n                }\n            }\n        }"
+    },
+    {
+      "old": "        if (getGunHeat() == 0 && Math.abs(error) <= Math.atan2(14, d)",
+      "new": "        if (clearLane && getGunHeat() == 0 && Math.abs(error) <= Math.atan2(14, d)"
+    },
+    {
+      "old": "    public void onHitRobot(HitRobotEvent e) {",
+      "new": "    public void onHitRobot(HitRobotEvent e) {\n        if (USE_RECOVERY) mobility.contact(getTime(), getX(), getY());"
+    },
+    {
+      "old": "    public void onHitWall(HitWallEvent e) { wallHits++; destination = null; }",
+      "new": "    public void onHitWall(HitWallEvent e) {\n        wallHits++; destination = null;\n        if (USE_RECOVERY) mobility.contact(getTime(), getX(), getY());\n    }"
+    },
+    {
+      "old": "        out.println(telemetry.line(getRoundNum()));",
+      "new": "        out.println(telemetry.line(getRoundNum()));\n        out.println(\"PAIR round=\" + getRoundNum() + \" recoveries=\" + mobility.recoveries\n                + \" blocked_shots=\" + blockedShots + \" redirects=\" + redirectedShots);"
+    },
+    {
+      "old": "    static class SurfMemory {",
+      "new": "    static class MobilityRecovery {\n        long lastTime = -100, lastContact = -100, until = -1, cooldown = -1;\n        double lastX, lastY, blockX, blockY;\n        int blocked, contacts, recoveries;\n        void contact(long time, double x, double y) {\n            contacts = time - lastContact <= 12 ? contacts + 1 : 1;\n            lastContact = time; blockX = x; blockY = y;\n        }\n        boolean active(long time) {return time < until;}\n        boolean observe(long time, double x, double y, double velocity, boolean intended) {\n            boolean consecutive = time == lastTime + 1;\n            boolean stopped = intended && Math.abs(velocity) < 0.3 && Math.hypot(x-lastX,y-lastY) < 0.35;\n            blocked = consecutive && stopped ? blocked + 1 : 0;\n            lastTime = time; lastX = x; lastY = y;\n            if (time - lastContact > 12) contacts = 0;\n            if (time < cooldown || active(time) || (blocked < 8 && contacts < 3)) return false;\n            blockX = x; blockY = y; until = time + 18; cooldown = time + 40;\n            blocked = contacts = 0; recoveries++;return true;\n        }\n    }\n\n    static boolean rayObstacle(double along, double perpendicular, double distance, double radius) {\n        return along > 36 && along < distance - 20 && Math.abs(perpendicular) < radius;\n    }\n\n    private Enemy firstBlocker(Enemy intended, double aim, double distance, double speed) {\n        Enemy nearest = null;double nearestAlong = distance;\n        double ux = Math.sin(aim), uy = Math.cos(aim);\n        for (Enemy other : enemies.values()) {\n            long age = getTime() - other.time;\n            if (other == intended || !other.alive || age < 0 || age > 4) continue;\n            double along = (other.x-getX())*ux + (other.y-getY())*uy;\n            MotionState predicted = null;\n            for (int iteration = 0; iteration < 3; iteration++) {\n                predicted = new MotionState(other.x,other.y,other.heading,other.velocity);\n                int flight = (int)Math.round(clamp(0, age + along/speed, 40));\n                for (int t = 0; t < flight; t++) predicted.step(other.turnRate,other.velocity,width,height);\n                along = (predicted.x-getX())*ux + (predicted.y-getY())*uy;\n            }\n            double perpendicular = (predicted.x-getX())*uy - (predicted.y-getY())*ux;\n            double radius = 20 - Math.min(6, age + Math.max(0,along/speed)*0.12);\n            if (rayObstacle(along,perpendicular,distance,radius) && along < nearestAlong) {\n                nearest = other;nearestAlong = along;\n            }\n        }\n        return nearest;\n    }\n\n    static class SurfMemory {"
+    }
+  ]
+}
