@@ -1,0 +1,290 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "candidate_sha256": "a8b3d17dded89e67e87fda20aa74f0893d1cc43eb3a254f943a006c1c338a816",
+  "selected": "opportunity",
+  "contexts": {
+    "all": [
+      "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      8
+    ],
+    "leaders": [
+      "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      4
+    ],
+    "elite": [
+      "voidious.Diamond 1.8.28,reference.supermercutio*",
+      3
+    ]
+  },
+  "seeds": [
+    17011,
+    17417,
+    17827
+  ],
+  "rounds": 12,
+  "metric": "Equal macro weight to round-win rate and score share. Every round equal.",
+  "promotion": "At least four more round wins; at least 2% relative macro score-share gain; all-arena wins and share not lower; no more than three extra skips; at least 90% round telemetry in each arm; complete official outcomes.",
+  "reason": "The attack arm improved both selection metrics. Short routes failed to preserve all-arena score share on the first reserved set. This confirmation uses three different, unused starts; no valid battle is retried.",
+  "summaries": {
+    "base": {
+      "valid": true,
+      "wins": 39,
+      "rounds": 108,
+      "points": 26691,
+      "macro_win_rate": 0.36111111111111116,
+      "macro_score_share": 0.3070328966125375,
+      "utility": 0.33407200386182434,
+      "skipped": 0,
+      "contexts": {
+        "all": {
+          "wins": 10,
+          "rounds": 36,
+          "points": 14308,
+          "score_share": 0.18120950971768504,
+          "score_firsts": 0,
+          "battles": 3
+        },
+        "elite": {
+          "wins": 10,
+          "rounds": 36,
+          "points": 4636,
+          "score_share": 0.38395989974937345,
+          "score_firsts": 0,
+          "battles": 3
+        },
+        "leaders": {
+          "wins": 19,
+          "rounds": 36,
+          "points": 7747,
+          "score_share": 0.35592928037055405,
+          "score_firsts": 1,
+          "battles": 3
+        }
+      }
+    },
+    "opportunity": {
+      "valid": true,
+      "wins": 42,
+      "rounds": 108,
+      "points": 28059,
+      "macro_win_rate": 0.38888888888888884,
+      "macro_score_share": 0.31054990684276873,
+      "utility": 0.3497193978658288,
+      "skipped": 0,
+      "contexts": {
+        "all": {
+          "wins": 18,
+          "rounds": 36,
+          "points": 15989,
+          "score_share": 0.20075302616497762,
+          "score_firsts": 1,
+          "battles": 3
+        },
+        "elite": {
+          "wins": 8,
+          "rounds": 36,
+          "points": 4518,
+          "score_share": 0.37968465253348577,
+          "score_firsts": 0,
+          "battles": 3
+        },
+        "leaders": {
+          "wins": 16,
+          "rounds": 36,
+          "points": 7552,
+          "score_share": 0.35121204182984284,
+          "score_firsts": 1,
+          "battles": 3
+        }
+      }
+    }
+  },
+  "checks": {
+    "outcomes": true,
+    "four_more_wins": false,
+    "score_gain": false,
+    "all_arena_preserved": true,
+    "cpu": true,
+    "telemetry": true
+  },
+  "proposed_promotion": false,
+  "attempts": 18,
+  "included_battles": 18,
+  "baseline_commit": "f2249ba0b74d1a2d64df0fa125ecced343cb7d72",
+  "standings": {
+    "base": {
+      "all": [
+        {
+          "robot": "review.main.titan.Titan*",
+          "points": 15196,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourbase*",
+          "points": 14308,
+          "wins": 10
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "points": 12477,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "points": 12035,
+          "wins": 6
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "points": 9153,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "points": 8021,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "points": 5081,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "points": 2691,
+          "wins": 0
+        }
+      ],
+      "leaders": [
+        {
+          "robot": "treino.fourbase*",
+          "points": 7747,
+          "wins": 19
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "points": 7234,
+          "wins": 12
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "points": 4324,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "points": 2493,
+          "wins": 3
+        }
+      ],
+      "elite": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 5897,
+          "wins": 25
+        },
+        {
+          "robot": "treino.fourbase*",
+          "points": 4636,
+          "wins": 10
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "points": 1521,
+          "wins": 1
+        }
+      ]
+    },
+    "opportunity": {
+      "all": [
+        {
+          "robot": "treino.fouropportunity*",
+          "points": 15989,
+          "wins": 18
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "points": 13754,
+          "wins": 8
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "points": 11601,
+          "wins": 4
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "points": 11322,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "points": 11155,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "points": 8064,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "points": 5048,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "points": 2785,
+          "wins": 0
+        }
+      ],
+      "leaders": [
+        {
+          "robot": "treino.fouropportunity*",
+          "points": 7552,
+          "wins": 16
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "points": 7363,
+          "wins": 15
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "points": 4835,
+          "wins": 5
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "points": 1902,
+          "wins": 0
+        }
+      ],
+      "elite": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 6231,
+          "wins": 28
+        },
+        {
+          "robot": "treino.fouropportunity*",
+          "points": 4518,
+          "wins": 8
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "points": 1153,
+          "wins": 0
+        }
+      ]
+    }
+  },
+  "audit": {
+    "cold_memory_consistent": true,
+    "official_rounds": 216,
+    "telemetry_rounds": {
+      "base": 107,
+      "opportunity": 108
+    }
+  }
+}

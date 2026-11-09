@@ -1,0 +1,4390 @@
+{
+  "included_case_refs": [
+    {
+      "key": "validation-base-all-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-all-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-all-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-all-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-leaders-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-leaders-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-leaders-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-leaders-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-elite-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-elite-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-elite-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-elite-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-diamond-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-diamond-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-diamond-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-diamond-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-titanv2-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-titanv2-16001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-routes-titanv2-16411",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-titanv2-16411",
+      "attempt": 0
+    }
+  ],
+  "attempts": [
+    {
+      "key": "validation-base-all-16001",
+      "profile": "base",
+      "context": "all",
+      "seed": 16001,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 2,
+      "points": 4639,
+      "score_share": 0.1770948654323344,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 5142,
+          "wins": 4
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 5044,
+          "wins": 3
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 4639,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 4166,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 2798,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 2398,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1444,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 564,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1125,
+        "1": 1824,
+        "2": 1357,
+        "3": 1377,
+        "4": 1265,
+        "5": 1137,
+        "6": 1374,
+        "7": 2084,
+        "8": 1320,
+        "9": 1302,
+        "10": 1224,
+        "11": 1766
+      },
+      "position_adjustments": [
+        "2\ttreino.fourbase*",
+        "6\treview.main.titan.Titan*",
+        "11\treview.main.titans.Titans*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "d6a2de93d6ca9ded8980be23b1154e2c85bde1add9a3106c5251e20679e12c68",
+      "log_sha256": "e3a5b40b38cdd626961f1b481e62645275dd4bdd87fe77aaff7584dda4812c63",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 674,
+        "hits": 156,
+        "spent": 1075.2427564299721,
+        "dealt_nominal": 1285.7254394370268,
+        "received_nominal": 883.3528807020647,
+        "decisions": 9835
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 37,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 42,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 34,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 87,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 40,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 67,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 40,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 40,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 84,
+          "hits": 25,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 70,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 75,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 58,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-all-16001",
+      "profile": "routes",
+      "context": "all",
+      "seed": 16001,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 3,
+      "points": 4247,
+      "score_share": 0.1625708161077936,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 4788,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 4661,
+          "wins": 2
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 4247,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 4001,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 3506,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 3039,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1214,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 668,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [
+        "telemetry_rounds",
+        "legacy_stats_rounds",
+        "gun_usage_rounds",
+        "upgrade_rounds"
+      ],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 985,
+        "1": 1811,
+        "2": 912,
+        "3": 1291,
+        "4": 1130,
+        "5": 1067,
+        "6": 1597,
+        "7": 1694,
+        "8": 1122,
+        "9": 863,
+        "10": 1516,
+        "11": 1402
+      },
+      "position_adjustments": [
+        "6\treview.main.titanvingation.TitanVingation*",
+        "10\treview.main.obrabobot.OBraboBot*",
+        "11\treview.main.titan.Titan*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "3f5f4204ac679e3833f23316fd4b666454a35902b29c42dc89574190f87f64e5",
+      "log_sha256": "61e1025d14f3cdd408b73a8ff5237e1211a594f5190a3cec895df7554bccc746",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 620,
+        "hits": 122,
+        "spent": 956.215314025901,
+        "dealt_nominal": 1052.9911638697217,
+        "received_nominal": 756.9506725944071,
+        "decisions": 9085
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 33,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 45,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 54,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 62,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 70,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 32,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 113,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 65,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 40,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 43,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 63,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 2820,
+          "collisions": 96
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 3955,
+          "collisions": 148
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 4222,
+          "collisions": 593
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 6533,
+          "collisions": 296
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 5239,
+          "collisions": 137
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 2292,
+          "collisions": 47
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 4100,
+          "collisions": 800
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 3815,
+          "collisions": 403
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 3150,
+          "collisions": 380
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 3398,
+          "collisions": 118
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 6039,
+          "collisions": 799
+        }
+      ]
+    },
+    {
+      "key": "validation-routes-all-16411",
+      "profile": "routes",
+      "context": "all",
+      "seed": 16411,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 6049,
+      "score_share": 0.22854012392322806,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourroutes*",
+          "score": 6049,
+          "wins": 7
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 4821,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 4471,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 3282,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 2915,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 2714,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1327,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 889,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 924,
+        "1": 1190,
+        "2": 1602,
+        "3": 1185,
+        "4": 1402,
+        "5": 1050,
+        "6": 1076,
+        "7": 883,
+        "8": 1155,
+        "9": 1301,
+        "10": 2476,
+        "11": 1561
+      },
+      "position_adjustments": [
+        "2\treview.main.titan.Titan*",
+        "6\treview.main.chimpazecomsarna.ChimpazeComSarna*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "854e03308095a42c53a295d01ef478193e2f72f960f9d9cf4d061d1cb0197576",
+      "log_sha256": "2aa042f1ffe563a77a6aef029c6961fda902f426f25aaba60ce876e74932dffd",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 825,
+        "hits": 208,
+        "spent": 1260.4492230247242,
+        "dealt_nominal": 1925.5499623592389,
+        "received_nominal": 918.1727736611641,
+        "decisions": 12049
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 51,
+          "hits": 20,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 72,
+          "hits": 22,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 17,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 68,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 88,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 60,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 15,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 40,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 71,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 83,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 159,
+          "hits": 33,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 101,
+          "hits": 24,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 3916,
+          "collisions": 4443
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 7090,
+          "collisions": 2973
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 1880,
+          "collisions": 4149
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 3286,
+          "collisions": 3327
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 6675,
+          "collisions": 2059
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 5313,
+          "collisions": 3110
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 1349,
+          "collisions": 352
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 3522,
+          "collisions": 1823
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 4281,
+          "collisions": 2002
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 4874,
+          "collisions": 3363
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 5363,
+          "collisions": 3477
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 6385,
+          "collisions": 2567
+        }
+      ]
+    },
+    {
+      "key": "validation-base-all-16411",
+      "profile": "base",
+      "context": "all",
+      "seed": 16411,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 5918,
+      "score_share": 0.22535318533186094,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 5918,
+          "wins": 7
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 4315,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 3810,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 3705,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 3343,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 3284,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 955,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 931,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1115,
+        "1": 1280,
+        "2": 1203,
+        "3": 1260,
+        "4": 1316,
+        "5": 1099,
+        "6": 1802,
+        "7": 1114,
+        "8": 1377,
+        "9": 1319,
+        "10": 1008,
+        "11": 1335
+      },
+      "position_adjustments": [
+        "2\ttreino.fourbase*",
+        "4\treview.main.titanvingation.TitanVingation*",
+        "5\treview.main.titanv2.TitanV2*",
+        "5\treview.main.titanvingation.TitanVingation*",
+        "11\ttreino.fourbase*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "f58d03183b224ded3f055fa32babcce310b3f1926a8a8060c82e95e60eda520f",
+      "log_sha256": "08be57a18a666527ab1281956f4f92d1bc789d959d0818efc1dcceedd003bc57",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 762,
+        "hits": 194,
+        "spent": 1312.2534370938865,
+        "dealt_nominal": 1707.6271526030698,
+        "received_nominal": 686.0173289556178,
+        "decisions": 11315
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 58,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 76,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 60,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 78,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 83,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 65,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 37,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 56,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 84,
+          "hits": 25,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 81,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 57,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 27,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-leaders-16001",
+      "profile": "routes",
+      "context": "leaders",
+      "seed": 16001,
+      "opponents": "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      "physical_count": 4,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 9,
+      "points": 3014,
+      "score_share": 0.4288560045532157,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourroutes*",
+          "score": 3014,
+          "wins": 9
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 1901,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 1143,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 970,
+          "wins": 1
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1024,
+        "1": 903,
+        "2": 936,
+        "3": 978,
+        "4": 874,
+        "5": 1030,
+        "6": 1196,
+        "7": 1043,
+        "8": 1223,
+        "9": 1024,
+        "10": 999,
+        "11": 1200
+      },
+      "position_adjustments": [],
+      "position_records": 48,
+      "positions_sha256": "0ec12debbe8dd4eaf97a173e646b798c364f7e2e810794ee2dad079fe72bd856",
+      "log_sha256": "4324c45ad7007a13f945d7ae1c841608fa761ce8e53928de86069c41cd1dc3a1",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 722,
+        "hits": 156,
+        "spent": 1014.5939089164114,
+        "dealt_nominal": 1040.7465050846638,
+        "received_nominal": 290.0950161112672,
+        "decisions": 10201
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 63,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 52,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 36,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 43,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 51,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 62,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 76,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 63,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 77,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 63,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 62,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 74,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 5266,
+          "collisions": 51
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 4295,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 3504,
+          "collisions": 47
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 4471,
+          "collisions": 7
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 3894,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 3092,
+          "collisions": 41
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 5129,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 3555,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 2730,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 4551,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 4887,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 3063,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-base-leaders-16001",
+      "profile": "base",
+      "context": "leaders",
+      "seed": 16001,
+      "opponents": "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      "physical_count": 4,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 2849,
+      "score_share": 0.41063707120207554,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 2849,
+          "wins": 7
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 2132,
+          "wins": 4
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 986,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 971,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1092,
+        "1": 1050,
+        "2": 1264,
+        "3": 2051,
+        "4": 984,
+        "5": 1060,
+        "6": 1129,
+        "7": 1248,
+        "8": 1205,
+        "9": 976,
+        "10": 881,
+        "11": 1174
+      },
+      "position_adjustments": [],
+      "position_records": 48,
+      "positions_sha256": "783b4e484f415d3dcccc64936d6f6fff8494ce17bc632a97e9246cb1dcc5ba65",
+      "log_sha256": "e7537b4315d11fbea2b04004542360a00506928f2793180819c3c26af35ac0d8",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 860,
+        "hits": 150,
+        "spent": 1145.1640675545889,
+        "dealt_nominal": 983.6286256615317,
+        "received_nominal": 443.50208828157076,
+        "decisions": 12314
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 64,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 61,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 76,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 126,
+          "hits": 22,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 60,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 66,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 68,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 79,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 74,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 60,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 51,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 75,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-base-leaders-16411",
+      "profile": "base",
+      "context": "leaders",
+      "seed": 16411,
+      "opponents": "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      "physical_count": 4,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 3,
+      "points": 2067,
+      "score_share": 0.29562356979405036,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 2845,
+          "wins": 7
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 2067,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 1449,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 631,
+          "wins": 1
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1048,
+        "1": 1034,
+        "2": 1426,
+        "3": 1183,
+        "4": 2302,
+        "5": 1430,
+        "6": 966,
+        "7": 1003,
+        "8": 1630,
+        "9": 912,
+        "10": 1037,
+        "11": 1446
+      },
+      "position_adjustments": [],
+      "position_records": 48,
+      "positions_sha256": "c1519396480b8279adeda8289c2880f24ca65667ec1c59f1d974434d356bb4f4",
+      "log_sha256": "f22bc45c027ceb055a0520af82d1b4aafade76808eb047873ac2594d2245341f",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 765,
+        "hits": 147,
+        "spent": 971.1840949049301,
+        "dealt_nominal": 849.4643800082712,
+        "received_nominal": 716.7101094079007,
+        "decisions": 10836
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 63,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 34,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 96,
+          "hits": 23,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 73,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 149,
+          "hits": 24,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 52,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 56,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 65,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 35,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 30,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 62,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 50,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-leaders-16411",
+      "profile": "routes",
+      "context": "leaders",
+      "seed": 16411,
+      "opponents": "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      "physical_count": 4,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 2,
+      "points": 1535,
+      "score_share": 0.20861647186735527,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 3342,
+          "wins": 10
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 1779,
+          "wins": 0
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 1535,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 702,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1086,
+        "1": 1989,
+        "2": 986,
+        "3": 833,
+        "4": 1320,
+        "5": 1189,
+        "6": 1653,
+        "7": 879,
+        "8": 1014,
+        "9": 1106,
+        "10": 917,
+        "11": 1333
+      },
+      "position_adjustments": [],
+      "position_records": 48,
+      "positions_sha256": "7378021f3af5b25ab0cb997ddaf5fc6bb82adb8fb13e51e636001c45262dcda5",
+      "log_sha256": "5d6f2d57c95cbabae9eabc19862b6f88c5ed32ebab802413c384ff50302b406e",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 645,
+        "hits": 132,
+        "spent": 761.991572786756,
+        "dealt_nominal": 729.9426673814792,
+        "received_nominal": 887.7655964132157,
+        "decisions": 8980
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 39,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 145,
+          "hits": 29,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 61,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 33,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 23,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 21,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 115,
+          "hits": 23,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 23,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 19,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 67,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 17,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 82,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 3488,
+          "collisions": 1
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 3473,
+          "collisions": 4
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 4209,
+          "collisions": 88
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 3023,
+          "collisions": 1
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 2318,
+          "collisions": 1
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 1965,
+          "collisions": 3
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 4649,
+          "collisions": 17
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 2343,
+          "collisions": 1
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 1818,
+          "collisions": 1
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 4160,
+          "collisions": 78
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 1743,
+          "collisions": 5
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 3538,
+          "collisions": 14
+        }
+      ]
+    },
+    {
+      "key": "validation-base-elite-16001",
+      "profile": "base",
+      "context": "elite",
+      "seed": 16001,
+      "opponents": "voidious.Diamond 1.8.28,reference.supermercutio*",
+      "physical_count": 3,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 2,
+      "points": 1460,
+      "score_share": 0.35214664737095996,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 2294,
+          "wins": 10
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 1460,
+          "wins": 2
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "score": 392,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 1,
+      "round_turns": {
+        "0": 1247,
+        "1": 732,
+        "2": 733,
+        "3": 803,
+        "4": 1671,
+        "5": 1016,
+        "6": 1997,
+        "7": 1488,
+        "8": 1927,
+        "9": 1092,
+        "10": 982,
+        "11": 749
+      },
+      "position_adjustments": [
+        "1\tvoidious.Diamond 1.8.28"
+      ],
+      "position_records": 36,
+      "positions_sha256": "61273e4d6c3fc06fd637b05020408db12f16d86bfaffb24990f0422dd0e8a591",
+      "log_sha256": "5cbf9ba4090318e7de99094ff40dd0a7d04e7e1c4bc0e8019efea2fadc99c57e",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 915,
+        "hits": 121,
+        "spent": 930.3869586279263,
+        "dealt_nominal": 710.8929629168842,
+        "received_nominal": 684.2996476933081,
+        "decisions": 12616
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 78,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 41,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 41,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 44,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 104,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 66,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 136,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 7,
+          "shots": 100,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 134,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 68,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 61,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 42,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-elite-16001",
+      "profile": "routes",
+      "context": "elite",
+      "seed": 16001,
+      "opponents": "voidious.Diamond 1.8.28,reference.supermercutio*",
+      "physical_count": 3,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 2,
+      "points": 1374,
+      "score_share": 0.3386738969682031,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 2293,
+          "wins": 10
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 1374,
+          "wins": 2
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "score": 390,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1878,
+        "1": 1148,
+        "2": 710,
+        "3": 1193,
+        "4": 1015,
+        "5": 802,
+        "6": 1406,
+        "7": 1441,
+        "8": 1895,
+        "9": 1685,
+        "10": 828,
+        "11": 1601
+      },
+      "position_adjustments": [
+        "1\ttreino.fourroutes*"
+      ],
+      "position_records": 36,
+      "positions_sha256": "4db0629b7db0196ff19ed4e129bb5c0d5197bb6f290da80bb5ea7adcf94b83b6",
+      "log_sha256": "b4974aba19a3ab55c3d25affd84b54299356afa8bba256b74b4c57617ba4f872",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 1011,
+        "hits": 137,
+        "spent": 1018.7812534769884,
+        "dealt_nominal": 654.3709635100994,
+        "received_nominal": 596.1113362682177,
+        "decisions": 13715
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 130,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 76,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 35,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 74,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 66,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 43,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 91,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 95,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 124,
+          "hits": 20,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 118,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 49,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 110,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 2792,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 4201,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 3679,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 3513,
+          "collisions": 113
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 3945,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 3976,
+          "collisions": 126
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 3106,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 3685,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 2611,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 4481,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 3060,
+          "collisions": 2
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 3655,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-routes-elite-16411",
+      "profile": "routes",
+      "context": "elite",
+      "seed": 16411,
+      "opponents": "voidious.Diamond 1.8.28,reference.supermercutio*",
+      "physical_count": 3,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 745,
+      "score_share": 0.20097113568923658,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 2579,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 745,
+          "wins": 0
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "score": 383,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1237,
+        "1": 923,
+        "2": 986,
+        "3": 1100,
+        "4": 894,
+        "5": 706,
+        "6": 743,
+        "7": 1471,
+        "8": 910,
+        "9": 1019,
+        "10": 745,
+        "11": 932
+      },
+      "position_adjustments": [],
+      "position_records": 36,
+      "positions_sha256": "580e9471609dd9d1da161b80ceee92ef2f7ddbcfccf404385d5d5c7344e38622",
+      "log_sha256": "64c8fb87b240590acb50753cac7cfeb49359c6f1f809ce7ed81c9451912c3ca6",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 689,
+        "hits": 67,
+        "spent": 619.4507733925965,
+        "dealt_nominal": 239.65777770183573,
+        "received_nominal": 744.2853738617906,
+        "decisions": 9265
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 82,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 56,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 39,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 72,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 35,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 42,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 46,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 97,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 57,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 58,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 44,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 61,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 3307,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 2401,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 3814,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 2627,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 3699,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 3367,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 3764,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 3789,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 2860,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 4105,
+          "collisions": 20
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 2904,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 2125,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-base-elite-16411",
+      "profile": "base",
+      "context": "elite",
+      "seed": 16411,
+      "opponents": "voidious.Diamond 1.8.28,reference.supermercutio*",
+      "physical_count": 3,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 937,
+      "score_share": 0.2438199323445225,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 2431,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 937,
+          "wins": 0
+        },
+        {
+          "robot": "reference.supermercutio*",
+          "score": 475,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1037,
+        "1": 762,
+        "2": 994,
+        "3": 1227,
+        "4": 895,
+        "5": 789,
+        "6": 915,
+        "7": 958,
+        "8": 715,
+        "9": 1042,
+        "10": 1995,
+        "11": 1197
+      },
+      "position_adjustments": [],
+      "position_records": 36,
+      "positions_sha256": "1b7d989670a59701c69fe45380ab9f3e2d74fc762b05ee03741be7c780a6e483",
+      "log_sha256": "c4f282215f14aa159300c3eb4bad2dffb52910c39075c45ba86d27ef17aae421",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 761,
+        "hits": 85,
+        "spent": 702.0987114634261,
+        "dealt_nominal": 371.4529807182603,
+        "received_nominal": 728.1334632479849,
+        "decisions": 10392
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 65,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 45,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 39,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 79,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 60,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 48,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 59,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 60,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 40,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 66,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 123,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 77,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-diamond-16001",
+      "profile": "routes",
+      "context": "diamond",
+      "seed": 16001,
+      "opponents": "voidious.Diamond 1.8.28",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 188,
+      "score_share": 0.10949330227140361,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1529,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 188,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1473,
+        "1": 795,
+        "2": 780,
+        "3": 1933,
+        "4": 440,
+        "5": 1100,
+        "6": 1115,
+        "7": 765,
+        "8": 1050,
+        "9": 1459,
+        "10": 512,
+        "11": 523
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "cbd1f1f27624f380a7bf738491ebf72a5a47dd44d62d133da636cd1da56daae6",
+      "log_sha256": "13b392e8ae19caf8a005be2aa334ed8917ef6ba523707f2dbccbd349fc1afa54",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 721,
+        "hits": 49,
+        "spent": 658.3615248079929,
+        "dealt_nominal": 188.4109329849174,
+        "received_nominal": 649.482366558147,
+        "decisions": 10145
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 87,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 47,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 45,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 127,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 20,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 70,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 70,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 40,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 67,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 97,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 25,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 26,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-base-diamond-16001",
+      "profile": "base",
+      "context": "diamond",
+      "seed": 16001,
+      "opponents": "voidious.Diamond 1.8.28",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 1,
+      "points": 257,
+      "score_share": 0.1447072072072072,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1519,
+          "wins": 11
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 257,
+          "wins": 1
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1313,
+        "1": 1586,
+        "2": 455,
+        "3": 553,
+        "4": 716,
+        "5": 688,
+        "6": 755,
+        "7": 769,
+        "8": 712,
+        "9": 584,
+        "10": 861,
+        "11": 978
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "4b196259c84706f72cc3e1af5188cdc5d3a82a83fbd404bde793b71633a569e4",
+      "log_sha256": "45a79815e15ea0d47cc23d7db84f99f1869896c4d3f793d6c66a67e81e26bd7c",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 588,
+        "hits": 42,
+        "spent": 592.6127264494942,
+        "dealt_nominal": 185.6036253017001,
+        "received_nominal": 667.7551691793739,
+        "decisions": 8170
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 83,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 106,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 21,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 29,
+          "hits": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 42,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 38,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 43,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 44,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 41,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 30,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 52,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 59,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-base-diamond-16411",
+      "profile": "base",
+      "context": "diamond",
+      "seed": 16411,
+      "opponents": "voidious.Diamond 1.8.28",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 169,
+      "score_share": 0.1013189448441247,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1499,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 169,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 3,
+      "round_turns": {
+        "0": 664,
+        "1": 866,
+        "2": 1012,
+        "3": 1263,
+        "4": 681,
+        "5": 1487,
+        "6": 595,
+        "7": 722,
+        "8": 1379,
+        "9": 675,
+        "10": 1093,
+        "11": 698
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "54e1a5bf96ce660dca8a048948d34de2235dd9f62b0b9e19c6cfe76fe5f37245",
+      "log_sha256": "dc1872ce966f9d83b3a646feed9e18c112faf03df20bbdba7732eea53b24dff6",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 676,
+        "hits": 43,
+        "spent": 671.629680154783,
+        "dealt_nominal": 169.4141103851708,
+        "received_nominal": 612.9845853914028,
+        "decisions": 9332
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 37,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 54,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 62,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 3,
+          "shots": 80,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 38,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 101,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 6,
+          "shots": 31,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 40,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 88,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 37,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 68,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 40,
+          "hits": 0,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-diamond-16411",
+      "profile": "routes",
+      "context": "diamond",
+      "seed": 16411,
+      "opponents": "voidious.Diamond 1.8.28",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 200,
+      "score_share": 0.11560693641618497,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1530,
+          "wins": 12
+        },
+        {
+          "robot": "treino.fourroutes*",
+          "score": 200,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 1,
+      "round_turns": {
+        "0": 783,
+        "1": 1809,
+        "2": 465,
+        "3": 941,
+        "4": 787,
+        "5": 1220,
+        "6": 1472,
+        "7": 1723,
+        "8": 563,
+        "9": 966,
+        "10": 1231,
+        "11": 523
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "85e22e56d60277544992076fe17cf0c4424df89246aaff1054a2256bdca4ebe5",
+      "log_sha256": "987dedd0886cffbae0f2ce8dc9cba4b13f22c87786429afaec0ec22594f98b45",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 770,
+        "hits": 50,
+        "spent": 666.8654613098732,
+        "dealt_nominal": 199.56220065164004,
+        "received_nominal": 649.0295054054659,
+        "decisions": 10682
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 49,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 123,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 22,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 58,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 47,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 81,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 93,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 117,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 29,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 49,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 76,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 26,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-base-titanv2-16001",
+      "profile": "base",
+      "context": "titanv2",
+      "seed": 16001,
+      "opponents": "review.main.titanv2.TitanV2*",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 8,
+      "points": 1154,
+      "score_share": 0.6231101511879049,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 1154,
+          "wins": 8
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 698,
+          "wins": 4
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1397,
+        "1": 918,
+        "2": 2207,
+        "3": 835,
+        "4": 588,
+        "5": 1016,
+        "6": 943,
+        "7": 735,
+        "8": 808,
+        "9": 971,
+        "10": 887,
+        "11": 812
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "746040a0bfb8cb84ffc3fe336751faf18a2b8e3828f9d39b28c03f32a38bd3c3",
+      "log_sha256": "c6142d0fd1d4fed08ae50b2cdf3f5189fe503d391030f6c4b3adc87d7bf5e193",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 704,
+        "hits": 106,
+        "spent": 857.4403602613747,
+        "dealt_nominal": 562.7227948616021,
+        "received_nominal": 405.19999999999993,
+        "decisions": 10317
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 93,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 50,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 141,
+          "hits": 23,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 45,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 28,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 58,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 52,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 38,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 46,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 57,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 52,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 44,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "validation-routes-titanv2-16001",
+      "profile": "routes",
+      "context": "titanv2",
+      "seed": 16001,
+      "opponents": "review.main.titanv2.TitanV2*",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 9,
+      "points": 1151,
+      "score_share": 0.6664736537348003,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourroutes*",
+          "score": 1151,
+          "wins": 9
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 576,
+          "wins": 3
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 1,
+      "round_turns": {
+        "0": 802,
+        "1": 1088,
+        "2": 876,
+        "3": 903,
+        "4": 871,
+        "5": 840,
+        "6": 834,
+        "7": 765,
+        "8": 995,
+        "9": 1201,
+        "10": 668,
+        "11": 725
+      },
+      "position_adjustments": [
+        "3\ttreino.fourroutes*"
+      ],
+      "position_records": 24,
+      "positions_sha256": "7e405fd4c55d36f66cd5e46d6998cdeab5604429f721aaa36f0a4dba269a857c",
+      "log_sha256": "bbd1b0f6db818f11dbcd0e9ec81eddc70eff86b4d7785a337010741cf3b8f505",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 612,
+        "hits": 87,
+        "spent": 750.9378980192612,
+        "dealt_nominal": 497.5488638288997,
+        "received_nominal": 349.020474777284,
+        "decisions": 8767
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 46,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 66,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 52,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 53,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 49,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 45,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 48,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 44,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 61,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 76,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 34,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 38,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-routes-titanv2-16411",
+      "profile": "routes",
+      "context": "titanv2",
+      "seed": 16411,
+      "opponents": "review.main.titanv2.TitanV2*",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 8,
+      "points": 1041,
+      "score_share": 0.6066433566433567,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourroutes*",
+          "score": 1041,
+          "wins": 8
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 675,
+          "wins": 4
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 707,
+        "1": 924,
+        "2": 743,
+        "3": 719,
+        "4": 1148,
+        "5": 590,
+        "6": 591,
+        "7": 734,
+        "8": 1335,
+        "9": 731,
+        "10": 809,
+        "11": 923
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "02385c4309fc03586d86627985df3fa8d1f0b932713f9eb38271017e3126c5c1",
+      "log_sha256": "d8aa7f7bf22f4e23738ec2cb39bcf49fabed07238684d4cc12df97b609d57fde",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 568,
+        "hits": 76,
+        "spent": 709.5807838517919,
+        "dealt_nominal": 453.7860595307006,
+        "received_nominal": 362.3999999999999,
+        "decisions": 8154
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 40,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 54,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 39,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 37,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 69,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 28,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 28,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 41,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 88,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 41,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 46,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 57,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 0,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "validation-base-titanv2-16411",
+      "profile": "base",
+      "context": "titanv2",
+      "seed": 16411,
+      "opponents": "review.main.titanv2.TitanV2*",
+      "physical_count": 2,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 10,
+      "points": 1234,
+      "score_share": 0.7096032202415181,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 1234,
+          "wins": 10
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 505,
+          "wins": 2
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 761,
+        "1": 870,
+        "2": 1015,
+        "3": 1380,
+        "4": 932,
+        "5": 1546,
+        "6": 992,
+        "7": 763,
+        "8": 1046,
+        "9": 804,
+        "10": 804,
+        "11": 761
+      },
+      "position_adjustments": [],
+      "position_records": 24,
+      "positions_sha256": "7db42772f6c7295005d1a68b4960a3391bdc85a8f91f2d634801293ad21028d4",
+      "log_sha256": "7db22a5f65f3a7ca40ef9c0b5e2c557ee666cd1873237200cfefeda04f365f57",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 702,
+        "hits": 96,
+        "spent": 821.0544266924659,
+        "dealt_nominal": 504.7568387576099,
+        "received_nominal": 348.79999999999995,
+        "decisions": 9874
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 44,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 49,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 58,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 93,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 54,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 107,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 58,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 45,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 64,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 45,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 44,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 41,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    }
+  ]
+}

@@ -4,7 +4,9 @@ Melhoria de robô para o **Robocode clássico**, em Java. O código completo do 
 
 As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
 
-O criterio atual e **vencer mais rounds, contando todos igualmente**, com batalhas longas e adversarios fortes. Os estudos e ferramentas antigos de melhor de tres ficam preservados como historico. As quatro melhorias mais recentes e seus resultados estao em [quatro-melhorias.md](quatro-melhorias.md). Os pesos pre-treinados ja estao carregados no inicio de cada batalha.
+O criterio atual e **melhorar pontos e vitorias, contando todos os rounds igualmente**, com batalhas longas e adversarios fortes. Pontos absolutos, parcela da pontuacao da arena e rounds vencidos sao registrados separadamente. Os estudos e ferramentas antigos de melhor de tres ficam preservados como historico. As quatro melhorias anteriores e seus resultados estao em [quatro-melhorias.md](quatro-melhorias.md). Os pesos pre-treinados ja estao carregados no inicio de cada batalha.
+
+O estudo mais recente testou **pontos e vitorias em 656 rounds comparativos**; as novas candidatas permanecem experimentais. Resultados completos: [pontos-e-vitorias.md](pontos-e-vitorias.md).
 
 **Versao de uso: Titan Prime 3.9.** O novo posicionamento melee esta ativo; os novos ajustes de defesa contextual, potencia e confianca estao disponiveis como experimentais. A decisao e os resultados estao em [quatro-melhorias.md](quatro-melhorias.md).
 

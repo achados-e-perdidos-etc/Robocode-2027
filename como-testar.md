@@ -16,7 +16,7 @@ O compilador gera vários arquivos `.class` para as classes internas. Isso é no
 
 ## Batalhas de avaliacao
 
-Use arena **800 x 600**, resfriamento **0,1** e, inicialmente, **10 rounds**. Conte todas as vitorias de round igualmente; nao escolha a versao por pontos nem por vencer dois dos tres primeiros rounds. Repita com outras largadas e batalhas novas para evitar selecionar por um resultado isolado.
+Use arena **800 x 600**, resfriamento **0,1** e, inicialmente, **10 a 12 rounds**. Avalie **pontos e vitorias**, contando todos os rounds igualmente. Registre a pontuacao absoluta, a parcela dos pontos da arena e as primeiras colocacoes por pontos e por rounds. Compare cada versao nas mesmas arenas e largadas; reserve batalhas novas para confirmar a melhoria. O criterio atual nao prioriza os tres primeiros rounds.
 
 Priorize Diamond 1.8.28, SuperMercutio, os dois simultaneamente e os Titans fornecidos. Em cada confronto, adicione apenas uma copia do Prime, sem aliados. Em todos contra todos, os demais oponentes tambem se enfrentam; uma equipe coordenada e outro tipo de teste.
 
@@ -34,6 +34,8 @@ Durante a batalha, abra a janela do Titan Prime e habilite **Paint**. Os nomes e
 - `E`: energia conhecida; `age`: ticks desde o último scan.
 
 Os desenhos representam estimativas disponíveis ao robô, não revelam informações ocultas do jogo. Os dados de depuração também mostram o modo da mira: 0 direta, 1 linear, 2 circular, 3 GuessFactor, 4 neural, 5 KNN de visitas, 6 KNN de tiros reais e 9 reativa. Os indices 7 e 8 pertencem a miras experimentais que nao estao habilitadas por padrao.
+
+A comparacao mais recente de ataque, rotas e quantidade de inimigos esta em [pontos-e-vitorias.md](pontos-e-vitorias.md).
 
 ## Comparar versões
 
@@ -57,11 +59,11 @@ Se usar o compilador Eclipse em vez de `javac`, acrescente `--ecj /caminho/ecj.j
 
 Veja [treinamento.md](treinamento.md) para rodar o torneio por gerações em uma instalação separada e comparar uma candidata sem substituir o robô atual. Você não precisa de Python nem dessas ferramentas para jogar com `titanprime.java`.
 
-## Regra da competição: melhor de três
+## Historico: regra anterior de melhor de tres
 
-O objetivo é vencer **pelo menos dois dos três rounds**. O placar padrão do Robocode usa pontuação acumulada; para esta regra, conte as primeiras colocações (`1sts`) de cada robô. Uma pontuação maior, sozinha, não significa ganhar a série.
+A regra anterior exigia vencer **pelo menos dois dos tres rounds**. Ela foi substituida pela avaliacao de pontos e vitorias em batalhas mais longas. O placar padrao do Robocode usa pontuacao acumulada; `1sts` informa os rounds vencidos. Sao metricas diferentes e ambas devem ser registradas.
 
-Repita várias batalhas independentes de três rounds. Não use uma batalha única de 30 rounds e divida o resultado depois: o aprendizado acumulado tornaria a comparação diferente da competição. Use `tools/bo3.py` para comparar início, vitórias por round e vitórias de séries. Veja [melhor-de-tres.md](melhor-de-tres.md).
+Para reproduzir aquele estudo historico, use batalhas independentes de tres rounds com `tools/bo3.py`. Dividir uma batalha de 30 rounds depois altera o aprendizado acumulado. Veja [melhor-de-tres.md](melhor-de-tres.md). Essa ferramenta nao define a escolha das novas versoes.
 
 ## Treinos RamFire e SpinBot
 

@@ -1,0 +1,279 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "variants_sha256": {
+    "base": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+    "opportunity": "a8b3d17dded89e67e87fda20aa74f0893d1cc43eb3a254f943a006c1c338a816",
+    "routes": "075e12ff8865f87442f4970d05bec6092f7ab9414fbbe245ef217a26ab137e97",
+    "both": "80df3b7959fcbf841cd132be9601975cace33a18257e557a5e0deb001182c791"
+  },
+  "contexts": {
+    "all": [
+      "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      8
+    ],
+    "leaders": [
+      "review.main.titanv2.TitanV2*,review.main.titans.Titans*,review.main.obrabobot.OBraboBot*",
+      4
+    ],
+    "elite": [
+      "voidious.Diamond 1.8.28,reference.supermercutio*",
+      3
+    ],
+    "diamond": [
+      "voidious.Diamond 1.8.28",
+      2
+    ],
+    "titanv2": [
+      "review.main.titanv2.TitanV2*",
+      2
+    ]
+  },
+  "selection_seeds": [
+    15101,
+    15427
+  ],
+  "validation_seeds": [
+    16001,
+    16411
+  ],
+  "selection_rounds": 8,
+  "validation_rounds": 12,
+  "metric": "Equal weight to macro round-win rate and macro score share across contexts. Every round equal. Report absolute points and first place by score.",
+  "promotion": "At least four more reserved round wins; macro score share at least 2% relatively higher; all official outcomes complete; all-arena wins and score share not lower; no more than three extra skipped turns; at least 90% round telemetry for each version.",
+  "invalid_policy": "One paired-group retry only for incomplete official outcomes or runtime errors. Telemetry gaps reported separately and do not erase valid scores. All attempts retained.",
+  "selected": "routes",
+  "selection_summaries": {
+    "base": {
+      "valid": true,
+      "wins": 11,
+      "rounds": 32,
+      "points": 9545,
+      "macro_win_rate": 0.34375,
+      "macro_score_share": 0.2515377087142947,
+      "utility": 0.29764385435714735,
+      "skipped": 1,
+      "contexts": {
+        "all": {
+          "wins": 5,
+          "rounds": 16,
+          "points": 6568,
+          "score_share": 0.18758692035327945,
+          "score_firsts": 2,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 6,
+          "rounds": 16,
+          "points": 2977,
+          "score_share": 0.31548849707530996,
+          "score_firsts": 1,
+          "battles": 2
+        }
+      }
+    },
+    "opportunity": {
+      "valid": true,
+      "wins": 15,
+      "rounds": 32,
+      "points": 11221,
+      "macro_win_rate": 0.46875,
+      "macro_score_share": 0.30713858358463647,
+      "utility": 0.38794429179231826,
+      "skipped": 1,
+      "contexts": {
+        "all": {
+          "wins": 7,
+          "rounds": 16,
+          "points": 7262,
+          "score_share": 0.20437731623073463,
+          "score_firsts": 2,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 8,
+          "rounds": 16,
+          "points": 3959,
+          "score_share": 0.4098998509385383,
+          "score_firsts": 1,
+          "battles": 2
+        }
+      }
+    },
+    "routes": {
+      "valid": true,
+      "wins": 17,
+      "rounds": 32,
+      "points": 10879,
+      "macro_win_rate": 0.53125,
+      "macro_score_share": 0.29328801180132436,
+      "utility": 0.4122690059006622,
+      "skipped": 0,
+      "contexts": {
+        "all": {
+          "wins": 7,
+          "rounds": 16,
+          "points": 7346,
+          "score_share": 0.2112278552619669,
+          "score_firsts": 2,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 10,
+          "rounds": 16,
+          "points": 3533,
+          "score_share": 0.3753481683406818,
+          "score_firsts": 1,
+          "battles": 2
+        }
+      }
+    },
+    "both": {
+      "valid": true,
+      "wins": 8,
+      "rounds": 32,
+      "points": 8710,
+      "macro_win_rate": 0.25,
+      "macro_score_share": 0.24233521684746834,
+      "utility": 0.24616760842373417,
+      "skipped": 0,
+      "contexts": {
+        "all": {
+          "wins": 3,
+          "rounds": 16,
+          "points": 5676,
+          "score_share": 0.16345064995379,
+          "score_firsts": 1,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 5,
+          "rounds": 16,
+          "points": 3034,
+          "score_share": 0.3212197837411467,
+          "score_firsts": 1,
+          "battles": 2
+        }
+      }
+    }
+  },
+  "validation_summaries": {
+    "base": {
+      "valid": true,
+      "wins": 40,
+      "rounds": 120,
+      "points": 20684,
+      "macro_win_rate": 0.33333333333333337,
+      "macro_score_share": 0.32834147949565584,
+      "utility": 0.3308374064144946,
+      "skipped": 4,
+      "contexts": {
+        "all": {
+          "wins": 9,
+          "rounds": 24,
+          "points": 10557,
+          "score_share": 0.20122402538209766,
+          "score_firsts": 1,
+          "battles": 2
+        },
+        "diamond": {
+          "wins": 1,
+          "rounds": 24,
+          "points": 426,
+          "score_share": 0.12301307602566594,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "elite": {
+          "wins": 2,
+          "rounds": 24,
+          "points": 2397,
+          "score_share": 0.29798328985774125,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 10,
+          "rounds": 24,
+          "points": 4916,
+          "score_share": 0.3531303204980629,
+          "score_firsts": 1,
+          "battles": 2
+        },
+        "titanv2": {
+          "wins": 18,
+          "rounds": 24,
+          "points": 2388,
+          "score_share": 0.6663566857147115,
+          "score_firsts": 2,
+          "battles": 2
+        }
+      }
+    },
+    "routes": {
+      "valid": true,
+      "wins": 40,
+      "rounds": 120,
+      "points": 19544,
+      "macro_win_rate": 0.33333333333333337,
+      "macro_score_share": 0.3066445698174778,
+      "utility": 0.3199889515754056,
+      "skipped": 2,
+      "contexts": {
+        "all": {
+          "wins": 10,
+          "rounds": 24,
+          "points": 10296,
+          "score_share": 0.19555547001551082,
+          "score_firsts": 1,
+          "battles": 2
+        },
+        "diamond": {
+          "wins": 0,
+          "rounds": 24,
+          "points": 388,
+          "score_share": 0.11255011934379429,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "elite": {
+          "wins": 2,
+          "rounds": 24,
+          "points": 2119,
+          "score_share": 0.26982251632871984,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "leaders": {
+          "wins": 11,
+          "rounds": 24,
+          "points": 4549,
+          "score_share": 0.3187362382102855,
+          "score_firsts": 1,
+          "battles": 2
+        },
+        "titanv2": {
+          "wins": 17,
+          "rounds": 24,
+          "points": 2192,
+          "score_share": 0.6365585051890785,
+          "score_firsts": 2,
+          "battles": 2
+        }
+      }
+    }
+  },
+  "checks": {
+    "outcomes": true,
+    "four_more_wins": false,
+    "score_gain": false,
+    "all_arena_preserved": false,
+    "cpu": true,
+    "telemetry": true
+  },
+  "proposed_promotion": false,
+  "baseline_commit": "f2249ba0b74d1a2d64df0fa125ecced343cb7d72",
+  "selection_attempts": 16,
+  "validation_attempts": 20,
+  "canonical_compilation": "ECJ, target Java 8, API Robocode 1.11.1; original class equipe.titanprime compiled successfully",
+  "preflight": "Two integration runs stopped before comparative testing after adding the stale-forecast guard. One completed baseline-only eight-round battle is preserved outside the comparison."
+}

@@ -1,0 +1,1457 @@
+{
+  "included_case_refs": [
+    {
+      "key": "confirmation-base-all-18101",
+      "attempt": 0
+    },
+    {
+      "key": "confirmation-crowd-all-18101",
+      "attempt": 0
+    },
+    {
+      "key": "confirmation-crowd-all-18413",
+      "attempt": 0
+    },
+    {
+      "key": "confirmation-base-all-18413",
+      "attempt": 0
+    },
+    {
+      "key": "confirmation-base-all-18719",
+      "attempt": 0
+    },
+    {
+      "key": "confirmation-crowd-all-18719",
+      "attempt": 0
+    }
+  ],
+  "attempts": [
+    {
+      "key": "confirmation-base-all-18101",
+      "profile": "base",
+      "context": "all",
+      "seed": 18101,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 4,
+      "points": 5381,
+      "score_share": 0.20199707196216074,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 5381,
+          "wins": 4
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 4420,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 4363,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 4073,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 4015,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 2176,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1254,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 957,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1315,
+        "1": 1107,
+        "2": 1371,
+        "3": 1252,
+        "4": 1035,
+        "5": 937,
+        "6": 970,
+        "7": 1251,
+        "8": 1682,
+        "9": 1414,
+        "10": 1214,
+        "11": 997
+      },
+      "position_adjustments": [
+        "10\treview.main.obrabobot.OBraboBot*",
+        "11\ttreino.fourbase*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "89aeb216782df2a5ac5837947029cb2cca84f23022496f2dd878be004bdd6eb5",
+      "log_sha256": "82f21fb2dfedef07e35da06fc892cd5a679331f291e2306415f8ea15a384140b",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 711,
+        "hits": 184,
+        "spent": 1115.4616886157787,
+        "dealt_nominal": 1614.4135121759414,
+        "received_nominal": 950.0655079311085,
+        "decisions": 10558
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 23,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 44,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 85,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 79,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 60,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 45,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 55,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 53,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 48,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 95,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 70,
+          "hits": 29,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 54,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "confirmation-crowd-all-18101",
+      "profile": "crowd",
+      "context": "all",
+      "seed": 18101,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 3,
+      "points": 4143,
+      "score_share": 0.15690210187464496,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 5191,
+          "wins": 4
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 4206,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 4159,
+          "wins": 1
+        },
+        {
+          "robot": "treino.fourcrowd*",
+          "score": 4143,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 4073,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 2418,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1391,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 824,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [
+        "telemetry_rounds",
+        "legacy_stats_rounds",
+        "gun_usage_rounds",
+        "upgrade_rounds"
+      ],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1207,
+        "1": 833,
+        "2": 1026,
+        "3": 1153,
+        "4": 1474,
+        "5": 936,
+        "6": 1061,
+        "7": 1228,
+        "8": 1012,
+        "9": 1140,
+        "10": 984,
+        "11": 1384
+      },
+      "position_adjustments": [
+        "1\treview.main.chimpazecomsarna.ChimpazeComSarna*",
+        "2\treview.main.titan.Titan*",
+        "3\treview.main.titan.Titan*",
+        "4\treview.main.chimpazecomsarna.ChimpazeComSarna*",
+        "4\treview.main.titan.Titan*",
+        "4\treview.main.titanv2.TitanV2*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "0733f23906c8ce6319b74accbd9222135d5d2cbacb5dd1720b8e0c6d46410e2c",
+      "log_sha256": "ed0329005a8998ab67539575b380a235c6f9b042d007b589d30aea8eba375d28",
+      "telemetry_rounds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 516,
+        "hits": 130,
+        "spent": 912.417438610988,
+        "dealt_nominal": 1322.4970010679513,
+        "received_nominal": 875.524291599561,
+        "decisions": 7726
+      },
+      "round_stats": [
+        {
+          "round": 1,
+          "shots": 31,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 58,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 70,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 24,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 53,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 60,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 28,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 58,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 26,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 20,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 88,
+          "hits": 20,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 1,
+          "opportunity": 2655,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 2303,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 2469,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 2367,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 2337,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 2811,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 2680,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 2353,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 2450,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 2066,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 2828,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "confirmation-crowd-all-18413",
+      "profile": "crowd",
+      "context": "all",
+      "seed": 18413,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 5,
+      "points": 5406,
+      "score_share": 0.2084120436408497,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourcrowd*",
+          "score": 5406,
+          "wins": 5
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 5095,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 3367,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 3275,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 3204,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 3048,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 2103,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 441,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1015,
+        "1": 1254,
+        "2": 1296,
+        "3": 883,
+        "4": 1195,
+        "5": 943,
+        "6": 1295,
+        "7": 951,
+        "8": 1022,
+        "9": 1230,
+        "10": 941,
+        "11": 1139
+      },
+      "position_adjustments": [
+        "3\treview.main.obrabobot.OBraboBot*",
+        "6\treview.main.obrabobot.OBraboBot*",
+        "8\treview.main.obrabobot.OBraboBot*",
+        "10\treview.main.chimpazecomsarna.ChimpazeComSarna*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "0f70c4d5d67dfd857d44bf3c569b8375ffd9cf80e920553484ffca9904ba3b17",
+      "log_sha256": "340fd5ec7949573263028464ce3dd5249753b1088825a5af3ecfc056e55b7371",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 677,
+        "hits": 161,
+        "spent": 1200.8566723316187,
+        "dealt_nominal": 1609.2185655412927,
+        "received_nominal": 835.719687218558,
+        "decisions": 10010
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 18,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 40,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 78,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 44,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 72,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 55,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 82,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 42,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 60,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 73,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 46,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 67,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 1930,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 2491,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 3367,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 2568,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 2710,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 2556,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 2667,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 1903,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 2853,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 2168,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 3020,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 2612,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    },
+    {
+      "key": "confirmation-base-all-18413",
+      "profile": "base",
+      "context": "all",
+      "seed": 18413,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 3,
+      "points": 4118,
+      "score_share": 0.15691205608901082,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 4901,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 4723,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 4174,
+          "wins": 1
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 4118,
+          "wins": 3
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 2981,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 2641,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 1501,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 1205,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [
+        "telemetry_rounds",
+        "legacy_stats_rounds",
+        "gun_usage_rounds"
+      ],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1132,
+        "1": 1038,
+        "2": 1340,
+        "3": 1166,
+        "4": 1070,
+        "5": 945,
+        "6": 1576,
+        "7": 1394,
+        "8": 1074,
+        "9": 1258,
+        "10": 1973,
+        "11": 1066
+      },
+      "position_adjustments": [
+        "1\ttreino.fourbase*",
+        "5\ttreino.fourbase*",
+        "8\treview.main.chimpazecomsarna.ChimpazeComSarna*",
+        "8\treview.main.titanvingation.TitanVingation*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "de6a48aa2157e6c9d78ba8ec68cec13ab1bef2b740ae33ad313c09f7911f0e7b",
+      "log_sha256": "c441d4f6d518624f294bfc64eeb63860d39598973622a8beef06b8d48e2d317b",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 611,
+        "hits": 154,
+        "spent": 951.5649224288553,
+        "dealt_nominal": 1272.6148435103335,
+        "received_nominal": 823.7914531790224,
+        "decisions": 8929
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 17,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 34,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 38,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 16,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 64,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 20,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 85,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 62,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 77,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 136,
+          "hits": 36,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 62,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "confirmation-base-all-18719",
+      "profile": "base",
+      "context": "all",
+      "seed": 18719,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 6,
+      "points": 5755,
+      "score_share": 0.21984948619016695,
+      "score_first": true,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 5755,
+          "wins": 6
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 3643,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 3527,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 3525,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 3495,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 2853,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 2408,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 971,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 0,
+      "round_turns": {
+        "0": 1529,
+        "1": 1087,
+        "2": 1129,
+        "3": 1275,
+        "4": 1167,
+        "5": 1163,
+        "6": 1110,
+        "7": 1101,
+        "8": 1281,
+        "9": 1057,
+        "10": 955,
+        "11": 1065
+      },
+      "position_adjustments": [
+        "1\treview.main.titanvingation.TitanVingation*",
+        "3\treview.main.obrabobot.OBraboBot*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "e35681aef477d510a72a455630c79a267f525ab9fc66db09f1f90b24635e8ed9",
+      "log_sha256": "1404203f9b0376314d735a42d6b75f1304f83b12eb7a601a959b4f6881036a30",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 771,
+        "hits": 195,
+        "spent": 1199.9004169123716,
+        "dealt_nominal": 1640.5519254591165,
+        "received_nominal": 649.5139278712855,
+        "decisions": 11190
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 96,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 57,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 69,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 81,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 71,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 68,
+          "hits": 22,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 31,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 39,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 80,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 62,
+          "hits": 20,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 53,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 64,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": []
+    },
+    {
+      "key": "confirmation-crowd-all-18719",
+      "profile": "crowd",
+      "context": "all",
+      "seed": 18719,
+      "opponents": "review.main.chimpazecomsarna.ChimpazeComSarna*,review.main.obrabobot.OBraboBot*,review.main.titan.Titan*,review.main.titanv2.TitanV2*,review.main.titanvingation.TitanVingation*,review.main.titans.Titans*,reviewmod.titan.TitanVingation*",
+      "physical_count": 8,
+      "rounds": 12,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 2,
+      "points": 4308,
+      "score_share": 0.16352249003605998,
+      "score_first": false,
+      "scores": [
+        {
+          "robot": "review.main.titan.Titan*",
+          "score": 5064,
+          "wins": 5
+        },
+        {
+          "robot": "treino.fourcrowd*",
+          "score": 4308,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot*",
+          "score": 4104,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2*",
+          "score": 3889,
+          "wins": 2
+        },
+        {
+          "robot": "review.main.titans.Titans*",
+          "score": 3580,
+          "wins": 1
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna*",
+          "score": 2756,
+          "wins": 0
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation*",
+          "score": 1861,
+          "wins": 0
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation*",
+          "score": 783,
+          "wins": 0
+        }
+      ],
+      "validation_reasons": [],
+      "errors": [],
+      "engine": [
+        "1.11.1"
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "skipped": 1,
+      "round_turns": {
+        "0": 1328,
+        "1": 979,
+        "2": 1078,
+        "3": 1109,
+        "4": 1287,
+        "5": 911,
+        "6": 1733,
+        "7": 1068,
+        "8": 1076,
+        "9": 956,
+        "10": 981,
+        "11": 1779
+      },
+      "position_adjustments": [
+        "4\ttreino.fourcrowd*",
+        "4\treviewmod.titan.TitanVingation*",
+        "11\ttreino.fourcrowd*"
+      ],
+      "position_records": 96,
+      "positions_sha256": "220e96229dd3156c53b8972433764a5ba80eb0ebbdb128735059becd9550ec58",
+      "log_sha256": "4e502c26a22f7f1f65cd1157d0031c988aa6cbec251b280de60bb7f558961e33",
+      "telemetry_rounds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "telemetry_observed_totals": {
+        "shots": 513,
+        "hits": 141,
+        "spent": 899.0003568746955,
+        "dealt_nominal": 1360.184398564294,
+        "received_nominal": 1025.8942344966772,
+        "decisions": 7872
+      },
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 44,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 1,
+          "shots": 55,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 18,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 63,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 18,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 51,
+          "hits": 21,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 53,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 54,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 8,
+          "shots": 42,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 9,
+          "shots": 48,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 10,
+          "shots": 44,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 11,
+          "shots": 23,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "podium_observed": [
+        {
+          "round": 0,
+          "opportunity": 2260,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 1,
+          "opportunity": 1992,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 2,
+          "opportunity": 1888,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 3,
+          "opportunity": 2748,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 4,
+          "opportunity": 1826,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 5,
+          "opportunity": 2394,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 6,
+          "opportunity": 2704,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 7,
+          "opportunity": 2062,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 8,
+          "opportunity": 2582,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 9,
+          "opportunity": 2228,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 10,
+          "opportunity": 3001,
+          "routes": 0,
+          "collisions": 0
+        },
+        {
+          "round": 11,
+          "opportunity": 2224,
+          "routes": 0,
+          "collisions": 0
+        }
+      ]
+    }
+  ]
+}
