@@ -1,0 +1,141 @@
+{
+  "origin": "User PC exports; not cloud simulations",
+  "source_version": "Unverified; development name equipe.titanprime* does not identify source hash",
+  "matches": [
+    {
+      "file": "titanprime1.csv",
+      "rounds": 30,
+      "csv_sha256": "da96fbe914b8da022d55b1c254390dd5ef5907e68f2261e5e98e17779e973f23",
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 3934,
+          "survival": 1500,
+          "survival_bonus": 300,
+          "bullet_damage": 1779,
+          "bullet_bonus": 356,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 30,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "robot": "equipe.titanprime*",
+          "points": 434,
+          "survival": 0,
+          "survival_bonus": 0,
+          "bullet_damage": 434,
+          "bullet_bonus": 0,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 0,
+          "seconds": 30,
+          "thirds": 0
+        }
+      ]
+    },
+    {
+      "file": "titanpribe2.csv",
+      "rounds": 30,
+      "csv_sha256": "4ffb47c5716ca1b43740bdcf6c8d5f40a8ebb35153218ff5b5dbb0c8da9f3faa",
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3151,
+          "survival": 1400,
+          "survival_bonus": 280,
+          "bullet_damage": 1237,
+          "bullet_bonus": 234,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 28,
+          "seconds": 2,
+          "thirds": 0
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 984,
+          "survival": 100,
+          "survival_bonus": 20,
+          "bullet_damage": 843,
+          "bullet_bonus": 21,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 2,
+          "seconds": 28,
+          "thirds": 0
+        }
+      ]
+    },
+    {
+      "file": "titanprime3.csv",
+      "rounds": 30,
+      "csv_sha256": "d8697fa44c8c5358be6adfc8fe932585ae5cd6563e41b5286b7c9fe52ff4a59d",
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 4781,
+          "survival": 2050,
+          "survival_bonus": 360,
+          "bullet_damage": 2098,
+          "bullet_bonus": 271,
+          "ram_damage": 1,
+          "ram_bonus": 0,
+          "wins": 18,
+          "seconds": 5,
+          "thirds": 7
+        },
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3688,
+          "survival": 1800,
+          "survival_bonus": 200,
+          "bullet_damage": 1501,
+          "bullet_bonus": 186,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 10,
+          "seconds": 16,
+          "thirds": 4
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 2232,
+          "survival": 650,
+          "survival_bonus": 40,
+          "bullet_damage": 1414,
+          "bullet_bonus": 128,
+          "ram_damage": 0,
+          "ram_bonus": 0,
+          "wins": 2,
+          "seconds": 9,
+          "thirds": 19
+        }
+      ]
+    }
+  ],
+  "log": {
+    "file": "console-geral.txt",
+    "blocks": [
+      {
+        "starts": 30,
+        "ends": 30,
+        "startup_timeout": false
+      },
+      {
+        "starts": 30,
+        "ends": 30,
+        "startup_timeout": true
+      },
+      {
+        "starts": 30,
+        "ends": 30,
+        "startup_timeout": false
+      }
+    ],
+    "telemetry_present": false,
+    "timeout_message": "titan.TitanV3 3.0 still has not started after 3009 ms... giving up.",
+    "note": "Three identical full pasted logs and one nearly identical truncated ending; do not count as independent matches. Timeout is in the second block; pairing with CSV order is inferred, not independently identified by a battle ID."
+  }
+}

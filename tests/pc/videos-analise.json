@@ -1,0 +1,78 @@
+{
+  "videos": [
+    {
+      "file": "IMG_0420.MOV",
+      "context": "Duelo Diamond: primeira parte",
+      "duration_seconds": 105.8767,
+      "size_bytes": 176974397,
+      "sample_timestamps_seconds": [
+        0.3,
+        15.881504999999999,
+        31.763009999999998,
+        47.644515,
+        63.526019999999995,
+        79.40752499999999,
+        92.112729,
+        99.524098,
+        105.4767
+      ],
+      "method": "Discrete visual frame samples, plus 5 fps sequence from 2 to 4 seconds for IMG_0421. Not a per-tick trace or complete continuous viewing."
+    },
+    {
+      "file": "IMG_0421.MOV",
+      "context": "Duelo Diamond: trecho final",
+      "duration_seconds": 10.1067,
+      "size_bytes": 11414507,
+      "sample_timestamps_seconds": [
+        0,
+        2,
+        4,
+        6,
+        8
+      ],
+      "method": "Discrete visual frame samples, plus 5 fps sequence from 2 to 4 seconds for IMG_0421. Not a per-tick trace or complete continuous viewing."
+    },
+    {
+      "file": "IMG_0422.MOV",
+      "context": "Duelo TitanV3",
+      "duration_seconds": 80.591667,
+      "size_bytes": 131861825,
+      "sample_timestamps_seconds": [
+        0.3,
+        12.08875005,
+        24.1775001,
+        36.266250150000005,
+        48.3550002,
+        60.44375025,
+        70.11475029,
+        75.75616698,
+        80.191667
+      ],
+      "method": "Discrete visual frame samples, plus 5 fps sequence from 2 to 4 seconds for IMG_0421. Not a per-tick trace or complete continuous viewing."
+    },
+    {
+      "file": "IMG_0423.MOV",
+      "context": "Diamond + TitanV3",
+      "duration_seconds": 167.02,
+      "size_bytes": 204919627,
+      "sample_timestamps_seconds": [
+        0.3,
+        25.053,
+        50.106,
+        75.159,
+        100.212,
+        125.26500000000001,
+        145.3074,
+        156.9988,
+        166.62
+      ],
+      "method": "Discrete visual frame samples, plus 5 fps sequence from 2 to 4 seconds for IMG_0421. Not a per-tick trace or complete continuous viewing."
+    }
+  ],
+  "observations": [
+    "Prime moves between sampled frames; multiple sampled positions are near arena borders. No collision or stall count is inferred.",
+    "IMG_0423 at 25.1 and 50.1 seconds shows Prime and Diamond remaining after TitanV3 is eliminated in round 1. At about 50.1 seconds visible labels are Prime 40.0 and Diamond 1.1 energy; finishing behavior warrants checking, without asserting why subsequent shots hit or miss.",
+    "IMG_0422 shows TitanV3 active in several sampled moments, so the startup warning must not be interpreted as 30 inactive rounds.",
+    "Phone video, changing playback TPS and camera motion limit shot-by-shot diagnosis."
+  ]
+}
