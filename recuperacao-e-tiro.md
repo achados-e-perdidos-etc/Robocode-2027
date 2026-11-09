@@ -11,6 +11,8 @@ As seis implementacoes da main e os quinze fontes de producao da branch Titan fo
 
 **Entrega:** as fontes corrigidas foram compiladas e as correcoes estao no patch abaixo. A tentativa de gravação direta no repositorio externo nao concluiu; nenhuma atualizacao da branch externa foi solicitada apos isso. Portanto, nao se afirma que a main externa ja esteja corrigida.
 
+As fontes corrigidas estao tambem em [assets/robos-corrigidos.zip](assets/robos-corrigidos.zip), separadas por branch e sem dependencias binarias. Main e Titan devem ser compiladas separadamente, pois possuem implementacoes diferentes com o mesmo nome qualificado.
+
 A correcao reproduzivel esta em [assets/titan-robo-compilacao.patch](assets/titan-robo-compilacao.patch). `git apply --check` e a aplicacao real foram verificados em uma copia temporaria dos arquivos originais; o resultado coincide byte a byte com as fontes corrigidas usadas para compilar. Ela corrige compilacao, sem alegar que todos os problemas de desempenho dos robos foram resolvidos.
 
 Para coexistirem na arena, os seis fontes unicos foram compilados em namespaces separados `review.main.*`, e o modular em `reviewmod.titan`. As alteracoes de namespace e os hashes de cada fonte constam no manifesto. Todos comecam sem dados externos e podem aprender durante os rounds; nao foram fornecidos modelos pre-treinados desses fontes. O Prime mantem seus pesos incorporados. Os JARs anteriores TitanV3 3.0 e Vingation 1.7 nao foram tratados como equivalentes a esses fontes.

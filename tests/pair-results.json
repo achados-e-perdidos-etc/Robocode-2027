@@ -336,6 +336,8 @@
         "sha256": "aeecb8c18dc161a676949aa72c9da9c70b311871131bc5e6face1c25ecc30f3e"
       }
     ],
-    "status": "Patch verified locally; direct external create_tree did not complete within 25 seconds; no external branch update was requested."
+    "status": "Patch verified locally; direct external create_tree did not complete within 25 seconds; no external branch update was requested.",
+    "archive": "assets/robos-corrigidos.zip",
+    "archive_sha256": "b4bea9fd1bc39a4c3cd52b6c8cc6bb56b81c11ca9525c975a77e316255765eb8"
   }
 }
