@@ -8,7 +8,7 @@ O criterio atual e **melhorar pontos e vitorias, contando todos os rounds igualm
 
 O estudo mais recente testou **pontos e vitorias em 656 rounds comparativos**; as novas candidatas permanecem experimentais. Resultados completos: [pontos-e-vitorias.md](pontos-e-vitorias.md).
 
-**Versao de uso: Titan Prime 3.9.** O novo posicionamento melee esta ativo; os novos ajustes de defesa contextual, potencia e confianca estao disponiveis como experimentais. A decisao e os resultados estao em [quatro-melhorias.md](quatro-melhorias.md).
+**Versao de uso: Titan Prime 3.10.** Grava diagnostico por round em arquivo e usa o ajuste moderado de espaco/distancia em duelos. A comparacao reservada passou de 12 para 14 vitorias em 32 rounds, com mais pontos. O duelo direto com Diamond continua sem vitorias. Dados e limites: [diagnostico-e-duelos.md](diagnostico-e-duelos.md).
 
 ## Estratégia implementada
 

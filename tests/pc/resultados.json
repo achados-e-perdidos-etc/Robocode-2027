@@ -1,6 +1,6 @@
 {
   "origin": "User PC exports; not cloud simulations",
-  "source_version": "Unverified; development name equipe.titanprime* does not identify source hash",
+  "source_version": "Uploaded source matches Prime 3.9 after stripping outer whitespace; uploaded main class major 61 (Java 17).",
   "matches": [
     {
       "file": "titanprime1.csv",
@@ -137,5 +137,6 @@
     "telemetry_present": false,
     "timeout_message": "titan.TitanV3 3.0 still has not started after 3009 ms... giving up.",
     "note": "Three identical full pasted logs and one nearly identical truncated ending; do not count as independent matches. Timeout is in the second block; pairing with CSV order is inferred, not independently identified by a battle ID."
-  }
+  },
+  "source_upload_sha256": "68e8a44e8ff3cec522ea5fd3e334574edcfadbdedaa59740fda9aabdf36554c8"
 }

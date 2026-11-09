@@ -1,0 +1,1022 @@
+{
+  "included_case_refs": [
+    {
+      "key": "validation-base-diamond-21001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-space1-diamond-21001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-space1-diamond-21407",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-diamond-21407",
+      "attempt": 0
+    },
+    {
+      "key": "validation-space1-pc_trio-21001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-pc_trio-21001",
+      "attempt": 0
+    },
+    {
+      "key": "validation-base-pc_trio-21407",
+      "attempt": 1
+    },
+    {
+      "key": "validation-space1-pc_trio-21407",
+      "attempt": 1
+    }
+  ],
+  "attempts": [
+    {
+      "key": "validation-base-diamond-21001",
+      "profile": "base",
+      "context": "diamond",
+      "seed": 21001,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 85,
+      "score_share": 0.07296137339055794,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1080,
+          "wins": 8
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 85,
+          "wins": 0
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 52,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 77,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 54,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 46,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 25,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 38,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 34,
+          "hits": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 41,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "9659daedcdb4b10791c1b0936f72d4b988438643765ea5de867ab1c41a553109"
+    },
+    {
+      "key": "validation-space1-diamond-21001",
+      "profile": "space1",
+      "context": "diamond",
+      "seed": 21001,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 118,
+      "score_share": 0.10008481764206956,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1061,
+          "wins": 8
+        },
+        {
+          "robot": "treino.fourspace1*",
+          "score": 118,
+          "wins": 0
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 1,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 44,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 112,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 2,
+          "shots": 54,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 44,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 33,
+          "hits": 0,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 71,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 42,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 37,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "77b3b0f41c0b26a0c22f154334e74308ab8f761ca3af813082f99d90b6d52659"
+    },
+    {
+      "key": "validation-space1-diamond-21407",
+      "profile": "space1",
+      "context": "diamond",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 161,
+      "score_share": 0.13760683760683762,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1009,
+          "wins": 8
+        },
+        {
+          "robot": "treino.fourspace1*",
+          "score": 161,
+          "wins": 0
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 101,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 94,
+          "hits": 7,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 47,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 39,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 35,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 113,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 37,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 49,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "00a64ad49c79faf3a32c9ed5cf444c8692c3171b2bd381a8bf13138cedf38dc9"
+    },
+    {
+      "key": "validation-base-diamond-21407",
+      "profile": "base",
+      "context": "diamond",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 0,
+      "points": 136,
+      "score_share": 0.11380753138075314,
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 1059,
+          "wins": 8
+        },
+        {
+          "robot": "treino.fourbase*",
+          "score": 136,
+          "wins": 0
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 1,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 88,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 39,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 58,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 61,
+          "hits": 5,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 25,
+          "hits": 1,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 41,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 60,
+          "hits": 4,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 7,
+          "shots": 39,
+          "hits": 3,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "ec4af9a8c434748b3244a043895cd6de474cb2704ba06ca3192cafd0519fa275"
+    },
+    {
+      "key": "validation-space1-pc_trio-21001",
+      "profile": "space1",
+      "context": "pc_trio",
+      "seed": 21001,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 1712,
+      "score_share": 0.552614590058102,
+      "scores": [
+        {
+          "robot": "treino.fourspace1*",
+          "score": 1712,
+          "wins": 7
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 790,
+          "wins": 0
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 596,
+          "wins": 1
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 49,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 54,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 65,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 103,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 83,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 44,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 76,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 71,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "c34299fe410037cb68ce20ee9bb8713423be4ead8e1b3c6a7f5db145f606a382"
+    },
+    {
+      "key": "validation-base-pc_trio-21001",
+      "profile": "base",
+      "context": "pc_trio",
+      "seed": 21001,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 5,
+      "points": 1529,
+      "score_share": 0.4953028830579851,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 1529,
+          "wins": 5
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 823,
+          "wins": 2
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 735,
+          "wins": 1
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 39,
+          "hits": 2,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 102,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 117,
+          "hits": 17,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 86,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 122,
+          "hits": 18,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 37,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 65,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 115,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "a82a2a1a68ac54707456d064d20a210d8bfbc4a7ab4b0d714b4c3b77330f73ff"
+    },
+    {
+      "key": "validation-base-pc_trio-21407",
+      "profile": "base",
+      "context": "pc_trio",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": false,
+      "official_wins": null,
+      "points": null,
+      "score_share": null,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 1286,
+          "wins": 5
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 1240,
+          "wins": 3
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 346,
+          "wins": 0
+        }
+      ],
+      "errors": [
+        "Diamond reported ERROR: No safe destinations found"
+      ],
+      "validation_reasons": [
+        "robot_reported_error"
+      ],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 50,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 47,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 83,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 77,
+          "hits": 8,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 78,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 73,
+          "hits": 6,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 58,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 70,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "b74eb0c8aea657adb171806face40b0d4077d364d99f84595f78ddfd76672ccb"
+    },
+    {
+      "key": "validation-space1-pc_trio-21407",
+      "profile": "space1",
+      "context": "pc_trio",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 0,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 1618,
+      "score_share": 0.5481029810298103,
+      "scores": [
+        {
+          "robot": "treino.fourspace1*",
+          "score": 1618,
+          "wins": 7
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 913,
+          "wins": 1
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 421,
+          "wins": 0
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 0,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 40,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 1,
+          "shots": 100,
+          "hits": 14,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 90,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 58,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 78,
+          "hits": 10,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 60,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 71,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 81,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "b4b8687ad73f5eecae424eff00b7d1a59b07cb4acb039e77dc451ed653270e9d"
+    },
+    {
+      "key": "validation-base-pc_trio-21407",
+      "profile": "base",
+      "context": "pc_trio",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 1,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 1651,
+      "score_share": 0.549966688874084,
+      "scores": [
+        {
+          "robot": "treino.fourbase*",
+          "score": 1651,
+          "wins": 7
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 855,
+          "wins": 0
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 496,
+          "wins": 1
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 6,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 59,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 3
+        },
+        {
+          "round": 1,
+          "shots": 159,
+          "hits": 19,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 60,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 2
+        },
+        {
+          "round": 3,
+          "shots": 67,
+          "hits": 15,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 4,
+          "shots": 48,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 47,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 6,
+          "shots": 70,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 7,
+          "shots": 79,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "5d58e0292c5bb4b7bbd82d5e64810833cabad31232120cae8e2c3dbb399ebfda"
+    },
+    {
+      "key": "validation-space1-pc_trio-21407",
+      "profile": "space1",
+      "context": "pc_trio",
+      "seed": 21407,
+      "rounds": 8,
+      "attempt": 1,
+      "outcome_valid": true,
+      "official_wins": 7,
+      "points": 1563,
+      "score_share": 0.5173783515392254,
+      "scores": [
+        {
+          "robot": "treino.fourspace1*",
+          "score": 1563,
+          "wins": 7
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "score": 799,
+          "wins": 0
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "score": 659,
+          "wins": 1
+        }
+      ],
+      "errors": [],
+      "validation_reasons": [],
+      "skipped": 5,
+      "round_stats": [
+        {
+          "round": 0,
+          "shots": 96,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 2
+        },
+        {
+          "round": 1,
+          "shots": 64,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 2,
+          "shots": 88,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 3,
+          "shots": 59,
+          "hits": 12,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 4,
+          "shots": 48,
+          "hits": 13,
+          "walls": 0,
+          "skipped": 0
+        },
+        {
+          "round": 5,
+          "shots": 76,
+          "hits": 11,
+          "walls": 0,
+          "skipped": 2
+        },
+        {
+          "round": 6,
+          "shots": 88,
+          "hits": 9,
+          "walls": 0,
+          "skipped": 1
+        },
+        {
+          "round": 7,
+          "shots": 82,
+          "hits": 16,
+          "walls": 0,
+          "skipped": 0
+        }
+      ],
+      "cold": [
+        [
+          "1228",
+          "128"
+        ]
+      ],
+      "empty_memory": [
+        "0"
+      ],
+      "log_sha256": "a4ac1d9aaf777d1894e75553252bc70e80a829ac15dbf33ec265bb2dab6ab1c8"
+    }
+  ]
+}

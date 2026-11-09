@@ -1,0 +1,49 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "changes": [
+    {
+      "old": "    static final boolean EXPORT_LEARNING = false;",
+      "new": "    static final int DUEL_SPACE_LEVEL = 0;\n    static final String DIAGNOSTIC_VERSION = \"3.10\";\n    static final String DIAGNOSTIC_BATTLE = Long.toHexString(new java.util.Random().nextLong());\n    static final boolean EXPORT_LEARNING = false;"
+    },
+    {
+      "old": "    private final Telemetry telemetry = new Telemetry();",
+      "new": "    private final Telemetry telemetry = new Telemetry();\n    private long edgeTicks, duelTicks, gunReadyTicks, unavailableAimTicks, duelSpaceQueries;\n    private double firingDistanceSum;\n    private int initialOpponents;"
+    },
+    {
+      "old": "        height = getBattleFieldHeight();",
+      "new": "        height = getBattleFieldHeight();\n        initialOpponents = getOthers();"
+    },
+    {
+      "old": "            if (!roundReported) telemetry.decision(target != null);",
+      "new": "            if (!roundReported) {\n                telemetry.decision(target != null);\n                if (wallDistance(getX(), getY()) < 80) edgeTicks++;\n                if (getOthers() == 1) duelTicks++;\n            }"
+    },
+    {
+      "old": "            risk += weight * GENOME[4] / Math.max(900, d * d);",
+      "new": "            double separationWeight = DUEL_SPACE_LEVEL > 0 && getOthers() == 1 ? 0.35 : 1;\n            risk += separationWeight * weight * GENOME[4] / Math.max(900, d * d);"
+    },
+    {
+      "old": "                risk += Math.abs(d - (USE_FINISHER ? engagementDistance : GENOME[1])) / 1600;",
+      "new": "                double rangeScale = DUEL_SPACE_LEVEL == 0 ? 1600 : DUEL_SPACE_LEVEL == 1 ? 900 : 650;\n                risk += Math.abs(d - (USE_FINISHER ? engagementDistance : GENOME[1])) / rangeScale;\n                if (DUEL_SPACE_LEVEL > 0) {\n                    double edge = Math.max(0, 1 - wallDistance(x, y) / 100);\n                    risk += (DUEL_SPACE_LEVEL == 1 ? 0.35 : 0.8) * edge * edge;\n                    duelSpaceQueries++;\n                }"
+    },
+    {
+      "old": "        if (target == null || getTime() - target.time > 8) return;",
+      "new": "        if (!roundReported && getGunHeat() == 0) gunReadyTicks++;\n        if (target == null || getTime() - target.time > 8) {\n            if (!roundReported) unavailableAimTicks++;\n            return;\n        }"
+    },
+    {
+      "old": "            gunUsage[selected]++;",
+      "new": "            firingDistanceSum += d;\n            gunUsage[selected]++;"
+    },
+    {
+      "old": "        out.println(\"UPGRADES round=\"",
+      "new": "        saveDiagnostic();\n        out.println(\"UPGRADES round=\""
+    },
+    {
+      "old": "    public void onKeyPressed(java.awt.event.KeyEvent e) {",
+      "new": "    private void saveDiagnostic() {\n        String header = \"version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,no_target,shots,hits,spent,damage_nominal,received_nominal,waves,matched,walls,skipped,gun_ready_ticks,unavailable_aim_ticks,mean_shot_distance,edge_ticks,duel_ticks,duel_space_queries\\n\";\n        java.util.TreeSet<String> names = new java.util.TreeSet<String>(enemies.keySet());\n        StringBuilder opponents = new StringBuilder();\n        for (String name : names) {\n            if (opponents.length() > 0) opponents.append('|');\n            opponents.append(name.replace(\"\\\"\", \"\\\"\\\"\"));\n        }\n        String row = DIAGNOSTIC_VERSION + \",\" + DIAGNOSTIC_BATTLE + \",\" + (getRoundNum() + 1)\n                + \",\" + getNumRounds() + \",\" + initialOpponents + \",\\\"\" + opponents + \"\\\",\"\n                + getTime() + \",\" + (celebrating ? 1 : 0) + \",\" + getEnergy()\n                + \",\" + telemetry.decisions + \",\" + telemetry.noTarget + \",\" + shots + \",\" + hits\n                + \",\" + telemetry.spent + \",\" + telemetry.dealtNominal + \",\" + telemetry.receivedNominal\n                + \",\" + wavesDetected + \",\" + wavesMatched + \",\" + wallHits + \",\" + skipped\n                + \",\" + gunReadyTicks + \",\" + unavailableAimTicks\n                + \",\" + (shots == 0 ? 0 : firingDistanceSum / shots)\n                + \",\" + edgeTicks + \",\" + duelTicks + \",\" + duelSpaceQueries + \"\\n\";\n        try {\n            java.io.File file = getDataFile(\"diagnostico.csv\");\n            String old = \"\";\n            if (file.exists() && file.length() <= 48000) {\n                java.io.ByteArrayOutputStream buffer = new java.io.ByteArrayOutputStream();\n                try (java.io.InputStream input = new java.io.FileInputStream(file)) {\n                    byte[] bytes = new byte[2048]; int count;\n                    while ((count = input.read(bytes)) != -1) buffer.write(bytes, 0, count);\n                }\n                String text = new String(buffer.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);\n                if (text.startsWith(header)) old = text.substring(header.length());\n            }\n            String rowKey = DIAGNOSTIC_VERSION + \",\" + DIAGNOSTIC_BATTLE + \",\" + (getRoundNum() + 1) + \",\";\n            StringBuilder kept = new StringBuilder();\n            for (String entry : old.split(\"\\\\n\"))\n                if (!entry.isEmpty() && !entry.startsWith(rowKey)) kept.append(entry).append('\\n');\n            old = kept.toString();\n            long budget = Math.min(48000L, file.length() + getDataQuotaAvailable());\n            byte[] bytes = (header + old + row).getBytes(java.nio.charset.StandardCharsets.UTF_8);\n            while (bytes.length > budget && !old.isEmpty()) {\n                int newline = old.indexOf('\\n');\n                old = newline < 0 ? \"\" : old.substring(newline + 1);\n                bytes = (header + old + row).getBytes(java.nio.charset.StandardCharsets.UTF_8);\n            }\n            if (bytes.length > budget) throw new java.io.IOException(\"sem cota para diagnostico\");\n            try (java.io.OutputStream output = new RobocodeFileOutputStream(file)) { output.write(bytes); }\n        } catch (java.io.IOException e) {\n            out.println(\"DIAGNOSTIC_ERROR \" + e.getMessage());\n        } catch (SecurityException e) {\n            out.println(\"DIAGNOSTIC_ERROR acesso ao arquivo: \" + e.getMessage());\n        }\n    }\n\n    public void onKeyPressed(java.awt.event.KeyEvent e) {"
+    },
+    {
+      "old": "        celebrationFrame = 0;",
+      "new": "        celebrationFrame = 0;\n        if (roundReported) saveDiagnostic();"
+    }
+  ]
+}

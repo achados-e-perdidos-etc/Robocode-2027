@@ -1,0 +1,531 @@
+{
+  "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+  "variants_sha256": {
+    "base": "64ddddf43a1492a529d8f306e1ac328e05af191e3c3766405c165fd0dabbfcaa",
+    "space1": "aa4ad3f6634580f26b371da178bd956226a0dbacf541fc6d6f875040192351f1",
+    "space2": "198ce9b7f9ceae45105a578938bda7ef4d2f4c795481f8fbd90077934a4befa1"
+  },
+  "selection_seeds": [
+    20101,
+    20327
+  ],
+  "selection_rounds": 6,
+  "validation_seeds": [
+    21001,
+    21407
+  ],
+  "validation_rounds": 8,
+  "selection_contexts": [
+    "diamond"
+  ],
+  "validation_contexts": [
+    "diamond",
+    "pc_trio"
+  ],
+  "metric": "All round wins equally and macro score share equally. Logger enabled in all comparison arms; level zero preserves the old movement equations.",
+  "promotion": "Movement: at least two extra reserved wins and at least 2% relative macro score-share gain; complete outcomes, no more than three extra skipped turns. Logging: every completed round must have one persistent row; won, shots and hits must agree with official results and available console stats.",
+  "selected": "space1",
+  "selection_summaries": {
+    "base": {
+      "valid": true,
+      "wins": 0,
+      "rounds": 12,
+      "points": 220,
+      "macro_win_rate": 0.0,
+      "macro_score_share": 0.119333936106088,
+      "utility": 0.059666968053044,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 12,
+          "points": 220,
+          "score_share": 0.119333936106088,
+          "score_firsts": 0,
+          "battles": 2
+        }
+      }
+    },
+    "space1": {
+      "valid": true,
+      "wins": 0,
+      "rounds": 12,
+      "points": 264,
+      "macro_win_rate": 0.0,
+      "macro_score_share": 0.1473789288338625,
+      "utility": 0.07368946441693125,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 12,
+          "points": 264,
+          "score_share": 0.1473789288338625,
+          "score_firsts": 0,
+          "battles": 2
+        }
+      }
+    },
+    "space2": {
+      "valid": true,
+      "wins": 0,
+      "rounds": 12,
+      "points": 239,
+      "macro_win_rate": 0.0,
+      "macro_score_share": 0.13544633193370845,
+      "utility": 0.06772316596685422,
+      "skipped": 0,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 12,
+          "points": 239,
+          "score_share": 0.13544633193370845,
+          "score_firsts": 0,
+          "battles": 2
+        }
+      }
+    }
+  },
+  "validation_summaries": {
+    "base": {
+      "valid": true,
+      "wins": 12,
+      "rounds": 32,
+      "points": 3401,
+      "macro_win_rate": 0.375,
+      "macro_score_share": 0.308009619175845,
+      "utility": 0.3415048095879225,
+      "skipped": 7,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 16,
+          "points": 221,
+          "score_share": 0.09338445238565554,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "pc_trio": {
+          "wins": 12,
+          "rounds": 16,
+          "points": 3180,
+          "score_share": 0.5226347859660345,
+          "score_firsts": 2,
+          "battles": 2
+        }
+      }
+    },
+    "space1": {
+      "valid": true,
+      "wins": 14,
+      "rounds": 32,
+      "points": 3554,
+      "macro_win_rate": 0.4375,
+      "macro_score_share": 0.3269211492115586,
+      "utility": 0.38221057460577934,
+      "skipped": 6,
+      "contexts": {
+        "diamond": {
+          "wins": 0,
+          "rounds": 16,
+          "points": 279,
+          "score_share": 0.11884582762445359,
+          "score_firsts": 0,
+          "battles": 2
+        },
+        "pc_trio": {
+          "wins": 14,
+          "rounds": 16,
+          "points": 3275,
+          "score_share": 0.5349964707986636,
+          "score_firsts": 2,
+          "battles": 2
+        }
+      }
+    }
+  },
+  "movement_checks": {
+    "outcomes": true,
+    "two_more_wins": true,
+    "score_gain": true,
+    "cpu": true
+  },
+  "promote_movement": true,
+  "diagnostic_checks": [
+    {
+      "key": "selection-base-diamond-20101",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/selection-space1-diamond-20101/0/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "selection-space1-diamond-20101",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/selection-space2-diamond-20101/0/treino/fourspace1.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "selection-space2-diamond-20101",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/selection-space1-diamond-20327/0/treino/fourspace2.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "selection-space1-diamond-20327",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/selection-space2-diamond-20327/0/treino/fourspace1.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "selection-space2-diamond-20327",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/selection-base-diamond-20327/0/treino/fourspace2.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "selection-base-diamond-20327",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-base-diamond-21001/0/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-base-diamond-21001",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-space1-diamond-21001/0/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-space1-diamond-21001",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-space1-diamond-21407/0/treino/fourspace1.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-space1-diamond-21407",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-base-diamond-21407/0/treino/fourspace1.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-base-diamond-21407",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": true,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-space1-pc_trio-21001/0/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-space1-pc_trio-21001",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": false,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-base-pc_trio-21001/0/treino/fourspace1.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-base-pc_trio-21001",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": false,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-base-pc_trio-21407/0/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-base-pc_trio-21407",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": false,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "archived-data/validation-space1-pc_trio-21407/1/treino/fourbase.data/diagnostico.csv"
+      ]
+    },
+    {
+      "key": "validation-space1-pc_trio-21407",
+      "checks": {
+        "unique_file": true,
+        "one_row_per_round": true,
+        "wins_match": false,
+        "bounded": true,
+        "no_write_error": true,
+        "console_stats_match": true
+      },
+      "files": [
+        "engine/robots/treino/fourspace1.data/diagnostico.csv"
+      ]
+    }
+  ],
+  "audit_note": "Initial report associated archived data with the case archiving it rather than the battle producing it. Corrected audit matches profile and all per-round shots/hits/walls/skips uniquely; original report retained. No combat rerun or performance criterion changed.",
+  "retry_note": "Diamond reported no-safe-destination ERROR in original baseline pc_trio 21407. Original pair excluded from included comparison; entire pair retried exactly once. Both retries completed without reported errors. Original attempts retained.",
+  "diagnostics_valid_before_fix": false,
+  "csv_round_data_valid": true,
+  "win_flag_fix_probe": {
+    "real_probe_rounds": 2,
+    "fixture_not_a_performance_benchmark": true,
+    "won_recorded_after_late_win_event": true,
+    "distinct_battles_preserved": true,
+    "no_duplicate_round_rows": true,
+    "rotation_input_bytes": 47994,
+    "rotation_output_bytes": 47999,
+    "max_bytes": 48000,
+    "old_fixture_rows_pruned": true,
+    "production_data_directory": "equipe/titanprime.data",
+    "class_major": 52,
+    "records": [
+      {
+        "version": "3.10",
+        "battle": "ea3a66c1b377889c",
+        "round": "1",
+        "rounds": "1",
+        "initial_opponents": "1",
+        "observed_opponents": "fixture.loggingdummy*",
+        "ticks": "238",
+        "won": "1",
+        "energy": "145.0216396800001",
+        "decisions": "238",
+        "no_target": "2",
+        "shots": "16",
+        "hits": "13",
+        "spent": "22.810819840000008",
+        "damage_nominal": "99.97456767999998",
+        "received_nominal": "0.0",
+        "waves": "0",
+        "matched": "0",
+        "walls": "0",
+        "skipped": "0",
+        "gun_ready_ticks": "16",
+        "unavailable_aim_ticks": "2",
+        "mean_shot_distance": "399.93860085441884",
+        "edge_ticks": "0",
+        "duel_ticks": "238",
+        "duel_space_queries": "34700"
+      },
+      {
+        "version": "3.10",
+        "battle": "9fe27321e98b0ff5",
+        "round": "1",
+        "rounds": "1",
+        "initial_opponents": "1",
+        "observed_opponents": "fixture.loggingdummy*",
+        "ticks": "238",
+        "won": "1",
+        "energy": "145.0216396800001",
+        "decisions": "238",
+        "no_target": "2",
+        "shots": "16",
+        "hits": "13",
+        "spent": "22.810819840000008",
+        "damage_nominal": "99.97456767999998",
+        "received_nominal": "0.0",
+        "waves": "0",
+        "matched": "0",
+        "walls": "0",
+        "skipped": "0",
+        "gun_ready_ticks": "16",
+        "unavailable_aim_ticks": "2",
+        "mean_shot_distance": "399.93860085441884",
+        "edge_ticks": "0",
+        "duel_ticks": "238",
+        "duel_space_queries": "34700"
+      }
+    ]
+  },
+  "canonical_release_checks": [
+    {
+      "opponents": "voidious.Diamond 1.8.28",
+      "official_wins": 0,
+      "persisted": {
+        "version": "3.10",
+        "battle": "2dee3462cce167da",
+        "round": "1",
+        "rounds": "1",
+        "initial_opponents": "1",
+        "observed_opponents": "voidious.Diamond 1.8.28",
+        "ticks": "502",
+        "won": "0",
+        "energy": "0.0",
+        "decisions": "502",
+        "no_target": "2",
+        "shots": "35",
+        "hits": "1",
+        "spent": "44.26901366922876",
+        "damage_nominal": "7.69035136",
+        "received_nominal": "58.2",
+        "waves": "34",
+        "matched": "8",
+        "walls": "0",
+        "skipped": "0",
+        "gun_ready_ticks": "47",
+        "unavailable_aim_ticks": "2",
+        "mean_shot_distance": "542.0772220141433",
+        "edge_ticks": "80",
+        "duel_ticks": "502",
+        "duel_space_queries": "59100"
+      },
+      "log_sha256": "337e4f5ac6e092a125327dfc10cbdf9f040c6820ca8bf2f676e762a555de4114"
+    },
+    {
+      "opponents": "voidious.Diamond 1.8.28,titan.TitanV3 3.0",
+      "official_wins": 0,
+      "persisted": {
+        "version": "3.10",
+        "battle": "1bd7b95ceb5ccd9b",
+        "round": "1",
+        "rounds": "1",
+        "initial_opponents": "2",
+        "observed_opponents": "titan.TitanV3 3.0|voidious.Diamond 1.8.28",
+        "ticks": "352",
+        "won": "0",
+        "energy": "0.0",
+        "decisions": "352",
+        "no_target": "2",
+        "shots": "24",
+        "hits": "2",
+        "spent": "36.30488314864197",
+        "damage_nominal": "17.682161168",
+        "received_nominal": "77.182",
+        "waves": "30",
+        "matched": "3",
+        "walls": "0",
+        "skipped": "0",
+        "gun_ready_ticks": "33",
+        "unavailable_aim_ticks": "2",
+        "mean_shot_distance": "410.54733662263226",
+        "edge_ticks": "82",
+        "duel_ticks": "0",
+        "duel_space_queries": "0"
+      },
+      "log_sha256": "136e33e2d19067898c31ee92056c71eeddbdff74d9b99adc40cd6f783e22c404"
+    }
+  ],
+  "release_source_sha256": "263091e94f571bf23c094d3c44a2a16f1f3153c7d57f33bf866007f452e434ae",
+  "release_class_major": 52,
+  "source_identification": {
+    "uploaded_source_sha256": "68e8a44e8ff3cec522ea5fd3e334574edcfadbdedaa59740fda9aabdf36554c8",
+    "baseline_sha256": "a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09",
+    "equal_after_stripping_outer_whitespace": true,
+    "uploaded_main_class_major": 61
+  },
+  "validation_duel_metrics": {
+    "base": {
+      "rounds": 16,
+      "shots": 778.0,
+      "hits": 52.0,
+      "hit_fraction": 0.06683804627249357,
+      "mean_shot_distance": 566.2000158170333,
+      "edge_fraction": 0.31568682084146,
+      "spent": 774.9465873888697,
+      "received_nominal": 910.5930772694375,
+      "damage_nominal": 221.2309067438134,
+      "skipped": 1.0
+    },
+    "space1": {
+      "rounds": 16,
+      "shots": 952.0,
+      "hits": 72.0,
+      "hit_fraction": 0.07563025210084033,
+      "mean_shot_distance": 498.834028171518,
+      "edge_fraction": 0.03947565543071161,
+      "spent": 871.0394741301529,
+      "received_nominal": 888.017479248871,
+      "damage_nominal": 278.66458269753235,
+      "skipped": 1.0
+    }
+  },
+  "diagnostic_release_status": "100 round records verified for count and shot/hit/wall/skip counters; pre-fix win flags were wrong in winning rounds due event ordering. Release upserts the same record after WinEvent; verified on two wins in different JVMs and two strong-opponent losses. No combat commands changed by this IO fix."
+}

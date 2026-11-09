@@ -14,6 +14,10 @@ Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para 
 
 O compilador gera vários arquivos `.class` para as classes internas. Isso é normal: todo o código fonte continua em um único `.java`.
 
+## Diagnostico salvo automaticamente (3.10)
+
+Depois dos rounds, o Prime grava `diagnostico.csv` na propria pasta de dados. Na instalacao usada nos testes: `robots/equipe/titanprime.data/diagnostico.csv`. O arquivo conserva os registros recentes ate 48 KB, inclusive depois de fechar o jogo normalmente. Veja [diagnostico-e-duelos.md](diagnostico-e-duelos.md) para os campos, limites e resultados. Envie esse CSV para analisar os proximos testes.
+
 ## Batalhas de avaliacao
 
 Use arena **800 x 600**, resfriamento **0,1** e, inicialmente, **10 a 12 rounds**. Avalie **pontos e vitorias**, contando todos os rounds igualmente. Registre a pontuacao absoluta, a parcela dos pontos da arena e as primeiras colocacoes por pontos e por rounds. Compare cada versao nas mesmas arenas e largadas; reserve batalhas novas para confirmar a melhoria. O criterio atual nao prioriza os tres primeiros rounds.
