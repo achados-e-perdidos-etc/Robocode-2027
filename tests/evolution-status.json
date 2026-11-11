@@ -1,0 +1,60 @@
+{
+  "status": "development_in_progress",
+  "production_version": "3.10",
+  "source_delivery_approved": false,
+  "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
+  "tests": [
+    {
+      "candidate": "4.0 prototype",
+      "opponent": "ChimpazeComSarna",
+      "rounds": 50,
+      "wins": 44,
+      "points": 5153,
+      "opponent_points": 1646,
+      "valid": true,
+      "isolated": true
+    },
+    {
+      "candidate": "4.1 neural-cap01",
+      "opponent": "Diamond 1.8.28",
+      "rounds": 50,
+      "wins": 49,
+      "points": 3636,
+      "opponent_points": 1733,
+      "valid": true,
+      "goal_met": false
+    }
+  ],
+  "environment": {
+    "robocode": "1.12.0",
+    "java": 21,
+    "cpu_constant_ns": 50000000,
+    "cpu_policy": "Same budget for both robots; these are development tests. A normal-budget release validation is pending.",
+    "random_starts": true,
+    "rng_seeded": false
+  },
+  "neural": {
+    "inputs": 13,
+    "hidden": 20,
+    "outputs": 61,
+    "models": 2,
+    "development_samples": 7489,
+    "offline_training": 5718,
+    "offline_validation": 1771,
+    "long_diamond_battle_excluded_from_training": true,
+    "initial_validation_cross_entropy": 4.128688934021675,
+    "best_validation_cross_entropy": 4.03252372595483,
+    "physical_improvement_from_offline_weights_not_yet_proven": true
+  },
+  "remaining": [
+    "Complete the new energy-budget candidate's 50-round series.",
+    "Evaluate the same candidate against the 26 autonomous opponents inventoried so far.",
+    "Address team, sentry and interactive scenarios separately.",
+    "Validate release performance at normal CPU settings."
+  ],
+  "limits": [
+    "Finite tests cannot prove a victory against every future strategy.",
+    "Old report overlaps and missing telemetry prevent exact attribution of every historical defeat.",
+    "A missing WinEvent can be a tie; it is not automatically an exclusive loss."
+  ]
+}
