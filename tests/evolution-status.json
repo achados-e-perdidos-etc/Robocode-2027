@@ -23,6 +23,28 @@
       "opponent_points": 1733,
       "valid": true,
       "goal_met": false
+    },
+    {
+      "candidate": "4.2 budget-neural",
+      "opponent": "Diamond 1.8.28",
+      "rounds": 50,
+      "wins": 49,
+      "points": 3565,
+      "opponent_points": 1878,
+      "valid": true,
+      "goal_met": false
+    },
+    {
+      "candidate": "4.3 budget-tail-cap03",
+      "opponent": "Diamond 1.8.28",
+      "rounds": 50,
+      "wins": 45,
+      "official_firsts": 46,
+      "simultaneous_firsts_excess": 1,
+      "points": 3533,
+      "opponent_points": 2182,
+      "valid": true,
+      "goal_met": false
     }
   ],
   "environment": {
@@ -47,14 +69,40 @@
     "physical_improvement_from_offline_weights_not_yet_proven": true
   },
   "remaining": [
-    "Complete the new energy-budget candidate's 50-round series.",
-    "Evaluate the same candidate against the 26 autonomous opponents inventoried so far.",
-    "Address team, sentry and interactive scenarios separately.",
-    "Validate release performance at normal CPU settings."
+    "Complete defensive depth, distance and offline neural ablations after the current cap0.3 trial.",
+    "Validate a single candidate at normal CPU, including two separate50-round Diamond series.",
+    "Repeat opponent catalogue on the final candidate and test Melee transitions.",
+    "Address team, sentry and interactive scenarios separately."
   ],
   "limits": [
     "Finite tests cannot prove a victory against every future strategy.",
     "Old report overlaps and missing telemetry prevent exact attribution of every historical defeat.",
     "A missing WinEvent can be a tie; it is not automatically an exclusive loss."
-  ]
+  ],
+  "autonomous_screen": {
+    "candidate": "4.2 budget-neural",
+    "opponents": 26,
+    "rounds_per_opponent": 3,
+    "total_wins": 78,
+    "total_rounds": 78,
+    "all_battles_valid": true,
+    "point_lead_every_opponent": true,
+    "cpu_constant_ns": 50000000,
+    "release_candidate_requires_revalidation": true
+  },
+  "invalid_tests": [
+    {
+      "candidate": "4.3 budget-tail cap0.1",
+      "rounds": 50,
+      "valid": false,
+      "reason": "Diamond SYSTEM: No score will be generated; no result credited"
+    }
+  ],
+  "review": {
+    "current_round_records_snapshot": 893,
+    "csv_inspected": 225,
+    "legacy_csv_formats": 31,
+    "pc_exports": 3,
+    "regression_late_duel_guessfactor": true
+  }
 }
