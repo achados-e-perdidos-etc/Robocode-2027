@@ -1,46 +1,42 @@
-# Arquitetura real do Titan Prime
+# Arquitetura real — Titan Prime 4.8
 
-A descrição de robô autônomo fornecida pelo usuário serve como direção técnica. A implementação atual, **3.6**, mantém um arquivo `robots/equipe/titanprime.java` e organiza responsabilidades em métodos e classes internas. Ela não implementa todos os recursos possíveis citados na descrição.
+A arquitetura 3.x foi substituída por uma adaptação licenciada do Diamond aberto, fixada no commit `2d1c6a2b911cf077c5f13d2baa45da7d18d6babb`. Todo o motor de produção e seus tipos auxiliares estão dentro de `equipe.titanprime`, no único [fonte Java](robots/equipe/titanprime.java). A [licença](licenses/diamond.txt) e o [manifesto de origem](tests/elite/import-manifest.json) identificam o que foi incorporado.
 
 ```mermaid
 flowchart LR
-    R[Radar e eventos] --> E[Observações por inimigo]
-    E --> M[Modelos por inimigo]
-    M --> D[Planejador defensivo]
-    M --> A[Seletor de mira e potência]
-    D --> X[Comandos e execute]
-    A --> X
-    X --> R
-    R --> T[Contadores por round]
-    T --> C[Análise externa em JSON e CSV]
+    E[Scans e eventos públicos] --> R[Radar e históricos por adversário]
+    R --> D[Ondas, KNN e previsão física]
+    R --> G[Miras KNN e Virtual Guns]
+    D --> M[Surfing no duelo / risco no melee]
+    G --> F[Mira, potência e tiro]
+    M --> X[Comandos e execute]
+    F --> X
+    X --> E
+    E --> O[Diagnóstico por round]
 ```
 
-## Radar e modelo de inimigo
+## Combate
 
-O radar tem rotação independente, lock com overshoot no duelo e varredura para múltiplos adversários ou perda de alvo. Observações guardam timestamp, posição, rumo, velocidade e energia. Previsões entre scans são estimativas limitadas, não acesso à posição oculta do adversário.
+O radar atualiza os dados observáveis. Os gerenciadores de mira e defesa mantêm históricos distintos e compartilham a informação de cada tiro próprio para calcular sombras nas ondas inimigas. O controle central chama movimento, mira, radar e `execute`, sem manter os antigos controladores 3.x em paralelo.
 
-## Defesa
+No duelo, duas ondas ordenadas pelo tempo estimado de impacto orientam as simulações defensivas. O preditor considera aceleração, frenagem, inversão, velocidade, rotação e geometria. A avaliação usa interseções da onda com estados previstos do corpo e ângulos de escape calculados com paredes. Isso melhora a base geométrica; não revela o rumo secreto de uma bala.
 
-Wave Surfing avalia trajetórias físicas, ondas estimadas e perigo aprendido. O risco espacial considera inimigos, distância, paredes e continuidade do destino. O modelo usa histogramas e redes neurais; **o KNN defensivo experimental não foi adotado**. A presença de KNN na mira não significa que a defesa ganhou o mesmo sistema.
+As miras competem por resultados virtuais de ondas. Duas redes neurais de 13 entradas, 20 unidades ocultas e 61 saídas GuessFactor também participam, com velocidades de aprendizado distintas. Elas começam com pesos incorporados do treinamento externo e continuam aprendendo com ondas reais e amostras virtuais selecionadas. A mira inicial fornece uma resposta antes de acumular exemplos próprios. Os modelos principal e anti-surfer aprendem com contextos de movimento e janelas históricas. O ganho do pacote não foi isolado por componente; os testes não provam qual classe explica cada vitória.
 
-O movimento próprio respeita giro dependente de velocidade, aceleração, frenagem e inversão. A avaliação de cruzamento de ondas ainda tem aproximações geométricas. As verificações do simulador próprio não demonstram previsão perfeita das decisões inimigas.
+No melee, 64 direções geram posições avaliadas por proximidade, energia, geometria dos adversários e posições recentes. A adaptação limita a busca de alternativas ao número de candidatos; se nenhuma rota for segura, freia por um tick e replaneja. Divisões por distância ou energia zero são protegidas. Quando sobra um adversário, o motor passa para duelo.
 
-## Ataque
+## Memória e observação
 
-Até sete alternativas competem: direta, linear, circular, GuessFactor, neural, KNN de visitas e KNN associado a disparos reais. Ondas sem bala ampliam a observação de movimento; apenas ondas de tiros reais avaliam as miras virtuais. Potência, reserva, alinhamento e frescor do alvo restringem o disparo.
+Os componentes persistem entre rounds e reinicializam o estado transitório de cada um. O aprendizado estatístico atravessa os rounds da mesma batalha. Uma batalha independente começa com o modelo inicial incorporado; não há importação dos arquivos privados do Diamond nem aprendizado novo recarregado de disco.
 
-O sistema reúne três formas de aprendizado: histogramas, KNN e redes neurais com retropropagação. Assim, embora a arquitetura conceitual possa funcionar sem rede neural, **o Titan atual usa redes neurais**, além dos outros modelos.
+Os contadores adicionados observam tiros reais retornados pela API, eventos de acerto, colisões, ticks e resultados. Eles não escolhem ações. O CSV `diagnostico.csv` usa o esquema 4.0 e conserva até 48 KB de registros recentes. Um CSV de esquema 3.x é substituído na migração; guarde uma cópia antes de atualizar caso queira conservar o histórico.
 
-## Controle e memória
+`duel_shots_resolved` e `duel_hits_resolved` contam ondas inimigas já resolvidas pelo modelo de duelo, excluindo intercepções entre balas; não são todos os tiros efetivamente disparados. Dano nominal não é a perda efetiva de energia de um alvo quase morto.
 
-Um ciclo central escolhe alvo, radar, movimento e tiro e chama `execute`. Cada evento atualiza os modelos e o estado correspondente. A memória por adversário atravessa os rounds da batalha. O novo aprendizado do jogador não é salvo automaticamente entre batalhas independentes; modelos pré-treinados estão incorporados ao Java.
+`onWin` informa a vitória de um round. A comemoração começa após esse evento. Impactos terminais do mesmo tick são preservados mesmo depois da primeira notificação de morte, e eventos posteriores são excluídos do diagnóstico congelado. O gravador substitui a linha do mesmo round quando a notificação de vitória é posterior a `onRoundEnded`, sem duplicá-la.
 
-`onWin` sinaliza vitória de **um round**, iniciando a comemoração. Vencer a série exige pelo menos duas primeiras colocações nos três rounds. A ordenação padrão por pontos do jogo não substitui essa regra.
+## Validação
 
-## Observabilidade e validação
+As séries reservadas usam a classe canônica para todas as versões, o JAR original do Diamond, regras iguais, memória inicial limpa e posições verificadas em snapshots. Primeiras colocações simultâneas são descontadas de forma conservadora. Os [testes atuais](tests/readme.md) verificam previsões contra trajetórias registradas no motor, KNN contra busca exaustiva, recuperação de paredes e persistência real.
 
-Na 3.6, a telemetria observa eventos e decisões sem escolher ações. Ela mede dano nominal, custo dos tiros, scans, faixas de distância e associações de impactos com ondas, com limites e campos ausentes explícitos. A ferramenta externa produz CSV e compara séries; veja [telemetria.md](telemetria.md).
-
-A avaliação começa com memória controlada, registra posições efetivas, usa batalhas independentes de três rounds e mantém resultados desfavoráveis. Mais módulos ou mais técnicas citadas não são evidência de ganho de combate.
-
-O [plano de evolução](plano-de-evolucao.md) distingue recursos presentes, parciais e futuros. O [estudo ofensivo](ataque-experimentos.md), as [referências de ataque](referencias-ataque.md) e as [referências de defesa](referencias-defesa.md) registram o que foi estudado e efetivamente adotado.
+O [relatório do ciclo](ciclo-elite.md) apresenta os resultados, tentativas e limites. Os demais relatórios 3.x permanecem históricos.

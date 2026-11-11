@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "scope": "Actual WaveManager ordering and SurfMover cache invalidation; original fails both regressions and corrected source passes. Combat performance remains unproven.",
+  "results": [
+    {
+      "version": "inherited",
+      "case": "priority",
+      "source_sha256": "66ffc5d63a61926d0b3a83d5054db23ff23214bbd11aba355f8c9d455747391c",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: Later fast wave arrives before earlier slow wave\n\tat equipe.temporalprobe.require(temporalprobe.java:5)\n\tat equipe.temporalprobe.main(temporalprobe.java:19)\n"
+    },
+    {
+      "version": "inherited",
+      "case": "cache",
+      "source_sha256": "66ffc5d63a61926d0b3a83d5054db23ff23214bbd11aba355f8c9d455747391c",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: Changed wave at same rank invalidates cache\n\tat equipe.temporalprobe.require(temporalprobe.java:5)\n\tat equipe.temporalprobe.main(temporalprobe.java:30)\n"
+    },
+    {
+      "version": "fixed",
+      "case": "priority",
+      "source_sha256": "bb404292424400572371f22a2cc8a81c55b4cd2ba0c1993bca5d82c29ff15a4f",
+      "returncode": 0,
+      "stdout": "ORDER_OK power3-fired0-after-power0.1-fired16 at tick20\n",
+      "stderr": ""
+    },
+    {
+      "version": "fixed",
+      "case": "cache",
+      "source_sha256": "bb404292424400572371f22a2cc8a81c55b4cd2ba0c1993bca5d82c29ff15a4f",
+      "returncode": 0,
+      "stdout": "CACHE_OK same-wave reused; changed-wave and clear invalidated\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,42 +1,20 @@
-# Estado dos testes — atualização de 11/11/2026
+# Estado dos testes — Titan Prime 4.8
 
-O fonte disponível na main continua sendo a versão 3.10. As reconstruções 4.x estão em desenvolvimento e ainda não foram entregues como versão aprovada. A meta anterior de 10/30 foi substituída pela exigência de todos os rounds vencidos contra Diamond e vantagem em pontos, além de avaliar os demais adversários disponíveis.
+A versão 4.8 foi salva na main por solicitação expressa do usuário, antes de continuar os ajustes. O fonte é exatamente o avaliado, SHA256 `467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460`.
 
-## Batalhas completas e válidas
+| Série da 4.8 contra Diamond 1.8.28 | Vitórias | Pontos do Titan | Pontos do Diamond | Validade |
+| --- | ---: | ---: | ---: | --- |
+| Referência 1 | 49/50 | 3.624 | 1.991 | Válida |
+| Referência 2 | 48/50 | 3.512 | 1.933 | Válida |
 
-| Candidata | Adversário | Vitórias | Pontos do Titan | Pontos do adversário |
-| --- | --- | ---: | ---: | ---: |
-| Protótipo 4.0 | ChimpazeComSarna | 44/50 | 5.153 | 1.646 |
-| Protótipo neural 4.1 | Diamond 1.8.28 original | 49/50 | 3.636 | 1.733 |
-| Protótipo 4.2 com reserva de energia | Diamond 1.8.28 original | 49/50 | 3.565 | 1.878 |
-| Protótipo 4.3 com reserva maior e potência 0,3 | Diamond 1.8.28 original | 45/50 conservadoras | 3.533 | 2.182 |
+Total: **97/100**, com liderança em pontos nas duas séries. Arena 800 × 600, resfriamento 0,1, inatividade 450, Java 21, Robocode 1.12.0 e orçamento de referência de 10,03 ms para ambos. As posições são sorteadas pelo motor a cada round, registradas e verificadas; os identificadores dos lotes não fixam o PRNG.
 
-O primeiro lote de 50 contra Chimp teve erro de execução e foi invalidado. A linha acima corresponde à repetição isolada, sem erros. A candidata neural ainda perdeu um round contra Diamond e não atende à meta completa.
+Os 100 registros concordam com os placares do motor, sem erros de execução. Nas três derrotas não houve colisão com parede nem turno perdido. A avaliação de todos os adversários e os 50 rounds contra Chimp com este mesmo fonte ainda estão pendentes: os resultados anteriores pertencem a outras candidatas.
 
-Os testes usam Robocode 1.12.0, Java 21 e orçamento de CPU de 50 ms igual para ambos os participantes, em desenvolvimento. As largadas são aleatórias e as posições são registradas. Os números dos lotes não fixam a aleatoriedade interna. Ainda é necessária uma avaliação de entrega com o orçamento normal de processamento.
+A verificação numérica passou em 157 trajetórias capturadas, 100 comparações KNN com busca exaustiva e recuperação limitada quando não há destino seguro. O bytecode é compatível com Java 8. [Checkpoint](tests/elite/v48/checkpoint.json), [resultados completos](tests/elite/v48/results.json), [rounds](tests/elite/v48/rounds.csv) e [verificação numérica](tests/elite/v48/physics.json).
 
-## Revisão e próxima candidata
+A variante anterior pré-treinada fechou 50/50 em desenvolvimento, usando 50 ms para ambos, mas tem outro fonte. Esse resultado é preservado em [neural-pretrained-50-results.json](tests/elite/neural-pretrained-50-results.json). As largadas diferentes impedem atribuir isoladamente um ganho causal aos pesos neurais.
 
-A revisão percorreu os CSVs e JSONs disponíveis, preservando versões, resultados desfavoráveis e casos inválidos. Os relatórios históricos se sobrepõem; não devem ser somados como batalhas independentes. Ausência de WinEvent também pode representar empate.
+As correções da 4.8 incluem GuessFactor na transição Melee→duelo, ordenação das ondas por tempo estimado de impacto, invalidação do cache KNN quando a identidade da onda muda e registro de impactos terminais do mesmo tick. [Revisão das derrotas](revisao-das-derrotas.md).
 
-A derrota restante no round 18 ocorreu sem paredes nem turnos perdidos: 30,9 de energia investida, 10,8 de dano nominal causado e 77,1 recebido. A candidata 4.2 com disparos mais espaçados também fez 49/50 e não passou a meta. Ela venceu 3/3 e liderou os pontos contra cada um dos 26 adversários do catálogo: 78/78 no rastreio curto, em confrontos válidos.
-
-A série seguinte com reserva maior teve uma falha de execução no Diamond e foi descartada. A variante de potência 0,3 concluiu uma série válida, mas regrediu: 45 vitórias conservadoras em 50. O motor atribuiu 46 primeiros lugares ao Titan e cinco ao Diamond, incluindo um primeiro simultâneo; ele não conta como vitória exclusiva. A próxima etapa compara planejamento de três ondas, distância de combate e pesos neurais pré-treinados separadamente.
-
-A [revisão ampliada das derrotas](revisao-das-derrotas.md) inclui os formatos antigos e os resultados do PC. Foi confirmado e corrigido em teste de regressão um erro de GuessFactor na passagem de Melee para duelo; falta integração na candidata final.
-
-As redes neurais aprendem com ondas resolvidas e competem com as miras KNN por resultados virtuais. O pré-treinamento externo separou 5.718 exemplos para treinamento e 1.771 para validação, excluindo a série longa contra Diamond. A melhora do erro estatístico foi pequena e ainda não demonstra melhora em combate.
-
-A reconstrução incorpora diretamente o núcleo aberto Diamond, de Voidious, sob sua licença modificada zlib, com os avisos de origem preservados. Os módulos neurais e as adaptações do projeto não são apresentados como autoria original daquele núcleo.
-
-## Trabalho pendente
-
-- Concluir a comparação das variantes de defesa e mira.
-- Repetir os 26 confrontos com a candidata final.
-- Tratar equipes, sentinelas e exemplos interativos conforme suas condições próprias.
-- Confirmar o desempenho final e empacotar o único Java com todas as classes internas.
-
-O guia PDF fornecido foi lido. Ele orienta o pipeline headless, a telemetria e a diversidade de testes, mas não é evidência de vitória. SpinBot não é estático, e constantes físicas de aceleração não devem ser alteradas como se mudassem as regras do motor.
-
-Dados do registro: [tests/evolution-status.json](tests/evolution-status.json). Nenhum teste finito garante vitória universal contra qualquer estratégia futura.
-
+A meta de vencer todos os rounds permanece aberta. A publicação deste checkpoint não altera os resultados desfavoráveis nem aprova essa meta.

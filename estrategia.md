@@ -1,43 +1,25 @@
-# Robocode 2027 — Titan Prime
+# Estratégia atual — Titan Prime 4.8
 
-Melhoria de robô para o **Robocode clássico**, em Java. O código completo do robô está em **[robots/equipe/titanprime.java](robots/equipe/titanprime.java)**. Todos os componentes são classes internas desse único arquivo. Não há bibliotecas externas para instalar no robô, nem serviços de IA ou internet durante a batalha.
+O fonte completo é [robots/equipe/titanprime.java](robots/equipe/titanprime.java). Há um único Java e nenhuma dependência de classes do adversário, servidor externo ou internet durante a batalha.
 
-As próximas evoluções serão salvas diretamente na branch `main`, conforme combinado.
+A base de combate foi substituída por uma **adaptação direta do Diamond aberto**, de Voidious, incluindo as árvores de Rednaxela. A licença permite a adaptação e exige preservar a origem e os avisos. Os avisos originais continuam no fonte e a licença integral está em [licenses/diamond.txt](licenses/diamond.txt). O código não é apresentado como criação original deste projeto nem como o Diamond oficial.
 
-O criterio atual e **melhorar pontos e vitorias, contando todos os rounds igualmente**, com batalhas longas e adversarios fortes. Pontos absolutos, parcela da pontuacao da arena e rounds vencidos sao registrados separadamente. Os estudos e ferramentas antigos de melhor de tres ficam preservados como historico. As quatro melhorias anteriores e seus resultados estao em [quatro-melhorias.md](quatro-melhorias.md). Os pesos pre-treinados ja estao carregados no inicio de cada batalha.
-
-O estudo mais recente testou **pontos e vitorias em 656 rounds comparativos**; as novas candidatas permanecem experimentais. Resultados completos: [pontos-e-vitorias.md](pontos-e-vitorias.md).
-
-**Versao de uso: Titan Prime 3.10.** Grava diagnostico por round em arquivo e usa o ajuste moderado de espaco/distancia em duelos. A comparacao reservada passou de 12 para 14 vitorias em 32 rounds, com mais pontos. O duelo direto com Diamond continua sem vitorias. Dados e limites: [diagnostico-e-duelos.md](diagnostico-e-duelos.md).
-
-## Estratégia implementada
-
-| Pedido | Implementação |
+| Área | Implementação ativa |
 | --- | --- |
-| Wave surfing e esquiva | Ondas estimadas, histórico, filtro de aquecimento, simulação de rotas até as quatro ondas mais próximas e mistura limitada de passagens recentes para reduzir previsibilidade sob impactos frequentes. |
-| Mira preditiva | Miras direta, linear, circular, GuessFactor, neural, KNN de visitas, KNN de tiros reais e reativa. A selecao usa os resultados observados por adversario; outras miras permanecem experimentais. |
-| Aprendizado contínuo | Histogramas segmentados, redes neurais com retropropagação, replay limitado e perfis de ângulos de tiro por adversário. Dados antigos recebem menos peso. |
-| Visão da arena | Memória de posição, direção, velocidade, energia, idade da observação, previsão de movimento, alvo e ondas estimadas. Visualização pela pintura do Robocode. |
-| Administração de energia | Potência considera distância, energia própria, precisão observada, quantidade de inimigos e energia necessária para finalizar o alvo. Mantém uma reserva para sobreviver. |
-| Um ou vários adversários | Em duelo, radar acompanha o alvo. Com vários inimigos, radar faz varredura completa, prioriza alvos e combina risco de proximidade com ondas. A estratégia muda automaticamente quando sobra um inimigo. |
+| Radar | Acompanhamento no duelo e atualização dos adversários em melee, com posição, energia e idade dos scans. |
+| Defesa 1v1 | Wave Surfing com modelos KNN de perigo, interseção precisa, previsão física, ângulos de escape e sombras de balas próprias. |
+| Defesa melee | Minimum Risk Movement com 64 direções candidatas, adversários e posições recentes; recuperação limitada quando todas as rotas previstas atingem paredes. |
+| Mira 1v1 | Mira inicial perceptual, TripHammer KNN e mira específica para movimentos adaptativos, além de duas miras neurais online, comparadas por Virtual Guns e ondas. |
+| Mira melee | Distribuição de ângulos por deslocamentos históricos, considerando os vários alvos. |
+| Energia | Em duelos, potência limitada a 0,1, com reserva de energia abaixo de 18 e espaçamento de tiros em condições de distância e energia inimiga. No Melee, o controlador considera distância, energias e potência de finalização. |
+| Aprendizado | Contextos KNN, ondas e desempenho das miras são atualizados durante a batalha e conservados entre seus rounds. |
+| Diagnóstico | CSV limitado a 48 KB, com um registro por round e correção da vitória quando o evento chega depois do encerramento. |
+| Visual | Cor sorteada por batalha; giro e cores animadas após vencer um round; pintura de radar, mira e movimento. |
 
-O aprendizado combina estatística, redes neurais pequenas e simulação física. Os pesos do pré-treino vêm incorporados no próprio arquivo Java. O aprendizado novo ocorre durante os rounds e é mantido entre os rounds da mesma batalha na memória do processo; esse progresso novo **não é salvo automaticamente ao encerrar uma batalha**. Veja [treinamento.md](treinamento.md) para o ciclo por gerações e a transferência de pesos.
+O genoma e os controladores 3.x deixaram de comandar o robô. As duas novas redes neurais são independentes daquele motor antigo. Enumerar 25 técnicas não significa ter 25 sistemas independentes ativos. A tabela descreve o código realmente adotado.
 
-Robôs não enxergam as balas em voo na API clássica. As ondas são hipóteses, não a localização conhecida de cada bala. Em melee, danos e bônus de terceiros tornam a identificação de disparos menos confiável; essas ondas recebem peso menor. Nenhuma esquiva é garantida.
+O aprendizado de combate novo fica em memória durante a batalha; não é recarregado de arquivos em batalhas independentes. O CSV é observação, não um modelo treinado. Nos testes com largadas aleatórias, os identificadores dos lotes não fixam sementes do PRNG.
 
-## Instalação e testes
+O robô luta sozinho. Todos contra todos significa que os inimigos também se enfrentam; uma equipe coordenada é uma avaliação diferente. A lista de robôs na instalação e os resultados de versões antigas continuam como histórico, sem provar o desempenho da 4.8.
 
-Siga [como-testar.md](como-testar.md). Os cenários de teste estão em [battles](battles) e os resultados da versão anterior em [validacao.md](validacao.md). O novo experimento e as comparações estão em [evolucao.md](evolucao.md).
-
-## Referências pesquisadas
-
-Esta implementação foi escrita para este projeto a partir dos conceitos públicos, sem incorporar código dos robôs citados:
-
-- [Diamond, de Voidious](https://github.com/Voidious/Diamond): referência competitiva que combina surfing em duelo e avaliação de risco em melee. O ranking citado no repositório é histórico, de 2015.
-- [Understanding DrussGT, pelo autor Julian Kent](https://jkflying.net/posts/understanding_drussgt/): simular o percurso até uma onda e aprender os ângulos perigosos. Nosso modelo é muito menor que o do DrussGT.
-- [Dookious](https://robowiki.net/wiki/Dookious): referência histórica de GuessFactor e wave surfing, ex-campeão do RoboRumble.
-- [Wave Surfing Tutorial](https://robowiki.net/wiki/Wave_Surfing_Tutorial): conceitos de tempo de disparo, histórico e correspondência entre impactos e ondas.
-- [GuessFactor](https://robowiki.net/wiki/GuessFactor) e [física do Robocode](https://robowiki.net/wiki/Robocode/Game_Physics): normalização dos ângulos e limites de movimento.
-- [API oficial do AdvancedRobot](https://robocode.sourceforge.io/docs/robocode/robocode/AdvancedRobot.html): comandos assíncronos e eventos.
-
-Essas referências orientam o projeto; não significam que o Titan Prime tenha o desempenho de um campeão. O confronto com Diamond também consta na validação.
+Veja a [arquitetura](arquitetura.md), a [pesquisa e validação](ciclo-elite.md) e o [guia de instalação](como-testar.md).

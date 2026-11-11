@@ -1,7 +1,7 @@
 {
-  "status": "development_in_progress",
-  "production_version": "3.10",
-  "source_delivery_approved": false,
+  "status": "checkpoint_saved_at_user_request",
+  "production_version": "4.8",
+  "source_delivery_approved": true,
   "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
   "tests": [
     {
@@ -45,6 +45,28 @@
       "opponent_points": 2182,
       "valid": true,
       "goal_met": false
+    },
+    {
+      "candidate": "4.5 surf3",
+      "opponent": "Diamond 1.8.28",
+      "rounds": 50,
+      "wins": 49,
+      "points": 3603,
+      "opponent_points": 1910,
+      "valid": true,
+      "goal_met": false
+    },
+    {
+      "candidate": "4.5 neural pretrained",
+      "opponent": "Diamond 1.8.28",
+      "rounds": 50,
+      "wins": 50,
+      "points": 3673,
+      "opponent_points": 1738,
+      "valid": true,
+      "development_series_goal_met": true,
+      "release_validation_pending": true,
+      "source_sha256": "6cc6952f6f4798390ffe6dc2acb803fb72b101cbec1c2dab9dd056a9234167ef"
     }
   ],
   "environment": {
@@ -66,13 +88,14 @@
     "long_diamond_battle_excluded_from_training": true,
     "initial_validation_cross_entropy": 4.128688934021675,
     "best_validation_cross_entropy": 4.03252372595483,
-    "physical_improvement_from_offline_weights_not_yet_proven": true
+    "physical_improvement_from_offline_weights_not_yet_proven": true,
+    "weights_used_in_latest_completed_development_series": true,
+    "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed."
   },
   "remaining": [
-    "Complete defensive depth, distance and offline neural ablations after the current cap0.3 trial.",
-    "Validate a single candidate at normal CPU, including two separate50-round Diamond series.",
-    "Repeat opponent catalogue on the final candidate and test Melee transitions.",
-    "Address team, sentry and interactive scenarios separately."
+    "Complete the corrected source qualification at10.03ms shared reference CPU.",
+    "Repeat26autonomous duels,50Chimp and actualMelee transition.",
+    "Validate persistentCSV, colors and completeJAR on final source."
   ],
   "limits": [
     "Finite tests cannot prove a victory against every future strategy.",
@@ -99,10 +122,69 @@
     }
   ],
   "review": {
-    "current_round_records_snapshot": 893,
-    "csv_inspected": 225,
+    "current_round_records_snapshot": 1066,
+    "csv_inspected": 236,
     "legacy_csv_formats": 31,
     "pc_exports": 3,
     "regression_late_duel_guessfactor": true
-  }
+  },
+  "qualification_in_progress": {
+    "version": "4.8",
+    "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+    "cpu_constant_ns": 10030489,
+    "cpu_policy": "Reference budget for both participants; tournament calibration may differ",
+    "diamond_rounds": [
+      50,
+      50
+    ],
+    "functional_fixes_since_development": [
+      "Time-to-impact wave ordering",
+      "KNN cache wave identity",
+      "Terminal event diagnostic accounting"
+    ],
+    "published": true,
+    "completed": true,
+    "accepted": false
+  },
+  "performance_goal_met": false,
+  "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
+  "current_source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+  "current_reference_results": [
+    {
+      "case": 54599,
+      "rounds": 50,
+      "wins": 49,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3624,
+          "firsts": 49
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1991,
+          "firsts": 1
+        }
+      ]
+    },
+    {
+      "case": 54767,
+      "rounds": 50,
+      "wins": 48,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3512,
+          "firsts": 48
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1933,
+          "firsts": 2
+        }
+      ]
+    }
+  ]
 }

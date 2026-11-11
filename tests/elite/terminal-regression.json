@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "Isolated production counter handlers, terminal event ordering, later-event rejection, and persistence request. Combat components absent and exception forwarding stubbed; this is not a battle or filesystem persistence benchmark.",
+  "results": [
+    {
+      "case": "inherited",
+      "source_sha256": "bb404292424400572371f22a2cc8a81c55b4cd2ba0c1993bca5d82c29ff15a4f",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: Fatal same-tick hit was discarded after the death snapshot\n\tat equipe.terminalprobe.main(terminalprobe.java:17)\n"
+    },
+    {
+      "case": "fixed",
+      "source_sha256": "0f8749ec878e98777bf062bec7e4ae85e9f3c2b89273fafa4014bd4d92d374ad",
+      "returncode": 0,
+      "stdout": "TERMINAL_COUNTER_OK fatal and outgoing same-tick updates; later events excluded; persistence requested\n",
+      "stderr": ""
+    }
+  ]
+}

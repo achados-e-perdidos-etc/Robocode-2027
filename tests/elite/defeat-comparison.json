@@ -1,0 +1,60 @@
+{
+  "scope": "Separate development battles with random starts; not a matched-start causal experiment or release qualification. Original Diamond1.8.28 unchanged.",
+  "series": [
+    {
+      "label": "4.1 — neural online",
+      "source_sha256": "fb8b7dc85c5660bd39bb5ec764a1cc8546ca3aace378f45cb7315170ca545f72",
+      "wins": 49,
+      "rounds": 50,
+      "our_points": 3636,
+      "opponent_points": 1733,
+      "score_share_percent": 67.7221084000745,
+      "cpu_constant_ns": 50000000,
+      "valid": true
+    },
+    {
+      "label": "4.2 — reserva de energia",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "wins": 49,
+      "rounds": 50,
+      "our_points": 3565,
+      "opponent_points": 1878,
+      "score_share_percent": 65.49696858350174,
+      "cpu_constant_ns": 50000000,
+      "valid": true
+    },
+    {
+      "label": "4.3 — reserva maior / 0,3",
+      "source_sha256": "32feb1f76d1866436117d3ecc8c197096184e5fc017de8dab8edf6f06cfc6179",
+      "wins": 45,
+      "rounds": 50,
+      "our_points": 3533,
+      "opponent_points": 2182,
+      "score_share_percent": 61.819772528433944,
+      "cpu_constant_ns": 50000000,
+      "valid": true
+    },
+    {
+      "label": "4.5 — três ondas",
+      "source_sha256": "66ffc5d63a61926d0b3a83d5054db23ff23214bbd11aba355f8c9d455747391c",
+      "wins": 49,
+      "rounds": 50,
+      "our_points": 3603,
+      "opponent_points": 1910,
+      "score_share_percent": 65.35461636132777,
+      "cpu_constant_ns": 50000000,
+      "valid": true
+    },
+    {
+      "label": "4.5 — neural pré-treinada",
+      "source_sha256": "6cc6952f6f4798390ffe6dc2acb803fb72b101cbec1c2dab9dd056a9234167ef",
+      "wins": 50,
+      "rounds": 50,
+      "our_points": 3673,
+      "opponent_points": 1738,
+      "score_share_percent": 67.88024394751432,
+      "cpu_constant_ns": 50000000,
+      "valid": true
+    }
+  ]
+}

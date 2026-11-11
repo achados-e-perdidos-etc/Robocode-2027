@@ -56,13 +56,18 @@ public class colorrunner extends BattleAdaptor {
 
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--home',required=True,type=Path);p.add_argument('--ecj',type=Path);p.add_argument('--output',required=True,type=Path);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--home',required=True,type=Path);p.add_argument('--ecj',type=Path);p.add_argument('--output',required=True,type=Path);p.add_argument('--source',type=Path,default=train.ROOT/'robots/equipe/titanprime.java');a=p.parse_args()
     for key in ('home','ecj','output'):
         if getattr(a,key) is not None:setattr(a,key,getattr(a,key).resolve())
     a.output.mkdir(parents=True,exist_ok=True)
-    source=(train.ROOT/'robots/equipe/titanprime.java').read_text()
-    train.install(a,'coloraudit',train.variant(source,'coloraudit',export=False))
-    runner=a.output/'colorrunner.java';runner.write_text(RUNNER)
+    source=a.source.read_text()
+    canonical='public class titanprime extends robocode.AdvancedRobot' in source
+    if canonical:
+        path=a.home/'robots/equipe/titanprime.java';path.parent.mkdir(parents=True,exist_ok=True);path.write_text(source)
+        train.compile_java(a,[path],a.home/'robots')
+    else:
+        train.install(a,'coloraudit',train.variant(source,'coloraudit',export=False))
+    runner=a.output/'colorrunner.java';runner.write_text(RUNNER.replace('treino.coloraudit','equipe.titanprime') if canonical else RUNNER)
     train.compile_java(a,[runner],a.output)
     log=a.output/'colors.log'
     with log.open('w') as f:subprocess.run(['java','-Xmx768m','-Djava.awt.headless=true',*train.JAVA_OPTIONS,'-cp',str(a.output)+os.pathsep+str(a.home/'libs/*'),'colorrunner',str(a.home)],cwd=a.home,stdout=f,stderr=subprocess.STDOUT,check=True,timeout=600)

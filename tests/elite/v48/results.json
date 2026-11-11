@@ -1,0 +1,2009 @@
+{
+  "plan": {
+    "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+    "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+    "opponent_selection": "voidious.Diamond 1.8.28",
+    "additional_opponents": [],
+    "expected_roster": [
+      "equipe.titanprime*",
+      "voidious.Diamond 1.8.28"
+    ],
+    "rules": {
+      "width": 800,
+      "height": 600,
+      "cooling": 0.1,
+      "inactivity": 450,
+      "energy": 100
+    },
+    "seeds_scope": "Case IDs only. Standard engine random starts each round; no PRNG seed is set.",
+    "random_starts_each_round": true,
+    "config_sha256": {
+      "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+    },
+    "libraries_sha256": {
+      "annotations-13.0.jar": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+      "bcel-6.13.0.jar": "a37a65752e861c07d313ca47bef0eb75bf7643152c82ca54c4f42d036850b4fb",
+      "codesize-1.3.1.jar": "4992f8b12242ba43c622ea6b4c7fb83234f36e2a31d3fd14c59ed2df04a40707",
+      "commons-io-2.22.0.jar": "2b9a7b1f726fb86216dbd2c8321eabe0221dbd5b1be81c18e1cb53811b104758",
+      "commons-lang3-3.20.0.jar": "69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4",
+      "jna-5.19.1.jar": "4fb141dd8ef6b0585ffceea4bc49602fbc6312fa977e2c488794ea3e6aafecae",
+      "jna-platform-5.19.1.jar": "3b3864f5b449e9c3c24b16861524b622b086563f44e0cd8384c8efc5a6052f82",
+      "kotlin-stdlib-2.4.21.jar": "bd8250210584cb659847dce9cda660f8e9906e5def7fbebcea93dc6dcb6a88a3",
+      "org.osgi.service.prefs-1.1.2.jar": "43c7c870710e363405d422da653cce0d798a4537f76e4930f79bceadd3a55345",
+      "osgi.annotation-8.0.1.jar": "a0e8a4c362bd3600812f37b0ea45fba966c7bc049d01fed56a09ecc74082759e",
+      "picocontainer-2.16.jar": "bc66571fe98568b3f73b53cf3cf1a43c35f7256986f4ddc58c8334c052815137",
+      "robocode.battle-1.12.0.jar": "4d5d471095e3a930cbc2ff582231704f9de6ddba8111f0446c2fff7db260868e",
+      "robocode.core-1.12.0.jar": "2c517ca4f2880fcae4d33870d33d11aff8876ed6cdd379172a31d7f886b61a1b",
+      "robocode.host-1.12.0.jar": "915ec04a368d2beac4a1e1e713b30ae513c140fd665b04e59fb394781829a8c3",
+      "robocode.jar": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "robocode.repository-1.12.0.jar": "71d0cf3c5ab6c0c3f066cd3f31511aebb05c5b203eacbb8391db77691913c935",
+      "robocode.sound-1.12.0.jar": "796571009c6fd0e93ee4613ea002d05f80146bbcd52f358874561cba7da2ba11",
+      "robocode.ui-1.12.0.jar": "bda42d426292cb8440e5009ddc5a0a002256bfe049ee0c41c5404725c06232d8",
+      "robocode.ui.editor-1.12.0.jar": "c5c81981af5e7fa70e952757b2545cc2ca7b58d3c1ccc5c70e4de6dbef256353",
+      "roborumble.jar": "4bf9e0a25f30a17ebf472be56bb20b6645bc8a3c527c473a38f126536342ff6d"
+    },
+    "java": "openjdk version \"21.0.13\" 2026-10-20\nOpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)",
+    "cases": [
+      {
+        "key": "reserved-1",
+        "case_id": 54599,
+        "seed_initial_positions": null,
+        "reversed_positions": false,
+        "rounds": 50
+      },
+      {
+        "key": "reserved-2",
+        "case_id": 54767,
+        "seed_initial_positions": null,
+        "reversed_positions": false,
+        "rounds": 50
+      }
+    ],
+    "minimum_wins": 50,
+    "require_score_lead": true,
+    "acceptance": "Every predeclared series must be valid and reach the minimum of conservative wins; no retries of valid losses",
+    "data_policy": "Fresh JVM per battle; prior data archived before next battle; no imported learning"
+  },
+  "results": [
+    {
+      "key": "reserved-1",
+      "case_id": 54599,
+      "seed_initial_positions": null,
+      "reversed_positions": false,
+      "rounds": 50,
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3624,
+          "firsts": 49
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1991,
+          "firsts": 1
+        }
+      ],
+      "official_firsts": 49,
+      "conservative_wins": 49,
+      "simultaneous_firsts_excess": 0,
+      "score_share": 0.6454140694568121,
+      "round_turns": [
+        [
+          0,
+          3809
+        ],
+        [
+          1,
+          4278
+        ],
+        [
+          2,
+          4141
+        ],
+        [
+          3,
+          3660
+        ],
+        [
+          4,
+          3508
+        ],
+        [
+          5,
+          3471
+        ],
+        [
+          6,
+          4057
+        ],
+        [
+          7,
+          4029
+        ],
+        [
+          8,
+          3968
+        ],
+        [
+          9,
+          4452
+        ],
+        [
+          10,
+          4152
+        ],
+        [
+          11,
+          4090
+        ],
+        [
+          12,
+          3937
+        ],
+        [
+          13,
+          3870
+        ],
+        [
+          14,
+          4037
+        ],
+        [
+          15,
+          3226
+        ],
+        [
+          16,
+          3800
+        ],
+        [
+          17,
+          4014
+        ],
+        [
+          18,
+          3844
+        ],
+        [
+          19,
+          4490
+        ],
+        [
+          20,
+          4192
+        ],
+        [
+          21,
+          3406
+        ],
+        [
+          22,
+          4043
+        ],
+        [
+          23,
+          3690
+        ],
+        [
+          24,
+          3647
+        ],
+        [
+          25,
+          4151
+        ],
+        [
+          26,
+          3730
+        ],
+        [
+          27,
+          3908
+        ],
+        [
+          28,
+          2354
+        ],
+        [
+          29,
+          3971
+        ],
+        [
+          30,
+          3597
+        ],
+        [
+          31,
+          3888
+        ],
+        [
+          32,
+          4436
+        ],
+        [
+          33,
+          3826
+        ],
+        [
+          34,
+          3984
+        ],
+        [
+          35,
+          4328
+        ],
+        [
+          36,
+          3957
+        ],
+        [
+          37,
+          4061
+        ],
+        [
+          38,
+          4023
+        ],
+        [
+          39,
+          4090
+        ],
+        [
+          40,
+          4778
+        ],
+        [
+          41,
+          4842
+        ],
+        [
+          42,
+          3841
+        ],
+        [
+          43,
+          3674
+        ],
+        [
+          44,
+          4429
+        ],
+        [
+          45,
+          3523
+        ],
+        [
+          46,
+          3932
+        ],
+        [
+          47,
+          3718
+        ],
+        [
+          48,
+          4360
+        ],
+        [
+          49,
+          3870
+        ]
+      ],
+      "start_positions": [
+        {
+          "round": 0,
+          "robot": "equipe.titanprime*",
+          "x": 211.45340634106554,
+          "y": 432.3369155403163,
+          "heading": 5.674250833116299
+        },
+        {
+          "round": 0,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 333.73072132577494,
+          "y": 126.78947471926654,
+          "heading": 0.9409223128118485
+        },
+        {
+          "round": 1,
+          "robot": "equipe.titanprime*",
+          "x": 225.81886851553145,
+          "y": 532.9750060325194,
+          "heading": 5.64886427446328
+        },
+        {
+          "round": 1,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 609.6262209773001,
+          "y": 499.96779725827685,
+          "heading": 6.281825546822236
+        },
+        {
+          "round": 2,
+          "robot": "equipe.titanprime*",
+          "x": 619.1886754260092,
+          "y": 297.4537600898434,
+          "heading": 4.389939630207757
+        },
+        {
+          "round": 2,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 762.7493599447874,
+          "y": 47.07390937947301,
+          "heading": 1.3387730749694053
+        },
+        {
+          "round": 3,
+          "robot": "equipe.titanprime*",
+          "x": 645.5398231317371,
+          "y": 220.3929554311842,
+          "heading": 3.83870219517861
+        },
+        {
+          "round": 3,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 65.72834664794716,
+          "y": 546.4254162865388,
+          "heading": 5.715614538396144
+        },
+        {
+          "round": 4,
+          "robot": "equipe.titanprime*",
+          "x": 616.7975471934923,
+          "y": 265.02309315748846,
+          "heading": 0.10739195653886911
+        },
+        {
+          "round": 4,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 128.16222413160727,
+          "y": 330.31586440246997,
+          "heading": 3.357771327184837
+        },
+        {
+          "round": 5,
+          "robot": "equipe.titanprime*",
+          "x": 683.7445099384759,
+          "y": 484.3104289264046,
+          "heading": 3.2097697738108506
+        },
+        {
+          "round": 5,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 355.01251508289505,
+          "y": 559.496490374079,
+          "heading": 0.924593035071772
+        },
+        {
+          "round": 6,
+          "robot": "equipe.titanprime*",
+          "x": 113.53939996610353,
+          "y": 296.7311076696412,
+          "heading": 2.4161491905142394
+        },
+        {
+          "round": 6,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 158.4323821749817,
+          "y": 506.2559574075913,
+          "heading": 1.5909477787063062
+        },
+        {
+          "round": 7,
+          "robot": "equipe.titanprime*",
+          "x": 194.32773838834532,
+          "y": 183.08654838829432,
+          "heading": 4.488718743897742
+        },
+        {
+          "round": 7,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 323.4231967371636,
+          "y": 544.4116885363005,
+          "heading": 5.981533315454712
+        },
+        {
+          "round": 8,
+          "robot": "equipe.titanprime*",
+          "x": 683.0383775598846,
+          "y": 551.0967446589128,
+          "heading": 5.5498345497125685
+        },
+        {
+          "round": 8,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 699.2240224237154,
+          "y": 352.3279427596095,
+          "heading": 4.327607379733963
+        },
+        {
+          "round": 9,
+          "robot": "equipe.titanprime*",
+          "x": 237.41607099641965,
+          "y": 468.63340113629664,
+          "heading": 4.833011642689208
+        },
+        {
+          "round": 9,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 640.7797018670577,
+          "y": 308.0765215350502,
+          "heading": 5.71966398596221
+        },
+        {
+          "round": 10,
+          "robot": "equipe.titanprime*",
+          "x": 651.6077377769334,
+          "y": 167.28046962186096,
+          "heading": 4.959219670776769
+        },
+        {
+          "round": 10,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 743.1219779165405,
+          "y": 289.97551743015754,
+          "heading": 3.7715550755893306
+        },
+        {
+          "round": 11,
+          "robot": "equipe.titanprime*",
+          "x": 613.9478912941474,
+          "y": 183.8932420720361,
+          "heading": 2.4189439443887104
+        },
+        {
+          "round": 11,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 668.8421771121808,
+          "y": 309.8303250483767,
+          "heading": 5.232712511238466
+        },
+        {
+          "round": 12,
+          "robot": "equipe.titanprime*",
+          "x": 339.5652990835243,
+          "y": 369.4856478865995,
+          "heading": 5.43265631886452
+        },
+        {
+          "round": 12,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 335.21317661331733,
+          "y": 326.3854272543821,
+          "heading": 3.43847090804836
+        },
+        {
+          "round": 13,
+          "robot": "equipe.titanprime*",
+          "x": 53.68216184502012,
+          "y": 465.15945341043727,
+          "heading": 2.1088351012281614
+        },
+        {
+          "round": 13,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 475.0205347053951,
+          "y": 412.37147904365435,
+          "heading": 2.8132004631405834
+        },
+        {
+          "round": 14,
+          "robot": "equipe.titanprime*",
+          "x": 393.4705871200174,
+          "y": 203.90045026447726,
+          "heading": 1.9796207829407153
+        },
+        {
+          "round": 14,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 45.0023541293461,
+          "y": 159.48800341265127,
+          "heading": 1.7102972058729957
+        },
+        {
+          "round": 15,
+          "robot": "equipe.titanprime*",
+          "x": 117.60239183099432,
+          "y": 197.74432655358873,
+          "heading": 2.4463107738429426
+        },
+        {
+          "round": 15,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 574.2612338515016,
+          "y": 167.932560065175,
+          "heading": 0.46087702838498373
+        },
+        {
+          "round": 16,
+          "robot": "equipe.titanprime*",
+          "x": 657.4846142706494,
+          "y": 217.26833436658748,
+          "heading": 0.7696564371922889
+        },
+        {
+          "round": 16,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 130.37479952423826,
+          "y": 356.16382215290906,
+          "heading": 3.0481166447956576
+        },
+        {
+          "round": 17,
+          "robot": "equipe.titanprime*",
+          "x": 107.97195732187387,
+          "y": 252.08503986073808,
+          "heading": 4.459573332935296
+        },
+        {
+          "round": 17,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 187.73401457265606,
+          "y": 243.5564806749809,
+          "heading": 3.239264508288716
+        },
+        {
+          "round": 18,
+          "robot": "equipe.titanprime*",
+          "x": 651.8587154340736,
+          "y": 189.79648228256838,
+          "heading": 0.6123314576653565
+        },
+        {
+          "round": 18,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 492.25199201559724,
+          "y": 403.9325702466832,
+          "heading": 2.165708561973378
+        },
+        {
+          "round": 19,
+          "robot": "equipe.titanprime*",
+          "x": 273.672822034759,
+          "y": 286.4446544628369,
+          "heading": 1.769674112653169
+        },
+        {
+          "round": 19,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 494.59796457439035,
+          "y": 359.1707128313537,
+          "heading": 3.654529249343404
+        },
+        {
+          "round": 20,
+          "robot": "equipe.titanprime*",
+          "x": 71.01662544746179,
+          "y": 102.94265853183447,
+          "heading": 0.9406075501755699
+        },
+        {
+          "round": 20,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 702.4942713976415,
+          "y": 276.8739068429933,
+          "heading": 4.473899640127672
+        },
+        {
+          "round": 21,
+          "robot": "equipe.titanprime*",
+          "x": 249.1925817558299,
+          "y": 335.71577563904253,
+          "heading": 3.954448523517298
+        },
+        {
+          "round": 21,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 580.2534304113149,
+          "y": 449.8384352956524,
+          "heading": 2.214798075225098
+        },
+        {
+          "round": 22,
+          "robot": "equipe.titanprime*",
+          "x": 398.8049315051606,
+          "y": 272.3256092627678,
+          "heading": 4.566100569770013
+        },
+        {
+          "round": 22,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 197.36597040560997,
+          "y": 532.6393984183271,
+          "heading": 0.5990682373720687
+        },
+        {
+          "round": 23,
+          "robot": "equipe.titanprime*",
+          "x": 310.5955125513146,
+          "y": 254.22714530303227,
+          "heading": 3.494778161568366
+        },
+        {
+          "round": 23,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 312.47479232938394,
+          "y": 530.7290230705446,
+          "heading": 3.1241701528510344
+        },
+        {
+          "round": 24,
+          "robot": "equipe.titanprime*",
+          "x": 403.82256204025134,
+          "y": 491.3237140275528,
+          "heading": 0.0978600246444352
+        },
+        {
+          "round": 24,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 589.5142905247789,
+          "y": 149.5631144203956,
+          "heading": 3.7558826480898566
+        },
+        {
+          "round": 25,
+          "robot": "equipe.titanprime*",
+          "x": 598.3042807706248,
+          "y": 56.97879059526469,
+          "heading": 3.063005185092939
+        },
+        {
+          "round": 25,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 722.0400799916465,
+          "y": 366.5030629392143,
+          "heading": 3.298869481521135
+        },
+        {
+          "round": 26,
+          "robot": "equipe.titanprime*",
+          "x": 446.7771770694629,
+          "y": 238.3762565123342,
+          "heading": 2.409428448839074
+        },
+        {
+          "round": 26,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 137.6134164998001,
+          "y": 211.1118598076591,
+          "heading": 0.40995003406438124
+        },
+        {
+          "round": 27,
+          "robot": "equipe.titanprime*",
+          "x": 309.2822373255258,
+          "y": 356.53653366295725,
+          "heading": 0.5770038987847685
+        },
+        {
+          "round": 27,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 648.5494097722467,
+          "y": 178.10141836126098,
+          "heading": 2.806818869037806
+        },
+        {
+          "round": 28,
+          "robot": "equipe.titanprime*",
+          "x": 692.6505990289073,
+          "y": 458.0779898386558,
+          "heading": 1.2705460023119224
+        },
+        {
+          "round": 28,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 521.677704524102,
+          "y": 54.76770712441724,
+          "heading": 3.9302353913761214
+        },
+        {
+          "round": 29,
+          "robot": "equipe.titanprime*",
+          "x": 424.7239615186095,
+          "y": 520.7250275324548,
+          "heading": 3.470546517225874
+        },
+        {
+          "round": 29,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 45.05932214682698,
+          "y": 195.686545309979,
+          "heading": 3.3725083327589083
+        },
+        {
+          "round": 30,
+          "robot": "equipe.titanprime*",
+          "x": 65.09832604032604,
+          "y": 420.2411247566563,
+          "heading": 1.719480121114202
+        },
+        {
+          "round": 30,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 742.2954275672802,
+          "y": 167.2002111735705,
+          "heading": 3.3105635239393982
+        },
+        {
+          "round": 31,
+          "robot": "equipe.titanprime*",
+          "x": 532.9594017024248,
+          "y": 262.7356866439877,
+          "heading": 4.324917822012659
+        },
+        {
+          "round": 31,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 381.21049593691885,
+          "y": 338.4882037864045,
+          "heading": 2.2932877629556416
+        },
+        {
+          "round": 32,
+          "robot": "equipe.titanprime*",
+          "x": 565.8232517298472,
+          "y": 170.93269070385801,
+          "heading": 1.2486451173079673
+        },
+        {
+          "round": 32,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 356.217051810088,
+          "y": 74.01395533737781,
+          "heading": 2.996515224221905
+        },
+        {
+          "round": 33,
+          "robot": "equipe.titanprime*",
+          "x": 514.3141705679288,
+          "y": 171.4397716654705,
+          "heading": 4.793444113206988
+        },
+        {
+          "round": 33,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 192.8568283545123,
+          "y": 359.18475496233816,
+          "heading": 6.222332541024391
+        },
+        {
+          "round": 34,
+          "robot": "equipe.titanprime*",
+          "x": 452.2492574056278,
+          "y": 515.4725907144099,
+          "heading": 4.580888002772909
+        },
+        {
+          "round": 34,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 334.91743486426293,
+          "y": 480.2094100607133,
+          "heading": 6.072274072785817
+        },
+        {
+          "round": 35,
+          "robot": "equipe.titanprime*",
+          "x": 385.64748964921756,
+          "y": 321.2008413084086,
+          "heading": 1.1649391180095707
+        },
+        {
+          "round": 35,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 248.9507295933268,
+          "y": 177.63505372440167,
+          "heading": 2.211162110409947
+        },
+        {
+          "round": 36,
+          "robot": "equipe.titanprime*",
+          "x": 715.7097131717647,
+          "y": 379.636728858316,
+          "heading": 1.1648449605102884
+        },
+        {
+          "round": 36,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 433.3421563132625,
+          "y": 246.88553710113558,
+          "heading": 3.214818297636695
+        },
+        {
+          "round": 37,
+          "robot": "equipe.titanprime*",
+          "x": 737.8756200152906,
+          "y": 150.83563003695068,
+          "heading": 5.256593442956261
+        },
+        {
+          "round": 37,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 732.467919079119,
+          "y": 287.97754097647146,
+          "heading": 3.1781908762967017
+        },
+        {
+          "round": 38,
+          "robot": "equipe.titanprime*",
+          "x": 455.0593462069718,
+          "y": 530.7691117153076,
+          "heading": 3.6475180041427993
+        },
+        {
+          "round": 38,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 698.8636812630142,
+          "y": 215.72116280247639,
+          "heading": 4.5031827616336715
+        },
+        {
+          "round": 39,
+          "robot": "equipe.titanprime*",
+          "x": 628.3516741220718,
+          "y": 433.7291783424217,
+          "heading": 2.9285248751394137
+        },
+        {
+          "round": 39,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 178.77927620460372,
+          "y": 217.18481220934407,
+          "heading": 2.2046624458227484
+        },
+        {
+          "round": 40,
+          "robot": "equipe.titanprime*",
+          "x": 211.15147448199482,
+          "y": 479.7885201506433,
+          "heading": 1.3424559785367152
+        },
+        {
+          "round": 40,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 80.6169205856373,
+          "y": 501.15359920661314,
+          "heading": 3.974887059664927
+        },
+        {
+          "round": 41,
+          "robot": "equipe.titanprime*",
+          "x": 178.20994017288584,
+          "y": 250.94837120212847,
+          "heading": 5.435427572607782
+        },
+        {
+          "round": 41,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 736.5329254176231,
+          "y": 430.5795177139147,
+          "heading": 1.7514069454035386
+        },
+        {
+          "round": 42,
+          "robot": "equipe.titanprime*",
+          "x": 172.05057883029497,
+          "y": 456.71685388827933,
+          "heading": 2.606007488636833
+        },
+        {
+          "round": 42,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 459.3224620157431,
+          "y": 169.16628656935214,
+          "heading": 5.753858016691365
+        },
+        {
+          "round": 43,
+          "robot": "equipe.titanprime*",
+          "x": 755.0643480007528,
+          "y": 474.3469693589743,
+          "heading": 4.035276723953523
+        },
+        {
+          "round": 43,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 434.353079979056,
+          "y": 244.71135204483738,
+          "heading": 5.240749770227607
+        },
+        {
+          "round": 44,
+          "robot": "equipe.titanprime*",
+          "x": 268.7216634706714,
+          "y": 329.4335891209332,
+          "heading": 1.6825581430273397
+        },
+        {
+          "round": 44,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 582.8673061508441,
+          "y": 170.46848723233143,
+          "heading": 2.6348507531252436
+        },
+        {
+          "round": 45,
+          "robot": "equipe.titanprime*",
+          "x": 400.5801964625404,
+          "y": 534.380609709033,
+          "heading": 3.7381453816136934
+        },
+        {
+          "round": 45,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 517.0892587495794,
+          "y": 131.91928562257377,
+          "heading": 1.5601548615962364
+        },
+        {
+          "round": 46,
+          "robot": "equipe.titanprime*",
+          "x": 80.33031503838716,
+          "y": 37.141662759172185,
+          "heading": 2.5307650403408064
+        },
+        {
+          "round": 46,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 211.08022860827944,
+          "y": 393.09348731753363,
+          "heading": 0.2054116812675102
+        },
+        {
+          "round": 47,
+          "robot": "equipe.titanprime*",
+          "x": 470.70497061604374,
+          "y": 77.30462447369258,
+          "heading": 2.952309244492867
+        },
+        {
+          "round": 47,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 701.9970818761102,
+          "y": 151.18438925040937,
+          "heading": 3.941500432045026
+        },
+        {
+          "round": 48,
+          "robot": "equipe.titanprime*",
+          "x": 476.8817237272074,
+          "y": 182.74519658855536,
+          "heading": 2.340665653315229
+        },
+        {
+          "round": 48,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 593.987559355696,
+          "y": 136.99169134811422,
+          "heading": 3.506293829655145
+        },
+        {
+          "round": 49,
+          "robot": "equipe.titanprime*",
+          "x": 51.98177815671243,
+          "y": 257.20100275249524,
+          "heading": 1.2653537028084383
+        },
+        {
+          "round": 49,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 605.6830861857262,
+          "y": 255.5956774921102,
+          "heading": 4.318153733554865
+        }
+      ],
+      "roster": [
+        {
+          "robot": "equipe.titanprime*",
+          "team": "equipe.titanprime*",
+          "contestant": 0,
+          "team_index": -1,
+          "sentry": false,
+          "energy": 100.0,
+          "state": "ACTIVE"
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "team": "voidious.Diamond 1.8.28",
+          "contestant": 1,
+          "team_index": -1,
+          "sentry": false,
+          "energy": 100.0,
+          "state": "ACTIVE"
+        }
+      ],
+      "engine": [
+        "1.12.0"
+      ],
+      "log_sha256": "400ec0fd7eadce197d59aca5659196ca76bb8345090e7a35943723e0289039c0",
+      "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+      "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+      "diagnostic_records": 50,
+      "diagnostic_wins": 49,
+      "diagnostic_complete": true,
+      "score_lead": true,
+      "accepted": false
+    },
+    {
+      "key": "reserved-2",
+      "case_id": 54767,
+      "seed_initial_positions": null,
+      "reversed_positions": false,
+      "rounds": 50,
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3512,
+          "firsts": 48
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1933,
+          "firsts": 2
+        }
+      ],
+      "official_firsts": 48,
+      "conservative_wins": 48,
+      "simultaneous_firsts_excess": 0,
+      "score_share": 0.6449954086317723,
+      "round_turns": [
+        [
+          0,
+          4386
+        ],
+        [
+          1,
+          3862
+        ],
+        [
+          2,
+          4072
+        ],
+        [
+          3,
+          3767
+        ],
+        [
+          4,
+          3601
+        ],
+        [
+          5,
+          3483
+        ],
+        [
+          6,
+          3046
+        ],
+        [
+          7,
+          3821
+        ],
+        [
+          8,
+          4191
+        ],
+        [
+          9,
+          4542
+        ],
+        [
+          10,
+          4306
+        ],
+        [
+          11,
+          3742
+        ],
+        [
+          12,
+          3799
+        ],
+        [
+          13,
+          4010
+        ],
+        [
+          14,
+          3807
+        ],
+        [
+          15,
+          3335
+        ],
+        [
+          16,
+          3790
+        ],
+        [
+          17,
+          3817
+        ],
+        [
+          18,
+          3527
+        ],
+        [
+          19,
+          4313
+        ],
+        [
+          20,
+          4007
+        ],
+        [
+          21,
+          3291
+        ],
+        [
+          22,
+          1088
+        ],
+        [
+          23,
+          3958
+        ],
+        [
+          24,
+          2296
+        ],
+        [
+          25,
+          3994
+        ],
+        [
+          26,
+          4083
+        ],
+        [
+          27,
+          3663
+        ],
+        [
+          28,
+          3749
+        ],
+        [
+          29,
+          3987
+        ],
+        [
+          30,
+          3678
+        ],
+        [
+          31,
+          4398
+        ],
+        [
+          32,
+          3587
+        ],
+        [
+          33,
+          4130
+        ],
+        [
+          34,
+          4252
+        ],
+        [
+          35,
+          4076
+        ],
+        [
+          36,
+          3672
+        ],
+        [
+          37,
+          3611
+        ],
+        [
+          38,
+          4446
+        ],
+        [
+          39,
+          3404
+        ],
+        [
+          40,
+          3952
+        ],
+        [
+          41,
+          4541
+        ],
+        [
+          42,
+          3393
+        ],
+        [
+          43,
+          3875
+        ],
+        [
+          44,
+          3859
+        ],
+        [
+          45,
+          4101
+        ],
+        [
+          46,
+          3981
+        ],
+        [
+          47,
+          3994
+        ],
+        [
+          48,
+          3738
+        ],
+        [
+          49,
+          3961
+        ]
+      ],
+      "start_positions": [
+        {
+          "round": 0,
+          "robot": "equipe.titanprime*",
+          "x": 286.68254074269873,
+          "y": 185.62651152314126,
+          "heading": 3.468833178889068
+        },
+        {
+          "round": 0,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 58.709999869109495,
+          "y": 466.22496636513773,
+          "heading": 2.454719372393109
+        },
+        {
+          "round": 1,
+          "robot": "equipe.titanprime*",
+          "x": 472.55174980324483,
+          "y": 72.25808903981064,
+          "heading": 2.0566515201739937
+        },
+        {
+          "round": 1,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 688.8744073092331,
+          "y": 44.42835059271377,
+          "heading": 5.895216128493408
+        },
+        {
+          "round": 2,
+          "robot": "equipe.titanprime*",
+          "x": 125.59990593374233,
+          "y": 411.773285596743,
+          "heading": 4.367716666618477
+        },
+        {
+          "round": 2,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 127.81597065672386,
+          "y": 216.8005235388299,
+          "heading": 1.1713348471871934
+        },
+        {
+          "round": 3,
+          "robot": "equipe.titanprime*",
+          "x": 456.55578137829207,
+          "y": 107.0455473166307,
+          "heading": 4.321233320060343
+        },
+        {
+          "round": 3,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 193.0640329204724,
+          "y": 193.8304365930684,
+          "heading": 3.9671737780826946
+        },
+        {
+          "round": 4,
+          "robot": "equipe.titanprime*",
+          "x": 330.3306665347859,
+          "y": 147.87007595105865,
+          "heading": 2.0513920147152627
+        },
+        {
+          "round": 4,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 373.5513848991961,
+          "y": 539.4691036442684,
+          "heading": 2.9591256692459957
+        },
+        {
+          "round": 5,
+          "robot": "equipe.titanprime*",
+          "x": 488.9917015935133,
+          "y": 311.3367756681074,
+          "heading": 5.379993124008099
+        },
+        {
+          "round": 5,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 473.2849809671771,
+          "y": 69.22857035448105,
+          "heading": 4.471882293099132
+        },
+        {
+          "round": 6,
+          "robot": "equipe.titanprime*",
+          "x": 394.7583991035843,
+          "y": 323.5444887484233,
+          "heading": 4.395241912955667
+        },
+        {
+          "round": 6,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 154.2095321073386,
+          "y": 484.2015655307745,
+          "heading": 2.877755487441139
+        },
+        {
+          "round": 7,
+          "robot": "equipe.titanprime*",
+          "x": 300.2270106639686,
+          "y": 512.3301781661617,
+          "heading": 0.5220872095941252
+        },
+        {
+          "round": 7,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 589.3340202871101,
+          "y": 401.60556315170925,
+          "heading": 1.5601141252702264
+        },
+        {
+          "round": 8,
+          "robot": "equipe.titanprime*",
+          "x": 675.0325610504698,
+          "y": 282.11509123428215,
+          "heading": 2.075110610149894
+        },
+        {
+          "round": 8,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 263.1941208083888,
+          "y": 105.87373465382703,
+          "heading": 4.330144671999258
+        },
+        {
+          "round": 9,
+          "robot": "equipe.titanprime*",
+          "x": 352.55781614637357,
+          "y": 236.52539662431795,
+          "heading": 1.3248799163808263
+        },
+        {
+          "round": 9,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 382.69392677761294,
+          "y": 122.49526699140904,
+          "heading": 5.772805004334916
+        },
+        {
+          "round": 10,
+          "robot": "equipe.titanprime*",
+          "x": 301.45536089909547,
+          "y": 446.6410323492499,
+          "heading": 0.5879099733766036
+        },
+        {
+          "round": 10,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 58.43968836808103,
+          "y": 195.49616130965413,
+          "heading": 5.891043952091599
+        },
+        {
+          "round": 11,
+          "robot": "equipe.titanprime*",
+          "x": 63.255689865151226,
+          "y": 436.36423281558353,
+          "heading": 0.32621292164918453
+        },
+        {
+          "round": 11,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 623.9249923295589,
+          "y": 452.17094566450476,
+          "heading": 3.838457669515826
+        },
+        {
+          "round": 12,
+          "robot": "equipe.titanprime*",
+          "x": 123.89668310920719,
+          "y": 173.16048015158015,
+          "heading": 1.8926499425209085
+        },
+        {
+          "round": 12,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 497.6340428621957,
+          "y": 292.32664661685726,
+          "heading": 5.8660578849042695
+        },
+        {
+          "round": 13,
+          "robot": "equipe.titanprime*",
+          "x": 313.6104356414751,
+          "y": 112.73803909607003,
+          "heading": 6.03908288793259
+        },
+        {
+          "round": 13,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 258.11967623496673,
+          "y": 130.47681306251218,
+          "heading": 4.482447594411003
+        },
+        {
+          "round": 14,
+          "robot": "equipe.titanprime*",
+          "x": 668.9322536002246,
+          "y": 479.42217783934643,
+          "heading": 5.924096557578888
+        },
+        {
+          "round": 14,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 668.3082410903301,
+          "y": 58.409006834170484,
+          "heading": 1.1379783875950193
+        },
+        {
+          "round": 15,
+          "robot": "equipe.titanprime*",
+          "x": 321.0664704112609,
+          "y": 174.4813040178249,
+          "heading": 4.5093979488871065
+        },
+        {
+          "round": 15,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 51.432539157949485,
+          "y": 180.33835965708067,
+          "heading": 6.080761324168504
+        },
+        {
+          "round": 16,
+          "robot": "equipe.titanprime*",
+          "x": 618.5464761638748,
+          "y": 164.2959232984598,
+          "heading": 3.8809274791600474
+        },
+        {
+          "round": 16,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 688.5930707484342,
+          "y": 294.3201609475489,
+          "heading": 6.139661924123875
+        },
+        {
+          "round": 17,
+          "robot": "equipe.titanprime*",
+          "x": 344.2931497929226,
+          "y": 303.97817484189994,
+          "heading": 3.181887107563162
+        },
+        {
+          "round": 17,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 229.44749678111364,
+          "y": 474.1959744435443,
+          "heading": 2.0031527484139997
+        },
+        {
+          "round": 18,
+          "robot": "equipe.titanprime*",
+          "x": 326.54040785200993,
+          "y": 275.01524718333985,
+          "heading": 5.76374232399825
+        },
+        {
+          "round": 18,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 447.2913675076074,
+          "y": 109.88528501674824,
+          "heading": 5.451072821265908
+        },
+        {
+          "round": 19,
+          "robot": "equipe.titanprime*",
+          "x": 429.5061368238734,
+          "y": 562.609519227699,
+          "heading": 6.104587146709308
+        },
+        {
+          "round": 19,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 142.4192653433052,
+          "y": 561.9865903905782,
+          "heading": 4.929719593016598
+        },
+        {
+          "round": 20,
+          "robot": "equipe.titanprime*",
+          "x": 213.69630629067194,
+          "y": 434.97165116902636,
+          "heading": 2.841059966999494
+        },
+        {
+          "round": 20,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 330.5196872891902,
+          "y": 540.1959866005001,
+          "heading": 5.79842423393805
+        },
+        {
+          "round": 21,
+          "robot": "equipe.titanprime*",
+          "x": 356.06580982327193,
+          "y": 251.05422128336377,
+          "heading": 6.212186555414977
+        },
+        {
+          "round": 21,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 302.3742381241121,
+          "y": 475.4811562092789,
+          "heading": 1.216411389286485
+        },
+        {
+          "round": 22,
+          "robot": "equipe.titanprime*",
+          "x": 695.4221120717967,
+          "y": 242.7373097874434,
+          "heading": 1.1593828103638937
+        },
+        {
+          "round": 22,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 597.2654508538177,
+          "y": 156.199474000912,
+          "heading": 3.7511770161559856
+        },
+        {
+          "round": 23,
+          "robot": "equipe.titanprime*",
+          "x": 732.1461729208521,
+          "y": 381.4401268997213,
+          "heading": 5.96329047986537
+        },
+        {
+          "round": 23,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 228.050799454271,
+          "y": 204.76068845858623,
+          "heading": 0.6559251270593078
+        },
+        {
+          "round": 24,
+          "robot": "equipe.titanprime*",
+          "x": 394.8387451341571,
+          "y": 423.8106394463413,
+          "heading": 0.31507547605660363
+        },
+        {
+          "round": 24,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 668.0513526894106,
+          "y": 55.511568534190005,
+          "heading": 1.49839847572373
+        },
+        {
+          "round": 25,
+          "robot": "equipe.titanprime*",
+          "x": 671.3415982814236,
+          "y": 504.04780507321607,
+          "heading": 2.2709532586344308
+        },
+        {
+          "round": 25,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 306.93937479498663,
+          "y": 431.4020504275748,
+          "heading": 5.805667276664563
+        },
+        {
+          "round": 26,
+          "robot": "equipe.titanprime*",
+          "x": 749.5328483035412,
+          "y": 548.940292121011,
+          "heading": 4.334872650238332
+        },
+        {
+          "round": 26,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 606.4552606410884,
+          "y": 326.5081887619751,
+          "heading": 5.130950947709134
+        },
+        {
+          "round": 27,
+          "robot": "equipe.titanprime*",
+          "x": 327.1023224257699,
+          "y": 521.2320183820043,
+          "heading": 3.2746082022853575
+        },
+        {
+          "round": 27,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 346.0517231294952,
+          "y": 39.7382795402679,
+          "heading": 0.35273250767767395
+        },
+        {
+          "round": 28,
+          "robot": "equipe.titanprime*",
+          "x": 763.2159311256587,
+          "y": 39.32912646471919,
+          "heading": 3.9630052699434963
+        },
+        {
+          "round": 28,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 294.1652633619717,
+          "y": 235.83497883718587,
+          "heading": 3.2354969883772524
+        },
+        {
+          "round": 29,
+          "robot": "equipe.titanprime*",
+          "x": 510.03594976615756,
+          "y": 466.86667720275864,
+          "heading": 5.730725213713076
+        },
+        {
+          "round": 29,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 525.9546537301028,
+          "y": 133.8088475568769,
+          "heading": 5.956851824126228
+        },
+        {
+          "round": 30,
+          "robot": "equipe.titanprime*",
+          "x": 100.72108070033215,
+          "y": 557.7632334451436,
+          "heading": 4.95179535063319
+        },
+        {
+          "round": 30,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 168.6524052751846,
+          "y": 145.03324667615794,
+          "heading": 5.498678208262643
+        },
+        {
+          "round": 31,
+          "robot": "equipe.titanprime*",
+          "x": 473.7678452243217,
+          "y": 88.43966363888434,
+          "heading": 2.468986122039552
+        },
+        {
+          "round": 31,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 290.9289827945098,
+          "y": 280.72870491548633,
+          "heading": 0.7412757789119536
+        },
+        {
+          "round": 32,
+          "robot": "equipe.titanprime*",
+          "x": 448.7967896516287,
+          "y": 293.54245652873294,
+          "heading": 4.11844979823263
+        },
+        {
+          "round": 32,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 746.1417554864569,
+          "y": 411.86904121536656,
+          "heading": 5.257249262458268
+        },
+        {
+          "round": 33,
+          "robot": "equipe.titanprime*",
+          "x": 685.0608958921937,
+          "y": 75.81111807692152,
+          "heading": 2.1631314722506656
+        },
+        {
+          "round": 33,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 638.8915648369853,
+          "y": 253.08268176190572,
+          "heading": 5.357877807168921
+        },
+        {
+          "round": 34,
+          "robot": "equipe.titanprime*",
+          "x": 169.13998943895984,
+          "y": 388.09679090566374,
+          "heading": 1.7672222551842773
+        },
+        {
+          "round": 34,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 83.73805604858197,
+          "y": 157.60331105320307,
+          "heading": 4.9306941215865185
+        },
+        {
+          "round": 35,
+          "robot": "equipe.titanprime*",
+          "x": 91.75235364330462,
+          "y": 64.72802991326785,
+          "heading": 4.987102054303412
+        },
+        {
+          "round": 35,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 585.6438198809993,
+          "y": 191.55322108454166,
+          "heading": 5.751790961697956
+        },
+        {
+          "round": 36,
+          "robot": "equipe.titanprime*",
+          "x": 331.5681246415084,
+          "y": 341.11753155545046,
+          "heading": 5.279167676944188
+        },
+        {
+          "round": 36,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 292.4869526851479,
+          "y": 339.2418138237391,
+          "heading": 1.474409026305197
+        },
+        {
+          "round": 37,
+          "robot": "equipe.titanprime*",
+          "x": 341.28061159048656,
+          "y": 318.33811470185964,
+          "heading": 3.8715817090951266
+        },
+        {
+          "round": 37,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 170.69291389569457,
+          "y": 109.13782994787934,
+          "heading": 2.9337279402732355
+        },
+        {
+          "round": 38,
+          "robot": "equipe.titanprime*",
+          "x": 444.3632699910345,
+          "y": 294.59025744307087,
+          "heading": 0.7650500216810219
+        },
+        {
+          "round": 38,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 703.0896081753864,
+          "y": 120.92029415109957,
+          "heading": 3.547037327544058
+        },
+        {
+          "round": 39,
+          "robot": "equipe.titanprime*",
+          "x": 607.8257219394677,
+          "y": 533.6353215955053,
+          "heading": 3.3489925061348935
+        },
+        {
+          "round": 39,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 561.675550749356,
+          "y": 322.73998138459643,
+          "heading": 5.8139353049463836
+        },
+        {
+          "round": 40,
+          "robot": "equipe.titanprime*",
+          "x": 404.6881756403827,
+          "y": 561.9010800812141,
+          "heading": 3.847797327319978
+        },
+        {
+          "round": 40,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 231.0953656171711,
+          "y": 136.61933820064326,
+          "heading": 0.4400154971775122
+        },
+        {
+          "round": 41,
+          "robot": "equipe.titanprime*",
+          "x": 557.9967527534691,
+          "y": 529.8538734335991,
+          "heading": 0.05697727198419101
+        },
+        {
+          "round": 41,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 507.8319547840399,
+          "y": 433.19089695208277,
+          "heading": 5.997378875939866
+        },
+        {
+          "round": 42,
+          "robot": "equipe.titanprime*",
+          "x": 76.06064707122277,
+          "y": 223.66669994086323,
+          "heading": 2.9975207530882817
+        },
+        {
+          "round": 42,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 82.48826702557925,
+          "y": 433.4385383297331,
+          "heading": 3.4676782080473263
+        },
+        {
+          "round": 43,
+          "robot": "equipe.titanprime*",
+          "x": 206.20921509481812,
+          "y": 498.48235606125604,
+          "heading": 6.140547555054812
+        },
+        {
+          "round": 43,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 349.32545445941133,
+          "y": 351.70342755998763,
+          "heading": 4.536308517874436
+        },
+        {
+          "round": 44,
+          "robot": "equipe.titanprime*",
+          "x": 450.3285421047055,
+          "y": 532.0856533928438,
+          "heading": 2.9904039058152767
+        },
+        {
+          "round": 44,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 674.7920063626543,
+          "y": 432.1051562310201,
+          "heading": 1.731717853580575
+        },
+        {
+          "round": 45,
+          "robot": "equipe.titanprime*",
+          "x": 98.78042260929732,
+          "y": 239.52870331895312,
+          "heading": 2.0767509047750443
+        },
+        {
+          "round": 45,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 62.610381921419616,
+          "y": 145.60286373948793,
+          "heading": 5.093876631293376
+        },
+        {
+          "round": 46,
+          "robot": "equipe.titanprime*",
+          "x": 612.1772097090694,
+          "y": 217.1172771039259,
+          "heading": 4.561043277275562
+        },
+        {
+          "round": 46,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 449.8413033517746,
+          "y": 68.50105732879479,
+          "heading": 5.6911310854030575
+        },
+        {
+          "round": 47,
+          "robot": "equipe.titanprime*",
+          "x": 343.34122907629916,
+          "y": 326.1656802032164,
+          "heading": 4.790518837533135
+        },
+        {
+          "round": 47,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 318.43391019080906,
+          "y": 419.58028905165963,
+          "heading": 1.28867607451231
+        },
+        {
+          "round": 48,
+          "robot": "equipe.titanprime*",
+          "x": 691.0750282737042,
+          "y": 396.9935782868099,
+          "heading": 5.23417005434897
+        },
+        {
+          "round": 48,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 89.6629208343696,
+          "y": 460.01502332157855,
+          "heading": 5.469055955770935
+        },
+        {
+          "round": 49,
+          "robot": "equipe.titanprime*",
+          "x": 563.5189488235446,
+          "y": 479.5711141846623,
+          "heading": 0.3271057724988379
+        },
+        {
+          "round": 49,
+          "robot": "voidious.Diamond 1.8.28",
+          "x": 199.89567995369845,
+          "y": 385.7695142638511,
+          "heading": 0.6816510424321056
+        }
+      ],
+      "roster": [
+        {
+          "robot": "equipe.titanprime*",
+          "team": "equipe.titanprime*",
+          "contestant": 0,
+          "team_index": -1,
+          "sentry": false,
+          "energy": 100.0,
+          "state": "ACTIVE"
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "team": "voidious.Diamond 1.8.28",
+          "contestant": 1,
+          "team_index": -1,
+          "sentry": false,
+          "energy": 100.0,
+          "state": "ACTIVE"
+        }
+      ],
+      "engine": [
+        "1.12.0"
+      ],
+      "log_sha256": "7066294cea77f5e376c9dc0aa36b9224815201513c8560c84076249e4353c9d2",
+      "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+      "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+      "diagnostic_records": 50,
+      "diagnostic_wins": 48,
+      "diagnostic_complete": true,
+      "score_lead": true,
+      "accepted": false
+    }
+  ],
+  "complete": true,
+  "accepted": false
+}

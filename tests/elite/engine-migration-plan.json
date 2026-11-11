@@ -1,0 +1,17 @@
+{
+  "why": "Robocode 1.11.1 produced thread termination errors and divergent starts; newer official release fixes thread termination. All old attempts retained.",
+  "engine": "1.12.0",
+  "template": "engine-1.12.0",
+  "cpu_constant": 10030489,
+  "cpu_policy": "Same shared historical calibration for both robots and both source versions; no opponent-specific changes.",
+  "source_sha256": "2fe01c597e2eb0f80dc46f79bb9ac58eef8d533951c7dc42e367f873d6f62521",
+  "baseline_source_sha256": "263091e94f571bf23c094d3c44a2a16f1f3153c7d57f33bf866007f452e434ae",
+  "baseline_seed": 30011,
+  "reserved_seeds": [
+    32003,
+    32413,
+    32909
+  ],
+  "rounds_per_battle": 30,
+  "acceptance": "Every reserved battle valid and at least 10 conservative wins. All results retained; no repetition of a valid losing series."
+}

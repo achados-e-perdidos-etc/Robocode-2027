@@ -109,6 +109,8 @@ def compile_java(args, sources, destination):
 
 
 def variant(template, name, genome=None, models=None, export=True):
+    if "public class titanprime extends robocode.AdvancedRobot" in template:
+        raise ValueError("Treinador genetico historico 3.x: nao aceita a base 4.x. Use tools/elite_duel.py; para reproduzir o estudo antigo, use o commit documentado.")
     text = template.replace("package equipe;", "package treino;", 1)
     text = re.sub(r"public class (?:titanprime|TitanPrime|Nemesis) extends", "public class " + name + " extends", text, count=1)
     if genome is not None:

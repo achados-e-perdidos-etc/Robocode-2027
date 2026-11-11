@@ -1,1 +1,515 @@
-{"deduplicated_legacy_csv":[{"sha256":"a58f4ce9885dd62a66cc8719d65fceda33e271f086bcaab7f0f836200e49e6aa","file":"/workspace/Robocode-2027/tests/telemetry-rounds.csv","rows":45,"schema":"telemetry_without_certified_outcome","scope":"No reliable WinEvent field; correlate with associated battle JSON instead of inventing wins or losses"},{"sha256":"2e2e34a910ae3abbe42289055e101de0c6b57e23e35aaea0425f839f558c4570","file":"/workspace/Robocode-2027/tests/diagnostic-duel-records.csv","rows":100,"schema":"pre_win_event_fix","unconfirmed_no_win_rows":100,"scope":"Known old event ordering defect; zeros do not certify defeats"},{"sha256":"35881f4561c3fecfc97bf0bceb06f4b4957d5d40fc2be151b816bd425b12a67b","file":"/workspace/Robocode-2027/tests/four-rounds.csv","rows":647,"schema":"telemetry_without_certified_outcome","scope":"No reliable WinEvent field; correlate with associated battle JSON instead of inventing wins or losses"},{"sha256":"f31cb00cae05493f5e477f838a53814adb4ffe2c09f363aa915225e0cf4420ac","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-strong_melee-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":6,"top_attackers":{"voidious.Diamond 1.8.28":5,"reference.supermercutio*":1},"energy_spent_in_loss_rows":374.13,"received_in_loss_rows":406.37,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"63f16c0e0211b74fa4fca8f274c8518b07dbefe04fbcc29c5631d52f352349d9","file":"/workspace/robocode-user/vingation-comparison/archived-data/prime-supermercutio-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"voidious.Diamond 1.8.28":9},"energy_spent_in_loss_rows":560.77,"received_in_loss_rows":455.34999999999997,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"47c2901881083985e037b51d9c5aa76e46d9dd6dbd0be114b88c05861671f949","file":"/workspace/robocode-user/vingation-comparison/archived-data/direct-saved-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":8,"top_attackers":{"treino.primev3*":8},"energy_spent_in_loss_rows":583.48,"received_in_loss_rows":395.41,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"bb7fcabd38a3d0ebae24945a1de62ea907fe68e0b9a93ebb35c2c34c71f864dd","file":"/workspace/robocode-user/vingation-comparison/archived-data/direct-clean-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"treino.primev3*":9},"energy_spent_in_loss_rows":498.34,"received_in_loss_rows":555.22,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"38a030723a945a9a6939089b1dfe485910928913a9f019280beb37885c72c098","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-supermercutio-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":0,"top_attackers":{},"energy_spent_in_loss_rows":0,"received_in_loss_rows":0,"skipped_in_loss_rows":0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"f7af94f052cd70f9c5a07da47bfe56aa770a873f06257e25def04bcdc22c46e2","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-strong_melee-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":7,"top_attackers":{"reference.supermercutio*":1,"voidious.Diamond 1.8.28":6},"energy_spent_in_loss_rows":379.95,"received_in_loss_rows":555.94,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"c6d3632e110115a70634e87b40c32a872f1db86be25f4912d96ad353490b3628","file":"/workspace/robocode-user/vingation-comparison/archived-data/prime-diamond-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"voidious.Diamond 1.8.28":9},"energy_spent_in_loss_rows":604.03,"received_in_loss_rows":439.44,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"df0e0d1b82d4d161c231e15a5fe6cad809875df3c220fd0826248f8c9ebe8e43","file":"/workspace/robocode-user/vingation-comparison/archived-data/direct-saved-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":8,"top_attackers":{"treino.primev3*":8},"energy_spent_in_loss_rows":567.3,"received_in_loss_rows":397.49,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"6de3aedde8874f7da3505a72352f95c6c6b1aef467544a9789d667eb0a60f7bc","file":"/workspace/robocode-user/vingation-comparison/archived-data/prime-strong_melee-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":8,"top_attackers":{"voidious.Diamond 1.8.28":8},"energy_spent_in_loss_rows":631.25,"received_in_loss_rows":459.83,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"760c92741c3b6a447383450d5939e4382e959307ab5f7a7621ff45d5372a7a90","file":"/workspace/robocode-user/vingation-comparison/archived-data/prime-strong_melee-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":1,"top_attackers":{"reference.supermercutio*":1},"energy_spent_in_loss_rows":60.08,"received_in_loss_rows":66.14,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"ad435da165571813b3f4068f1181ad5f641d9f887b21fc861ea3abc029bc4bf6","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-diamond-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":10,"top_attackers":{"voidious.Diamond 1.8.28":10},"energy_spent_in_loss_rows":508.9,"received_in_loss_rows":591.17,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"78884a2435f74e5a8368d02354a2ab135e4598b9030b880afeca878fa880c3ed","file":"/workspace/robocode-user/vingation-comparison/archived-data/direct-clean-9001/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":7,"top_attackers":{"voidious.Diamond 1.8.28":6,"reference.supermercutio*":1},"energy_spent_in_loss_rows":485.33000000000004,"received_in_loss_rows":457.51,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"650b050d1697dbe84384cbcfab15f644bc999616d694bd6d5c2ae5d808152d91","file":"/workspace/robocode-user/vingation-comparison/archived-data/prime-supermercutio-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":0,"top_attackers":{},"energy_spent_in_loss_rows":0,"received_in_loss_rows":0,"skipped_in_loss_rows":0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"d5f696aaea6f478933f08dfc2b85fc19e46b1d182226d2aedb31b241431ab4c1","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-diamond-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"voidious.Diamond 1.8.28":9},"energy_spent_in_loss_rows":530.98,"received_in_loss_rows":501.67,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"37913819f3f2674d557a6c0be518b17a2adf1ecd04af62fabbfd321596815e01","file":"/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-supermercutio-9257/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":1,"top_attackers":{"reference.supermercutio*":1},"energy_spent_in_loss_rows":57.39,"received_in_loss_rows":70.0,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"282a78d22f2bdf6792414916bd4817262a2236532a0f31f04159415bbd259442","file":"/workspace/robocode-user/vingation-comparison/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":10,"schema":"explicit_legacy_result","explicit_loss_rows":6,"top_attackers":{"treino.primev3*":6},"energy_spent_in_loss_rows":388.28000000000003,"received_in_loss_rows":300.40000000000003,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"6d5ceefe1ccd7a163bc57106f7c6e28da39427f3404010d79c7aebb9415890af","file":"/workspace/robocode-user/robocode/robots/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":30,"schema":"explicit_legacy_result","explicit_loss_rows":28,"top_attackers":{"voidious.Diamond 1.8.28":28},"energy_spent_in_loss_rows":1490.17,"received_in_loss_rows":1713.83,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"f815176220590fbf4fffcca7843b5c105f9b5323f2f6b3605f0526572e852d35","file":"/workspace/robocode-user/perfection/budget-all-opponents/titan.titanvingation/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":3,"schema":"explicit_legacy_result","explicit_loss_rows":3,"top_attackers":{"equipe.titanprime*":3},"energy_spent_in_loss_rows":353.4,"received_in_loss_rows":32.8,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"9582a8daa6b547e2bba5bd44ea25f2abe8906463ffa578db5f10f92c8f4c267c","file":"/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10709/0/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":11,"top_attackers":{"treino.fourmelee*":11},"energy_spent_in_loss_rows":712.49,"received_in_loss_rows":588.33,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"d3e540a22f0141b8dd8825a3bac9c8f60ddae39a05d50261a428142607995374","file":"/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10709/1/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":10,"top_attackers":{"treino.fourmelee*":10},"energy_spent_in_loss_rows":577.9300000000001,"received_in_loss_rows":567.97,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"505658ba19301411103cd07bd6c483f561e05fdfbcb3b700d54df50445514f11","file":"/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-10709/1/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":8,"top_attackers":{"treino.fourbase*":8},"energy_spent_in_loss_rows":512.25,"received_in_loss_rows":457.57,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"268683afd2777084190ee9aa71cd11adadd92824f88e4d15d6e621067cee2d31","file":"/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-11213/0/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":11,"top_attackers":{"treino.fourmelee*":11},"energy_spent_in_loss_rows":751.45,"received_in_loss_rows":605.86,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"70f023520c97c3a22e63c709586f9e2ed615479cbe69e0ab39dbd66ef70722c7","file":"/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-10949/0/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"treino.fourbase*":9},"energy_spent_in_loss_rows":548.18,"received_in_loss_rows":520.99,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"c8cf876a319c2caaee4a42ced09f83d6d9c21535064a3ee3f9500b08edfd3150","file":"/workspace/robocode-user/four/run/archived-data/validation-base-vingation-11213/0/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":9,"top_attackers":{"treino.fourmelee*":9},"energy_spent_in_loss_rows":560.02,"received_in_loss_rows":465.47,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"8994942d5278d2f08320d4239c5f418887a3fe1bd4bb1d55b3cdc74f282033ca","file":"/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10949/0/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":10,"top_attackers":{"treino.fourbase*":10},"energy_spent_in_loss_rows":629.32,"received_in_loss_rows":546.13,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"},{"sha256":"9a16adb3cf0297ff09d4a431fa0e7f47ae637fb7500dc5feb592a74292c6cf72","file":"/workspace/robocode-user/four/run/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv","rows":12,"schema":"explicit_legacy_result","explicit_loss_rows":8,"top_attackers":{"treino.fourbase*":8},"energy_spent_in_loss_rows":576.46,"received_in_loss_rows":385.41,"skipped_in_loss_rows":0.0,"scope":"Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"}],"user_pc_exports":[{"file":"/workspace/Robocode-2027/tests/pc/titanpribe2.csv","sha256":"4ffb47c5716ca1b43740bdcf6c8d5f40a8ebb35153218ff5b5dbb0c8da9f3faa","results":[{"Rank":"1st","Robot Name":"equipe.titanprime*","Total Score":"3151 (76%)","Survival":"1400","Surv Bonus":"280","Bullet Dmg":"1237","Bullet Bonus":"234","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"28","2nds":"2","3rds":"0"},{"Rank":"2nd","Robot Name":"titan.TitanV3 3.0","Total Score":"984 (24%)","Survival":"100","Surv Bonus":"20","Bullet Dmg":"843","Bullet Bonus":"21","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"2","2nds":"28","3rds":"0"}],"scope":"User PC result export; lacks source hash and complete per-round telemetry"},{"file":"/workspace/Robocode-2027/tests/pc/titanprime3.csv","sha256":"d8697fa44c8c5358be6adfc8fe932585ae5cd6563e41b5286b7c9fe52ff4a59d","results":[{"Rank":"1st","Robot Name":"voidious.Diamond 1.8.28","Total Score":"4781 (45%)","Survival":"2050","Surv Bonus":"360","Bullet Dmg":"2098","Bullet Bonus":"271","Ram Dmg * 2":"1","Ram Bonus":"0","1sts":"18","2nds":"5","3rds":"7"},{"Rank":"2nd","Robot Name":"equipe.titanprime*","Total Score":"3688 (34%)","Survival":"1800","Surv Bonus":"200","Bullet Dmg":"1501","Bullet Bonus":"186","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"10","2nds":"16","3rds":"4"},{"Rank":"3rd","Robot Name":"titan.TitanV3 3.0","Total Score":"2232 (21%)","Survival":"650","Surv Bonus":"40","Bullet Dmg":"1414","Bullet Bonus":"128","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"2","2nds":"9","3rds":"19"}],"scope":"User PC result export; lacks source hash and complete per-round telemetry"},{"file":"/workspace/Robocode-2027/tests/pc/titanprime1.csv","sha256":"da96fbe914b8da022d55b1c254390dd5ef5907e68f2261e5e98e17779e973f23","results":[{"Rank":"1st","Robot Name":"voidious.Diamond 1.8.28","Total Score":"3934 (90%)","Survival":"1500","Surv Bonus":"300","Bullet Dmg":"1779","Bullet Bonus":"356","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"30","2nds":"0","3rds":"0"},{"Rank":"2nd","Robot Name":"equipe.titanprime*","Total Score":"434 (10%)","Survival":"0","Surv Bonus":"0","Bullet Dmg":"434","Bullet Bonus":"0","Ram Dmg * 2":"0","Ram Bonus":"0","1sts":"0","2nds":"30","3rds":"0"}],"scope":"User PC result export; lacks source hash and complete per-round telemetry"}],"limitations":["Content-identical files deduplicated; overlapping partial legacy files may still refer to the same battle.","Legacy diagnostics can describe other robots, including TitanVingation, and are not attributed to the current candidate.","Pre-fix WinEvent fields are not used to certify losses."]}
+{
+  "deduplicated_legacy_csv": [
+    {
+      "sha256": "a58f4ce9885dd62a66cc8719d65fceda33e271f086bcaab7f0f836200e49e6aa",
+      "file": "/workspace/Robocode-2027/tests/telemetry-rounds.csv",
+      "rows": 45,
+      "schema": "telemetry_without_certified_outcome",
+      "scope": "No reliable WinEvent field; correlate with associated battle JSON instead of inventing wins or losses"
+    },
+    {
+      "sha256": "2e2e34a910ae3abbe42289055e101de0c6b57e23e35aaea0425f839f558c4570",
+      "file": "/workspace/Robocode-2027/tests/diagnostic-duel-records.csv",
+      "rows": 100,
+      "schema": "pre_win_event_fix",
+      "unconfirmed_no_win_rows": 100,
+      "scope": "Known old event ordering defect; zeros do not certify defeats"
+    },
+    {
+      "sha256": "35881f4561c3fecfc97bf0bceb06f4b4957d5d40fc2be151b816bd425b12a67b",
+      "file": "/workspace/Robocode-2027/tests/four-rounds.csv",
+      "rows": 647,
+      "schema": "telemetry_without_certified_outcome",
+      "scope": "No reliable WinEvent field; correlate with associated battle JSON instead of inventing wins or losses"
+    },
+    {
+      "sha256": "f31cb00cae05493f5e477f838a53814adb4ffe2c09f363aa915225e0cf4420ac",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-strong_melee-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 6,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 5,
+        "reference.supermercutio*": 1
+      },
+      "energy_spent_in_loss_rows": 374.13,
+      "received_in_loss_rows": 406.37,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "63f16c0e0211b74fa4fca8f274c8518b07dbefe04fbcc29c5631d52f352349d9",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/prime-supermercutio-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 9
+      },
+      "energy_spent_in_loss_rows": 560.77,
+      "received_in_loss_rows": 455.34999999999997,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "47c2901881083985e037b51d9c5aa76e46d9dd6dbd0be114b88c05861671f949",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/direct-saved-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 8,
+      "top_attackers": {
+        "treino.primev3*": 8
+      },
+      "energy_spent_in_loss_rows": 583.48,
+      "received_in_loss_rows": 395.41,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "bb7fcabd38a3d0ebae24945a1de62ea907fe68e0b9a93ebb35c2c34c71f864dd",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/direct-clean-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "treino.primev3*": 9
+      },
+      "energy_spent_in_loss_rows": 498.34,
+      "received_in_loss_rows": 555.22,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "38a030723a945a9a6939089b1dfe485910928913a9f019280beb37885c72c098",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-supermercutio-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 0,
+      "top_attackers": {},
+      "energy_spent_in_loss_rows": 0,
+      "received_in_loss_rows": 0,
+      "skipped_in_loss_rows": 0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "f7af94f052cd70f9c5a07da47bfe56aa770a873f06257e25def04bcdc22c46e2",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-strong_melee-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 7,
+      "top_attackers": {
+        "reference.supermercutio*": 1,
+        "voidious.Diamond 1.8.28": 6
+      },
+      "energy_spent_in_loss_rows": 379.95,
+      "received_in_loss_rows": 555.94,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "c6d3632e110115a70634e87b40c32a872f1db86be25f4912d96ad353490b3628",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/prime-diamond-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 9
+      },
+      "energy_spent_in_loss_rows": 604.03,
+      "received_in_loss_rows": 439.44,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "df0e0d1b82d4d161c231e15a5fe6cad809875df3c220fd0826248f8c9ebe8e43",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/direct-saved-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 8,
+      "top_attackers": {
+        "treino.primev3*": 8
+      },
+      "energy_spent_in_loss_rows": 567.3,
+      "received_in_loss_rows": 397.49,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "6de3aedde8874f7da3505a72352f95c6c6b1aef467544a9789d667eb0a60f7bc",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/prime-strong_melee-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 8,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 8
+      },
+      "energy_spent_in_loss_rows": 631.25,
+      "received_in_loss_rows": 459.83,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "760c92741c3b6a447383450d5939e4382e959307ab5f7a7621ff45d5372a7a90",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/prime-strong_melee-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 1,
+      "top_attackers": {
+        "reference.supermercutio*": 1
+      },
+      "energy_spent_in_loss_rows": 60.08,
+      "received_in_loss_rows": 66.14,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "ad435da165571813b3f4068f1181ad5f641d9f887b21fc861ea3abc029bc4bf6",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-diamond-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 10,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 10
+      },
+      "energy_spent_in_loss_rows": 508.9,
+      "received_in_loss_rows": 591.17,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "78884a2435f74e5a8368d02354a2ab135e4598b9030b880afeca878fa880c3ed",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/direct-clean-9001/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 7,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 6,
+        "reference.supermercutio*": 1
+      },
+      "energy_spent_in_loss_rows": 485.33000000000004,
+      "received_in_loss_rows": 457.51,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "650b050d1697dbe84384cbcfab15f644bc999616d694bd6d5c2ae5d808152d91",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/prime-supermercutio-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 0,
+      "top_attackers": {},
+      "energy_spent_in_loss_rows": 0,
+      "received_in_loss_rows": 0,
+      "skipped_in_loss_rows": 0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "d5f696aaea6f478933f08dfc2b85fc19e46b1d182226d2aedb31b241431ab4c1",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-diamond-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 9
+      },
+      "energy_spent_in_loss_rows": 530.98,
+      "received_in_loss_rows": 501.67,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "37913819f3f2674d557a6c0be518b17a2adf1ecd04af62fabbfd321596815e01",
+      "file": "/workspace/robocode-user/vingation-comparison/archived-data/vingation_saved-supermercutio-9257/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 1,
+      "top_attackers": {
+        "reference.supermercutio*": 1
+      },
+      "energy_spent_in_loss_rows": 57.39,
+      "received_in_loss_rows": 70.0,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "282a78d22f2bdf6792414916bd4817262a2236532a0f31f04159415bbd259442",
+      "file": "/workspace/robocode-user/vingation-comparison/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 10,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 6,
+      "top_attackers": {
+        "treino.primev3*": 6
+      },
+      "energy_spent_in_loss_rows": 388.28000000000003,
+      "received_in_loss_rows": 300.40000000000003,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "6d5ceefe1ccd7a163bc57106f7c6e28da39427f3404010d79c7aebb9415890af",
+      "file": "/workspace/robocode-user/robocode/robots/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 30,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 28,
+      "top_attackers": {
+        "voidious.Diamond 1.8.28": 28
+      },
+      "energy_spent_in_loss_rows": 1490.17,
+      "received_in_loss_rows": 1713.83,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "f815176220590fbf4fffcca7843b5c105f9b5323f2f6b3605f0526572e852d35",
+      "file": "/workspace/robocode-user/perfection/budget-all-opponents/titan.titanvingation/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 3,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 3,
+      "top_attackers": {
+        "equipe.titanprime*": 3
+      },
+      "energy_spent_in_loss_rows": 353.4,
+      "received_in_loss_rows": 32.8,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "9582a8daa6b547e2bba5bd44ea25f2abe8906463ffa578db5f10f92c8f4c267c",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10709/0/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 11,
+      "top_attackers": {
+        "treino.fourmelee*": 11
+      },
+      "energy_spent_in_loss_rows": 712.49,
+      "received_in_loss_rows": 588.33,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "d3e540a22f0141b8dd8825a3bac9c8f60ddae39a05d50261a428142607995374",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10709/1/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 10,
+      "top_attackers": {
+        "treino.fourmelee*": 10
+      },
+      "energy_spent_in_loss_rows": 577.9300000000001,
+      "received_in_loss_rows": 567.97,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "505658ba19301411103cd07bd6c483f561e05fdfbcb3b700d54df50445514f11",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-10709/1/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 8,
+      "top_attackers": {
+        "treino.fourbase*": 8
+      },
+      "energy_spent_in_loss_rows": 512.25,
+      "received_in_loss_rows": 457.57,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "268683afd2777084190ee9aa71cd11adadd92824f88e4d15d6e621067cee2d31",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-11213/0/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 11,
+      "top_attackers": {
+        "treino.fourmelee*": 11
+      },
+      "energy_spent_in_loss_rows": 751.45,
+      "received_in_loss_rows": 605.86,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "70f023520c97c3a22e63c709586f9e2ed615479cbe69e0ab39dbd66ef70722c7",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-melee-vingation-10949/0/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "treino.fourbase*": 9
+      },
+      "energy_spent_in_loss_rows": 548.18,
+      "received_in_loss_rows": 520.99,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "c8cf876a319c2caaee4a42ced09f83d6d9c21535064a3ee3f9500b08edfd3150",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-base-vingation-11213/0/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 9,
+      "top_attackers": {
+        "treino.fourmelee*": 9
+      },
+      "energy_spent_in_loss_rows": 560.02,
+      "received_in_loss_rows": 465.47,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "8994942d5278d2f08320d4239c5f418887a3fe1bd4bb1d55b3cdc74f282033ca",
+      "file": "/workspace/robocode-user/four/run/archived-data/validation-base-vingation-10949/0/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 10,
+      "top_attackers": {
+        "treino.fourbase*": 10
+      },
+      "energy_spent_in_loss_rows": 629.32,
+      "received_in_loss_rows": 546.13,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    },
+    {
+      "sha256": "9a16adb3cf0297ff09d4a431fa0e7f47ae637fb7500dc5feb592a74292c6cf72",
+      "file": "/workspace/robocode-user/four/run/engine/robots/.data/titan/TitanVingation.data/round-diagnostics.csv",
+      "rows": 12,
+      "schema": "explicit_legacy_result",
+      "explicit_loss_rows": 8,
+      "top_attackers": {
+        "treino.fourbase*": 8
+      },
+      "energy_spent_in_loss_rows": 576.46,
+      "received_in_loss_rows": 385.41,
+      "skipped_in_loss_rows": 0.0,
+      "scope": "Raw legacy robot diagnostics; separate from certified current TitanPrime outcomes"
+    }
+  ],
+  "user_pc_exports": [
+    {
+      "file": "/workspace/Robocode-2027/tests/pc/titanpribe2.csv",
+      "sha256": "4ffb47c5716ca1b43740bdcf6c8d5f40a8ebb35153218ff5b5dbb0c8da9f3faa",
+      "results": [
+        {
+          "Rank": "1st",
+          "Robot Name": "equipe.titanprime*",
+          "Total Score": "3151 (76%)",
+          "Survival": "1400",
+          "Surv Bonus": "280",
+          "Bullet Dmg": "1237",
+          "Bullet Bonus": "234",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "28",
+          "2nds": "2",
+          "3rds": "0"
+        },
+        {
+          "Rank": "2nd",
+          "Robot Name": "titan.TitanV3 3.0",
+          "Total Score": "984 (24%)",
+          "Survival": "100",
+          "Surv Bonus": "20",
+          "Bullet Dmg": "843",
+          "Bullet Bonus": "21",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "2",
+          "2nds": "28",
+          "3rds": "0"
+        }
+      ],
+      "scope": "User PC result export; lacks source hash and complete per-round telemetry"
+    },
+    {
+      "file": "/workspace/Robocode-2027/tests/pc/titanprime3.csv",
+      "sha256": "d8697fa44c8c5358be6adfc8fe932585ae5cd6563e41b5286b7c9fe52ff4a59d",
+      "results": [
+        {
+          "Rank": "1st",
+          "Robot Name": "voidious.Diamond 1.8.28",
+          "Total Score": "4781 (45%)",
+          "Survival": "2050",
+          "Surv Bonus": "360",
+          "Bullet Dmg": "2098",
+          "Bullet Bonus": "271",
+          "Ram Dmg * 2": "1",
+          "Ram Bonus": "0",
+          "1sts": "18",
+          "2nds": "5",
+          "3rds": "7"
+        },
+        {
+          "Rank": "2nd",
+          "Robot Name": "equipe.titanprime*",
+          "Total Score": "3688 (34%)",
+          "Survival": "1800",
+          "Surv Bonus": "200",
+          "Bullet Dmg": "1501",
+          "Bullet Bonus": "186",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "10",
+          "2nds": "16",
+          "3rds": "4"
+        },
+        {
+          "Rank": "3rd",
+          "Robot Name": "titan.TitanV3 3.0",
+          "Total Score": "2232 (21%)",
+          "Survival": "650",
+          "Surv Bonus": "40",
+          "Bullet Dmg": "1414",
+          "Bullet Bonus": "128",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "2",
+          "2nds": "9",
+          "3rds": "19"
+        }
+      ],
+      "scope": "User PC result export; lacks source hash and complete per-round telemetry"
+    },
+    {
+      "file": "/workspace/Robocode-2027/tests/pc/titanprime1.csv",
+      "sha256": "da96fbe914b8da022d55b1c254390dd5ef5907e68f2261e5e98e17779e973f23",
+      "results": [
+        {
+          "Rank": "1st",
+          "Robot Name": "voidious.Diamond 1.8.28",
+          "Total Score": "3934 (90%)",
+          "Survival": "1500",
+          "Surv Bonus": "300",
+          "Bullet Dmg": "1779",
+          "Bullet Bonus": "356",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "30",
+          "2nds": "0",
+          "3rds": "0"
+        },
+        {
+          "Rank": "2nd",
+          "Robot Name": "equipe.titanprime*",
+          "Total Score": "434 (10%)",
+          "Survival": "0",
+          "Surv Bonus": "0",
+          "Bullet Dmg": "434",
+          "Bullet Bonus": "0",
+          "Ram Dmg * 2": "0",
+          "Ram Bonus": "0",
+          "1sts": "0",
+          "2nds": "30",
+          "3rds": "0"
+        }
+      ],
+      "scope": "User PC result export; lacks source hash and complete per-round telemetry"
+    }
+  ],
+  "limitations": [
+    "Content-identical files deduplicated; overlapping partial legacy files may still refer to the same battle.",
+    "Legacy diagnostics can describe other robots, including TitanVingation, and are not attributed to the current candidate.",
+    "Pre-fix WinEvent fields are not used to certify losses."
+  ]
+}

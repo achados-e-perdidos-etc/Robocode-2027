@@ -1,98 +1,56 @@
-# Como instalar e testar o Titan Prime
+# Instalar e testar o Titan Prime 4.8
 
-Você precisa do **Robocode clássico** e do Java. Este arquivo não serve para o Tank Royale. O código usa sintaxe Java 8 e foi validado no Java 21 com Robocode 1.12.0 e com a sua instalação 1.11.1.
+Use **Robocode clássico**. A classe para selecionar é `equipe.titanprime`. O robô é uma adaptação licenciada do Diamond aberto e não precisa do JAR do adversário para compilar ou funcionar. Para enfrentá-lo, instale o Diamond separadamente.
 
-## Colocar o robô no jogo
+Baixe o [JAR 4.8](releases/titanprime-4.8.jar) para importar pelo Robocode, ou compile o fonte conforme abaixo. O resultado deste checkpoint foi 49/50 e 48/50 contra Diamond; as melhorias continuam.
 
-1. No GitHub, abra **Code > Download ZIP** e extraia o projeto.
-2. Abra a pasta de instalação do seu Robocode e entre em `robots`.
-3. Crie a pasta `equipe`, se ainda não existir.
-4. Copie somente `robots/equipe/titanprime.java` do projeto para essa pasta. O caminho final deve ser `robocode/robots/equipe/titanprime.java`.
-5. Para evitar selecionar o robô antigo, remova `Nemesis.java`, `Nemesis.class` e `Nemesis$*.class` da sua pasta `robots/equipe`. Se você instalou a primeira versão, remova os arquivos `Sentinela.java`, `Sentinela.class` e eventuais `Sentinela$*.class` da sua instalação para não selecionar o robô antigo.
-6. No jogo, abra **Robot > Source Editor**, abra `titanprime.java` e selecione **Compiler > Compile**.
-7. Em **Battle > New**, procure `equipe.titanprime` (pode aparecer com `*`, indicando uma versão em desenvolvimento).
+## Instalação no Windows
 
-O compilador gera vários arquivos `.class` para as classes internas. Isso é normal: todo o código fonte continua em um único `.java`.
+1. Feche o Robocode e copie [robots/equipe/titanprime.java](robots/equipe/titanprime.java) para `C:\robocode\robots\equipe\titanprime.java`.
+2. Guarde uma cópia do diagnóstico antigo se desejar. Remova somente os antigos `titanprime.class` e `titanprime$*.class` dessa pasta para evitar misturar compilações. Não remova os robôs de exemplo.
+3. Abra o jogo com o Java 17 que você já configurou. No editor, abra o novo fonte e compile.
+4. Em **Battle > New**, pressione **Ctrl+R** se necessário e selecione `equipe.titanprime` ou `equipe.titanprime*`.
 
-## Diagnostico salvo automaticamente (3.10)
+Muitos `.class` são esperados: todas as classes internas saem do mesmo Java. Copiar apenas a classe principal compilada deixa dependências faltando.
 
-Depois dos rounds, o Prime grava `diagnostico.csv` na propria pasta de dados. Na instalacao usada nos testes: `robots/equipe/titanprime.data/diagnostico.csv`. O arquivo conserva os registros recentes ate 48 KB, inclusive depois de fechar o jogo normalmente. Veja [diagnostico-e-duelos.md](diagnostico-e-duelos.md) para os campos, limites e resultados. Envie esse CSV para analisar os proximos testes.
+Se preferir compilar no Prompt de Comando, com o JDK 17 no PATH:
 
-## Batalhas de avaliacao
-
-Use arena **800 x 600**, resfriamento **0,1** e, inicialmente, **10 a 12 rounds**. Avalie **pontos e vitorias**, contando todos os rounds igualmente. Registre a pontuacao absoluta, a parcela dos pontos da arena e as primeiras colocacoes por pontos e por rounds. Compare cada versao nas mesmas arenas e largadas; reserve batalhas novas para confirmar a melhoria. O criterio atual nao prioriza os tres primeiros rounds.
-
-Priorize Diamond 1.8.28, SuperMercutio, os dois simultaneamente e os Titans fornecidos. Em cada confronto, adicione apenas uma copia do Prime, sem aliados. Em todos contra todos, os demais oponentes tambem se enfrentam; uma equipe coordenada e outro tipo de teste.
-
-RamFire e SpinBot servem para uma verificacao curta de instalacao ou regressao. Nao e necessario repetir grandes baterias de exemplos a cada alteracao. Os arquivos `.battle` antigos e as ferramentas de melhor de tres permanecem para reproduzir estudos historicos, sem definir o criterio atual de melhoria.
-
-A comparacao das quatro melhorias, os comandos de teste e os resultados estao em [quatro-melhorias.md](quatro-melhorias.md). O Prime precisa somente do Java unico; os adversarios devem estar instalados separadamente. O projeto nao redistribui seus fontes ou binarios.
-
-## Ver a percepção do robô
-
-Durante a batalha, abra a janela do Titan Prime e habilite **Paint**. Os nomes exatos podem variar com a versão do jogo. A tecla **V**, quando encaminhada ao robô pelo jogo, alterna o desenho.
-
-- Círculos vermelhos: ondas de tiros estimadas.
-- Quadrado amarelo: alvo escolhido; cinza: outros adversários observados.
-- Linha azul: destino escolhido pela avaliação de risco.
-- `E`: energia conhecida; `age`: ticks desde o último scan.
-
-Os desenhos representam estimativas disponíveis ao robô, não revelam informações ocultas do jogo. Os dados de depuração também mostram o modo da mira: 0 direta, 1 linear, 2 circular, 3 GuessFactor, 4 neural, 5 KNN de visitas, 6 KNN de tiros reais e 9 reativa. Os indices 7 e 8 pertencem a miras experimentais que nao estao habilitadas por padrao.
-
-A comparacao mais recente de ataque, rotas e quantidade de inimigos esta em [pontos-e-vitorias.md](pontos-e-vitorias.md).
-
-## Comparar versões
-
-Registre a versão do Robocode, versão do código, adversários, regras, rounds, pontuação e primeiras colocações. Repita as mesmas condições, idealmente com várias sementes ou lotes: as posições iniciais influenciam os resultados. Uma única vitória não demonstra melhora.
-
-No console do robô, cada round registra tiros, acertos, ondas detectadas, ondas associadas a balas, colisões com paredes e turnos perdidos. As linhas `learn` mostram o histórico acumulado por inimigo, incluindo amostras neurais. As amostras de defesa incluem balas que acertaram o robô e colisões entre balas.
-
-Na versão 3.2, `passed` e `taken` indicam massas com decaimento usadas na defesa que reduz trajetórias repetidas. São estimativas de ondas observadas, não contadores exatos da precisão adversária. A análise do Titan e os testes dessa atualização estão em [titan-analise.md](titan-analise.md).
-
-## Verificação numérica opcional
-
-Com Python 3 e um JDK instalado:
-
-```sh
-python tests/core_checks.py --api /caminho/robocode/libs/robocode.jar
+```bat
+cd /d C:\robocode
+javac --release 8 -encoding UTF-8 -cp libs\robocode.jar -d robots robots\equipe\titanprime.java
 ```
 
-Se usar o compilador Eclipse em vez de `javac`, acrescente `--ecj /caminho/ecj.jar`. Esse teste gera seu auxiliar Java em uma pasta temporária; o robô continua com um único arquivo fonte no projeto.
+`--release 8` gera bytecode 52, evitando o erro de classe 61 quando uma instalação acaba abrindo pelo Java 8. Os testes desta atualização usam Robocode 1.12.0 no Java 21; executar pelo Java 17 continua sendo a configuração indicada para seu PC.
 
-## Treinar várias versões
+## Avaliar contra Diamond
 
-Veja [treinamento.md](treinamento.md) para rodar o torneio por gerações em uma instalação separada e comparar uma candidata sem substituir o robô atual. Você não precisa de Python nem dessas ferramentas para jogar com `titanprime.java`.
+Selecione uma cópia do Prime e **voidious.Diamond 1.8.28**, arena **800 × 600**, resfriamento **0,1**, inatividade **450** e **30 rounds**. O cenário [battles/duelo-diamond.battle](battles/duelo-diamond.battle) usa essas regras.
 
-## Historico: regra anterior de melhor de tres
+Guarde pontos e `1sts`. Se a soma de `1sts` ultrapassar 30, houve primeiras colocações simultâneas; o validador desconta esse excesso das vitórias do Prime. Repita em novas batalhas para avaliar variação, conservando também resultados ruins.
 
-A regra anterior exigia vencer **pelo menos dois dos tres rounds**. Ela foi substituida pela avaliacao de pontos e vitorias em batalhas mais longas. O placar padrao do Robocode usa pontuacao acumulada; `1sts` informa os rounds vencidos. Sao metricas diferentes e ambas devem ser registradas.
+Para repetir o protocolo automático numa instalação separada, com Python 3 e JDK:
 
-Para reproduzir aquele estudo historico, use batalhas independentes de tres rounds com `tools/bo3.py`. Dividir uma batalha de 30 rounds depois altera o aprendizado acumulado. Veja [melhor-de-tres.md](melhor-de-tres.md). Essa ferramenta nao define a escolha das novas versoes.
+```sh
+python tools/elite_duel.py --home /caminho/robocode --opponent /caminho/voidious.Diamond_1.8.28.jar --output /caminho/novo-lote --random-starts
+```
 
-## Treinos RamFire e SpinBot
+Se usar Eclipse ECJ, acrescente `--ecj /caminho/ecj.jar`. A ferramenta copia apenas `libs` e `config`, instala os dois participantes, compila a classe canônica e cria o plano antes de começar. Não modifica sua instalação. Não sobrescreve lotes anteriores. No modo `--random-starts`, o motor sorteia as posições a cada round. Os números dos lotes não são sementes de aleatoriedade. Sem essa opção, a ferramenta permite reproduzir os estudos antigos de largadas fixas. Veja o [relatório](ciclo-elite.md).
 
-Foram adicionados três cenários prontos de três rounds. O resultado dos treinos e o cenário de aproximação a 100 pixels estão em [ramfire-spinbot.md](ramfire-spinbot.md). O Java atual foi preservado após a comparação com a candidata treinada.
+Para vários adversários, adicione os inimigos desejados e somente uma cópia do Prime. Em todos contra todos eles também se enfrentam. Os demais cenários em `battles` ajudam a montar confrontos, mas seus resultados históricos não validam automaticamente a base atual.
 
-Os nomes dos arquivos do projeto foram padronizados em minúsculas. O robô atual é `robots/equipe/titanprime.java`, com classe `equipe.titanprime`. Relatórios e comandos de commits antigos preservam os nomes usados nas respectivas versões.
+## Cores, pintura e diagnóstico
 
-Ao atualizar uma instalação antiga, remova também `TitanPrime.java`, `TitanPrime.class` e `TitanPrime$*.class` antigos antes de copiar e compilar `titanprime.java`. O nome para selecionar na batalha passa a ser `equipe.titanprime`.
+Cada batalha sorteia uma paleta, mantida entre rounds; cores podem se repetir por acaso em batalhas diferentes. Ao vencer um round, o Prime gira corpo e canhão e anima as cores até o encerramento. Não é preciso ativar Paint para isso.
 
-## Todos os exemplos da instalação
+Para desenhar as estimativas, habilite **Paint** na janela do robô. As teclas **R**, **G** e **M**, encaminhadas pelo Robocode, alternam radar, mira e movimento. A tecla V pertence ao motor antigo. A pintura representa informações observadas e hipóteses de ondas, sem acesso às balas ocultas.
 
-A versão 3.3 foi testada contra os exemplos autônomos, grupos de adversários e a equipe real de cinco robôs. Há cenários prontos em `battles/equipe-cinco.battle`, `battles/todos-autonomos.battle` e `battles/sentinela.battle`.
+Após os rounds, encontre `C:\robocode\robots\equipe\titanprime.data\diagnostico.csv`. Ele guarda até 48 KB recentes, com vitória, tiros, acertos, gasto de energia, dano nominal, paredes e turnos perdidos. O esquema 4.0 substitui um arquivo 3.x existente. A [arquitetura](arquitetura.md) explica os limites dos campos.
 
-Os resultados completos, os exemplos que dependem de controle humano e a correção das posições do treinador estão em [robos-de-exemplo.md](robos-de-exemplo.md). Para repetir automaticamente, use `python tools/samples.py --home /caminho/robocode-testes --output /caminho/resultados`, acrescentando `--ecj /caminho/ecj.jar` se necessário.
+## Verificações do código
 
-## Cores e comemoração (3.4)
+```sh
+python tests/elite_checks.py --api /caminho/robocode/libs/robocode.jar
+python tests/diagnostic_persistence.py --home /caminho/robocode --ecj /caminho/ecj.jar --output /caminho/nova-verificacao
+```
 
-Cada batalha sorteia uma paleta, mantida entre seus rounds. Após vencer um round, o Titan gira e troca de cores até o encerramento. Reduza a velocidade do jogo para ver a animação; **Paint** não é necessário. Detalhes e teste em [cores-e-comemoracao.md](cores-e-comemoracao.md).
-
-As referências das 20 técnicas de defesa estão em [referencias-defesa.md](referencias-defesa.md). Os testes de retângulo e KNN ficaram experimentais após não aumentarem as séries vencidas: [defesa-experimentos.md](defesa-experimentos.md).
-
-## Ataque híbrido (3.5)
-
-A versão 3.5 acrescenta KNN por contexto e ondas de observação entre tiros, preservando as cores e a comemoração. No indicador de mira, os modos 5 e 6 são KNN por visitas e KNN de ondas de tiros reais. Os modos 0 a 4 continuam disponíveis. O ganho medido e as derrotas remanescentes estão em [ataque-experimentos.md](ataque-experimentos.md); a relação com as 25 técnicas está em [referencias-ataque.md](referencias-ataque.md).
-
-## Diagnóstico de combate (3.6)
-
-A versão 3.6 acrescenta uma linha de telemetria por round, sem ativar nova estratégia de ataque ou defesa. A ferramenta externa gera CSV de dano nominal, energia investida, scans e associações de impactos: [telemetria.md](telemetria.md). A [arquitetura real](arquitetura.md) distingue os recursos implementados das propostas futuras.
+O primeiro aceita `--ecj` se necessário. O segundo usa adversário passivo somente para conferir gravação, vitória tardia e rotação do CSV; não mede força competitiva. A lista de [testes atuais](tests/readme.md) separa essas verificações dos treinadores históricos 3.x, incompatíveis com o novo motor.

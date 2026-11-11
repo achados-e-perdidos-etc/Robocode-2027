@@ -1,0 +1,51 @@
+{
+  "version": "4.8",
+  "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+  "saved_at_user_request": true,
+  "goal_of_all_rounds_not_met": true,
+  "cpu_constant_ns": 10030489,
+  "engine": "1.12.0",
+  "opponent": "voidious.Diamond 1.8.28",
+  "random_starts": true,
+  "results": [
+    {
+      "case": 54599,
+      "rounds": 50,
+      "wins": 49,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3624,
+          "firsts": 49
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1991,
+          "firsts": 1
+        }
+      ]
+    },
+    {
+      "case": 54767,
+      "rounds": 50,
+      "wins": 48,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3512,
+          "firsts": 48
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1933,
+          "firsts": 2
+        }
+      ]
+    }
+  ],
+  "aggregate_wins": 97,
+  "aggregate_rounds": 100,
+  "scope": "Checkpoint requested by user before further improvements. Other catalogue and Chimp results belong to older candidates; not asserted for this source."
+}

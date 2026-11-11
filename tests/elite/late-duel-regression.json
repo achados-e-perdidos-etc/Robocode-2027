@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "behavior": "A battle beginning with three opponents must learn the actual nonzero GuessFactor once only one opponent remains. Original fails; patch passes. No change to initial duel or active melee labeling.",
+  "results": [
+    {
+      "case": "inherited",
+      "source_sha256": "32feb1f76d1866436117d3ecc8c197096184e5fc017de8dab8edf6f06cfc6179",
+      "returncode": 1,
+      "stdout": "INITIAL=1 CURRENT=1 LEARNED=0.3\nINITIAL=3 CURRENT=1 LEARNED=0.0\n",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: Late duel training used a zero label instead of observed displacement\n\tat equipe.lateprobe.main(lateprobe.java:23)\n"
+    },
+    {
+      "case": "fixed",
+      "source_sha256": "8da1510b0b0b3b8b5ec4d08719dd27f266e8d942a677b5a4e1e29eaa16a305cb",
+      "returncode": 0,
+      "stdout": "INITIAL=1 CURRENT=1 LEARNED=0.3\nINITIAL=3 CURRENT=1 LEARNED=0.3\nINITIAL=3 CURRENT=3 LEARNED=0.0\n",
+      "stderr": ""
+    }
+  ]
+}

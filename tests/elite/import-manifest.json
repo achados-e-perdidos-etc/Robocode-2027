@@ -1,0 +1,333 @@
+{
+  "upstream_commit": "2d1c6a2b911cf077c5f13d2baa45da7d18d6babb",
+  "files": [
+    {
+      "path": "ags/utils/KdTree.java",
+      "sha256": "d1b011de33a690fbd10c21794be581ca09700121842e9484adbaf8e50911e1cb",
+      "nested_name": "ags_utils_KdTree"
+    },
+    {
+      "path": "ags/utils/dataStructures/BinaryHeap.java",
+      "sha256": "6587dd2ca066618ac4ff8642123d6904166daff663128ec1ec4e28aba5823989",
+      "nested_name": "ags_utils_dataStructures_BinaryHeap"
+    },
+    {
+      "path": "ags/utils/dataStructures/IntervalHeap.java",
+      "sha256": "1d39d8266c980c0d0457e9444a353ddf4aecd3c4f029b4caf8cad760df74b5d8",
+      "nested_name": "ags_utils_dataStructures_IntervalHeap"
+    },
+    {
+      "path": "ags/utils/dataStructures/MaxHeap.java",
+      "sha256": "859dfe94018c79f7daa4f62a4e5f367d6c33486771167757d2cfacecf167b957",
+      "nested_name": "ags_utils_dataStructures_MaxHeap"
+    },
+    {
+      "path": "ags/utils/dataStructures/MinHeap.java",
+      "sha256": "cb40ff8df351a40497a88b099faf0e20a7a2b35e2be6effef2a6bc814b185dbc",
+      "nested_name": "ags_utils_dataStructures_MinHeap"
+    },
+    {
+      "path": "ags/utils/dataStructures/trees/thirdGenKD/DistanceFunction.java",
+      "sha256": "d8cc2cfbd2c12787973e9c04f3b84aa207044a672c01998dd9ac10cf00461d34",
+      "nested_name": "ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction"
+    },
+    {
+      "path": "ags/utils/dataStructures/trees/thirdGenKD/KdNode.java",
+      "sha256": "4c2a11b8226b2d89897ba264099e9476576b408ffa204408fac3f04a723b45f8",
+      "nested_name": "ags_utils_dataStructures_trees_thirdGenKD_KdNode"
+    },
+    {
+      "path": "ags/utils/dataStructures/trees/thirdGenKD/KdTree.java",
+      "sha256": "20f03c691cf85042e29177ad639746884c09015e96fff007fc7037cee6db7164",
+      "nested_name": "ags_utils_dataStructures_trees_thirdGenKD_KdTree"
+    },
+    {
+      "path": "ags/utils/dataStructures/trees/thirdGenKD/NearestNeighborIterator.java",
+      "sha256": "a07c28b310d08f33f01cf639cf78fcf2dc6cda2673495753b6c1722d53320d01",
+      "nested_name": "ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIterator"
+    },
+    {
+      "path": "ags/utils/dataStructures/trees/thirdGenKD/SquareEuclideanDistanceFunction.java",
+      "sha256": "df5a96f910b2c130aa3af32fdff1617ef4e76c11a55beabe7691a94290af18a1",
+      "nested_name": "ags_utils_dataStructures_trees_thirdGenKD_SquareEuclideanDistanceFunction"
+    },
+    {
+      "path": "voidious/Diamond.java",
+      "sha256": "82a6d8812a098e92fc6919714790b499f161440ad690ee536c9c213801f40967",
+      "nested_name": "titanprime"
+    },
+    {
+      "path": "voidious/gfx/ColoredValueSet.java",
+      "sha256": "e584839fd423703c2a29bd4e34ca53da8d97191b32b302b23021b7e34a0a7831",
+      "nested_name": "voidious_gfx_ColoredValueSet"
+    },
+    {
+      "path": "voidious/gfx/DiamondColors.java",
+      "sha256": "4dc0508767593b226d3cf4ece103f7175a319a983f1f2926912b2ac9596edee7",
+      "nested_name": "voidious_gfx_DiamondColors"
+    },
+    {
+      "path": "voidious/gfx/RoboGraphic.java",
+      "sha256": "2dafb7c4927640d9c6550c93630a2fc8703a0cb2e490d9efc77869a00132d5d4",
+      "nested_name": "voidious_gfx_RoboGraphic"
+    },
+    {
+      "path": "voidious/gfx/RoboPainter.java",
+      "sha256": "89d3fe93ba53b8a22e4cc4b84db283196e3641f88d27b8c273e9ba4e7985cdb9",
+      "nested_name": "voidious_gfx_RoboPainter"
+    },
+    {
+      "path": "voidious/gun/AntiSurferGun.java",
+      "sha256": "335e333032b0419853b31c9db6a76b7cd6c30a46a1f0f0421ca016d3298b6209",
+      "nested_name": "voidious_gun_AntiSurferGun"
+    },
+    {
+      "path": "voidious/gun/DiamondFist.java",
+      "sha256": "3ed84212e1e49b2a80d0fc07312d52edeba8e7495f81419aaa4ebf7bbe7f00ec",
+      "nested_name": "voidious_gun_DiamondFist"
+    },
+    {
+      "path": "voidious/gun/DuelGun.java",
+      "sha256": "759c3835d83cc1c0953c09879f6deb7b2b4674064acbd73629e443efa7e914b6",
+      "nested_name": "voidious_gun_DuelGun"
+    },
+    {
+      "path": "voidious/gun/FireListener.java",
+      "sha256": "1c44b22da7f80aff411c3059260944ce4367cc109be26596f9e9047d99ac57fe",
+      "nested_name": "voidious_gun_FireListener"
+    },
+    {
+      "path": "voidious/gun/GunDataManager.java",
+      "sha256": "cb14bb77ec9573d9d4faa13162228d0800fa1d096843ea41a89f9c10f2d5f501",
+      "nested_name": "voidious_gun_GunDataManager"
+    },
+    {
+      "path": "voidious/gun/GunEnemy.java",
+      "sha256": "58449941a38100bc6aa1b15059f112f6f43b646cbe42679dbff25d976432fc66",
+      "nested_name": "voidious_gun_GunEnemy"
+    },
+    {
+      "path": "voidious/gun/MainGun.java",
+      "sha256": "ada7360c807d1faca2dd66d822437c8e3b323f0e012969b47e4766d913c9a947",
+      "nested_name": "voidious_gun_MainGun"
+    },
+    {
+      "path": "voidious/gun/MeleeGun.java",
+      "sha256": "61769445a65e3c6ebff4af32712553d20a80266e587d7a27ee7c53f56b644f98",
+      "nested_name": "voidious_gun_MeleeGun"
+    },
+    {
+      "path": "voidious/gun/PerceptualGun.java",
+      "sha256": "42c969dade84784ef80e2cff49f0bf8e1de1014d54e4e598f342653197f030c3",
+      "nested_name": "voidious_gun_PerceptualGun"
+    },
+    {
+      "path": "voidious/gun/TripHammerKnnGun.java",
+      "sha256": "7e9954f2a7d75860f64a3b1d56abf598c865242a6b0eade4b91b0efa2530d887",
+      "nested_name": "voidious_gun_TripHammerKnnGun"
+    },
+    {
+      "path": "voidious/gun/VirtualGunsManager.java",
+      "sha256": "8be7c0ee7152991e84756320c2deda157927dca4a67b80aaf636cf345e57417d",
+      "nested_name": "voidious_gun_VirtualGunsManager"
+    },
+    {
+      "path": "voidious/gun/formulas/AntiSurferFormula.java",
+      "sha256": "e1ca15c51b0bd686fa5884dbe5729c850acb7d70a82cf0e0c1657bb34e5d9aed",
+      "nested_name": "voidious_gun_formulas_AntiSurferFormula"
+    },
+    {
+      "path": "voidious/gun/formulas/MainGunFormula.java",
+      "sha256": "e8a1b35b362b608051b3f83bca818e2d8cb70a4328393cdc73cc3e2855e073c3",
+      "nested_name": "voidious_gun_formulas_MainGunFormula"
+    },
+    {
+      "path": "voidious/gun/formulas/MeleeFormula.java",
+      "sha256": "f900e0f3566cb92ca361eb3c5c6404d23cbb2e948092e26908fb40347363e65a",
+      "nested_name": "voidious_gun_formulas_MeleeFormula"
+    },
+    {
+      "path": "voidious/gun/formulas/TripHammerFormula.java",
+      "sha256": "d8f950ea84e1371bded69be7f207d74908756f3a5990e8a458de572b387f1dac",
+      "nested_name": "voidious_gun_formulas_TripHammerFormula"
+    },
+    {
+      "path": "voidious/move/DiamondWhoosh.java",
+      "sha256": "1a5db07beb9bdff71d9cfc783bf207db0d9c54977f9c60b65d57a8ca111dd939",
+      "nested_name": "voidious_move_DiamondWhoosh"
+    },
+    {
+      "path": "voidious/move/MeleeMover.java",
+      "sha256": "e10eb5d859c70d6006b461b4406a98c185ff49842ade948e7f7f1a51892e783f",
+      "nested_name": "voidious_move_MeleeMover"
+    },
+    {
+      "path": "voidious/move/MoveDataManager.java",
+      "sha256": "979a875ebe6f3a87e96be2c1e46eb66fe985eca520144e2fa708941b8357de50",
+      "nested_name": "voidious_move_MoveDataManager"
+    },
+    {
+      "path": "voidious/move/MoveEnemy.java",
+      "sha256": "dd4404529e7e2bbb71d6921e38ca786dda517c7d89b89afe71af7cc649ab08d6",
+      "nested_name": "voidious_move_MoveEnemy"
+    },
+    {
+      "path": "voidious/move/SurfMover.java",
+      "sha256": "860848261ead36dd5939869c174294499b16f8dbe83f571d7dc78070a59f04ef",
+      "nested_name": "voidious_move_SurfMover"
+    },
+    {
+      "path": "voidious/move/formulas/FlattenerFormula.java",
+      "sha256": "a75b72d31e2a9c9a27fca4fd17eddd8c262e686c3457e350112c200c7ccf2f37",
+      "nested_name": "voidious_move_formulas_FlattenerFormula"
+    },
+    {
+      "path": "voidious/move/formulas/NormalFormula.java",
+      "sha256": "eb45e055ca4942c260fe1d0efabb5b42fe6487fcc6760ef74bc87b1fd4c935d2",
+      "nested_name": "voidious_move_formulas_NormalFormula"
+    },
+    {
+      "path": "voidious/move/formulas/SimpleFormula.java",
+      "sha256": "e15139451c0aaeb82511264249b631dd43369c72be36575218f42ddf0396141e",
+      "nested_name": "voidious_move_formulas_SimpleFormula"
+    },
+    {
+      "path": "voidious/radar/DiamondEyes.java",
+      "sha256": "3cd6f083609e42ddb7a67c1f033527ea5b02764224cc8830b1663e32e4be8253",
+      "nested_name": "voidious_radar_DiamondEyes"
+    },
+    {
+      "path": "voidious/utils/BattleField.java",
+      "sha256": "89b42a60b1bb33514af070d20c4c0fa3bbb500f5d06ae48325a4587ac607f23d",
+      "nested_name": "voidious_utils_BattleField"
+    },
+    {
+      "path": "voidious/utils/DiaUtils.java",
+      "sha256": "facba4b8e4afe7fc6e81c16d85367d3ce5c647718f5b1bb494aa30c1f7054910",
+      "nested_name": "voidious_utils_DiaUtils"
+    },
+    {
+      "path": "voidious/utils/DistanceFormula.java",
+      "sha256": "d7e09b5eebcb0470b29ebd8757292fbffa2eab925848123b0a9aeb553eaf1676",
+      "nested_name": "voidious_utils_DistanceFormula"
+    },
+    {
+      "path": "voidious/utils/Enemy.java",
+      "sha256": "611ce8cde462ee6b2135a5290a387b85392145cdad3c84b7345c84b443a13d07",
+      "nested_name": "voidious_utils_Enemy"
+    },
+    {
+      "path": "voidious/utils/EnemyDataManager.java",
+      "sha256": "f9656934aa3195c32d1cf3626adbdc7811ff8819cf84072e825c495ad76b9f84",
+      "nested_name": "voidious_utils_EnemyDataManager"
+    },
+    {
+      "path": "voidious/utils/ErrorLogger.java",
+      "sha256": "110080b999b259c81813409168c687e977bfb6deb9bb90a2840a439f19d57eab",
+      "nested_name": "voidious_utils_ErrorLogger"
+    },
+    {
+      "path": "voidious/utils/Interpolator.java",
+      "sha256": "8f9b9d747dae6ada85034b27de539b361d18e2d72d0b8cc2ab96f1ab972c22e8",
+      "nested_name": "voidious_utils_Interpolator"
+    },
+    {
+      "path": "voidious/utils/KnnView.java",
+      "sha256": "6efe3f7d47cee36dfc7abd7f6cd7ed29f51f31da8b4bbb4f30edf45cca8ad6c0",
+      "nested_name": "voidious_utils_KnnView"
+    },
+    {
+      "path": "voidious/utils/MaxEscapeTarget.java",
+      "sha256": "1597ed1e5f92196c6e5052da75deaa9b73f696c3cc3608da6e8086ac882cce97",
+      "nested_name": "voidious_utils_MaxEscapeTarget"
+    },
+    {
+      "path": "voidious/utils/MovementPredictor.java",
+      "sha256": "a0cad5cba59d6561bc1190c231951b7a050cb67c428ebfc0729bef10a1b13f6d",
+      "nested_name": "voidious_utils_MovementPredictor"
+    },
+    {
+      "path": "voidious/utils/RobotState.java",
+      "sha256": "b6bd49e6a35663a04830dc0502ffcf32c56f125810edf43db332e8e4cb3100b9",
+      "nested_name": "voidious_utils_RobotState"
+    },
+    {
+      "path": "voidious/utils/RobotStateLog.java",
+      "sha256": "1cb834172d7cbdb761198cfb3a8f3efb0ab84530b1ba72b73be7773e5e8f60da",
+      "nested_name": "voidious_utils_RobotStateLog"
+    },
+    {
+      "path": "voidious/utils/Timestamped.java",
+      "sha256": "683d24a2841f870f95a1f34945b3ff2b76dc136463b8039f9ce651feccc9f987",
+      "nested_name": "voidious_utils_Timestamped"
+    },
+    {
+      "path": "voidious/utils/TimestampedFiringAngle.java",
+      "sha256": "85d45b0fee0bf0d73d894843699ed747bb07d327f65b3ff12863c1f3a9b00070",
+      "nested_name": "voidious_utils_TimestampedFiringAngle"
+    },
+    {
+      "path": "voidious/utils/TimestampedGuessFactor.java",
+      "sha256": "1c80fbd52e85e1755c768ec2d8795720926a81f6a466f7d7e8181844a3bf70db",
+      "nested_name": "voidious_utils_TimestampedGuessFactor"
+    },
+    {
+      "path": "voidious/utils/Wave.java",
+      "sha256": "2be9a83bb8375e86cc751130a764a3b7efc54e80a0c07a8cfe0236d5d0817d69",
+      "nested_name": "voidious_utils_Wave"
+    },
+    {
+      "path": "voidious/utils/WaveManager.java",
+      "sha256": "a322972a41c04dbe7352b038f412766d944bf3e22e36d82b67a3db474e99fb26",
+      "nested_name": "voidious_utils_WaveManager"
+    },
+    {
+      "path": "voidious/utils/genetic/DnaSequence.java",
+      "sha256": "7635e59feebe8f531b6897214395bf7b3b8c9601b6242a5dc49d52196b38895d",
+      "nested_name": "voidious_utils_genetic_DnaSequence"
+    },
+    {
+      "path": "voidious/utils/genetic/DnaString.java",
+      "sha256": "80dc81c8569c2aa76ffb9b365498eb4affc85a3cfc7d6c52f06136f9d673d9b6",
+      "nested_name": "voidious_utils_genetic_DnaString"
+    },
+    {
+      "path": "voidious/utils/geom/Circle.java",
+      "sha256": "a1ffb5f8e4292eec6cb37bb8e3eb1f262f34ac60f5e05e263292aa2e5e68b964",
+      "nested_name": "voidious_utils_geom_Circle"
+    },
+    {
+      "path": "voidious/utils/geom/LineSeg.java",
+      "sha256": "3ed3fdc91eaed3d39588d62129fc8c59196f2e09c5b8f476b09ceaeed47b06d5",
+      "nested_name": "voidious_utils_geom_LineSeg"
+    }
+  ],
+  "output_sha256": "c781a4bc41898cd7d9b19ea5f77f27f19afe328d1e6df411226a8f4a580dae49",
+  "upstream": "https://github.com/Voidious/Diamond",
+  "final_source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+  "adaptations": {
+    "source_sha256": "31233319f1bffbe657014d007b5421176570aecb082229da158cfa2f0be3caa8",
+    "version": "4.0",
+    "changes": [
+      "single-source licensed competitive engine",
+      "battle palette and victory celebration",
+      "bounded persistent CSV observer",
+      "finite melee risk",
+      "bounded melee fallback",
+      "safe error quota truncation"
+    ]
+  },
+  "prior_candidate_sha256": "2fe01c597e2eb0f80dc46f79bb9ac58eef8d533951c7dc42e367f873d6f62521",
+  "checkpoint_source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+  "checkpoint_version": "4.8",
+  "post_import_changes": [
+    "Two neural virtual guns with embedded offline weights and online updates",
+    "Low-power duel policy and low-energy pacing",
+    "Finite numerical guards and bounded melee fallback",
+    "Precise GuessFactor after melee-to-duel transition",
+    "Impact-time wave ordering and wave-identity KNN cache",
+    "Same-tick terminal diagnostics, round persistence, colours and celebration"
+  ],
+  "base_4_0_source_sha256": "31233319f1bffbe657014d007b5421176570aecb082229da158cfa2f0be3caa8",
+  "output_scope": "output_sha256 identifies the original flattening stage; final_source_sha256 identifies checkpoint4.8 after the listed adaptations"
+}

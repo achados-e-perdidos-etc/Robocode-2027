@@ -1,0 +1,607 @@
+{
+  "candidate": "4.2 budget-neural",
+  "cpu_constant_ns": 50000000,
+  "development_only": true,
+  "one_prime_no_allies": true,
+  "new_source_requires_revalidation": true,
+  "results": [
+    {
+      "opponent": "sample.Corners",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 321,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.Corners 1",
+          "points": 12,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "963b89684544d7bc77ea5c4764b28a1528d2c08f59f2a42d27ddaed0a95586f3"
+    },
+    {
+      "opponent": "sample.Crazy",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 269,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.Crazy 1",
+          "points": 13,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "9bcb46d5d2871056f61bb5eaa51b23e7ccbd9b3ef2d62b056a11ee940975fd2e"
+    },
+    {
+      "opponent": "sample.Fire",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 433,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.Fire 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "3fb29984358bbd11c59aa180a35a66dd45c37d2122317b4ba633d36f2d185816"
+    },
+    {
+      "opponent": "sample.MyFirstJuniorRobot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 369,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.MyFirstJuniorRobot 1",
+          "points": 32,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "5f964da23d122d137ef8b4900c4bb93626fdb274a0f6fbc12ad837a3e46a19c8"
+    },
+    {
+      "opponent": "sample.MyFirstRobot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 364,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.MyFirstRobot 1",
+          "points": 8,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "ba40bdb1d1b6c4c2f37f911a54db442b175b38f058259504ae39098b4d971300"
+    },
+    {
+      "opponent": "sample.PaintingRobot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 365,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.PaintingRobot 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "d017f5352a008d67704662071accb37290de71a9b91222043a1dffdf036530b0"
+    },
+    {
+      "opponent": "sample.RamFire",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 540,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.RamFire 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "497209b2ead53f485f49c16a0a72b15b0a234d0f7499e38d9c42dfeccc397291"
+    },
+    {
+      "opponent": "sample.SpinBot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 300,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.SpinBot 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "5fdd8a6664fabed8fc2211275df5204113d3823c8b135f897522e532501bb659"
+    },
+    {
+      "opponent": "sample.Tracker",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 458,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.Tracker 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "cc72429817cccef5ad2c67a922ef10071e7c73eeb11e45d4650d75faf4fa9e09"
+    },
+    {
+      "opponent": "sample.TrackFire",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 253,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.TrackFire 1",
+          "points": 33,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "c76f1fe1e541116d9fcabea017f97c93bf72e233f9703c864e9e76aa05ceef04"
+    },
+    {
+      "opponent": "sample.VelociRobot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 257,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.VelociRobot 1",
+          "points": 24,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "69e28982884d94c68d482fe7c0b3bf9982a7e32bb900889e2a7d68164709326a"
+    },
+    {
+      "opponent": "sample.Walls",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 324,
+          "firsts": 3
+        },
+        {
+          "robot": "sample.Walls 1",
+          "points": 0,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "bfb1049c345fe5c76543e42e43c04fd17ba0dcb801c2da7883bb98a5897a70ec"
+    },
+    {
+      "opponent": "sampleex.Alien",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 357,
+          "firsts": 3
+        },
+        {
+          "robot": "sampleex.Alien 1",
+          "points": 4,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "4ef3307eb74aa98554f8f5a8ce04fce5a37c240fb3adb40bf5c0e8ab027d5a52"
+    },
+    {
+      "opponent": "sampleex.AlienComposition",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 337,
+          "firsts": 3
+        },
+        {
+          "robot": "sampleex.AlienComposition 1",
+          "points": 8,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "184d257cfc3e276864022c36320d2e559be5c435ea619c40120aa2e0c3830445"
+    },
+    {
+      "opponent": "sampleex.MasterAndSlave",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 313,
+          "firsts": 3
+        },
+        {
+          "robot": "sampleex.MasterAndSlave 1",
+          "points": 32,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "042126f7e09efe9c1e7710d8ed57c19ec2b5668ef6e0cf9fa70eb90cb71e6654"
+    },
+    {
+      "opponent": "sampleex.ProxyOfGreyEminence",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 321,
+          "firsts": 3
+        },
+        {
+          "robot": "sampleex.ProxyOfGreyEminence 1",
+          "points": 24,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "fa18298e47792cb8462473affd5644bdcd3a8b8ea4ed06bc6c8eedf45040f9fa"
+    },
+    {
+      "opponent": "review.main.chimpazecomsarna.ChimpazeComSarna",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 201,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 126,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "55bae773aec910e68b3a15354d5b7b9597fd7d64ec48685e13f98438dc809096"
+    },
+    {
+      "opponent": "review.main.obrabobot.OBraboBot",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 255,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.obrabobot.OBraboBot 1",
+          "points": 100,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "03a5d853e1641b6275b5052ea0b909bb4b97134d8e199719349f08ca0183ca69"
+    },
+    {
+      "opponent": "review.main.titan.Titan",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 209,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.titan.Titan 1",
+          "points": 112,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "ea6143717a7053076dbb2336881c894254b53c7d00e72bb8ddb4380a800e2f6a"
+    },
+    {
+      "opponent": "review.main.titanv2.TitanV2",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 230,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.titanv2.TitanV2 1",
+          "points": 90,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "a1012160422e2fb71e5788b85bd901f1db787f60afcfabd22bf99bc5ca0bc0cf"
+    },
+    {
+      "opponent": "review.main.titanvingation.TitanVingation",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 210,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.titanvingation.TitanVingation 1",
+          "points": 76,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "65ea36d02e0a6123749b85e6aedb09a236b973b1d6518de627e63a45adc1a0e2"
+    },
+    {
+      "opponent": "review.main.titans.Titans",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 221,
+          "firsts": 3
+        },
+        {
+          "robot": "review.main.titans.Titans 1",
+          "points": 98,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "38d53b2307cebd0a23ba40b4c5acc35220fc19c88837fc28d2e673e1798f1c59"
+    },
+    {
+      "opponent": "reviewmod.titan.TitanVingation",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 208,
+          "firsts": 3
+        },
+        {
+          "robot": "reviewmod.titan.TitanVingation 1",
+          "points": 90,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "bc8b5f7b764dd3d3a5516a2f9069d3db9bfeaa44590b1b68280b154e62ca7ca4"
+    },
+    {
+      "opponent": "reference.supermercutio",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "0cb4200b3358a55cbba7c2670fdccc4efb43256b693846373437023a44841a5b",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 242,
+          "firsts": 3
+        },
+        {
+          "robot": "reference.supermercutio 1",
+          "points": 80,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "ef10585bacb1b100efdac1fb61b529d6c323d87ef10c6794c370e03697e732e2"
+    },
+    {
+      "opponent": "titan.TitanV3",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "cc0a7ccdc8a481031a49bd95842c8971ba3f964a80c70bdddbdc67d7fb59fee4",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 205,
+          "firsts": 3
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 126,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "3e9661066c34621263ccf4eedc30d5d6ead7b9c770ab97cc17b901a1d6a7dcd8"
+    },
+    {
+      "opponent": "titan.TitanVingation",
+      "source_sha256": "52d1a452d1091cee35a59ced6d59473ee6905a822bdc04dee2b3b7f94b59561b",
+      "opponent_jar_sha256": "742d901f78391a697ef70359c5ee591e4d0abc7cf81ffbed29a0220404d1d8bc",
+      "rounds": 3,
+      "conservative_wins": 3,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 219,
+          "firsts": 3
+        },
+        {
+          "robot": "titan.TitanVingation 1.7",
+          "points": 116,
+          "firsts": 0
+        }
+      ],
+      "valid": true,
+      "score_lead": true,
+      "errors": [],
+      "log_sha256": "d0af0311ab5413d5ab1d4cda672ddde5725a5be6a971479886725a4ff41617f3"
+    }
+  ]
+}
