@@ -1,0 +1,58 @@
+{
+  "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+  "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "opponent_selection": "voidious.Diamond 1.8.28",
+  "additional_opponents": [],
+  "expected_roster": [
+    "equipe.titanprime*",
+    "voidious.Diamond 1.8.28"
+  ],
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "cooling": 0.1,
+    "inactivity": 450,
+    "energy": 100
+  },
+  "seeds_scope": "Case IDs only. Standard engine random starts each round; no PRNG seed is set.",
+  "random_starts_each_round": true,
+  "config_sha256": {
+    "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+  },
+  "libraries_sha256": {
+    "annotations-13.0.jar": "ace2a10dc8e2d5fd34925ecac03e4988b2c0f851650c94b8cef49ba1bd111478",
+    "bcel-6.13.0.jar": "a37a65752e861c07d313ca47bef0eb75bf7643152c82ca54c4f42d036850b4fb",
+    "codesize-1.3.1.jar": "4992f8b12242ba43c622ea6b4c7fb83234f36e2a31d3fd14c59ed2df04a40707",
+    "commons-io-2.22.0.jar": "2b9a7b1f726fb86216dbd2c8321eabe0221dbd5b1be81c18e1cb53811b104758",
+    "commons-lang3-3.20.0.jar": "69e5c9fa35da7a51a5fd2099dfe56a2d8d32cf233e2f6d770e796146440263f4",
+    "jna-5.19.1.jar": "4fb141dd8ef6b0585ffceea4bc49602fbc6312fa977e2c488794ea3e6aafecae",
+    "jna-platform-5.19.1.jar": "3b3864f5b449e9c3c24b16861524b622b086563f44e0cd8384c8efc5a6052f82",
+    "kotlin-stdlib-2.4.21.jar": "bd8250210584cb659847dce9cda660f8e9906e5def7fbebcea93dc6dcb6a88a3",
+    "org.osgi.service.prefs-1.1.2.jar": "43c7c870710e363405d422da653cce0d798a4537f76e4930f79bceadd3a55345",
+    "osgi.annotation-8.0.1.jar": "a0e8a4c362bd3600812f37b0ea45fba966c7bc049d01fed56a09ecc74082759e",
+    "picocontainer-2.16.jar": "bc66571fe98568b3f73b53cf3cf1a43c35f7256986f4ddc58c8334c052815137",
+    "robocode.battle-1.12.0.jar": "4d5d471095e3a930cbc2ff582231704f9de6ddba8111f0446c2fff7db260868e",
+    "robocode.core-1.12.0.jar": "2c517ca4f2880fcae4d33870d33d11aff8876ed6cdd379172a31d7f886b61a1b",
+    "robocode.host-1.12.0.jar": "915ec04a368d2beac4a1e1e713b30ae513c140fd665b04e59fb394781829a8c3",
+    "robocode.jar": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+    "robocode.repository-1.12.0.jar": "71d0cf3c5ab6c0c3f066cd3f31511aebb05c5b203eacbb8391db77691913c935",
+    "robocode.sound-1.12.0.jar": "796571009c6fd0e93ee4613ea002d05f80146bbcd52f358874561cba7da2ba11",
+    "robocode.ui-1.12.0.jar": "bda42d426292cb8440e5009ddc5a0a002256bfe049ee0c41c5404725c06232d8",
+    "robocode.ui.editor-1.12.0.jar": "c5c81981af5e7fa70e952757b2545cc2ca7b58d3c1ccc5c70e4de6dbef256353",
+    "roborumble.jar": "4bf9e0a25f30a17ebf472be56bb20b6645bc8a3c527c473a38f126536342ff6d"
+  },
+  "java": "openjdk version \"21.0.13\" 2026-10-20\nOpenJDK Runtime Environment (build 21.0.13+9-1-deb13u2-Debian)\nOpenJDK 64-Bit Server VM (build 21.0.13+9-1-deb13u2-Debian, mixed mode, sharing)",
+  "cases": [
+    {
+      "key": "reserved-1",
+      "case_id": 64151,
+      "seed_initial_positions": null,
+      "reversed_positions": false,
+      "rounds": 50
+    }
+  ],
+  "minimum_wins": 50,
+  "require_score_lead": true,
+  "acceptance": "Every predeclared series must be valid and reach the minimum of conservative wins; no retries of valid losses",
+  "data_policy": "Fresh JVM per battle; prior data archived before next battle; no imported learning"
+}

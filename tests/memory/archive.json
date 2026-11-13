@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "schema": 2,
+  "checkpoints_retained": 40,
+  "snapshots_in_robot_directory": 2,
+  "restarted_deduplication": true,
+  "partial_and_corrupt_files_ignored": true,
+  "all_archived_objects_valid": true,
+  "archived_checkpoint_restored": true,
+  "scope": "Storage integrity; does not establish combat performance or capture every raw observation."
+}

@@ -1,0 +1,2641 @@
+Loaded net.sf.robocode.api
+Loaded net.sf.robocode.core
+Loaded net.sf.robocode.battle
+Loaded net.sf.robocode.ui.editor
+Loaded net.sf.robocode.sound
+Loading plugins from /workspace/robocode-user/perfection/runs/v415-memory-cold50/engine/libs
+Loaded net.sf.robocode.ui
+Loaded net.sf.robocode.repository
+Loaded net.sf.robocode.host
+Initializing version check date.
+VERSION	1.12.0
+POSITION_MODE	random_starts_recorded
+BEGIN	reserved-1
+START_POSITION	0	equipe.titanprime*	754.6490461710121	515.9114943138936	5.080650541501314
+START_POSITION	0	voidious.Diamond 1.8.28	663.9393744428694	122.80406239380314	4.143238505785366
+ROSTER	equipe.titanprime*	equipe.titanprime*	0	-1	false	100.0	ACTIVE	754.6490461710121	515.9114943138936
+ROSTER	voidious.Diamond 1.8.28	voidious.Diamond 1.8.28	1	-1	false	100.0	ACTIVE	663.9393744428694	122.80406239380314
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 1 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 1 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Perceptual Gun (0.0)
+[voidious.Diamond 1.8.28] Current gun: Perceptual Gun (0.0)
+[equipe.titanprime*] Disabling Perceptual Gun @ 41
+[equipe.titanprime*] Switching to Main Gun (0.0)
+[voidious.Diamond 1.8.28] Disabling Perceptual Gun @ 48
+[voidious.Diamond 1.8.28] Switching to Main Gun (0.0)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (32.53)
+[equipe.titanprime*] Switching to Main Gun (31.79)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (25.89)
+[equipe.titanprime*] Switching to Titan Neural Recent (26.53)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 392
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 393
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 396 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Anti-Surfer Gun (22.88)
+[equipe.titanprime*] Switching to Titan Neural Recent (22.24)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.39)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.3)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.17)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (18.71)
+[equipe.titanprime*] Switching to Titan Neural Recent (22.99)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.35)
+[equipe.titanprime*] Switching to Titan Neural Recent (22.82)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.85)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.97)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.36)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.17)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.98)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.46)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (21.02)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.93)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.87)
+[equipe.titanprime*] Switching to Titan Neural Recent (22.75)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (22.99)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.99)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.51)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.5)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.37)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.31)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.3)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.37)
+[equipe.titanprime*] Switching to Titan Neural Recent (23.33)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.84)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.89)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (23.28)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.6)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.52)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.31)
+[equipe.titanprime*] Switching to Titan Neural Recent (22.91)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.16)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.19)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.26)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.16)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.16)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.19)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (22.03)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.2)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.71)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.78)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.77)
+[equipe.titanprime*] WARNING (move): Wave with fire time 4076 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.76)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.78)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.57)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=0 shots=388 hits=30 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 19.96
+[equipe.titanprime*]   Anti-Surfer Gun: 21.59
+[equipe.titanprime*]   Titan Neural General: 20.3
+[equipe.titanprime*]   Titan Neural Recent: 21.32
+[equipe.titanprime*] Enemy normalized hit %: 8.54
+[equipe.titanprime*] Enemy raw hit %: 11.37
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.28
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.44
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.37
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.47
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=1 bytes=13604
+ROUND_TURNS	0	4464
+ROUND_SCORE	0	equipe.titanprime*	1
+ROUND_SCORE	0	voidious.Diamond 1.8.28	0
+START_POSITION	1	equipe.titanprime*	544.0848924715508	168.3458705908742	1.0595926288320061
+START_POSITION	1	voidious.Diamond 1.8.28	193.95607854027955	116.69416105374533	4.049275245504085
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 2 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 2 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Anti-Surfer Gun (21.59)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.44)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.77)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.42)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.32)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.2)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.0)
+[equipe.titanprime*] Switching to Main Gun (21.02)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.16)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.16)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.04)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.03)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.35)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.84)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.82)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2913
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2914
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2927
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2928
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=1 shots=328 hits=28 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.12
+[equipe.titanprime*]   Anti-Surfer Gun: 21.28
+[equipe.titanprime*]   Titan Neural General: 20.98
+[equipe.titanprime*]   Titan Neural Recent: 21.61
+[equipe.titanprime*] Enemy normalized hit %: 8.03
+[equipe.titanprime*] Enemy raw hit %: 10.18
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.46
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.42
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.01
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.05
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=2 bytes=13592
+ROUND_TURNS	1	3789
+ROUND_SCORE	1	equipe.titanprime*	2
+ROUND_SCORE	1	voidious.Diamond 1.8.28	0
+START_POSITION	2	equipe.titanprime*	514.1253305668059	377.78164450313074	4.384062424516704
+START_POSITION	2	voidious.Diamond 1.8.28	652.0245560448337	423.8938521174722	5.892888916794814
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 3 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 3 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.46)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.46)
+[equipe.titanprime*] Current gun: Titan Neural Recent (21.61)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.31)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.35)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.4)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.26)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.25)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.27)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.25)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.3)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.25)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1607
+[equipe.titanprime*] WARNING: Turn skipped at: 1608
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1609
+[equipe.titanprime*] WARNING: Turn skipped at: 1610
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1613
+[equipe.titanprime*] WARNING: Turn skipped at: 1614
+[equipe.titanprime*] WARNING (move): Wave with fire time 1616 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1618
+[equipe.titanprime*] WARNING: Turn skipped at: 1619
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1627
+[equipe.titanprime*] WARNING: Turn skipped at: 1628
+[equipe.titanprime*] WARNING (move): Wave with fire time 1630 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1632
+[equipe.titanprime*] WARNING: Turn skipped at: 1633
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1638
+[equipe.titanprime*] WARNING: Turn skipped at: 1639
+[equipe.titanprime*] WARNING (move): Wave with fire time 1641 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1643
+[equipe.titanprime*] WARNING: Turn skipped at: 1644
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1648
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1649
+[equipe.titanprime*] WARNING: Turn skipped at: 1650
+[equipe.titanprime*] WARNING: Turn skipped at: 1650
+[equipe.titanprime*] WARNING (move): Wave with fire time 1652 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural Recent (21.15)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (21.16)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.97)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.21)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.1)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (20.92)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.15)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.96)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (20.88)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.19)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=2 shots=352 hits=32 walls=0 skipped=10
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.73
+[equipe.titanprime*]   Anti-Surfer Gun: 20.8
+[equipe.titanprime*]   Titan Neural General: 20.22
+[equipe.titanprime*]   Titan Neural Recent: 20.73
+[equipe.titanprime*] Enemy normalized hit %: 7.54
+[equipe.titanprime*] Enemy raw hit %: 9.54
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.16
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.09
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.16
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.41
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=3 bytes=13629
+ROUND_TURNS	2	4212
+ROUND_SCORE	2	equipe.titanprime*	3
+ROUND_SCORE	2	voidious.Diamond 1.8.28	0
+START_POSITION	3	equipe.titanprime*	723.7189768450893	337.5508518133869	1.2920247537689482
+START_POSITION	3	voidious.Diamond 1.8.28	595.5628970957581	194.88838343999132	1.7475815817265448
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 4 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 4 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.16)
+[equipe.titanprime*] Current gun: Anti-Surfer Gun (20.8)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.78)
+[equipe.titanprime*] Switching to Anti-Surfer Gun (20.82)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.9)
+[equipe.titanprime*] Switching to Main Gun (21.06)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.15)
+[equipe.titanprime*] Switching to Main Gun (21.13)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.21)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.19)
+[equipe.titanprime*] Switching to Main Gun (20.99)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.15)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.96)
+[equipe.titanprime*] Switching to Main Gun (20.96)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.97)
+[equipe.titanprime*] Switching to Main Gun (20.94)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.97)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.04)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.98)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.97)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.0)
+[equipe.titanprime*] Switching to Main Gun (20.95)
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (3527).
+[equipe.titanprime*] Switching to Titan Neural Recent (20.98)
+[equipe.titanprime*] Switching to Main Gun (20.98)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3758
+[equipe.titanprime*] WARNING: Turn skipped at: 3759
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3760
+[equipe.titanprime*] WARNING: Turn skipped at: 3761
+[equipe.titanprime*] Switching to Titan Neural Recent (21.01)
+[equipe.titanprime*] Switching to Main Gun (20.99)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.98)
+[equipe.titanprime*] Switching to Main Gun (21.0)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.98)
+[equipe.titanprime*] Switching to Main Gun (20.99)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.03)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=3 shots=376 hits=30 walls=0 skipped=2
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 21.13
+[equipe.titanprime*]   Anti-Surfer Gun: 20.55
+[equipe.titanprime*]   Titan Neural General: 20.6
+[equipe.titanprime*]   Titan Neural Recent: 21.15
+[equipe.titanprime*] Enemy normalized hit %: 7.63
+[equipe.titanprime*] Enemy raw hit %: 9.55
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.12
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.89
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.12
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.3
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=4 bytes=13606
+ROUND_TURNS	3	4326
+ROUND_SCORE	3	equipe.titanprime*	4
+ROUND_SCORE	3	voidious.Diamond 1.8.28	0
+START_POSITION	4	equipe.titanprime*	572.8711900604891	213.7668559479463	3.920482973422563
+START_POSITION	4	voidious.Diamond 1.8.28	531.344234255999	330.00718746289556	1.724509314041665
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 5 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 5 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.12)
+[equipe.titanprime*] Current gun: Titan Neural Recent (21.15)
+[equipe.titanprime*] Switching to Main Gun (21.13)
+[equipe.titanprime*] Switching to Titan Neural Recent (21.15)
+[equipe.titanprime*] Switching to Main Gun (21.13)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.02)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.01)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1111
+[equipe.titanprime*] WARNING: Turn skipped at: 1112
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2939
+[equipe.titanprime*] WARNING: Turn skipped at: 2940
+[equipe.titanprime*] WARNING (move): Wave with fire time 2942 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=4 shots=327 hits=34 walls=0 skipped=2
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=5 bytes=13615
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 21.33
+[equipe.titanprime*]   Anti-Surfer Gun: 20.09
+[equipe.titanprime*]   Titan Neural General: 20.78
+[equipe.titanprime*]   Titan Neural Recent: 20.65
+[equipe.titanprime*] Enemy normalized hit %: 7.27
+[equipe.titanprime*] Enemy raw hit %: 9.06
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.24
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.85
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.42
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.75
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	4	3779
+ROUND_SCORE	4	equipe.titanprime*	5
+ROUND_SCORE	4	voidious.Diamond 1.8.28	0
+START_POSITION	5	equipe.titanprime*	596.20418929986	413.0011164680185	0.04171465857585204
+START_POSITION	5	voidious.Diamond 1.8.28	478.3246325682344	508.43895461566467	3.0733283844016768
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 6 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Main Gun (21.33)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 6 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.24)
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (1910).
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2759
+[equipe.titanprime*] WARNING: Turn skipped at: 2760
+[equipe.titanprime*] WARNING (move): Wave with fire time 2763 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=5 shots=338 hits=36 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 21.03
+[equipe.titanprime*]   Anti-Surfer Gun: 19.69
+[equipe.titanprime*]   Titan Neural General: 20.5
+[equipe.titanprime*]   Titan Neural Recent: 20.36
+[equipe.titanprime*] Enemy normalized hit %: 7.55
+[equipe.titanprime*] Enemy raw hit %: 9.39
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.32
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.7
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.7
+[voidious.Diamond 1.8.28] Enemy raw hit %: 10.12
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=6 bytes=13484
+ROUND_TURNS	5	3927
+ROUND_SCORE	5	equipe.titanprime*	6
+ROUND_SCORE	5	voidious.Diamond 1.8.28	0
+START_POSITION	6	equipe.titanprime*	69.2719407709223	49.57899711564242	4.6474149193368035
+START_POSITION	6	voidious.Diamond 1.8.28	386.5741546281621	189.21023121235012	5.597703672805641
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 7 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 7 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (21.03)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.32)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=6 shots=346 hits=32 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.79
+[equipe.titanprime*]   Anti-Surfer Gun: 19.64
+[equipe.titanprime*]   Titan Neural General: 20.43
+[equipe.titanprime*]   Titan Neural Recent: 20.19
+[equipe.titanprime*] Enemy normalized hit %: 7.44
+[equipe.titanprime*] Enemy raw hit %: 9.32
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.15
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.54
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.73
+[voidious.Diamond 1.8.28] Enemy raw hit %: 10.16
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=7 bytes=13662
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3913
+[equipe.titanprime*] WARNING: Turn skipped at: 3914
+ROUND_TURNS	6	3998
+ROUND_SCORE	6	equipe.titanprime*	7
+ROUND_SCORE	6	voidious.Diamond 1.8.28	0
+START_POSITION	7	equipe.titanprime*	695.1369128646141	86.62266632997142	0.9905755933752652
+START_POSITION	7	voidious.Diamond 1.8.28	592.2002057686002	209.37651290227421	0.4928138366601146
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 8 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 8 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.79)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.15)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 86
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 87
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 89 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 100
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 101
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 507
+[equipe.titanprime*] WARNING: Turn skipped at: 508
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1261
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1262
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3426
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3427
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=7 shots=314 hits=21 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.52
+[equipe.titanprime*]   Anti-Surfer Gun: 19.76
+[equipe.titanprime*]   Titan Neural General: 20.46
+[equipe.titanprime*]   Titan Neural Recent: 20.14
+[equipe.titanprime*] Enemy normalized hit %: 7.28
+[equipe.titanprime*] Enemy raw hit %: 9.15
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.09
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.66
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.46
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.83
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=8 bytes=13626
+ROUND_TURNS	7	3649
+ROUND_SCORE	7	equipe.titanprime*	8
+ROUND_SCORE	7	voidious.Diamond 1.8.28	0
+START_POSITION	8	equipe.titanprime*	307.85915843151315	56.62943859232356	2.5353598642937474
+START_POSITION	8	voidious.Diamond 1.8.28	45.856797095889306	194.11423663603628	2.0980141503754073
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 9 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 9 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.09)
+[equipe.titanprime*] Current gun: Main Gun (20.52)
+[equipe.titanprime*] Switching to Titan Neural General (20.5)
+[equipe.titanprime*] Switching to Main Gun (20.49)
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1875 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2042
+[equipe.titanprime*] WARNING: Turn skipped at: 2043
+[equipe.titanprime*] Switching to Titan Neural General (20.46)
+[equipe.titanprime*] Switching to Main Gun (20.48)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2942
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2943
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2944
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2945
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2946
+[equipe.titanprime*] WARNING: Turn skipped at: 2947
+[equipe.titanprime*] WARNING: Turn skipped at: 2947
+[equipe.titanprime*] WARNING: Turn skipped at: 2947
+[equipe.titanprime*] WARNING: Turn skipped at: 2947
+[equipe.titanprime*] WARNING: Turn skipped at: 2947
+[equipe.titanprime*] WARNING (move): Wave with fire time 2949 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=8 shots=372 hits=28 walls=0 skipped=6
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.43
+[equipe.titanprime*]   Anti-Surfer Gun: 19.59
+[equipe.titanprime*]   Titan Neural General: 20.38
+[equipe.titanprime*]   Titan Neural Recent: 20.21
+[equipe.titanprime*] Enemy normalized hit %: 7.42
+[equipe.titanprime*] Enemy raw hit %: 9.28
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.16
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.57
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.37
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.66
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=9 bytes=13603
+ROUND_TURNS	8	4292
+ROUND_SCORE	8	equipe.titanprime*	9
+ROUND_SCORE	8	voidious.Diamond 1.8.28	0
+START_POSITION	9	equipe.titanprime*	726.7162336006895	347.2080060260902	1.9566436896903103
+START_POSITION	9	voidious.Diamond 1.8.28	539.3202437695189	149.82772842062042	0.801975498057769
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 10 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 10 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.16)
+[equipe.titanprime*] Current gun: Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.38)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.37)
+[equipe.titanprime*] Switching to Main Gun (20.36)
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.35)
+[equipe.titanprime*] Switching to Titan Neural General (20.37)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.38)
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[equipe.titanprime*] Switching to Titan Neural General (20.4)
+[equipe.titanprime*] Switching to Main Gun (20.41)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] Switching to Main Gun (20.45)
+[equipe.titanprime*] Switching to Titan Neural General (20.45)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3446
+[equipe.titanprime*] WARNING: Turn skipped at: 3447
+[equipe.titanprime*] WARNING (move): Wave with fire time 3449 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Main Gun (20.42)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=9 shots=318 hits=22 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=10 bytes=13677
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.69
+[equipe.titanprime*]   Titan Neural General: 20.39
+[equipe.titanprime*]   Titan Neural Recent: 20.2
+[equipe.titanprime*] Enemy normalized hit %: 7.37
+[equipe.titanprime*] Enemy raw hit %: 9.2
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.99
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.74
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.19
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.44
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	9	3894
+ROUND_SCORE	9	equipe.titanprime*	10
+ROUND_SCORE	9	voidious.Diamond 1.8.28	0
+START_POSITION	10	equipe.titanprime*	194.09518236427826	311.3467372772746	3.9223117132126153
+START_POSITION	10	voidious.Diamond 1.8.28	522.3777885757681	525.7162301452013	3.445738778726331
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 11 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 11 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.99)
+[equipe.titanprime*] Current gun: Main Gun (20.41)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 47
+[equipe.titanprime*] WARNING: Turn skipped at: 48
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 134
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 135
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1677
+[equipe.titanprime*] WARNING: Turn skipped at: 1678
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.83)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.84)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.84)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.84)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.85)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.84)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=10 shots=294 hits=26 walls=0 skipped=2
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.3
+[equipe.titanprime*]   Anti-Surfer Gun: 19.65
+[equipe.titanprime*]   Titan Neural General: 20.21
+[equipe.titanprime*]   Titan Neural Recent: 19.98
+[equipe.titanprime*] Enemy normalized hit %: 7.26
+[equipe.titanprime*] Enemy raw hit %: 9.01
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.84
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.81
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.23
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.47
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=11 bytes=13718
+ROUND_TURNS	10	3431
+ROUND_SCORE	10	equipe.titanprime*	11
+ROUND_SCORE	10	voidious.Diamond 1.8.28	0
+START_POSITION	11	equipe.titanprime*	121.74885020561075	400.84182198841046	3.926119207021727
+START_POSITION	11	voidious.Diamond 1.8.28	658.6312829713717	178.9824857074796	4.004555175236518
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 12 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 12 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.84)
+[equipe.titanprime*] Current gun: Main Gun (20.3)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.88)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.87)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3640
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3641
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=11 shots=327 hits=29 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.33
+[equipe.titanprime*]   Anti-Surfer Gun: 19.58
+[equipe.titanprime*]   Titan Neural General: 20.17
+[equipe.titanprime*]   Titan Neural Recent: 19.81
+[equipe.titanprime*] Enemy normalized hit %: 7.12
+[equipe.titanprime*] Enemy raw hit %: 8.84
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.89
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.83
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.26
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.5
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=12 bytes=13679
+ROUND_TURNS	11	3796
+ROUND_SCORE	11	equipe.titanprime*	12
+ROUND_SCORE	11	voidious.Diamond 1.8.28	0
+START_POSITION	12	equipe.titanprime*	717.8413832476114	286.14348132787575	1.5521792502434058
+START_POSITION	12	voidious.Diamond 1.8.28	130.62170359713488	326.6979830758247	5.589344708001338
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 13 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 13 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.89)
+[equipe.titanprime*] Current gun: Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.32)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.89)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.87)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.88)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.88)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.88)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.9)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1759
+[equipe.titanprime*] WARNING: Turn skipped at: 1760
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1759
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1760
+[equipe.titanprime*] WARNING (move): Wave with fire time 1762 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1762 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2060
+[equipe.titanprime*] WARNING: Turn skipped at: 2061
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2067
+[equipe.titanprime*] WARNING: Turn skipped at: 2068
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2072
+[equipe.titanprime*] WARNING: Turn skipped at: 2073
+[equipe.titanprime*] WARNING (move): Wave with fire time 2077 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2114
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2115
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2117
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2118
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2118
+[equipe.titanprime*] WARNING: Turn skipped at: 2119
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2118 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] WARNING (move): Wave with fire time 2121 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2141
+[equipe.titanprime*] WARNING: Turn skipped at: 2142
+[equipe.titanprime*] WARNING (move): Wave with fire time 2143 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2170
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2171
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2176
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2177
+[equipe.titanprime*] WARNING: Turn skipped at: 2178
+[equipe.titanprime*] WARNING: Turn skipped at: 2178
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2245
+[equipe.titanprime*] WARNING: Turn skipped at: 2246
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2609
+[equipe.titanprime*] WARNING: Turn skipped at: 2610
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2616
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2617
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2620 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2651
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2652
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2654 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2658
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2659
+[equipe.titanprime*] Switching to Main Gun (20.32)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2674
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2675
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2675 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2882
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2883
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2887
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2888
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2891 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3000
+[equipe.titanprime*] WARNING: Turn skipped at: 3001
+[equipe.titanprime*] WARNING (move): Wave with fire time 3003 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3586
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3587
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3723
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3724
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3725
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3726
+[equipe.titanprime*] WARNING: Turn skipped at: 3727
+[equipe.titanprime*] WARNING: Turn skipped at: 3727
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3727 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3737
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3738
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3740 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.9
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.84
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.28
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.51
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=12 shots=337 hits=30 walls=0 skipped=13
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.29
+[equipe.titanprime*]   Anti-Surfer Gun: 19.74
+[equipe.titanprime*]   Titan Neural General: 20.28
+[equipe.titanprime*]   Titan Neural Recent: 19.85
+[equipe.titanprime*] Enemy normalized hit %: 7.02
+[equipe.titanprime*] Enemy raw hit %: 8.71
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3748
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=13 bytes=13638
+[equipe.titanprime*] WARNING: Turn skipped at: 3749
+ROUND_TURNS	12	3897
+ROUND_SCORE	12	equipe.titanprime*	13
+ROUND_SCORE	12	voidious.Diamond 1.8.28	0
+START_POSITION	13	equipe.titanprime*	468.9693228629214	264.0497707331439	5.478696087661557
+START_POSITION	13	voidious.Diamond 1.8.28	403.08109448531087	449.7086997037749	6.267146604086185
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 14 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 14 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.9)
+[equipe.titanprime*] Current gun: Main Gun (20.29)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 61
+[equipe.titanprime*] WARNING: Turn skipped at: 62
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 65
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 66
+[equipe.titanprime*] Switching to Titan Neural General (20.29)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 105
+[equipe.titanprime*] WARNING: Turn skipped at: 106
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 163
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 164
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 166 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 168
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 169
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 197
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 198
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 200 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 210
+[equipe.titanprime*] WARNING: Turn skipped at: 211
+[equipe.titanprime*] WARNING (move): Wave with fire time 213 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 265
+[equipe.titanprime*] WARNING: Turn skipped at: 266
+[equipe.titanprime*] WARNING (move): Wave with fire time 269 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Main Gun (20.27)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 397
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 398
+[equipe.titanprime*] Switching to Titan Neural General (20.36)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.37)
+[equipe.titanprime*] Switching to Main Gun (20.39)
+[equipe.titanprime*] Switching to Titan Neural General (20.39)
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1193
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1194
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1196 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.39)
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[equipe.titanprime*] Switching to Titan Neural General (20.39)
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[equipe.titanprime*] Switching to Titan Neural General (20.38)
+[equipe.titanprime*] Switching to Main Gun (20.39)
+[equipe.titanprime*] Switching to Titan Neural General (20.39)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2275
+[equipe.titanprime*] WARNING: Turn skipped at: 2276
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2285
+[equipe.titanprime*] WARNING: Turn skipped at: 2286
+[equipe.titanprime*] WARNING (move): Wave with fire time 2288 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2317
+[equipe.titanprime*] WARNING: Turn skipped at: 2318
+[equipe.titanprime*] WARNING (move): Wave with fire time 2320 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2327
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2328
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2330
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2331
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2332
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2333
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2341 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3952
+[equipe.titanprime*] WARNING: Turn skipped at: 3953
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3958
+[equipe.titanprime*] WARNING: Turn skipped at: 3959
+[equipe.titanprime*] WARNING (move): Wave with fire time 3961 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3963
+[equipe.titanprime*] WARNING: Turn skipped at: 3964
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3965
+[equipe.titanprime*] WARNING: Turn skipped at: 3966
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3970
+[equipe.titanprime*] WARNING: Turn skipped at: 3971
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.97
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.73
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.37
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.55
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=13 shots=361 hits=32 walls=0 skipped=12
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.39
+[equipe.titanprime*]   Anti-Surfer Gun: 19.77
+[equipe.titanprime*]   Titan Neural General: 20.43
+[equipe.titanprime*]   Titan Neural Recent: 20.07
+[equipe.titanprime*] Enemy normalized hit %: 7.07
+[equipe.titanprime*] Enemy raw hit %: 8.8
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=14 bytes=13654
+ROUND_TURNS	13	4162
+ROUND_SCORE	13	equipe.titanprime*	14
+ROUND_SCORE	13	voidious.Diamond 1.8.28	0
+START_POSITION	14	equipe.titanprime*	624.6609883604219	333.68438250322856	2.664365737297912
+START_POSITION	14	voidious.Diamond 1.8.28	630.8945722521088	247.56272210092033	0.661923973567151
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 15 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.43)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 15 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.97)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 209
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 210
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 214
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 215
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 217 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1809
+[equipe.titanprime*] WARNING: Turn skipped at: 1810
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1928
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1929
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1947
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1948
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1950 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1960
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1961
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1963 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1972
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1973
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1983
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1984
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1986 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1997
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1998
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2009
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2010
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[equipe.titanprime*] Switching to Titan Neural General (20.41)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2314
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2315
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2322 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[equipe.titanprime*] Switching to Titan Neural General (20.4)
+[equipe.titanprime*] Switching to Main Gun (20.39)
+[equipe.titanprime*] Switching to Titan Neural General (20.39)
+[equipe.titanprime*] Switching to Main Gun (20.4)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2679
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2680
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=14 shots=336 hits=25 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=15 bytes=13623
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.37
+[equipe.titanprime*]   Anti-Surfer Gun: 19.83
+[equipe.titanprime*]   Titan Neural General: 20.41
+[equipe.titanprime*]   Titan Neural Recent: 20.13
+[equipe.titanprime*] Enemy normalized hit %: 6.94
+[equipe.titanprime*] Enemy raw hit %: 8.68
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.87
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.7
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.27
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.45
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	14	3877
+ROUND_SCORE	14	equipe.titanprime*	15
+ROUND_SCORE	14	voidious.Diamond 1.8.28	0
+START_POSITION	15	equipe.titanprime*	381.33566181482576	234.58205128548835	1.8431073360301373
+START_POSITION	15	voidious.Diamond 1.8.28	289.9427174086669	367.9268811165969	2.5975896966634093
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 16 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 16 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.87)
+[equipe.titanprime*] Current gun: Titan Neural General (20.41)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 316
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 317
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 319 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Main Gun (20.42)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (19.82)
+[voidious.Diamond 1.8.28] Switching to Main Gun (19.83)
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.43)
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.42)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=15 shots=334 hits=27 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.72
+[equipe.titanprime*]   Titan Neural General: 20.44
+[equipe.titanprime*]   Titan Neural Recent: 20.24
+[equipe.titanprime*] Enemy normalized hit %: 6.97
+[equipe.titanprime*] Enemy raw hit %: 8.75
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.95
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.87
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.25
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.43
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=16 bytes=13634
+ROUND_TURNS	15	3865
+ROUND_SCORE	15	equipe.titanprime*	16
+ROUND_SCORE	15	voidious.Diamond 1.8.28	0
+START_POSITION	16	equipe.titanprime*	589.8074897289551	475.19540729678636	1.6472051151813276
+START_POSITION	16	voidious.Diamond 1.8.28	425.0537793847348	217.17566035985405	4.6278741962456875
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 17 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 17 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.44)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.95)
+[equipe.titanprime*] Switching to Main Gun (20.38)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=16 shots=265 hits=21 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.62
+[equipe.titanprime*]   Titan Neural General: 20.34
+[equipe.titanprime*]   Titan Neural Recent: 20.14
+[equipe.titanprime*] Enemy normalized hit %: 6.95
+[equipe.titanprime*] Enemy raw hit %: 8.75
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.01
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.98
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.21
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.39
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=17 bytes=13784
+ROUND_TURNS	16	3520
+ROUND_SCORE	16	equipe.titanprime*	17
+ROUND_SCORE	16	voidious.Diamond 1.8.28	0
+START_POSITION	17	equipe.titanprime*	419.06827810781084	203.99216375079607	1.8710425982924452
+START_POSITION	17	voidious.Diamond 1.8.28	135.69597885227466	264.5024156686994	5.0610027594582645
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 18 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 18 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.01)
+[equipe.titanprime*] Current gun: Main Gun (20.41)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.02)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.02)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.01)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2229
+[equipe.titanprime*] WARNING: Turn skipped at: 2230
+[equipe.titanprime*] WARNING (move): Wave with fire time 2232 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2239
+[equipe.titanprime*] WARNING: Turn skipped at: 2240
+[equipe.titanprime*] WARNING (move): Wave with fire time 2242 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2285
+[equipe.titanprime*] WARNING: Turn skipped at: 2286
+[equipe.titanprime*] WARNING (move): Wave with fire time 2287 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2296
+[equipe.titanprime*] WARNING: Turn skipped at: 2297
+[equipe.titanprime*] WARNING (move): Wave with fire time 2299 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2301
+[equipe.titanprime*] WARNING: Turn skipped at: 2302
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2540
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2541
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2543 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2545
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2546
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2739
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2740
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2742 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2786
+[equipe.titanprime*] WARNING: Turn skipped at: 2787
+[equipe.titanprime*] WARNING (move): Wave with fire time 2789 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2794
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2795
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2797 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2838
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2839
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2841 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2895 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3290
+[equipe.titanprime*] WARNING: Turn skipped at: 3291
+[equipe.titanprime*] WARNING (move): Wave with fire time 3293 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3330
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3331
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3332
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3333
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3336 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3364
+[equipe.titanprime*] WARNING: Turn skipped at: 3365
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3416
+[equipe.titanprime*] WARNING: Turn skipped at: 3417
+[equipe.titanprime*] WARNING (move): Wave with fire time 3419 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3539
+[equipe.titanprime*] WARNING: Turn skipped at: 3540
+[equipe.titanprime*] WARNING (move): Wave with fire time 3540 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=17 shots=370 hits=30 walls=0 skipped=10
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.43
+[equipe.titanprime*]   Anti-Surfer Gun: 19.69
+[equipe.titanprime*]   Titan Neural General: 20.38
+[equipe.titanprime*]   Titan Neural Recent: 20.32
+[equipe.titanprime*] Enemy normalized hit %: 6.97
+[equipe.titanprime*] Enemy raw hit %: 8.76
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.03
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.95
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.2
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.39
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=18 bytes=13660
+ROUND_TURNS	17	4256
+ROUND_SCORE	17	equipe.titanprime*	18
+ROUND_SCORE	17	voidious.Diamond 1.8.28	0
+START_POSITION	18	equipe.titanprime*	652.5089124761653	375.532538190582	4.25755937932419
+START_POSITION	18	voidious.Diamond 1.8.28	45.64056818822404	147.4895506950251	0.7798462250494841
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 19 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.43)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 19 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.03)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1241
+[equipe.titanprime*] WARNING: Turn skipped at: 1242
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3440
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3441
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3443 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=18 shots=334 hits=31 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.5
+[equipe.titanprime*]   Anti-Surfer Gun: 19.75
+[equipe.titanprime*]   Titan Neural General: 20.33
+[equipe.titanprime*]   Titan Neural Recent: 20.23
+[equipe.titanprime*] Enemy normalized hit %: 7.02
+[equipe.titanprime*] Enemy raw hit %: 8.87
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.11
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.96
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.24
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.45
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=19 bytes=13648
+ROUND_TURNS	18	3864
+ROUND_SCORE	18	equipe.titanprime*	19
+ROUND_SCORE	18	voidious.Diamond 1.8.28	0
+START_POSITION	19	equipe.titanprime*	562.2680667423838	517.1230017625021	3.3177367733821637
+START_POSITION	19	voidious.Diamond 1.8.28	674.1108644838924	349.1540145615451	3.8766587836331614
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 20 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 20 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.11)
+[equipe.titanprime*] Current gun: Main Gun (20.5)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1654
+[equipe.titanprime*] WARNING: Turn skipped at: 1655
+[equipe.titanprime*] WARNING (move): Wave with fire time 1657 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.42)
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.42)
+[equipe.titanprime*] Switching to Titan Neural General (20.42)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.46)
+[equipe.titanprime*] Switching to Main Gun (20.47)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=19 shots=361 hits=25 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=20 bytes=13718
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.5
+[equipe.titanprime*]   Anti-Surfer Gun: 19.81
+[equipe.titanprime*]   Titan Neural General: 20.45
+[equipe.titanprime*]   Titan Neural Recent: 20.32
+[equipe.titanprime*] Enemy normalized hit %: 7.03
+[equipe.titanprime*] Enemy raw hit %: 8.89
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.11
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.94
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.18
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.37
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	19	4166
+ROUND_SCORE	19	equipe.titanprime*	20
+ROUND_SCORE	19	voidious.Diamond 1.8.28	0
+START_POSITION	20	equipe.titanprime*	293.20963150591075	550.8272907113342	5.321561198806969
+START_POSITION	20	voidious.Diamond 1.8.28	655.8878109123514	228.6705634755603	3.094969810357846
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 21 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 21 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.11)
+[equipe.titanprime*] Current gun: Main Gun (20.5)
+[equipe.titanprime*] Switching to Titan Neural General (20.5)
+[equipe.titanprime*] Switching to Main Gun (20.51)
+[equipe.titanprime*] Switching to Titan Neural General (20.49)
+[equipe.titanprime*] Switching to Main Gun (20.49)
+[equipe.titanprime*] Switching to Titan Neural General (20.5)
+[equipe.titanprime*] Switching to Main Gun (20.5)
+[equipe.titanprime*] Switching to Titan Neural General (20.5)
+[equipe.titanprime*] Switching to Main Gun (20.49)
+[equipe.titanprime*] Switching to Titan Neural General (20.49)
+[equipe.titanprime*] Switching to Main Gun (20.48)
+[equipe.titanprime*] Switching to Titan Neural General (20.48)
+[equipe.titanprime*] Switching to Main Gun (20.48)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=20 shots=352 hits=23 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.5
+[equipe.titanprime*]   Anti-Surfer Gun: 19.72
+[equipe.titanprime*]   Titan Neural General: 20.39
+[equipe.titanprime*]   Titan Neural Recent: 20.24
+[equipe.titanprime*] Enemy normalized hit %: 7.05
+[equipe.titanprime*] Enemy raw hit %: 8.95
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.07
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.97
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.08
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.26
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=21 bytes=13685
+ROUND_TURNS	20	4075
+ROUND_SCORE	20	equipe.titanprime*	21
+ROUND_SCORE	20	voidious.Diamond 1.8.28	0
+START_POSITION	21	equipe.titanprime*	543.6781214884168	175.87742347673935	0.257646540390598
+START_POSITION	21	voidious.Diamond 1.8.28	647.7897039521995	506.050860265759	0.8996182297962136
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 22 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.5)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 22 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.07)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=21 shots=312 hits=23 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.51
+[equipe.titanprime*]   Anti-Surfer Gun: 19.73
+[equipe.titanprime*]   Titan Neural General: 20.38
+[equipe.titanprime*]   Titan Neural Recent: 20.24
+[equipe.titanprime*] Enemy normalized hit %: 6.93
+[equipe.titanprime*] Enemy raw hit %: 8.81
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.98
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.93
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.06
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.22
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=22 bytes=13587
+ROUND_TURNS	21	3630
+ROUND_SCORE	21	equipe.titanprime*	22
+ROUND_SCORE	21	voidious.Diamond 1.8.28	0
+START_POSITION	22	equipe.titanprime*	455.55689708442196	540.9781493768589	2.9340139207359583
+START_POSITION	22	voidious.Diamond 1.8.28	696.4177233553079	298.39221478797407	1.3905403202630473
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 23 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 23 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.98)
+[equipe.titanprime*] Current gun: Main Gun (20.51)
+[equipe.titanprime*] Switching to Titan Neural General (20.45)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.43)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.45)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] Switching to Titan Neural General (20.44)
+[equipe.titanprime*] Switching to Main Gun (20.44)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=22 shots=325 hits=23 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.42
+[equipe.titanprime*]   Anti-Surfer Gun: 19.6
+[equipe.titanprime*]   Titan Neural General: 20.37
+[equipe.titanprime*]   Titan Neural Recent: 20.16
+[equipe.titanprime*] Enemy normalized hit %: 6.89
+[equipe.titanprime*] Enemy raw hit %: 8.76
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.02
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.96
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 7.01
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.16
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=23 bytes=13664
+ROUND_TURNS	22	3770
+ROUND_SCORE	22	equipe.titanprime*	23
+ROUND_SCORE	22	voidious.Diamond 1.8.28	0
+START_POSITION	23	equipe.titanprime*	622.4863968133568	323.84827557470095	0.814155403334327
+START_POSITION	23	voidious.Diamond 1.8.28	113.10672633344733	89.64272616190513	2.544187077043822
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 24 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 24 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.02)
+[equipe.titanprime*] Current gun: Main Gun (20.42)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=23 shots=333 hits=27 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.42
+[equipe.titanprime*]   Anti-Surfer Gun: 19.54
+[equipe.titanprime*]   Titan Neural General: 20.32
+[equipe.titanprime*]   Titan Neural Recent: 20.09
+[equipe.titanprime*] Enemy normalized hit %: 6.86
+[equipe.titanprime*] Enemy raw hit %: 8.7
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 19.99
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.9
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.98
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.14
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=24 bytes=13714
+ROUND_TURNS	23	3856
+ROUND_SCORE	23	equipe.titanprime*	24
+ROUND_SCORE	23	voidious.Diamond 1.8.28	0
+START_POSITION	24	equipe.titanprime*	642.8154782144572	227.4299804369619	0.6343071318485467
+START_POSITION	24	voidious.Diamond 1.8.28	591.6154294497306	50.20270755860845	5.273516922320286
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 25 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 25 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (19.99)
+[equipe.titanprime*] Current gun: Main Gun (20.42)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1450
+[equipe.titanprime*] WARNING: Turn skipped at: 1451
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=24 shots=331 hits=27 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=25 bytes=13710
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.44
+[equipe.titanprime*]   Anti-Surfer Gun: 19.53
+[equipe.titanprime*]   Titan Neural General: 20.27
+[equipe.titanprime*]   Titan Neural Recent: 20.07
+[equipe.titanprime*] Enemy normalized hit %: 6.88
+[equipe.titanprime*] Enemy raw hit %: 8.71
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.02
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.0
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.98
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.14
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	24	3835
+ROUND_SCORE	24	equipe.titanprime*	25
+ROUND_SCORE	24	voidious.Diamond 1.8.28	0
+START_POSITION	25	equipe.titanprime*	398.65125934256537	292.0490527597208	0.8724667750454115
+START_POSITION	25	voidious.Diamond 1.8.28	676.9057987659664	269.40556618516644	0.020691807837655674
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 26 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 26 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.02)
+[equipe.titanprime*] Current gun: Main Gun (20.44)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 1
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=25 shots=283 hits=14 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.34
+[equipe.titanprime*]   Anti-Surfer Gun: 19.5
+[equipe.titanprime*]   Titan Neural General: 20.28
+[equipe.titanprime*]   Titan Neural Recent: 20.09
+[equipe.titanprime*] Enemy normalized hit %: 6.88
+[equipe.titanprime*] Enemy raw hit %: 8.69
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=26 bytes=13712
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.07
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.02
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.88
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.03
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	25	3298
+ROUND_SCORE	25	equipe.titanprime*	26
+ROUND_SCORE	25	voidious.Diamond 1.8.28	0
+START_POSITION	26	equipe.titanprime*	106.73249080262086	522.8637728953131	1.1154538937069411
+START_POSITION	26	voidious.Diamond 1.8.28	242.1318507862538	560.7969975109311	3.1891606993247827
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 27 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.34)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 27 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.07)
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (15).
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (16).
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (17).
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.07)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=26 shots=317 hits=26 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.3
+[equipe.titanprime*]   Anti-Surfer Gun: 19.57
+[equipe.titanprime*]   Titan Neural General: 20.19
+[equipe.titanprime*]   Titan Neural Recent: 20.05
+[equipe.titanprime*] Enemy normalized hit %: 6.84
+[equipe.titanprime*] Enemy raw hit %: 8.65
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.07
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.07
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.88
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.03
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=27 bytes=13679
+ROUND_TURNS	26	3689
+ROUND_SCORE	26	equipe.titanprime*	27
+ROUND_SCORE	26	voidious.Diamond 1.8.28	0
+START_POSITION	27	equipe.titanprime*	374.1163966753521	78.07426690848591	2.8005690406563106
+START_POSITION	27	voidious.Diamond 1.8.28	206.62937559453553	131.44886031885454	3.713081729797506
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 28 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 28 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.07)
+[equipe.titanprime*] Current gun: Main Gun (20.3)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.07)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2922
+[equipe.titanprime*] WARNING: Turn skipped at: 2923
+[equipe.titanprime*] WARNING (move): Wave with fire time 2926 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=27 shots=366 hits=24 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.25
+[equipe.titanprime*]   Anti-Surfer Gun: 19.52
+[equipe.titanprime*]   Titan Neural General: 20.21
+[equipe.titanprime*]   Titan Neural Recent: 20.06
+[equipe.titanprime*] Enemy normalized hit %: 6.83
+[equipe.titanprime*] Enemy raw hit %: 8.65
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.04
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.13
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.82
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.97
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=28 bytes=13592
+ROUND_TURNS	27	4230
+ROUND_SCORE	27	equipe.titanprime*	28
+ROUND_SCORE	27	voidious.Diamond 1.8.28	0
+START_POSITION	28	equipe.titanprime*	422.579857129574	182.11486930258772	5.481447254853642
+START_POSITION	28	voidious.Diamond 1.8.28	173.74766489882938	109.7754849061767	5.410635145592994
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 29 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 29 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.13)
+[equipe.titanprime*] Current gun: Main Gun (20.25)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] WARNING: I hit a wall (3769).
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.1)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=28 shots=372 hits=28 walls=1 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.21
+[equipe.titanprime*]   Anti-Surfer Gun: 19.58
+[equipe.titanprime*]   Titan Neural General: 20.25
+[equipe.titanprime*]   Titan Neural Recent: 20.11
+[equipe.titanprime*] Enemy normalized hit %: 6.81
+[equipe.titanprime*] Enemy raw hit %: 8.65
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.11
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.12
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.83
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.95
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=29 bytes=13621
+ROUND_TURNS	28	4302
+ROUND_SCORE	28	equipe.titanprime*	29
+ROUND_SCORE	28	voidious.Diamond 1.8.28	0
+START_POSITION	29	equipe.titanprime*	152.96836247232187	141.25789800508878	3.5334317163996927
+START_POSITION	29	voidious.Diamond 1.8.28	336.7645128467591	59.11546124957838	4.336449831526694
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 30 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 30 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.12)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.12)
+[equipe.titanprime*] Current gun: Titan Neural General (20.25)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.11)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.11)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.11)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 304
+[equipe.titanprime*] WARNING: Turn skipped at: 305
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.11)
+[equipe.titanprime*] Switching to Main Gun (20.22)
+[equipe.titanprime*] Switching to Titan Neural General (20.22)
+[equipe.titanprime*] Switching to Main Gun (20.21)
+[equipe.titanprime*] Switching to Titan Neural General (20.21)
+[equipe.titanprime*] Switching to Main Gun (20.22)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1265
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1266
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1268 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.21)
+[equipe.titanprime*] Switching to Main Gun (20.21)
+[equipe.titanprime*] Switching to Titan Neural General (20.22)
+[equipe.titanprime*] Switching to Main Gun (20.22)
+[equipe.titanprime*] Switching to Titan Neural General (20.21)
+[equipe.titanprime*] Switching to Main Gun (20.22)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] Switching to Main Gun (20.24)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] Switching to Main Gun (20.24)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] Switching to Main Gun (20.24)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] Switching to Main Gun (20.26)
+[equipe.titanprime*] Switching to Titan Neural General (20.26)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[equipe.titanprime*] Switching to Main Gun (20.26)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[equipe.titanprime*] Switching to Titan Neural General (20.26)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[equipe.titanprime*] Switching to Main Gun (20.26)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=29 shots=349 hits=28 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=30 bytes=13644
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.24
+[equipe.titanprime*]   Anti-Surfer Gun: 19.62
+[equipe.titanprime*]   Titan Neural General: 20.24
+[equipe.titanprime*]   Titan Neural Recent: 20.2
+[equipe.titanprime*] Enemy normalized hit %: 6.83
+[equipe.titanprime*] Enemy raw hit %: 8.68
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.07
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.05
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.82
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.96
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	29	4034
+ROUND_SCORE	29	equipe.titanprime*	30
+ROUND_SCORE	29	voidious.Diamond 1.8.28	0
+START_POSITION	30	equipe.titanprime*	42.232566667041084	550.180378095863	1.7365179869771437
+START_POSITION	30	voidious.Diamond 1.8.28	439.520622701824	126.20695772842356	1.1303521401999466
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 31 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.24)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 31 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.07)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 72
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 73
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 75
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 76
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 76 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 173
+[equipe.titanprime*] WARNING: Turn skipped at: 174
+[equipe.titanprime*] Switching to Main Gun (20.24)
+[equipe.titanprime*] Switching to Titan Neural General (20.24)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 543
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 544
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 676
+[equipe.titanprime*] WARNING: Turn skipped at: 677
+[equipe.titanprime*] WARNING (move): Wave with fire time 679 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 751
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 752
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 753
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 754
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 754
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 754
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 902
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 903
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 905 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 962
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 963
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 963
+[equipe.titanprime*] WARNING: Turn skipped at: 964
+[equipe.titanprime*] WARNING (move): Wave with fire time 967 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1053
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1054
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1055
+[equipe.titanprime*] WARNING: Turn skipped at: 1056
+[equipe.titanprime*] WARNING: Turn skipped at: 1056
+[equipe.titanprime*] WARNING: Turn skipped at: 1056
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1069
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1070
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1072 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1150
+[equipe.titanprime*] WARNING: Turn skipped at: 1151
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1434
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1435
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1437 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1461
+[equipe.titanprime*] WARNING: Turn skipped at: 1462
+[equipe.titanprime*] WARNING: I hit a wall (1540).
+[equipe.titanprime*] WARNING: I hit a wall (1541).
+[equipe.titanprime*] WARNING: I hit a wall (1542).
+[equipe.titanprime*] WARNING: I hit a wall (1546).
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1631
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1632
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1660
+[equipe.titanprime*] WARNING: Turn skipped at: 1661
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1741
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1742
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1753
+[equipe.titanprime*] WARNING: Turn skipped at: 1754
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1754
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1755
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1756
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1756
+[equipe.titanprime*] WARNING (move): Wave with fire time 1756 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1757 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1954
+[equipe.titanprime*] WARNING: Turn skipped at: 1955
+[equipe.titanprime*] WARNING (move): Wave with fire time 1957 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1959
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1960
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1961
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1961
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1977
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1978
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1980 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1982
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1983
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1984
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1984
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1986
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1987
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1989
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1990
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1991
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1991
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1993 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2099
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2100
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2100 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2158
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2159
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2310
+[equipe.titanprime*] WARNING: Turn skipped at: 2311
+[equipe.titanprime*] WARNING (move): Wave with fire time 2313 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2333
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2334
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2333
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2334
+[equipe.titanprime*] WARNING: Turn skipped at: 2335
+[equipe.titanprime*] WARNING: Turn skipped at: 2335
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2336 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] WARNING (move): Wave with fire time 2337 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2453
+[equipe.titanprime*] WARNING: Turn skipped at: 2454
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2455 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] WARNING (move): Wave with fire time 2456 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2462
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2463
+[equipe.titanprime*] WARNING: Turn skipped at: 2464
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2463
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2464
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2465
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2467
+[equipe.titanprime*] WARNING: Turn skipped at: 2468
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2467
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2468
+[equipe.titanprime*] WARNING (move): Wave with fire time 2468 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2472
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2473
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2473
+[equipe.titanprime*] WARNING: Turn skipped at: 2474
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2476 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2478
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2479
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2483
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2484
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2733
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2734
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2736 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2743
+[equipe.titanprime*] WARNING: Turn skipped at: 2744
+[equipe.titanprime*] WARNING (move): Wave with fire time 2746 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3639
+[equipe.titanprime*] WARNING: Turn skipped at: 3640
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3639
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3640
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3643
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3644
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3648
+[equipe.titanprime*] WARNING: Turn skipped at: 3649
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3890 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=30 shots=367 hits=35 walls=4 skipped=21
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.26
+[equipe.titanprime*]   Anti-Surfer Gun: 19.64
+[equipe.titanprime*]   Titan Neural General: 20.29
+[equipe.titanprime*]   Titan Neural Recent: 20.28
+[equipe.titanprime*] Enemy normalized hit %: 6.87
+[equipe.titanprime*] Enemy raw hit %: 8.73
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.1
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.98
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.87
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.02
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=31 bytes=13693
+ROUND_TURNS	30	4221
+ROUND_SCORE	30	equipe.titanprime*	31
+ROUND_SCORE	30	voidious.Diamond 1.8.28	0
+START_POSITION	31	equipe.titanprime*	119.60598789197992	508.9769575677221	3.9774038229869153
+START_POSITION	31	voidious.Diamond 1.8.28	449.6827122482077	96.8970340112805	1.4400403278628717
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 32 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 32 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.29)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.1)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 108
+[equipe.titanprime*] WARNING: Turn skipped at: 109
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 241
+[equipe.titanprime*] WARNING: Turn skipped at: 242
+[equipe.titanprime*] WARNING (move): Wave with fire time 244 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 277
+[equipe.titanprime*] WARNING: Turn skipped at: 278
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 280
+[equipe.titanprime*] WARNING: Turn skipped at: 281
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 284
+[equipe.titanprime*] WARNING: Turn skipped at: 285
+[equipe.titanprime*] WARNING (move): Wave with fire time 287 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 339
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 340
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 342 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 347
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 348
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 349
+[equipe.titanprime*] WARNING: Turn skipped at: 350
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 349
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 350
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 354
+[equipe.titanprime*] WARNING: Turn skipped at: 355
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 356
+[equipe.titanprime*] WARNING: Turn skipped at: 357
+[equipe.titanprime*] WARNING (move): Wave with fire time 358 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 366
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 367
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 369 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 380
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 381
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 397
+[equipe.titanprime*] WARNING: Turn skipped at: 398
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 399
+[equipe.titanprime*] WARNING: Turn skipped at: 400
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 398
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 399
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 400
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 400
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 402 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 408
+[equipe.titanprime*] WARNING: Turn skipped at: 409
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 409
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 410
+[equipe.titanprime*] WARNING (move): Wave with fire time 411 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 413
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 414
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 444
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 445
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 447
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 448
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 448 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 491
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 492
+[equipe.titanprime*] Switching to Titan Neural Recent (20.28)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 564
+[equipe.titanprime*] WARNING: Turn skipped at: 565
+[equipe.titanprime*] Switching to Titan Neural General (20.28)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 568
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 569
+[equipe.titanprime*] Switching to Titan Neural Recent (20.29)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 679
+[equipe.titanprime*] WARNING: Turn skipped at: 680
+[equipe.titanprime*] Switching to Titan Neural General (20.3)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.3)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1002
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1003
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1006 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1451
+[equipe.titanprime*] WARNING: Turn skipped at: 1452
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1452
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1453
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1453
+[equipe.titanprime*] WARNING: Turn skipped at: 1454
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1502
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1503
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1504
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1504
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1506 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1790
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1791
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1792
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1792
+[equipe.titanprime*] Switching to Main Gun (20.31)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.3)
+[equipe.titanprime*] Switching to Main Gun (20.3)
+[equipe.titanprime*] Switching to Titan Neural Recent (20.32)
+[equipe.titanprime*] Switching to Titan Neural General (20.32)
+[equipe.titanprime*] Switching to Main Gun (20.32)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2808
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2809
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2812 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 4021
+[equipe.titanprime*] WARNING: Turn skipped at: 4022
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=31 shots=374 hits=29 walls=0 skipped=16
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.34
+[equipe.titanprime*]   Anti-Surfer Gun: 19.72
+[equipe.titanprime*]   Titan Neural General: 20.34
+[equipe.titanprime*]   Titan Neural Recent: 20.32
+[equipe.titanprime*] Enemy normalized hit %: 6.89
+[equipe.titanprime*] Enemy raw hit %: 8.73
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.16
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 19.97
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.85
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.99
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=32 bytes=13717
+ROUND_TURNS	31	4279
+ROUND_SCORE	31	equipe.titanprime*	32
+ROUND_SCORE	31	voidious.Diamond 1.8.28	0
+START_POSITION	32	equipe.titanprime*	42.26989689496354	334.06313919908314	4.3247160636580615
+START_POSITION	32	voidious.Diamond 1.8.28	543.9283763659346	432.4408411700664	2.8099948206472254
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 33 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 33 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.16)
+[equipe.titanprime*] Current gun: Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (404).
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.35)
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.35)
+[equipe.titanprime*] Switching to Titan Neural General (20.36)
+[equipe.titanprime*] Switching to Main Gun (20.35)
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.36)
+[equipe.titanprime*] Switching to Titan Neural General (20.36)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.37)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.37)
+[equipe.titanprime*] Switching to Main Gun (20.37)
+[equipe.titanprime*] Switching to Titan Neural General (20.36)
+[equipe.titanprime*] Switching to Main Gun (20.36)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=32 shots=324 hits=19 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.37
+[equipe.titanprime*]   Anti-Surfer Gun: 19.76
+[equipe.titanprime*]   Titan Neural General: 20.35
+[equipe.titanprime*]   Titan Neural Recent: 20.29
+[equipe.titanprime*] Enemy normalized hit %: 6.86
+[equipe.titanprime*] Enemy raw hit %: 8.68
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.15
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.01
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.8
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.92
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=33 bytes=13711
+ROUND_TURNS	32	3765
+ROUND_SCORE	32	equipe.titanprime*	33
+ROUND_SCORE	32	voidious.Diamond 1.8.28	0
+START_POSITION	33	equipe.titanprime*	527.780472738352	259.6470685085035	3.1885207929902166
+START_POSITION	33	voidious.Diamond 1.8.28	214.83190712572804	339.1726362613088	5.036785650113079
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 34 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 34 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.37)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.15)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 813
+[equipe.titanprime*] WARNING: Turn skipped at: 814
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=33 shots=328 hits=40 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.81
+[equipe.titanprime*]   Titan Neural General: 20.32
+[equipe.titanprime*]   Titan Neural Recent: 20.24
+[equipe.titanprime*] Enemy normalized hit %: 6.85
+[equipe.titanprime*] Enemy raw hit %: 8.68
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=34 bytes=13640
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.21
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.05
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.93
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.05
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	33	3810
+ROUND_SCORE	33	equipe.titanprime*	34
+ROUND_SCORE	33	voidious.Diamond 1.8.28	0
+START_POSITION	34	equipe.titanprime*	436.8397250481857	245.2100028282166	6.140026952214166
+START_POSITION	34	voidious.Diamond 1.8.28	644.3084263848006	394.8563083594279	3.5731677135360123
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 35 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 35 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.21)
+[equipe.titanprime*] Current gun: Main Gun (20.41)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3403
+[equipe.titanprime*] WARNING: Turn skipped at: 3404
+[equipe.titanprime*] WARNING (move): Wave with fire time 3406 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=34 shots=355 hits=29 walls=0 skipped=1
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=35 bytes=13699
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.39
+[equipe.titanprime*]   Anti-Surfer Gun: 19.76
+[equipe.titanprime*]   Titan Neural General: 20.32
+[equipe.titanprime*]   Titan Neural Recent: 20.22
+[equipe.titanprime*] Enemy normalized hit %: 6.86
+[equipe.titanprime*] Enemy raw hit %: 8.68
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.18
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.05
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.94
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.05
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	34	4116
+ROUND_SCORE	34	equipe.titanprime*	35
+ROUND_SCORE	34	voidious.Diamond 1.8.28	0
+START_POSITION	35	equipe.titanprime*	445.65944069434744	507.1170335845617	2.1016292656861317
+START_POSITION	35	voidious.Diamond 1.8.28	64.02301716406821	307.598109566188	3.5183105099396736
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 36 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 36 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.39)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.18)
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1393 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3576
+[equipe.titanprime*] WARNING: Turn skipped at: 3577
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=35 shots=361 hits=26 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.76
+[equipe.titanprime*]   Titan Neural General: 20.34
+[equipe.titanprime*]   Titan Neural Recent: 20.26
+[equipe.titanprime*] Enemy normalized hit %: 6.83
+[equipe.titanprime*] Enemy raw hit %: 8.64
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.12
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.03
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.92
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.02
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=36 bytes=13616
+ROUND_TURNS	35	4173
+ROUND_SCORE	35	equipe.titanprime*	36
+ROUND_SCORE	35	voidious.Diamond 1.8.28	0
+START_POSITION	36	equipe.titanprime*	544.0605713618975	345.575394086162	2.0728653435526696
+START_POSITION	36	voidious.Diamond 1.8.28	172.30825129713162	184.79138134604645	1.8433858137449244
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 37 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 37 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.12)
+[equipe.titanprime*] Current gun: Main Gun (20.41)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 308
+[equipe.titanprime*] WARNING: Turn skipped at: 309
+[equipe.titanprime*] WARNING (move): Wave with fire time 312 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1211
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1212
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1214 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=36 shots=323 hits=25 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.41
+[equipe.titanprime*]   Anti-Surfer Gun: 19.75
+[equipe.titanprime*]   Titan Neural General: 20.34
+[equipe.titanprime*]   Titan Neural Recent: 20.24
+[equipe.titanprime*] Enemy normalized hit %: 6.78
+[equipe.titanprime*] Enemy raw hit %: 8.59
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.06
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.08
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.92
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.02
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=37 bytes=13614
+ROUND_TURNS	36	3742
+ROUND_SCORE	36	equipe.titanprime*	37
+ROUND_SCORE	36	voidious.Diamond 1.8.28	0
+START_POSITION	37	equipe.titanprime*	622.2505881222163	555.6175937423185	5.595865900997263
+START_POSITION	37	voidious.Diamond 1.8.28	750.7288099524501	520.6865001311778	4.288428575856384
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 38 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 38 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.41)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.08)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1339
+[equipe.titanprime*] WARNING: Turn skipped at: 1340
+[equipe.titanprime*] WARNING (move): Wave with fire time 1342 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.07)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.07)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2832
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2833
+[equipe.titanprime*] WARNING: Turn skipped at: 2834
+[equipe.titanprime*] WARNING: Turn skipped at: 2834
+[equipe.titanprime*] WARNING (move): Wave with fire time 2836 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2855
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2856
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.1)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 3804
+[equipe.titanprime*] WARNING: Turn skipped at: 3805
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3804
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3805
+[equipe.titanprime*] WARNING (move): Wave with fire time 3807 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3807 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.09)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3945
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 3946
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3947
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 3947
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 3950 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=37 shots=367 hits=26 walls=0 skipped=4
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.39
+[equipe.titanprime*]   Anti-Surfer Gun: 19.76
+[equipe.titanprime*]   Titan Neural General: 20.33
+[equipe.titanprime*]   Titan Neural Recent: 20.26
+[equipe.titanprime*] Enemy normalized hit %: 6.77
+[equipe.titanprime*] Enemy raw hit %: 8.58
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.09
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.09
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.9
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.99
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=38 bytes=13538
+ROUND_TURNS	37	4239
+ROUND_SCORE	37	equipe.titanprime*	38
+ROUND_SCORE	37	voidious.Diamond 1.8.28	0
+START_POSITION	38	equipe.titanprime*	68.98810403942491	148.92297970920828	5.353550753133953
+START_POSITION	38	voidious.Diamond 1.8.28	466.3274551096998	382.9244407313067	5.177035569177877
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 39 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 39 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.09)
+[equipe.titanprime*] Current gun: Main Gun (20.39)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 197
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 198
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 996
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 997
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 998
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 998
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1035
+[equipe.titanprime*] WARNING: Turn skipped at: 1036
+[equipe.titanprime*] WARNING (move): Wave with fire time 1038 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1116
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1117
+[equipe.titanprime*] WARNING: Turn skipped at: 1118
+[equipe.titanprime*] WARNING: Turn skipped at: 1118
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1709
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1710
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1710
+[equipe.titanprime*] WARNING: Turn skipped at: 1711
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1712 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] WARNING (move): Wave with fire time 1713 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.35)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=38 shots=337 hits=32 walls=0 skipped=4
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.32
+[equipe.titanprime*]   Anti-Surfer Gun: 19.78
+[equipe.titanprime*]   Titan Neural General: 20.36
+[equipe.titanprime*]   Titan Neural Recent: 20.29
+[equipe.titanprime*] Enemy normalized hit %: 6.79
+[equipe.titanprime*] Enemy raw hit %: 8.61
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.06
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.04
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.92
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.02
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=39 bytes=13611
+ROUND_TURNS	38	3910
+ROUND_SCORE	38	equipe.titanprime*	39
+ROUND_SCORE	38	voidious.Diamond 1.8.28	0
+START_POSITION	39	equipe.titanprime*	444.69453416302326	227.8779430500407	1.493263675573583
+START_POSITION	39	voidious.Diamond 1.8.28	344.95142235154503	433.6620442890109	1.9416579076875937
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 40 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 40 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.06)
+[equipe.titanprime*] Current gun: Titan Neural General (20.36)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.05)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.06)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.09)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.08)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.07)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.08)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=39 shots=384 hits=23 walls=0 skipped=0
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=40 bytes=13693
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.33
+[equipe.titanprime*]   Anti-Surfer Gun: 19.83
+[equipe.titanprime*]   Titan Neural General: 20.3
+[equipe.titanprime*]   Titan Neural Recent: 20.27
+[equipe.titanprime*] Enemy normalized hit %: 6.81
+[equipe.titanprime*] Enemy raw hit %: 8.63
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.08
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.1
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.87
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.96
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	39	4425
+ROUND_SCORE	39	equipe.titanprime*	40
+ROUND_SCORE	39	voidious.Diamond 1.8.28	0
+START_POSITION	40	equipe.titanprime*	362.2763540841769	450.14799470765416	5.012489559184878
+START_POSITION	40	voidious.Diamond 1.8.28	378.930274989267	381.3835764512457	3.0149677320089574
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 41 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 41 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.33)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.13)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.13)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.13)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.12)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=40 shots=304 hits=27 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.33
+[equipe.titanprime*]   Anti-Surfer Gun: 19.85
+[equipe.titanprime*]   Titan Neural General: 20.34
+[equipe.titanprime*]   Titan Neural Recent: 20.33
+[equipe.titanprime*] Enemy normalized hit %: 6.81
+[equipe.titanprime*] Enemy raw hit %: 8.62
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.11
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.12
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.89
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.98
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=41 bytes=13655
+ROUND_TURNS	40	3534
+ROUND_SCORE	40	equipe.titanprime*	41
+ROUND_SCORE	40	voidious.Diamond 1.8.28	0
+START_POSITION	41	equipe.titanprime*	452.88518754766227	427.46497806974014	2.5562325352206234
+START_POSITION	41	voidious.Diamond 1.8.28	196.38482062068812	489.61396972686066	6.228316913346674
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 42 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 42 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.34)
+[voidious.Diamond 1.8.28] Current gun: Anti-Surfer Gun (20.12)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.12)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.13)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.13)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.12)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.13)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1026
+[equipe.titanprime*] WARNING: Turn skipped at: 1027
+[equipe.titanprime*] WARNING (move): Wave with fire time 1029 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.1)
+[voidious.Diamond 1.8.28] Switching to Main Gun (20.1)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] Switching to Main Gun (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] Switching to Titan Neural General (20.34)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=41 shots=320 hits=28 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.35
+[equipe.titanprime*]   Anti-Surfer Gun: 19.82
+[equipe.titanprime*]   Titan Neural General: 20.35
+[equipe.titanprime*]   Titan Neural Recent: 20.34
+[equipe.titanprime*] Enemy normalized hit %: 6.8
+[equipe.titanprime*] Enemy raw hit %: 8.61
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.1
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.08
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.91
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.0
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=42 bytes=13539
+ROUND_TURNS	41	3716
+ROUND_SCORE	41	equipe.titanprime*	42
+ROUND_SCORE	41	voidious.Diamond 1.8.28	0
+START_POSITION	42	equipe.titanprime*	146.89575154310762	138.10725868419985	0.0457291333198828
+START_POSITION	42	voidious.Diamond 1.8.28	362.0123195903339	448.64554094238196	3.465072277803409
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 43 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Titan Neural General (20.35)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 43 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.1)
+[equipe.titanprime*] Switching to Main Gun (20.35)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 367
+[equipe.titanprime*] WARNING: Turn skipped at: 368
+[equipe.titanprime*] WARNING (move): Wave with fire time 370 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural Recent (20.34)
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=42 shots=287 hits=17 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.32
+[equipe.titanprime*]   Anti-Surfer Gun: 19.83
+[equipe.titanprime*]   Titan Neural General: 20.28
+[equipe.titanprime*]   Titan Neural Recent: 20.27
+[equipe.titanprime*] Enemy normalized hit %: 6.84
+[equipe.titanprime*] Enemy raw hit %: 8.65
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.1
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.05
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.87
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.95
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=43 bytes=13712
+ROUND_TURNS	42	3775
+ROUND_SCORE	42	equipe.titanprime*	43
+ROUND_SCORE	42	voidious.Diamond 1.8.28	0
+START_POSITION	43	equipe.titanprime*	264.41950785422273	554.5946861544104	4.4920830904753535
+START_POSITION	43	voidious.Diamond 1.8.28	519.9777329984425	516.7057386107459	4.834673932322052
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 44 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 44 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.1)
+[equipe.titanprime*] Current gun: Main Gun (20.32)
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=43 shots=327 hits=35 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.35
+[equipe.titanprime*]   Anti-Surfer Gun: 19.81
+[equipe.titanprime*]   Titan Neural General: 20.27
+[equipe.titanprime*]   Titan Neural Recent: 20.3
+[equipe.titanprime*] Enemy normalized hit %: 6.85
+[equipe.titanprime*] Enemy raw hit %: 8.66
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.1
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.03
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.92
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.02
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=44 bytes=13710
+ROUND_TURNS	43	3783
+ROUND_SCORE	43	equipe.titanprime*	44
+ROUND_SCORE	43	voidious.Diamond 1.8.28	0
+START_POSITION	44	equipe.titanprime*	624.1953409722428	120.96219593544104	0.5695335323403565
+START_POSITION	44	voidious.Diamond 1.8.28	192.34316268806927	553.9173474335231	0.05673762369795079
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 45 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 45 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.35)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.1)
+[voidious.Diamond 1.8.28] SYSTEM: Bonus for killing equipe.titanprime*: 18
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 wins the round.
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.12
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.07
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.88
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.97
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=44 shots=111 hits=3 walls=0 skipped=0
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=45 bytes=13831
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.32
+[equipe.titanprime*]   Anti-Surfer Gun: 19.79
+[equipe.titanprime*]   Titan Neural General: 20.25
+[equipe.titanprime*]   Titan Neural Recent: 20.27
+[equipe.titanprime*] Enemy normalized hit %: 6.91
+[equipe.titanprime*] Enemy raw hit %: 8.73
+[equipe.titanprime*] SYSTEM: equipe.titanprime* has died
+ROUND_TURNS	44	2003
+ROUND_SCORE	44	equipe.titanprime*	44
+ROUND_SCORE	44	voidious.Diamond 1.8.28	1
+START_POSITION	45	equipe.titanprime*	364.54730143207837	108.22318111290261	4.736631282386636
+START_POSITION	45	voidious.Diamond 1.8.28	748.3943077630671	490.19392777126177	1.7223016336136867
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 46 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 46 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.32)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.12)
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 wins the round.
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.2
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.1
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.85
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.93
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=45 shots=258 hits=16 walls=0 skipped=0
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.33
+[equipe.titanprime*]   Anti-Surfer Gun: 19.77
+[equipe.titanprime*]   Titan Neural General: 20.24
+[equipe.titanprime*]   Titan Neural Recent: 20.25
+[equipe.titanprime*] Enemy normalized hit %: 7.0
+[equipe.titanprime*] Enemy raw hit %: 8.82
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=46 bytes=13669
+[equipe.titanprime*] SYSTEM: equipe.titanprime* has died
+ROUND_TURNS	45	3453
+ROUND_SCORE	45	equipe.titanprime*	44
+ROUND_SCORE	45	voidious.Diamond 1.8.28	2
+START_POSITION	46	equipe.titanprime*	71.73434065500834	56.222252007592296	4.789418171828197
+START_POSITION	46	voidious.Diamond 1.8.28	523.0382338953698	161.18622414265695	3.6177593319063566
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 47 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 47 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.2)
+[equipe.titanprime*] Current gun: Main Gun (20.33)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 489
+[equipe.titanprime*] WARNING: Turn skipped at: 490
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1734 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=46 shots=309 hits=36 walls=0 skipped=1
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.4
+[equipe.titanprime*]   Anti-Surfer Gun: 19.82
+[equipe.titanprime*]   Titan Neural General: 20.27
+[equipe.titanprime*]   Titan Neural Recent: 20.23
+[equipe.titanprime*] Enemy normalized hit %: 6.98
+[equipe.titanprime*] Enemy raw hit %: 8.78
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.19
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.13
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.93
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.01
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=47 bytes=13630
+ROUND_TURNS	46	3588
+ROUND_SCORE	46	equipe.titanprime*	45
+ROUND_SCORE	46	voidious.Diamond 1.8.28	2
+START_POSITION	47	equipe.titanprime*	652.3734495497856	51.40416932587873	3.863284610773419
+START_POSITION	47	voidious.Diamond 1.8.28	427.0640056275312	111.00043278586494	0.9304675724717193
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 48 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 48 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.4)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.19)
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (3036).
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=47 shots=351 hits=22 walls=0 skipped=0
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.34
+[equipe.titanprime*]   Anti-Surfer Gun: 19.82
+[equipe.titanprime*]   Titan Neural General: 20.31
+[equipe.titanprime*]   Titan Neural Recent: 20.26
+[equipe.titanprime*] Enemy normalized hit %: 6.99
+[equipe.titanprime*] Enemy raw hit %: 8.8
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.16
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.08
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.9
+[voidious.Diamond 1.8.28] Enemy raw hit %: 8.96
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=48 bytes=13665
+ROUND_TURNS	47	4051
+ROUND_SCORE	47	equipe.titanprime*	46
+ROUND_SCORE	47	voidious.Diamond 1.8.28	2
+START_POSITION	48	equipe.titanprime*	412.2983847629368	478.7060611485372	2.268373021110508
+START_POSITION	48	voidious.Diamond 1.8.28	494.78269661157594	364.84982379975514	3.4053941474010125
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 49 of 50
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.34)
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 49 of 50
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.16)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 326
+[equipe.titanprime*] WARNING: Turn skipped at: 327
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 326
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 327
+[equipe.titanprime*] WARNING (move): Wave with fire time 329 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 329 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] Switching to Titan Neural General (20.33)
+[equipe.titanprime*] Switching to Main Gun (20.33)
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 676
+[equipe.titanprime*] WARNING: Turn skipped at: 677
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 678
+[equipe.titanprime*] WARNING: Turn skipped at: 679
+[equipe.titanprime*] WARNING (move): Wave with fire time 680 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1050
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1051
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1926
+[equipe.titanprime*] WARNING: Turn skipped at: 1927
+[equipe.titanprime*] WARNING (move): Wave with fire time 1929 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (2131).
+[voidious.Diamond 1.8.28] WARNING: I hit a wall (2132).
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2630
+[equipe.titanprime*] WARNING: Turn skipped at: 2631
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=48 shots=339 hits=34 walls=0 skipped=5
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.3
+[equipe.titanprime*]   Anti-Surfer Gun: 19.78
+[equipe.titanprime*]   Titan Neural General: 20.29
+[equipe.titanprime*]   Titan Neural Recent: 20.23
+[equipe.titanprime*] Enemy normalized hit %: 6.99
+[equipe.titanprime*] Enemy raw hit %: 8.81
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.16
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.09
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.93
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.01
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=49 bytes=13659
+ROUND_TURNS	48	3921
+ROUND_SCORE	48	equipe.titanprime*	47
+ROUND_SCORE	48	voidious.Diamond 1.8.28	2
+START_POSITION	49	equipe.titanprime*	620.3534147409752	249.75165552626783	0.0730705870974426
+START_POSITION	49	voidious.Diamond 1.8.28	453.08598427442377	375.59963965407763	2.369492498990973
+[equipe.titanprime*] =========================
+[equipe.titanprime*] Round 50 of 50
+[equipe.titanprime*] =========================
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 50 of 50
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime*] Current gun: Main Gun (20.3)
+[voidious.Diamond 1.8.28] Current gun: Main Gun (20.16)
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 39
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 40
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 40
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 41
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 42
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 43
+[equipe.titanprime*] WARNING: Turn skipped at: 44
+[equipe.titanprime*] WARNING: Turn skipped at: 44
+[equipe.titanprime*] WARNING: Turn skipped at: 44
+[equipe.titanprime*] WARNING: Turn skipped at: 44
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 42
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 43
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 44
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 44
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 44 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] WARNING (move): Wave with fire time 45 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1479
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1480
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1482 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1492
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1493
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 1780
+[equipe.titanprime*] WARNING: Turn skipped at: 1781
+[equipe.titanprime*] WARNING (move): Wave with fire time 1783 doesn't exist, interpolation succeeded.
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 1978
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 1979
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 1981 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: titanprime* skipped turn 2447
+[equipe.titanprime*] WARNING: Turn skipped at: 2448
+[voidious.Diamond 1.8.28] SYSTEM: Diamond 1.8.28 skipped turn 2447
+[voidious.Diamond 1.8.28] WARNING: Turn skipped at: 2448
+[voidious.Diamond 1.8.28] WARNING (move): Wave with fire time 2450 doesn't exist, interpolation succeeded.
+[equipe.titanprime*] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 2
+[equipe.titanprime*] SYSTEM: equipe.titanprime* wins the round.
+[equipe.titanprime*] TITAN_DIAGNOSTIC version=4.15 round=49 shots=327 hits=25 walls=0 skipped=6
+[equipe.titanprime*] TITAN_MEMORY saved=1 generation=50 bytes=13621
+[equipe.titanprime*] Titan Prime venceu o round!
+[equipe.titanprime*] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime*]   Main Gun: 20.32
+[equipe.titanprime*]   Anti-Surfer Gun: 19.79
+[equipe.titanprime*]   Titan Neural General: 20.25
+[equipe.titanprime*]   Titan Neural Recent: 20.2
+[equipe.titanprime*] Enemy normalized hit %: 7.0
+[equipe.titanprime*] Enemy raw hit %: 8.79
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime*:
+[voidious.Diamond 1.8.28]   Main Gun: 20.17
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 20.05
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 6.93
+[voidious.Diamond 1.8.28] Enemy raw hit %: 9.0
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	49	3837
+ROUND_SCORE	49	equipe.titanprime*	48
+ROUND_SCORE	49	voidious.Diamond 1.8.28	2
+RESULT	equipe.titanprime*	3498	48
+RESULT	voidious.Diamond 1.8.28	1878	2
+STATUS	complete
+END	reserved-1

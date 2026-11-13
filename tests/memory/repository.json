@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "files_inspected": 270,
+  "checks": {
+    "markdown": 38,
+    "python": 46,
+    "json": 121,
+    "zip": 1,
+    "battles": 12
+  },
+  "java_sources": [
+    "robots/equipe/titanprime.java"
+  ],
+  "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+  "errors": [],
+  "scope": "Structural integrity, not a claim to execute historical 3.x experiments against the 4.x API"
+}

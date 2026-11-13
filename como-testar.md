@@ -1,8 +1,10 @@
-# Instalar e testar o Titan Prime 4.8
+# Instalar e testar o Titan Prime 4.15
 
 Use **Robocode clássico**. A classe para selecionar é `equipe.titanprime`. O robô é uma adaptação licenciada do Diamond aberto e não precisa do JAR do adversário para compilar ou funcionar. Para enfrentá-lo, instale o Diamond separadamente.
 
-Baixe o [JAR 4.8](releases/titanprime-4.8.jar) para importar pelo Robocode, ou compile o fonte conforme abaixo. O resultado deste checkpoint foi 49/50 e 48/50 contra Diamond; as melhorias continuam.
+Baixe o [JAR 4.15](releases/titanprime-4.15.jar) para importar pelo Robocode, ou compile o fonte conforme abaixo. A 4.15 acrescenta memória entre batalhas; os resultados 49/50 e 48/50 pertencem ao [checkpoint 4.8](releases/titanprime-4.8.jar).
+
+Use Robocode **1.12.0** com Java **17**. Seu log mostrava a versão 1.11.1, com um problema conhecido no encerramento de robôs. Veja o [diagnóstico](diagnostico-java17.md). Instale a versão nova em uma pasta separada e preserve a anterior.
 
 ## Instalação no Windows
 
@@ -20,7 +22,7 @@ cd /d C:\robocode
 javac --release 8 -encoding UTF-8 -cp libs\robocode.jar -d robots robots\equipe\titanprime.java
 ```
 
-`--release 8` gera bytecode 52, evitando o erro de classe 61 quando uma instalação acaba abrindo pelo Java 8. Os testes desta atualização usam Robocode 1.12.0 no Java 21; executar pelo Java 17 continua sendo a configuração indicada para seu PC.
+`--release 8` gera bytecode 52, evitando o erro de classe 61 quando uma instalação acaba abrindo pelo Java 8. A persistência desta atualização foi verificada no Robocode 1.12.0 com Java 21 e Temurin 17.0.21+9; use Java 17 no seu PC.
 
 ## Avaliar contra Diamond
 
@@ -45,6 +47,8 @@ Cada batalha sorteia uma paleta, mantida entre rounds; cores podem se repetir po
 Para desenhar as estimativas, habilite **Paint** na janela do robô. As teclas **R**, **G** e **M**, encaminhadas pelo Robocode, alternam radar, mira e movimento. A tecla V pertence ao motor antigo. A pintura representa informações observadas e hipóteses de ondas, sem acesso às balas ocultas.
 
 Após os rounds, encontre `C:\robocode\robots\equipe\titanprime.data\diagnostico.csv`. Ele guarda até 48 KB recentes, com vitória, tiros, acertos, gasto de energia, dano nominal, paredes e turnos perdidos. O esquema 4.0 substitui um arquivo 3.x existente. A [arquitetura](arquitetura.md) explica os limites dos campos.
+
+Nessa mesma pasta, `memoria-a.dat` e `memoria-b.dat` guardam modelos recarregados na próxima batalha. Mantenha esses arquivos para conservar o aprendizado. O [guia de memória](aprendizado.md) explica a cota, o arquivador externo opcional e a recuperação de checkpoints.
 
 ## Verificações do código
 

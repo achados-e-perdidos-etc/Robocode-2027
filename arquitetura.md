@@ -1,4 +1,4 @@
-# Arquitetura real — Titan Prime 4.8
+# Arquitetura real — Titan Prime 4.15
 
 A arquitetura 3.x foi substituída por uma adaptação licenciada do Diamond aberto, fixada no commit `2d1c6a2b911cf077c5f13d2baa45da7d18d6babb`. Todo o motor de produção e seus tipos auxiliares estão dentro de `equipe.titanprime`, no único [fonte Java](robots/equipe/titanprime.java). A [licença](licenses/diamond.txt) e o [manifesto de origem](tests/elite/import-manifest.json) identificam o que foi incorporado.
 
@@ -27,7 +27,7 @@ No melee, 64 direções geram posições avaliadas por proximidade, energia, geo
 
 ## Memória e observação
 
-Os componentes persistem entre rounds e reinicializam o estado transitório de cada um. O aprendizado estatístico atravessa os rounds da mesma batalha. Uma batalha independente começa com o modelo inicial incorporado; não há importação dos arquivos privados do Diamond nem aprendizado novo recarregado de disco.
+Os componentes persistem entre rounds e reinicializam o estado transitório de cada um. O aprendizado estatístico atravessa os rounds da mesma batalha. Uma batalha independente recarrega modelos neurais, avaliações de miras e amostras defensivas de suas cópias locais válidas. Quando faltam dados compatíveis, começa com o modelo inicial incorporado. Não importa arquivos privados do adversário. Veja [aprendizado entre batalhas](aprendizado.md).
 
 Os contadores adicionados observam tiros reais retornados pela API, eventos de acerto, colisões, ticks e resultados. Eles não escolhem ações. O CSV `diagnostico.csv` usa o esquema 4.0 e conserva até 48 KB de registros recentes. Um CSV de esquema 3.x é substituído na migração; guarde uma cópia antes de atualizar caso queira conservar o histórico.
 

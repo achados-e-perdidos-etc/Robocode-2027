@@ -1,0 +1,12 @@
+{
+  "version": "4.15",
+  "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+  "fixed_opponent_limit": null,
+  "bounded_robot_snapshot_bytes": 70000,
+  "expanded_read_limit_bytes": 8388608,
+  "format_schema": 2,
+  "schema1_compatible": true,
+  "strategy": "Continual model updates; compressed snapshots use available quota dynamically. External append-only archive preserves checkpoints without a software history limit, subject to disk space. Robot still respects standard Robocode quota.",
+  "external_archive_is_not_required_for_battle_execution": true,
+  "user_pc_engine_update_required": "Robocode1.12.0 recommended for Java17.0.21;1.11.2 fixed exact1.11.1 thread error"
+}

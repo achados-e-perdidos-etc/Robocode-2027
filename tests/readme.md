@@ -1,6 +1,6 @@
 # Testes e evidências
 
-A produção atual é a base 4.8, descrita em [arquitetura.md](../arquitetura.md). Os relatórios e testes 3.x permanecem para reprodução histórica.
+A produção atual é a base 4.15, descrita em [arquitetura.md](../arquitetura.md). Os relatórios e testes 3.x permanecem para reprodução histórica.
 
 ## Verificações atuais
 

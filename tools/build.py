@@ -35,8 +35,8 @@ def main():
             for f in compiled:
                 info=zipfile.ZipInfo(str(f.relative_to(classes)),date_time=(2026,1,1,0,0,0))
                 info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,f.read_bytes())
-            for name,contents in [('equipe/titanprime.properties',properties),
-                                  ('licenses/diamond.txt',(ROOT/'licenses/diamond.txt').read_text())]:
+            for name,contents in [('equipe/titanprime.properties',properties)] + [
+                    ('licenses/'+license.name,license.read_text()) for license in sorted((ROOT/'licenses').glob('*.txt'))]:
                 info=zipfile.ZipInfo(name,date_time=(2026,1,1,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
                 z.writestr(info,contents)
         report=dict(source_sha256=hashlib.sha256(a.source.read_bytes()).hexdigest(),

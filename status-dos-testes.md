@@ -1,4 +1,12 @@
-# Estado dos testes — Titan Prime 4.8
+# Estado dos testes — Titan Prime 4.15
+
+A 4.15 acrescenta gravação e recarga de modelos neurais, avaliações de miras e amostras defensivas, compressão com quantidade de perfis dependente da cota, duas cópias com checksum e histórico externo opcional. O Java único está sem comentários, com os avisos obrigatórios preservados nos arquivos de licença.
+
+Os [testes de memória](tests/memory/plan.json) foram executados com o fonte SHA256 `8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9`. Passaram: reconstrução dos modelos e KNN, migração do formato anterior, nove perfis no mesmo snapshot, limites de leitura/descompressão, recarga em novos processos com Java 17 e Java 21, recuperação após corrupção e conservação/restauração de 40 checkpoints externos. A previsão neural mudou menos de `4e-12` no caso numérico verificado. A comemoração conservou 64 cores animadas em cada um dos nove rounds de teste visual; o CSV também passou na verificação de rotação.
+
+As batalhas de integração de gravação e os adversários passivos dos testes visuais não são qualificação competitiva. A primeira série competitiva da 4.15 contra o Diamond original terminou válida em **48/50**, com 3498 pontos do Titan e 1878 do Diamond. O [resultado completo](tests/elite/v415/results.json), os [rounds](tests/elite/v415/rounds.csv) e as [duas derrotas](tests/elite/v415/losses.json) estão preservados. Mesmo orçamento de CPU de 10,03 ms, arena 800 × 600, largadas aleatórias e memória inicialmente limpa. A meta de vencer todos os rounds não passou. O [diagnóstico do PC](diagnostico-java17.md) registra a correção oficial do problema de threads da instalação 1.11.1.
+
+## Checkpoint anterior 4.8
 
 A versão 4.8 foi salva na main por solicitação expressa do usuário, antes de continuar os ajustes. O fonte é exatamente o avaliado, SHA256 `467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460`.
 

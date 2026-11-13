@@ -1,59 +1,17 @@
 package equipe;
 
 public class titanprime extends robocode.AdvancedRobot {
-// Altered source: Titan Prime 4.8 integrates the open-source Diamond engine.
-// Original engine by Voidious; kd-tree by Rednaxela. Original notices retained.
-// Packaging, telemetry, celebration and robustness adaptations by this project.
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/**
- * Diamond - a robot by Voidious
- *
- * A Melee and 1v1 bot.
- *
- * In Melee it uses:
- *   - Minimum Risk Movement
- *   - Dynamic Clustering
- *   - Displacement Vectors
- *   - "Shadow" Melee Gun
- *
- * In 1v1 it uses:
- *   - Wave Surfing movement with Dynamic Clustering
- *   - Dynamic Clustering / GuessFactors for the two guns: one tuned for
- *     surfers, the other tuned for non-adaptive movements.
- *
- * For more details, see: http://robowiki.net?Diamond
- */
 
   private static final boolean _TC = false;
   private static final boolean _MC = false;
   private static final boolean _LOG_ERRORS = true;
 
-  protected static voidious_radar_DiamondEyes _radar;
-  protected static voidious_move_DiamondWhoosh _move;
-  private static voidious_gun_DiamondFist _gun;
-  protected static voidious_gfx_DiamondColors _gfx;
+  protected static titan_radar_Radar _radar;
+  protected static titan_move_Movimento _move;
+  private static titan_gun_Mira _gun;
+  protected static titan_gfx_Cores _gfx;
   private static final float BATTLE_HUE = new java.util.Random().nextFloat();
-  private static final String DIAGNOSTIC_VERSION = "4.8";
+  private static final String DIAGNOSTIC_VERSION = "4.15";
   private static final String DIAGNOSTIC_BATTLE =
       Long.toHexString(new java.util.Random().nextLong());
   private final java.util.Set<String> observedEnemies = new java.util.TreeSet<String>();
@@ -67,12 +25,12 @@ public class titanprime extends robocode.AdvancedRobot {
   private double _maxVelocity;
 
   static {
-    voidious_utils_ErrorLogger.enabled = _LOG_ERRORS;
+    titan_utils_ErrorLogger.enabled = _LOG_ERRORS;
   }
 
   public void run() {
     try {
-      voidious_utils_ErrorLogger.init(this);
+      titan_utils_ErrorLogger.init(this);
       initialOpponents = getOthers();
       initComponents();
       initColors();
@@ -80,7 +38,7 @@ public class titanprime extends robocode.AdvancedRobot {
       setAdjustGunForRobotTurn(true);
       setAdjustRadarForGunTurn(true);
 
-      while (true) {
+      while (!roundFinished) {
         if (celebrating) {
           celebrate();
           execute();
@@ -110,17 +68,17 @@ public class titanprime extends robocode.AdvancedRobot {
 
   private void initComponents() {
     if (_radar == null) {
-      _radar = new voidious_radar_DiamondEyes(this, System.out);
+      _radar = new titan_radar_Radar(this, System.out);
     }
     if (_move == null) {
-      _move = new voidious_move_DiamondWhoosh(this, System.out);
+      _move = new titan_move_Movimento(this, System.out);
     }
     if (_gun == null) {
-      _gun = new voidious_gun_DiamondFist(this, _TC);
+      _gun = new titan_gun_Mira(this, _TC);
       _gun.addFireListener(_move);
     }
     if (_gfx == null) {
-      _gfx = new voidious_gfx_DiamondColors(this, _radar, _move, _gun, _TC, _MC);
+      _gfx = new titan_gfx_Cores(this, _radar, _move, _gun, _TC, _MC);
       _gfx.registerPainter("r", _radar);
       _gfx.registerPainter("g", _gun);
       _gfx.registerPainter("m", _move);
@@ -129,6 +87,7 @@ public class titanprime extends robocode.AdvancedRobot {
     _radar.initRound(this);
     _move.initRound(this);
     _gun.initRound(this);
+    loadBattleMemory();
   }
 
   private void initColors() {
@@ -154,7 +113,7 @@ public class titanprime extends robocode.AdvancedRobot {
   @Override
   public robocode.Bullet setFireBullet(double power) {
     if (getOthers() == 1 && getEnergy() < 18 && power <= .2 && _move != null) {
-      voidious_move_MoveEnemy enemy = _move._moveDataManager.duelEnemy();
+      titan_move_MoveEnemy enemy = _move._moveDataManager.duelEnemy();
       if (enemy != null && enemy.energy > 1 && enemy.distance > 160
           && getTime() - lastRealShot < 44) return null;
     }
@@ -168,7 +127,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onScannedRobot(robocode.ScannedRobotEvent e) {
-    observedEnemies.add(e.getName());
+    if (observedEnemies.add(e.getName())) MEMORY_SEEN.put(e.getName(), memoryGeneration + 1);
     try {
       _radar.onScannedRobot(e);
       if (!_TC) {
@@ -259,9 +218,16 @@ public class titanprime extends robocode.AdvancedRobot {
     } catch (RuntimeException re) {
       logAndRethrowException(re);
     }
+    for (int frame = 0; frame < 64; frame++) {
+      celebrate();
+      execute();
+    }
+    saveBattleMemory();
+    roundFinished = true;
   }
 
   public void onDeath(robocode.DeathEvent e) {
+    roundFinished = true;
     reportRound();
     try {
       if (!_MC) {
@@ -273,6 +239,7 @@ public class titanprime extends robocode.AdvancedRobot {
     } catch (RuntimeException re) {
       logAndRethrowException(re);
     }
+    saveBattleMemory();
   }
 
   public void onPaint(java.awt.Graphics2D g) {
@@ -297,9 +264,15 @@ public class titanprime extends robocode.AdvancedRobot {
     if (roundReported && recordDiagnosticEvent(e.getTime())) saveDiagnostic();
   }
 
-
   public void onRoundEnded(robocode.RoundEndedEvent e) {
     reportRound();
+    if ((getRoundNum() + 1) % 5 == 0 || getRoundNum() + 1 == getNumRounds()) saveBattleMemory();
+    roundFinished = true;
+  }
+
+  public void onBattleEnded(robocode.BattleEndedEvent e) {
+    saveBattleMemory();
+    roundFinished = true;
   }
 
   private boolean recordDiagnosticEvent(long tick) {
@@ -315,7 +288,7 @@ public class titanprime extends robocode.AdvancedRobot {
           + " round=" + getRoundNum() + " shots=" + shots + " hits=" + hits
           + " walls=" + wallHits + " skipped=" + skipped);
     }
-    // RoundEndedEvent can precede WinEvent; replace this round's record on victory.
+
     saveDiagnostic();
   }
 
@@ -326,7 +299,7 @@ public class titanprime extends robocode.AdvancedRobot {
       if (opponents.length() > 0) opponents.append('|');
       opponents.append(name.replace("\"", "\"\""));
     }
-    voidious_move_MoveEnemy duelEnemy = _move == null ? null : _move._moveDataManager.duelEnemy();
+    titan_move_MoveEnemy duelEnemy = _move == null ? null : _move._moveDataManager.duelEnemy();
     int resolved = duelEnemy == null ? 0 : duelEnemy.raw1v1ShotsFiredThisRound;
     int resolvedHits = duelEnemy == null ? 0 : duelEnemy.raw1v1ShotsHitThisRound;
     String rowKey = DIAGNOSTIC_VERSION + "," + DIAGNOSTIC_BATTLE + "," + (getRoundNum() + 1) + ",";
@@ -371,7 +344,7 @@ public class titanprime extends robocode.AdvancedRobot {
     String moreInfo = "getOthers(): " + getOthers() + "\n"
         + "getEnemiesAlive(): " + _gun.getEnemiesAlive() + "\n"
         + "getRoundNum(): " + getRoundNum() + "\n" + "getTime(): " + getTime();
-    voidious_utils_ErrorLogger.getInstance().logException(e, moreInfo);
+    titan_utils_ErrorLogger.getInstance().logException(e, moreInfo);
 
     throw e;
   }
@@ -385,78 +358,37 @@ public class titanprime extends robocode.AdvancedRobot {
     return _maxVelocity;
   }
 
-/**
- * Copyright 2009 Rednaxela
- * 
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- * 
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- * 
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software. If you use this software
- *    in a product, an acknowledgment in the product documentation would be
- *    appreciated but is not required.
- * 
- *    2. This notice may not be removed or altered from any source
- *    distribution.
- */
+public abstract static class titan_KdTree<T> {
 
-/**
- * An efficient well-optimized kd-tree
- * 
- * @author Rednaxela
- */
-
-// MODIFIED by Voidious, 2011:
-// - add find farthest neighbor search
-// - also check cursor != null in removeOld
-public abstract static class ags_utils_KdTree<T> {
-    // Static variables
     private static final int           bucketSize = 24;
 
-    // All types
     private final int                  dimensions;
-    private final ags_utils_KdTree<T>            parent;
+    private final titan_KdTree<T>            parent;
 
-    // Root only
     private final java.util.LinkedList<double[]> locationStack;
     private final Integer              sizeLimit;
 
-    // Leaf only
     private double[][]                 locations;
     private Object[]                   data;
     private int                        locationCount;
 
-    // Stem only
-    private ags_utils_KdTree<T>                  left, right;
+    private titan_KdTree<T>                  left, right;
     private int                        splitDimension;
     private double                     splitValue;
 
-    // Bounds
     private double[]                   minLimit, maxLimit;
     private boolean                    singularity;
 
-    // Temporary
     private Status                     status;
 
-    /**
-     * Construct a KdTree with a given number of dimensions and a limit on
-     * maxiumum size (after which it throws away old points)
-     */
-    private ags_utils_KdTree(int dimensions, Integer sizeLimit) {
+    private titan_KdTree(int dimensions, Integer sizeLimit) {
         this.dimensions = dimensions;
 
-        // Init as leaf
         this.locations = new double[bucketSize][];
         this.data = new Object[bucketSize];
         this.locationCount = 0;
         this.singularity = true;
 
-        // Init as root
         this.parent = null;
         this.sizeLimit = sizeLimit;
         if (sizeLimit != null) {
@@ -467,43 +399,31 @@ public abstract static class ags_utils_KdTree<T> {
         }
     }
 
-    /**
-     * Constructor for child nodes. Internal use only.
-     */
-    private ags_utils_KdTree(ags_utils_KdTree<T> parent, boolean right) {
+    private titan_KdTree(titan_KdTree<T> parent, boolean right) {
         this.dimensions = parent.dimensions;
 
-        // Init as leaf
         this.locations = new double[Math.max(bucketSize, parent.locationCount)][];
         this.data = new Object[Math.max(bucketSize, parent.locationCount)];
         this.locationCount = 0;
         this.singularity = true;
 
-        // Init as non-root
         this.parent = parent;
         this.locationStack = null;
         this.sizeLimit = null;
     }
 
-    /**
-     * Get the number of points in the tree
-     */
     public int size() {
         return locationCount;
     }
 
-    /**
-     * Add a point and associated value to the tree
-     */
     public void addPoint(double[] location, T value) {
-        ags_utils_KdTree<T> cursor = this;
+        titan_KdTree<T> cursor = this;
 
         while (cursor.locations == null || cursor.locationCount >= cursor.locations.length) {
             if (cursor.locations != null) {
                 cursor.splitDimension = cursor.findWidestAxis();
                 cursor.splitValue = (cursor.minLimit[cursor.splitDimension] + cursor.maxLimit[cursor.splitDimension]) * 0.5;
 
-                // Never split on infinity or NaN
                 if (cursor.splitValue == Double.POSITIVE_INFINITY) {
                     cursor.splitValue = Double.MAX_VALUE;
                 }
@@ -514,8 +434,6 @@ public abstract static class ags_utils_KdTree<T> {
                     cursor.splitValue = 0;
                 }
 
-                // Don't split node if it has no width in any axis. Double the
-                // bucket size instead
                 if (cursor.minLimit[cursor.splitDimension] == cursor.maxLimit[cursor.splitDimension]) {
                     double[][] newLocations = new double[cursor.locations.length * 2][];
                     System.arraycopy(cursor.locations, 0, newLocations, 0, cursor.locationCount);
@@ -526,29 +444,25 @@ public abstract static class ags_utils_KdTree<T> {
                     break;
                 }
 
-                // Don't let the split value be the same as the upper value as
-                // can happen due to rounding errors!
                 if (cursor.splitValue == cursor.maxLimit[cursor.splitDimension]) {
                     cursor.splitValue = cursor.minLimit[cursor.splitDimension];
                 }
 
-                // Create child leaves
-                ags_utils_KdTree<T> left = new ChildNode(cursor, false);
-                ags_utils_KdTree<T> right = new ChildNode(cursor, true);
+                titan_KdTree<T> left = new ChildNode(cursor, false);
+                titan_KdTree<T> right = new ChildNode(cursor, true);
 
-                // Move locations into children
                 for (int i = 0; i < cursor.locationCount; i++) {
                     double[] oldLocation = cursor.locations[i];
                     Object oldData = cursor.data[i];
                     if (oldLocation[cursor.splitDimension] > cursor.splitValue) {
-                        // Right
+
                         right.locations[right.locationCount] = oldLocation;
                         right.data[right.locationCount] = oldData;
                         right.locationCount++;
                         right.extendBounds(oldLocation);
                     }
                     else {
-                        // Left
+
                         left.locations[left.locationCount] = oldLocation;
                         left.data[left.locationCount] = oldData;
                         left.locationCount++;
@@ -556,7 +470,6 @@ public abstract static class ags_utils_KdTree<T> {
                     }
                 }
 
-                // Make into stem
                 cursor.left = left;
                 cursor.right = right;
                 cursor.locations = null;
@@ -587,9 +500,6 @@ public abstract static class ags_utils_KdTree<T> {
         }
     }
 
-    /**
-     * Extends the bounds of this node do include a new location
-     */
     private final void extendBounds(double[] location) {
         if (minLimit == null) {
             minLimit = new double[dimensions];
@@ -616,9 +526,6 @@ public abstract static class ags_utils_KdTree<T> {
         }
     }
 
-    /**
-     * Find the widest axis of the bounds of this node
-     */
     private final int findWidestAxis() {
         int widest = 0;
         double width = (maxLimit[0] - minLimit[0]) * getAxisWeightHint(0);
@@ -634,16 +541,10 @@ public abstract static class ags_utils_KdTree<T> {
         return widest;
     }
 
-    /**
-     * Remove the oldest value from the tree. Note: This cannot trim the bounds
-     * of nodes, nor empty nodes, and thus you can't expect it to perfectly
-     * preserve the speed of the tree as you keep adding.
-     */
     private void removeOld() {
         double[] location = this.locationStack.removeFirst();
-        ags_utils_KdTree<T> cursor = this;
+        titan_KdTree<T> cursor = this;
 
-        // Find the node where the point is
         while (cursor.locations == null) {
             if (location[cursor.splitDimension] > cursor.splitValue) {
                 cursor = cursor.right;
@@ -666,19 +567,13 @@ public abstract static class ags_utils_KdTree<T> {
                 return;
             }
         }
-        // If we got here... we couldn't find the value to remove. Weird...
+
     }
 
-    /**
-     * Enumeration representing the status of a node during the running
-     */
     private static enum Status {
         NONE, LEFTVISITED, RIGHTVISITED, ALLVISITED
     }
 
-    /**
-     * Stores a distance and value to output
-     */
     public static class Entry<T> {
         public final double distance;
         public final T      value;
@@ -689,25 +584,22 @@ public abstract static class ags_utils_KdTree<T> {
         }
     }
 
-    /**
-     * Calculates the nearest 'count' points to 'location'
-     */
     @SuppressWarnings("unchecked")
     public java.util.List<Entry<T>> nearestNeighbor(double[] location, int count, boolean sequentialSorting) {
-        ags_utils_KdTree<T> cursor = this;
+        titan_KdTree<T> cursor = this;
         cursor.status = Status.NONE;
         double range = Double.POSITIVE_INFINITY;
         ResultHeap resultHeap = new ResultHeap(count);
 
         do {
             if (cursor.status == Status.ALLVISITED) {
-                // At a fully visited part. Move up the tree
+
                 cursor = cursor.parent;
                 continue;
             }
 
             if (cursor.status == Status.NONE && cursor.locations != null) {
-                // At a leaf. Use the data.
+
                 if (cursor.locationCount > 0) {
                     if (cursor.singularity) {
                         double dist = pointDist(cursor.locations[0], location);
@@ -733,34 +625,31 @@ public abstract static class ags_utils_KdTree<T> {
                 continue;
             }
 
-            // Going to descend
-            ags_utils_KdTree<T> nextCursor = null;
+            titan_KdTree<T> nextCursor = null;
             if (cursor.status == Status.NONE) {
-                // At a fresh node, descend the most probably useful direction
+
                 if (location[cursor.splitDimension] > cursor.splitValue) {
-                    // Descend right
+
                     nextCursor = cursor.right;
                     cursor.status = Status.RIGHTVISITED;
                 }
                 else {
-                    // Descend left;
+
                     nextCursor = cursor.left;
                     cursor.status = Status.LEFTVISITED;
                 }
             }
             else if (cursor.status == Status.LEFTVISITED) {
-                // Left node visited, descend right.
+
                 nextCursor = cursor.right;
                 cursor.status = Status.ALLVISITED;
             }
             else if (cursor.status == Status.RIGHTVISITED) {
-                // Right node visited, descend left.
+
                 nextCursor = cursor.left;
                 cursor.status = Status.ALLVISITED;
             }
 
-            // Check if it's worth descending. Assume it is if it's sibling has
-            // not been visited yet.
             if (cursor.status == Status.ALLVISITED) {
                 if (nextCursor.locationCount == 0
                         || (!nextCursor.singularity && pointRegionDist(location, nextCursor.minLimit,
@@ -769,7 +658,6 @@ public abstract static class ags_utils_KdTree<T> {
                 }
             }
 
-            // Descend down the tree
             cursor = nextCursor;
             cursor.status = Status.NONE;
         } while (cursor.parent != null || cursor.status != Status.ALLVISITED);
@@ -790,30 +678,26 @@ public abstract static class ags_utils_KdTree<T> {
         return results;
     }
 
-    /**
-     * Calculates the farthest 'count' points to 'location'.
-     * 
-     */
     @SuppressWarnings("unchecked")
     public java.util.List<Entry<T>> farthestNeighbor(double[] location, int count, boolean sequentialSorting) {
         return farthestNeighbor(location, count, sequentialSorting, Double.POSITIVE_INFINITY);
     }
-        
+
     public java.util.List<Entry<T>> farthestNeighbor(double[] location, int count, boolean sequentialSorting, double cutoff) {
-        ags_utils_KdTree<T> cursor = this;
+        titan_KdTree<T> cursor = this;
         cursor.status = Status.NONE;
         double range = Double.NEGATIVE_INFINITY;
         ResultHeap resultHeap = new ReverseResultHeap(count);
 
         do {
             if (cursor.status == Status.ALLVISITED) {
-                // At a fully visited part. Move up the tree
+
                 cursor = cursor.parent;
                 continue;
             }
 
             if (cursor.status == Status.NONE && cursor.locations != null) {
-                // At a leaf. Use the data.
+
                 if (cursor.locationCount > 0) {
                     if (cursor.singularity) {
                         double dist = pointDist(cursor.locations[0], location);
@@ -841,44 +725,40 @@ public abstract static class ags_utils_KdTree<T> {
                 continue;
             }
 
-            // Going to descend
-            ags_utils_KdTree<T> nextCursor = null;
+            titan_KdTree<T> nextCursor = null;
             if (cursor.status == Status.NONE) {
-                // At a fresh node, descend the most probably useful direction
+
                 if (location[cursor.splitDimension] < cursor.splitValue) {
-                    // Descend right
+
                     nextCursor = cursor.right;
                     cursor.status = Status.RIGHTVISITED;
                 }
                 else {
-                    // Descend left;
+
                     nextCursor = cursor.left;
                     cursor.status = Status.LEFTVISITED;
                 }
             }
             else if (cursor.status == Status.LEFTVISITED) {
-                // Left node visited, descend right.
+
                 nextCursor = cursor.right;
                 cursor.status = Status.ALLVISITED;
             }
             else if (cursor.status == Status.RIGHTVISITED) {
-                // Right node visited, descend left.
+
                 nextCursor = cursor.left;
                 cursor.status = Status.ALLVISITED;
             }
 
-            // Check if it's worth descending. Assume it is if it's sibling has
-            // not been visited yet.
             if (cursor.status == Status.ALLVISITED) {
                 if (nextCursor.locationCount == 0
-                        || (!nextCursor.singularity && 
+                        || (!nextCursor.singularity &&
                             pointRegionMaxDist(location, nextCursor.minLimit,
                                 nextCursor.maxLimit) < range)) {
                     continue;
                 }
             }
 
-            // Descend down the tree
             cursor = nextCursor;
             cursor.status = Status.NONE;
         } while (cursor.parent != null || cursor.status != Status.ALLVISITED);
@@ -899,7 +779,6 @@ public abstract static class ags_utils_KdTree<T> {
         return results;
     }
 
-    // Override in subclasses
     protected abstract double pointDist(double[] p1, double[] p2);
 
     protected abstract double pointRegionDist(double[] point, double[] min, double[] max);
@@ -909,15 +788,11 @@ public abstract static class ags_utils_KdTree<T> {
         return 1.0;
     }
 
-    /**
-     * Internal class for child nodes
-     */
-    private class ChildNode extends ags_utils_KdTree<T> {
-        private ChildNode(ags_utils_KdTree<T> parent, boolean right) {
+    private class ChildNode extends titan_KdTree<T> {
+        private ChildNode(titan_KdTree<T> parent, boolean right) {
             super(parent, right);
         }
 
-        // Distance measurements are always called from the root node
         protected double pointDist(double[] p1, double[] p2) {
             throw new IllegalStateException();
         }
@@ -925,16 +800,13 @@ public abstract static class ags_utils_KdTree<T> {
         protected double pointRegionDist(double[] point, double[] min, double[] max) {
             throw new IllegalStateException();
         }
-        
+
         protected double pointRegionMaxDist(double[] point, double[] min, double[] max) {
             throw new IllegalStateException();
         }
     }
 
-    /**
-     * Class for tree with Weighted Squared Euclidean distancing
-     */
-    public static class WeightedSqrEuclid<T> extends ags_utils_KdTree<T> {
+    public static class WeightedSqrEuclid<T> extends titan_KdTree<T> {
         private double[] weights;
 
         public WeightedSqrEuclid(int dimensions, Integer sizeLimit) {
@@ -983,12 +855,12 @@ public abstract static class ags_utils_KdTree<T> {
 
             return d;
         }
-        
+
         protected double pointRegionMaxDist(double[] point, double[] min, double[] max) {
             double d = 0;
 
             for (int i = 0; i < point.length; i++) {
-                double diff = Math.max(Math.abs(point[i] - min[i]), 
+                double diff = Math.max(Math.abs(point[i] - min[i]),
                     Math.abs(max[i] - point[i])) * weights[i];
 
                 if (!Double.isNaN(diff)) {
@@ -1000,10 +872,7 @@ public abstract static class ags_utils_KdTree<T> {
         }
     }
 
-    /**
-     * Class for tree with Unweighted Squared Euclidean distancing
-     */
-    public static class SqrEuclid<T> extends ags_utils_KdTree<T> {
+    public static class SqrEuclid<T> extends titan_KdTree<T> {
         public SqrEuclid(int dimensions, Integer sizeLimit) {
             super(dimensions, sizeLimit);
         }
@@ -1040,16 +909,13 @@ public abstract static class ags_utils_KdTree<T> {
 
             return d;
         }
-        
+
         protected double pointRegionMaxDist(double[] point, double[] min, double[] max) {
             throw new IllegalStateException();
         }
     }
 
-    /**
-     * Class for tree with Weighted Manhattan distancing
-     */
-    public static class WeightedManhattan<T> extends ags_utils_KdTree<T> {
+    public static class WeightedManhattan<T> extends titan_KdTree<T> {
         private double[] weights;
 
         public WeightedManhattan(int dimensions, Integer sizeLimit) {
@@ -1098,16 +964,13 @@ public abstract static class ags_utils_KdTree<T> {
 
             return d;
         }
-        
+
         protected double pointRegionMaxDist(double[] point, double[] min, double[] max) {
             throw new IllegalStateException();
         }
     }
 
-    /**
-     * Class for tree with Manhattan distancing
-     */
-    public static class Manhattan<T> extends ags_utils_KdTree<T> {
+    public static class Manhattan<T> extends titan_KdTree<T> {
         public Manhattan(int dimensions, Integer sizeLimit) {
             super(dimensions, sizeLimit);
         }
@@ -1144,15 +1007,12 @@ public abstract static class ags_utils_KdTree<T> {
 
             return d;
         }
-        
+
         protected double pointRegionMaxDist(double[] point, double[] min, double[] max) {
             throw new IllegalStateException();
         }
     }
 
-    /**
-     * Class for tracking up to 'size' closest values
-     */
     private static class ResultHeap {
         protected final Object[] data;
         protected final double[] distance;
@@ -1169,18 +1029,17 @@ public abstract static class ags_utils_KdTree<T> {
         }
 
         public void addValue(double dist, Object value) {
-            // If there is still room in the heap
+
             if (values < size) {
-                // Insert new value at the end
+
                 data[values] = value;
                 distance[values] = dist;
                 upHeapify(values);
                 values++;
             }
-            // If there is no room left in the heap, and the new entry is lower
-            // than the max entry
+
             else if (dist < distance[0]) {
-                // Replace the max entry with the new entry
+
                 data[0] = value;
                 distance[0] = dist;
                 downHeapify(0);
@@ -1217,7 +1076,7 @@ public abstract static class ags_utils_KdTree<T> {
                     c++;
                 }
                 if (distance[p] < distance[c]) {
-                    // Swap the points
+
                     Object pData = data[p];
                     double pDist = distance[p];
                     data[p] = data[c];
@@ -1238,31 +1097,29 @@ public abstract static class ags_utils_KdTree<T> {
             return distance[0];
         }
     }
-    
+
     private static class ReverseResultHeap extends ResultHeap {
         public ReverseResultHeap(int size) {
             super(size);
         }
-        
+
         public void addValue(double dist, Object value) {
-            // If there is still room in the heap
+
             if (values < size) {
-                // Insert new value at the end
+
                 data[values] = value;
                 distance[values] = dist;
                 upHeapify(values);
                 values++;
             }
-            // If there is no room left in the heap, and the new entry is higher
-            // than the min entry
+
             else if (dist > distance[0]) {
-                // Replace the min entry with the new entry
+
                 data[0] = value;
                 distance[0] = dist;
                 downHeapify(0);
             }
         }
-        
 
         protected void upHeapify(int c) {
             for (int p = (c - 1) / 2; c != 0 && distance[c] < distance[p]; c = p, p = (c - 1) / 2) {
@@ -1274,14 +1131,14 @@ public abstract static class ags_utils_KdTree<T> {
                 distance[c] = pDist;
             }
         }
-        
+
         protected void downHeapify(int p) {
             for (int c = p * 2 + 1; c < values; p = c, c = p * 2 + 1) {
                 if (c + 1 < values && distance[c] > distance[c + 1]) {
                     c++;
                 }
                 if (distance[p] > distance[c]) {
-                    // Swap the points
+
                     Object pData = data[p];
                     double pDist = distance[p];
                     data[p] = data[c];
@@ -1297,10 +1154,7 @@ public abstract static class ags_utils_KdTree<T> {
     }
 }
 
-/**
- * An implementation of an implicit binary heap. Min-heap and max-heap both supported 
- */
-public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
+public abstract static class titan_estruturas_dataStructures_BinaryHeap<T> {
     protected static final int defaultCapacity = 64;
     private final int direction;
     private Object[] data;
@@ -1308,7 +1162,7 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
     private int capacity;
     private int size;
 
-    protected ags_utils_dataStructures_BinaryHeap(int capacity, int direction) {
+    protected titan_estruturas_dataStructures_BinaryHeap(int capacity, int direction) {
         this.direction = direction;
         this.data = new Object[capacity];
         this.keys = new double[capacity];
@@ -1317,14 +1171,13 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
     }
 
     public void offer(double key, T value) {
-        // If move room is needed, double array size
+
         if (size >= capacity) {
             capacity *= 2;
             data = java.util.Arrays.copyOf(data, capacity);
             keys = java.util.Arrays.copyOf(keys, capacity);
         }
 
-        // Insert new value at the end
         data[size] = value;
         keys[size] = key;
         siftUp(size);
@@ -1342,7 +1195,7 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
         data[size] = null;
         siftDown(0);
     }
-    
+
     protected void replaceTip(double key, T value) {
         if (size == 0) {
             throw new IllegalStateException();
@@ -1387,7 +1240,7 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
                 c++;
             }
             if (direction*keys[p] < direction*keys[c]) {
-                // Swap the points
+
                 Object pData = data[p];
                 double pDist = keys[p];
                 data[p] = data[c];
@@ -1408,7 +1261,7 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
         return capacity;
     }
 
-    public static final class Max<T> extends ags_utils_dataStructures_BinaryHeap<T> implements ags_utils_dataStructures_MaxHeap<T> {
+    public static final class Max<T> extends titan_estruturas_dataStructures_BinaryHeap<T> implements titan_estruturas_dataStructures_MaxHeap<T> {
         public Max() {
             super(defaultCapacity, 1);
         }
@@ -1428,7 +1281,7 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
             return getTipKey();
         }
     }
-    public static final class Min<T> extends ags_utils_dataStructures_BinaryHeap<T> implements ags_utils_dataStructures_MinHeap<T> {
+    public static final class Min<T> extends titan_estruturas_dataStructures_BinaryHeap<T> implements titan_estruturas_dataStructures_MinHeap<T> {
         public Min() {
             super(defaultCapacity, -1);
         }
@@ -1449,21 +1302,19 @@ public abstract static class ags_utils_dataStructures_BinaryHeap<T> {
         }
     }
 }
-/**
- * An implementation of an implicit binary interval heap.
- */
-public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_utils_dataStructures_MinHeap<T>, ags_utils_dataStructures_MaxHeap<T> {
+
+public static class titan_estruturas_dataStructures_IntervalHeap<T> implements titan_estruturas_dataStructures_MinHeap<T>, titan_estruturas_dataStructures_MaxHeap<T> {
     private static final int defaultCapacity = 64;
     private Object[] data;
     private double[] keys;
     private int capacity;
     private int size;
 
-    public ags_utils_dataStructures_IntervalHeap() {
+    public titan_estruturas_dataStructures_IntervalHeap() {
         this(defaultCapacity);
     }
 
-    public ags_utils_dataStructures_IntervalHeap(int capacity) {
+    public titan_estruturas_dataStructures_IntervalHeap(int capacity) {
         this.data = new Object[capacity];
         this.keys = new double[capacity];
         this.capacity = capacity;
@@ -1471,14 +1322,13 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
     }
 
     public void offer(double key, T value) {
-        // If move room is needed, double array size
+
         if (size >= capacity) {
             capacity *= 2;
             data = java.util.Arrays.copyOf(data, capacity);
             keys = java.util.Arrays.copyOf(keys, capacity);
         }
 
-        // Insert new value at the end
         size++;
         data[size-1] = value;
         keys[size-1] = key;
@@ -1505,7 +1355,7 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
         data[0] = value;
         keys[0] = key;
         if (size > 1) {
-            // Swap with pair if necessary
+
             if (keys[1] < key) {
                 swap(0, 1);
             }
@@ -1538,7 +1388,7 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
 
         data[1] = value;
         keys[1] = key;
-        // Swap with pair if necessary
+
         if (key < keys[0]) {
             swap(0, 1);
         }
@@ -1593,55 +1443,43 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
         return y;
     }
 
-    /**
-     * Min-side (u % 2 == 0):
-     * - leftchild:  2u + 2
-     * - rightchild: 2u + 4
-     * - parent:     (x/2-1)&~1
-     *
-     * Max-side (u % 2 == 1):
-     * - leftchild:  2u + 1
-     * - rightchild: 2u + 3
-     * - parent:     (x/2-1)|1
-     */
-
     private void siftInsertedValueUp() {
         int u = size-1;
         if (u == 0) {
-            // Do nothing if it's the only element!
+
         }
         else if (u == 1) {
-            // If it is the second element, just sort it with it's pair
-            if  (keys[u] < keys[u-1]) { // If less than it's pair
-                swap(u, u-1); // Swap with it's pair
+
+            if  (keys[u] < keys[u-1]) {
+                swap(u, u-1);
             }
         }
         else if (u % 2 == 1) {
-            // Already paired. Ensure pair is ordered right
-            int p = (u/2-1)|1; // The larger value of the parent pair
-            if  (keys[u] < keys[u-1]) { // If less than it's pair
-                u = swap(u, u-1); // Swap with it's pair
-                if (keys[u] < keys[p-1]) { // If smaller than smaller parent pair
-                    // Swap into min-heap side
+
+            int p = (u/2-1)|1;
+            if  (keys[u] < keys[u-1]) {
+                u = swap(u, u-1);
+                if (keys[u] < keys[p-1]) {
+
                     u = swap(u, p-1);
                     siftUpMin(u);
                 }
             } else {
-                if (keys[u] > keys[p]) { // If larger that larger parent pair
-                    // Swap into max-heap side
+                if (keys[u] > keys[p]) {
+
                     u = swap(u, p);
                     siftUpMax(u);
                 }
             }
         } else {
-            // Inserted in the lower-value slot without a partner
-            int p = (u/2-1)|1; // The larger value of the parent pair
-            if (keys[u] > keys[p]) { // If larger that larger parent pair
-                // Swap into max-heap side
+
+            int p = (u/2-1)|1;
+            if (keys[u] > keys[p]) {
+
                 u = swap(u, p);
                 siftUpMax(u);
-            } else if (keys[u] < keys[p-1]) { // If smaller than smaller parent pair
-                // Swap into min-heap side
+            } else if (keys[u] < keys[p-1]) {
+
                 u = swap(u, p-1);
                 siftUpMin(u);
             }
@@ -1649,14 +1487,14 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
     }
 
     private void siftUpMin(int c) {
-        // Min-side parent: (x/2-1)&~1
+
         for (int p = (c/2-1)&~1; p >= 0 && keys[c] < keys[p]; c = p, p = (c/2-1)&~1) {
             swap(c, p);
         }
     }
 
     private void siftUpMax(int c) {
-        // Max-side parent: (x/2-1)|1
+
         for (int p = (c/2-1)|1; p >= 0 && keys[c] > keys[p]; c = p, p = (c/2-1)|1) {
             swap(c, p);
         }
@@ -1669,7 +1507,7 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
             }
             if (keys[c] < keys[p]) {
                 swap(p, c);
-                // Swap with pair if necessary
+
                 if (c+1 < size && keys[c+1] < keys[c]) {
                     swap(c, c+1);
                 }
@@ -1682,13 +1520,13 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
     private void siftDownMax(int p) {
         for (int c = p * 2 + 1; c <= size; p = c, c = p * 2 + 1) {
             if (c == size) {
-                // If the left child only has half a pair
+
                 if (keys[c - 1] > keys[p]) {
                     swap(p, c - 1);
                 }
                 break;
             } else if (c + 2 == size) {
-                // If there is only room for a right child lower pair
+
                 if (keys[c + 1] > keys[c]) {
                     if (keys[c + 1] > keys[p]) {
                        swap(p, c + 1);
@@ -1696,14 +1534,14 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
                     break;
                 }
             } else if (c + 2 < size) {
-                // If there is room for a right child upper pair
+
                 if (keys[c + 2] > keys[c]) {
                     c += 2;
                 }
             }
             if (keys[c] > keys[p]) {
                 swap(p, c);
-                // Swap with pair if necessary
+
                 if (keys[c-1] > keys[c]) {
                     swap(c, c-1);
                 }
@@ -1724,7 +1562,7 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
     @Override
     public String toString() {
         java.text.DecimalFormat twoPlaces = new java.text.DecimalFormat("0.00");
-        StringBuffer str = new StringBuffer(ags_utils_dataStructures_IntervalHeap.class.getCanonicalName());
+        StringBuffer str = new StringBuffer(titan_estruturas_dataStructures_IntervalHeap.class.getCanonicalName());
         str.append(", size: ").append(size()).append(" capacity: ").append(capacity());
         int i = 0, p = 2;
         while (i < size()) {
@@ -1742,11 +1580,11 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
     }
 
     private boolean validateHeap() {
-        // Validate left-right
+
         for (int i = 0; i < size-1; i+= 2) {
             if (keys[i] > keys[i+1]) return false;
         }
-        // Validate within parent interval
+
         for (int i = 2; i < size; i++) {
             double maxParent = keys[(i/2-1)|1];
             double minParent = keys[(i/2-1)&~1];
@@ -1755,10 +1593,8 @@ public static class ags_utils_dataStructures_IntervalHeap<T> implements ags_util
         return true;
     }
 }
-/**
- *
- */
-public interface ags_utils_dataStructures_MaxHeap<T> {
+
+public interface titan_estruturas_dataStructures_MaxHeap<T> {
     public int size();
     public void offer(double key, T value);
     public void replaceMax(double key, T value);
@@ -1766,10 +1602,8 @@ public interface ags_utils_dataStructures_MaxHeap<T> {
     public T getMax();
     public double getMaxKey();
 }
-/**
- *
- */
-public interface ags_utils_dataStructures_MinHeap<T> {
+
+public interface titan_estruturas_dataStructures_MinHeap<T> {
     public int size();
     public void offer(double key, T value);
     public void replaceMin(double key, T value);
@@ -1778,47 +1612,37 @@ public interface ags_utils_dataStructures_MinHeap<T> {
     public double getMinKey();
 }
 
-public interface ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction {
+public interface titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction {
     public double distance(double[] p1, double[] p2);
     public double distanceToRect(double[] point, double[] min, double[] max);
 }
 
+static class titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> {
 
-/**
- *
- */
-static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
-    // All types
     protected int dimensions;
     protected int bucketCapacity;
     protected int size;
 
-    // Leaf only
     protected double[][] points;
     protected Object[] data;
 
-    // Stem only
-    protected ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> left, right;
+    protected titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> left, right;
     protected int splitDimension;
     protected double splitValue;
 
-    // Bounds
     protected double[] minBound, maxBound;
     protected boolean singlePoint;
 
-    protected ags_utils_dataStructures_trees_thirdGenKD_KdNode(int dimensions, int bucketCapacity) {
-        // Init base
+    protected titan_estruturas_dataStructures_trees_thirdGenKD_KdNode(int dimensions, int bucketCapacity) {
+
         this.dimensions = dimensions;
         this.bucketCapacity = bucketCapacity;
         this.size = 0;
         this.singlePoint = true;
 
-        // Init leaf elements
         this.points = new double[bucketCapacity+1][];
         this.data = new Object[bucketCapacity+1];
     }
-
-    /* -------- SIMPLE GETTERS -------- */
 
     public int size() {
         return size;
@@ -1828,10 +1652,8 @@ static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
         return points != null;
     }
 
-    /* -------- OPERATIONS -------- */
-
     public void addPoint(double[] point, T value) {
-        ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> cursor = this;
+        titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> cursor = this;
         while (!cursor.isLeaf()) {
             cursor.extendBounds(point);
             cursor.size++;
@@ -1845,22 +1667,20 @@ static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
         cursor.addLeafPoint(point, value);
     }
 
-    /* -------- INTERNAL OPERATIONS -------- */
-
     public void addLeafPoint(double[] point, T value) {
-        // Add the data point
+
         points[size] = point;
         data[size] = value;
         extendBounds(point);
         size++;
 
         if (size == points.length - 1) {
-            // If the node is getting too large
+
             if (calculateSplit()) {
-                // If the node successfully had it's split value calculated, split node
+
                 splitLeafNode();
             } else {
-                // If the node could not be split, enlarge node
+
                 increaseLeafCapacity();
             }
         }
@@ -1922,10 +1742,8 @@ static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
             return false;
         }
 
-        // Start the split in the middle of the variance
         splitValue = (minBound[splitDimension] + maxBound[splitDimension]) * 0.5;
 
-        // Never split on infinity or NaN
         if (splitValue == Double.POSITIVE_INFINITY) {
             splitValue = Double.MAX_VALUE;
         }
@@ -1933,21 +1751,17 @@ static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
             splitValue = -Double.MAX_VALUE;
         }
 
-        // Don't let the split value be the same as the upper value as
-        // can happen due to rounding errors!
         if (splitValue == maxBound[splitDimension]) {
             splitValue = minBound[splitDimension];
         }
 
-        // Success
         return true;
     }
 
     private void splitLeafNode() {
-        right = new ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>(dimensions, bucketCapacity);
-        left = new ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>(dimensions, bucketCapacity);
+        right = new titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>(dimensions, bucketCapacity);
+        left = new titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>(dimensions, bucketCapacity);
 
-        // Move locations into children
         for (int i = 0; i < size; i++) {
             double[] oldLocation = points[i];
             Object oldData = data[i];
@@ -1964,25 +1778,22 @@ static class ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
     }
 }
 
-/**
- *
- */
-public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> {
-    public ags_utils_dataStructures_trees_thirdGenKD_KdTree(int dimensions) {
+public static class titan_estruturas_dataStructures_trees_thirdGenKD_KdTree<T> extends titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> {
+    public titan_estruturas_dataStructures_trees_thirdGenKD_KdTree(int dimensions) {
         this(dimensions, 24);
     }
 
-    public ags_utils_dataStructures_trees_thirdGenKD_KdTree(int dimensions, int bucketCapacity) {
+    public titan_estruturas_dataStructures_trees_thirdGenKD_KdTree(int dimensions, int bucketCapacity) {
         super(dimensions, bucketCapacity);
     }
 
-    public ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T> getNearestNeighborIterator(double[] searchPoint, int maxPointsReturned, ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
-        return new ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T>(this, searchPoint, maxPointsReturned, distanceFunction);
+    public titan_estruturas_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T> getNearestNeighborIterator(double[] searchPoint, int maxPointsReturned, titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
+        return new titan_estruturas_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T>(this, searchPoint, maxPointsReturned, distanceFunction);
     }
 
-    public ags_utils_dataStructures_MaxHeap<T> findNearestNeighbors(double[] searchPoint, int maxPointsReturned, ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
-        ags_utils_dataStructures_BinaryHeap.Min<ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths = new ags_utils_dataStructures_BinaryHeap.Min<ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>>();
-        ags_utils_dataStructures_BinaryHeap.Max<T> evaluatedPoints = new ags_utils_dataStructures_BinaryHeap.Max<T>();
+    public titan_estruturas_dataStructures_MaxHeap<T> findNearestNeighbors(double[] searchPoint, int maxPointsReturned, titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
+        titan_estruturas_dataStructures_BinaryHeap.Min<titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths = new titan_estruturas_dataStructures_BinaryHeap.Min<titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>>();
+        titan_estruturas_dataStructures_BinaryHeap.Max<T> evaluatedPoints = new titan_estruturas_dataStructures_BinaryHeap.Max<T>();
         int pointsRemaining = Math.min(maxPointsReturned, size());
         pendingPaths.offer(0, this);
 
@@ -1995,15 +1806,14 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends 
 
     @SuppressWarnings("unchecked")
     protected static <T> void nearestNeighborSearchStep (
-            ags_utils_dataStructures_MinHeap<ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths, ags_utils_dataStructures_MaxHeap<T> evaluatedPoints, int desiredPoints,
-            ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction, double[] searchPoint) {
-        // If there are pending paths possibly closer than the nearest evaluated point, check it out
-        ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> cursor = pendingPaths.getMin();
+            titan_estruturas_dataStructures_MinHeap<titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths, titan_estruturas_dataStructures_MaxHeap<T> evaluatedPoints, int desiredPoints,
+            titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction, double[] searchPoint) {
+
+        titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> cursor = pendingPaths.getMin();
         pendingPaths.removeMin();
 
-        // Descend the tree, recording paths not taken
         while (!cursor.isLeaf()) {
-            ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> pathNotTaken;
+            titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> pathNotTaken;
             if (searchPoint[cursor.splitDimension] > cursor.splitValue) {
                 pathNotTaken = cursor.left;
                 cursor = cursor.right;
@@ -2013,7 +1823,7 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends 
                 cursor = cursor.left;
             }
             double otherDistance = distanceFunction.distanceToRect(searchPoint, pathNotTaken.minBound, pathNotTaken.maxBound);
-            // Only add a path if we either need more points or it's closer than furthest point on list so far
+
             if (evaluatedPoints.size() < desiredPoints || otherDistance <= evaluatedPoints.getMaxKey()) {
                 pendingPaths.offer(otherDistance, pathNotTaken);
             }
@@ -2021,12 +1831,11 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends 
 
         if (cursor.singlePoint) {
             double nodeDistance = distanceFunction.distance(cursor.points[0], searchPoint);
-            // Only add a point if either need more points or it's closer than furthest on list so far
+
             if (evaluatedPoints.size() < desiredPoints || nodeDistance <= evaluatedPoints.getMaxKey()) {
                 for (int i = 0; i < cursor.size(); i++) {
                     T value = (T) cursor.data[i];
 
-                    // If we don't need any more, replace max
                     if (evaluatedPoints.size() == desiredPoints) {
                         evaluatedPoints.replaceMax(nodeDistance, value);
                     } else {
@@ -2035,12 +1844,12 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends 
                 }
             }
         } else {
-            // Add the points at the cursor
+
             for (int i = 0; i < cursor.size(); i++) {
                 double[] point = cursor.points[i];
                 T value = (T) cursor.data[i];
                 double distance = distanceFunction.distance(point, searchPoint);
-                // Only add a point if either need more points or it's closer than furthest on list so far
+
                 if (evaluatedPoints.size() < desiredPoints) {
                     evaluatedPoints.offer(distance, value);
                 } else if (distance < evaluatedPoints.getMaxKey()) {
@@ -2051,27 +1860,22 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_KdTree<T> extends 
     }
 }
 
-/**
- *
- */
-public static class ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T> implements java.util.Iterator<T>, Iterable<T> {
-    private ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction;
+public static class titan_estruturas_dataStructures_trees_thirdGenKD_NearestNeighborIterator<T> implements java.util.Iterator<T>, Iterable<T> {
+    private titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction;
     private double[] searchPoint;
-    private ags_utils_dataStructures_MinHeap<ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths;
-    private ags_utils_dataStructures_IntervalHeap<T> evaluatedPoints;
+    private titan_estruturas_dataStructures_MinHeap<titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>> pendingPaths;
+    private titan_estruturas_dataStructures_IntervalHeap<T> evaluatedPoints;
     private int pointsRemaining;
     private double lastDistanceReturned;
 
-    protected ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIterator(ags_utils_dataStructures_trees_thirdGenKD_KdNode<T> treeRoot, double[] searchPoint, int maxPointsReturned, ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
+    protected titan_estruturas_dataStructures_trees_thirdGenKD_NearestNeighborIterator(titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T> treeRoot, double[] searchPoint, int maxPointsReturned, titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction distanceFunction) {
         this.searchPoint = java.util.Arrays.copyOf(searchPoint, searchPoint.length);
         this.pointsRemaining = Math.min(maxPointsReturned, treeRoot.size());
         this.distanceFunction = distanceFunction;
-        this.pendingPaths = new ags_utils_dataStructures_BinaryHeap.Min<ags_utils_dataStructures_trees_thirdGenKD_KdNode<T>>();
+        this.pendingPaths = new titan_estruturas_dataStructures_BinaryHeap.Min<titan_estruturas_dataStructures_trees_thirdGenKD_KdNode<T>>();
         this.pendingPaths.offer(0, treeRoot);
-        this.evaluatedPoints = new ags_utils_dataStructures_IntervalHeap<T>();
+        this.evaluatedPoints = new titan_estruturas_dataStructures_IntervalHeap<T>();
     }
-
-    /* -------- INTERFACE IMPLEMENTATION -------- */
 
     @Override
     public boolean hasNext() {
@@ -2085,10 +1889,9 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIte
         }
 
         while (pendingPaths.size() > 0 && (evaluatedPoints.size() == 0 || (pendingPaths.getMinKey() < evaluatedPoints.getMinKey()))) {
-            ags_utils_dataStructures_trees_thirdGenKD_KdTree.nearestNeighborSearchStep(pendingPaths, evaluatedPoints, pointsRemaining, distanceFunction, searchPoint);
+            titan_estruturas_dataStructures_trees_thirdGenKD_KdTree.nearestNeighborSearchStep(pendingPaths, evaluatedPoints, pointsRemaining, distanceFunction, searchPoint);
         }
 
-        // Return the smallest distance point
         pointsRemaining--;
         lastDistanceReturned = evaluatedPoints.getMinKey();
         T value = evaluatedPoints.getMin();
@@ -2111,10 +1914,7 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_NearestNeighborIte
     }
 }
 
-/**
- *
- */
-public static class ags_utils_dataStructures_trees_thirdGenKD_SquareEuclideanDistanceFunction implements ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction {
+public static class titan_estruturas_dataStructures_trees_thirdGenKD_SquareEuclideanDistanceFunction implements titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction {
     @Override
     public double distance(double[] p1, double[] p2) {
         double d = 0;
@@ -2145,34 +1945,14 @@ public static class ags_utils_dataStructures_trees_thirdGenKD_SquareEuclideanDis
         return d;
     }
 }
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
 
-public static class voidious_gfx_ColoredValueSet {
+public static class titan_gfx_ColoredValueSet {
   protected java.util.ArrayList<ColoredValue> _values;
   protected double _avg;
   protected double _min;
   protected double _stDev;
 
-  public voidious_gfx_ColoredValueSet() {
+  public titan_gfx_ColoredValueSet() {
     _values = new java.util.ArrayList<ColoredValue>();
     _avg = 0;
     _min = Double.POSITIVE_INFINITY;
@@ -2190,13 +1970,13 @@ public static class voidious_gfx_ColoredValueSet {
       values[x] = _values.get(x).value;
     }
 
-    _stDev = voidious_utils_DiaUtils.standardDeviation(values);
+    _stDev = titan_utils_Matematica.standardDeviation(values);
   }
 
   public int colorValue(double value, double avg,
     double stDev, double maxStDev) {
 
-    return (int) voidious_utils_DiaUtils.limit(0, 255 * (value - (avg - maxStDev*stDev))
+    return (int) titan_utils_Matematica.limit(0, 255 * (value - (avg - maxStDev*stDev))
         / (2*maxStDev*stDev), 255);
   }
 
@@ -2220,53 +2000,32 @@ public static class voidious_gfx_ColoredValueSet {
   }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gfx_DiamondColors {
+public static class titan_gfx_Cores {
   private robocode.AdvancedRobot _robot;
-  protected static voidious_gfx_RoboPainter _radar;
-  protected static voidious_gfx_RoboPainter _move;
-  protected static voidious_gfx_RoboPainter _gun;
+  protected static titan_gfx_RoboPainter _radar;
+  protected static titan_gfx_RoboPainter _move;
+  protected static titan_gfx_RoboPainter _gun;
   private boolean _tcMode;
   private boolean _mcMode;
-  private java.util.HashMap<String, voidious_gfx_RoboPainter> _paintKeys;
+  private java.util.HashMap<String, titan_gfx_RoboPainter> _paintKeys;
 
   protected static long _lastPaintRound = 0;
   protected static long _lastPaintTime = -2;
-  protected java.util.Vector<voidious_gfx_RoboGraphic> _renderables;
+  protected java.util.Vector<titan_gfx_RoboGraphic> _renderables;
 
-  public voidious_gfx_DiamondColors(robocode.AdvancedRobot robot, voidious_gfx_RoboPainter radar,
-      voidious_gfx_RoboPainter move, voidious_gfx_RoboPainter gun, boolean isTc, boolean isMc) {
+  public titan_gfx_Cores(robocode.AdvancedRobot robot, titan_gfx_RoboPainter radar,
+      titan_gfx_RoboPainter move, titan_gfx_RoboPainter gun, boolean isTc, boolean isMc) {
     _robot = robot;
     _radar = radar;
     _move = move;
     _gun = gun;
     _tcMode = isTc;
     _mcMode = isMc;
-    _paintKeys = new java.util.HashMap<String, voidious_gfx_RoboPainter>();
-    _renderables = new java.util.Vector<voidious_gfx_RoboGraphic>();
+    _paintKeys = new java.util.HashMap<String, titan_gfx_RoboPainter>();
+    _renderables = new java.util.Vector<titan_gfx_RoboGraphic>();
   }
 
-  public void registerPainter(String key, voidious_gfx_RoboPainter p) {
+  public void registerPainter(String key, titan_gfx_RoboPainter p) {
     _paintKeys.put(key.toLowerCase(), p);
     p.paintOn();
   }
@@ -2276,7 +2035,7 @@ public static class voidious_gfx_DiamondColors {
     for (String keyCommand : _paintKeys.keySet()) {
       if (keyCommand.toLowerCase().charAt(0) == c ||
         keyCommand.toUpperCase().charAt(0) == c) {
-        voidious_gfx_RoboPainter p = _paintKeys.get(keyCommand);
+        titan_gfx_RoboPainter p = _paintKeys.get(keyCommand);
         if (p.paintStatus()) {
           p.paintOff();
         } else {
@@ -2300,7 +2059,7 @@ public static class voidious_gfx_DiamondColors {
 
     if (robocodePaintingOn()) {
       drawMenu();
-      for (voidious_gfx_RoboGraphic r : _renderables) {
+      for (titan_gfx_RoboGraphic r : _renderables) {
         r.render(g);
       }
       _renderables.clear();
@@ -2325,8 +2084,8 @@ public static class voidious_gfx_DiamondColors {
     int x = 0;
 
     for (String keyCommand : _paintKeys.keySet()) {
-      voidious_gfx_RoboPainter p = _paintKeys.get(keyCommand);
-      _renderables.add(voidious_gfx_RoboGraphic.drawText(
+      titan_gfx_RoboPainter p = _paintKeys.get(keyCommand);
+      _renderables.add(titan_gfx_RoboGraphic.drawText(
           keyCommand.toUpperCase() + ": " + p.paintLabel(), 20,
           height - (x++ * 30),
           (p.paintStatus() ? java.awt.Color.green : java.awt.Color.red)));
@@ -2339,35 +2098,10 @@ public static class voidious_gfx_DiamondColors {
   }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/**
- * Derived from DrawingBot, by David Alves.
- * http://robowiki.net?DrawingBot
- */
-public abstract static class voidious_gfx_RoboGraphic{
+public abstract static class titan_gfx_RoboGraphic{
   public abstract void render(java.awt.Graphics2D g);
 
-  static class Circle extends voidious_gfx_RoboGraphic {
+  static class Circle extends titan_gfx_RoboGraphic {
     java.awt.geom.Point2D.Double center;
     double radius;
     java.awt.Color color;
@@ -2387,7 +2121,7 @@ public abstract static class voidious_gfx_RoboGraphic{
     }
   }
 
-  static class Dot extends voidious_gfx_RoboGraphic {
+  static class Dot extends titan_gfx_RoboGraphic {
     java.awt.geom.Point2D.Double point;
     double radius;
     java.awt.Color color;
@@ -2407,7 +2141,7 @@ public abstract static class voidious_gfx_RoboGraphic{
     }
   }
 
-  static class Line extends voidious_gfx_RoboGraphic {
+  static class Line extends titan_gfx_RoboGraphic {
     java.awt.geom.Point2D.Double p1, p2;
     java.awt.Color color;
 
@@ -2427,7 +2161,7 @@ public abstract static class voidious_gfx_RoboGraphic{
     }
   }
 
-  static class Text extends voidious_gfx_RoboGraphic {
+  static class Text extends titan_gfx_RoboGraphic {
     String text;
     double x, y;
     java.awt.Color color;
@@ -2446,55 +2180,55 @@ public abstract static class voidious_gfx_RoboGraphic{
     }
   }
 
-  public static voidious_gfx_RoboGraphic drawLine(
+  public static titan_gfx_RoboGraphic drawLine(
       java.awt.geom.Point2D.Double p1, java.awt.geom.Point2D.Double p2, java.awt.Color color) {
-    return new voidious_gfx_RoboGraphic.Line(p1, p2, color);
+    return new titan_gfx_RoboGraphic.Line(p1, p2, color);
   }
 
-  public static voidious_gfx_RoboGraphic drawCircle(
+  public static titan_gfx_RoboGraphic drawCircle(
       java.awt.geom.Point2D.Double center, double radius, java.awt.Color color) {
-    return new voidious_gfx_RoboGraphic.Circle(center, radius, color);
+    return new titan_gfx_RoboGraphic.Circle(center, radius, color);
   }
 
-  public static voidious_gfx_RoboGraphic drawPoint(java.awt.geom.Point2D.Double p1, java.awt.Color color) {
-    return new voidious_gfx_RoboGraphic.Dot(p1, color, 3);
+  public static titan_gfx_RoboGraphic drawPoint(java.awt.geom.Point2D.Double p1, java.awt.Color color) {
+    return new titan_gfx_RoboGraphic.Dot(p1, color, 3);
   }
 
-  public static voidious_gfx_RoboGraphic drawCircleFilled(
+  public static titan_gfx_RoboGraphic drawCircleFilled(
       java.awt.geom.Point2D.Double p1, java.awt.Color color, int radius) {
-    return new voidious_gfx_RoboGraphic.Dot(p1, color, radius);
+    return new titan_gfx_RoboGraphic.Dot(p1, color, radius);
   }
 
-  public static voidious_gfx_RoboGraphic drawText(
+  public static titan_gfx_RoboGraphic drawText(
       String text, double x, double y, java.awt.Color color) {
-    return new voidious_gfx_RoboGraphic.Text(text, x, y, color);
+    return new titan_gfx_RoboGraphic.Text(text, x, y, color);
   }
 
-  public static voidious_gfx_RoboGraphic[] drawRectangle(
+  public static titan_gfx_RoboGraphic[] drawRectangle(
       java.awt.geom.Point2D.Double p1, double x,  double y, java.awt.Color color) {
-    voidious_gfx_RoboGraphic[] lines = new voidious_gfx_RoboGraphic[4];
-    lines[0] = voidious_gfx_RoboGraphic.drawLine(
+    titan_gfx_RoboGraphic[] lines = new titan_gfx_RoboGraphic[4];
+    lines[0] = titan_gfx_RoboGraphic.drawLine(
         new java.awt.geom.Point2D.Double(p1.x - (x / 2), p1.y - (y / 2)),
         new java.awt.geom.Point2D.Double(p1.x + (x / 2), p1.y - (y / 2)), color);
-    lines[1] = voidious_gfx_RoboGraphic.drawLine(
+    lines[1] = titan_gfx_RoboGraphic.drawLine(
         new java.awt.geom.Point2D.Double(p1.x - (x / 2), p1.y - (y / 2)),
         new java.awt.geom.Point2D.Double(p1.x - (x / 2), p1.y + (y / 2)), color);
-    lines[2] = voidious_gfx_RoboGraphic.drawLine(
+    lines[2] = titan_gfx_RoboGraphic.drawLine(
         new java.awt.geom.Point2D.Double(p1.x - (x / 2), p1.y + (y / 2)),
         new java.awt.geom.Point2D.Double(p1.x + (x / 2), p1.y + (y / 2)), color);
-    lines[3] = voidious_gfx_RoboGraphic.drawLine(
+    lines[3] = titan_gfx_RoboGraphic.drawLine(
         new java.awt.geom.Point2D.Double(p1.x + (x / 2), p1.y + (y / 2)),
         new java.awt.geom.Point2D.Double(p1.x + (x / 2), p1.y - (y / 2)), color);
     return lines;
   }
 
-  public static voidious_gfx_RoboGraphic[] drawArrowHead(
+  public static titan_gfx_RoboGraphic[] drawArrowHead(
       java.awt.geom.Point2D.Double p1, double length, double angle, java.awt.Color color) {
-    voidious_gfx_RoboGraphic[] lines = new voidious_gfx_RoboGraphic[2];
-    lines[0] = voidious_gfx_RoboGraphic.drawLine(
-        p1, voidious_utils_DiaUtils.project(p1, angle - 2.7, length), color);
-    lines[1] = voidious_gfx_RoboGraphic.drawLine(
-        p1, voidious_utils_DiaUtils.project(p1, angle + 2.7, length), color);
+    titan_gfx_RoboGraphic[] lines = new titan_gfx_RoboGraphic[2];
+    lines[0] = titan_gfx_RoboGraphic.drawLine(
+        p1, titan_utils_Matematica.project(p1, angle - 2.7, length), color);
+    lines[1] = titan_gfx_RoboGraphic.drawLine(
+        p1, titan_utils_Matematica.project(p1, angle + 2.7, length), color);
     return lines;
   }
 
@@ -2505,36 +2239,15 @@ public abstract static class voidious_gfx_RoboGraphic{
     }
 
     return new java.awt.Color(
-        (int) voidious_utils_DiaUtils.limit(0, 255 * (risk - (avg - maxStDev*stDev))
+        (int) titan_utils_Matematica.limit(0, 255 * (risk - (avg - maxStDev*stDev))
             / (2*maxStDev*stDev), 255),
         0,
-        (int) voidious_utils_DiaUtils.limit(0, 255 * ((avg + maxStDev*stDev) - risk)
+        (int) titan_utils_Matematica.limit(0, 255 * ((avg + maxStDev*stDev) - risk)
             / (2*maxStDev*stDev), 255));
   }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public interface voidious_gfx_RoboPainter {
+public interface titan_gfx_RoboPainter {
   void paintOn();
   void paintOff();
   void robocodePaintOn();
@@ -2544,45 +2257,24 @@ public interface voidious_gfx_RoboPainter {
   void onPaint(java.awt.Graphics2D g);
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> {
+public static class titan_gun_AntiSurferGun extends titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> {
   private static final int FIRING_ANGLES = 59;
 
-  private final voidious_gun_GunDataManager _gunDataManager;
-  private voidious_utils_BattleField _battleField;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private final titan_gun_GunDataManager _gunDataManager;
+  private titan_utils_BattleField _battleField;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private java.util.List<String> _viewNames;
-  private voidious_utils_DistanceFormula _formula;
+  private titan_utils_DistanceFormula _formula;
   private boolean _is1v1Battle;
 
-  public voidious_gun_AntiSurferGun(voidious_gun_GunDataManager gunDataManager, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+  public titan_gun_AntiSurferGun(titan_gun_GunDataManager gunDataManager, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     super();
     _gunDataManager = gunDataManager;
     _battleField = battleField;
     _renderables = renderables;
     _viewNames = new java.util.ArrayList<String>();
-    _formula = new voidious_gun_formulas_AntiSurferFormula();
+    _formula = new titan_gun_formulas_AntiSurferFormula();
     _is1v1Battle = (_gunDataManager.getEnemiesTotal() == 1);
   }
 
@@ -2592,17 +2284,17 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
   }
 
   @Override
-  protected double aimInternal(voidious_utils_Wave w, boolean painting) {
-    voidious_gun_GunEnemy gunData = _gunDataManager.getEnemyData(w.botName);
-    java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle>> nearestNeighbors = null;
+  protected double aimInternal(titan_utils_Wave w, boolean painting) {
+    titan_gun_GunEnemy gunData = _gunDataManager.getEnemyData(w.botName);
+    java.util.List<titan_KdTree.Entry<titan_utils_TimestampedFiringAngle>> nearestNeighbors = null;
     double[] neighborWeights = null;
     for (String viewName : _viewNames) {
-      voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view = gunData.views.get(viewName);
+      titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view = gunData.views.get(viewName);
       if (view.size() < view.kDivisor) {
         continue;
       }
 
-      java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle>> thisNeighbors =
+      java.util.List<titan_KdTree.Entry<titan_utils_TimestampedFiringAngle>> thisNeighbors =
           view.nearestNeighbors(w, true);
       double[] thisWeights = new double[thisNeighbors.size()];
       java.util.Arrays.fill(thisWeights, view.weight);
@@ -2642,7 +2334,7 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
           firingAngles[x] = null;
         } else {
           firingAngles[x] = robocode.util.Utils.normalRelativeAngle(
-              w.firingAngleFromTargetLocation(projectedLocation) 
+              w.firingAngleFromTargetLocation(projectedLocation)
               - w.absBearing);
         }
       }
@@ -2650,11 +2342,11 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
 
     Double bestAngle = null;
     double bestDensity = Double.NEGATIVE_INFINITY;
-    double bandwidth = voidious_utils_DiaUtils.botWidthAimAngle(
+    double bandwidth = titan_utils_Matematica.botWidthAimAngle(
         w.sourceLocation.distance(w.targetLocation)) * 2;
-    voidious_gfx_ColoredValueSet cvs = new voidious_gfx_ColoredValueSet();
+    titan_gfx_ColoredValueSet cvs = new titan_gfx_ColoredValueSet();
     double[] realAngles =
-        voidious_utils_DiaUtils.generateFiringAngles(FIRING_ANGLES, w.maxEscapeAngle());
+        titan_utils_Matematica.generateFiringAngles(FIRING_ANGLES, w.maxEscapeAngle());
     for (int x = 0; x < FIRING_ANGLES; x++) {
       double xFiringAngle = realAngles[x];
 
@@ -2684,7 +2376,7 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
     }
 
     if (painting) {
-      voidious_gun_DiamondFist.drawGunAngles(
+      titan_gun_Mira.drawGunAngles(
           _renderables, w, cvs, w.absBearing + bestAngle, bandwidth);
     }
 
@@ -2692,47 +2384,47 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
   }
 
   @Override
-  public java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> newDataViews() {
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> asView =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(_formula)
+  public java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> newDataViews() {
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> asView =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(_formula)
             .setK(3)
             .setMaxDataPoints(125)
             .setKDivisor(10)
             .visitsOn()
             .virtualWavesOn()
             .setName("asView1");
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> asView2 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(_formula)
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> asView2 =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(_formula)
             .setK(3)
             .setMaxDataPoints(400)
             .setKDivisor(10)
             .visitsOn()
             .virtualWavesOn()
             .setName("asView2");
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> asView3 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(_formula)
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> asView3 =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(_formula)
             .setK(3)
             .setMaxDataPoints(1500)
             .setKDivisor(10)
             .visitsOn()
             .virtualWavesOn()
             .setName("asView3");
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> asView4 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(_formula)
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> asView4 =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(_formula)
             .setK(3)
             .setMaxDataPoints(4000)
             .setKDivisor(10)
             .visitsOn()
             .virtualWavesOn()
             .setName("asView4");
-    java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> views =
-        new java.util.ArrayList<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>>();
+    java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> views =
+        new java.util.ArrayList<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>>();
     views.add(asView);
     views.add(asView2);
     views.add(asView3);
     views.add(asView4);
 
-    for (voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view : views) {
+    for (titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view : views) {
       if (!_viewNames.contains(view.name)) {
         _viewNames.add(view.name);
       }
@@ -2742,77 +2434,56 @@ public static class voidious_gun_AntiSurferGun extends voidious_gun_DuelGun<void
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter {
+public static class titan_gun_Mira implements titan_gfx_RoboPainter {
   private static final boolean ENABLE_DEBUGGING_GRAPHICS = true;
   private static final int KNN_DATA_THRESHOLD = 9;
 
   private titanprime _robot;
   private boolean _tcMode;
-  private voidious_gun_GunDataManager _gunDataManager;
-  private voidious_gun_VirtualGunsManager<voidious_utils_TimestampedFiringAngle> _virtualGuns;
-  private voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> _perceptualGun;
-  private voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> _currentGun;
-  private voidious_gun_MeleeGun _meleeGun;
+  private titan_gun_GunDataManager _gunDataManager;
+  private titan_gun_VirtualGunsManager<titan_utils_TimestampedFiringAngle> _virtualGuns;
+  private titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> _perceptualGun;
+  private titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> _currentGun;
+  private titan_gun_MeleeGun _meleeGun;
   private int _enemiesTotal;
   private double _aimedBulletPower;
-  private java.util.List<voidious_gun_FireListener> _fireListeners;
-  private voidious_utils_BattleField _battleField;
-  private voidious_utils_MovementPredictor _predictor;
+  private java.util.List<titan_gun_FireListener> _fireListeners;
+  private titan_utils_BattleField _battleField;
+  private titan_utils_MovementPredictor _predictor;
 
   private boolean _startedDuel;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private boolean _painting;
   private boolean _robocodePainting;
   private java.io.PrintStream _out;
   private boolean _drawVictory;
 
-  public voidious_gun_DiamondFist(titanprime robot, boolean isTcMode) {
+  public titan_gun_Mira(titanprime robot, boolean isTcMode) {
     this(robot, isTcMode,
-        new voidious_utils_BattleField(robot.getBattleFieldWidth(),
+        new titan_utils_BattleField(robot.getBattleFieldWidth(),
             robot.getBattleFieldHeight()),
-        new java.util.ArrayList<voidious_gfx_RoboGraphic>(), System.out);
+        new java.util.ArrayList<titan_gfx_RoboGraphic>(), System.out);
   }
 
-  voidious_gun_DiamondFist(titanprime robot, boolean isTcMode, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
-    this(robot, isTcMode, battleField, new voidious_utils_MovementPredictor(battleField),
+  titan_gun_Mira(titanprime robot, boolean isTcMode, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
+    this(robot, isTcMode, battleField, new titan_utils_MovementPredictor(battleField),
         renderables, out);
   }
 
-  voidious_gun_DiamondFist(titanprime robot, boolean isTcMode, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  titan_gun_Mira(titanprime robot, boolean isTcMode, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     this(robot, isTcMode,
-        new voidious_gun_GunDataManager(robot.getOthers(), battleField, predictor,
+        new titan_gun_GunDataManager(robot.getOthers(), battleField, predictor,
             renderables, out),
-        new voidious_gun_VirtualGunsManager<voidious_utils_TimestampedFiringAngle>(out), battleField,
+        new titan_gun_VirtualGunsManager<titan_utils_TimestampedFiringAngle>(out), battleField,
         renderables, out);
   }
 
-  voidious_gun_DiamondFist(titanprime robot, boolean isTcMode, voidious_gun_GunDataManager gunDataManager,
-      voidious_gun_VirtualGunsManager<voidious_utils_TimestampedFiringAngle> virtualGunsManager,
-      voidious_utils_BattleField battleField, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  titan_gun_Mira(titanprime robot, boolean isTcMode, titan_gun_GunDataManager gunDataManager,
+      titan_gun_VirtualGunsManager<titan_utils_TimestampedFiringAngle> virtualGunsManager,
+      titan_utils_BattleField battleField, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     if (robot == null || gunDataManager == null || virtualGunsManager == null) {
       throw new NullPointerException();
@@ -2825,11 +2496,11 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     _battleField = battleField;
     _renderables = renderables;
     _out = new java.io.PrintStream(out);
-    _predictor = new voidious_utils_MovementPredictor(battleField);
+    _predictor = new titan_utils_MovementPredictor(battleField);
     _enemiesTotal = _robot.getOthers();
     _gunDataManager.addListener(_virtualGuns);
 
-    _fireListeners = new java.util.ArrayList<voidious_gun_FireListener>();
+    _fireListeners = new java.util.ArrayList<titan_gun_FireListener>();
     _painting = false;
     _robocodePainting = false;
 
@@ -2837,29 +2508,29 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
   }
 
   void initGuns() {
-    voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> mainGun;
+    titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> mainGun;
     if (_enemiesTotal > 1) {
       _perceptualGun = null;
-      mainGun = new voidious_gun_MainGun(_gunDataManager, _battleField, _renderables);
+      mainGun = new titan_gun_MainGun(_gunDataManager, _battleField, _renderables);
       _currentGun = mainGun;
     } else {
-      _perceptualGun = new voidious_gun_PerceptualGun<voidious_utils_TimestampedFiringAngle>();
+      _perceptualGun = new titan_gun_PerceptualGun<titan_utils_TimestampedFiringAngle>();
       _currentGun = _perceptualGun;
-      mainGun = new voidious_gun_TripHammerKnnGun(_gunDataManager, _renderables);
+      mainGun = new titan_gun_AgrupamentoKnnGun(_gunDataManager, _renderables);
     }
     _virtualGuns.addGun(mainGun);
 
-    voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> antiSurfGun = new voidious_gun_AntiSurferGun(
+    titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> antiSurfGun = new titan_gun_AntiSurferGun(
         _gunDataManager, _battleField, _renderables);
     _virtualGuns.addGun(antiSurfGun);
     _virtualGuns.addGun(new TitanNeuralGun(false));
     _virtualGuns.addGun(new TitanNeuralGun(true));
 
-    _meleeGun = new voidious_gun_MeleeGun(_gunDataManager, _battleField, _renderables);
+    _meleeGun = new titan_gun_MeleeGun(_gunDataManager, _battleField, _renderables);
   }
 
-  void initGunViews(voidious_gun_GunEnemy gunData) {
-    for (voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> gun : _virtualGuns.getGuns()) {
+  void initGunViews(titan_gun_GunEnemy gunData) {
+    for (titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> gun : _virtualGuns.getGuns()) {
       gunData.addViews(gun.newDataViews());
     }
     if (isMelee()) {
@@ -2882,7 +2553,7 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
         calculateBulletPower(), _robot.getGunHeat(), myLocation(), is1v1(),
         paintStatus());
     if (is1v1()) {
-      voidious_gun_GunEnemy duelEnemy = _gunDataManager.duelEnemy();
+      titan_gun_GunEnemy duelEnemy = _gunDataManager.duelEnemy();
       if (duelEnemy != null) {
         aimAndFire(duelEnemy);
         if (!_startedDuel) {
@@ -2899,17 +2570,17 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     }
   }
 
-  private void aimAndFire(voidious_gun_GunEnemy gunData) {
+  private void aimAndFire(titan_gun_GunEnemy gunData) {
     if (gunData != null) {
       fireIfGunTurned(_aimedBulletPower);
 
-      voidious_utils_Wave aimWave = gunData.lastWaveFired;
+      titan_utils_Wave aimWave = gunData.lastWaveFired;
       _aimedBulletPower = aimWave.bulletPower();
       java.awt.geom.Point2D.Double myNextLocation = _predictor.nextLocation(_robot);
       double firingAngle;
       if (gunData.energy == 0 || ticksUntilGunCool() > 3) {
         firingAngle =
-            voidious_utils_DiaUtils.absoluteBearing(myNextLocation, aimWave.targetLocation);
+            titan_utils_Matematica.absoluteBearing(myNextLocation, aimWave.targetLocation);
         evaluateVirtualGuns(gunData);
       } else {
         firingAngle = _currentGun.aim(aimWave, paintStatus());
@@ -2920,7 +2591,7 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
   }
 
   private void aimAndFireAtEveryone() {
-    voidious_gun_GunEnemy closestBot = _gunDataManager.getClosestLivingBot(myLocation());
+    titan_gun_GunEnemy closestBot = _gunDataManager.getClosestLivingBot(myLocation());
     if (closestBot != null) {
       fireIfGunTurned(_aimedBulletPower);
       java.awt.geom.Point2D.Double myNextLocation = _predictor.nextLocation(_robot);
@@ -2942,7 +2613,7 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
   }
 
   double calculateBulletPower() {
-    voidious_gun_GunEnemy gunData = _gunDataManager.getClosestLivingBot(myLocation());
+    titan_gun_GunEnemy gunData = _gunDataManager.getClosestLivingBot(myLocation());
     double bulletPower = 3;
     if (gunData != null) {
       double myEnergy = _robot.getEnergy();
@@ -2957,10 +2628,10 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
 
         if (gunData.distance > 325) {
           double powerDownPoint =
-              voidious_utils_DiaUtils.limit(35, 63 + ((gunData.energy - myEnergy) * 4), 63);
+              titan_utils_Matematica.limit(35, 63 + ((gunData.energy - myEnergy) * 4), 63);
           if (myEnergy < powerDownPoint) {
             bulletPower = Math.min(bulletPower,
-                voidious_utils_DiaUtils.cube(myEnergy / powerDownPoint) * 1.95);
+                titan_utils_Matematica.cube(myEnergy / powerDownPoint) * 1.95);
           }
         }
 
@@ -3001,7 +2672,7 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     return bulletPower;
   }
 
-  private void evaluateVirtualGuns(voidious_gun_GunEnemy gunData) {
+  private void evaluateVirtualGuns(titan_gun_GunEnemy gunData) {
     int dataPoints = _gunDataManager.getDuelDataSize();
     if (dataPoints < KNN_DATA_THRESHOLD) {
       _currentGun = _perceptualGun;
@@ -3011,8 +2682,8 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
             "Disabling " + _perceptualGun.getLabel() + " @ " + _robot.getTime());
         _perceptualGun = null;
       }
-  
-      voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> bestGun =
+
+      titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> bestGun =
           _virtualGuns.bestGun(gunData.botName);
       if (_currentGun != bestGun) {
         _currentGun = bestGun;
@@ -3041,10 +2712,10 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
   public void onScannedRobot(robocode.ScannedRobotEvent e) {
     String botName = e.getName();
     double absBearing = e.getBearingRadians() + _robot.getHeadingRadians();
-    java.awt.geom.Point2D.Double enemyLocation = voidious_utils_DiaUtils.project(
+    java.awt.geom.Point2D.Double enemyLocation = titan_utils_Matematica.project(
         myLocation(), robocode.util.Utils.normalAbsoluteAngle(absBearing), e.getDistance());
 
-    voidious_gun_GunEnemy gunData;
+    titan_gun_GunEnemy gunData;
     if (_gunDataManager.hasEnemy(botName)) {
       gunData = _gunDataManager.updateEnemy(
           e, enemyLocation, absBearing, _robot.getRoundNum(), is1v1());
@@ -3078,7 +2749,7 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
       _out.println("TC score: "
           + (_gunDataManager.getDamageGiven() / (_robot.getRoundNum() + 1)));
     }
-    voidious_gun_GunEnemy duelEnemy = _gunDataManager.duelEnemy();
+    titan_gun_GunEnemy duelEnemy = _gunDataManager.duelEnemy();
     if (is1v1() && duelEnemy != null) {
       _virtualGuns.printGunRatings(duelEnemy.botName);
     }
@@ -3093,9 +2764,9 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
   }
 
   public void onPaint(java.awt.Graphics2D g) {
-    // TODO: factor _renderables into something else
+
     if (paintStatus()) {
-      for (voidious_gfx_RoboGraphic r : _renderables) {
+      for (titan_gfx_RoboGraphic r : _renderables) {
         r.render(g);
       }
       _renderables.clear();
@@ -3119,15 +2790,15 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     return _robot.getOthers();
   }
 
-  public void addFireListener(voidious_gun_FireListener listener) {
+  public void addFireListener(titan_gun_FireListener listener) {
     _fireListeners.add(listener);
   }
 
   private robocode.Bullet setFireBulletLogged(double bulletPower) {
     robocode.Bullet bullet = _robot.setFireBullet(bulletPower);
     if (bullet != null) {
-      for (voidious_gun_FireListener listener : _fireListeners) {
-        listener.bulletFired(new voidious_gun_FireListener.FiredBullet(_robot.getTime(), myLocation(),
+      for (titan_gun_FireListener listener : _fireListeners) {
+        listener.bulletFired(new titan_gun_FireListener.FiredBullet(_robot.getTime(), myLocation(),
             _robot.getGunHeadingRadians(), (20 - (3 * bulletPower))));
       }
     }
@@ -3161,27 +2832,27 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     return (_painting && _robocodePainting);
   }
 
-  protected static void drawGunAngles(java.util.Collection<voidious_gfx_RoboGraphic> renderables,
-    voidious_utils_Wave wave, voidious_gfx_ColoredValueSet cvs, double bestAngle, double bandwidth) {
+  protected static void drawGunAngles(java.util.Collection<titan_gfx_RoboGraphic> renderables,
+    titan_utils_Wave wave, titan_gfx_ColoredValueSet cvs, double bestAngle, double bandwidth) {
 
-    double arrowLength = voidious_utils_DiaUtils.limit(
+    double arrowLength = titan_utils_Matematica.limit(
         50, wave.sourceLocation.distance(wave.targetLocation) - 75, 200);
 
-    for (voidious_gfx_ColoredValueSet.ColoredValue cv : cvs.getColoredValues()) {
+    for (titan_gfx_ColoredValueSet.ColoredValue cv : cvs.getColoredValues()) {
       java.awt.Color c = cv.grayToWhiteColor();
-      java.awt.geom.Point2D.Double angleHead = voidious_utils_DiaUtils.project(
+      java.awt.geom.Point2D.Double angleHead = titan_utils_Matematica.project(
           wave.sourceLocation, cv.firingAngle, arrowLength);
 
-      renderables.add(voidious_gfx_RoboGraphic.drawLine(wave.sourceLocation, angleHead, c));
+      renderables.add(titan_gfx_RoboGraphic.drawLine(wave.sourceLocation, angleHead, c));
       renderables.addAll(java.util.Arrays.asList(
-          voidious_gfx_RoboGraphic.drawArrowHead(angleHead, 10, cv.firingAngle, c)));
+          titan_gfx_RoboGraphic.drawArrowHead(angleHead, 10, cv.firingAngle, c)));
     }
 
-    renderables.add(voidious_gfx_RoboGraphic.drawPoint(voidious_utils_DiaUtils.project(
+    renderables.add(titan_gfx_RoboGraphic.drawPoint(titan_utils_Matematica.project(
         wave.sourceLocation, bestAngle, arrowLength + 5), java.awt.Color.red));
   }
 
-  private void printCurrentGun(voidious_gun_GunEnemy gunData) {
+  private void printCurrentGun(titan_gun_GunEnemy gunData) {
     _out.println("Current gun: " + _currentGun.getLabel() + " ("
         + _virtualGuns.getFormattedRating(_currentGun, gunData.botName)+ ")");
   }
@@ -3190,48 +2861,27 @@ public static class voidious_gun_DiamondFist implements voidious_gfx_RoboPainter
     return _robot;
   }
 
-  voidious_gun_VirtualGunsManager<voidious_utils_TimestampedFiringAngle> getVirtualGunsManager() {
+  titan_gun_VirtualGunsManager<titan_utils_TimestampedFiringAngle> getVirtualGunsManager() {
     return _virtualGuns;
   }
 
-  java.util.Collection<voidious_gfx_RoboGraphic> getRenderables() {
+  java.util.Collection<titan_gfx_RoboGraphic> getRenderables() {
     return _renderables;
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
+public abstract static class titan_gun_DuelGun<T> {
+  private java.util.Map<titan_utils_Wave, Double> _firingAngles;
 
-public abstract static class voidious_gun_DuelGun<T> {
-  private java.util.Map<voidious_utils_Wave, Double> _firingAngles;
-
-  public voidious_gun_DuelGun() {
-    _firingAngles = new java.util.HashMap<voidious_utils_Wave, Double>();
+  public titan_gun_DuelGun() {
+    _firingAngles = new java.util.HashMap<titan_utils_Wave, Double>();
   }
 
   public void clearCache() {
     _firingAngles.clear();
   }
 
-  public double aim(voidious_utils_Wave w, boolean painting) {
+  public double aim(titan_utils_Wave w, boolean painting) {
     if (!_firingAngles.containsKey(w)) {
       _firingAngles.put(w, aimInternal(w, painting));
     }
@@ -3240,33 +2890,12 @@ public abstract static class voidious_gun_DuelGun<T> {
 
   abstract public String getLabel();
 
-  abstract protected double aimInternal(voidious_utils_Wave w, boolean painting);
+  abstract protected double aimInternal(titan_utils_Wave w, boolean painting);
 
-  abstract public java.util.List<voidious_utils_KnnView<T>> newDataViews();
+  abstract public java.util.List<titan_utils_KnnView<T>> newDataViews();
 }
 
-/**
- * Copyright (c) 2011-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public interface voidious_gun_FireListener {
+public interface titan_gun_FireListener {
   public void bulletFired(FiredBullet bullet);
 
   public static class FiredBullet {
@@ -3301,28 +2930,7 @@ public interface voidious_gun_FireListener {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_GunDataManager extends voidious_utils_EnemyDataManager<voidious_gun_GunEnemy> {
+public static class titan_gun_GunDataManager extends titan_utils_EnemyDataManager<titan_gun_GunEnemy> {
   static final String WARNING_BULLET_HIT_UNKNOWN =
       "I shot a bot that I never knew existed!";
   static final String WARNING_BULLET_HIT_BULLET_UNKNOWN =
@@ -3330,14 +2938,14 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
 
   private java.util.List<GunDataListener> _listeners;
   private long _lastBulletFiredTime;
-  private java.util.Map<Long, java.util.List<voidious_gfx_RoboGraphic>> _victoryGraphics;
+  private java.util.Map<Long, java.util.List<titan_gfx_RoboGraphic>> _victoryGraphics;
 
-  public voidious_gun_GunDataManager(int enemiesTotal, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  public titan_gun_GunDataManager(int enemiesTotal, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     super(enemiesTotal, battleField, predictor, renderables, out);
     _listeners = new java.util.ArrayList<GunDataListener>();
-    _victoryGraphics = new java.util.HashMap<Long, java.util.List<voidious_gfx_RoboGraphic>>();
+    _victoryGraphics = new java.util.HashMap<Long, java.util.List<titan_gfx_RoboGraphic>>();
   }
 
   @Override
@@ -3351,7 +2959,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
       double currentGunHeat, java.awt.geom.Point2D.Double myLocation, boolean is1v1,
       boolean painting) {
     updateBotDistances(myLocation);
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
       if (gunData.alive) {
         gunData.execute(currentTime, _lastBulletFiredTime, bulletPower,
             currentGunHeat, myLocation, is1v1, _enemiesTotal, _listeners,
@@ -3359,20 +2967,20 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
       }
     }
     if (painting && _victoryGraphics.containsKey(currentTime)) {
-      for (voidious_gfx_RoboGraphic graphic : _victoryGraphics.get(currentTime)) {
+      for (titan_gfx_RoboGraphic graphic : _victoryGraphics.get(currentTime)) {
         _renderables.add(graphic);
       }
     }
   }
 
-  public voidious_gun_GunEnemy newEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
+  public titan_gun_GunEnemy newEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
       double absBearing, int currentRound, boolean is1v1) {
     if (hasEnemy(e.getName())) {
       throw new IllegalArgumentException(
           "GunEnemy already exists for bot: " + e.getName());
     }
 
-    voidious_gun_GunEnemy gunData = new voidious_gun_GunEnemy(e.getName(), e.getDistance(),
+    titan_gun_GunEnemy gunData = new titan_gun_GunEnemy(e.getName(), e.getDistance(),
         e.getEnergy(), enemyLocation, currentRound, e.getTime(),
         e.getHeadingRadians(), e.getVelocity(), absBearing,
         _battleField, _predictor, _renderables);
@@ -3384,13 +2992,13 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
     return gunData;
   }
 
-  void saveEnemy(String botName, voidious_gun_GunEnemy gunData) {
+  void saveEnemy(String botName, titan_gun_GunEnemy gunData) {
     _enemies.put(botName, gunData);
   }
 
-  public voidious_gun_GunEnemy updateEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
+  public titan_gun_GunEnemy updateEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
       double absBearing, int currentRound, boolean is1v1) {
-    voidious_gun_GunEnemy gunData = getEnemyData(e.getName());
+    titan_gun_GunEnemy gunData = getEnemyData(e.getName());
     long timeSinceLastScan = e.getTime() - gunData.lastScanState.time;
     gunData.timeSinceDirectionChange += timeSinceLastScan;
     gunData.timeSinceVelocityChange += timeSinceLastScan;
@@ -3401,7 +3009,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
     gunData.energy = e.getEnergy();
     gunData.lastScanRound = currentRound;
     gunData.previousVelocity = gunData.lastScanState.velocity;
-    gunData.setRobotState(voidious_utils_RobotState.newBuilder()
+    gunData.setRobotState(titan_utils_RobotState.newBuilder()
         .setLocation(enemyLocation)
         .setHeading(e.getHeadingRadians())
         .setVelocity(e.getVelocity())
@@ -3420,7 +3028,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
   public void onBulletHit(robocode.BulletHitEvent e, long currentTime) {
     String botName = e.getName();
     if (hasEnemy(botName)) {
-      voidious_gun_GunEnemy gunData = getEnemyData(e.getName());
+      titan_gun_GunEnemy gunData = getEnemyData(e.getName());
       double bulletDamage = Math.min(
           robocode.Rules.getBulletDamage(e.getBullet().getPower()), gunData.energy);
       gunData.damageGiven += bulletDamage;
@@ -3429,8 +3037,8 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
       _out.println(warning() + WARNING_BULLET_HIT_UNKNOWN
           + " (" + botName + ")");
     }
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
-      voidious_utils_Wave hitWave = gunData.processBulletHit(
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
+      titan_utils_Wave hitWave = gunData.processBulletHit(
           e.getBullet(), currentTime, (_enemiesTotal == 1), true);
       if (hitWave != null) {
         hitWave.hitByBullet = true;
@@ -3440,8 +3048,8 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
 
   public void onBulletHitBullet(robocode.BulletHitBulletEvent e, long currentTime) {
     String botName = e.getHitBullet().getName();
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
-      voidious_utils_Wave hitWave = gunData.processBulletHit(e.getBullet(), currentTime,
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
+      titan_utils_Wave hitWave = gunData.processBulletHit(e.getBullet(), currentTime,
           (_enemiesTotal == 1), botName.equals(gunData.botName));
       if (hitWave != null) {
         hitWave.bulletHitBullet = true;
@@ -3455,7 +3063,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
 
   public double getDamageGiven() {
     double damageGiven = 0;
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
       damageGiven += gunData.damageGiven;
     }
     return damageGiven;
@@ -3464,7 +3072,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
   public double getAverageEnergy() {
     double totalEnergy = 0;
     int enemiesAlive = 0;
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
       if (gunData.alive) {
         totalEnergy += gunData.energy;
         enemiesAlive++;
@@ -3475,7 +3083,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
 
   public void markFiringWaves(long currentTime, boolean is1v1) {
     _lastBulletFiredTime = currentTime;
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
       gunData.markFiringWaves(currentTime, is1v1, _listeners);
     }
   }
@@ -3484,18 +3092,18 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
       java.awt.geom.Point2D.Double targetLocation, String targetName, int currentRound,
       long currentTime, double bulletPower, double myEnergy, double gunHeat,
       double myHeading, double myVelocity, int enemiesAlive) {
-    voidious_gun_GunEnemy gunData = getEnemyData(targetName);
-    voidious_utils_RobotState lastScanState = gunData.lastScanState;
+    titan_gun_GunEnemy gunData = getEnemyData(targetName);
+    titan_utils_RobotState lastScanState = gunData.lastScanState;
     java.awt.geom.Point2D.Double enemyNextLocation = _battleField.translateToField(
         _predictor.nextLocation(
             targetLocation, lastScanState.heading, lastScanState.velocity));
-    double accel = voidious_utils_DiaUtils.limit(-robocode.Rules.DECELERATION,
-                                  voidious_utils_DiaUtils.accel(lastScanState.velocity,
+    double accel = titan_utils_Matematica.limit(-robocode.Rules.DECELERATION,
+                                  titan_utils_Matematica.accel(lastScanState.velocity,
                                                  gunData.previousVelocity),
                                   robocode.Rules.ACCELERATION);
     long fireTime = currentTime + 1;
     long lastWaveFireTime = gunData.getLastWaveFireTime(gunData.botName);
-    voidious_utils_RobotStateLog stateLog = gunData.stateLog;
+    titan_utils_RobotStateLog stateLog = gunData.stateLog;
     double dl8t =
         stateLog.getDisplacementDistance(targetLocation, currentTime, 8);
     double dl20t =
@@ -3503,12 +3111,12 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
     double dl40t =
         stateLog.getDisplacementDistance(targetLocation, currentTime, 40);
 
-    voidious_utils_Wave nextWave = gunData.newGunWave(myNextLocation, enemyNextLocation,
+    titan_utils_Wave nextWave = gunData.newGunWave(myNextLocation, enemyNextLocation,
         currentRound, fireTime, _lastBulletFiredTime, bulletPower, myEnergy,
         gunHeat, enemiesAlive, accel, dl8t, dl20t, dl40t, false);
     gunData.lastWaveFired = nextWave;
 
-    for (voidious_gun_GunEnemy altGunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy altGunData : getAllEnemyData()) {
       if (altGunData.alive && !altGunData.botName.equals(targetName)) {
         java.awt.geom.Point2D.Double altNextLocation = _battleField.translateToField(
             _predictor.nextLocation(altGunData.lastScanState.location,
@@ -3546,7 +3154,7 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
   }
 
   public void drawVictory(long startTime) {
-    for (voidious_gun_GunEnemy gunData : getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : getAllEnemyData()) {
       long hitStartTime = startTime;
       java.awt.geom.Point2D.Double previousHit = null;
       for (java.awt.geom.Point2D.Double hitLocation : gunData.hitLocations) {
@@ -3554,18 +3162,18 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
             == gunData.hitLocations.get(gunData.hitLocations.size() - 1));
         for (int x = 0; x < 7; x++) {
           addVictoryGraphic(hitStartTime + x,
-              voidious_gfx_RoboGraphic.drawCircleFilled(hitLocation, java.awt.Color.WHITE, 5));
+              titan_gfx_RoboGraphic.drawCircleFilled(hitLocation, java.awt.Color.WHITE, 5));
         }
         for (int x = 0; x < (deathBlow ? 5 : 3); x++) {
           for (int y = 0; y < (x + 1) * 3; y++) {
             addVictoryGraphic(hitStartTime + y + x,
-                voidious_gfx_RoboGraphic.drawCircle(hitLocation, (y + 2) * 5, java.awt.Color.RED));
+                titan_gfx_RoboGraphic.drawCircle(hitLocation, (y + 2) * 5, java.awt.Color.RED));
           }
         }
         if (previousHit != null) {
           for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 8; y++) {
-              addVictoryGraphic(hitStartTime - 2 + x + y, voidious_gfx_RoboGraphic.drawLine(
+              addVictoryGraphic(hitStartTime - 2 + x + y, titan_gfx_RoboGraphic.drawLine(
                   averagePoints(previousHit, hitLocation, ((double) x) / 3),
                   averagePoints(previousHit, hitLocation, ((double) x + 1) / 3),
                   java.awt.Color.WHITE));
@@ -3584,43 +3192,19 @@ public static class voidious_gun_GunDataManager extends voidious_utils_EnemyData
                               p1.y * (1 - weight) + p2.y * weight);
   }
 
-  private void addVictoryGraphic(long time, voidious_gfx_RoboGraphic graphic) {
+  private void addVictoryGraphic(long time, titan_gfx_RoboGraphic graphic) {
     if (!_victoryGraphics.containsKey(time)) {
-      _victoryGraphics.put(time, new java.util.ArrayList<voidious_gfx_RoboGraphic>());
+      _victoryGraphics.put(time, new java.util.ArrayList<titan_gfx_RoboGraphic>());
     }
     _victoryGraphics.get(time).add(graphic);
   }
   public interface GunDataListener {
-    void on1v1FiringWaveBreak(voidious_utils_Wave w, double hitAngle, double tolerance);
-    void onMarkFiringWave(voidious_utils_Wave w);
+    void on1v1FiringWaveBreak(titan_utils_Wave w, double hitAngle, double tolerance);
+    void onMarkFiringWave(titan_utils_Wave w);
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/**
- * Targeting data about an enemy.
- */
-public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_utils_TimestampedFiringAngle> {
+public static class titan_gun_GunEnemy extends titan_utils_Enemy<titan_utils_TimestampedFiringAngle> {
   private static final double NON_ZERO_VELOCITY_THRESHOLD = 0.1;
 
   public double previousVelocity;
@@ -3628,24 +3212,24 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
   public long timeSinceDirectionChange;
   public long timeSinceVelocityChange;
   public long timeMovingAtMe;
-  public voidious_utils_Wave lastWaveFired;
+  public titan_utils_Wave lastWaveFired;
   public java.util.List<java.awt.geom.Point2D.Double> hitLocations;
   private int _waveBreaks;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
 
-  public voidious_gun_GunEnemy(String botName, double distance, double energy,
+  public titan_gun_GunEnemy(String botName, double distance, double energy,
       java.awt.geom.Point2D.Double location, int round, long time, double heading,
-      double velocity, double absBearing, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+      double velocity, double absBearing, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     this(botName, distance, energy, location, round, time, heading, velocity,
-        absBearing, battleField, predictor, renderables, new voidious_utils_WaveManager());
+        absBearing, battleField, predictor, renderables, new titan_utils_WaveManager());
   }
 
-  voidious_gun_GunEnemy(String botName, double distance, double energy,
+  titan_gun_GunEnemy(String botName, double distance, double energy,
       java.awt.geom.Point2D.Double location, int round, long time, double heading,
-      double velocity, double absBearing, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
-      voidious_utils_WaveManager waveManager) {
+      double velocity, double absBearing, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
+      titan_utils_WaveManager waveManager) {
     super(botName, location, distance, energy, heading, velocity, absBearing,
         round, time, battleField, predictor, waveManager);
 
@@ -3673,7 +3257,7 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
   public void execute(final long currentTime, long lastBulletFiredTime,
       double bulletPower, double currentGunHeat, java.awt.geom.Point2D.Double myLocation,
       final boolean is1v1, final int enemiesTotal,
-      final java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners, final boolean painting) {
+      final java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners, final boolean painting) {
     _waveManager.checkCurrentWaves(currentTime,
         newUpdateWaveListener(myLocation, bulletPower, lastBulletFiredTime,
             currentGunHeat, is1v1, gunDataListeners));
@@ -3682,9 +3266,9 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
             currentTime, enemiesTotal, is1v1, gunDataListeners, painting));
   }
 
-  void updateWave(voidious_utils_Wave w, java.awt.geom.Point2D.Double myLocation, double bulletPower,
+  void updateWave(titan_utils_Wave w, java.awt.geom.Point2D.Double myLocation, double bulletPower,
       long lastBulletFiredTime, double gunHeat, boolean is1v1,
-      java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners) {
+      java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners) {
     if (!w.altWave) {
       w.gunHeat = gunHeat;
       w.lastBulletFiredTime = lastBulletFiredTime;
@@ -3693,53 +3277,50 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
         w.sourceLocation = myLocation;
         w.targetLocation = lastScanState.location;
         w.absBearing =
-            voidious_utils_DiaUtils.absoluteBearing(myLocation, lastScanState.location);
+            titan_utils_Matematica.absoluteBearing(myLocation, lastScanState.location);
       }
     }
   }
 
-  void processWaveBreak(voidious_utils_Wave w, java.util.List<voidious_utils_RobotState> waveBreakStates,
+  void processWaveBreak(titan_utils_Wave w, java.util.List<titan_utils_RobotState> waveBreakStates,
       long currentTime, int enemiesTotal,
-      java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners) {
+      java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners) {
     if (waveBreakStates == null || waveBreakStates.isEmpty()) {
-      // This should be impossible, but it's happening due to a bug in
-      // either Robocode or my JVM. It's bad data, so just ignore it.
+
       return;
     }
     double guessFactor = 0;
-    voidious_utils_Wave.Intersection preciseIntersection = null;
+    titan_utils_Wave.Intersection preciseIntersection = null;
     if (w.enemiesAlive == 1) {
       preciseIntersection = w.preciseIntersection(waveBreakStates);
       guessFactor = w.guessFactorPrecise(preciseIntersection.angle);
     }
 
-    voidious_utils_RobotState waveBreakState = getMedianWaveBreakState(waveBreakStates);
+    titan_utils_RobotState waveBreakState = getMedianWaveBreakState(waveBreakStates);
     java.awt.geom.Point2D.Double dispVector = w.displacementVector(waveBreakState);
     logWave(w, dispVector, guessFactor, currentTime, IS_VISIT);
     _waveBreaks++;
-    
+
     if (w.enemiesAlive == 1 && w.firingWave && !w.altWave) {
       if (preciseIntersection == null) {
         preciseIntersection = w.preciseIntersection(waveBreakStates);
       }
       double hitAngle = preciseIntersection.angle;
       double tolerance = preciseIntersection.bandwidth;
-      for (voidious_gun_GunDataManager.GunDataListener listener : gunDataListeners) {
+      for (titan_gun_GunDataManager.GunDataListener listener : gunDataListeners) {
         listener.on1v1FiringWaveBreak(w, hitAngle, tolerance);
       }
     }
   }
 
-  public voidious_utils_Wave processBulletHit(robocode.Bullet bullet, long currentTime,
+  public titan_utils_Wave processBulletHit(robocode.Bullet bullet, long currentTime,
       boolean is1v1Battle, boolean logHitWave) {
     java.awt.geom.Point2D.Double bulletLocation = bulletLocation(bullet);
-    voidious_utils_Wave hitWave = _waveManager.findClosestWave(bulletLocation, currentTime,
-        voidious_utils_Wave.FIRING_WAVE, botName, bullet.getPower());
+    titan_utils_Wave hitWave = _waveManager.findClosestWave(bulletLocation, currentTime,
+        titan_utils_Wave.FIRING_WAVE, botName, bullet.getPower());
     if (hitWave != null) {
       if (logHitWave) {
-        // TODO: if we ever use bullet hits for something important in melee,
-        //       queue this up until we can interpolate location, or use
-        //       bulletLocation if last scan time ! = currentTime
+
         java.awt.geom.Point2D.Double hitVector =
             hitWave.displacementVector(lastScanState.location, currentTime);
         double hitFactor = 0;
@@ -3761,27 +3342,27 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
     return new java.awt.geom.Point2D.Double(bullet.getX(), bullet.getY());
   }
 
-  void logWave(voidious_utils_Wave w, java.awt.geom.Point2D.Double dispVector, double guessFactor, long time,
+  void logWave(titan_utils_Wave w, java.awt.geom.Point2D.Double dispVector, double guessFactor, long time,
       boolean isVisit) {
     neuralVisit(w, guessFactor, isVisit);
-    for (voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view : views.values()) {
+    for (titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view : views.values()) {
       if ((isVisit && view.logVisits || !isVisit && view.logBulletHits)
           && (view.logVirtual || w.firingWave)
           && (view.logMelee || w.enemiesAlive <= 1)) {
-        view.logWave(w, new voidious_utils_TimestampedFiringAngle(
+        view.logWave(w, new titan_utils_TimestampedFiringAngle(
             w.fireRound, time, guessFactor, dispVector));
       }
     }
   }
 
-  public voidious_utils_Wave newGunWave(java.awt.geom.Point2D.Double sourceLocation,
+  public titan_utils_Wave newGunWave(java.awt.geom.Point2D.Double sourceLocation,
       java.awt.geom.Point2D.Double targetLocation, int fireRound, long fireTime,
       long lastBulletFiredTime, double bulletPower, double myEnergy,
       double gunHeat, int enemiesAlive, double accel, double dl8t, double dl20t,
       double dl40t, boolean altWave) {
-    voidious_utils_Wave newWave = new voidious_utils_Wave(botName, sourceLocation, targetLocation,
+    titan_utils_Wave newWave = new titan_utils_Wave(botName, sourceLocation, targetLocation,
         fireRound, fireTime, bulletPower, lastScanState.heading,
-        lastScanState.velocity, voidious_utils_DiaUtils.nonZeroSign(lastNonZeroVelocity),
+        lastScanState.velocity, titan_utils_Matematica.nonZeroSign(lastNonZeroVelocity),
         _battleField, _predictor)
             .setAccel(accel)
             .setDistance(sourceLocation.distance(targetLocation))
@@ -3797,7 +3378,7 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
             .setLastBulletFiredTime(lastBulletFiredTime)
             .setAltWave(altWave);
     newWave.setWallDistances(enemiesAlive <= 1
-        ? voidious_utils_Wave.WallDistanceStyle.ORBITAL : voidious_utils_Wave.WallDistanceStyle.DIRECT);
+        ? titan_utils_Wave.WallDistanceStyle.ORBITAL : titan_utils_Wave.WallDistanceStyle.DIRECT);
 
     if (myEnergy > 0) {
       _waveManager.addWave(newWave);
@@ -3806,18 +3387,18 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
   }
 
   public void markFiringWaves(
-      long currentTime, boolean is1v1, java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners) {
+      long currentTime, boolean is1v1, java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners) {
     _waveManager.checkCurrentWaves(currentTime,
         newMarkFiringWavesListener(is1v1, gunDataListeners));
   }
 
-  public voidious_utils_Wave findSurfableWave(voidious_utils_Wave aimWave, int surfIndex) {
-    voidious_utils_RobotState targetState = voidious_utils_RobotState.newBuilder()
+  public titan_utils_Wave findSurfableWave(titan_utils_Wave aimWave, int surfIndex) {
+    titan_utils_RobotState targetState = titan_utils_RobotState.newBuilder()
         .setLocation(aimWave.targetLocation)
         .setTime(aimWave.fireTime)
         .build();
     return _waveManager.findSurfableWave(
-        surfIndex, targetState, voidious_utils_Wave.WavePosition.BREAKING_CENTER);
+        surfIndex, targetState, titan_utils_Wave.WavePosition.BREAKING_CENTER);
   }
 
   public void updateTimers(double velocity) {
@@ -3836,18 +3417,18 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
     return _waveManager.getLastFireTime();
   }
 
-  public voidious_utils_Wave interpolateGunWave(long fireTime, long currentTime,
-      double myHeading, double myVelocity, voidious_utils_RobotState enemyState) {
-    voidious_utils_Wave w = _waveManager.interpolateWaveByFireTime(fireTime, currentTime,
+  public titan_utils_Wave interpolateGunWave(long fireTime, long currentTime,
+      double myHeading, double myVelocity, titan_utils_RobotState enemyState) {
+    titan_utils_Wave w = _waveManager.interpolateWaveByFireTime(fireTime, currentTime,
         myHeading, myVelocity, stateLog, _battleField, _predictor);
-    if (w.checkWavePosition(enemyState) == voidious_utils_Wave.WavePosition.MIDAIR) {
+    if (w.checkWavePosition(enemyState) == titan_utils_Wave.WavePosition.MIDAIR) {
       _waveManager.addWave(w);
       return w;
     }
     return null;
   }
 
-  private voidious_utils_RobotState getMedianWaveBreakState(java.util.List<voidious_utils_RobotState> waveBreakStates) {
+  private titan_utils_RobotState getMedianWaveBreakState(java.util.List<titan_utils_RobotState> waveBreakStates) {
     return waveBreakStates.get(waveBreakStates.size() / 2);
   }
 
@@ -3864,30 +3445,29 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
     return _waveBreaks;
   }
 
-  // TODO: a cleaner way to expose this for TripHammer would be nice
-  voidious_utils_WaveManager getWaveManager() {
+  titan_utils_WaveManager getWaveManager() {
     return _waveManager;
   }
 
-  private voidious_utils_WaveManager.CurrentWaveListener newUpdateWaveListener(
+  private titan_utils_WaveManager.CurrentWaveListener newUpdateWaveListener(
       final java.awt.geom.Point2D.Double myLocation, final double bulletPower,
       final long lastBulletFiredTime, final double currentGunHeat,
-      final boolean is1v1, final java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners) {
-    return new voidious_utils_WaveManager.CurrentWaveListener() {
+      final boolean is1v1, final java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners) {
+    return new titan_utils_WaveManager.CurrentWaveListener() {
       @Override
-      public void onCurrentWave(voidious_utils_Wave w) {
+      public void onCurrentWave(titan_utils_Wave w) {
         updateWave(w, myLocation, bulletPower, lastBulletFiredTime,
             currentGunHeat, is1v1, gunDataListeners);
       }
     };
   }
 
-  private voidious_utils_WaveManager.WaveBreakListener newWaveBreakListener(
+  private titan_utils_WaveManager.WaveBreakListener newWaveBreakListener(
       final long currentTime, final int enemiesTotal, final boolean is1v1,
-      final java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners, final boolean painting) {
-    return new voidious_utils_WaveManager.WaveBreakListener() {
+      final java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners, final boolean painting) {
+    return new titan_utils_WaveManager.WaveBreakListener() {
       @Override
-      public void onWaveBreak(voidious_utils_Wave w, java.util.List<voidious_utils_RobotState> waveBreakStates) {
+      public void onWaveBreak(titan_utils_Wave w, java.util.List<titan_utils_RobotState> waveBreakStates) {
         processWaveBreak(
             w, waveBreakStates, currentTime, enemiesTotal, gunDataListeners);
         if (painting && !is1v1) {
@@ -3898,15 +3478,15 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
     };
   }
 
-  private voidious_utils_WaveManager.CurrentWaveListener newMarkFiringWavesListener(
-      final boolean is1v1, final java.util.List<voidious_gun_GunDataManager.GunDataListener> gunDataListeners) {
-    return new voidious_utils_WaveManager.CurrentWaveListener() {
+  private titan_utils_WaveManager.CurrentWaveListener newMarkFiringWavesListener(
+      final boolean is1v1, final java.util.List<titan_gun_GunDataManager.GunDataListener> gunDataListeners) {
+    return new titan_utils_WaveManager.CurrentWaveListener() {
       @Override
-      public void onCurrentWave(voidious_utils_Wave w) {
+      public void onCurrentWave(titan_utils_Wave w) {
         if (!w.altWave) {
           w.firingWave = true;
           if (is1v1) {
-            for (voidious_gun_GunDataManager.GunDataListener listener : gunDataListeners) {
+            for (titan_gun_GunDataManager.GunDataListener listener : gunDataListeners) {
               listener.onMarkFiringWave(w);
             }
           }
@@ -3916,70 +3496,49 @@ public static class voidious_gun_GunEnemy extends voidious_utils_Enemy<voidious_
   }
 
   private void drawDisplacementVector(
-      voidious_utils_Wave w, long currentTime, voidious_utils_RobotState waveBreakState) {
+      titan_utils_Wave w, long currentTime, titan_utils_RobotState waveBreakState) {
     java.awt.geom.Point2D.Double dispVector = w.displacementVector(waveBreakState);
     double drawBearing = (w.orbitDirection
-        * voidious_utils_DiaUtils.absoluteBearing(voidious_utils_Wave.ORIGIN, dispVector))
+        * titan_utils_Matematica.absoluteBearing(titan_utils_Wave.ORIGIN, dispVector))
         + w.effectiveHeading();
     double drawDistance =
-        dispVector.distance(voidious_utils_Wave.ORIGIN) * (waveBreakState.time - w.fireTime);
-    _renderables.add(voidious_gfx_RoboGraphic.drawLine(
-        voidious_utils_DiaUtils.project(w.targetLocation, w.targetHeading, 25),
-        voidious_utils_DiaUtils.project(w.targetLocation, w.targetHeading + Math.PI, 25),
+        dispVector.distance(titan_utils_Wave.ORIGIN) * (waveBreakState.time - w.fireTime);
+    _renderables.add(titan_gfx_RoboGraphic.drawLine(
+        titan_utils_Matematica.project(w.targetLocation, w.targetHeading, 25),
+        titan_utils_Matematica.project(w.targetLocation, w.targetHeading + Math.PI, 25),
         java.awt.Color.darkGray));
-    _renderables.add(voidious_gfx_RoboGraphic.drawLine(
-        voidious_utils_DiaUtils.project(w.targetLocation, w.targetHeading + (Math.PI / 2), 25),
-        voidious_utils_DiaUtils.project(w.targetLocation, w.targetHeading - (Math.PI / 2), 25),
+    _renderables.add(titan_gfx_RoboGraphic.drawLine(
+        titan_utils_Matematica.project(w.targetLocation, w.targetHeading + (Math.PI / 2), 25),
+        titan_utils_Matematica.project(w.targetLocation, w.targetHeading - (Math.PI / 2), 25),
         java.awt.Color.darkGray));
     _renderables.addAll(java.util.Arrays.asList(
-        voidious_gfx_RoboGraphic.drawArrowHead(
-            voidious_utils_DiaUtils.project(w.targetLocation, w.effectiveHeading(), 25),
+        titan_gfx_RoboGraphic.drawArrowHead(
+            titan_utils_Matematica.project(w.targetLocation, w.effectiveHeading(), 25),
             10, w.effectiveHeading(), java.awt.Color.darkGray)));
     _renderables.add(
-        voidious_gfx_RoboGraphic.drawLine(w.targetLocation,
-            voidious_utils_DiaUtils.project(w.targetLocation, drawBearing, drawDistance),
+        titan_gfx_RoboGraphic.drawLine(w.targetLocation,
+            titan_utils_Matematica.project(w.targetLocation, drawBearing, drawDistance),
         java.awt.Color.red));
     _renderables.add(
-        voidious_gfx_RoboGraphic.drawCircleFilled(waveBreakState.location, java.awt.Color.red, 4));
-    _renderables.add(voidious_gfx_RoboGraphic.drawPoint(w.targetLocation, java.awt.Color.red));
-    _renderables.add(voidious_gfx_RoboGraphic.drawText(
+        titan_gfx_RoboGraphic.drawCircleFilled(waveBreakState.location, java.awt.Color.red, 4));
+    _renderables.add(titan_gfx_RoboGraphic.drawPoint(w.targetLocation, java.awt.Color.red));
+    _renderables.add(titan_gfx_RoboGraphic.drawText(
         Long.toString(currentTime-w.fireTime), w.targetLocation.x - 8,
         w.targetLocation.y - 20, java.awt.Color.white));
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> {
+public static class titan_gun_MainGun extends titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> {
   private static final String VIEW_NAME = "Main";
   private static final int K_SIZE = 100;
   private static final int K_DIVISOR = 10;
 
-  private voidious_gun_GunDataManager _gunDataManager;
-  private voidious_utils_BattleField _battleField;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private titan_gun_GunDataManager _gunDataManager;
+  private titan_utils_BattleField _battleField;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
 
-  public voidious_gun_MainGun(voidious_gun_GunDataManager gunDataManager, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+  public titan_gun_MainGun(titan_gun_GunDataManager gunDataManager, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     super();
     _gunDataManager = gunDataManager;
     _battleField = battleField;
@@ -3992,14 +3551,14 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
   }
 
   @Override
-  protected double aimInternal(voidious_utils_Wave w, boolean painting) {
-    voidious_gun_GunEnemy gunData = _gunDataManager.getEnemyData(w.botName);
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view = gunData.views.get(VIEW_NAME);
+  protected double aimInternal(titan_utils_Wave w, boolean painting) {
+    titan_gun_GunEnemy gunData = _gunDataManager.getEnemyData(w.botName);
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view = gunData.views.get(VIEW_NAME);
     if (view.size() == 0) {
       return w.absBearing;
     }
 
-    java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle>> nearestNeighbors =
+    java.util.List<titan_KdTree.Entry<titan_utils_TimestampedFiringAngle>> nearestNeighbors =
         view.nearestNeighbors(w, true);
     int numScans = nearestNeighbors.size();
     Double[] firingAngles = new Double[numScans];
@@ -4016,12 +3575,12 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
                 - w.absBearing);
       }
     }
-   
+
     Double bestAngle = null;
     double bestDensity = Double.NEGATIVE_INFINITY;
-    double bandwidth = 2 * voidious_utils_DiaUtils.botWidthAimAngle(
+    double bandwidth = 2 * titan_utils_Matematica.botWidthAimAngle(
         w.sourceLocation.distance(w.targetLocation));
-    voidious_gfx_ColoredValueSet cvs = new voidious_gfx_ColoredValueSet();
+    titan_gfx_ColoredValueSet cvs = new titan_gfx_ColoredValueSet();
 
     for (int x = 0; x < numScans; x++) {
       if (firingAngles[x] == null) {
@@ -4035,7 +3594,6 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
           continue;
         }
 
-        // TODO: weight by inverse distance   
         double yFiringAngle = firingAngles[y];
         double ux = (xFiringAngle - yFiringAngle) / bandwidth;
         xDensity += Math.exp(-0.5 * ux * ux);
@@ -4056,7 +3614,7 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
     }
 
     if (painting) {
-      voidious_gun_DiamondFist.drawGunAngles(
+      titan_gun_Mira.drawGunAngles(
           _renderables, w, cvs, w.absBearing + bestAngle, bandwidth);
     }
 
@@ -4064,11 +3622,11 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
   }
 
   @Override
-  public java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> newDataViews() {
-    java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> views =
-        new java.util.ArrayList<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>>();
-    views.add(new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(
-        new voidious_gun_formulas_MainGunFormula(_gunDataManager.getEnemiesTotal()))
+  public java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> newDataViews() {
+    java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> views =
+        new java.util.ArrayList<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>>();
+    views.add(new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(
+        new titan_gun_formulas_MainGunFormula(_gunDataManager.getEnemiesTotal()))
             .setK(K_SIZE)
             .setKDivisor(K_DIVISOR)
             .visitsOn()
@@ -4079,37 +3637,16 @@ public static class voidious_gun_MainGun extends voidious_gun_DuelGun<voidious_u
   }
 }
 
-/**
- * Copyright (c) 2011-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_MeleeGun {
+public static class titan_gun_MeleeGun {
   private static final String VIEW_NAME = "Melee";
   private static final int MAX_SCANS = 100;
 
-  private voidious_gun_GunDataManager _gunDataManager;
-  private voidious_utils_BattleField _battleField;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private titan_gun_GunDataManager _gunDataManager;
+  private titan_utils_BattleField _battleField;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
 
-  public voidious_gun_MeleeGun(voidious_gun_GunDataManager gunDataManager, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+  public titan_gun_MeleeGun(titan_gun_GunDataManager gunDataManager, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     _gunDataManager = gunDataManager;
     _battleField = battleField;
     _renderables = renderables;
@@ -4117,24 +3654,24 @@ public static class voidious_gun_MeleeGun {
 
   public double aimAtEveryone(java.awt.geom.Point2D.Double myNextLocation,
       long currentTime, int enemiesAlive, double bulletPower,
-      voidious_gun_GunEnemy closestBot, boolean painting) {
+      titan_gun_GunEnemy closestBot, boolean painting) {
     java.util.List<MeleeFiringAngle> firingAngles = new java.util.ArrayList<MeleeFiringAngle>();
 
     int kSize = getCommonKsize(enemiesAlive);
-    for (voidious_gun_GunEnemy gunData : _gunDataManager.getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : _gunDataManager.getAllEnemyData()) {
       if (gunData.alive && gunData.views.get(VIEW_NAME).size() >= 10
           && gunData.lastWaveFired != null) {
         java.util.List<MeleeFiringAngle> enemyAngles = new java.util.ArrayList<MeleeFiringAngle>();
-        voidious_utils_Wave aimWave = gunData.lastWaveFired;
+        titan_utils_Wave aimWave = gunData.lastWaveFired;
         aimWave.setBulletPower(bulletPower);
-        voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view = gunData.views.get(VIEW_NAME);
-        java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle>> nearestNeighbors =
+        titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view = gunData.views.get(VIEW_NAME);
+        java.util.List<titan_KdTree.Entry<titan_utils_TimestampedFiringAngle>> nearestNeighbors =
             view.nearestNeighbors(aimWave, true, kSize);
 
         int numScans = nearestNeighbors.size();
         double totalScanWeight = 0;
         for (int x = 0; x < numScans; x++) {
-          ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle> entry = nearestNeighbors.get(x);
+          titan_KdTree.Entry<titan_utils_TimestampedFiringAngle> entry = nearestNeighbors.get(x);
           double scanWeight = 1 / Math.sqrt(Math.max(1e-9, entry.distance));
           totalScanWeight += scanWeight;
           java.awt.geom.Point2D.Double vector = entry.value.displacementVector;
@@ -4153,8 +3690,8 @@ public static class voidious_gun_MeleeGun {
 
     Double bestAngle = null;
     double bestDensity = Double.NEGATIVE_INFINITY;
-    voidious_utils_Wave bestWave = null;
-    voidious_gfx_ColoredValueSet cvs = new voidious_gfx_ColoredValueSet();
+    titan_utils_Wave bestWave = null;
+    titan_gfx_ColoredValueSet cvs = new titan_gfx_ColoredValueSet();
 
     for (MeleeFiringAngle xFiringAngle : firingAngles) {
       double xDensity = 0;
@@ -4182,9 +3719,9 @@ public static class voidious_gun_MeleeGun {
     }
 
     if (painting) {
-      double bandwidth = voidious_utils_DiaUtils.botWidthAimAngle(
+      double bandwidth = titan_utils_Matematica.botWidthAimAngle(
           myNextLocation.distance(closestBot.lastScanState.location));
-      voidious_gun_DiamondFist.drawGunAngles(
+      titan_gun_Mira.drawGunAngles(
           _renderables, bestWave, cvs, bestAngle, bandwidth);
     }
 
@@ -4193,7 +3730,7 @@ public static class voidious_gun_MeleeGun {
 
   private int getCommonKsize(int enemiesAlive) {
     int kSize = MAX_SCANS / enemiesAlive;
-    for (voidious_gun_GunEnemy gunData : _gunDataManager.getAllEnemyData()) {
+    for (titan_gun_GunEnemy gunData : _gunDataManager.getAllEnemyData()) {
       if (gunData.alive && gunData.views.get(VIEW_NAME).size() >= 10
           && gunData.lastWaveFired != null) {
         kSize = Math.min(kSize, gunData.views.get(VIEW_NAME).size() / 10);
@@ -4204,24 +3741,24 @@ public static class voidious_gun_MeleeGun {
 
   private MeleeFiringAngle getFiringAngle(java.awt.geom.Point2D.Double myNextLocation,
       long currentTime, java.awt.geom.Point2D.Double dispVector, double scanWeight,
-      voidious_utils_Wave aimWave) {
+      titan_utils_Wave aimWave) {
     java.awt.geom.Point2D.Double projectedLocation = aimWave.projectLocationBlind(
         myNextLocation, dispVector, currentTime);
     if (_battleField.rectangle.contains(projectedLocation)) {
       double distance = myNextLocation.distance(projectedLocation);
       return new MeleeFiringAngle(
-          voidious_utils_DiaUtils.absoluteBearing(myNextLocation, projectedLocation),
-          distance, voidious_utils_DiaUtils.botWidthAimAngle(distance), scanWeight,
+          titan_utils_Matematica.absoluteBearing(myNextLocation, projectedLocation),
+          distance, titan_utils_Matematica.botWidthAimAngle(distance), scanWeight,
           aimWave);
     }
     return null;
   }
 
-  public java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> newDataViews() {
-    java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> views =
-        new java.util.ArrayList<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>>();
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> meleeView =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(new voidious_gun_formulas_MeleeFormula())
+  public java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> newDataViews() {
+    java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> views =
+        new java.util.ArrayList<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>>();
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> meleeView =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(new titan_gun_formulas_MeleeFormula())
             .visitsOn()
             .virtualWavesOn()
             .meleeOn()
@@ -4235,10 +3772,10 @@ public static class voidious_gun_MeleeGun {
     public final double distance;
     public final double bandwidth;
     public double scanWeight;
-    public final voidious_utils_Wave wave;
+    public final titan_utils_Wave wave;
 
     public MeleeFiringAngle(double angle, double distance, double bandwidth,
-        double scanWeight, voidious_utils_Wave wave) {
+        double scanWeight, titan_utils_Wave wave) {
       this.angle = angle;
       this.distance = distance;
       this.bandwidth = bandwidth;
@@ -4248,28 +3785,7 @@ public static class voidious_gun_MeleeGun {
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T> {
+public static class titan_gun_PerceptualGun<T> extends titan_gun_DuelGun<T> {
   private static final int NUM_POINTS = 1000;
   private static final int WEIGHT_BITS = 7;
   private static final int COORDINATE_BITS = 7;
@@ -4278,21 +3794,21 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
 
   private static final String SKNN_HEX_STRING =
       "0xD10FA3F5D2E2849DC483EEA6AE53F71275C7CD9BAC3D4CCD79626D0D699C383D962BE9D930EEB61575C8F8617E6CE8DB42E303A7671F932E5250FC090A3DEE5199A217A3D7AF576891E95F6A08B07B94D0C1A12DCAB2741C94BDEDA05B9FB60D2E81ED633B429EC752F566CF698E219D61DBFE646FE6E73A7A0FCBBF504E923F8F0686924D7549E0307C921A0023315CAE5F456AC5DC653B69E8E45DAC55A34E96B4A85EF91F6A958F9BB39859894A86E814D485B08F508C15C8FF623D20D746B8648FAC612A7E436B2FE4435DB8B2DE0CDFB505D69321616B9A28BEB569A7EA92A6EE401CC792BC9893691C865CC1A7230576282C27407D3A80F5B3DA01B6BCA380BCD59C4E7BC8CD9E0FBBED2E331CB2F85800F3837B14A858A2CEA09EB2A94456F7455A3024300E36CAAEE50ADFAA8A5C5EF4A9E89BFD25578991B3DF470CA1EACE3C6042935AC42DE9A6C7ECDB9331111BBF0DBAEC69FB27101E1A19CDFC75842A8D56068AA9441D29510342FD202181AF7D66E8A951D606AF5BA076B8B7EFE940ACCD281379FB11B24B0541C9E4E2FEE196BB6DED84429F0780E3F9DE57EF8F0E1A0AAA086FDF926AA10A256B2BB36BF16CA31BB957E33BDFEFD30011A81286B0683EB17519621ABD3F1229A051ADF5CCB59EB12B8CB102DB2E6E8FB9DFFD2053A0EC91BFB7E6B27AC30C157ABB32EC7FE011C1C41F63078928273466593586F8C74DB1DEFC84801259C2465726734C904FF3E70212B83001BA7C27E700B71DBB441F68D545D8945DDEFEA69A542E2ADD000D5561EC8BE72821E1FB6271B2C7DFCBA1ADBCEA445D9F0028344D262020C4ACE0350EC262A9FD2B82EB53F9B7A77E333802669917689E92FFB6BF4A23006886794F5B939278359B7FFC0BD4A205ABFED4349220FFA0A8A2E28852FE8F3CE72975032434A07A9F119ABAB83FC0A78A4586719BD37A66D3C69132A546DE4648233E6C8524506E60AFD13F919C944A728A72324B670EA01AAE4DCBCD780DDF26E0CA388B3C1537A4161E4093456B459AC999F170A8F0B423DF1921A545270CA6966D095FFE7A613729915B038CE0066033E8010CC2FF611DD8ED6EAA9960F26A482E756BA7C7E3819815FDB9250997DED15907922530BED3AF697DFF36BFA950B0774C4038DD5C6BE1B64DFFF4536AB3CA2E81ACA73455914F802EBD0270D4E40B8B56E907CA134101E12214DDFA87ABB493A2ACB184DC8BE163BF6D021A3C6E72A80BBB90E346DEEE517DBC825C93986ED012D9E8F430329A7B803F8890543BECFE6E4F79804079C4EA4AAADFC0B6453952599CD70E86C1A000E38648D6F970EC2B86446727B93A0394B2114A35BE9876939CB4BD4A74C6D96683AA973A682C6C9DD6248EC3B27370112ABEC2D03975350B539FCEA2907B88B1E94043C5476CB88F9F77DFDD176B5982EEA511F1FEFB74F39AE4B111EFB7D1A4D7FED40E70E0829573D9CEE759AA593763D1D95B1BE9B1405AC89B3FA9A0ED671DF30FADC9D914180EF3577910921BD65F7C5AEC7692FDA99FA6469B64B30E9C5249F65550EAA2B5C6D2EE1AD286DA99C1E10E46ADA00D680D5219FC0C2984A2439A665EC953A86F1E569DCFF99EB6FB30073AC034208AB176C235AF0FD97C7399D311CEB14C3A824E86A444C5B59053D9B899E90BF52FCA73E3775D34FF609860369B5B9CC0FBABF408F08FB488E9FFAF660223E1718B89B6384A381817E26F24FEDA8D11703810E12C393CF4E817E92D27BFA530189F880B0627B3532821E1476F99398E088482E347640CBD4F70FD430D5004FF7B58367D911AC850CB1D3A44DE6D10EEF28BB99F1A26A6BB04D672723A1D20EA9E3CB9115C070116E39846BB9193B23182A20C0DB1AF74EC0F991265F28297B20221A29E58523191BAF37994303819A243B5A109724BB6DC0C4FB74E3EDF8DBCDB68B7F3B50435D9056164158A3C50C00A917CC27A40EAB3A6B26F6808E06787608DEC0A15ADCB9DDAECD10129215B629947C38B7D72DB0671728BA3314121FF99AD8551D87B950F932D594B03F0941F691145D72414BAD0A9F663AF3147B5F702FB881F9F0F4194E2B8B1473A0AB04407530E9F791624B5D8C2810AFF5D8FA91A0B4897A3A32F260FD31B5DBC46E40A52701FCCD350F3E32D716B0E8BE5D22237BC02D4DD03C486D9495FF32121BD169A7455A55283C6C4F024AF1EBFBCAFAFE734F0A4262A333E024CE492456C7BA6BEE18D34E668412C1212DA2E1426E481BC5DF158576A99A16E873058534C2BF063B9E1B529E0DC8830AD9025413A5F46A7B206B74C3E0095881D1293AEABB33DE242B169EED32BF0FA4174FE8FFBB5CF8B513D6B3E6BAAA6F290DAA7E8080C7ED9DA4A1AFA1EC2AAA16928B79B391034D4E4A479F61268E86BFD9F0D4001801DB77EA5430E6820D27219A2A8FCFC309BF13D3467DECB4A6E138380EFEDAD70A6DDDE0255398589AC275DF54B6D41BC24AAD26F36B2B249FDD266FF97C8E9B37AF8007BA88B77609F9A1F81166A2CFDA5EFF151EC103B3E14657003224BF941E5A4F879646E882D1FB8BFD8D07C9651477EA095BF6C0F8C82AE265DCF1E7FC7E79BBE03CFBD14C7250FD0E826088C8FD24906DE9BFCE44D3D90E60CA220B4688A95CCC26BE1E14480481EC63AEAB09B5ADD8AE7598AC31EBAEE4E3EB740EB2D90F11E5848FD5715F616203BD4A6734AE15226ED7E4B62969171BFC4E121723F1914FB91810704F39EF7591EBF887859A1865CD96B901E7D05477004A38D1F803B46457B90339F779C2BA55ACABD1996D6657B54881E7906305409707F8F7F303E8100AE419F7906485B4DADAF1EB74289DAFD05309A59C52E3B73E984113F8AC26FB4D3D8DA3F3809C273E2299B0915043E1B46A8623240A0C30266A75F377ADFA2E7CB0EAC8A4D7B63B90076E49BF7A5275947A62A42BBDC014A067A489AE58C589365389F8C54A60440E09668D3A0990F7018446571CF0F5642278FD50379EB43EC4920475A7802A238C3867F59AB1F6E483B22CD6BDF7B27888A692930437536A148459CF47EE9D8719FC10A1A0F155B0219DF52DC2888118B3C9F4EFF090388B909ADC214382E852DB24CB0B3A3E16DF5D8DCEBFF48B85914F7A72707C122329061C0B23E08D28420D2EA9CABEE858F4C16C187D2588F01C800B44187A277D8A5C0004EB10EC64F93D6F44D58EA18A75C9375BF2955612DB62E83E4A7B06C474BA47CDDD8E5ACDF71713CDAB7999ED27DBFD6D2A8CA5F43BBC8ADEE99D825B8EFC2A29733C66FD4457DDD92DBEEC994D7E9262002D507B2223265E81948CB87174B140DE54DD4BC921450FF8146BCA7F5A29A4BA0C56A425CA3175C2258251C72B0099CC059E53F4C64CE7CB2AFB92341977C46D5C81714A97E65B127D5AB81ECE73E62C50A1CEAC5719009EF231E8916D3116D3C5A45F9ED12AC7EA08D045348F630FBA278C70A579995F60D013A0ACC35CBCF634918A6626C9463FE41FEC62DA7B28BF941EFF117FD623516CFEF73E78DF9E5FB23D729C5098C415E9E07A086EDCE3F243401519BF9B8A58D38E5EEA7ADB45F61D990649E457FF2C0267D01ED846D89B805FFA7B6C26ED93844E1FD1B35E9065670F8BC38669BB5E558986840F0F64EFEAC48442C7DA6202F3D7C3C1E837DEE4D2F162CCE3726BB686BC0F2C263F11D579AFDA90CD2EAC8F35B41A0D24C0B0B390F7BF0A987CF8C2E1D41D46C39A3AD42E31658FEE78A178B3C1A5E1E2E2B731749540A03CA8FEFB66FD2AD05E290ECEA8C02C03D5E31C1BEAD376E3279AACB37624E9419565B927D30DA10B6B12D7504B426F2FE0A2E5CC1195E9E8EE2D7D2766EC3085BD49842D1C8C248CCF281F7B8A3DC4E649A66312812EA5A75728D20B99C7AFC9734831347AC30255D74747AEEE783BAE93C72192FEE234FD4E813C5649F4204A6F9B61B2A11B180C92A871985B3B7DC38662F27EB415D511354577E8820F495B14F0E41F35A645DA9AD585FF95ECD6A86BE02F11F75D1FA3874165326E35D4557BEE3D668ED5A718632BDEF2BC55783A2D1E1E4908A6B4090FF759E8F9B87A896D8E6CC9729B59E92EB4AF1A643D8DF14F156887C2B017356AFF2B476985B588386FEF447C91E6675222F62E1B1688AACACD1A4B7ABCB110741B03FF179C8A34932E7DFA710EC388C8AE982465686CA05FB3DF3D4A6A33B733DB7A447AC4103C13AE7A547AD7213E64E9E597DB9263878AB10C3214E730DE17777D7F7E68FA6078AFBD951054D91FFD814EDFB02CFBA6D8D7D7565DC185126CE9A86E36ED5C2FC5893E3D625DC3B40E0FB8BDE5F334D4E1CA39C35BC47D9C2F0B3AACA180E7EE82CF7A87F9BC564F2D0B8CAC8C052A6B0FF7A180B4E189BB26D2F8C38399D41DA52182155BF21B27C221ADC945012393760391092FB98C9D5D00719D491F18FFF247959B343A8D2F2B300F2E52D97282E993893A4A10C8446BFA4315AE0CEED7427C1F0BB743DF9EFAF9C7C50922903F718311AE6D30F5B27B7B907ACF1846F614FB185DC40F90C57BC3DB85D7A86D2605BB01FDBDB49A09B47AC856A6BD10D91FB22FA66D36935D3D44B70F639003C53D74E6D596A832A56CC6DBB529E902687FBE64C19B2A4C171D57730161C13E8796B4F4826B010B9F5C8B49CE3EB0760924B5332328E0128136636AB0A668C418BB80544D0AFAD56E487F61DF23B20A76333DE5CA17DC47095162E362260E8276702D9445E6E063E7096DF7DA52D7701A13C42943CEA613B317A157E6DAE046485585C99B60EC0519EBFAC54A3B9E736772114A27F0718A68522F7E3C9AABC0A1DA9CB6F5DBA04D8387B18D5F39B42317EF31804A7B92D1C980F687042A265868344C9D3E2E059A4392FF5BACBE467D1D889E677B1A52D8274961809492139638B4B5A51C936AA3FAE6AE0466BEFC218F65DF1FC15097D7BF4F32C9DCADAF6DFACC49E0CF2794A879B1AB4AFCC4BEEF37603985C2394E5B381BF5E2280EBC42FFAA2EAFC065A99DB0538413EC876A50BDFA12AA8FBB024CE0AD330015DEF875C04128B1FE046631F029438671B71C880B03BE9B5F9FBF573216AE1B60042D5C9B4FFBAA5A65383A9AF54BCE840D42ABC274D350B5CFB9EE9C189FB9F4A5163E65A7C276F0DDC9056CE36AEBDFD3FC60C5233B9039FB3A74A818335466F0FDCBE109C89847AACE4BF03F12B74F69A0A2C1451BE1EDDC8CD86F54D6A3BC0F2FC7F7673FC6EA1461CF4ADAFD532663BDD845F1F1B92CEEE7A00071F0E68A6A736E5BD14E42390429CDC2527638A3E7938848EDB6E2BA4D7C299C13F51938D06BC31AC2CFD7BC992BE3866C24F537DC67C497F1185922FF71489214039CAB012C5CDF86B255E5FFEEB47665BCE3F4975EF19395F9FB41DB08FC4AE7DFEFBC326FA3ECA1C8BF9DDF6A0E883F05C68E3204A4233741AC14C3EDFE085A0D326E610116F8A6710FE6353ACFE0A3B3F3D1E134F9C97BFA27681EB501F2F601A507FF125619984BCDB1E375A4EA3224E8E5749278BFAB390D5429B3444E88622168B62019BE960D3E1A9F46578D154DCDC3122A47D1214EF18936A82567694D2F21EC21B52D4F3139EC9094957D51DDA5FC5F5CC852DF47773B6D3BAEDF651EF568B46BCBDBBF5D3EFE25741E536861E94A6DF7CF371B120B3F812BE78B9FACC5E244070A70CE6FCEE2790EEC58A18A24A5244C0021C78A2E33C7A04CF161045AF11B2F3567D17768692050CC9DAC03AB13297EBBD7304E437F5E79332C0E37784D4A7B64B52021918CCE6C945B2764B7BEE68509D57E411E7C8897E5C60ABAE5976352FB78AB378938DC12A11CC0155F1A20987F601AD196E1F2EADA941BCCF087E33A5B89C1FC2D5CF03C51F7518653E93549DDA22FC56EA0560BFCAF2B2458C3942D1B420FC2817FCD4C63E2CC7728D7ED8CD5C2E0235E26447E1387BDD0DEAA942C6BF855A307F7CCA885C8DFCD152E11C628CE1A532163CC6A51CA90EDAD6622B71FD1AFD05613160768B34A77B9D9D0D1E613EB5D93B830E1572A875B52B21130C54B23FA78523A1968F0FFFF7257E608B97C737A09893A3D8E90A31FEA6D71DE5F03A7D435F6DB995F7C32CA7D229CED5C958BE56F8A09F3171AA7818F89AE558F574B7F6BC5F9F21C5C885FC43994C256A5CCBA7A7740A03D1D77AA699805A40E94502BEDD0F51B8D9A28391533E4DEA9D3B2F0382E57764973EF0DE2A2C0C913D3C1BF198BFEC099A4FC42A9E36B6BCE130FAFEF5D20601C45E3E7D3921B14AAA2B119118D1386F976CD4FCAF70F6C4EE5898A6182FAEE50BBC2BE123BCD37ED8AD94208C34E3674B7098F92BEDC5C335902D0F6057A33F1A5F6DE11D3C438D4C3D2CA8EEB5BF684245FDEF3BC7BBFBEB2C828C35C6EF18BD4B2444647059BA7121F495D0AFB39549EA81FC44E6547DF3D07114B408DD366BBCBF4F7C089626B68B5F7364097102A35B7596DA62BEF7B2EA82B11D611EC3C0FDE3239F6243AD167511014CE4427727A8CC74ADB3FC7684FD8E03D0BEDEEFA43CBE65A13E6BFB41F65809CEEA2F112D03EEBEA5BC13A6ADB8D2A72795869CA449F312D155A3AFD13B22776D33B02CC6951D2D8A20F52E2F9CC3F67E860A2CF52FC153D23092BA1BE50B7172A582B70947A909EE92B2AD2E8A9ED6864782983B8CCD9EB4F8053AE8DF5259654A82E33CCD0AFE4571FBD3A7B967DE03BC860AA2D5B5B63B8412900834E826933A2EF178EB3C040EDD678D8479F96EAE8B43C681709F60B789E5191703BEBF65690A28EBF498FA70FC29A045A3CDA262B0F48FECBF317488EBEB66533C1956AE8CB6F138FC831F7F3A4B2CA5E3F3BADA29C5CFA09758038DFE45BF642C0E709F9C589241743964EA5B4ADE59ECAD2885A2854B0B3240DF612C068D9FAB871089A235AD5C54B8B2CF05309FF736262D73940263F1E7B1389EB9C0306552E3172EEBE7BCF7EDC96B399FA297201F1F0EFD807E61871923B76225E02EE71CED20015279975D504C0F0AF5A408307CF60635D474B2B06DBF22F41EDF106D5C3437707FF2CEC48FE071D13967E52C04E6D897C37B0256AA1D535B49871B2F784483FB2BA23DE2AB0A0A3DFE6B0AA4357A7CE7D26423606311F3BAA3254C2C939DE85035EA49CF4A890023B06B9047E4E2F9AB465A87B4D2D17CD2004FF1D0B8A16C14879E9F1661E6434D203E418119DD4E6D8F0B49EE317EB17D18F5921935BFACD5B136B7BC1156E0385F02F004AE036250135AAA7079BE966BE6669E358E70362A148845618CFE8DC5D8170E2B4A8B11D03A20E4D9DC324A106A474CC297BFAC2D3BE9B86479F3C6C708F87685A82DBCB9EE3E5B7013EA567FB3D318818F4D5120B3E14784B1ABD81258200AA65A91FB3015F03F2F00F92F1848FD055617D3407B0CFC6ACB97397782DE96CC79BA615E12BEB1F7AC037139015580170C4BE6133CF70164778A9B065174D5D998B97E0308F6FBB9F8EEEE7A66DE59D0669B02BD490B014186EB0F23AFC4FAC789AEC63D8AC85511670360D4CFDA75B713F450B8CDA9D27C3CC4BEDEAD4F2116F40C589E301F3025A44F726DA9D1EA95F7AA5466D7655333C41D4BA70F731B162185206ACD8BA8F120632C9EA5E6FFE1F6BBE7423929BC6D10A84F22FC478B14180C294A77EFA2B504046AB62830F49F0A5C4A2C706E132B4CE6A362F1A56B6B71AEE35C90710A012C154895B5CA46966FD2D161A6EC1186392897E6786053A0FAF3B2DD8EA2FEE8F2E949D8392C243D40EC1B4C42704147DF42917FB85AA36D5F74633F0E873B55BA3645E065AAD77C82077B0A2AC8E09C5304BD153DF50EEA918798A1213635AF7B33F0095064C0C6BBC53DCA8BA10321FBADC2EA58ECDD3970EDB1FB3D784E4D4A6EF11F9438BAF7B8D0CE4FB7F9B9A48CCA3F19F1A33EDFA24CC7C89CD7DC3295501F00ECCD47ED50E8E92C8341BE92DBBA493CC1A8727F5B2DF67C94DE357D7CCA5E0EE7A676C6A480D8B82B0FFFA9EB042C248B5C0CA5BDC258AC78D22101698A75924D079526A8B737AFC63D352E7106D3DE8A4CD9058BED7A3A9A72E890194A834F0BC7BBE713498DFF1F2DABAE6CF969AC7FF6CB7CD254BBD5710C6C1009B6A919871132E1F66632915F1594838A6C39F58D3412323FBA476602C1D766364521992EF003A5B1D598DD72EF6395373ED285F195EC92D9BC3AC51585188EE314498B7DF9ABF6855F248C180EEFAC986753D47EAF816B04B1223CD162483349EB044FBEC61635EEEAC6806097EAD62A1E593B82D6C07076E1561BB4F161A47FBDB2400379F795B1D7D3F5CE38E0CB640F4248BDDE99FF9398D4BBAD493031BB398B384EB1714716D67086AA1DDEBF4C5686B4403238B55437D574E33B91539C98D1D5FC68C2308F5A93C1E8D27EA9C73915A4E1664B63433768B60F8A0ED7A4E02323E740D64354D039FDEAE234BE22A20FEA025C2E72C559971E044C60FD1C3B9D9DB89CAE47BD3BF3083558AE0078A3BA5C285EA5CFF33BFF23C2770B9B30C3AB21DBF3617BD1B26552D7FCE4C44FF98E2737B987D9CB4289F6E1CC04B756D72DFA2CAF35C2CEF3D9BD64395DEDC1AC013B638CD9138BCE5AAA282D1F97E87664DD6835F8FC9568FDC0F3A2A475C8A71AFCF08E25827A764A9D7E52C58D980E213CE0AF0892A2B9D41E52E5DDB5BAAFB0C4C6D92306EA895212108C57FD27C0386080DA4A791035F89661B39087A2627C96EA6D85600A0D2C191B0A235508D66097F0463827F7879F5125E67F3980FF4946A9D52100C2E6458E0AE60EDF428D5ABAD8051B9647858E3A74924ABF67182CF6C2AD31511AF93639CF1E6BF569D6155E28FD6FB2FC59458E157C9A469571D189EC736106A302BFC0F4012CACBC77EC63EE26F676A382B15134BA2779EADB93A92B6CB820BDFFAAC581654AE53579082E2E7CF181D436E8679E91D076B1C7E2B429E439B35FC4A71487AC52D7E29DFCA7B576FAD4372E1BC59FACE08B9AB68A7905F71F72B80949B43C6A38A9F7DF571F9C55A2796AEFF07CA8B0910A8B0A6BF0535D1A314DD0114CFA2D833288284CD814289253C3C3C3F6426957877E9E11AB38F7DF2A1BC3AC2736D49364FB84A5BC0D98BD77D82A853C2559D58D965875D736DD1DAF692C791F4BCB2F4819C163B7347EF48C4A42C7EBF84EAB49595A9A881D7ACC354889782756EE02F1F22ACF7EE7D26C87B4777C936416F1BC9D72D462295613BA4A19529E677FC7812FF8565DE65ECABA551D55B209F1E786F11EC1F8374C8042214EA3F8F640B08226495944239ADE8C166B715BE807E81EC72B58F6829A02F511955D449F79C3B632CFE8FE87582CFF67CFD3FEC82C47F64F9C8633C84D0C265039A52915C9820A602186BA654AC347998E2456E5C2A54CE147E950B356FD921CC398E2F8381F4A9F94B07C877EE4D38175A308EDDD98B864DD18B6C60F2FC92BAFFAA9C4B411C105893704035C0DB8FC1B3AEC1595A8B13598D7F25D382C234A22B670733AFD80510CED8D5C54701DBA33FC847F514C46FF145D3B768620EE1B845FEC5DEE94455C396AEEE43717939E818D5C620C2851D3BA1C7AF9FF277AC2048D14A571DA43166D680BE7CBDFA4534F8BF3867EE21E82BA10BEE6A784A21F3FD7ABE017F3B5F48DB0AD8EBF8783AD2B84AAC89D62E27BA74678465F18327357443DABC972FBEE96D7C68ECEF2D5F422EC4794CB597E7BA6FD712E06EC82688F3A1B680AD7A704B781456360E36A09F2FA8E6E3856E96FD8AE337A09AD516CB6F8A8986E3FEFFF1FAB4A3F3BD605C10080B867C43D3CCB0382E932591F344F6EA96093B880BBA1B211EF9F00F8459731A187D5FEC9745B4B747FBDF8E847F515E9F25838A4AF9C3020DEDF454E42E7F0928A0";
-  private static final voidious_utils_genetic_DnaString SKNN_DNA_STRING = new voidious_utils_genetic_DnaString(
+  private static final titan_utils_genetic_DnaString SKNN_DNA_STRING = new titan_utils_genetic_DnaString(
       knnSpaceSequence(
           NUM_POINTS, NUM_ATTR, WEIGHT_BITS, COORDINATE_BITS, GUESSFACTOR_BITS),
       SKNN_HEX_STRING);
   private static final double[] WEIGHTS =
       weightsFromDnaString(SKNN_DNA_STRING, NUM_ATTR);
-  private static final ags_utils_dataStructures_trees_thirdGenKD_KdTree<Integer> TREE =
+  private static final titan_estruturas_dataStructures_trees_thirdGenKD_KdTree<Integer> TREE =
       kdTreeFromDnaString(SKNN_DNA_STRING, WEIGHTS);
   private static final int GUESSFACTORS = power(2, GUESSFACTOR_BITS);
 
-  private ags_utils_dataStructures_trees_thirdGenKD_DistanceFunction _distFunc;
+  private titan_estruturas_dataStructures_trees_thirdGenKD_DistanceFunction _distFunc;
 
-  public voidious_gun_PerceptualGun() {
+  public titan_gun_PerceptualGun() {
     super();
-    _distFunc = new ags_utils_dataStructures_trees_thirdGenKD_SquareEuclideanDistanceFunction();
+    _distFunc = new titan_estruturas_dataStructures_trees_thirdGenKD_SquareEuclideanDistanceFunction();
   }
 
   @Override
@@ -4301,7 +3817,7 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
   }
 
   @Override
-  protected double aimInternal(voidious_utils_Wave w, boolean painting) {
+  protected double aimInternal(titan_utils_Wave w, boolean painting) {
     double[] p = new double[] {
       Math.abs(w.targetVelocity) / 8.0,
       Math.min(w.targetDistance / w.bulletSpeed(), 90) / 90.0,
@@ -4333,28 +3849,28 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
         * guessFactor * w.preciseEscapeAngle(guessFactor >= 0));
   }
 
-  public static voidious_utils_genetic_DnaSequence knnSpaceSequence(int numPoints, int numAttr,
+  public static titan_utils_genetic_DnaSequence knnSpaceSequence(int numPoints, int numAttr,
       int weightBits, int coordBits, int guessFactorBits) {
-    voidious_utils_genetic_DnaSequence treeSequence = new voidious_utils_genetic_DnaSequence();
+    titan_utils_genetic_DnaSequence treeSequence = new titan_utils_genetic_DnaSequence();
     for (int x = 0; x < numAttr; x++) {
-      treeSequence.addGene(new voidious_utils_genetic_DnaSequence.Gene("w" + (x + 1), weightBits));
+      treeSequence.addGene(new titan_utils_genetic_DnaSequence.Gene("w" + (x + 1), weightBits));
     }
     for (int x = 0; x < numPoints; x++) {
       for (int y = 0; y < numAttr; y++) {
         treeSequence.addGene(
-            new voidious_utils_genetic_DnaSequence.Gene("p" + (x + 1) + "x" + (y + 1), coordBits));
+            new titan_utils_genetic_DnaSequence.Gene("p" + (x + 1) + "x" + (y + 1), coordBits));
       }
-      treeSequence.addGene(new voidious_utils_genetic_DnaSequence.Gene("r" + (x + 1), guessFactorBits));
+      treeSequence.addGene(new titan_utils_genetic_DnaSequence.Gene("r" + (x + 1), guessFactorBits));
     }
 
     return treeSequence;
   }
 
-  public static ags_utils_dataStructures_trees_thirdGenKD_KdTree<Integer> kdTreeFromDnaString(
-      voidious_utils_genetic_DnaString dnaString, double[] weights) {
+  public static titan_estruturas_dataStructures_trees_thirdGenKD_KdTree<Integer> kdTreeFromDnaString(
+      titan_utils_genetic_DnaString dnaString, double[] weights) {
 
     int numAttr = weights.length;
-    ags_utils_dataStructures_trees_thirdGenKD_KdTree<Integer> tree = new ags_utils_dataStructures_trees_thirdGenKD_KdTree<Integer>(numAttr);
+    titan_estruturas_dataStructures_trees_thirdGenKD_KdTree<Integer> tree = new titan_estruturas_dataStructures_trees_thirdGenKD_KdTree<Integer>(numAttr);
 
     String bitString = dnaString.bitString();
     int numPoints = (bitString.length() - (numAttr * WEIGHT_BITS))
@@ -4374,7 +3890,7 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
   }
 
   public static double[] weightsFromDnaString(
-      voidious_utils_genetic_DnaString dnaString, int numAttr) {
+      titan_utils_genetic_DnaString dnaString, int numAttr) {
     double[] weights = new double[numAttr];
     for (int x = 0; x < numAttr; x++) {
       weights[x] = ((double) dnaString.getNumber("w" + (x + 1)))
@@ -4384,7 +3900,7 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
   }
 
   private static int maxValueFromBits(int numBits) {
-    return (int) Math.round(voidious_utils_DiaUtils.power(2, numBits) - 1);
+    return (int) Math.round(titan_utils_Matematica.power(2, numBits) - 1);
   }
 
   public static int power(int base, int exp) {
@@ -4406,44 +3922,23 @@ public static class voidious_gun_PerceptualGun<T> extends voidious_gun_DuelGun<T
   }
 
   @Override
-  public java.util.List<voidious_utils_KnnView<T>> newDataViews() {
-    return new java.util.ArrayList<voidious_utils_KnnView<T>>();
+  public java.util.List<titan_utils_KnnView<T>> newDataViews() {
+    return new java.util.ArrayList<titan_utils_KnnView<T>>();
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> {
-  private static final String VIEW_NAME = "TripHammerKNN";
+public static class titan_gun_AgrupamentoKnnGun extends titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> {
+  private static final String VIEW_NAME = "AgrupamentoKNN";
   private static final int FIRING_ANGLES = 59;
   private static final int MAX_K_SIZE = 225;
   private static final int K_DIVISOR = 9;
 
-  private voidious_gun_GunDataManager _gunDataManager;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private titan_gun_GunDataManager _gunDataManager;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private int _numFiringAngles;
   private int _maxK;
   private int _kDivisor;
-  private voidious_utils_DistanceFormula _formula;
+  private titan_utils_DistanceFormula _formula;
 
   private static final double[] INITIAL_WEIGHTS = new double[]
       {0.94, 10.0, 1.73, 3.7, 3.31, 2.13, 5.51, 1.26, 1.57, 5.51};
@@ -4452,13 +3947,13 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
   private static final int[] FINAL_TIMES = new int[]
       {28920, 23040, 23100, 1740, 16680, 5580, 0, 11280, 21420, 1920};
 
-  public voidious_gun_TripHammerKnnGun(voidious_gun_GunDataManager gunDataManager,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+  public titan_gun_AgrupamentoKnnGun(titan_gun_GunDataManager gunDataManager,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     this(gunDataManager, renderables, FIRING_ANGLES, MAX_K_SIZE, K_DIVISOR);
   }
 
-  protected voidious_gun_TripHammerKnnGun(voidious_gun_GunDataManager gunDataManager,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  protected titan_gun_AgrupamentoKnnGun(titan_gun_GunDataManager gunDataManager,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables,
       int numFiringAngles, int maxK, int kDivisor) {
     super();
     _gunDataManager = gunDataManager;
@@ -4466,7 +3961,7 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
     _numFiringAngles = numFiringAngles;
     _maxK = maxK;
     _kDivisor = kDivisor;
-    _formula = new voidious_gun_formulas_TripHammerFormula();
+    _formula = new titan_gun_formulas_AgrupamentoFormula();
   }
 
   @Override
@@ -4475,16 +3970,16 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
   }
 
   @Override
-  protected double aimInternal(voidious_utils_Wave w, boolean painting) {
-    voidious_gun_GunEnemy enemyData = _gunDataManager.getEnemyData(w.botName);
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view = enemyData.views.get(VIEW_NAME);
+  protected double aimInternal(titan_utils_Wave w, boolean painting) {
+    titan_gun_GunEnemy enemyData = _gunDataManager.getEnemyData(w.botName);
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view = enemyData.views.get(VIEW_NAME);
     int viewSize = view.size();
     if (enemyData == null || viewSize == 0) {
       return w.absBearing;
     }
 
     view.setWeights(getWeights(view.size()));
-    java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedFiringAngle>> nearestNeighbors =
+    java.util.List<titan_KdTree.Entry<titan_utils_TimestampedFiringAngle>> nearestNeighbors =
         view.nearestNeighbors(w, true);
     int numScans = nearestNeighbors.size();
     Double[] firingAngles = new Double[numScans];
@@ -4497,13 +3992,13 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
       weights[x] = 1 / Math.sqrt(Math.max(1e-9, nearestNeighbors.get(x).distance));
     }
 
-    double bandwidth = 2 * voidious_utils_DiaUtils.botWidthAimAngle(
+    double bandwidth = 2 * titan_utils_Matematica.botWidthAimAngle(
         w.sourceLocation.distance(w.targetLocation));
     Double bestAngle = null;
     double bestDensity = Double.NEGATIVE_INFINITY;
-    voidious_gfx_ColoredValueSet cvs = new voidious_gfx_ColoredValueSet();
+    titan_gfx_ColoredValueSet cvs = new titan_gfx_ColoredValueSet();
     double[] realAngles =
-        voidious_utils_DiaUtils.generateFiringAngles(_numFiringAngles, w.maxEscapeAngle());
+        titan_utils_Matematica.generateFiringAngles(_numFiringAngles, w.maxEscapeAngle());
 
     for (int x = 0; x < _numFiringAngles; x++) {
       double density = 0;
@@ -4513,7 +4008,7 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
         }
         double ux = (realAngles[x] - firingAngles[y]) / bandwidth;
         if (Math.abs(ux) < 1) {
-          density += (1 - voidious_utils_DiaUtils.cube(Math.abs(ux))) * weights[y];
+          density += (1 - titan_utils_Matematica.cube(Math.abs(ux))) * weights[y];
         }
       }
 
@@ -4532,7 +4027,7 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
     }
 
     if (painting) {
-      voidious_gun_DiamondFist.drawGunAngles(
+      titan_gun_Mira.drawGunAngles(
           _renderables, w, cvs, w.absBearing + bestAngle, bandwidth);
     }
 
@@ -4551,11 +4046,11 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
   }
 
   @Override
-  public java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> newDataViews() {
-    java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> views =
-        new java.util.ArrayList<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>>();
-    voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle> view =
-        new voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>(_formula)
+  public java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> newDataViews() {
+    java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> views =
+        new java.util.ArrayList<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>>();
+    titan_utils_KnnView<titan_utils_TimestampedFiringAngle> view =
+        new titan_utils_KnnView<titan_utils_TimestampedFiringAngle>(_formula)
             .setK(_maxK)
             .setKDivisor(_kDivisor)
             .visitsOn()
@@ -4566,74 +4061,53 @@ public static class voidious_gun_TripHammerKnnGun extends voidious_gun_DuelGun<v
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_GunDataManager.GunDataListener {
+public static class titan_gun_VirtualGunsManager<T> implements titan_gun_GunDataManager.GunDataListener {
   private static final double TYPICAL_ANGULAR_BOT_WIDTH = 0.1;
   private static final double TYPICAL_ESCAPE_RANGE = 0.9;
 
-  private java.util.List<voidious_gun_DuelGun<T>> _guns;
-  private java.util.Map<voidious_gun_DuelGun<T>, java.util.Map<String, GunStats>> _gunRatings;
+  private java.util.List<titan_gun_DuelGun<T>> _guns;
+  private java.util.Map<titan_gun_DuelGun<T>, java.util.Map<String, GunStats>> _gunRatings;
   private java.io.PrintStream _out;
 
-  public voidious_gun_VirtualGunsManager(java.io.OutputStream out) {
-    _guns = new java.util.ArrayList<voidious_gun_DuelGun<T>>();
-    _gunRatings = new java.util.HashMap<voidious_gun_DuelGun<T>, java.util.Map<String, GunStats>>();
+  public titan_gun_VirtualGunsManager(java.io.OutputStream out) {
+    _guns = new java.util.ArrayList<titan_gun_DuelGun<T>>();
+    _gunRatings = new java.util.HashMap<titan_gun_DuelGun<T>, java.util.Map<String, GunStats>>();
     _out = new java.io.PrintStream(out);
   }
 
-  public void addGun(voidious_gun_DuelGun<T> gun) {
+  public void addGun(titan_gun_DuelGun<T> gun) {
     _guns.add(gun);
     _gunRatings.put(gun, new java.util.HashMap<String, GunStats>());
   }
 
-  public java.util.List<voidious_gun_DuelGun<T>> getGuns() {
+  public java.util.List<titan_gun_DuelGun<T>> getGuns() {
     return _guns;
   }
 
-  public boolean contains(voidious_gun_DuelGun<T> gun) {
+  public boolean contains(titan_gun_DuelGun<T> gun) {
     return _guns.contains(gun);
   }
 
-  public double getRating(voidious_gun_DuelGun<T> gun, String botName) {
+  public double getRating(titan_gun_DuelGun<T> gun, String botName) {
     if (_guns.contains(gun) && _gunRatings.get(gun).containsKey(botName)) {
       return _gunRatings.get(gun).get(botName).gunRating();
     }
     return 0;
   }
 
-  public double getFormattedRating(voidious_gun_DuelGun<T> gun, String botName) {
-    return voidious_utils_DiaUtils.round(getRating(gun, botName) * 100, 2);
+  public double getFormattedRating(titan_gun_DuelGun<T> gun, String botName) {
+    return titan_utils_Matematica.round(getRating(gun, botName) * 100, 2);
   }
 
-  public int getShotsFired(voidious_gun_DuelGun<T> gun, String botName) {
+  public int getShotsFired(titan_gun_DuelGun<T> gun, String botName) {
     if (_guns.contains(gun) && _gunRatings.get(gun).containsKey(botName)) {
       return _gunRatings.get(gun).get(botName).shotsFired;
     }
     return 0;
   }
 
-  public void fireVirtualBullets(voidious_utils_Wave w) {
-    for (voidious_gun_DuelGun<T> gun : _guns) {
+  public void fireVirtualBullets(titan_utils_Wave w) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
       GunStats stats;
       if (_gunRatings.get(gun).containsKey(w.botName)) {
         stats = _gunRatings.get(gun).get(w.botName);
@@ -4647,8 +4121,8 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
     }
   }
 
-  public void registerWaveBreak(voidious_utils_Wave w, double hitAngle, double tolerance) {
-    for (voidious_gun_DuelGun<T> gun : _guns) {
+  public void registerWaveBreak(titan_utils_Wave w, double hitAngle, double tolerance) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
       GunStats stats = _gunRatings.get(gun).get(w.botName);
       VirtualBullet vb = stats.virtualBullets.get(w);
 
@@ -4665,7 +4139,7 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
   }
 
   public void initRound() {
-    for (voidious_gun_DuelGun<T> gun : _guns) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
       for (GunStats stats : _gunRatings.get(gun).values()) {
         stats.virtualBullets.clear();
       }
@@ -4673,11 +4147,11 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
     }
   }
 
-  public voidious_gun_DuelGun<T> bestGun(String botName) {
-    voidious_gun_DuelGun<T> bestGun = null;
+  public titan_gun_DuelGun<T> bestGun(String botName) {
+    titan_gun_DuelGun<T> bestGun = null;
     double bestRating = 0;
 
-    for (voidious_gun_DuelGun<T> gun : _guns) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
       double rating = 0;
       if (_gunRatings.get(gun).containsKey(botName)) {
         rating = _gunRatings.get(gun).get(botName).gunRating();
@@ -4694,11 +4168,11 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
 
   public void printGunRatings(String botName) {
     _out.println("Virtual Gun ratings for " + botName + ":");
-    for (voidious_gun_DuelGun<T> gun : _guns) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
       if (_gunRatings.get(gun).containsKey(botName)) {
         double rating = _gunRatings.get(gun).get(botName).gunRating();
         _out.println("  " + gun.getLabel() + ": "
-            + voidious_utils_DiaUtils.round(rating * 100, 2));
+            + titan_utils_Matematica.round(rating * 100, 2));
       } else {
         _out.println("WARNING (gun): Never logged any Virtual Guns info for "
             + gun.getLabel());
@@ -4707,24 +4181,45 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
   }
 
   @Override
-  public void on1v1FiringWaveBreak(voidious_utils_Wave w, double hitAngle, double tolerance) {
+  public void on1v1FiringWaveBreak(titan_utils_Wave w, double hitAngle, double tolerance) {
     registerWaveBreak(w, hitAngle, tolerance);
   }
 
   @Override
-  public void onMarkFiringWave(voidious_utils_Wave w) {
+  public void onMarkFiringWave(titan_utils_Wave w) {
     fireVirtualBullets(w);
+  }
+
+  java.util.Map<String, double[]> snapshotRatings(String name) {
+    java.util.Map<String, double[]> result = new java.util.HashMap<String, double[]>();
+    for (titan_gun_DuelGun<T> gun : _guns) {
+      GunStats stats = _gunRatings.get(gun).get(name);
+      if (stats != null && stats.shotsFired > 0 && Double.isFinite(stats.shotsHit) && stats.shotsHit >= 0) {
+        int count = Math.min(128, stats.shotsFired);
+        result.put(gun.getLabel(), new double[] {stats.shotsHit * count / stats.shotsFired, count});
+      }
+    }
+    return result;
+  }
+
+  void restoreRatings(String name, java.util.Map<String, double[]> ratings) {
+    for (titan_gun_DuelGun<T> gun : _guns) {
+      double[] values = ratings.get(gun.getLabel());
+      if (values == null) continue;
+      GunStats stats = new GunStats(); stats.shotsHit = values[0]; stats.shotsFired = (int) values[1];
+      _gunRatings.get(gun).put(name, stats);
+    }
   }
 
   private static class GunStats {
     public int shotsFired;
     public double shotsHit;
-    public java.util.Map<voidious_utils_Wave, VirtualBullet> virtualBullets;
+    public java.util.Map<titan_utils_Wave, VirtualBullet> virtualBullets;
 
     public GunStats() {
       shotsFired = 0;
       shotsHit = 0;
-      virtualBullets = new java.util.HashMap<voidious_utils_Wave, VirtualBullet>();
+      virtualBullets = new java.util.HashMap<titan_utils_Wave, VirtualBullet>();
     }
 
     public double gunRating() {
@@ -4741,33 +4236,12 @@ public static class voidious_gun_VirtualGunsManager<T> implements voidious_gun_G
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_formulas_AntiSurferFormula extends voidious_utils_DistanceFormula {
-  public voidious_gun_formulas_AntiSurferFormula() {
+public static class titan_gun_formulas_AntiSurferFormula extends titan_utils_DistanceFormula {
+  public titan_gun_formulas_AntiSurferFormula() {
     weights = new double[]{3, 4, 3, 2, 2, 4, 2, 3, 1};
   }
 
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       (((w.targetVelocitySign * w.targetVelocity) + 0.1) / 8.1),
@@ -4784,36 +4258,15 @@ public static class voidious_gun_formulas_AntiSurferFormula extends voidious_uti
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_formulas_MainGunFormula extends voidious_utils_DistanceFormula {
+public static class titan_gun_formulas_MainGunFormula extends titan_utils_DistanceFormula {
   protected int _enemiesTotal;
 
-  public voidious_gun_formulas_MainGunFormula(int enemiesTotal) {
+  public titan_gun_formulas_MainGunFormula(int enemiesTotal) {
     _enemiesTotal = enemiesTotal;
     weights = new double[]{3, 4, 3, 2, 2, 4, 2, 3, 2, 2};
   }
 
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       (((w.targetVelocitySign * w.targetVelocity) + 0.1) / 8.1),
@@ -4832,33 +4285,12 @@ public static class voidious_gun_formulas_MainGunFormula extends voidious_utils_
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_formulas_MeleeFormula extends voidious_utils_DistanceFormula {
-  public voidious_gun_formulas_MeleeFormula() {
+public static class titan_gun_formulas_MeleeFormula extends titan_utils_DistanceFormula {
+  public titan_gun_formulas_MeleeFormula() {
     weights = new double[]{4, 6, 2, 4, 3, 1, 1};
   }
 
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       (((w.targetVelocitySign * w.targetVelocity) + 0.1) / 8.1),
@@ -4871,34 +4303,13 @@ public static class voidious_gun_formulas_MeleeFormula extends voidious_utils_Di
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_gun_formulas_TripHammerFormula extends voidious_utils_DistanceFormula {
-  public voidious_gun_formulas_TripHammerFormula() {
+public static class titan_gun_formulas_AgrupamentoFormula extends titan_utils_DistanceFormula {
+  public titan_gun_formulas_AgrupamentoFormula() {
     weights = new double[]
         {0.34, 10.0, 3.13, 2.58, 8.38, 7.91, 8.67, 5.12, 2.34, 0.38};
   }
 
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[] {
       (Math.min(3, w.bulletPower()) / 3),
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
@@ -4916,66 +4327,45 @@ public static class voidious_gun_formulas_TripHammerFormula extends voidious_uti
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_DiamondWhoosh implements voidious_gfx_RoboPainter, voidious_gun_FireListener {
+public static class titan_move_Movimento implements titan_gfx_RoboPainter, titan_gun_FireListener {
   private static final boolean ENABLE_DEBUGGING_GRAPHICS = true;
   private static final int WAVES_TO_SURF = 2;
 
   private titanprime _robot;
-  private voidious_move_MoveDataManager _moveDataManager;
-  private voidious_move_MeleeMover _meleeMover;
-  private voidious_move_SurfMover _surfMover;
+  private titan_move_MoveDataManager _moveDataManager;
+  private titan_move_MeleeMover _meleeMover;
+  private titan_move_SurfMover _surfMover;
 
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private boolean _painting;
   private boolean _robocodePainting;
 
-  public voidious_move_DiamondWhoosh(titanprime robot, java.io.OutputStream out) {
-    this(robot, new voidious_utils_BattleField(robot.getBattleFieldWidth(),
+  public titan_move_Movimento(titanprime robot, java.io.OutputStream out) {
+    this(robot, new titan_utils_BattleField(robot.getBattleFieldWidth(),
                                 robot.getBattleFieldHeight()),
-         new java.util.ArrayList<voidious_gfx_RoboGraphic>(), out);
+         new java.util.ArrayList<titan_gfx_RoboGraphic>(), out);
   }
 
-  voidious_move_DiamondWhoosh(titanprime robot, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
-    this(robot, battleField, new voidious_utils_MovementPredictor(battleField), renderables,
+  titan_move_Movimento(titanprime robot, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
+    this(robot, battleField, new titan_utils_MovementPredictor(battleField), renderables,
         out);
   }
 
-  voidious_move_DiamondWhoosh(titanprime robot, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  titan_move_Movimento(titanprime robot, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     this(robot,
-        new voidious_move_MoveDataManager(robot.getOthers(), battleField, predictor,
+        new titan_move_MoveDataManager(robot.getOthers(), battleField, predictor,
             renderables, out),
-        new voidious_move_MeleeMover(robot, battleField, renderables),
-        new voidious_move_SurfMover(robot, battleField, renderables, out),
+        new titan_move_MeleeMover(robot, battleField, renderables),
+        new titan_move_SurfMover(robot, battleField, renderables, out),
         battleField, renderables, out);
   }
 
-  public voidious_move_DiamondWhoosh(titanprime robot, voidious_move_MoveDataManager moveDataManager,
-      voidious_move_MeleeMover meleeMover, voidious_move_SurfMover surfMover, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
+  public titan_move_Movimento(titanprime robot, titan_move_MoveDataManager moveDataManager,
+      titan_move_MeleeMover meleeMover, titan_move_SurfMover surfMover, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
     _robot = robot;
     _moveDataManager = moveDataManager;
     _meleeMover = meleeMover;
@@ -5016,7 +4406,7 @@ public static class voidious_move_DiamondWhoosh implements voidious_gfx_RoboPain
     double absBearing = robocode.util.Utils.normalAbsoluteAngle(
         e.getBearingRadians() + _robot.getHeadingRadians());
     java.awt.geom.Point2D.Double enemyLocation =
-        voidious_utils_DiaUtils.project(myLocation, absBearing, e.getDistance());
+        titan_utils_Matematica.project(myLocation, absBearing, e.getDistance());
 
     double previousEnemyEnergy;
     if (_moveDataManager.hasEnemy(botName)) {
@@ -5063,7 +4453,7 @@ public static class voidious_move_DiamondWhoosh implements voidious_gfx_RoboPain
   }
 
   void roundOver() {
-    voidious_move_MoveEnemy duelEnemy = _moveDataManager.duelEnemy();
+    titan_move_MoveEnemy duelEnemy = _moveDataManager.duelEnemy();
     if (is1v1() && duelEnemy != null) {
       _surfMover.roundOver(duelEnemy);
     }
@@ -5071,7 +4461,7 @@ public static class voidious_move_DiamondWhoosh implements voidious_gfx_RoboPain
 
   public void onPaint(java.awt.Graphics2D g) {
     if (paintStatus()) {
-      for (voidious_gfx_RoboGraphic renderable : _renderables) {
+      for (titan_gfx_RoboGraphic renderable : _renderables) {
         renderable.render(g);
       }
       _renderables.clear();
@@ -5121,50 +4511,29 @@ public static class voidious_move_DiamondWhoosh implements voidious_gfx_RoboPain
     return _robot;
   }
 
-  java.util.Collection<voidious_gfx_RoboGraphic> getRenderables() {
+  java.util.Collection<titan_gfx_RoboGraphic> getRenderables() {
     return _renderables;
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_MeleeMover {
+public static class titan_move_MeleeMover {
   private static final double CURRENT_DESTINATION_BIAS = 0.8;
   private static final int RECENT_LOCATIONS_TO_STORE = 50;
   private static final long NUM_SLICES_BOT = 64;
 
   private robocode.AdvancedRobot _robot;
-  private voidious_utils_BattleField _battleField;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
-  private voidious_utils_MovementPredictor _predictor;
+  private titan_utils_BattleField _battleField;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
+  private titan_utils_MovementPredictor _predictor;
   private java.util.LinkedList<OldLocation> _recentLocations;
   private Destination _currentDestination;
 
-  public voidious_move_MeleeMover(robocode.AdvancedRobot robot, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables) {
+  public titan_move_MeleeMover(robocode.AdvancedRobot robot, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables) {
     _robot = robot;
     _battleField = battleField;
     _renderables = renderables;
-    _predictor = new voidious_utils_MovementPredictor(battleField);
+    _predictor = new titan_utils_MovementPredictor(battleField);
     _recentLocations = new java.util.LinkedList<OldLocation>();
   }
 
@@ -5175,8 +4544,8 @@ public static class voidious_move_MeleeMover {
     _recentLocations.clear();
   }
 
-  public void move(java.awt.geom.Point2D.Double myLocation, java.util.Collection<voidious_move_MoveEnemy> enemies,
-      voidious_move_MoveEnemy closestEnemy, boolean painting) {
+  public void move(java.awt.geom.Point2D.Double myLocation, java.util.Collection<titan_move_MoveEnemy> enemies,
+      titan_move_MoveEnemy closestEnemy, boolean painting) {
     if (enemies.isEmpty()) {
       return;
     }
@@ -5189,8 +4558,8 @@ public static class voidious_move_MeleeMover {
         getNextDestination(myLocation, destinations);
 
     double goAngle =
-        voidious_utils_DiaUtils.absoluteBearing(myLocation, nextDestination.location);
-    voidious_utils_DiaUtils.setBackAsFront(_robot, goAngle);
+        titan_utils_Matematica.absoluteBearing(myLocation, nextDestination.location);
+    titan_utils_Matematica.setBackAsFront(_robot, goAngle);
     _currentDestination = nextDestination;
 
     if (painting) {
@@ -5204,7 +4573,7 @@ public static class voidious_move_MeleeMover {
     if (currentTime % 7 == 0) {
       for (int x = 0; x < 5; x++) {
         _recentLocations.addFirst(new OldLocation(
-            voidious_utils_DiaUtils.project(myLocation, Math.random() * Math.PI * 2,
+            titan_utils_Matematica.project(myLocation, Math.random() * Math.PI * 2,
                              5 + Math.random() * Math.random() * 200),
             currentTime));
       }
@@ -5215,7 +4584,7 @@ public static class voidious_move_MeleeMover {
   }
 
   private java.util.List<Destination> generateDestinations(java.awt.geom.Point2D.Double myLocation,
-      java.util.Collection<voidious_move_MoveEnemy> enemies, voidious_move_MoveEnemy closestEnemy) {
+      java.util.Collection<titan_move_MoveEnemy> enemies, titan_move_MoveEnemy closestEnemy) {
     java.util.List<Destination> possibleDestinations = new java.util.ArrayList<Destination>();
     possibleDestinations.addAll(
         generatePointsAroundBot(myLocation, enemies, closestEnemy));
@@ -5223,7 +4592,7 @@ public static class voidious_move_MeleeMover {
     if (myLocation.distance(_currentDestination.location)
             <= myLocation.distance(closestEnemy.lastScanState.location)) {
       double currentGoAngle =
-          voidious_utils_DiaUtils.absoluteBearing(myLocation, _currentDestination.location);
+          titan_utils_Matematica.absoluteBearing(myLocation, _currentDestination.location);
       double currentRisk = CURRENT_DESTINATION_BIAS
           * evaluateRisk(enemies, _currentDestination.location,
                          _currentDestination.goAngle);
@@ -5236,8 +4605,8 @@ public static class voidious_move_MeleeMover {
   }
 
   private java.util.List<Destination> generatePointsAroundBot(
-      java.awt.geom.Point2D.Double myLocation, java.util.Collection<voidious_move_MoveEnemy> enemies,
-      voidious_move_MoveEnemy closestEnemy) {
+      java.awt.geom.Point2D.Double myLocation, java.util.Collection<titan_move_MoveEnemy> enemies,
+      titan_move_MoveEnemy closestEnemy) {
     java.util.List<Destination> destinations = new java.util.ArrayList<Destination>();
     double distanceToClosestBot =
         myLocation.distance(closestEnemy.lastScanState.location);
@@ -5248,7 +4617,7 @@ public static class voidious_move_MeleeMover {
     for (int x = 0; x < NUM_SLICES_BOT; x++) {
       double angle = x * sliceSize;
       java.awt.geom.Point2D.Double dest = _battleField.translateToField(
-          voidious_utils_DiaUtils.project(myLocation, angle, movementStick));
+          titan_utils_Matematica.project(myLocation, angle, movementStick));
       destinations.add(
           new Destination(dest, evaluateRisk(enemies, dest, angle), angle));
     }
@@ -5256,14 +4625,14 @@ public static class voidious_move_MeleeMover {
     return destinations;
   }
 
-  private double evaluateRisk(java.util.Collection<voidious_move_MoveEnemy> enemies,
+  private double evaluateRisk(java.util.Collection<titan_move_MoveEnemy> enemies,
       java.awt.geom.Point2D.Double destination, double goAngle) {
     double risk = 0;
-    for (voidious_move_MoveEnemy moveData : enemies) {
+    for (titan_move_MoveEnemy moveData : enemies) {
       if (moveData.alive) {
         double distanceSq =
             destination.distanceSq(moveData.lastScanState.location);
-        risk += voidious_utils_DiaUtils.limit(0.25, moveData.energy / Math.max(.1, _robot.getEnergy()), 4)
+        risk += titan_utils_Matematica.limit(0.25, moveData.energy / Math.max(.1, _robot.getEnergy()), 4)
             * (1 + Math.abs(Math.cos(moveData.absBearing - goAngle)))
             * moveData.damageFactor
             / (Math.max(1, distanceSq) * (moveData.botsCloser(distanceSq * .8) + 1)
@@ -5283,7 +4652,7 @@ public static class voidious_move_MeleeMover {
   private Destination getNextDestination(
       java.awt.geom.Point2D.Double myLocation, java.util.List<Destination> destinations) {
     Destination nextDestination;
-    voidious_utils_RobotState currentState = voidious_utils_RobotState.newBuilder()
+    titan_utils_RobotState currentState = titan_utils_RobotState.newBuilder()
         .setLocation(myLocation)
         .setHeading(_robot.getHeadingRadians())
         .setVelocity(_robot.getVelocity())
@@ -5294,7 +4663,7 @@ public static class voidious_move_MeleeMover {
       if (!destinations.remove(nextDestination)) break;
       if (!wouldHitWall(currentState, nextDestination)) return nextDestination;
     }
-    // Every candidate is unsafe: brake for one tick, then replan. Never spin forever.
+
     _robot.setMaxVelocity(0);
     _robot.setAhead(0);
     return new Destination(_battleField.translateToField(myLocation), 0, _robot.getHeadingRadians());
@@ -5315,11 +4684,11 @@ public static class voidious_move_MeleeMover {
     if (safest == null) {
       String error = "No safe destinations found, there must be a bug "
           + "in the risk evaluation.\n"
-          + "_myLocation: (" + voidious_utils_DiaUtils.round(myLocation.x, 1) + ", "
-          + voidious_utils_DiaUtils.round(myLocation.y, 1) + ")\n"
+          + "_myLocation: (" + titan_utils_Matematica.round(myLocation.x, 1) + ", "
+          + titan_utils_Matematica.round(myLocation.y, 1) + ")\n"
           + "myEnergy: " + _robot.getEnergy() + "\n"
           + "getOthers(): " + _robot.getOthers();
-      voidious_utils_ErrorLogger.getInstance().logError(error);
+      titan_utils_ErrorLogger.getInstance().logError(error);
 
       safest = _currentDestination;
     }
@@ -5328,11 +4697,11 @@ public static class voidious_move_MeleeMover {
   }
 
   private boolean wouldHitWall(
-      voidious_utils_RobotState currentState, Destination destination) {
+      titan_utils_RobotState currentState, Destination destination) {
     long ticksAhead = 5;
     for (int x = 0; x < ticksAhead; x++) {
       currentState = _predictor.nextLocation(currentState, 8.0,
-          voidious_utils_DiaUtils.absoluteBearing(currentState.location, destination.location),
+          titan_utils_Matematica.absoluteBearing(currentState.location, destination.location),
           true);
       if (!_battleField.rectangle.contains(currentState.location)) {
         return true;
@@ -5357,11 +4726,11 @@ public static class voidious_move_MeleeMover {
       }
     }
 
-    double avg = voidious_utils_DiaUtils.average(risks);
-    double stDev = voidious_utils_DiaUtils.standardDeviation(risks);
+    double avg = titan_utils_Matematica.average(risks);
+    double stDev = titan_utils_Matematica.standardDeviation(risks);
     for (Destination destination : destinations) {
-      _renderables.add(voidious_gfx_RoboGraphic.drawCircleFilled(destination.location,
-          voidious_gfx_RoboGraphic.riskColor(destination.risk - lowestRisk, avg - lowestRisk,
+      _renderables.add(titan_gfx_RoboGraphic.drawCircleFilled(destination.location,
+          titan_gfx_RoboGraphic.riskColor(destination.risk - lowestRisk, avg - lowestRisk,
               stDev, true, 1), 2));
     }
   }
@@ -5389,28 +4758,7 @@ public static class voidious_move_MeleeMover {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDataManager<voidious_move_MoveEnemy> {
+public static class titan_move_MoveDataManager extends titan_utils_EnemyDataManager<titan_move_MoveEnemy> {
   private static final double NON_ZERO_VELOCITY_THRESHOLD = 0.1;
   private static final double DIRECTION_CHANGE_THRESHOLD = Math.PI / 2;
   private static final long EARLIEST_FIRE_TIME = 30L;
@@ -5419,24 +4767,24 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
   private double _currentHeading;
   private long _timeSinceReverseDirection;
   private long _timeSinceVelocityChange;
-  private double _lastVelocity; // TODO: consolidate these? map by time instead?
+  private double _lastVelocity;
   private double _previousVelocity;
   private double _lastNonZeroVelocity;
-  private voidious_utils_RobotStateLog _myStateLog;
-  private java.util.List<voidious_gun_FireListener.FiredBullet> _firedBullets;
+  private titan_utils_RobotStateLog _myStateLog;
+  private java.util.List<titan_gun_FireListener.FiredBullet> _firedBullets;
 
-  protected voidious_move_MoveDataManager(int enemiesTotal, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  protected titan_move_MoveDataManager(int enemiesTotal, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     super(enemiesTotal, battleField, predictor, renderables, out);
     _previousVelocity = _lastVelocity = _lastNonZeroVelocity = 0;
-    _myStateLog = new voidious_utils_RobotStateLog();
-    _firedBullets = new java.util.ArrayList<voidious_gun_FireListener.FiredBullet>();
+    _myStateLog = new titan_utils_RobotStateLog();
+    _firedBullets = new java.util.ArrayList<titan_gun_FireListener.FiredBullet>();
   }
 
   public void execute(int round, long time, java.awt.geom.Point2D.Double myLocation,
       double heading, double velocity) {
-    _myStateLog.addState(voidious_utils_RobotState.newBuilder()
+    _myStateLog.addState(titan_utils_RobotState.newBuilder()
         .setLocation(myLocation)
         .setHeading(heading)
         .setVelocity(velocity)
@@ -5460,9 +4808,9 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
   }
 
   private void removeOldFiredBullets(long currentTime) {
-    java.util.Iterator<voidious_gun_FireListener.FiredBullet> bulletIterator = _firedBullets.iterator();
+    java.util.Iterator<titan_gun_FireListener.FiredBullet> bulletIterator = _firedBullets.iterator();
     while (bulletIterator.hasNext()) {
-      voidious_gun_FireListener.FiredBullet firedBullet = bulletIterator.next();
+      titan_gun_FireListener.FiredBullet firedBullet = bulletIterator.next();
       if (!_battleField.rectangle.contains(firedBullet.position(currentTime))) {
         bulletIterator.remove();
       }
@@ -5471,7 +4819,7 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
 
   private void updateDamageFactors() {
     if (isMeleeBattle()) {
-      for (voidious_move_MoveEnemy moveData : getAllEnemyData()) {
+      for (titan_move_MoveEnemy moveData : getAllEnemyData()) {
         moveData.updateDamageFactor();
       }
     }
@@ -5488,10 +4836,10 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     _firedBullets.clear();
   }
 
-  public voidious_move_MoveEnemy newEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
+  public titan_move_MoveEnemy newEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
       double absBearing, int currentRound, boolean is1v1) {
     String botName = e.getName();
-    voidious_move_MoveEnemy moveData = new voidious_move_MoveEnemy(botName, e.getDistance(), e.getEnergy(),
+    titan_move_MoveEnemy moveData = new titan_move_MoveEnemy(botName, e.getDistance(), e.getEnergy(),
         enemyLocation, e.getHeadingRadians(), e.getVelocity(), absBearing,
         currentRound, e.getTime(), _renderables, _battleField, _predictor,
         _out);
@@ -5502,16 +4850,16 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     return moveData;
   }
 
-  void saveEnemy(String botName, voidious_move_MoveEnemy moveData) {
+  void saveEnemy(String botName, titan_move_MoveEnemy moveData) {
     _enemies.put(botName, moveData);
   }
 
-  public voidious_move_MoveEnemy updateEnemy(robocode.ScannedRobotEvent e,
+  public titan_move_MoveEnemy updateEnemy(robocode.ScannedRobotEvent e,
       java.awt.geom.Point2D.Double enemyLocation, double absBearing, int currentRound,
       boolean is1v1) {
-    voidious_move_MoveEnemy moveData = getEnemyData(e.getName());
+    titan_move_MoveEnemy moveData = getEnemyData(e.getName());
     moveData.wallHitDamage = getWallHitDamage(e, enemyLocation, moveData);
-    moveData.setRobotState(voidious_utils_RobotState.newBuilder()
+    moveData.setRobotState(titan_utils_RobotState.newBuilder()
         .setLocation(enemyLocation)
         .setHeading(e.getHeadingRadians())
         .setVelocity(e.getVelocity())
@@ -5527,37 +4875,37 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     return moveData;
   }
 
-  private voidious_move_MoveEnemy.WallHitDamage getWallHitDamage(
-      robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation, voidious_move_MoveEnemy moveData) {
-    voidious_utils_RobotState lastState = moveData.lastScanState;
+  private titan_move_MoveEnemy.WallHitDamage getWallHitDamage(
+      robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation, titan_move_MoveEnemy moveData) {
+    titan_utils_RobotState lastState = moveData.lastScanState;
     if (!moveData.isRobot && e.getTime() - lastState.time == 1
         && Math.abs(lastState.velocity - e.getVelocity()) > 2
         && Math.abs(e.getVelocity()) < 0.0001
-        && voidious_utils_DiaUtils.distanceToWall(enemyLocation, _battleField) < 0.0001) {
+        && titan_utils_Matematica.distanceToWall(enemyLocation, _battleField) < 0.0001) {
       if (Math.abs(e.getEnergy() - moveData.energy) < 0.0001) {
         moveData.isRobot = true;
       } else {
         double maxSpeed =
             Math.min(8.0, Math.abs(lastState.velocity) + robocode.Rules.ACCELERATION);
         double minSpeed = Math.abs(lastState.velocity) - robocode.Rules.DECELERATION;
-        return new voidious_move_MoveEnemy.WallHitDamage(
+        return new titan_move_MoveEnemy.WallHitDamage(
             robocode.Rules.getWallHitDamage(minSpeed), robocode.Rules.getWallHitDamage(maxSpeed));
       }
     }
-    return new voidious_move_MoveEnemy.WallHitDamage(0, 0);
+    return new titan_move_MoveEnemy.WallHitDamage(0, 0);
   }
 
   public void onHitByBullet(robocode.HitByBulletEvent e, int currentRound,
       long currentTime, boolean painting) {
     String botName = e.getName();
     if (hasEnemy(botName)) {
-      voidious_move_MoveEnemy moveData = getEnemyData(botName);
+      titan_move_MoveEnemy moveData = getEnemyData(botName);
       moveData.lastTimeHit = currentTime;
       moveData.damageTaken += robocode.Rules.getBulletDamage(e.getBullet().getPower());
       moveData.totalBulletPower += e.getBullet().getPower();
       moveData.totalTimesHit++;
       moveData.energy += robocode.Rules.getBulletHitBonus(e.getBullet().getPower());
-      voidious_utils_Wave hitWave = moveData.processBullet(
+      titan_utils_Wave hitWave = moveData.processBullet(
           e.getBullet(), currentRound, currentTime, painting);
       if (hitWave != null) {
         hitWave.hitByBullet = true;
@@ -5576,8 +4924,8 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
       long currentTime, boolean painting) {
     String botName = e.getHitBullet().getName();
     if (hasEnemy(botName)) {
-      voidious_move_MoveEnemy moveData = getEnemyData(botName);
-      voidious_utils_Wave hitWave = moveData.processBullet(
+      titan_move_MoveEnemy moveData = getEnemyData(botName);
+      titan_utils_Wave hitWave = moveData.processBullet(
           e.getHitBullet(), currentRound, currentTime, painting);
       if (hitWave != null) {
         hitWave.bulletHitBullet = true;
@@ -5597,7 +4945,7 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
   public void onBulletHit(robocode.BulletHitEvent e) {
     String botName = e.getName();
     try {
-      voidious_move_MoveEnemy moveData = getEnemyData(botName);
+      titan_move_MoveEnemy moveData = getEnemyData(botName);
       double bulletDamage = robocode.Rules.getBulletDamage(e.getBullet().getPower());
       moveData.energy -= bulletDamage;
       moveData.damageGiven += bulletDamage;
@@ -5611,14 +4959,14 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
       double previousEnemyEnergy, String botName, int currentRound,
       long currentTime, double myEnergy, double myHeading, double myVelocity,
       int wavesToSurf) {
-    voidious_utils_RobotState myRobotState = voidious_utils_RobotState.newBuilder()
+    titan_utils_RobotState myRobotState = titan_utils_RobotState.newBuilder()
         .setLocation(myLocation)
         .setHeading(myHeading)
         .setVelocity(myVelocity)
         .setTime(currentTime)
         .build();
     _myStateLog.addState(myRobotState);
-    voidious_move_MoveEnemy moveData = getEnemyData(botName);
+    titan_move_MoveEnemy moveData = getEnemyData(botName);
     boolean detectedEnemyBullet = false;
     double energyDrop =
         previousEnemyEnergy - moveData.energy - moveData.wallHitDamage.max;
@@ -5628,12 +4976,12 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     }
 
     updateTimers(myVelocity);
-    int velocitySign = voidious_utils_DiaUtils.nonZeroSign(
+    int velocitySign = titan_utils_Matematica.nonZeroSign(
         Math.abs(myVelocity) > NON_ZERO_VELOCITY_THRESHOLD
             ? myVelocity : _lastNonZeroVelocity);
     double accel =
-        voidious_utils_DiaUtils.limit(-robocode.Rules.DECELERATION,
-                       voidious_utils_DiaUtils.accel(myVelocity, _previousVelocity),
+        titan_utils_Matematica.limit(-robocode.Rules.DECELERATION,
+                       titan_utils_Matematica.accel(myVelocity, _previousVelocity),
                        robocode.Rules.ACCELERATION);
     double dl8t =
         _myStateLog.getDisplacementDistance(myLocation, currentTime, 8);
@@ -5647,7 +4995,7 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
         _predictor.nextLocation(moveData.lastScanState));
 
     moveData.newMoveWave(enemyNextLocation, myLocation,
-        voidious_utils_DiaUtils.absoluteBearing(moveData.lastScanState.location, myLocation),
+        titan_utils_Matematica.absoluteBearing(moveData.lastScanState.location, myLocation),
         currentRound, fireTime, guessedPower, myEnergy, myHeading, myVelocity,
         velocitySign, accel, dl8t, dl20t, dl40t, _timeSinceReverseDirection,
         _timeSinceVelocityChange);
@@ -5659,8 +5007,6 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     }
   }
 
-  // In FFA, do this from execute().
-  // In 1v1, do this before firing waves.
   void updateTimers(double velocity) {
     if (Math.abs(robocode.util.Utils.normalRelativeAngle(_currentHeading - _previousHeading))
             > DIRECTION_CHANGE_THRESHOLD) {
@@ -5678,11 +5024,11 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     _lastVelocity = newVelocity;
   }
 
-  public voidious_utils_RobotStateLog myStateLog() {
+  public titan_utils_RobotStateLog myStateLog() {
     return _myStateLog;
   }
 
-  public void addFiredBullet(voidious_gun_FireListener.FiredBullet bullet) {
+  public void addFiredBullet(titan_gun_FireListener.FiredBullet bullet) {
     _firedBullets.add(bullet);
     if (_duelEnemy != null) {
       _duelEnemy.setShadows(bullet);
@@ -5691,10 +5037,10 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
 
   private void removeFiredBullet(robocode.BulletHitBulletEvent e) {
     double closestDistanceSq = Double.POSITIVE_INFINITY;
-    voidious_gun_FireListener.FiredBullet closestFiredBullet = null;
+    titan_gun_FireListener.FiredBullet closestFiredBullet = null;
     java.awt.geom.Point2D.Double bulletPoint =
         new java.awt.geom.Point2D.Double(e.getBullet().getX(), e.getBullet().getY());
-    for (voidious_gun_FireListener.FiredBullet firedBullet : _firedBullets) {
+    for (titan_gun_FireListener.FiredBullet firedBullet : _firedBullets) {
       double thisDistanceSq =
           firedBullet.position(e.getTime()).distanceSq(bulletPoint);
       if (thisDistanceSq < closestDistanceSq) {
@@ -5704,7 +5050,7 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     }
     int bulletDistanceThreshold = 40;
     if (closestFiredBullet != null
-        && closestDistanceSq < voidious_utils_DiaUtils.square(bulletDistanceThreshold)) {
+        && closestDistanceSq < titan_utils_Matematica.square(bulletDistanceThreshold)) {
       closestFiredBullet.deathTime = e.getTime();
     }
   }
@@ -5714,41 +5060,16 @@ public static class voidious_move_MoveDataManager extends voidious_utils_EnemyDa
     return "move";
   }
 
-  voidious_utils_RobotStateLog getMyStateLog() {
+  titan_utils_RobotStateLog getMyStateLog() {
     return _myStateLog;
   }
 
-  java.util.List<voidious_gun_FireListener.FiredBullet> getFiredBullets() {
+  java.util.List<titan_gun_FireListener.FiredBullet> getFiredBullets() {
     return _firedBullets;
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/**
- * General info about the enemy. We just keep one of these around for
- * each enemy bot the movement is aware of.
- */
-public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidious_utils_TimestampedGuessFactor> {
+public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_TimestampedGuessFactor> {
   private static final double RECENT_SCANS_HIT_THRESHOLD = 2.5;
   private static final double LIGHT_FLATTENER_HIT_THRESHOLD = 3.0;
   private static final double FLATTENER_HIT_THRESHOLD = 5.9;
@@ -5772,26 +5093,28 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   public int raw1v1ShotsFired;
   public int raw1v1ShotsHit;
   public double weighted1v1ShotsHit;
+  final java.util.LinkedList<float[]> memoryHits = new java.util.LinkedList<float[]>();
+  final java.util.LinkedList<float[]> memoryVisits = new java.util.LinkedList<float[]>();
   public int raw1v1ShotsFiredThisRound;
   public int raw1v1ShotsHitThisRound;
   public double weighted1v1ShotsHitThisRound;
   public WallHitDamage wallHitDamage;
   public boolean isRobot;
-  public ags_utils_KdTree.WeightedSqrEuclid<Double> powerTree;
+  public titan_KdTree.WeightedSqrEuclid<Double> powerTree;
 
-  private voidious_utils_Wave _imaginaryWave;
+  private titan_utils_Wave _imaginaryWave;
   private int _imaginaryWaveIndex;
 
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private java.io.PrintStream _out;
 
-  public voidious_move_MoveEnemy(String botName, double distance, double energy,
+  public titan_move_MoveEnemy(String botName, double distance, double energy,
       java.awt.geom.Point2D.Double location, double heading, double velocity,
       double absBearing, int round, long time,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.io.PrintStream out) {
+      java.util.Collection<titan_gfx_RoboGraphic> renderables, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.io.PrintStream out) {
     super(botName, location, distance, energy, heading, velocity, absBearing,
-        round, time, battleField, predictor, new voidious_utils_WaveManager());
+        round, time, battleField, predictor, new titan_utils_WaveManager());
     _renderables = renderables;
     _out = out;
     damageTaken = 0;
@@ -5808,9 +5131,10 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
 
     initSurfViews();
     powerTree =
-        new ags_utils_KdTree.WeightedSqrEuclid<Double>(BULLET_POWER_WEIGHTS.length, null);
+        new titan_KdTree.WeightedSqrEuclid<Double>(BULLET_POWER_WEIGHTS.length, null);
     powerTree.setWeights(BULLET_POWER_WEIGHTS);
     _imaginaryWave = null;
+    restoreMoveMemory(this);
   }
 
   @Override
@@ -5828,61 +5152,60 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   }
 
   public void initSurfViews() {
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> simple =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_SimpleFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> simple =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_SimpleFormula())
             .setWeight(3)
             .setK(25)
             .setKDivisor(5)
             .bulletHitsOn();
 
-    // TODO: reconfigure all this, hit threshold = 3.0 makes no sense
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> normal =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> normal =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(40)
             .setK(20)
             .setKDivisor(5)
             .setHitThreshold(3.0)
             .bulletHitsOn();
 
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(1)
             .setMaxDataPoints(1)
             .setHitThreshold(RECENT_SCANS_HIT_THRESHOLD)
             .bulletHitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent2 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent2 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(1)
             .setMaxDataPoints(5)
             .setHitThreshold(RECENT_SCANS_HIT_THRESHOLD)
             .bulletHitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent3 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent3 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(1)
             .setHitThreshold(RECENT_SCANS_HIT_THRESHOLD)
             .setDecayRate(DECAY_RATE)
             .bulletHitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent4 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent4 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(7)
             .setKDivisor(4)
             .setHitThreshold(RECENT_SCANS_HIT_THRESHOLD)
             .setDecayRate(DECAY_RATE)
             .bulletHitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent5 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent5 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(35)
             .setKDivisor(3)
             .setHitThreshold(RECENT_SCANS_HIT_THRESHOLD)
             .setDecayRate(DECAY_RATE)
             .bulletHitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> recent6 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> recent6 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(100)
             .setK(100)
             .setKDivisor(2)
@@ -5890,8 +5213,8 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
             .setDecayRate(DECAY_RATE)
             .bulletHitsOn();
 
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> lightFlattener =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_NormalFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> lightFlattener =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_NormalFormula())
             .setWeight(10)
             .setK(50)
             .setMaxDataPoints(1000)
@@ -5899,16 +5222,16 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
             .setPaddedHitThreshold(LIGHT_FLATTENER_HIT_THRESHOLD)
             .visitsOn();
 
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> flattener =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_FlattenerFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> flattener =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_FlattenerFormula())
             .setWeight(50)
             .setK(25)
             .setMaxDataPoints(300)
             .setKDivisor(12)
             .setPaddedHitThreshold(FLATTENER_HIT_THRESHOLD)
             .visitsOn();
-    voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> flattener2 =
-        new voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor>(new voidious_move_formulas_FlattenerFormula())
+    titan_utils_KnnView<titan_utils_TimestampedGuessFactor> flattener2 =
+        new titan_utils_KnnView<titan_utils_TimestampedGuessFactor>(new titan_move_formulas_FlattenerFormula())
             .setWeight(500)
             .setK(50)
             .setMaxDataPoints(2000)
@@ -5932,28 +5255,29 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
 
   public void execute1v1(
       int currentRound, long currentTime, java.awt.geom.Point2D.Double myLocation) {
-    _waveManager.checkActiveWaves(currentTime, voidious_utils_RobotState.newBuilder()
+    _waveManager.checkActiveWaves(currentTime, titan_utils_RobotState.newBuilder()
             .setLocation(myLocation).setTime(currentTime).build(),
         newWaveBreakListener(currentRound, currentTime));
   }
 
-  public voidious_utils_Wave processBullet(
+  public titan_utils_Wave processBullet(
       robocode.Bullet bullet, int currentRound, long currentTime, boolean painting) {
     java.awt.geom.Point2D.Double bulletLocation =
         new java.awt.geom.Point2D.Double(bullet.getX(), bullet.getY());
     String botName = bullet.getName();
 
-    voidious_utils_Wave hitWave = _waveManager.findClosestWave(bulletLocation, currentTime,
-        voidious_utils_Wave.FIRING_WAVE, botName, bullet.getPower());
+    titan_utils_Wave hitWave = _waveManager.findClosestWave(bulletLocation, currentTime,
+        titan_utils_Wave.FIRING_WAVE, botName, bullet.getPower());
 
     if (hitWave == null || !botName.equals(hitWave.botName)) {
       return null;
     }
 
     double hitGuessFactor = hitWave.guessFactor(bulletLocation);
-    for (voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> view : views.values()) {
+    rememberWave(hitWave, hitGuessFactor, memoryHits);
+    for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : views.values()) {
       if (view.logBulletHits) {
-        view.logWave(hitWave, new voidious_utils_TimestampedGuessFactor(
+        view.logWave(hitWave, new titan_utils_TimestampedGuessFactor(
             currentRound, currentTime, hitGuessFactor));
       }
     }
@@ -5993,7 +5317,7 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   }
 
   public void clearNeighborCache() {
-    for (voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> view : views.values()) {
+    for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : views.values()) {
       view.clearCache();
     }
   }
@@ -6007,7 +5331,7 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
                          robocode.Rules.getGunHeat(lastBulletPower)
                              - ((time - lastBulletFireTime) * .1));
     }
-    return voidious_utils_DiaUtils.round(gunHeat, 6);
+    return titan_utils_Matematica.round(gunHeat, 6);
   }
 
   private static final double[] BULLET_POWER_WEIGHTS = new double[]{3, 5, 1};
@@ -6020,13 +5344,13 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
     };
   }
 
-  public void resetBulletShadows(final java.util.List<voidious_gun_FireListener.FiredBullet> firedBullets) {
-    _waveManager.forAllWaves(new voidious_utils_WaveManager.AllWaveListener() {
+  public void resetBulletShadows(final java.util.List<titan_gun_FireListener.FiredBullet> firedBullets) {
+    _waveManager.forAllWaves(new titan_utils_WaveManager.AllWaveListener() {
       @Override
-      public void onWave(voidious_utils_Wave w) {
+      public void onWave(titan_utils_Wave w) {
         if (w.firingWave) {
           w.shadows.clear();
-          for (voidious_gun_FireListener.FiredBullet bullet : firedBullets) {
+          for (titan_gun_FireListener.FiredBullet bullet : firedBullets) {
             setShadows(w, bullet);
           }
         }
@@ -6034,10 +5358,10 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
     });
   }
 
-  public void setShadows(final voidious_gun_FireListener.FiredBullet bullet) {
-    _waveManager.forAllWaves(new voidious_utils_WaveManager.AllWaveListener() {
+  public void setShadows(final titan_gun_FireListener.FiredBullet bullet) {
+    _waveManager.forAllWaves(new titan_utils_WaveManager.AllWaveListener() {
       @Override
-      public void onWave(voidious_utils_Wave w) {
+      public void onWave(titan_utils_Wave w) {
         if (w.firingWave) {
           setShadows(w, bullet);
         }
@@ -6045,19 +5369,16 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
     });
   }
 
-  // TODO: I'm fairly certain the shadow created by a bullet going from
-  //     inside to outside a wave is irrelevant, so I'm ignoring it.
-  //     Would be nice to prove it or fix this code.
-  public void setShadows(voidious_utils_Wave w, voidious_gun_FireListener.FiredBullet bullet) {
+  public void setShadows(titan_utils_Wave w, titan_gun_FireListener.FiredBullet bullet) {
     long startTime = Math.max(w.fireTime, bullet.fireTime);
     if (!w.processedBulletHit()
         && w.sourceLocation.distanceSq(bullet.position(startTime))
-            > voidious_utils_DiaUtils.square(w.distanceTraveled(startTime))) {
+            > titan_utils_Matematica.square(w.distanceTraveled(startTime))) {
       long time = startTime;
       do {
         time++;
         if (w.sourceLocation.distanceSq(bullet.position(time))
-                < voidious_utils_DiaUtils.square(w.distanceTraveled(time))
+                < titan_utils_Matematica.square(w.distanceTraveled(time))
             && time < bullet.deathTime) {
           addBulletShadows(w, bullet, time);
           break;
@@ -6066,34 +5387,27 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
     }
   }
 
-  private void addBulletShadows(voidious_utils_Wave w, voidious_gun_FireListener.FiredBullet b, long time) {
-    voidious_utils_geom_Circle waveCircle1 =
-        new voidious_utils_geom_Circle(w.sourceLocation, w.distanceTraveled(time - 1));
-    voidious_utils_geom_Circle waveCircle2 =
-        new voidious_utils_geom_Circle(w.sourceLocation, w.distanceTraveled(time));
+  private void addBulletShadows(titan_utils_Wave w, titan_gun_FireListener.FiredBullet b, long time) {
+    titan_utils_geom_Circle waveCircle1 =
+        new titan_utils_geom_Circle(w.sourceLocation, w.distanceTraveled(time - 1));
+    titan_utils_geom_Circle waveCircle2 =
+        new titan_utils_geom_Circle(w.sourceLocation, w.distanceTraveled(time));
     java.awt.geom.Point2D.Double bulletPoint1 = b.position(time-1);
     java.awt.geom.Point2D.Double bulletPoint2 = b.position(time);
-    voidious_utils_geom_LineSeg bulletSeg = new voidious_utils_geom_LineSeg(bulletPoint1, bulletPoint2);
+    titan_utils_geom_LineSeg bulletSeg = new titan_utils_geom_LineSeg(bulletPoint1, bulletPoint2);
     java.awt.geom.Point2D.Double[] xPoints1 = waveCircle1.intersects(bulletSeg);
     java.awt.geom.Point2D.Double[] xPoints2 = waveCircle2.intersects(bulletSeg);
 
     if (xPoints1[0] == null && xPoints2[0] == null) {
-      // whole bullet line segment is between two wave circles,
-      // shadow cast along all firing angles covered by line segment
+
       w.castShadow(bulletPoint1, bulletPoint2);
-      // TODO: It's possible the previous bullet line intersected the
-      //     inner wave circle (then the outer wave circle) last tick
-      //     and cast 2 shadows, while remaining outside the wave on
-      //     either endpoint. Should be super rare and probably could
-      //     never be a reachable shadow anyway.
+
     } else if (xPoints1[0] != null) {
       if (xPoints2[0] != null) {
-        // line segment intersects both wave circles, shadow cast
-        // from one intersection to the other
+
         w.castShadow(xPoints2[0], xPoints1[0]);
       } else if (xPoints1[1] != null) {
-        // line segment begins and ends between wave circles,
-        // intersects inner circle in two spots, casts 2 shadows
+
         java.awt.geom.Point2D.Double intersect1, intersect2;
         if (bulletPoint1.distanceSq(xPoints1[0])
                 < bulletPoint1.distanceSq(xPoints1[1])) {
@@ -6106,22 +5420,22 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
         w.castShadow(bulletPoint1, intersect1);
         w.castShadow(intersect2, bulletPoint2);
       } else {
-        // line segment crosses inner wave circle in one spot
+
         w.castShadow(bulletPoint1, xPoints1[0]);
       }
     } else if (xPoints2[0] != null) {
-      // line segment crosses outer wave circle in one spot
+
       w.castShadow(xPoints2[0], bulletPoint2);
     }
   }
 
-  public voidious_utils_Wave newMoveWave(java.awt.geom.Point2D.Double sourceLocation,
+  public titan_utils_Wave newMoveWave(java.awt.geom.Point2D.Double sourceLocation,
       java.awt.geom.Point2D.Double targetLocation, double absBearing, int fireRound,
       long fireTime, double bulletPower, double myEnergy, double myHeading,
       double myVelocity, int velocitySign, double accel, double dl8t,
       double dl20t, double dl40t, long timeSinceReverseDirection,
       long timeSinceVelocityChange) {
-    voidious_utils_Wave w = new voidious_utils_Wave(botName, sourceLocation, targetLocation,
+    titan_utils_Wave w = new titan_utils_Wave(botName, sourceLocation, targetLocation,
         fireRound, fireTime, bulletPower, myHeading, myVelocity,
         velocitySign, _battleField, _predictor)
             .setAbsBearing(absBearing)
@@ -6138,8 +5452,8 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
     return w;
   }
 
-  public void updateImaginaryWave(long currentTime, voidious_utils_RobotState myRobotState,
-      int wavesToSurf, voidious_utils_MovementPredictor predictor) {
+  public void updateImaginaryWave(long currentTime, titan_utils_RobotState myRobotState,
+      int wavesToSurf, titan_utils_MovementPredictor predictor) {
     _imaginaryWaveIndex = -1;
     for (int x = 0; x < wavesToSurf; x++) {
       if (findSurfableWave(x, myRobotState) == null) {
@@ -6169,8 +5483,8 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
         _imaginaryWave.sourceLocation = sourceLocation;
       }
 
-      if (_imaginaryWave != null) { // null after a skipped turn
-        // TODO: use Wave.setWallDistance
+      if (_imaginaryWave != null) {
+
         _imaginaryWave.targetWallDistance =
             Math.min(1.5, _battleField.orbitalWallDistance(
                 aimedFromLocation, _imaginaryWave.targetLocation,
@@ -6179,15 +5493,15 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
             Math.min(1.5, _battleField.orbitalWallDistance(
                 aimedFromLocation, _imaginaryWave.targetLocation,
                 lastBulletPower, -_imaginaryWave.orbitDirection));
-        _imaginaryWave.absBearing = voidious_utils_DiaUtils.absoluteBearing(
+        _imaginaryWave.absBearing = titan_utils_Matematica.absoluteBearing(
             aimedFromLocation, _imaginaryWave.targetLocation);
       }
     }
   }
 
-  public voidious_utils_Wave findSurfableWave(int surfWaveIndex, voidious_utils_RobotState myRobotState) {
-    voidious_utils_Wave surfableWave = _waveManager.findSurfableWave(
-        surfWaveIndex, myRobotState, voidious_utils_Wave.WavePosition.BREAKING_CENTER);
+  public titan_utils_Wave findSurfableWave(int surfWaveIndex, titan_utils_RobotState myRobotState) {
+    titan_utils_Wave surfableWave = _waveManager.findSurfableWave(
+        surfWaveIndex, myRobotState, titan_utils_Wave.WavePosition.BREAKING_CENTER);
     if (surfableWave == null && _imaginaryWave != null
         && surfWaveIndex == _imaginaryWaveIndex) {
       surfableWave = _imaginaryWave;
@@ -6196,9 +5510,9 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   }
 
   public void updateFiringWave(long currentTime, double bulletPower,
-      voidious_utils_RobotStateLog myStateLog, java.util.List<voidious_gun_FireListener.FiredBullet> firedBullets) {
+      titan_utils_RobotStateLog myStateLog, java.util.List<titan_gun_FireListener.FiredBullet> firedBullets) {
     long fireTime = currentTime - 1;
-    voidious_utils_Wave enemyWave = _waveManager.getWaveByFireTime(fireTime);
+    titan_utils_Wave enemyWave = _waveManager.getWaveByFireTime(fireTime);
     if (enemyWave == null) {
       enemyWave = _waveManager.interpolateWaveByFireTime(fireTime, currentTime,
           lastScanState.heading, lastScanState.velocity, myStateLog,
@@ -6215,10 +5529,10 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
       java.awt.geom.Point2D.Double aimedFromLocation = getState(currentTime - 2).location;
       enemyWave.sourceLocation = getState(currentTime - 1).location;
       enemyWave.targetLocation = myStateLog.getState(currentTime - 2).location;
-      enemyWave.absBearing = voidious_utils_DiaUtils.absoluteBearing(
+      enemyWave.absBearing = titan_utils_Matematica.absoluteBearing(
           aimedFromLocation, enemyWave.targetLocation);
       enemyWave.setBulletPower(bulletPower);
-      // TODO: use Wave.setWallDistance
+
       enemyWave.targetWallDistance = Math.min(1.5,
           _battleField.orbitalWallDistance(aimedFromLocation,
               enemyWave.targetLocation, lastBulletPower,
@@ -6236,7 +5550,7 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
       enemyWave.firingWave = true;
       this.lastBulletPower = bulletPower;
       this.lastBulletFireTime = enemyWave.fireTime;
-      for (voidious_gun_FireListener.FiredBullet bullet : firedBullets) {
+      for (titan_gun_FireListener.FiredBullet bullet : firedBullets) {
         setShadows(enemyWave, bullet);
       }
 
@@ -6262,35 +5576,37 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
       return 1.9;
     } else {
       double[] searchPoint = bulletPowerDataPoint(distance, energy, myEnergy);
-      java.util.List<ags_utils_KdTree.Entry<Double>> bulletPowers =
+      java.util.List<titan_KdTree.Entry<Double>> bulletPowers =
           powerTree.nearestNeighbor(searchPoint,
               (int) Math.min(20, Math.ceil(numBullets / 3.0)), false);
 
       double powerTotal = 0;
-      for (ags_utils_KdTree.Entry<Double> entry : bulletPowers) {
+      for (titan_KdTree.Entry<Double> entry : bulletPowers) {
         powerTotal += entry.value;
       }
 
-      return voidious_utils_DiaUtils.round(powerTotal / bulletPowers.size(), 6);
+      return titan_utils_Matematica.round(powerTotal / bulletPowers.size(), 6);
     }
   }
 
-  private voidious_utils_WaveManager.WaveBreakListener newWaveBreakListener(
+  private titan_utils_WaveManager.WaveBreakListener newWaveBreakListener(
       final int currentRound, final long currentTime) {
-    return new voidious_utils_WaveManager.WaveBreakListener() {
+    return new titan_utils_WaveManager.WaveBreakListener() {
       @Override
-      public void onWaveBreak(voidious_utils_Wave w, java.util.List<voidious_utils_RobotState> waveBreakStates) {
+      public void onWaveBreak(titan_utils_Wave w, java.util.List<titan_utils_RobotState> waveBreakStates) {
         if (w.firingWave) {
-          voidious_utils_Wave.Intersection preciseIntersection =
+          titan_utils_Wave.Intersection preciseIntersection =
               w.preciseIntersection(waveBreakStates);
 
-          for (voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> view : views.values()) {
+          for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : views.values()) {
             if (view.logVisits) {
               double guessFactor = w.guessFactor(preciseIntersection.angle);
-              view.logWave(w, new voidious_utils_TimestampedGuessFactor(
+              view.logWave(w, new titan_utils_TimestampedGuessFactor(
                   currentRound, currentTime, guessFactor));
             }
           }
+
+          rememberWave(w, w.guessFactor(preciseIntersection.angle), memoryVisits);
 
           if (!w.bulletHitBullet) {
             raw1v1ShotsFired++;
@@ -6311,35 +5627,35 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   }
 
   public void drawRawWaves(final long currentTime) {
-    _waveManager.forAllWaves(new voidious_utils_WaveManager.AllWaveListener() {
+    _waveManager.forAllWaves(new titan_utils_WaveManager.AllWaveListener() {
       @Override
-      public void onWave(voidious_utils_Wave w) {
+      public void onWave(titan_utils_Wave w) {
         if (w.firingWave) {
-          _renderables.add(voidious_gfx_RoboGraphic.drawCircle(w.sourceLocation,
+          _renderables.add(titan_gfx_RoboGraphic.drawCircle(w.sourceLocation,
               (currentTime - w.fireTime + 1) * w.bulletSpeed(),
               java.awt.Color.darkGray));
-          _renderables.add(voidious_gfx_RoboGraphic.drawLine(w.sourceLocation,
-              voidious_utils_DiaUtils.project(w.sourceLocation, w.absBearing,
+          _renderables.add(titan_gfx_RoboGraphic.drawLine(w.sourceLocation,
+              titan_utils_Matematica.project(w.sourceLocation, w.absBearing,
                   w.distanceTraveled(currentTime + 1)), java.awt.Color.darkGray));
-          _renderables.add(voidious_gfx_RoboGraphic.drawCircle(
-              voidious_utils_DiaUtils.project(w.sourceLocation, w.absBearing,
+          _renderables.add(titan_gfx_RoboGraphic.drawCircle(
+              titan_utils_Matematica.project(w.sourceLocation, w.absBearing,
                   w.distanceTraveled(currentTime + 1)),
             5, java.awt.Color.darkGray));
-          _renderables.add(voidious_gfx_RoboGraphic.drawCircleFilled(
+          _renderables.add(titan_gfx_RoboGraphic.drawCircleFilled(
               w.sourceLocation, java.awt.Color.darkGray, 4));
         }
       }
     });
   }
 
-  private void drawBulletHit(voidious_utils_Wave hitWave, double hitGuessFactor,
+  private void drawBulletHit(titan_utils_Wave hitWave, double hitGuessFactor,
       java.awt.geom.Point2D.Double bulletLocation, long time) {
-    _renderables.add(voidious_gfx_RoboGraphic.drawLine(hitWave.sourceLocation,
-        voidious_utils_DiaUtils.project(hitWave.sourceLocation, hitWave.absBearing,
+    _renderables.add(titan_gfx_RoboGraphic.drawLine(hitWave.sourceLocation,
+        titan_utils_Matematica.project(hitWave.sourceLocation, hitWave.absBearing,
             hitWave.distanceTraveled(time)),
         java.awt.Color.yellow));
     if (Math.abs(hitGuessFactor) > 0.01) {
-      _renderables.add(voidious_gfx_RoboGraphic.drawLine(hitWave.sourceLocation,
+      _renderables.add(titan_gfx_RoboGraphic.drawLine(hitWave.sourceLocation,
           bulletLocation, (hitGuessFactor > 0 ? java.awt.Color.blue : java.awt.Color.red)));
     }
   }
@@ -6355,28 +5671,7 @@ public static class voidious_move_MoveEnemy extends voidious_utils_Enemy<voidiou
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_SurfMover {
+public static class titan_move_SurfMover {
   private static final double DESIRED_DISTANCE = 650;
   private static final double WALL_STICK = 160;
   private static final double MEA_WALL_STICK = 100;
@@ -6388,8 +5683,8 @@ public static class voidious_move_SurfMover {
   private static final int WAVES_TO_DRAW = 5;
 
   private robocode.AdvancedRobot _robot;
-  private voidious_utils_BattleField _battleField;
-  private java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  private titan_utils_BattleField _battleField;
+  private java.util.Collection<titan_gfx_RoboGraphic> _renderables;
   private java.io.PrintStream _out;
 
   private SurfOption _lastSurfOption = SurfOption.CLOCKWISE;
@@ -6398,17 +5693,17 @@ public static class voidious_move_SurfMover {
   private java.util.Map<SurfOption, Double> _surfOptionDangers;
   private java.util.Map<SurfOption, java.awt.geom.Point2D.Double> _surfOptionDestinations;
   private DistanceController _distancer;
-  private voidious_utils_Wave _lastWaveSurfed;
-  private voidious_utils_MovementPredictor _predictor;
+  private titan_utils_Wave _lastWaveSurfed;
+  private titan_utils_MovementPredictor _predictor;
 
-  public voidious_move_SurfMover(robocode.AdvancedRobot robot, voidious_utils_BattleField battleField,
-      java.util.Collection<voidious_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
+  public titan_move_SurfMover(robocode.AdvancedRobot robot, titan_utils_BattleField battleField,
+      java.util.Collection<titan_gfx_RoboGraphic> renderables, java.io.OutputStream out) {
     _robot = robot;
     _battleField = battleField;
     _renderables = renderables;
     _out = new java.io.PrintStream(out);
 
-    _predictor = new voidious_utils_MovementPredictor(battleField);
+    _predictor = new titan_utils_MovementPredictor(battleField);
     _surfOptionDangers = new java.util.HashMap<SurfOption, Double>();
     _surfOptionDestinations = new java.util.HashMap<SurfOption, java.awt.geom.Point2D.Double>();
     _distancer = new DistanceController();
@@ -6419,14 +5714,14 @@ public static class voidious_move_SurfMover {
     _stopDestination = null;
   }
 
-  public void move(voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy,
+  public void move(titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy,
       int wavesToSurf, boolean painting) {
     if (duelEnemy == null) {
       return;
     }
 
     java.awt.geom.Point2D.Double myLocation = myRobotState.location;
-    voidious_utils_Wave surfWave = duelEnemy.findSurfableWave(voidious_utils_Wave.FIRST_WAVE, myRobotState);
+    titan_utils_Wave surfWave = duelEnemy.findSurfableWave(titan_utils_Wave.FIRST_WAVE, myRobotState);
 
     if (surfWave == null) {
       orbit(myLocation, duelEnemy);
@@ -6435,11 +5730,11 @@ public static class voidious_move_SurfMover {
     }
   }
 
-  void orbit(java.awt.geom.Point2D.Double myLocation, voidious_move_MoveEnemy duelEnemy) {
+  void orbit(java.awt.geom.Point2D.Double myLocation, titan_move_MoveEnemy duelEnemy) {
     _robot.setMaxVelocity(8);
-    voidious_utils_RobotState enemyState = duelEnemy.lastScanState;
+    titan_utils_RobotState enemyState = duelEnemy.lastScanState;
     double orbitAbsBearing =
-        voidious_utils_DiaUtils.absoluteBearing(enemyState.location, myLocation);
+        titan_utils_Matematica.absoluteBearing(enemyState.location, myLocation);
     double retreatAngle =
         _distancer.orbitAttackAngle(myLocation.distance(enemyState.location));
     double counterGoAngle = orbitAbsBearing
@@ -6466,10 +5761,10 @@ public static class voidious_move_SurfMover {
       goAngle = counterGoAngle;
     }
 
-    voidious_utils_DiaUtils.setBackAsFront(_robot, goAngle);
+    titan_utils_Matematica.setBackAsFront(_robot, goAngle);
   }
 
-  void surf(voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy, voidious_utils_Wave surfWave,
+  void surf(titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy, titan_utils_Wave surfWave,
       int wavesToSurf, boolean painting) {
     if (surfWave != _lastWaveSurfed) {
       duelEnemy.clearNeighborCache();
@@ -6502,7 +5797,7 @@ public static class voidious_move_SurfMover {
     }
 
     double goAngle =
-        voidious_utils_DiaUtils.absoluteBearing(myRobotState.location, surfDestination);
+        titan_utils_Matematica.absoluteBearing(myRobotState.location, surfDestination);
     goAngle = wallSmoothing(myRobotState.location, goAngle, _lastSurfOption);
 
     if (painting) {
@@ -6513,17 +5808,17 @@ public static class voidious_move_SurfMover {
       }
     }
 
-    voidious_utils_DiaUtils.setBackAsFront(_robot, goAngle);
+    titan_utils_Matematica.setBackAsFront(_robot, goAngle);
   }
 
-  private void updateSurfDangers(voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy,
+  private void updateSurfDangers(titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy,
       int wavesToSurf, boolean goingClockwise) {
     java.util.List<SurfOption> surfOptions = getSortedSurfOptions();
     double bestSurfDanger = Double.POSITIVE_INFINITY;
     for (SurfOption testOption : surfOptions) {
       double testDanger = checkDanger(myRobotState, duelEnemy,
-          myRobotState, testOption, goingClockwise, voidious_utils_Wave.FIRST_WAVE,
-          wavesToSurf, bestSurfDanger, new voidious_utils_RobotStateLog());
+          myRobotState, testOption, goingClockwise, titan_utils_Wave.FIRST_WAVE,
+          wavesToSurf, bestSurfDanger, new titan_utils_RobotStateLog());
       _surfOptionDangers.put(testOption, testDanger);
       bestSurfDanger = Math.min(bestSurfDanger, testDanger);
     }
@@ -6553,33 +5848,32 @@ public static class voidious_move_SurfMover {
     }
   }
 
-  // TODO: make previouslyMovingClockwise either SurfOption or int
-  double checkDanger(voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy,
-      voidious_utils_RobotState startState, SurfOption surfOption,
+  double checkDanger(titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy,
+      titan_utils_RobotState startState, SurfOption surfOption,
       boolean previouslyMovingClockwise, int surfWaveIndex, int numWavesToSurf,
-      double cutoffDanger, voidious_utils_RobotStateLog predictedStateLog) {
-    voidious_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
+      double cutoffDanger, titan_utils_RobotStateLog predictedStateLog) {
+    titan_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
     if (surfWave == null) {
       return 0;
     }
 
-    java.util.List<voidious_utils_RobotState> dangerStates = new java.util.ArrayList<voidious_utils_RobotState>();
-    voidious_utils_Wave.WavePosition startWavePosition = surfWave.checkWavePosition(startState);
-    if (surfWaveIndex > voidious_utils_Wave.FIRST_WAVE
-        && startWavePosition != voidious_utils_Wave.WavePosition.MIDAIR) {
+    java.util.List<titan_utils_RobotState> dangerStates = new java.util.ArrayList<titan_utils_RobotState>();
+    titan_utils_Wave.WavePosition startWavePosition = surfWave.checkWavePosition(startState);
+    if (surfWaveIndex > titan_utils_Wave.FIRST_WAVE
+        && startWavePosition != titan_utils_Wave.WavePosition.MIDAIR) {
       dangerStates.addAll(
           replaySurfStates(surfWave, predictedStateLog, startState));
     }
 
-    if (startWavePosition == voidious_utils_Wave.WavePosition.GONE && dangerStates.isEmpty()) {
+    if (startWavePosition == titan_utils_Wave.WavePosition.GONE && dangerStates.isEmpty()) {
       return 0;
     }
 
     boolean predictClockwise =
         predictClockwise(surfOption, previouslyMovingClockwise);
 
-    voidious_utils_RobotState predictedState = startState;
-    voidious_utils_RobotState passedState = startState;
+    titan_utils_RobotState predictedState = startState;
+    titan_utils_RobotState passedState = startState;
 
     boolean wavePassed = false;
     boolean waveHit = false;
@@ -6594,35 +5888,35 @@ public static class voidious_move_SurfMover {
       smoothingSurfOption = surfOption;
     }
     java.awt.geom.Point2D.Double surfDestination;
-    if (surfWaveIndex == voidious_utils_Wave.FIRST_WAVE && surfOption == SurfOption.STOP
+    if (surfWaveIndex == titan_utils_Wave.FIRST_WAVE && surfOption == SurfOption.STOP
         && _stopDestination != null) {
       surfDestination = _stopDestination;
     } else {
       surfDestination = surfDestination(
           surfWave, surfWaveIndex, startState, smoothingSurfOption);
     }
-    if (surfWaveIndex == voidious_utils_Wave.FIRST_WAVE) {
+    if (surfWaveIndex == titan_utils_Wave.FIRST_WAVE) {
       _surfOptionDestinations.put(surfOption, surfDestination);
     }
 
     do {
       if (!waveHit && surfWave.checkWavePosition(
-              predictedState, voidious_utils_Wave.WavePosition.BREAKING_FRONT)
-                  == voidious_utils_Wave.WavePosition.BREAKING_FRONT) {
-        voidious_utils_RobotState dangerState = predictedState;
+              predictedState, titan_utils_Wave.WavePosition.BREAKING_FRONT)
+                  == titan_utils_Wave.WavePosition.BREAKING_FRONT) {
+        titan_utils_RobotState dangerState = predictedState;
         do {
           dangerStates.add(dangerState);
           dangerState = predictSurfLocation(
               dangerState, surfDestination, 0, smoothingSurfOption);
         } while (
-            surfWave.checkWavePosition(dangerState, true) != voidious_utils_Wave.WavePosition.GONE);
+            surfWave.checkWavePosition(dangerState, true) != titan_utils_Wave.WavePosition.GONE);
         waveHit = true;
       }
 
-      voidious_utils_Wave.WavePosition wavePosition =
+      titan_utils_Wave.WavePosition wavePosition =
           surfWave.checkWavePosition(predictedState, true);
-      if (wavePosition == voidious_utils_Wave.WavePosition.BREAKING_CENTER
-          || wavePosition == voidious_utils_Wave.WavePosition.GONE) {
+      if (wavePosition == titan_utils_Wave.WavePosition.BREAKING_CENTER
+          || wavePosition == titan_utils_Wave.WavePosition.GONE) {
         passedState = predictedState;
         wavePassed = true;
       } else {
@@ -6632,7 +5926,7 @@ public static class voidious_move_SurfMover {
       }
     } while (!wavePassed);
 
-    voidious_utils_Wave.Intersection intersection = surfWave.preciseIntersection(dangerStates);
+    titan_utils_Wave.Intersection intersection = surfWave.preciseIntersection(dangerStates);
     double baseDangerScore =
         normalizedEnemyHitRate(duelEnemy) * BASE_DANGER_FACTOR;
     double danger = baseDangerScore + getDangerScore(
@@ -6654,14 +5948,14 @@ public static class voidious_move_SurfMover {
       double nextCounterClockwiseDanger = checkDanger(myRobotState, duelEnemy,
           passedState, SurfOption.COUNTER_CLOCKWISE, predictClockwise,
           surfWaveIndex + 1, numWavesToSurf, cutoffDanger,
-          (voidious_utils_RobotStateLog) predictedStateLog.clone());
+          (titan_utils_RobotStateLog) predictedStateLog.clone());
       double nextStopDanger = checkDanger(myRobotState, duelEnemy, passedState,
           SurfOption.STOP, predictClockwise, surfWaveIndex + 1, numWavesToSurf,
-          cutoffDanger, (voidious_utils_RobotStateLog) predictedStateLog.clone());
+          cutoffDanger, (titan_utils_RobotStateLog) predictedStateLog.clone());
       double nextClockwiseDanger = checkDanger(myRobotState, duelEnemy,
           passedState, SurfOption.CLOCKWISE, predictClockwise,
           surfWaveIndex + 1, numWavesToSurf, cutoffDanger,
-          (voidious_utils_RobotStateLog) predictedStateLog.clone());
+          (titan_utils_RobotStateLog) predictedStateLog.clone());
 
       danger += Math.min(nextCounterClockwiseDanger,
                          Math.min(nextStopDanger, nextClockwiseDanger));
@@ -6679,13 +5973,13 @@ public static class voidious_move_SurfMover {
     }
   }
 
-  java.util.List<voidious_utils_RobotState> replaySurfStates(final voidious_utils_Wave surfWave,
-      voidious_utils_RobotStateLog predictedStateLog, voidious_utils_RobotState startState) {
-    final java.util.List<voidious_utils_RobotState> dangerStates = new java.util.ArrayList<voidious_utils_RobotState>();
-    predictedStateLog.forAllStates(new voidious_utils_RobotStateLog.AllStateListener() {
+  java.util.List<titan_utils_RobotState> replaySurfStates(final titan_utils_Wave surfWave,
+      titan_utils_RobotStateLog predictedStateLog, titan_utils_RobotState startState) {
+    final java.util.List<titan_utils_RobotState> dangerStates = new java.util.ArrayList<titan_utils_RobotState>();
+    predictedStateLog.forAllStates(new titan_utils_RobotStateLog.AllStateListener() {
       @Override
-      public void onRobotState(voidious_utils_RobotState state) {
-        voidious_utils_Wave.WavePosition pastWavePosition = surfWave.checkWavePosition(state);
+      public void onRobotState(titan_utils_RobotState state) {
+        titan_utils_Wave.WavePosition pastWavePosition = surfWave.checkWavePosition(state);
         if (pastWavePosition.isBreaking()) {
           dangerStates.add(state);
         }
@@ -6694,26 +5988,26 @@ public static class voidious_move_SurfMover {
     return dangerStates;
   }
 
-  private java.awt.geom.Point2D.Double surfDestination(voidious_utils_Wave surfWave,
-      int surfWaveIndex, voidious_utils_RobotState startState, SurfOption surfOption) {
-    if (surfWaveIndex == voidious_utils_Wave.FIRST_WAVE && _lastSurfOption == surfOption
+  private java.awt.geom.Point2D.Double surfDestination(titan_utils_Wave surfWave,
+      int surfWaveIndex, titan_utils_RobotState startState, SurfOption surfOption) {
+    if (surfWaveIndex == titan_utils_Wave.FIRST_WAVE && _lastSurfOption == surfOption
         && _lastSurfDestination != null) {
       return _lastSurfDestination;
     }
 
     double attackAngle = _distancer.surfAttackAngle(
         surfWave.sourceLocation.distance(startState.location));
-    voidious_utils_MaxEscapeTarget meaTarget = _predictor.preciseEscapeAngle(
+    titan_utils_MaxEscapeTarget meaTarget = _predictor.preciseEscapeAngle(
         surfOption.getDirection(), surfWave.sourceLocation, surfWave.fireTime,
         surfWave.bulletSpeed(), startState, attackAngle, MEA_WALL_STICK);
     return meaTarget.location;
   }
 
-  voidious_utils_RobotState predictSurfLocation(voidious_utils_RobotState robotState,
+  titan_utils_RobotState predictSurfLocation(titan_utils_RobotState robotState,
       java.awt.geom.Point2D.Double surfDestination, double maxVelocity,
       SurfOption smoothingSurfOption) {
     double goAngle = wallSmoothing(robotState.location,
-        voidious_utils_DiaUtils.absoluteBearing(robotState.location, surfDestination),
+        titan_utils_Matematica.absoluteBearing(robotState.location, surfDestination),
         smoothingSurfOption);
     return _predictor.nextLocation(robotState, maxVelocity, goAngle, false);
   }
@@ -6735,15 +6029,15 @@ public static class voidious_move_SurfMover {
         / DISTANCING_DANGER_BASE;
   }
 
-  double getDangerScore(voidious_move_MoveEnemy duelEnemy, voidious_utils_Wave w,
+  double getDangerScore(titan_move_MoveEnemy duelEnemy, titan_utils_Wave w,
         java.awt.geom.Point2D.Double dangerLocation, int surfWaveIndex) {
-    voidious_utils_Wave.Intersection intersection = new voidious_utils_Wave.Intersection(
-        voidious_utils_DiaUtils.absoluteBearing(w.sourceLocation, dangerLocation), 0.05);
+    titan_utils_Wave.Intersection intersection = new titan_utils_Wave.Intersection(
+        titan_utils_Matematica.absoluteBearing(w.sourceLocation, dangerLocation), 0.05);
     return getDangerScore(duelEnemy, w, intersection, surfWaveIndex);
   }
 
-  double getDangerScore(voidious_move_MoveEnemy duelEnemy, voidious_utils_Wave w,
-      voidious_utils_Wave.Intersection intersection, int surfWaveIndex) {
+  double getDangerScore(titan_move_MoveEnemy duelEnemy, titan_utils_Wave w,
+      titan_utils_Wave.Intersection intersection, int surfWaveIndex) {
     double dangerAngle = intersection.angle;
     double bandwidth = Math.max(1e-6, intersection.bandwidth);
     double totalDanger = 0;
@@ -6751,22 +6045,22 @@ public static class voidious_move_SurfMover {
     int enabledSize = 0;
     double hitPercentage = normalizedEnemyHitPercentage(duelEnemy);
     double marginOfError = hitPercentageMarginOfError(duelEnemy);
-    for (voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> view : duelEnemy.views.values()) {
+    for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : duelEnemy.views.values()) {
       if (view.enabled(hitPercentage, marginOfError)) {
         enabledSize += view.size();
-        java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedGuessFactor>> nearestNeighbors =
+        java.util.List<titan_KdTree.Entry<titan_utils_TimestampedGuessFactor>> nearestNeighbors =
             getNearestNeighbors(view, w, surfWaveIndex);
-        java.util.Map<voidious_utils_Timestamped, Double> weightMap =
+        java.util.Map<titan_utils_Timestamped, Double> weightMap =
             view.getDecayWeights(nearestNeighbors);
 
         double density = 0;
         double viewScanWeight = 0;
         int numScans = nearestNeighbors.size();
         for (int x = 0; x < numScans; x++) {
-          voidious_utils_TimestampedGuessFactor tsgf = nearestNeighbors.get(x).value;
+          titan_utils_TimestampedGuessFactor tsgf = nearestNeighbors.get(x).value;
           double scanWeight =
               weightMap.get(tsgf) / Math.sqrt(Math.max(1e-9, nearestNeighbors.get(x).distance));
-          double xFiringAngle = voidious_utils_DiaUtils.normalizeAngle(
+          double xFiringAngle = titan_utils_Matematica.normalizeAngle(
               w.firingAngle(tsgf.guessFactor), dangerAngle);
           if (!w.shadowed(xFiringAngle)) {
             double ux = (xFiringAngle - dangerAngle) / bandwidth;
@@ -6786,8 +6080,8 @@ public static class voidious_move_SurfMover {
     return totalScanWeight > 0 && Double.isFinite(totalDanger) ? totalDanger / totalScanWeight : defaultDanger(w, intersection);
   }
 
-  private java.util.List<ags_utils_KdTree.Entry<voidious_utils_TimestampedGuessFactor>> getNearestNeighbors(
-      voidious_utils_KnnView<voidious_utils_TimestampedGuessFactor> view, voidious_utils_Wave w, int surfWaveIndex) {
+  private java.util.List<titan_KdTree.Entry<titan_utils_TimestampedGuessFactor>> getNearestNeighbors(
+      titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view, titan_utils_Wave w, int surfWaveIndex) {
     if (!view.cachedNeighbors.containsKey(surfWaveIndex)
         || view.cachedNeighborWaves.get(surfWaveIndex) != w) {
       view.cachedNeighbors.put(surfWaveIndex, view.nearestNeighbors(w, false));
@@ -6796,52 +6090,51 @@ public static class voidious_move_SurfMover {
     return view.cachedNeighbors.get(surfWaveIndex);
   }
 
-  // TODO: move these to MoveEnemy
-  double normalizedEnemyHitRate(voidious_move_MoveEnemy duelEnemy) {
+  double normalizedEnemyHitRate(titan_move_MoveEnemy duelEnemy) {
     return (duelEnemy == null || duelEnemy.raw1v1ShotsFired == 0)
         ? 0 : (((double) duelEnemy.weighted1v1ShotsHit)
             / duelEnemy.raw1v1ShotsFired);
   }
 
-  double normalizedEnemyHitPercentage(voidious_move_MoveEnemy duelEnemy) {
+  double normalizedEnemyHitPercentage(titan_move_MoveEnemy duelEnemy) {
     return 100 * normalizedEnemyHitRate(duelEnemy);
   }
 
-  double rawEnemyHitPercentage(voidious_move_MoveEnemy duelEnemy) {
+  double rawEnemyHitPercentage(titan_move_MoveEnemy duelEnemy) {
     return (duelEnemy == null || duelEnemy.raw1v1ShotsFired == 0)
         ? 0 : ((((double) duelEnemy.raw1v1ShotsHit)
             / duelEnemy.raw1v1ShotsFired) * 100.0);
   }
 
-  double hitPercentageMarginOfError(voidious_move_MoveEnemy duelEnemy) {
+  double hitPercentageMarginOfError(titan_move_MoveEnemy duelEnemy) {
     if (duelEnemy == null) {
       return 100;
     } else {
       double hitProbability = normalizedEnemyHitRate(duelEnemy);
       return 100 *
-          voidious_utils_DiaUtils.marginOfError(hitProbability, duelEnemy.raw1v1ShotsFired);
+          titan_utils_Matematica.marginOfError(hitProbability, duelEnemy.raw1v1ShotsFired);
     }
   }
 
-  private static double defaultDanger(voidious_utils_Wave w, voidious_utils_Wave.Intersection intersection) {
+  private static double defaultDanger(titan_utils_Wave w, titan_utils_Wave.Intersection intersection) {
     double[] guessFactors = new double[]{0, 0.85};
     double[] weights = new double[]{3, 1};
     double danger = 0;
     for (int x = 0; x < guessFactors.length; x++) {
       double firingAngle = w.firingAngle(guessFactors[x]);
       double ux = (firingAngle
-          - voidious_utils_DiaUtils.normalizeAngle(intersection.angle, firingAngle))
+          - titan_utils_Matematica.normalizeAngle(intersection.angle, firingAngle))
               / intersection.bandwidth;
       danger += weights[x] * Math.pow(2, -Math.abs(ux));
     }
     return danger;
   }
 
-  public void roundOver(voidious_move_MoveEnemy duelEnemy) {
+  public void roundOver(titan_move_MoveEnemy duelEnemy) {
     _out.println("Enemy normalized hit %: "
-        + voidious_utils_DiaUtils.round(normalizedEnemyHitPercentage(duelEnemy), 2) + "\n"
+        + titan_utils_Matematica.round(normalizedEnemyHitPercentage(duelEnemy), 2) + "\n"
         + "Enemy raw hit %: "
-        + voidious_utils_DiaUtils.round(rawEnemyHitPercentage(duelEnemy), 2));
+        + titan_utils_Matematica.round(rawEnemyHitPercentage(duelEnemy), 2));
   }
 
   java.util.Map<SurfOption, Double> getSurfOptionDangers() {
@@ -6849,8 +6142,8 @@ public static class voidious_move_SurfMover {
   }
 
   private void drawWaveDangers(
-      voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy, int surfWaveIndex) {
-    voidious_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
+      titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy, int surfWaveIndex) {
+    titan_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
     if (surfWave == null) {
       return;
     }
@@ -6868,7 +6161,7 @@ public static class voidious_move_SurfMover {
       double bearingOffset =
           surfWave.orbitDirection * (gf * surfWave.maxEscapeAngle());
       double absFiringAngle = surfWave.absBearing + bearingOffset;
-      java.awt.geom.Point2D.Double dangerLocation = voidious_utils_DiaUtils.project(
+      java.awt.geom.Point2D.Double dangerLocation = titan_utils_Matematica.project(
           surfWave.sourceLocation, absFiringAngle,
           surfWave.distanceTraveled(currentTime));
       if (surfWave.shadowed(absFiringAngle)) {
@@ -6885,38 +6178,38 @@ public static class voidious_move_SurfMover {
       }
     }
 
-    double avg = voidious_utils_DiaUtils.average(gfDangers);
-    double stDev = voidious_utils_DiaUtils.standardDeviation(gfDangers);
+    double avg = titan_utils_Matematica.average(gfDangers);
+    double stDev = titan_utils_Matematica.standardDeviation(gfDangers);
 
     for (int x = 0; x <= numBins - 1; x++) {
       double gf = (x - halfBins) / halfBins;
       double bearingOffset =
           surfWave.orbitDirection * (gf * surfWave.maxEscapeAngle());
-      java.awt.geom.Point2D.Double drawLocation = voidious_utils_DiaUtils.project(
+      java.awt.geom.Point2D.Double drawLocation = titan_utils_Matematica.project(
           surfWave.sourceLocation, surfWave.absBearing + bearingOffset,
           surfWave.distanceTraveled(currentTime + 1) - 15);
 
-      java.awt.Color binColor = voidious_gfx_RoboGraphic.riskColor(
+      java.awt.Color binColor = titan_gfx_RoboGraphic.riskColor(
           gfDangers[x] - minDanger, avg - minDanger, stDev, false, 1);
-      _renderables.add(voidious_gfx_RoboGraphic.drawCircleFilled(drawLocation,
+      _renderables.add(titan_gfx_RoboGraphic.drawCircleFilled(drawLocation,
           gfShadowed[x] ? SHADOW_COLOR : binColor, 2));
     }
   }
 
   private void drawWaveShadows(
-      voidious_utils_RobotState myRobotState, voidious_move_MoveEnemy duelEnemy, int surfWaveIndex) {
-    voidious_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
+      titan_utils_RobotState myRobotState, titan_move_MoveEnemy duelEnemy, int surfWaveIndex) {
+    titan_utils_Wave surfWave = duelEnemy.findSurfableWave(surfWaveIndex, myRobotState);
     if (surfWave == null) {
       return;
     }
 
     long currentTime = _robot.getTime();
-    for (voidious_utils_Wave.BulletShadow shadow : surfWave.shadows) {
-      java.awt.geom.Point2D.Double p1 = voidious_utils_DiaUtils.project(surfWave.sourceLocation,
+    for (titan_utils_Wave.BulletShadow shadow : surfWave.shadows) {
+      java.awt.geom.Point2D.Double p1 = titan_utils_Matematica.project(surfWave.sourceLocation,
           shadow.minAngle, surfWave.distanceTraveled(currentTime + 1));
-      java.awt.geom.Point2D.Double p2 = voidious_utils_DiaUtils.project(surfWave.sourceLocation,
+      java.awt.geom.Point2D.Double p2 = titan_utils_Matematica.project(surfWave.sourceLocation,
           shadow.maxAngle, surfWave.distanceTraveled(currentTime + 1));
-      _renderables.add(voidious_gfx_RoboGraphic.drawLine(p1, p2, SHADOW_COLOR));
+      _renderables.add(titan_gfx_RoboGraphic.drawLine(p1, p2, SHADOW_COLOR));
     }
   }
 
@@ -6949,41 +6242,20 @@ public static class voidious_move_SurfMover {
         double currentDistance, double offsetMultiplier) {
       double distanceFactor =
           (currentDistance - DESIRED_DISTANCE) / DESIRED_DISTANCE;
-      return voidious_utils_DiaUtils.limit(-MAX_ATTACK_ANGLE,
+      return titan_utils_Matematica.limit(-MAX_ATTACK_ANGLE,
                             distanceFactor * offsetMultiplier,
                             MAX_ATTACK_ANGLE);
     }
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_formulas_FlattenerFormula extends voidious_utils_DistanceFormula {
-  public voidious_move_formulas_FlattenerFormula() {
+public static class titan_move_formulas_FlattenerFormula extends titan_utils_DistanceFormula {
+  public titan_move_formulas_FlattenerFormula() {
     weights = new double[]{3, 4, 3, 5, 1, 4, 3, 3, 2, 2, 2};
   }
 
   @Override
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       (((w.targetVelocitySign * w.targetVelocity) + 0.1) / 8.1),
@@ -7002,34 +6274,13 @@ public static class voidious_move_formulas_FlattenerFormula extends voidious_uti
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_formulas_NormalFormula extends voidious_utils_DistanceFormula {
-  public voidious_move_formulas_NormalFormula() {
+public static class titan_move_formulas_NormalFormula extends titan_utils_DistanceFormula {
+  public titan_move_formulas_NormalFormula() {
     weights = new double[]{4, 3, 3, 3, 2, 4, 1, 3, 2};
   }
 
   @Override
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       (((w.targetVelocitySign * w.targetVelocity) + 0.1) / 8.1),
@@ -7045,34 +6296,13 @@ public static class voidious_move_formulas_NormalFormula extends voidious_utils_
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_move_formulas_SimpleFormula extends voidious_utils_DistanceFormula {
-  public voidious_move_formulas_SimpleFormula() {
+public static class titan_move_formulas_SimpleFormula extends titan_utils_DistanceFormula {
+  public titan_move_formulas_SimpleFormula() {
     weights = new double[]{1, 1, 1};
   }
 
   @Override
-  public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming) {
+  public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming) {
     return new double[]{
       (Math.min(91, w.targetDistance / w.bulletSpeed()) / 91),
       ((w.lateralVelocity() + 0.1) / 8.1),
@@ -7082,28 +6312,7 @@ public static class voidious_move_formulas_SimpleFormula extends voidious_utils_
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPainter {
+public static class titan_radar_Radar implements titan_gfx_RoboPainter {
   private static final boolean ENABLE_DEBUGGING_GRAPHICS = true;
   private static final double MAX_RADAR_TRACKING_AMOUNT = Math.PI / 4;
   private static final long BOT_NOT_FOUND = -1;
@@ -7118,25 +6327,25 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   private java.awt.geom.Point2D.Double _centerField;
   private int _radarDirection;
   private double _lastRadarHeading;
-  private voidious_utils_MovementPredictor _predictor;
+  private titan_utils_MovementPredictor _predictor;
   private int _startDirection;
 
-  private java.util.List<voidious_gfx_RoboGraphic> _renderables;
+  private java.util.List<titan_gfx_RoboGraphic> _renderables;
   private boolean _painting;
   private boolean _robocodePainting;
   private java.io.PrintStream _out;
 
-  public voidious_radar_DiamondEyes(titanprime robot, java.io.OutputStream out) {
+  public titan_radar_Radar(titanprime robot, java.io.OutputStream out) {
     _robot = robot;
     _out = new java.io.PrintStream(out);
     _scans = new java.util.HashMap<String, RadarScan>();
     _centerField = new java.awt.geom.Point2D.Double(_robot.getBattleFieldWidth() / 2,
                                       _robot.getBattleFieldHeight() / 2);
-    _predictor = new voidious_utils_MovementPredictor(
-        new voidious_utils_BattleField(_robot.getBattleFieldWidth(),
+    _predictor = new titan_utils_MovementPredictor(
+        new titan_utils_BattleField(_robot.getBattleFieldWidth(),
                         _robot.getBattleFieldHeight()));
     _radarDirection = 1;
-    _renderables = new java.util.ArrayList<voidious_gfx_RoboGraphic>();
+    _renderables = new java.util.ArrayList<titan_gfx_RoboGraphic>();
     _painting = false;
     _robocodePainting = false;
   }
@@ -7165,7 +6374,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   }
 
   public void onScannedRobot(robocode.ScannedRobotEvent e) {
-    java.awt.geom.Point2D.Double enemyLocation = voidious_utils_DiaUtils.project(_myLocation,
+    java.awt.geom.Point2D.Double enemyLocation = titan_utils_Matematica.project(_myLocation,
         e.getBearingRadians() + _robot.getHeadingRadians(), e.getDistance());
 
     _scans.put(e.getName(), new RadarScan(_robot.getTime(), enemyLocation));
@@ -7181,7 +6390,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   public void onPaint(java.awt.Graphics2D g) {
     if (paintStatus()) {
       drawLastKnownBotLocations();
-      for (voidious_gfx_RoboGraphic r : _renderables) {
+      for (titan_gfx_RoboGraphic r : _renderables) {
         r.render(g);
       }
       _renderables.clear();
@@ -7198,10 +6407,10 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
     double radarTurnAmount;
     if (_lockMode &&
       _scans.get(_targetName).lastScanTime == _robot.getTime()) {
-      radarTurnAmount = robocode.util.Utils.normalRelativeAngle(voidious_utils_DiaUtils.absoluteBearing(
+      radarTurnAmount = robocode.util.Utils.normalRelativeAngle(titan_utils_Matematica.absoluteBearing(
               _myLocation, _scans.get(_targetName).lastLocation)
           - _robot.getRadarHeadingRadians());
-      _radarDirection = voidious_utils_DiaUtils.nonZeroSign(radarTurnAmount);
+      _radarDirection = titan_utils_Matematica.nonZeroSign(radarTurnAmount);
       radarTurnAmount += _radarDirection * (MAX_RADAR_TRACKING_AMOUNT / 2);
     } else {
       _radarDirection = nextRadarDirection();
@@ -7225,7 +6434,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
     if (!_scans.containsKey(botName)) { return BOT_NOT_FOUND; }
 
     double absBearing =
-        voidious_utils_DiaUtils.absoluteBearing(_myLocation, _scans.get(botName).lastLocation);
+        titan_utils_Matematica.absoluteBearing(_myLocation, _scans.get(botName).lastLocation);
     double shortestAngleToScan = Math.abs(robocode.util.Utils.normalRelativeAngle(
         absBearing - _robot.getRadarHeadingRadians()));
     long minTicks = Math.round(
@@ -7236,7 +6445,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
 
   private int getStartRadarDirection() {
     return directionToBearing(
-        voidious_utils_DiaUtils.absoluteBearing(_myLocation, _centerField));
+        titan_utils_Matematica.absoluteBearing(_myLocation, _centerField));
   }
 
   private int nextRadarDirection() {
@@ -7253,7 +6462,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
     }
 
     double absBearingRadarTarget =
-        voidious_utils_DiaUtils.absoluteBearing(_myLocation, radarTarget);
+        titan_utils_Matematica.absoluteBearing(_myLocation, radarTarget);
 
     if (justScannedThatSpot(absBearingRadarTarget)) {
       return _radarDirection;
@@ -7298,9 +6507,9 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   }
 
   public boolean justScannedThatSpot(double absBearing) {
-    if ((voidious_utils_DiaUtils.nonZeroSign(robocode.util.Utils.normalRelativeAngle(
+    if ((titan_utils_Matematica.nonZeroSign(robocode.util.Utils.normalRelativeAngle(
             absBearing - _lastRadarHeading)) == _radarDirection)
-        && (voidious_utils_DiaUtils.nonZeroSign(robocode.util.Utils.normalRelativeAngle(
+        && (titan_utils_Matematica.nonZeroSign(robocode.util.Utils.normalRelativeAngle(
             _robot.getRadarHeadingRadians() - absBearing))
                 == _radarDirection)) {
       return true;
@@ -7312,7 +6521,7 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   public void drawLastKnownBotLocations() {
     for (RadarScan scan : _scans.values()) {
       _renderables.addAll(java.util.Arrays.asList(
-          voidious_gfx_RoboGraphic.drawRectangle(
+          titan_gfx_RoboGraphic.drawRectangle(
               scan.lastLocation, BOT_WIDTH, BOT_WIDTH, java.awt.Color.gray)));
     }
   }
@@ -7354,54 +6563,31 @@ public static class voidious_radar_DiamondEyes implements voidious_gfx_RoboPaint
   }
 }
 
-/**
- * Copyright (c) 2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_BattleField {
+public static class titan_utils_BattleField {
   private static final double HALF_PI = Math.PI / 2;
 
   public final java.awt.geom.Rectangle2D.Double rectangle;
   public final double width;
   public final double height;
 
-  public voidious_utils_BattleField(double width, double height) {
+  public titan_utils_BattleField(double width, double height) {
     rectangle = new java.awt.geom.Rectangle2D.Double(18, 18, width - 36, height - 36);
     this.width = width;
     this.height = height;
   }
 
   public java.awt.geom.Point2D.Double translateToField(java.awt.geom.Point2D.Double p) {
-    return new java.awt.geom.Point2D.Double(voidious_utils_DiaUtils.limit(18, p.x, width - 18),
-                              voidious_utils_DiaUtils.limit(18, p.y, height - 18));
+    return new java.awt.geom.Point2D.Double(titan_utils_Matematica.limit(18, p.x, width - 18),
+                              titan_utils_Matematica.limit(18, p.y, height - 18));
   }
 
   public double orbitalWallDistance(java.awt.geom.Point2D.Double sourceLocation,
       java.awt.geom.Point2D.Double targetLocation, double bulletPower, int direction) {
     double absBearing =
-        voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation);
+        titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation);
     double distance = sourceLocation.distance(targetLocation);
     double maxEscapeAngle = Math.asin(8.0/(20-3.0*bulletPower));
 
-    // 1.0 means the max range of orbital movement exactly reaches bounds
-    // of battle field
     double wallDistance = 2.0;
     for (int x = 0; x < 200; x++) {
       if (!rectangle.contains(
@@ -7419,7 +6605,7 @@ public static class voidious_utils_BattleField {
 
   public double directToWallDistance(java.awt.geom.Point2D.Double targetLocation,
       double distance, double heading, double bulletPower) {
-    int bulletTicks = voidious_utils_DiaUtils.bulletTicksFromPower(distance, bulletPower);
+    int bulletTicks = titan_utils_Matematica.bulletTicksFromPower(distance, bulletPower);
     double wallDistance = 2.0;
     double sinHeading = Math.sin(heading);
     double cosHeading = Math.cos(heading);
@@ -7435,10 +6621,6 @@ public static class voidious_utils_BattleField {
     return wallDistance;
   }
 
-  /**
-   * Do some Voodoo and wall smooth in a very efficient way. (In terms of CPU
-   * cycles, not amount of code.)
-   */
   public double wallSmoothing(java.awt.geom.Point2D.Double startLocation, double startAngle,
       int orientation, double wallStick) {
     double wallDistanceX = Math.min(startLocation.x - 18,
@@ -7459,16 +6641,15 @@ public static class voidious_utils_BattleField {
         Math.min(testY - 18, height - testY - 18);
 
     double adjacent = 0;
-    int g = 0; // shouldn't be needed, but infinite loop sanity check
+    int g = 0;
 
-    // TODO: rewrite w/o loop for clarity / sanity
     while ((testDistanceX < 0 || testDistanceY < 0) && g++ < 25) {
       if (testDistanceY < 0 && testDistanceY < testDistanceX) {
-        // North or South wall
+
         angle = (testY < 18) ? Math.PI : 0;
         adjacent = wallDistanceY;
       } else if (testDistanceX < 0 && testDistanceX <= testDistanceY) {
-        // East or West wall
+
         angle = (testX < 18) ? (3 * HALF_PI) : HALF_PI;
         adjacent = wallDistanceX;
       }
@@ -7493,28 +6674,7 @@ public static class voidious_utils_BattleField {
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_DiaUtils {
+public static class titan_utils_Matematica {
   private static final double HALF_PI = Math.PI / 2;
   private static final double TWO_PI = Math.PI * 2;
 
@@ -7638,7 +6798,7 @@ public static class voidious_utils_DiaUtils {
   }
 
   public static double distancePointToBot(
-      java.awt.geom.Point2D.Double sourceLocation, voidious_utils_RobotState robotState) {
+      java.awt.geom.Point2D.Double sourceLocation, titan_utils_RobotState robotState) {
     return distancePointToBot(
         sourceLocation, robotState.location, robotState.botSides());
   }
@@ -7680,7 +6840,7 @@ public static class voidious_utils_DiaUtils {
   }
 
   public static double distanceToWall(
-      java.awt.geom.Point2D.Double enemyLocation, voidious_utils_BattleField battleField) {
+      java.awt.geom.Point2D.Double enemyLocation, titan_utils_BattleField battleField) {
     return Math.abs(Math.min(
         Math.min(enemyLocation.x - 18,
                  battleField.width - 18 - enemyLocation.x),
@@ -7693,84 +6853,42 @@ public static class voidious_utils_DiaUtils {
   }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-abstract public static class voidious_utils_DistanceFormula {
+abstract public static class titan_utils_DistanceFormula {
   public double[] weights;
-  abstract public double[] dataPointFromWave(voidious_utils_Wave w, boolean aiming);
+  abstract public double[] dataPointFromWave(titan_utils_Wave w, boolean aiming);
 
-  public double[] dataPointFromWave(voidious_utils_Wave w) {
+  public double[] dataPointFromWave(titan_utils_Wave w) {
     return dataPointFromWave(w, false);
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
+public static class titan_utils_Enemy<T extends titan_utils_Timestamped> {
 
-public static class voidious_utils_Enemy<T extends voidious_utils_Timestamped> {
-  // TODO: account for droids, team leaders
   protected static final double DEFAULT_ENERGY = 100;
   protected static final boolean IS_BULLET_HIT = false;
   protected static final boolean IS_VISIT = true;
 
   public String botName;
-  public voidious_utils_RobotState lastScanState;
+  public titan_utils_RobotState lastScanState;
   public double distance;
   public double absBearing;
   public double energy;
   public boolean alive;
   public int lastScanRound;
-  public voidious_utils_RobotStateLog stateLog;
+  public titan_utils_RobotStateLog stateLog;
   public double damageGiven;
   public long timeAliveTogether;
 
-  public java.util.Map<String, voidious_utils_KnnView<T>> views;
+  public java.util.Map<String, titan_utils_KnnView<T>> views;
   protected java.util.Map<String, Double> _botDistancesSq;
-  protected voidious_utils_WaveManager _waveManager;
-  protected voidious_utils_BattleField _battleField;
-  protected voidious_utils_MovementPredictor _predictor;
+  protected titan_utils_WaveManager _waveManager;
+  protected titan_utils_BattleField _battleField;
+  protected titan_utils_MovementPredictor _predictor;
 
-  protected voidious_utils_Enemy(String botName, java.awt.geom.Point2D.Double location, double distance,
+  protected titan_utils_Enemy(String botName, java.awt.geom.Point2D.Double location, double distance,
       double energy, double heading, double velocity, double absBearing,
-      int round, long time, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, voidious_utils_WaveManager waveManager) {
+      int round, long time, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, titan_utils_WaveManager waveManager) {
     this.botName = botName;
     this.absBearing = absBearing;
     this.distance = distance;
@@ -7783,9 +6901,9 @@ public static class voidious_utils_Enemy<T extends voidious_utils_Timestamped> {
 
     damageGiven = 0;
     alive = true;
-    views = new java.util.HashMap<String, voidious_utils_KnnView<T>>();
-    stateLog = new voidious_utils_RobotStateLog();
-    setRobotState(voidious_utils_RobotState.newBuilder()
+    views = new java.util.HashMap<String, titan_utils_KnnView<T>>();
+    stateLog = new titan_utils_RobotStateLog();
+    setRobotState(titan_utils_RobotState.newBuilder()
         .setLocation(location)
         .setHeading(heading)
         .setVelocity(velocity)
@@ -7803,22 +6921,22 @@ public static class voidious_utils_Enemy<T extends voidious_utils_Timestamped> {
     clearDistancesSq();
   }
 
-  public void addViews(java.util.List<voidious_utils_KnnView<T>> views) {
-    for (voidious_utils_KnnView<T> view : views) {
+  public void addViews(java.util.List<titan_utils_KnnView<T>> views) {
+    for (titan_utils_KnnView<T> view : views) {
       addView(view);
     }
   }
 
-  public void addView(voidious_utils_KnnView<T> view) {
+  public void addView(titan_utils_KnnView<T> view) {
     views.put(view.name, view);
   }
 
-  public void setRobotState(voidious_utils_RobotState robotState) {
+  public void setRobotState(titan_utils_RobotState robotState) {
     lastScanState = robotState;
     stateLog.addState(robotState);
   }
 
-  public voidious_utils_RobotState getState(long time) {
+  public titan_utils_RobotState getState(long time) {
     return stateLog.getState(time);
   }
 
@@ -7842,40 +6960,19 @@ public static class voidious_utils_Enemy<T extends voidious_utils_Timestamped> {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public abstract static class voidious_utils_EnemyDataManager<T extends voidious_utils_Enemy<? extends voidious_utils_Timestamped>> {
+public abstract static class titan_utils_EnemyDataManager<T extends titan_utils_Enemy<? extends titan_utils_Timestamped>> {
   static final String WARNING_ROBOT_DEATH_UNKNOWN =
       "A bot died that I never knew existed!";
   protected T _duelEnemy;
   protected int _enemiesTotal;
   protected java.io.PrintStream _out;
   protected java.util.Map<String, T> _enemies;
-  protected voidious_utils_BattleField _battleField;
-  protected voidious_utils_MovementPredictor _predictor;
-  protected java.util.Collection<voidious_gfx_RoboGraphic> _renderables;
+  protected titan_utils_BattleField _battleField;
+  protected titan_utils_MovementPredictor _predictor;
+  protected java.util.Collection<titan_gfx_RoboGraphic> _renderables;
 
-  protected voidious_utils_EnemyDataManager(int enemiesTotal, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor, java.util.Collection<voidious_gfx_RoboGraphic> renderables,
+  protected titan_utils_EnemyDataManager(int enemiesTotal, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
       java.io.OutputStream out) {
     _duelEnemy = null;
     _enemiesTotal = enemiesTotal;
@@ -7977,45 +7074,24 @@ public abstract static class voidious_utils_EnemyDataManager<T extends voidious_
   abstract protected String getLabel();
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_ErrorLogger {
+public static class titan_utils_ErrorLogger {
   private static final String ERROR_LOG = "error.log";
   private static final int MAX_ERROR_SIZE = 5000;
   private static final int CLEAR_SIZE = 50000;
 
   public static boolean enabled = false;
-  private static voidious_utils_ErrorLogger _errorLogger;
+  private static titan_utils_ErrorLogger _errorLogger;
   private robocode.AdvancedRobot _robot;
   private java.io.File _outFile = null;
 
-  private voidious_utils_ErrorLogger(robocode.AdvancedRobot robot) {
+  private titan_utils_ErrorLogger(robocode.AdvancedRobot robot) {
     _robot = robot;
     _outFile = robot.getDataFile(ERROR_LOG);
   }
 
   public static void init(robocode.AdvancedRobot robot) {
     if (_errorLogger == null) {
-      _errorLogger = new voidious_utils_ErrorLogger(robot);
+      _errorLogger = new titan_utils_ErrorLogger(robot);
     } else {
       _errorLogger.setRobot(robot);
     }
@@ -8087,8 +7163,6 @@ public static class voidious_utils_ErrorLogger {
     }
   }
 
-  // mostly ganked from:
-  // http://stackoverflow.com/questions/326390/how-to-create-a-java-string-from-the-contents-of-a-file
   private String readErrorFile() throws java.io.IOException {
     java.io.BufferedReader reader = new java.io.BufferedReader(new java.io.FileReader(_outFile));
     String line = null;
@@ -8102,7 +7176,7 @@ public static class voidious_utils_ErrorLogger {
     return sb.toString();
   }
 
-  public static voidious_utils_ErrorLogger getInstance() {
+  public static titan_utils_ErrorLogger getInstance() {
     if (_errorLogger == null) {
       throw new NullPointerException(
           "You must initialize ErrorLogger before using it.");
@@ -8111,35 +7185,14 @@ public static class voidious_utils_ErrorLogger {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_Interpolator {
+public static class titan_utils_Interpolator {
   private final long fireTime;
   private final long beforeTime;
   private final long afterTime;
   private final double weight1;
   private final double weight2;
 
-  public voidious_utils_Interpolator(long fireTime, long beforeTime, long afterTime) {
+  public titan_utils_Interpolator(long fireTime, long beforeTime, long afterTime) {
     if (fireTime <= beforeTime || fireTime >= afterTime
         || beforeTime >= afterTime) {
       throw new IllegalArgumentException(
@@ -8165,7 +7218,7 @@ public static class voidious_utils_Interpolator {
   }
 
   public double getHeading(double heading1, double heading2) {
-    return avg(heading1, voidious_utils_DiaUtils.normalizeAngle(heading2, heading1));
+    return avg(heading1, titan_utils_Matematica.normalizeAngle(heading2, heading1));
   }
 
   public long getTimer(long val1, long val2) {
@@ -8177,31 +7230,10 @@ public static class voidious_utils_Interpolator {
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_KnnView<T> {
+public static class titan_utils_KnnView<T> {
   private static int _nameIndex = 0;
   public double weight;
-  public voidious_utils_DistanceFormula formula;
+  public titan_utils_DistanceFormula formula;
   public int kSize;
   public int kDivisor;
   public int maxDataPoints;
@@ -8214,14 +7246,14 @@ public static class voidious_utils_KnnView<T> {
   public double decayRate;
   public String name;
 
-  private ags_utils_KdTree.WeightedSqrEuclid<T> _tree;
-  public java.util.Map<Integer, java.util.List<ags_utils_KdTree.Entry<T>>> cachedNeighbors;
-  public final java.util.Map<Integer, voidious_utils_Wave> cachedNeighborWaves =
-      new java.util.HashMap<Integer, voidious_utils_Wave>();
+  private titan_KdTree.WeightedSqrEuclid<T> _tree;
+  public java.util.Map<Integer, java.util.List<titan_KdTree.Entry<T>>> cachedNeighbors;
+  public final java.util.Map<Integer, titan_utils_Wave> cachedNeighborWaves =
+      new java.util.HashMap<Integer, titan_utils_Wave>();
 
   public static final double NO_DECAY = 0;
 
-  public voidious_utils_KnnView(voidious_utils_DistanceFormula formula) {
+  public titan_utils_KnnView(titan_utils_DistanceFormula formula) {
     this.formula = formula;
     weight = 1;
     kSize = 1;
@@ -8234,86 +7266,86 @@ public static class voidious_utils_KnnView<T> {
     paddedHitThreshold = 0;
     maxDataPoints = 0;
     decayRate = NO_DECAY;
-    name = (new Long(Math.round(Math.random() * 10000000))).toString()
+    name = Long.toString(Math.round(Math.random() * 10000000))
         + "-" + _nameIndex++;
     initTree();
-    cachedNeighbors = new java.util.HashMap<Integer, java.util.List<ags_utils_KdTree.Entry<T>>>();
+    cachedNeighbors = new java.util.HashMap<Integer, java.util.List<titan_KdTree.Entry<T>>>();
   }
 
   private void initTree() {
-    _tree = new ags_utils_KdTree.WeightedSqrEuclid<T>(
+    _tree = new titan_KdTree.WeightedSqrEuclid<T>(
         formula.weights.length, maxDataPoints == 0 ? null : maxDataPoints);
     _tree.setWeights(formula.weights);
   }
 
-  public voidious_utils_KnnView<T> setFormula(voidious_utils_DistanceFormula formula) {
+  public titan_utils_KnnView<T> setFormula(titan_utils_DistanceFormula formula) {
     this.formula = formula;
     initTree();
     return this;
   }
 
-  public voidious_utils_KnnView<T> setWeight(double weight) {
+  public titan_utils_KnnView<T> setWeight(double weight) {
     this.weight = weight;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setK(int kSize) {
+  public titan_utils_KnnView<T> setK(int kSize) {
     this.kSize = kSize;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setKDivisor(int kDivisor) {
+  public titan_utils_KnnView<T> setKDivisor(int kDivisor) {
     this.kDivisor = kDivisor;
     return this;
   }
 
-  public voidious_utils_KnnView<T> bulletHitsOn() {
+  public titan_utils_KnnView<T> bulletHitsOn() {
     logBulletHits = true;
     return this;
   }
 
-  public voidious_utils_KnnView<T> visitsOn() {
+  public titan_utils_KnnView<T> visitsOn() {
     logVisits = true;
     return this;
   }
 
-  public voidious_utils_KnnView<T> virtualWavesOn() {
+  public titan_utils_KnnView<T> virtualWavesOn() {
     logVirtual = true;
     return this;
   }
 
-  public voidious_utils_KnnView<T> meleeOn() {
+  public titan_utils_KnnView<T> meleeOn() {
     logMelee = true;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setHitThreshold(double hitThreshold) {
+  public titan_utils_KnnView<T> setHitThreshold(double hitThreshold) {
     this.hitThreshold = hitThreshold;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setPaddedHitThreshold(double paddedHitThreshold) {
+  public titan_utils_KnnView<T> setPaddedHitThreshold(double paddedHitThreshold) {
     this.paddedHitThreshold = paddedHitThreshold;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setMaxDataPoints(int maxDataPoints) {
+  public titan_utils_KnnView<T> setMaxDataPoints(int maxDataPoints) {
     this.maxDataPoints = maxDataPoints;
     initTree();
     return this;
   }
 
-  public voidious_utils_KnnView<T> setDecayRate(double decayRate) {
+  public titan_utils_KnnView<T> setDecayRate(double decayRate) {
     this.decayRate = decayRate;
     return this;
   }
 
-  public voidious_utils_KnnView<T> setName(String name) {
+  public titan_utils_KnnView<T> setName(String name) {
     this.name = name;
     return this;
   }
 
-  public double[] logWave(voidious_utils_Wave w, T value) {
+  public double[] logWave(titan_utils_Wave w, T value) {
     double[] dataPoint = formula.dataPointFromWave(w);
     return logDataPoint(dataPoint, value);
   }
@@ -8337,12 +7369,12 @@ public static class voidious_utils_KnnView<T> {
     return _tree.size();
   }
 
-  public java.util.List<ags_utils_KdTree.Entry<T>> nearestNeighbors(voidious_utils_Wave w, boolean aiming) {
+  public java.util.List<titan_KdTree.Entry<T>> nearestNeighbors(titan_utils_Wave w, boolean aiming) {
     return nearestNeighbors(
-        w, aiming, voidious_utils_DiaUtils.limit(1, size() / kDivisor, kSize));
+        w, aiming, titan_utils_Matematica.limit(1, size() / kDivisor, kSize));
   }
 
-  public java.util.List<ags_utils_KdTree.Entry<T>> nearestNeighbors(voidious_utils_Wave w, boolean aiming, int k) {
+  public java.util.List<titan_KdTree.Entry<T>> nearestNeighbors(titan_utils_Wave w, boolean aiming, int k) {
     double[] wavePoint = formula.dataPointFromWave(w, aiming);
     return _tree.nearestNeighbor(wavePoint, k, false);
   }
@@ -8352,57 +7384,36 @@ public static class voidious_utils_KnnView<T> {
     _tree.setWeights(weights);
   }
 
-  public java.util.Map<voidious_utils_Timestamped, Double> getDecayWeights(
-      java.util.List<? extends ags_utils_KdTree.Entry<? extends voidious_utils_Timestamped>> timestampedEntries) {
-    java.util.Map<voidious_utils_Timestamped, Double> weightMap = new java.util.HashMap<voidious_utils_Timestamped, Double>();
+  public java.util.Map<titan_utils_Timestamped, Double> getDecayWeights(
+      java.util.List<? extends titan_KdTree.Entry<? extends titan_utils_Timestamped>> timestampedEntries) {
+    java.util.Map<titan_utils_Timestamped, Double> weightMap = new java.util.HashMap<titan_utils_Timestamped, Double>();
     int numScans = timestampedEntries.size();
-    if (decayRate == voidious_utils_KnnView.NO_DECAY) {
-      for (ags_utils_KdTree.Entry<? extends voidious_utils_Timestamped> entry : timestampedEntries) {
+    if (decayRate == titan_utils_KnnView.NO_DECAY) {
+      for (titan_KdTree.Entry<? extends titan_utils_Timestamped> entry : timestampedEntries) {
         weightMap.put(entry.value, 1.0);
       }
     } else {
-      voidious_utils_Timestamped[] sorted = new voidious_utils_Timestamped[numScans];
+      titan_utils_Timestamped[] sorted = new titan_utils_Timestamped[numScans];
       for (int x = 0; x < numScans; x++) {
         sorted[x] = timestampedEntries.get(x).value;
       }
       java.util.Arrays.sort(sorted);
       for (int x = 0; x < numScans; x++) {
         weightMap.put(sorted[x],
-            1.0 / voidious_utils_DiaUtils.power(decayRate, numScans - x - 1));
+            1.0 / titan_utils_Matematica.power(decayRate, numScans - x - 1));
       }
     }
     return weightMap;
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_MaxEscapeTarget {
+public static class titan_utils_MaxEscapeTarget {
   public final double angle;
   public final java.awt.geom.Point2D.Double location;
   public final long time;
   public final boolean hitWall;
 
-  public voidious_utils_MaxEscapeTarget(
+  public titan_utils_MaxEscapeTarget(
       double angle, java.awt.geom.Point2D.Double location, long time, boolean hitWall) {
     this.angle = angle;
     this.location = location;
@@ -8411,45 +7422,24 @@ public static class voidious_utils_MaxEscapeTarget {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_MovementPredictor {
+public static class titan_utils_MovementPredictor {
   private static final int PRECISE_MEA_ITERATIONS = 3;
   private static final double FULL_SPEED = 8.0;
   private static final double TWO_PI = Math.PI * 2;
   private static final double HALF_PI = Math.PI / 2;
   private static final double QUARTER_PI = Math.PI / 4;
 
-  private final voidious_utils_BattleField _battleField;
+  private final titan_utils_BattleField _battleField;
   private final java.awt.geom.Rectangle2D.Double _rectangle;
 
-  public voidious_utils_MovementPredictor(voidious_utils_BattleField battleField) {
+  public titan_utils_MovementPredictor(titan_utils_BattleField battleField) {
     _battleField = battleField;
     _rectangle = _battleField.rectangle;
   }
 
-  public voidious_utils_RobotState predict(voidious_utils_RobotState startState, double distance, double turn,
+  public titan_utils_RobotState predict(titan_utils_RobotState startState, double distance, double turn,
       double maxVelocity, long ticks, boolean ignoreWalls) {
-    voidious_utils_RobotState state = startState;
+    titan_utils_RobotState state = startState;
     for (long x = 0; x < ticks; x++) {
       double nextHeading = state.heading;
       double maxTurnRate = Math.abs(robocode.Rules.getTurnRateRadians(state.velocity));
@@ -8467,11 +7457,11 @@ public static class voidious_utils_MovementPredictor {
       distance -= nextVelocity;
 
       java.awt.geom.Point2D.Double nextLocation =
-          voidious_utils_DiaUtils.project(state.location, nextHeading, nextVelocity);
+          titan_utils_Matematica.project(state.location, nextHeading, nextVelocity);
       if (!ignoreWalls && !_rectangle.contains(nextLocation)) {
         adjustForWalls(nextLocation, nextHeading);
       }
-      state = voidious_utils_RobotState.newBuilder()
+      state = titan_utils_RobotState.newBuilder()
           .setLocation(nextLocation)
           .setHeading(nextHeading)
           .setVelocity(nextVelocity)
@@ -8482,8 +7472,6 @@ public static class voidious_utils_MovementPredictor {
     return state;
   }
 
-  // Examined net.sf.robocode.battle.peer.RobotPeer to see how Robocode
-  // handles the physics of wall collisions, but rewrote the code myself.
   private void adjustForWalls(java.awt.geom.Point2D.Double location, double heading) {
     double xOut = Math.min(0, _rectangle.getMaxX() - location.x);
     double yOut = Math.min(0, _rectangle.getMaxY() - location.y);
@@ -8520,15 +7508,10 @@ public static class voidious_utils_MovementPredictor {
     location.y += yOffset;
   }
 
-  // The following 3 methods adapted from:
-  //     http://robowiki.net/wiki/User:Voidious/Optimal_Velocity#Hijack_2
-  // ...which was a collaboration of me (Voidious), Skilgannon, and Positive,
-  // and was also used in Robocode engine.
   private double getNewVelocity(
       double velocity, double distance, double maxVelocity) {
     if (distance < 0) {
-      // If the distance is negative, then change it to be positive
-      // and change the sign of the input velocity and the result
+
       return -getNewVelocity(-velocity, -distance, maxVelocity);
     }
 
@@ -8540,11 +7523,11 @@ public static class voidious_utils_MovementPredictor {
     }
 
     if (velocity >= 0) {
-      return voidious_utils_DiaUtils.limit(velocity - robocode.Rules.DECELERATION,
+      return titan_utils_Matematica.limit(velocity - robocode.Rules.DECELERATION,
                             goalVel,
                             velocity + robocode.Rules.ACCELERATION);
     } else {
-      return voidious_utils_DiaUtils.limit(velocity - robocode.Rules.ACCELERATION,
+      return titan_utils_Matematica.limit(velocity - robocode.Rules.ACCELERATION,
                             goalVel,
                             velocity + maxDecel(-velocity));
     }
@@ -8553,10 +7536,9 @@ public static class voidious_utils_MovementPredictor {
   private double getMaxVelocity(double distance) {
     final double decelTime =  Math.max(1,Math.ceil(
         (Math.sqrt((4*2/robocode.Rules.DECELERATION)*distance + 1) - 1)/2));
-        // sum of 0..decelTime, solving for decelTime using quadratic formula
 
     final double decelDist =
-        (decelTime / 2.0) * (decelTime-1) // sum of 0..(decelTime-1)
+        (decelTime / 2.0) * (decelTime-1)
         * robocode.Rules.DECELERATION;
 
     return ((decelTime - 1) * robocode.Rules.DECELERATION)
@@ -8575,9 +7557,9 @@ public static class voidious_utils_MovementPredictor {
     }
   }
 
-  public voidious_utils_RobotState nextRobotState(titanprime robot) {
-    voidious_utils_RobotState newRobotState = predict(
-        voidious_utils_RobotState.newBuilder()
+  public titan_utils_RobotState nextRobotState(titanprime robot) {
+    titan_utils_RobotState newRobotState = predict(
+        titan_utils_RobotState.newBuilder()
             .setLocation(new java.awt.geom.Point2D.Double(robot.getX(), robot.getY()))
             .setHeading(robot.getHeadingRadians())
             .setVelocity(robot.getVelocity())
@@ -8592,7 +7574,7 @@ public static class voidious_utils_MovementPredictor {
     return nextRobotState(robot).location;
   }
 
-  public java.awt.geom.Point2D.Double nextLocation(voidious_utils_RobotState robotState) {
+  public java.awt.geom.Point2D.Double nextLocation(titan_utils_RobotState robotState) {
     return nextLocation(
         robotState.location, robotState.heading, robotState.velocity);
   }
@@ -8604,15 +7586,14 @@ public static class voidious_utils_MovementPredictor {
         botLocation.y + (Math.cos(heading) * velocity));
   }
 
-  // TODO: rename this
-  public voidious_utils_RobotState nextPerpendicularLocation(voidious_utils_RobotState robotState,
+  public titan_utils_RobotState nextPerpendicularLocation(titan_utils_RobotState robotState,
       double absBearing, int orientation, double attackAngle,
       boolean ignoreWallHits) {
     return nextPerpendicularWallSmoothedLocation(
         robotState, absBearing, 8.0, attackAngle, orientation, 0, ignoreWallHits);
   }
 
-  public voidious_utils_RobotState nextPerpendicularWallSmoothedLocation(voidious_utils_RobotState robotState,
+  public titan_utils_RobotState nextPerpendicularWallSmoothedLocation(titan_utils_RobotState robotState,
       double absBearing, double maxVelocity, double attackAngle,
       int orientation, double wallStick, boolean ignoreWallHits) {
     double goAngle = robocode.util.Utils.normalRelativeAngle(
@@ -8625,7 +7606,7 @@ public static class voidious_utils_MovementPredictor {
     return nextLocation(robotState, maxVelocity, goAngle, ignoreWallHits);
   }
 
-  public voidious_utils_RobotState nextLocation(voidious_utils_RobotState robotState, double maxVelocity,
+  public titan_utils_RobotState nextLocation(titan_utils_RobotState robotState, double maxVelocity,
       double goAngle, boolean ignoreWallHits) {
     double futureTurn = robocode.util.Utils.normalRelativeAngle(goAngle - robotState.heading);
     double futureDistance;
@@ -8641,7 +7622,7 @@ public static class voidious_utils_MovementPredictor {
   }
 
   public double escapeAngleRange(java.awt.geom.Point2D.Double sourceLocation,
-      long fireTime, double bulletSpeed, voidious_utils_RobotState startState,
+      long fireTime, double bulletSpeed, titan_utils_RobotState startState,
       double wallStick) {
     return preciseEscapeAngle(1, sourceLocation, fireTime, bulletSpeed,
         startState, wallStick).angle
@@ -8649,24 +7630,24 @@ public static class voidious_utils_MovementPredictor {
             startState, wallStick).angle;
   }
 
-  public voidious_utils_MaxEscapeTarget preciseEscapeAngle(int predictDirection,
+  public titan_utils_MaxEscapeTarget preciseEscapeAngle(int predictDirection,
       java.awt.geom.Point2D.Double sourceLocation, long fireTime, double bulletSpeed,
-      voidious_utils_RobotState startState, double wallStick) {
+      titan_utils_RobotState startState, double wallStick) {
     return preciseEscapeAngle(predictDirection, sourceLocation, fireTime,
         bulletSpeed, startState, 0, wallStick);
   }
 
-  public voidious_utils_MaxEscapeTarget preciseEscapeAngle(int predictDirection,
+  public titan_utils_MaxEscapeTarget preciseEscapeAngle(int predictDirection,
       java.awt.geom.Point2D.Double sourceLocation, long fireTime, double bulletSpeed,
-      voidious_utils_RobotState startState, double attackAngle, double wallStick) {
+      titan_utils_RobotState startState, double attackAngle, double wallStick) {
     double absBearing =
-        voidious_utils_DiaUtils.absoluteBearing(sourceLocation, startState.location);
+        titan_utils_Matematica.absoluteBearing(sourceLocation, startState.location);
 
-    voidious_utils_MaxEscapeTarget straightEscapeTarget = straightPreciseEscapeAngle(
+    titan_utils_MaxEscapeTarget straightEscapeTarget = straightPreciseEscapeAngle(
         predictDirection, absBearing, sourceLocation, fireTime, bulletSpeed,
         startState, attackAngle);
 
-    voidious_utils_MaxEscapeTarget bestSmoothingTarget = null;
+    titan_utils_MaxEscapeTarget bestSmoothingTarget = null;
     if (straightEscapeTarget.hitWall) {
       bestSmoothingTarget = smoothingPreciseEscapeAngle(predictDirection,
           absBearing, sourceLocation, fireTime, bulletSpeed, startState,
@@ -8681,11 +7662,11 @@ public static class voidious_utils_MovementPredictor {
     }
   }
 
-  voidious_utils_MaxEscapeTarget straightPreciseEscapeAngle(int predictDirection,
+  titan_utils_MaxEscapeTarget straightPreciseEscapeAngle(int predictDirection,
       double absBearing, java.awt.geom.Point2D.Double sourceLocation, long fireTime,
-      double bulletSpeed, voidious_utils_RobotState startState, double attackAngle) {
+      double bulletSpeed, titan_utils_RobotState startState, double attackAngle) {
     double straightEscapeAngle = 0;
-    voidious_utils_RobotState predictedState = startState;
+    titan_utils_RobotState predictedState = startState;
     boolean hitWall = false;
     boolean wavePassed = false;
     do {
@@ -8702,28 +7683,28 @@ public static class voidious_utils_MovementPredictor {
     java.awt.geom.Point2D.Double meaLocation =
         _battleField.translateToField(predictedState.location);
     straightEscapeAngle = predictDirection * robocode.util.Utils.normalRelativeAngle(
-        voidious_utils_DiaUtils.absoluteBearing(sourceLocation, meaLocation) - absBearing);
-    return new voidious_utils_MaxEscapeTarget(
+        titan_utils_Matematica.absoluteBearing(sourceLocation, meaLocation) - absBearing);
+    return new titan_utils_MaxEscapeTarget(
         straightEscapeAngle, meaLocation, predictedState.time, hitWall);
   }
 
-  voidious_utils_MaxEscapeTarget smoothingPreciseEscapeAngle(int predictDirection,
+  titan_utils_MaxEscapeTarget smoothingPreciseEscapeAngle(int predictDirection,
       double absBearing, java.awt.geom.Point2D.Double sourceLocation, long fireTime,
-      double bulletSpeed, voidious_utils_RobotState startState, double attackAngle,
+      double bulletSpeed, titan_utils_RobotState startState, double attackAngle,
       double wallStick, int iterations) {
-    voidious_utils_MaxEscapeTarget bestSmoothingTarget = null;
+    titan_utils_MaxEscapeTarget bestSmoothingTarget = null;
     boolean wavePassed = false;
     bestSmoothingTarget =
-        new voidious_utils_MaxEscapeTarget(0, startState.location, startState.time, false);
+        new titan_utils_MaxEscapeTarget(0, startState.location, startState.time, false);
 
     double goAngle = absBearing + (predictDirection * (HALF_PI + attackAngle));
     goAngle = _battleField.wallSmoothing(
         startState.location, goAngle, predictDirection, wallStick);
     for (int x = 0; x < iterations; x++) {
       wavePassed = false;
-      voidious_utils_RobotState predictedState = startState;
+      titan_utils_RobotState predictedState = startState;
       do {
-        // TODO: try fancy stick
+
         predictedState =
             nextLocation(predictedState, FULL_SPEED, goAngle, true);
         if (wavePassed(
@@ -8739,13 +7720,13 @@ public static class voidious_utils_MovementPredictor {
           _battleField.translateToField(predictedState.location);
       double thisSmoothingEscapeAngle =
           predictDirection * robocode.util.Utils.normalRelativeAngle(
-              voidious_utils_DiaUtils.absoluteBearing(sourceLocation, predictedLocation) - absBearing);
+              titan_utils_Matematica.absoluteBearing(sourceLocation, predictedLocation) - absBearing);
       if (thisSmoothingEscapeAngle > bestSmoothingTarget.angle) {
-        bestSmoothingTarget = new voidious_utils_MaxEscapeTarget(thisSmoothingEscapeAngle,
+        bestSmoothingTarget = new titan_utils_MaxEscapeTarget(thisSmoothingEscapeAngle,
             predictedLocation, predictedState.time, false);
       }
       if (x + 1 < iterations) {
-        goAngle = voidious_utils_DiaUtils.absoluteBearing(startState.location, predictedLocation);
+        goAngle = titan_utils_Matematica.absoluteBearing(startState.location, predictedLocation);
       }
     }
 
@@ -8753,10 +7734,10 @@ public static class voidious_utils_MovementPredictor {
   }
 
   private boolean wavePassed(java.awt.geom.Point2D.Double sourceLocation,
-      long fireTime, double bulletSpeed, voidious_utils_RobotState enemyState) {
+      long fireTime, double bulletSpeed, titan_utils_RobotState enemyState) {
     double threshold = bulletSpeed * (enemyState.time - fireTime) + bulletSpeed;
     if (enemyState.location.distanceSq(sourceLocation)
-            < voidious_utils_DiaUtils.square(threshold) * Math.signum(threshold)) {
+            < titan_utils_Matematica.square(threshold) * Math.signum(threshold)) {
       return true;
     } else {
       return false;
@@ -8764,28 +7745,7 @@ public static class voidious_utils_MovementPredictor {
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_RobotState {
+public static class titan_utils_RobotState {
   private static final double BOT_HALF_WIDTH = 18;
 
   public final java.awt.geom.Point2D.Double location;
@@ -8797,7 +7757,7 @@ public static class voidious_utils_RobotState {
   private java.awt.geom.Rectangle2D.Double _botRectangle;
   private java.util.List<java.awt.geom.Line2D.Double> _botSides;
 
-  private voidious_utils_RobotState(java.awt.geom.Point2D.Double location, double heading, double velocity,
+  private titan_utils_RobotState(java.awt.geom.Point2D.Double location, double heading, double velocity,
       long time, boolean interpolated) {
     this.location = location;
     this.heading = heading;
@@ -8892,60 +7852,39 @@ public static class voidious_utils_RobotState {
       return this;
     }
 
-    public voidious_utils_RobotState build() {
-      return new voidious_utils_RobotState(location, heading, velocity, time, interpolated);
+    public titan_utils_RobotState build() {
+      return new titan_utils_RobotState(location, heading, velocity, time, interpolated);
     }
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
+public static class titan_utils_RobotStateLog implements Cloneable {
+  private java.util.Map<Long, titan_utils_RobotState> _robotStates;
 
-public static class voidious_utils_RobotStateLog implements Cloneable {
-  private java.util.Map<Long, voidious_utils_RobotState> _robotStates;
-
-  public voidious_utils_RobotStateLog() {
-    _robotStates = new java.util.HashMap<Long, voidious_utils_RobotState>();
+  public titan_utils_RobotStateLog() {
+    _robotStates = new java.util.HashMap<Long, titan_utils_RobotState>();
   }
 
   public void clear() {
     _robotStates.clear();
   }
 
-  public void addState(voidious_utils_RobotState state) {
+  public void addState(titan_utils_RobotState state) {
     _robotStates.put(state.time, state);
   }
 
-  public voidious_utils_RobotState getState(long time) {
+  public titan_utils_RobotState getState(long time) {
     return getState(time, true);
   }
 
-  public voidious_utils_RobotState getState(long time, boolean interpolate) {
+  public titan_utils_RobotState getState(long time, boolean interpolate) {
     if (_robotStates.containsKey(time)) {
-      voidious_utils_RobotState robotState = _robotStates.get(time);
+      titan_utils_RobotState robotState = _robotStates.get(time);
       return (interpolate || !robotState.interpolated) ? robotState : null;
     } else if (interpolate) {
-      voidious_utils_RobotState beforeState = null;
-      voidious_utils_RobotState afterState = null;
-      for (voidious_utils_RobotState state : _robotStates.values()) {
+      titan_utils_RobotState beforeState = null;
+      titan_utils_RobotState afterState = null;
+      for (titan_utils_RobotState state : _robotStates.values()) {
         if (!state.interpolated) {
           if (state.time < time) {
             if (beforeState == null || state.time > beforeState.time) {
@@ -8964,9 +7903,9 @@ public static class voidious_utils_RobotStateLog implements Cloneable {
         return null;
       }
 
-      voidious_utils_Interpolator interpolator =
-          new voidious_utils_Interpolator(time, beforeState.time, afterState.time);
-      voidious_utils_RobotState interpolatedRobotState = voidious_utils_RobotState.newBuilder()
+      titan_utils_Interpolator interpolator =
+          new titan_utils_Interpolator(time, beforeState.time, afterState.time);
+      titan_utils_RobotState interpolatedRobotState = titan_utils_RobotState.newBuilder()
           .setLocation(interpolator.getLocation(
               beforeState.location, afterState.location))
           .setHeading(
@@ -8985,17 +7924,17 @@ public static class voidious_utils_RobotStateLog implements Cloneable {
 
   public double getDisplacementDistance(
       java.awt.geom.Point2D.Double location, long currentTime, long ticksAgo) {
-    voidious_utils_RobotState pastState = getState(currentTime - ticksAgo);
+    titan_utils_RobotState pastState = getState(currentTime - ticksAgo);
     pastState = (pastState == null) ? getOldestState() : pastState;
     return location.distance(pastState.location);
   }
 
-  private voidious_utils_RobotState getOldestState() {
+  private titan_utils_RobotState getOldestState() {
     return _robotStates.get(java.util.Collections.min(_robotStates.keySet()));
   }
 
   public void forAllStates(AllStateListener listener) {
-    for (voidious_utils_RobotState state : _robotStates.values()) {
+    for (titan_utils_RobotState state : _robotStates.values()) {
       listener.onRobotState(state);
     }
   }
@@ -9005,7 +7944,7 @@ public static class voidious_utils_RobotStateLog implements Cloneable {
   }
 
   public Object clone() {
-    voidious_utils_RobotStateLog newLog = new voidious_utils_RobotStateLog();
+    titan_utils_RobotStateLog newLog = new titan_utils_RobotStateLog();
     for (Long time : _robotStates.keySet()) {
       newLog.addState(_robotStates.get(time));
     }
@@ -9013,42 +7952,21 @@ public static class voidious_utils_RobotStateLog implements Cloneable {
   }
 
   public interface AllStateListener {
-    void onRobotState(voidious_utils_RobotState state);
+    void onRobotState(titan_utils_RobotState state);
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-abstract public static class voidious_utils_Timestamped implements Comparable<voidious_utils_Timestamped>  {
+abstract public static class titan_utils_Timestamped implements Comparable<titan_utils_Timestamped>  {
   public final int round;
   public final long time;
 
-  public voidious_utils_Timestamped(int roundNum, long time) {
+  public titan_utils_Timestamped(int roundNum, long time) {
     this.round = roundNum;
     this.time = time;
   }
 
   @Override
-  public int compareTo(voidious_utils_Timestamped that) {
+  public int compareTo(titan_utils_Timestamped that) {
     if (this.round < that.round) {
       return -1;
     } else if (this.round == that.round) {
@@ -9065,32 +7983,11 @@ abstract public static class voidious_utils_Timestamped implements Comparable<vo
   }
 }
 
-/**
- * Copyright (c) 2011-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_TimestampedFiringAngle extends voidious_utils_Timestamped {
+public static class titan_utils_TimestampedFiringAngle extends titan_utils_Timestamped {
   public final double guessFactor;
   public final java.awt.geom.Point2D.Double displacementVector;
-    
-  public voidious_utils_TimestampedFiringAngle(int roundNum, long time, double guessFactor,
+
+  public titan_utils_TimestampedFiringAngle(int roundNum, long time, double guessFactor,
       java.awt.geom.Point2D.Double displacementVector) {
     super(roundNum, time);
     this.guessFactor = guessFactor;
@@ -9098,58 +7995,16 @@ public static class voidious_utils_TimestampedFiringAngle extends voidious_utils
   }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_TimestampedGuessFactor extends voidious_utils_Timestamped {
+public static class titan_utils_TimestampedGuessFactor extends titan_utils_Timestamped {
   public double guessFactor;
 
-  public voidious_utils_TimestampedGuessFactor(int roundNum, long tick, double guessFactor) {
+  public titan_utils_TimestampedGuessFactor(int roundNum, long tick, double guessFactor) {
     super(roundNum, tick);
     this.guessFactor = guessFactor;
   }
 }
 
-/**
- * Copyright (c) 2009-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_Wave implements Cloneable {
+public static class titan_utils_Wave implements Cloneable {
   public static final double PRECISE_MEA_WALL_STICK = 120;
   public static final java.awt.geom.Point2D.Double ORIGIN = new java.awt.geom.Point2D.Double(0, 0);
   public static final double MAX_BOT_RADIUS = 18 / Math.cos(Math.PI / 4);
@@ -9178,8 +8033,8 @@ public static class voidious_utils_Wave implements Cloneable {
   public double targetHeading;
   public double targetRelativeHeading;
   public double targetVelocity;
-  protected voidious_utils_BattleField _battleField;
-  protected voidious_utils_MovementPredictor _predictor;
+  protected titan_utils_BattleField _battleField;
+  protected titan_utils_MovementPredictor _predictor;
 
   public boolean hitByBullet;
   public boolean bulletHitBullet;
@@ -9210,11 +8065,11 @@ public static class voidious_utils_Wave implements Cloneable {
   public boolean usedNegativeSmoothingMea = false;
   public boolean usedPositiveSmoothingMea = false;
 
-  protected voidious_utils_Wave() {
-    // needed for subclass with its own full constructor
+  protected titan_utils_Wave() {
+
   }
 
-  public voidious_utils_Wave(String botName,
+  public titan_utils_Wave(String botName,
       java.awt.geom.Point2D.Double sourceLocation,
       java.awt.geom.Point2D.Double targetLocation,
       int fireRound,
@@ -9223,8 +8078,8 @@ public static class voidious_utils_Wave implements Cloneable {
       double targetHeading,
       double targetVelocity,
       int targetVelocitySign,
-      voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor) {
+      titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor) {
     this.botName = botName;
     this.sourceLocation = sourceLocation;
     this.targetLocation = targetLocation;
@@ -9236,10 +8091,10 @@ public static class voidious_utils_Wave implements Cloneable {
     this.targetVelocitySign = targetVelocitySign;
     _battleField = battleField;
     _predictor = predictor;
-    absBearing = voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation);
+    absBearing = titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation);
 
     double relativeHeading = robocode.util.Utils.normalRelativeAngle(
-        effectiveHeading() - voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation));
+        effectiveHeading() - titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation));
     orbitDirection = (relativeHeading < 0) ? COUNTERCLOCKWISE : CLOCKWISE;
     targetRelativeHeading = Math.abs(relativeHeading);
 
@@ -9250,12 +8105,12 @@ public static class voidious_utils_Wave implements Cloneable {
     shadows = new java.util.ArrayList<BulletShadow>();
   }
 
-  public voidious_utils_Wave setAbsBearing(double absBearing) {
+  public titan_utils_Wave setAbsBearing(double absBearing) {
     this.absBearing = absBearing;
     return this;
   }
 
-  public voidious_utils_Wave setBulletPower(double power) {
+  public titan_utils_Wave setBulletPower(double power) {
     _bulletPower = power;
     _bulletSpeed = (20 - (3 * power));
     _maxEscapeAngle = Math.asin(8.0 / _bulletSpeed);
@@ -9263,87 +8118,87 @@ public static class voidious_utils_Wave implements Cloneable {
     return this;
   }
 
-  public voidious_utils_Wave setAccel(double accel) {
+  public titan_utils_Wave setAccel(double accel) {
     this.targetAccel = accel;
     return this;
   }
 
-  public voidious_utils_Wave setDistance(double distance) {
+  public titan_utils_Wave setDistance(double distance) {
     this.targetDistance = distance;
     return this;
   }
 
-  public voidious_utils_Wave setDistanceToNearestBot(double distanceToNearestBot) {
+  public titan_utils_Wave setDistanceToNearestBot(double distanceToNearestBot) {
     this.targetDistanceToNearestBot = distanceToNearestBot;
     return this;
   }
 
-  public voidious_utils_Wave setDchangeTime(long dChangeTime) {
+  public titan_utils_Wave setDchangeTime(long dChangeTime) {
     this.targetDchangeTime = dChangeTime;
     return this;
   }
 
-  public voidious_utils_Wave setVchangeTime(long vChangeTime) {
+  public titan_utils_Wave setVchangeTime(long vChangeTime) {
     this.targetVchangeTime = vChangeTime;
     return this;
   }
 
-  public voidious_utils_Wave setDistanceLast8Ticks(double dl8t) {
+  public titan_utils_Wave setDistanceLast8Ticks(double dl8t) {
     this.targetDl8t = dl8t;
     return this;
   }
 
-  public voidious_utils_Wave setDistanceLast20Ticks(double dl20t) {
+  public titan_utils_Wave setDistanceLast20Ticks(double dl20t) {
     this.targetDl20t = dl20t;
     return this;
   }
 
-  public voidious_utils_Wave setDistanceLast40Ticks(double dl40t) {
+  public titan_utils_Wave setDistanceLast40Ticks(double dl40t) {
     this.targetDl40t = dl40t;
     return this;
   }
 
-  public voidious_utils_Wave setTargetEnergy(double energy) {
+  public titan_utils_Wave setTargetEnergy(double energy) {
     this.targetEnergy = energy;
     return this;
   }
 
-  public voidious_utils_Wave setSourceEnergy(double energy) {
+  public titan_utils_Wave setSourceEnergy(double energy) {
     this.sourceEnergy = energy;
     return this;
   }
 
-  public voidious_utils_Wave setGunHeat(double gunHeat) {
+  public titan_utils_Wave setGunHeat(double gunHeat) {
     this.gunHeat = gunHeat;
     return this;
   }
 
-  public voidious_utils_Wave setEnemiesAlive(int enemiesAlive) {
+  public titan_utils_Wave setEnemiesAlive(int enemiesAlive) {
     this.enemiesAlive = enemiesAlive;
     return this;
   }
 
-  public voidious_utils_Wave setLastBulletFiredTime(long lastBulletFiredTime) {
+  public titan_utils_Wave setLastBulletFiredTime(long lastBulletFiredTime) {
     this.lastBulletFiredTime = lastBulletFiredTime;
     return this;
   }
 
-  public voidious_utils_Wave setAltWave(boolean altWave) {
+  public titan_utils_Wave setAltWave(boolean altWave) {
     this.altWave = altWave;
     return this;
   }
 
-  private voidious_utils_Wave setFiringWave(boolean firingWave) {
+  private titan_utils_Wave setFiringWave(boolean firingWave) {
     this.firingWave = firingWave;
     return this;
   }
 
-  private voidious_utils_Wave setHitByBullet(boolean hitByBullet) {
+  private titan_utils_Wave setHitByBullet(boolean hitByBullet) {
     this.hitByBullet = hitByBullet;
     return this;
   }
 
-  private voidious_utils_Wave setBulletHitBullet(boolean bulletHitBullet) {
+  private titan_utils_Wave setBulletHitBullet(boolean bulletHitBullet) {
     this.bulletHitBullet = bulletHitBullet;
     return this;
   }
@@ -9429,20 +8284,20 @@ public static class voidious_utils_Wave implements Cloneable {
 
   public double firingAngleFromTargetLocation(java.awt.geom.Point2D.Double firingTarget) {
     return robocode.util.Utils.normalAbsoluteAngle(
-        voidious_utils_DiaUtils.absoluteBearing(sourceLocation, firingTarget));
+        titan_utils_Matematica.absoluteBearing(sourceLocation, firingTarget));
   }
 
-  public java.awt.geom.Point2D.Double displacementVector(voidious_utils_RobotState waveBreakState) {
+  public java.awt.geom.Point2D.Double displacementVector(titan_utils_RobotState waveBreakState) {
     return displacementVector(waveBreakState.location, waveBreakState.time);
   }
 
   public java.awt.geom.Point2D.Double displacementVector(
       java.awt.geom.Point2D.Double botLocation, long time) {
     double vectorBearing = robocode.util.Utils.normalRelativeAngle(
-        voidious_utils_DiaUtils.absoluteBearing(targetLocation, botLocation) - effectiveHeading());
+        titan_utils_Matematica.absoluteBearing(targetLocation, botLocation) - effectiveHeading());
     double vectorDistance =
         targetLocation.distance(botLocation) / (time - fireTime);
-    return voidious_utils_DiaUtils.project(
+    return titan_utils_Matematica.project(
         ORIGIN, vectorBearing * orbitDirection, vectorDistance);
   }
 
@@ -9460,7 +8315,7 @@ public static class voidious_utils_Wave implements Cloneable {
   java.awt.geom.Point2D.Double projectLocation(java.awt.geom.Point2D.Double firingLocation,
       java.awt.geom.Point2D.Double dispVector, long extraTicks) {
     double dispAngle = effectiveHeading()
-        + (voidious_utils_DiaUtils.absoluteBearing(ORIGIN, dispVector) * orbitDirection);
+        + (titan_utils_Matematica.absoluteBearing(ORIGIN, dispVector) * orbitDirection);
     double dispDistance = ORIGIN.distance(dispVector);
 
     java.awt.geom.Point2D.Double projectedLocation = targetLocation;
@@ -9473,9 +8328,9 @@ public static class voidious_utils_Wave implements Cloneable {
     do {
       prevPrevBulletTicks = prevBulletTicks;
       prevBulletTicks = bulletTicks;
-      bulletTicks = voidious_utils_DiaUtils.bulletTicksFromSpeed(
+      bulletTicks = titan_utils_Matematica.bulletTicksFromSpeed(
           firingLocation.distance(projectedLocation), _bulletSpeed) - 1;
-      projectedLocation = voidious_utils_DiaUtils.project(targetLocation,
+      projectedLocation = titan_utils_Matematica.project(targetLocation,
           daSin, daCos, (bulletTicks + extraTicks) * dispDistance);
     } while (bulletTicks != prevBulletTicks
              && bulletTicks != prevPrevBulletTicks);
@@ -9484,7 +8339,7 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 
   public double guessFactor(java.awt.geom.Point2D.Double targetLocation) {
-    double bearingToTarget = voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation);
+    double bearingToTarget = titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation);
     return guessFactor(bearingToTarget);
   }
 
@@ -9493,18 +8348,18 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 
   public double guessAngle(java.awt.geom.Point2D.Double targetLocation) {
-    double bearingToTarget = 
-        voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation);
+    double bearingToTarget =
+        titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation);
     return guessAngle(bearingToTarget);
   }
-  
+
   public double guessAngle(double bearingToTarget) {
     return orbitDirection
         * robocode.util.Utils.normalRelativeAngle(bearingToTarget - absBearing);
   }
 
   public double guessFactorPrecise(java.awt.geom.Point2D.Double targetLocation) {
-    double newBearingToTarget = voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation);
+    double newBearingToTarget = titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation);
     return guessFactorPrecise(newBearingToTarget);
   }
 
@@ -9515,7 +8370,6 @@ public static class voidious_utils_Wave implements Cloneable {
     return guessAngle / maxEscapeAngle;
   }
 
-  
   public double preciseEscapeAngle(boolean guessFactorSign) {
     if (guessFactorSign) {
       if (_cachedPositiveEscapeAngle == null) {
@@ -9537,9 +8391,9 @@ public static class voidious_utils_Wave implements Cloneable {
         + preciseEscapeAngle(NEGATIVE_GUESSFACTOR));
   }
 
-  public voidious_utils_MaxEscapeTarget calculatePreciseEscapeAngle(
+  public titan_utils_MaxEscapeTarget calculatePreciseEscapeAngle(
       boolean positiveGuessFactor) {
-    voidious_utils_RobotState startState = voidious_utils_RobotState.newBuilder()
+    titan_utils_RobotState startState = titan_utils_RobotState.newBuilder()
         .setLocation((java.awt.geom.Point2D.Double) targetLocation.clone())
         .setHeading(targetHeading)
         .setVelocity(targetVelocity)
@@ -9557,7 +8411,7 @@ public static class voidious_utils_Wave implements Cloneable {
 
   public boolean shadowed(double firingAngle) {
     for (BulletShadow shadow : shadows) {
-      firingAngle = voidious_utils_DiaUtils.normalizeAngle(firingAngle, shadow.minAngle);
+      firingAngle = titan_utils_Matematica.normalizeAngle(firingAngle, shadow.minAngle);
       if (firingAngle >= shadow.minAngle && firingAngle <= shadow.maxAngle) {
         return true;
       }
@@ -9566,13 +8420,13 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 
   public void castShadow(java.awt.geom.Point2D.Double p1, java.awt.geom.Point2D.Double p2) {
-    castShadow(voidious_utils_DiaUtils.absoluteBearing(sourceLocation, p1),
-               voidious_utils_DiaUtils.absoluteBearing(sourceLocation, p2));
+    castShadow(titan_utils_Matematica.absoluteBearing(sourceLocation, p1),
+               titan_utils_Matematica.absoluteBearing(sourceLocation, p2));
   }
 
   private void castShadow(double shadowAngle1, double shadowAngle2) {
-    shadowAngle1 = voidious_utils_DiaUtils.normalizeAngle(shadowAngle1, absBearing);
-    shadowAngle2 = voidious_utils_DiaUtils.normalizeAngle(shadowAngle2, shadowAngle1);
+    shadowAngle1 = titan_utils_Matematica.normalizeAngle(shadowAngle1, absBearing);
+    shadowAngle2 = titan_utils_Matematica.normalizeAngle(shadowAngle2, shadowAngle1);
     double min = Math.min(shadowAngle1, shadowAngle2);
     double max = Math.max(shadowAngle1, shadowAngle2);
     shadows.add(new BulletShadow(min, max));
@@ -9584,9 +8438,9 @@ public static class voidious_utils_Wave implements Cloneable {
           if (shadow1 != shadow2 && !deadShadows.contains(shadow2)
               && shadow1.overlaps(shadow2)) {
             shadow1.minAngle = Math.min(shadow1.minAngle,
-                voidious_utils_DiaUtils.normalizeAngle(shadow2.minAngle, shadow1.minAngle));
+                titan_utils_Matematica.normalizeAngle(shadow2.minAngle, shadow1.minAngle));
             shadow1.maxAngle = Math.max(shadow1.maxAngle,
-                voidious_utils_DiaUtils.normalizeAngle(shadow2.maxAngle, shadow1.maxAngle));
+                titan_utils_Matematica.normalizeAngle(shadow2.maxAngle, shadow1.maxAngle));
             deadShadows.add(shadow2);
           }
         }
@@ -9597,13 +8451,13 @@ public static class voidious_utils_Wave implements Cloneable {
     }
   }
 
-  public double shadowFactor(voidious_utils_Wave.Intersection intersection) {
+  public double shadowFactor(titan_utils_Wave.Intersection intersection) {
     double min = intersection.angle - intersection.bandwidth;
     double max = intersection.angle + intersection.bandwidth;
     double factor = 1;
     for (BulletShadow shadow : shadows) {
-      double shadowMin = voidious_utils_DiaUtils.normalizeAngle(shadow.minAngle, min);
-      double shadowMax = voidious_utils_DiaUtils.normalizeAngle(shadow.maxAngle, shadowMin);
+      double shadowMin = titan_utils_Matematica.normalizeAngle(shadow.minAngle, min);
+      double shadowMax = titan_utils_Matematica.normalizeAngle(shadow.maxAngle, shadowMin);
       if (shadowMin <= min && shadowMax >= max) {
         return 0;
       } else if (shadowMin >= min && shadowMin <= max) {
@@ -9616,38 +8470,38 @@ public static class voidious_utils_Wave implements Cloneable {
     return factor;
   }
 
-  public Intersection preciseIntersection(java.util.List<voidious_utils_RobotState> waveBreakStates) {
+  public Intersection preciseIntersection(java.util.List<titan_utils_RobotState> waveBreakStates) {
     if (waveBreakStates == null || waveBreakStates.size() == 0) {
       return null;
     }
 
     java.util.ArrayList<Double> aimAngles = new java.util.ArrayList<Double>();
-    for (voidious_utils_RobotState waveBreakState : waveBreakStates) {
+    for (titan_utils_RobotState waveBreakState : waveBreakStates) {
       java.util.List<java.awt.geom.Point2D.Double> corners = waveBreakState.botCorners();
-      voidious_utils_geom_Circle waveStart = new voidious_utils_geom_Circle(sourceLocation.x, sourceLocation.y,
+      titan_utils_geom_Circle waveStart = new titan_utils_geom_Circle(sourceLocation.x, sourceLocation.y,
           _bulletSpeed * (waveBreakState.time - fireTime));
-      voidious_utils_geom_Circle waveEnd = new voidious_utils_geom_Circle(sourceLocation.x, sourceLocation.y,
+      titan_utils_geom_Circle waveEnd = new titan_utils_geom_Circle(sourceLocation.x, sourceLocation.y,
           _bulletSpeed * (waveBreakState.time - fireTime + 1));
 
       for (java.awt.geom.Point2D.Double corner : corners) {
         if (waveEnd.contains(corner) && !waveStart.contains(corner)) {
-          aimAngles.add(voidious_utils_DiaUtils.absoluteBearing(sourceLocation, corner));
+          aimAngles.add(titan_utils_Matematica.absoluteBearing(sourceLocation, corner));
         }
       }
 
       for (java.awt.geom.Line2D.Double side : waveBreakState.botSides()) {
-        voidious_utils_geom_LineSeg seg = new voidious_utils_geom_LineSeg(side.x1, side.y1, side.x2, side.y2);
+        titan_utils_geom_LineSeg seg = new titan_utils_geom_LineSeg(side.x1, side.y1, side.x2, side.y2);
         java.awt.geom.Point2D.Double[] intersects = waveStart.intersects(seg);
         for (int x = 0; x < intersects.length; x++) {
           if (intersects[x] != null) {
-            aimAngles.add(voidious_utils_DiaUtils.absoluteBearing(sourceLocation, intersects[x]));
+            aimAngles.add(titan_utils_Matematica.absoluteBearing(sourceLocation, intersects[x]));
           }
         }
         intersects = waveEnd.intersects(seg);
         if (intersects != null) {
           for (int x = 0; x < intersects.length; x++) {
             if (intersects[x] != null) {
-              aimAngles.add(voidious_utils_DiaUtils.absoluteBearing(sourceLocation, intersects[x]));
+              aimAngles.add(titan_utils_Matematica.absoluteBearing(sourceLocation, intersects[x]));
             }
           }
         }
@@ -9659,7 +8513,7 @@ public static class voidious_utils_Wave implements Cloneable {
     double maxAngle = normalizeReference;
 
     for (double thisAngle : aimAngles) {
-      thisAngle = voidious_utils_DiaUtils.normalizeAngle(thisAngle, normalizeReference);
+      thisAngle = titan_utils_Matematica.normalizeAngle(thisAngle, normalizeReference);
       maxAngle = Math.max(maxAngle, thisAngle);
       minAngle = Math.min(minAngle, thisAngle);
     }
@@ -9670,33 +8524,32 @@ public static class voidious_utils_Wave implements Cloneable {
     return new Intersection(centerAngle, bandwidth);
   }
 
-  public WavePosition checkWavePosition(voidious_utils_RobotState currentState) {
+  public WavePosition checkWavePosition(titan_utils_RobotState currentState) {
     return checkWavePosition(currentState, false, null);
   }
 
   public WavePosition checkWavePosition(
-      voidious_utils_RobotState currentState, boolean skipMidair) {
+      titan_utils_RobotState currentState, boolean skipMidair) {
     return checkWavePosition(currentState, skipMidair, null);
   }
 
-
   public WavePosition checkWavePosition(
-      voidious_utils_RobotState currentState, WavePosition maxPosition) {
+      titan_utils_RobotState currentState, WavePosition maxPosition) {
     return checkWavePosition(currentState, false, maxPosition);
   }
 
   public WavePosition checkWavePosition(
-      voidious_utils_RobotState currentState, boolean skipMidair, WavePosition maxPosition) {
+      titan_utils_RobotState currentState, boolean skipMidair, WavePosition maxPosition) {
     java.awt.geom.Point2D.Double location = currentState.location;
     double enemyDistSq = sourceLocation.distanceSq(location);
     double endBulletDistance = distanceTraveled(currentState.time + 1);
     if (!skipMidair && (maxPosition == WavePosition.MIDAIR
-            || enemyDistSq > voidious_utils_DiaUtils.square(endBulletDistance + MAX_BOT_RADIUS)
-            || voidious_utils_DiaUtils.distancePointToBot(sourceLocation, currentState)
+            || enemyDistSq > titan_utils_Matematica.square(endBulletDistance + MAX_BOT_RADIUS)
+            || titan_utils_Matematica.distancePointToBot(sourceLocation, currentState)
                 > endBulletDistance)) {
       return WavePosition.MIDAIR;
     } else if (maxPosition == WavePosition.BREAKING_FRONT
-               || enemyDistSq > voidious_utils_DiaUtils.square(endBulletDistance)) {
+               || enemyDistSq > titan_utils_Matematica.square(endBulletDistance)) {
       return WavePosition.BREAKING_FRONT;
     } else {
       if (maxPosition == WavePosition.BREAKING_CENTER){
@@ -9705,7 +8558,7 @@ public static class voidious_utils_Wave implements Cloneable {
       java.util.List<java.awt.geom.Point2D.Double> corners = currentState.botCorners();
       double startBulletDistance = distanceTraveled(currentState.time);
       for (java.awt.geom.Point2D.Double corner : corners) {
-        if (corner.distanceSq(sourceLocation) > voidious_utils_DiaUtils.square(startBulletDistance)) {
+        if (corner.distanceSq(sourceLocation) > titan_utils_Matematica.square(startBulletDistance)) {
           return WavePosition.BREAKING_CENTER;
         }
       }
@@ -9714,7 +8567,7 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 
   public Object clone() {
-    return new voidious_utils_Wave(botName, sourceLocation, targetLocation,
+    return new titan_utils_Wave(botName, sourceLocation, targetLocation,
         fireRound, fireTime, bulletPower(), targetHeading, targetVelocity,
         targetVelocitySign, _battleField, _predictor)
             .setAbsBearing(absBearing)
@@ -9736,22 +8589,13 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 
   public enum WavePosition {
-    /**
-     * Wave has not reached enemy at all.
-     */
+
     MIDAIR(0, false),
-    /**
-     * The wave is intersecting the enemy bot.
-     */
+
     BREAKING_FRONT(1, true),
-    /**
-     * The wave is intersecting the enemy bot and its front edge (next tick) is
-     * past its center.
-     */
+
     BREAKING_CENTER(2, true),
-    /**
-     * The wave is completely beyond the enemy bot.
-     */
+
     GONE(3, false);
 
     private final int _index;
@@ -9791,14 +8635,14 @@ public static class voidious_utils_Wave implements Cloneable {
     }
 
     public boolean overlaps(BulletShadow that) {
-      double thatMinAngle = voidious_utils_DiaUtils.normalizeAngle(that.minAngle, minAngle);
-      double thatMaxAngle = voidious_utils_DiaUtils.normalizeAngle(that.maxAngle, thatMinAngle);
+      double thatMinAngle = titan_utils_Matematica.normalizeAngle(that.minAngle, minAngle);
+      double thatMaxAngle = titan_utils_Matematica.normalizeAngle(that.maxAngle, thatMinAngle);
       return overlaps(that.minAngle) || overlaps(that.maxAngle)
           || (thatMinAngle <= minAngle && thatMaxAngle >= maxAngle);
     }
 
     private boolean overlaps(double angle) {
-      angle = voidious_utils_DiaUtils.normalizeAngle(angle, minAngle);
+      angle = titan_utils_Matematica.normalizeAngle(angle, minAngle);
       return minAngle <= angle && maxAngle >= angle;
     }
   }
@@ -9810,38 +8654,17 @@ public static class voidious_utils_Wave implements Cloneable {
   }
 }
 
-/**
- * Copyright (c) 2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_WaveManager {
+public static class titan_utils_WaveManager {
   private static final int WAVE_MATCH_THRESHOLD = 50;
   private static final double COOLING_RATE = 0.1;
   private static final double MAX_GUN_HEAT = 1.6;
 
-  private java.util.List<voidious_utils_Wave> _waves;
-  private java.util.Map<voidious_utils_Wave, voidious_utils_RobotStateLog> _stateLogs;
+  private java.util.List<titan_utils_Wave> _waves;
+  private java.util.Map<titan_utils_Wave, titan_utils_RobotStateLog> _stateLogs;
 
-  public voidious_utils_WaveManager() {
-    _waves = new java.util.ArrayList<voidious_utils_Wave>();
-    _stateLogs = new java.util.HashMap<voidious_utils_Wave, voidious_utils_RobotStateLog>();
+  public titan_utils_WaveManager() {
+    _waves = new java.util.ArrayList<titan_utils_Wave>();
+    _stateLogs = new java.util.HashMap<titan_utils_Wave, titan_utils_RobotStateLog>();
   }
 
   public void initRound() {
@@ -9849,13 +8672,13 @@ public static class voidious_utils_WaveManager {
     _stateLogs.clear();
   }
 
-  public void addWave(voidious_utils_Wave wave) {
+  public void addWave(titan_utils_Wave wave) {
     _waves.add(wave);
   }
 
   public void checkCurrentWaves(
       long currentTime, CurrentWaveListener listener) {
-    for (voidious_utils_Wave w : _waves) {
+    for (titan_utils_Wave w : _waves) {
       if (w.fireTime == currentTime) {
         listener.onCurrentWave(w);
       }
@@ -9863,20 +8686,20 @@ public static class voidious_utils_WaveManager {
   }
 
   public void forAllWaves(AllWaveListener listener) {
-    for (voidious_utils_Wave w : _waves) {
+    for (titan_utils_Wave w : _waves) {
       listener.onWave(w);
     }
   }
 
   public void checkActiveWaves(
-      long currentTime, voidious_utils_RobotState lastScanState, WaveBreakListener listener) {
+      long currentTime, titan_utils_RobotState lastScanState, WaveBreakListener listener) {
     if (lastScanState.time == currentTime) {
-      java.util.Iterator<voidious_utils_Wave> wavesIterator = _waves.iterator();
+      java.util.Iterator<titan_utils_Wave> wavesIterator = _waves.iterator();
       while (wavesIterator.hasNext()) {
-        voidious_utils_Wave w = wavesIterator.next();
+        titan_utils_Wave w = wavesIterator.next();
         addRobotState(w, lastScanState);
-        if (w.checkWavePosition(lastScanState) == voidious_utils_Wave.WavePosition.GONE) {
-          java.util.List<voidious_utils_RobotState> waveBreakStates = getWaveBreakStates(w, currentTime);
+        if (w.checkWavePosition(lastScanState) == titan_utils_Wave.WavePosition.GONE) {
+          java.util.List<titan_utils_RobotState> waveBreakStates = getWaveBreakStates(w, currentTime);
           listener.onWaveBreak(w, waveBreakStates);
           wavesIterator.remove();
         }
@@ -9884,23 +8707,23 @@ public static class voidious_utils_WaveManager {
     }
   }
 
-  void addRobotState(voidious_utils_Wave w, voidious_utils_RobotState state) {
-    voidious_utils_RobotStateLog stateLog;
+  void addRobotState(titan_utils_Wave w, titan_utils_RobotState state) {
+    titan_utils_RobotStateLog stateLog;
     if (_stateLogs.containsKey(w)) {
       stateLog = _stateLogs.get(w);
     } else {
-      stateLog = new voidious_utils_RobotStateLog();
+      stateLog = new titan_utils_RobotStateLog();
       _stateLogs.put(w, stateLog);
     }
     stateLog.addState(state);
   }
 
-  java.util.List<voidious_utils_RobotState> getWaveBreakStates(voidious_utils_Wave w, long currentTime) {
-    java.util.List<voidious_utils_RobotState> waveBreakStates = new java.util.ArrayList<voidious_utils_RobotState>();
+  java.util.List<titan_utils_RobotState> getWaveBreakStates(titan_utils_Wave w, long currentTime) {
+    java.util.List<titan_utils_RobotState> waveBreakStates = new java.util.ArrayList<titan_utils_RobotState>();
     if (_stateLogs.containsKey(w)) {
-      voidious_utils_RobotStateLog log = _stateLogs.get(w);
+      titan_utils_RobotStateLog log = _stateLogs.get(w);
       for (long time = w.fireTime; time < currentTime; time++) {
-        voidious_utils_RobotState state = log.getState(time);
+        titan_utils_RobotState state = log.getState(time);
         if (state != null && w.checkWavePosition(state).isBreaking()) {
           waveBreakStates.add(state);
         }
@@ -9909,22 +8732,22 @@ public static class voidious_utils_WaveManager {
     return waveBreakStates;
   }
 
-  public voidious_utils_Wave findClosestWave(java.awt.geom.Point2D.Double targetLocation, long currentTime,
+  public titan_utils_Wave findClosestWave(java.awt.geom.Point2D.Double targetLocation, long currentTime,
       boolean onlyFiring, String botName, double bulletPower) {
     double closestDistance = Double.POSITIVE_INFINITY;
-    voidious_utils_Wave closestWave = null;
+    titan_utils_Wave closestWave = null;
 
-    for (voidious_utils_Wave w : _waves) {
+    for (titan_utils_Wave w : _waves) {
       if (!w.altWave && (!onlyFiring || w.firingWave)
-          && (bulletPower == voidious_utils_Wave.ANY_BULLET_POWER
+          && (bulletPower == titan_utils_Wave.ANY_BULLET_POWER
               || Math.abs(bulletPower - w.bulletPower()) < 0.001)
           && (botName == null || botName.equals(w.botName)
               || botName.equals(""))) {
         double targetDistanceSq = w.sourceLocation.distanceSq(targetLocation);
         double waveDistanceTraveled = w.distanceTraveled(currentTime);
-        if (targetDistanceSq < voidious_utils_DiaUtils.square(
+        if (targetDistanceSq < titan_utils_Matematica.square(
                 waveDistanceTraveled + WAVE_MATCH_THRESHOLD)
-            && targetDistanceSq > voidious_utils_DiaUtils.square(
+            && targetDistanceSq > titan_utils_Matematica.square(
                 Math.max(0, waveDistanceTraveled - WAVE_MATCH_THRESHOLD))) {
           double distanceFromTargetToWave =
               Math.sqrt(targetDistanceSq) - waveDistanceTraveled;
@@ -9939,13 +8762,13 @@ public static class voidious_utils_WaveManager {
     return closestWave;
   }
 
-  public voidious_utils_Wave findSurfableWave(
-      int surfIndex, voidious_utils_RobotState targetState, voidious_utils_Wave.WavePosition unsurfablePosition) {
+  public titan_utils_Wave findSurfableWave(
+      int surfIndex, titan_utils_RobotState targetState, titan_utils_Wave.WavePosition unsurfablePosition) {
     if (surfIndex < 0) return null;
-    // A later, faster projectile can arrive before an earlier, slower shot.
-    java.util.List<voidious_utils_Wave> first = new java.util.ArrayList<voidious_utils_Wave>();
+
+    java.util.List<titan_utils_Wave> first = new java.util.ArrayList<titan_utils_Wave>();
     java.util.List<Double> times = new java.util.ArrayList<Double>();
-    for (voidious_utils_Wave w : _waves) {
+    for (titan_utils_Wave w : _waves) {
       if (!w.firingWave || w.processedBulletHit()
           || w.checkWavePosition(targetState, unsurfablePosition).getIndex()
               >= unsurfablePosition.getIndex()) continue;
@@ -9964,12 +8787,12 @@ public static class voidious_utils_WaveManager {
     return first.size() > surfIndex ? first.get(surfIndex) : null;
   }
 
-  public voidious_utils_Wave getPastWave(int x) {
+  public titan_utils_Wave getPastWave(int x) {
     return _waves.get(_waves.size() - 1 - x);
   }
 
-  public voidious_utils_Wave getWaveByFireTime(long fireTime) {
-    for (voidious_utils_Wave w : _waves) {
+  public titan_utils_Wave getWaveByFireTime(long fireTime) {
+    for (titan_utils_Wave w : _waves) {
       if (w.fireTime == fireTime) {
         return w;
       }
@@ -9977,12 +8800,12 @@ public static class voidious_utils_WaveManager {
     return null;
   }
 
-  public voidious_utils_Wave interpolateWaveByFireTime(long fireTime, long currentTime,
-      double sourceHeading, double sourceVelocity, voidious_utils_RobotStateLog stateLog,
-      voidious_utils_BattleField battleField, voidious_utils_MovementPredictor predictor) {
-    voidious_utils_Wave beforeWave = null;
-    voidious_utils_Wave afterWave = null;
-    for (voidious_utils_Wave w : _waves) {
+  public titan_utils_Wave interpolateWaveByFireTime(long fireTime, long currentTime,
+      double sourceHeading, double sourceVelocity, titan_utils_RobotStateLog stateLog,
+      titan_utils_BattleField battleField, titan_utils_MovementPredictor predictor) {
+    titan_utils_Wave beforeWave = null;
+    titan_utils_Wave afterWave = null;
+    for (titan_utils_Wave w : _waves) {
       if (!w.altWave) {
         if (w.fireTime < fireTime) {
           if (beforeWave == null || w.fireTime > beforeWave.fireTime) {
@@ -10011,10 +8834,10 @@ public static class voidious_utils_WaveManager {
     }
   }
 
-  private voidious_utils_Wave interpolateWave(voidious_utils_Wave baseWave1, voidious_utils_Wave baseWave2, long fireTime,
-      voidious_utils_RobotStateLog stateLog, voidious_utils_BattleField battleField,
-      voidious_utils_MovementPredictor predictor) {
-    voidious_utils_Interpolator interpolator = new voidious_utils_Interpolator(
+  private titan_utils_Wave interpolateWave(titan_utils_Wave baseWave1, titan_utils_Wave baseWave2, long fireTime,
+      titan_utils_RobotStateLog stateLog, titan_utils_BattleField battleField,
+      titan_utils_MovementPredictor predictor) {
+    titan_utils_Interpolator interpolator = new titan_utils_Interpolator(
         fireTime, baseWave1.fireTime, baseWave2.fireTime);
 
     java.awt.geom.Point2D.Double sourceLocation = interpolator.getLocation(
@@ -10028,13 +8851,13 @@ public static class voidious_utils_WaveManager {
     double targetVelocity =
         interpolator.avg(baseWave1.targetVelocity, baseWave2.targetVelocity);
     int targetVelocitySign;
-    if (voidious_utils_DiaUtils.nonZeroSign(targetVelocity)
-            == voidious_utils_DiaUtils.nonZeroSign(baseWave1.targetVelocity)) {
+    if (titan_utils_Matematica.nonZeroSign(targetVelocity)
+            == titan_utils_Matematica.nonZeroSign(baseWave1.targetVelocity)) {
       targetVelocitySign = baseWave1.targetVelocitySign;
     } else {
       targetVelocitySign = baseWave2.targetVelocitySign;
     }
-    // TODO: not sure this is the best way to interpolate accel
+
     double targetAccel =
         interpolator.avg(baseWave1.targetAccel, baseWave2.targetAccel);
     long targetDchangeTime = interpolator.getTimer(
@@ -10053,7 +8876,7 @@ public static class voidious_utils_WaveManager {
         interpolator.avg(baseWave1.sourceEnergy, baseWave2.sourceEnergy);
 
     long lastBulletFiredTime = baseWave1.lastBulletFiredTime;
-    double gunHeat = 
+    double gunHeat =
         baseWave1.gunHeat - ((fireTime - baseWave1.fireTime) * COOLING_RATE);
     if (gunHeat <= 0) {
       lastBulletFiredTime = baseWave1.fireTime
@@ -10063,11 +8886,11 @@ public static class voidious_utils_WaveManager {
           % MAX_GUN_HEAT;
     }
 
-    return new voidious_utils_Wave(baseWave1.botName, sourceLocation, targetLocation,
+    return new titan_utils_Wave(baseWave1.botName, sourceLocation, targetLocation,
         baseWave1.fireRound, fireTime, bulletPower, targetHeading,
         targetVelocity, targetVelocitySign, battleField, predictor)
             .setAbsBearing(
-                voidious_utils_DiaUtils.absoluteBearing(sourceLocation, targetLocation))
+                titan_utils_Matematica.absoluteBearing(sourceLocation, targetLocation))
             .setAccel(targetAccel)
             .setDistance(sourceLocation.distance(targetLocation))
             .setDchangeTime(targetDchangeTime)
@@ -10082,16 +8905,16 @@ public static class voidious_utils_WaveManager {
             .setLastBulletFiredTime(lastBulletFiredTime);
   }
 
-  private voidious_utils_Wave interpolateWave(voidious_utils_Wave baseWave, long timeOffset,
-      double sourceHeading, double sourceVelocity, voidious_utils_BattleField battleField) {
-    voidious_utils_Wave w = (voidious_utils_Wave) baseWave.clone();
+  private titan_utils_Wave interpolateWave(titan_utils_Wave baseWave, long timeOffset,
+      double sourceHeading, double sourceVelocity, titan_utils_BattleField battleField) {
+    titan_utils_Wave w = (titan_utils_Wave) baseWave.clone();
     w.sourceLocation = battleField.translateToField(
-        voidious_utils_DiaUtils.project(baseWave.sourceLocation, sourceHeading,
+        titan_utils_Matematica.project(baseWave.sourceLocation, sourceHeading,
             sourceVelocity * timeOffset));
     w.targetLocation = battleField.translateToField(
-        voidious_utils_DiaUtils.project(baseWave.targetLocation, baseWave.targetHeading,
+        titan_utils_Matematica.project(baseWave.targetLocation, baseWave.targetHeading,
             baseWave.targetVelocity * timeOffset));
-    w.absBearing = voidious_utils_DiaUtils.absoluteBearing(w.sourceLocation, w.targetLocation);
+    w.absBearing = titan_utils_Matematica.absoluteBearing(w.sourceLocation, w.targetLocation);
     w.fireTime = w.fireTime + timeOffset;
     w.targetDistance = w.sourceLocation.distance(w.targetLocation);
     return w;
@@ -10099,7 +8922,7 @@ public static class voidious_utils_WaveManager {
 
   public long getLastFireTime() {
     long lastFireTime = -1;
-    for (voidious_utils_Wave w : _waves) {
+    for (titan_utils_Wave w : _waves) {
       if (!w.altWave && w.fireTime > lastFireTime) {
         lastFireTime = w.fireTime;
       }
@@ -10112,45 +8935,24 @@ public static class voidious_utils_WaveManager {
   }
 
   public interface CurrentWaveListener {
-    void onCurrentWave(voidious_utils_Wave w);
+    void onCurrentWave(titan_utils_Wave w);
   }
 
   public interface WaveBreakListener {
-    void onWaveBreak(voidious_utils_Wave w, java.util.List<voidious_utils_RobotState> waveBreakStates);
+    void onWaveBreak(titan_utils_Wave w, java.util.List<titan_utils_RobotState> waveBreakStates);
   }
 
   public interface AllWaveListener {
-    void onWave(voidious_utils_Wave w);
+    void onWave(titan_utils_Wave w);
   }
 }
 
-/**
- * Copyright (c) 2011-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-public static class voidious_utils_genetic_DnaSequence {
+public static class titan_utils_genetic_DnaSequence {
   protected java.util.ArrayList<Gene> _geneLayout;
   protected java.util.HashMap<String, Gene> _geneMap;
   protected int _length = 0;
 
-  public voidious_utils_genetic_DnaSequence(java.util.ArrayList<Gene> genes) {
+  public titan_utils_genetic_DnaSequence(java.util.ArrayList<Gene> genes) {
     _geneLayout = new java.util.ArrayList<Gene>();
     _geneMap = new java.util.HashMap<String, Gene>();
 
@@ -10161,13 +8963,12 @@ public static class voidious_utils_genetic_DnaSequence {
     }
   }
 
-  public voidious_utils_genetic_DnaSequence() {
+  public titan_utils_genetic_DnaSequence() {
     this(null);
   }
 
   public void addGene(Gene gene) {
-    // TODO: handle existing Gene with this name somehow
-    //       replace it? throw exception? overwrite it? delete/clear Genes?
+
     _geneMap.put(gene.name, gene);
     _geneLayout.add(gene);
     gene.position = _length;
@@ -10276,31 +9077,9 @@ public static class voidious_utils_genetic_DnaSequence {
   }
 }
 
-/**
- * Copyright (c) 2011-2012 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
+public static class titan_utils_genetic_DnaString implements Cloneable {
 
-public static class voidious_utils_genetic_DnaString implements Cloneable {
-  // TODO: allow for a "header" that doesn't change with evolution. info about
-  //     structure of DnaSequence
-  protected voidious_utils_genetic_DnaSequence _dnaSequence;
+  protected titan_utils_genetic_DnaSequence _dnaSequence;
   protected java.util.BitSet _bits;
   protected int _sourceType;
 
@@ -10312,7 +9091,7 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   public static final String[] sourceTypes =
       new String[]{"Random", "Mutated", "Crossed", "Seeded", "Survived"};
 
-  public voidious_utils_genetic_DnaString(voidious_utils_genetic_DnaSequence dnaSequence, java.util.BitSet bits, int sourceType) {
+  public titan_utils_genetic_DnaString(titan_utils_genetic_DnaSequence dnaSequence, java.util.BitSet bits, int sourceType) {
     _dnaSequence = dnaSequence;
     if (bits == null) {
       _bits = new java.util.BitSet(dnaSequence.length());
@@ -10322,23 +9101,23 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
     _sourceType = sourceType;
   }
 
-  public voidious_utils_genetic_DnaString(voidious_utils_genetic_DnaSequence dnaSequence, String numString, int sourceType) {
+  public titan_utils_genetic_DnaString(titan_utils_genetic_DnaSequence dnaSequence, String numString, int sourceType) {
     this(dnaSequence, parseString(numString, dnaSequence.length()), sourceType);
   }
 
-  public voidious_utils_genetic_DnaString(voidious_utils_genetic_DnaSequence dnaSequence, java.util.BitSet bits) {
+  public titan_utils_genetic_DnaString(titan_utils_genetic_DnaSequence dnaSequence, java.util.BitSet bits) {
     this(dnaSequence, bits, SEEDED);
   }
 
-  public voidious_utils_genetic_DnaString(voidious_utils_genetic_DnaSequence dnaSequence, String numString) {
+  public titan_utils_genetic_DnaString(titan_utils_genetic_DnaSequence dnaSequence, String numString) {
     this(dnaSequence, numString, SEEDED);
   }
 
-  public voidious_utils_genetic_DnaString(voidious_utils_genetic_DnaSequence dnaSequence) {
+  public titan_utils_genetic_DnaString(titan_utils_genetic_DnaSequence dnaSequence) {
     this(dnaSequence, new java.util.BitSet(dnaSequence.length()));
   }
 
-  public voidious_utils_genetic_DnaSequence getDnaSequence() {
+  public titan_utils_genetic_DnaSequence getDnaSequence() {
     return _dnaSequence;
   }
 
@@ -10359,54 +9138,54 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public void setBit(String geneName, boolean value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.BIT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.BIT);
     _bits.set(g.position, value);
   }
 
   public void setByte(String geneName, byte value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.BYTE);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.BYTE);
     set(g.negatives ? g.position : g.position + 1, value,
         g.negatives ? g.size : g.size - 1, g.negatives);
   }
 
   public void setShort(String geneName, short value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.SHORT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.SHORT);
     set(g.negatives ? g.position : g.position + 1, value,
         g.negatives ? g.size : g.size - 1, g.negatives);
   }
 
   public void setInt(String geneName, int value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.INTEGER);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.INTEGER);
     set(g.negatives ? g.position : g.position + 1, value,
         g.negatives ? g.size : g.size - 1, g.negatives);
   }
 
   public void setLong(String geneName, long value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.LONG);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.LONG);
     set(g.negatives ? g.position : g.position + 1, value,
         g.negatives ? g.size : g.size - 1, g.negatives);
   }
 
   public void setFloat(String geneName, float value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.FLOAT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.FLOAT);
     set(g.position, Float.floatToIntBits(value), g.size, true);
   }
 
   public void setDouble(String geneName, double value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.DOUBLE);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.DOUBLE);
     set(g.position, Double.doubleToLongBits(value), g.size, true);
   }
 
   public void setNumber(String geneName, long value) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.NUMBER);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.NUMBER);
     set(g.position, value, g.size, g.negatives);
   }
 
@@ -10429,14 +9208,14 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public boolean getBit(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.BIT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.BIT);
     return _bits.get(g.position);
   }
 
   public byte getByte(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.BYTE);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.BYTE);
     long value = get(g.negatives ? g.position : g.position + 1,
                      g.negatives ? g.size : g.size - 1, g.negatives);
     if (g.max != Long.MAX_VALUE) {
@@ -10446,8 +9225,8 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public short getShort(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.SHORT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.SHORT);
     long value = get(g.negatives ? g.position : g.position + 1,
                      g.negatives ? g.size : g.size - 1, g.negatives);
     if (g.max != Long.MAX_VALUE) {
@@ -10457,8 +9236,8 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public int getInt(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.INTEGER);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.INTEGER);
     long value = get(g.negatives ? g.position : g.position + 1,
                      g.negatives ? g.size : g.size - 1, g.negatives);
     if (g.max != Long.MAX_VALUE)
@@ -10467,8 +9246,8 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public long getLong(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.LONG);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.LONG);
     long value = get(g.negatives ? g.position : g.position + 1,
                      g.negatives ? g.size : g.size - 1, g.negatives);
     if (g.max != Long.MAX_VALUE) {
@@ -10478,8 +9257,8 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public long getNumber(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.NUMBER);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.NUMBER);
     long value = get(g.position, g.size, g.negatives);
     if (g.max != Long.MAX_VALUE) {
       value = (long) (value % (g.max + 1));
@@ -10488,11 +9267,11 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public float getFloat(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.FLOAT);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.FLOAT);
     float f = Float.intBitsToFloat((int) (get(g.position, g.size, true)));
     if (!g.negatives && f < 0) {
-      f *= -1; // TODO: this doesn't seem good.
+      f *= -1;
     }
     if (g.max != Long.MAX_VALUE) {
       f = f % g.max;
@@ -10501,11 +9280,11 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public double getDouble(String geneName) {
-    voidious_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
-    checkGeneType(g, voidious_utils_genetic_DnaSequence.GeneType.DOUBLE);
+    titan_utils_genetic_DnaSequence.Gene g = _dnaSequence.getGene(geneName);
+    checkGeneType(g, titan_utils_genetic_DnaSequence.GeneType.DOUBLE);
     double d = Double.longBitsToDouble(((get(g.position, g.size, true))));
     if (!g.negatives && d < 0) {
-      d *= -1; // TODO: this doesn't seem good.
+      d *= -1;
     }
     if (g.max != Long.MAX_VALUE) {
       d = d % g.max;
@@ -10532,15 +9311,15 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
     return value;
   }
 
-  private void checkGeneType(voidious_utils_genetic_DnaSequence.Gene g, voidious_utils_genetic_DnaSequence.GeneType type) {
+  private void checkGeneType(titan_utils_genetic_DnaSequence.Gene g, titan_utils_genetic_DnaSequence.GeneType type) {
     if (g.type != type) {
       throw new GeneTypeException("Gene " + g.name + " is not a "
           + type.name().toLowerCase() + "!");
     }
   }
 
-  public static voidious_utils_genetic_DnaString mutate(voidious_utils_genetic_DnaString string, double mutationRate) {
-    voidious_utils_genetic_DnaSequence sequence = string.getDnaSequence();
+  public static titan_utils_genetic_DnaString mutate(titan_utils_genetic_DnaString string, double mutationRate) {
+    titan_utils_genetic_DnaSequence sequence = string.getDnaSequence();
     boolean altered = false;
     java.util.BitSet bits = (java.util.BitSet)string.getBitSet().clone();
     for (int x = 0; x < sequence.length(); x++) {
@@ -10549,18 +9328,18 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
         altered = true;
       }
     }
-    return new voidious_utils_genetic_DnaString(sequence, bits,
+    return new titan_utils_genetic_DnaString(sequence, bits,
       (altered ? MUTATED : string.getSourceType()));
   }
 
-  public static voidious_utils_genetic_DnaString random(voidious_utils_genetic_DnaSequence dnaSequence) {
+  public static titan_utils_genetic_DnaString random(titan_utils_genetic_DnaSequence dnaSequence) {
     java.util.BitSet bits = new java.util.BitSet(dnaSequence.length());
     for (int x = 0; x < dnaSequence.length(); x++) {
       if (Math.random() < 0.5) {
         bits.set(x);
       }
     }
-    return new voidious_utils_genetic_DnaString(dnaSequence, bits, RANDOM);
+    return new titan_utils_genetic_DnaString(dnaSequence, bits, RANDOM);
   }
 
   public String bitString() {
@@ -10636,15 +9415,15 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 
   public Object clone() {
-    return new voidious_utils_genetic_DnaString(_dnaSequence, _bits, _sourceType);
+    return new titan_utils_genetic_DnaString(_dnaSequence, _bits, _sourceType);
   }
 
   public boolean equals(Object o) {
-    if (!(o instanceof voidious_utils_genetic_DnaString)) {
+    if (!(o instanceof titan_utils_genetic_DnaString)) {
       return false;
     }
 
-    voidious_utils_genetic_DnaString that = (voidious_utils_genetic_DnaString)o;
+    titan_utils_genetic_DnaString that = (titan_utils_genetic_DnaString)o;
 
     if (this.getDnaSequence() != that.getDnaSequence()) {
       return false;
@@ -10655,8 +9434,8 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
     }
 
     boolean same = true;
-    java.util.ArrayList<voidious_utils_genetic_DnaSequence.Gene> geneLayout = getDnaSequence().getGeneLayout();
-    for (voidious_utils_genetic_DnaSequence.Gene g : geneLayout) {
+    java.util.ArrayList<titan_utils_genetic_DnaSequence.Gene> geneLayout = getDnaSequence().getGeneLayout();
+    for (titan_utils_genetic_DnaSequence.Gene g : geneLayout) {
       switch (g.type) {
         case BIT:
           same = same && (this.getBit(g.name) == that.getBit(g.name));
@@ -10695,9 +9474,9 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    java.util.ArrayList<voidious_utils_genetic_DnaSequence.Gene> geneLayout = _dnaSequence.getGeneLayout();
+    java.util.ArrayList<titan_utils_genetic_DnaSequence.Gene> geneLayout = _dnaSequence.getGeneLayout();
     boolean newLine = false;
-    for (voidious_utils_genetic_DnaSequence.Gene g : geneLayout) {
+    for (titan_utils_genetic_DnaSequence.Gene g : geneLayout) {
       if (newLine) {
         sb.append("\n");
       }
@@ -10734,48 +9513,26 @@ public static class voidious_utils_genetic_DnaString implements Cloneable {
   }
 }
 
-/*
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-// (x-h)^2 + (y-k)^2 = r^2
-public static class voidious_utils_geom_Circle {
+public static class titan_utils_geom_Circle {
     public double h;
     public double k;
     public double r;
 
-    public voidious_utils_geom_Circle(double x, double y, double r) {
+    public titan_utils_geom_Circle(double x, double y, double r) {
         this.h = x;
         this.k = y;
         this.r = r;
     }
 
-    public voidious_utils_geom_Circle(java.awt.geom.Point2D.Double p, double r) {
+    public titan_utils_geom_Circle(java.awt.geom.Point2D.Double p, double r) {
         this(p.x, p.y, r);
     }
 
-    public java.awt.geom.Point2D.Double[] intersects(voidious_utils_geom_LineSeg seg) {
+    public java.awt.geom.Point2D.Double[] intersects(titan_utils_geom_LineSeg seg) {
         return intersects(seg, false);
     }
 
-    public java.awt.geom.Point2D.Double[] intersects(voidious_utils_geom_LineSeg seg, boolean inverted) {
+    public java.awt.geom.Point2D.Double[] intersects(titan_utils_geom_LineSeg seg, boolean inverted) {
         double a = (seg.m * seg.m) + 1;
         double b = 2 * ((seg.b * seg.m) - (k * seg.m) - h);
         double c = (h * h) + (k * k) + (seg.b * seg.b) - (2 * seg.b * k) - (r * r);
@@ -10784,9 +9541,9 @@ public static class voidious_utils_geom_Circle {
         int i = 0;
 
         if (a == Double.POSITIVE_INFINITY) {
-            voidious_utils_geom_LineSeg invSeg = new voidious_utils_geom_LineSeg(seg.y1, seg.x1, seg.y2, seg.x2);
-            voidious_utils_geom_Circle invCircle = new voidious_utils_geom_Circle(k, h, r);
-            java.awt.geom.Point2D.Double[] invSolutions = 
+            titan_utils_geom_LineSeg invSeg = new titan_utils_geom_LineSeg(seg.y1, seg.x1, seg.y2, seg.x2);
+            titan_utils_geom_Circle invCircle = new titan_utils_geom_Circle(k, h, r);
+            java.awt.geom.Point2D.Double[] invSolutions =
                 invCircle.intersects(invSeg, true);
 
             for (int x = 0; x < invSolutions.length; x++) {
@@ -10825,34 +9582,12 @@ public static class voidious_utils_geom_Circle {
     }
 
     public boolean contains(java.awt.geom.Point2D.Double p) {
-        double z = voidious_utils_DiaUtils.square(p.x - h) + voidious_utils_DiaUtils.square(p.y - k);
+        double z = titan_utils_Matematica.square(p.x - h) + titan_utils_Matematica.square(p.y - k);
         return (z < r * r);
     }
 }
 
-/**
- * Copyright (c) 2009-2011 - Voidious
- *
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- *
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- *
- *    1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software.
- *
- *    2. Altered source versions must be plainly marked as such, and must not be
- *    misrepresented as being the original software.
- *
- *    3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-// y = mx + b
-public static class voidious_utils_geom_LineSeg {
+public static class titan_utils_geom_LineSeg {
   public double m;
   public double b;
   public double xMin;
@@ -10864,7 +9599,7 @@ public static class voidious_utils_geom_LineSeg {
   public double x2;
   public double y2;
 
-  public voidious_utils_geom_LineSeg(double x1, double y1, double x2, double y2) {
+  public titan_utils_geom_LineSeg(double x1, double y1, double x2, double y2) {
     if (x1 == x2) {
       m = Double.POSITIVE_INFINITY;
       b = Double.NaN;
@@ -10884,16 +9619,16 @@ public static class voidious_utils_geom_LineSeg {
     this.y2 = y2;
   }
 
-  public voidious_utils_geom_LineSeg(java.awt.geom.Point2D.Double p1, java.awt.geom.Point2D.Double p2) {
+  public titan_utils_geom_LineSeg(java.awt.geom.Point2D.Double p1, java.awt.geom.Point2D.Double p2) {
     this(p1.x, p1.y, p2.x, p2.y);
   }
 
-  public java.awt.geom.Point2D.Double intersects(voidious_utils_geom_LineSeg seg) {
+  public java.awt.geom.Point2D.Double intersects(titan_utils_geom_LineSeg seg) {
     if (m == seg.m || (b == Double.NaN && seg.b == Double.NaN)) {
       return null;
     } else if (b == Double.NaN || seg.b == Double.NaN) {
-      voidious_utils_geom_LineSeg seg1 = new voidious_utils_geom_LineSeg(y1, x1, y2, x2);
-      voidious_utils_geom_LineSeg seg2 = new voidious_utils_geom_LineSeg(seg.y1, seg.x1, seg.y2, seg.x2);
+      titan_utils_geom_LineSeg seg1 = new titan_utils_geom_LineSeg(y1, x1, y2, x2);
+      titan_utils_geom_LineSeg seg2 = new titan_utils_geom_LineSeg(seg.y1, seg.x1, seg.y2, seg.x2);
       java.awt.geom.Point2D.Double inverse = seg1.intersects(seg2);
       return new java.awt.geom.Point2D.Double(inverse.y, inverse.x);
     }
@@ -10904,8 +9639,6 @@ public static class voidious_utils_geom_LineSeg {
   }
 }
 
-
-  // Titan neural GuessFactor guns: original implementation for this project.
   private static final boolean EXPORT_NEURAL_SAMPLES = false;
   private static final String NEURAL_INITIAL = "Tk5HMQAAAA0AAAAUAAAAPT8eqUO+tn+jvbceY76Co2S9rVgIPjwvdz6KR/I903FaPn3tur67LEM+wQqNvqqCaT8ZlHi+dQ7NPvN1rr8Mf2M+5G0vvrz8Y78YGKm+gcA2PhFqMjwhDqa+J5mMvQ1zTz4gO10/R6VlPpI9Uzz9Vn+9Er2+vqkpgb5uJrm+CBYLvx/oYj6YSVM/DaNlvsb/NbyrV/U+Df4CPWkPtz12Ixw+A2SNvnk/Ib5OeHw+1hCjPhSsuz363/q+v/SbvttSFr6MyqE+JOBPvt87oj4N2pC8iD/kvj7Mxjw10fk+OjNlPKocIr8uNrU/HwpIvnOd3b8Yfai+eT3YvYI4JT6Yw3e9+Dk0vgwyCb5xe8q9g0R1PpnsFj1ERG8/GswYPgwNez5MJvQ544dXPhXMOj6CQWU+SJIYPSSr6j6A3/++rmCFvrTq5r16yqc+rLIgvj5jf74G8Rs+f3aTPtZ33T12Sr68ALTgPz/mNr2tTDy+maFxPomXar3EDhU+ZkJQvjgteD4Y9ae+NXP2vYdYYb4Du4s9FOnhvIGUOT58IVI+vo5bPo8gm76ZtFi9yLLJwAgfl75/pw0+lxmLvmf9Ojz6Coe+yZE3vt9dyD9B4v8+m65UP0lo8z6MK348gCP7vgLBSz2smlK+Ab8oPi5tpT4fKsc+IFz3vktDx71U9wS+EgYUvzc3Cr6K0q6/BH45PhY5vryFOQs+joBCPRlshD5cTkG/B7hSvuTX1r0x9Yo82tH6PweF4D4bCls/DUnbPiIxGb4kezw8g5/pPRUmnL6nSCc+5i5YPfiFJ76Q76e9jmS/PgOz/LvLVTM9Fdttvxapuz6VZcq+pzvbPvvper9Cjek/BUtePkNvN75gtES+jlD4vwwqCz4httC9hsIwPQJH9L6ZfOG81feLPjW17Tynyfy8X0EAvrZS2b07Ha089r3WvQteGTzRYjW83oXBPU9ckD6RGAc9uBO9vq8P4D5Y0Lm+ihV/PpzzqL676H6/GeM8vpBKRb34ISq+mYffPy/NBj2Ky3M9iriqPSw3az43lam+6ue+vxxM/r7Lrmc+GiknPZk/eT8tsFW+6NfdvUCLOD1k2LE+m/qVPilsrr60Gdy+QcUlPgv5YL6T26+/HYRJvrH9pz26KgK9EE3QPhurAr6pkT8+jrnpPWpVmb03Vxk+mr+bvZmoor7u22o9yH2aPkBHhr5IVBG+u/Y6vqOgDr0jCoQ90cdOvVb3ST6tBIe+nK/MPveDDD3j9vW+YZFvviVTTD2Bbfw+e4xDvXtBCD8V5cw+PtlbvjX6br4iGhU9ymYSvhivyLzgbE2+7kYKvh/B4L7JIUA+IsKSvaxItz8TBk++JC6QPsVh8T8Um7o+8iOWPmG7Pr4rfcy+yu1/Psb25zwuK/E+ygWxPiVTQ74hkua9gdGOvQfMi70Zmqe/FK5vPp7ipr6DplK+JHqevrYJtz10RWi+gqRKPux/pz4xRes9z9FbPYqCDD5OWi69oj6qPsKw074NAkW93kVgPkCyqb5D0N++1uYPvnoxyTyxHhY+a2kOvmLddz714bQ9Vg9ZPlK96z6Ax0Q/F3cGPsz3Z76ZxZ6+QVqQPmmhGb4uN+W95o0JPmXcT73I+OO9i76LPmLGd74t03a+1cqLvowzMbxbR2c+cRRUvoNI4z6gBTM9jeYGPlQHoT4drxE++IB0Pqa91b6uK7W+Ik3NPkVbHb39Rwe9qfQpPnp7ob2soZi9JfVDPfCSVr4yRAO+z16/vorR8L09TWo+K8HrvkdaXT6RQ9G79AOmPkm8Zj5m4EA+zdYJPszqLL4H/Tu+IHqMPpU0or2pDZm9czDYPfnfkLzSpz67mJ2YPluveL5UbDK+uUZAvq/j1ry6sG4+h1mHvh+5yT6SF7+9XOjpPmB0nT5X16I+qST4PqLmc74O65i9wEghPoCwt718P3i9jyE9Pg17ID0zi7M9/JAzPhTvGr5I3yO+jX1+vs7GHrt1Czo+idivvcAo/T6sIju7V45ZPgzEjj6gkPY+i4lQPqCLTL2lY3++JfnGPmhJJr2ZSfS8i5R4Pav1/j2k2mM9qdY3Pjqa0b5AZLS+hiOUvukAvLyr2Vo+n9jIvAl6rT6UFaW8P0T7PaCDgT6ZQ+Q+dzwZPqEVsbzFaxy+BxV5PoWECL3d1JO8RzvKPTQbLT4FoKw9WLKJPjMOnr5gBF6+bCCKvtl+srzbtvU+YOjgPB9vdT5MsaK816fUPbWTDD6p2Sk+VGStPtAECj1WpNu+VLmsPilkU73dras9n0s1PN5mmj3J2309o42dPiYPOb58LnO95OYHvt8Tkr1fwHo+sa4rvUAwEj42g/g8xt+OPd19lD6jlJU+KYXHPqQXvr1qcme+NhwGPIV/U72a7jY6xryvvKuuPz2ibH+7HsT2Pl9Hfb4PzlS9vvD4vtfgQr4MFCk+l7JovTrL+j4BiBm8E6iTPMZYyD6Kv2U93PmsPpDDU72E2Si+GXQEPhUZML3cCXS9SHiPu7azDD0RqFY8IUTEPZpeaL37QoS9CyStvtVZ673uL5A+t3tgvQdAVztqtgc92agVvO1nIz5HZ/M9zYpFPnIsI72hOM6+gL+RPb42WL3mv2i83uD2vOiJ2T0PnkE9JncJPWNVZ70sbmA8uYYlvtIYd73JizQ+1ax6vVBOYT2LCt87wqfSPPdRSz44FUk9459TPh7IMr3A7h++MOZ9PiZV3b2jzXu9X4o3vc1U1Tz71Jk9NaHBvHbzzbwEx2Y8iZb4vsu6Lr4ss30+o4tEvSzDYr2SI8U97TjVvWX7fT4ZStQ9ixHRPbpigb4yQeC+Yin6PigDQ731lOG8xQnzvgbP2DyXFYG9IpbIvTYPPz0mmMI9xHZqvtFVEL5FHtY+skeSvcGrab2EkHo9NoixPZ/+ET3EHLk97/n/PYmn8L4Uib2+IUjgPhd0K72lfGM800xkvhCbkro09He9vJWKvgUzoD0D6ME8O6HlvuDni74xe5A+nbiZvSM1L744Ii88uLT9PPdwDj3RB4o987/yu7kJeL4go4q+d7ywPiBih72xOvs8rdcovkO8sDt+C2m9a/GFvg/SbjzGHRY9o/yYvshoH74gOyk+oGOJvT8PBL5a1Zi9oM1vPYdeFrypNOQ97iLDPPq1Hb6Lv+O+diGFPcHcAL25Oeg8UaNZvh751T04xya98e7BvhzAJD0ib568hnSAvtkK774rirc+ux1rvZ9k3b5ujQ+86ofgvICSbz0vcmw9+cK4vP7x1r5kl9++E++KPg//wb1HKM08m+2/vdb17j1CwLK9wBwyvii1pz3Ioqq9k2H2vtTaYb5NRHA+scKnvcUQjb500vq9tzT3vMOXIz3NbCY9oMnyvOFJWr5nTeK9zUFePb9n+r0EV1M9ozXkvgGcez1TGVS9FW9kvlNSGLy2bHo9lQq1vrLkSL4413s+y9r7vYWGmb5BV9u9RF32vQ1xfDy0qwk95n4zOk36176MKju+Bx3TPaQNczy5Dbg9tNIrvihOgD1ut0O95QEcvgnZwLyY5rE9i5tJvpk3Jr45d8M+p57tvc7ojb536AC9p6UmOQj6QLyoUUc92BL4PQizy750TlW+HX2SPawOaz0E9DI9r4c1vZrrfz20kUG9RuEsvh3zST3zMiQ8z5O2voZ/674w1oI+pxnTvjJ/Yb5afHW97Tt2OoooVjy/RJY9vpwNPalHpb3ihFS9WbDBPhXqKTznxIU9philvezSZD38OQo9KL2IvgowGT1hGa89UbOfvoC79L3QxBw+pvXSvj6Hur4+lkW9qSE7vam/HLvAJc49zKDROvUIP744FJK+EMZ/Phxd/T1A79c+FzWlvjt92z2v+KI8W4OfvdabjT2eYco9Slokvjr8P75n6QY+NvxjvoYi4b54t9y89WVtvFHFU7wC2GU9PQMnPcDV/L44MTm9yBfmPXaGHD1Gd/w+Nnx0vjl6Qz2VzBi70/AUvhrCRTzNt+y8BGlaviG5fb5ymLA+BnoavogTTL5y6Nu8N9jNvYu/BDxfcGw9U7jRPhdCEL2L0T+9ipBPPgh7UT2UwmM+D44AvjtnezyXeuc8pMHxvlJlBj2T0zw9ahGbvhhGvb5PMTA+KWlPvoFX8b5FFY+9dZ4/u6WPsb2IlrE98Dp3PeO/wL2DeCK9/BznPgm/hj26pe0+LHk1vlSj37yiiOI9Cbbwvncs7b1W4JM8DUl7vfxaMr5N1Cs+B2//voFBCb5Gshq7KatCvbCHXjxKzak9wNoHPU41Ib2pjxa+CymSPg22Hz4FGDw+KnyRvmU2w74XN2A9Ct82voocQbyw3ni7YDO3vT2MXr5tc+4+JDBDvicRmb53s7W9gmqLvWBJPr2Y9rk92IvoPY9SWL4HY7+9mmBrPgLtPT3gSac+HMxHvpNWWb5ibEU79RlkvogFhr1dc889gYwpvT0+j75+YTI96+67vh+NSb5gLMg9XBSevZKkybyLfr4993H0vatlj75oYzW+C6MMPfIKMT3120W7QXFhvpndFL5WFEu8LyG+vmDNSjyTacs7m8dQPKcs9r38FV8+BxwjvhUlJr6K6kk98GVovNyRQbyKt90+Nh3zvdFqU75rA9y90WwiPUdAiD3geIO9G9TFvonTUr6Fk7G9LaAYvmTeIL21tlM9MKgRPbeyIb3VuVM94uZMvPVc975vwpE95/esvWXggTyQeUc+L2d+vg4swb6Bl+q9ptCQPRmK/z3/4Ci97dT5vpBh1b42p7+844+evjTWC73FiDY9wC0ZPiSVzjy3Qro9YwCFvJ9lb756gZ89hbd+u7YqMb0b5MU+M27RvgDfqb58Zsq8rfrOPOOgIT18YBS+Hgdfvitj5b2NbJ88buJuvl/AmL35Ii8+GEK9PjPONbsNmpi9dhlGu+kii74T2ns9uizKvS3XBj2+geg+HQulvdBB/L5e5qE9kk13vRapCj0edEi+Pp5mvesEQD1kpDo7k9EavkADg74l0QQ97qZvPh23hj3yMO699nFXu0a29L4lQTm8jFhcvT6Otj3rXeo90+Wovg8tKr5Gw/89fknsvaDb+7xUFpK+P/4EO3jBVT4Mauc8AB+rvmwpLr4bTEs+IlXmPcxAmD3u+la96fGavQhANr3O8Ya9n6ahvdlB3T4X27s8+EdFvfbJf73e9J8+E9K0vQWKPr1kx1u+HFIsPVAo4T4JsJC9rEbJvoqPgL4zRyw+RpITPgehgD4IknK93YDxPUSb773tyQC91TxsvTcCtD2rqQE8m/YgPUIMcr0MzHk+Cga/vZ2sWb1L4J69qImqvW4/Vz5KO8e9aDdxviP3wb3H6eY+bJhVPgEJxT4eLfy+Muo0PTJJ470cN/6+CnuiOimC1D21XXC6qeAYPLtwlb4Kfrw+KF/7vRrT8b2HBS68oRrKvW2B2T4d1n69503qviVwnr0nKl0+YMs+Pdw+Ej414vi+BqVqOs52GL2bcV29kGvZPVR8gj3Rdpy9XySuPYt8ur2mUMA+CliCvbWLg70XzzQ8odoYvgKeAz4eqF69xztPva03Jzt8rV4+NwJMPbE3wD4iPe6+F6HCPUzej72Smnu9xfhnPMMlQT2G8Wi9YPdePY0LS73Cc7Q+DGSrvY7vWrzNYn0+Bem0vg5Iqz2qlQa+E9TvvYrQjTzjqNM+EzC7PWWWtT3L0VW+HQCFPhEtsrzFMV+9w6RouxAHdT2Noke9KJX/PaayJ7xuNjY+AQlTO63WSTykfKA9u0BsvS89Vz1qU5W9xJwAvZDrVz4dDQ89hJFPu3X8hz2DQby9gNb9PcIFab12PM68qxzqvOAnmD2FDiK9hw6LPLZZfz05I6w94BtQvc4Ivj1KmlY+HruUvY9Poj0oXBy9fpNYu2pQcj4dQB89e/KuPXFrXzrYAAO+PZGfPjKWtzvdF5S9Lq3uvWBW3LwRR6m9cp3EPe2Bqz1DAgU94MDVvLu72T0RjBM9ummmPZkSg71T/eu8qs0DvGjzBD5ANpQ9L53YPVrhEryJ17e9u9zpPg291zyUtli9za1pvaBGJr1yOtK+KvugPYCgbz3ZPQU9aXQDvUHw6T1PU5g9p1moPaeubb2L3Y49iyHcOsW9xD5i9Ho9A7dzPeo2Ub1qs+69gaq6Pe7FALscMae9a1NBvRb+cr4blBC+OipVPYVZVj11csw9xw7ivhCORD1LRvG6KdyHvExw9702Drg7yXHePV3Aaz383s09GRFrPhWyS7ykjI294+kAPc2RSryy5w07WNeyvYINu75x2u6+M/x0PQhWFD22nMY8nanava9J2T2C6QO9+N4ivQnkG70uHJm8fJx+PNiSgD4YtfC8Bup5PhosJry7QNK90DdKPeNQBr00kSo9A7U1vYMK876CpTq+OwymO6Acnz4nrtU7zSR5vbDg9z2sG5e9SN/IviJVFbzj3+k9DjwMu1SfUjy1A789rWEkPkWfSr2R2uG+aad3Ph4m5j0J/MM7Gp6bOyEE2L5unVi+Mj7svF3H1T36vOy9AXQGveaDkT37r9W+B2IEvj3Bmr0l1Pg911HpvTMI2jzRdqU83dFNPjfkXbxXuH++AVwWPiKzBryYulS8oGPuvQm6ML6Tb5u+k2VovYppOj48DL48hQKRvbtKcj26Ueu99RqRvoMl9b0iPws9xmtrPC9Ozz02i8S67UbiPkfdHzumIqy+QGrXPhRy1Dys3iK896Y4Pc5o+b5rXTS+nV00vg7pRD4uHLo9NHZgvismGj3ZKq6+OgDAvoWTfbzdVsw+OSrDvSZv8D12wIa8bopIPmSHkj1LTb2+Upe6PkUyoryJXIU9sz7/PckEBL6T7Hi+mRNZvfWeAz45kp48i5KNvmfzvz1kfXm+DbHgvlJibb3lXZY+G8N5vUh56z380y66unVMPlcBhT0e7U6+gZ7rPno99D2zp0s9DsNQPgZETL555wK+neZ6vkciJT6Fnmg9Cjzmva9NXTzLd3e93R6Lvjy1V73HiCM+Gtp8Oqn6VD2H5My9Pwk/PnSGeD2tmre+nUG9PgWiCD0N9489V5CjPke5875X/W2+pmymvpCzqz6gebY9lEOhvgDM5zwuJP2+CKxpvVMKSr4W2K8+Qd8vvSJRRzzJ09e9D6LzPpPHgj4Towe+itzmPhh/4D1TFE09Jey8PjTy+r5N6YK+rnJivo+fij7HohE9dJLDvchkODsLsTm92SXfu/PD773S7+k+Wkwxuzf0ajyvtHG9Bk5XPpLhOj1GEo2+2W2aPk1Fhj3CAbQ9T+C1PfXif73wTyW+cj7ovsoCjz63FEo8vIK5vZznwLsE6nq+PGenPbFVkb29Hu8+NdChPWetGj2N41c7kb4HPrZBFj0dtfa+wJsAPjsQdT1wwX09poIQPgfZNL4rrjW+JzuYvre+VT7F+0Q9gbf0veDnZLsWcMm+H4cPPkv6ib26o2Q+Lm7sPcdxBz0n74Q8STIfPtRuoz1pFai+rq9cPlzrYz1lj1A9Sq6XPYqeMb4Iw2a995Cuvq+cCz7Dgvc9PDRWvc+S+jx/ZqG+BQUyPoI8nL1PIWw90rPlPl1naj2OuK88qMpyPuXkbjzW8Du+nl5gPlngsT3GbNU7wu99u/w3jL31PB69FrMPvqW0ED69OII+IriQvRzJmj0R/5+93D/BPsbBPL2y2Nc8cZJdPm65QD43c0w98+BHPtqezz0cdR++lCVUPhk1XT4kA2K9UViTO/hu7b0nxGG8nolavqz/VT6427s9ik8TvaXAbj2Q7NW7sf6GPup+gbz7ZLE83TTdPl4LBj5nkno9JcQ8Pur//T4rpp6+fR80PgGAhD3Rc9o9FhPIvbhKETzidJK8u2NWvofkhD6XNM09mpclviKGxD14cKM9y5OkPu0AOTz/nlO9o4HSPoxtsz5N7o4+E/7JPuO3FT3JxE6+gdC1PQToKD351y48zOiCvh4OkzybDwC9okvYvk9gPz57E3Q+HOwRvkvmCj2BKf8+ODFuPuRJGj4szuC90DR0PpDoej5Engs+Lb2mPvTdNj6SL0m+i2KsPRwxIT4GzRU899Whvk58UTyvWcy9EUU4vkDg/z45mAo9ism7vjYTpzzH4mo+o0xxPv9OBT4uiom+X3RkPpGupj45pJ8+C2WnPwHjHD5FhX++W0djPSg/kj3DfcA9PAhZvoAIMj2FR5u98HzNviLUOT4uRfw+MIY3vl0XSrwkg+A+2aHNPxI6Vj5FZ+m+lUvIPkqp0z4BGnU+AhrsPw/Zrj5XJGu+QN/CPla4dj4V5xI8yhnzvqBCID2k4Qa9iUOevVvweT5MQq09vvq/viboeb25bNQ=";
   private static final java.util.Map<String, TitanNeuralPair> NEURAL_MODELS =
@@ -10921,7 +9654,7 @@ public static class voidious_utils_geom_LineSeg {
     return Math.max(lo, Math.min(hi, v));
   }
 
-  private static double[] neuralFeatures(voidious_utils_Wave w) {
+  private static double[] neuralFeatures(titan_utils_Wave w) {
     double flight = Math.max(1, w.targetDistance / w.bulletSpeed());
     return new double[] {
       w.bulletPower() / 3, Math.min(1.5, flight / 70),
@@ -10935,7 +9668,7 @@ public static class voidious_utils_geom_LineSeg {
     };
   }
 
-  private static void neuralVisit(voidious_utils_Wave w, double gf, boolean visit) {
+  private static void neuralVisit(titan_utils_Wave w, double gf, boolean visit) {
     if (!visit || w.enemiesAlive != 1 || w.altWave || (!w.firingWave && w.fireTime % 6 != 0)) return;
     if (!Double.isFinite(gf)) return;
     double[] features = neuralFeatures(w);
@@ -10947,7 +9680,7 @@ public static class voidious_utils_geom_LineSeg {
     double weight = w.firingWave ? 1 : .06;
     pair.slow.learn(features, gf, sigma, .016 * weight);
     pair.fast.learn(features, gf, sigma, .065 * weight);
-    if (w.firingWave) pair.realSamples++;
+    if (w.firingWave && pair.realSamples < Long.MAX_VALUE) pair.realSamples++;
     if (EXPORT_NEURAL_SAMPLES && w.firingWave) {
       StringBuilder line = new StringBuilder("NEURAL_SAMPLE ");
       line.append(w.fireRound).append(' ').append(gf).append(' ').append(sigma).append(' ');
@@ -11027,11 +9760,11 @@ public static class voidious_utils_geom_LineSeg {
     }
   }
 
-  private static class TitanNeuralGun extends voidious_gun_DuelGun<voidious_utils_TimestampedFiringAngle> {
+  private static class TitanNeuralGun extends titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> {
     final boolean recent;
     TitanNeuralGun(boolean recent) { this.recent = recent; }
     public String getLabel() { return recent ? "Titan Neural Recent" : "Titan Neural General"; }
-    protected double aimInternal(voidious_utils_Wave w, boolean painting) {
+    protected double aimInternal(titan_utils_Wave w, boolean painting) {
       TitanNeuralPair pair = neuralFor(w.botName);
       double[] probabilities = (recent ? pair.fast : pair.slow).predict(neuralFeatures(w));
       double best = -1; int index = 30;
@@ -11048,9 +9781,274 @@ public static class voidious_utils_geom_LineSeg {
       return robocode.util.Utils.normalAbsoluteAngle(w.absBearing
           + w.orbitDirection * gf * w.preciseEscapeAngle(gf >= 0));
     }
-    public java.util.List<voidious_utils_KnnView<voidious_utils_TimestampedFiringAngle>> newDataViews() {
+    public java.util.List<titan_utils_KnnView<titan_utils_TimestampedFiringAngle>> newDataViews() {
       return java.util.Collections.emptyList();
     }
+  }
+
+  private static final int MEMORY_MAGIC = 0x54504D31;
+  private static final int MEMORY_SCHEMA = 2;
+  private static final int MEMORY_LIMIT = 70000;
+  private static final int MEMORY_EXPANDED_LIMIT = 8 * 1024 * 1024;
+  private static final java.util.Map<String, MemoryRecord> MEMORY_RECORDS = new java.util.HashMap<String, MemoryRecord>();
+  private static final java.util.Map<String, Long> MEMORY_SEEN = new java.util.HashMap<String, Long>();
+  private static boolean memoryLoaded;
+  private static long memoryGeneration;
+  private volatile boolean roundFinished;
+  private boolean memorySaved;
+
+  private static class MemoryRecord {
+    String name;
+    long seen;
+    TitanNeuralPair neural;
+    java.util.Map<String, double[]> guns = new java.util.HashMap<String, double[]>();
+    java.util.List<float[]> hits = new java.util.ArrayList<float[]>();
+    java.util.List<float[]> visits = new java.util.ArrayList<float[]>();
+    int shots, timesHit;
+    double weightedHits;
+  }
+
+  private static class MemorySnapshot {
+    long generation;
+    java.util.Map<String, MemoryRecord> records = new java.util.HashMap<String, MemoryRecord>();
+  }
+
+  private static void rememberWave(titan_utils_Wave w, double gf, java.util.LinkedList<float[]> samples) {
+    double[] raw = {w.bulletPower(), w.targetDistance, w.targetVelocity, w.targetVelocitySign,
+        w.targetRelativeHeading, w.targetAccel, w.targetWallDistance, w.targetRevWallDistance,
+        w.targetVchangeTime, w.targetDchangeTime, w.targetDl8t, w.targetDl20t, w.targetDl40t, gf};
+    float[] sample = new float[raw.length];
+    for (int i = 0; i < raw.length; i++) {
+      sample[i] = (float) raw[i];
+      if (!Float.isFinite(sample[i]) || Math.abs(sample[i]) > 1000000) return;
+    }
+    samples.addLast(sample);
+    while (samples.size() > 24) samples.removeFirst();
+  }
+
+  private static void restoreMoveMemory(titan_move_MoveEnemy enemy) {
+    MemoryRecord saved = MEMORY_RECORDS.get(enemy.botName);
+    if (saved == null) return;
+    replaySamples(enemy, saved.hits, true);
+    replaySamples(enemy, saved.visits, false);
+    enemy.memoryHits.addAll(saved.hits);
+    enemy.memoryVisits.addAll(saved.visits);
+    enemy.raw1v1ShotsFired = saved.shots;
+    enemy.raw1v1ShotsHit = saved.timesHit;
+    enemy.weighted1v1ShotsHit = saved.weightedHits;
+  }
+
+  private static void replaySamples(titan_move_MoveEnemy enemy, java.util.List<float[]> samples, boolean hit) {
+    int time = 0;
+    for (float[] a : samples) {
+      titan_utils_BattleField field = new titan_utils_BattleField(800, 600);
+      titan_utils_Wave w = new titan_utils_Wave(enemy.botName,
+          new java.awt.geom.Point2D.Double(400, 100), new java.awt.geom.Point2D.Double(400, 100 + a[1]),
+          -1, time, a[0], a[4], a[2], (int) a[3], field, new titan_utils_MovementPredictor(field));
+      w.targetDistance = a[1]; w.targetRelativeHeading = a[4]; w.targetAccel = a[5];
+      w.targetWallDistance = a[6]; w.targetRevWallDistance = a[7];
+      w.targetVchangeTime = (long) a[8]; w.targetDchangeTime = (long) a[9];
+      w.targetDl8t = a[10]; w.targetDl20t = a[11]; w.targetDl40t = a[12];
+      for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : enemy.views.values()) {
+        if (hit ? view.logBulletHits : view.logVisits)
+          view.logWave(w, new titan_utils_TimestampedGuessFactor(-1, time, a[13]));
+      }
+      time++;
+    }
+  }
+
+  private void loadBattleMemory() {
+    if (memoryLoaded) return;
+    memoryLoaded = true;
+    MemorySnapshot best = null;
+    for (String name : new String[] {"memoria-a.dat", "memoria-b.dat"}) {
+      MemorySnapshot s = readMemory(getDataFile(name));
+      if (s != null && (best == null || s.generation > best.generation)) best = s;
+    }
+    if (best != null) {
+      memoryGeneration = best.generation;
+      MEMORY_RECORDS.putAll(best.records);
+      for (MemoryRecord record : best.records.values()) {
+        NEURAL_MODELS.put(record.name, record.neural);
+        MEMORY_SEEN.put(record.name, record.seen);
+        _gun._virtualGuns.restoreRatings(record.name, record.guns);
+      }
+    }
+    out.println("TITAN_MEMORY loaded=" + MEMORY_RECORDS.size() + " generation=" + memoryGeneration);
+  }
+
+  private MemorySnapshot readMemory(java.io.File file) {
+    if (!file.exists()) return null;
+    try {
+      if (file.length() < 64 || file.length() > MEMORY_LIMIT) return null;
+      java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
+      try (java.io.InputStream input = new java.io.FileInputStream(file)) {
+        byte[] buffer = new byte[2048]; int count;
+        while ((count = input.read(buffer)) != -1) {
+          if (bytes.size() + count > MEMORY_LIMIT) return null;
+          bytes.write(buffer, 0, count);
+        }
+      }
+      byte[] data = bytes.toByteArray();
+      java.util.zip.CRC32 crc = new java.util.zip.CRC32(); crc.update(data, 0, data.length - 8);
+      java.io.DataInputStream checksum = new java.io.DataInputStream(new java.io.ByteArrayInputStream(data, data.length - 8, 8));
+      if (checksum.readLong() != crc.getValue()) return null;
+      int schema = ((data[4] & 255) << 24) | ((data[5] & 255) << 16) | ((data[6] & 255) << 8) | (data[7] & 255);
+      byte[] payload = java.util.Arrays.copyOf(data, data.length - 8);
+      if (schema == 2) {
+        java.io.ByteArrayOutputStream expanded = new java.io.ByteArrayOutputStream();
+        expanded.write(data, 0, 56);
+        try (java.io.InputStream compressed = new java.util.zip.GZIPInputStream(new java.io.ByteArrayInputStream(data, 56, data.length - 64))) {
+          byte[] buffer = new byte[2048]; int count;
+          while ((count = compressed.read(buffer)) != -1) {
+            if (expanded.size() + count > MEMORY_EXPANDED_LIMIT) return null;
+            expanded.write(buffer, 0, count);
+          }
+        }
+        payload = expanded.toByteArray();
+      } else if (schema != 1) return null;
+      java.io.DataInputStream input = new java.io.DataInputStream(new java.io.ByteArrayInputStream(payload));
+      if (input.readInt() != MEMORY_MAGIC) return null;
+      input.readInt();
+      if (input.readInt() != TitanNeural.INPUTS || input.readInt() != TitanNeural.HIDDEN
+          || input.readInt() != TitanNeural.OUTPUTS) return null;
+      double width = input.readDouble(), height = input.readDouble(), cooling = input.readDouble();
+      if (!Double.isFinite(width) || !Double.isFinite(height) || !Double.isFinite(cooling)
+          || Math.abs(width - getBattleFieldWidth()) > .01
+          || Math.abs(height - getBattleFieldHeight()) > .01
+          || Math.abs(cooling - getGunCoolingRate()) > .000001) return null;
+      MemorySnapshot snapshot = new MemorySnapshot(); snapshot.generation = input.readLong();
+      if (snapshot.generation < 0) return null;
+      int size = input.readInt(); if (size < 0 || size > payload.length / 12500) return null;
+      for (int i = 0; i < size; i++) {
+        MemoryRecord record = new MemoryRecord(); record.name = input.readUTF();
+        if (record.name.isEmpty() || record.name.length() > 160 || snapshot.records.containsKey(record.name)) return null;
+        record.seen = input.readLong(); record.neural = new TitanNeuralPair();
+        record.neural.realSamples = input.readLong();
+        if (record.neural.realSamples < 0) return null;
+        readNetwork(input, record.neural.slow); readNetwork(input, record.neural.fast);
+        int guns = input.readInt(); if (guns < 0 || guns > 8) return null;
+        for (int g = 0; g < guns; g++) {
+          String label = input.readUTF(); double hits = input.readDouble(); int shots = input.readInt();
+          if (label.length() > 80 || !Double.isFinite(hits) || hits < 0 || shots < 0 || shots > 128) return null;
+          record.guns.put(label, new double[] {hits, shots});
+        }
+        record.hits = readSamples(input); record.visits = readSamples(input);
+        record.shots = input.readInt(); record.timesHit = input.readInt(); record.weightedHits = input.readDouble();
+        if (record.shots < 0 || record.shots > 128 || record.timesHit < 0 || record.timesHit > record.shots
+            || !Double.isFinite(record.weightedHits) || record.weightedHits < 0) return null;
+        snapshot.records.put(record.name, record);
+      }
+      if (input.available() != 0) return null;
+      return snapshot;
+    } catch (java.io.IOException | IllegalArgumentException e) {
+      return null;
+    }
+  }
+
+  private static void readNetwork(java.io.DataInputStream input, TitanNeural net) throws java.io.IOException {
+    for (double[][] matrix : new double[][][] {net.first, net.second})
+      for (double[] row : matrix) for (int i = 0; i < row.length; i++) {
+        float value = input.readFloat();
+        if (!Float.isFinite(value) || Math.abs(value) > 10000) throw new java.io.IOException("pesos invalidos");
+        row[i] = value;
+      }
+  }
+
+  private static java.util.List<float[]> readSamples(java.io.DataInputStream input) throws java.io.IOException {
+    int count = input.readInt(); if (count < 0 || count > 24) throw new java.io.IOException("amostras invalidas");
+    java.util.List<float[]> values = new java.util.ArrayList<float[]>();
+    for (int n = 0; n < count; n++) {
+      float[] sample = new float[14];
+      for (int i = 0; i < sample.length; i++) {
+        sample[i] = input.readFloat();
+        if (!Float.isFinite(sample[i]) || Math.abs(sample[i]) > 1000000) throw new java.io.IOException("amostra invalida");
+      }
+      if (sample[0] < .099 || sample[0] > 3.001 || sample[1] < 0 || Math.abs(sample[2]) > 8.001
+          || Math.abs(sample[3]) != 1) throw new java.io.IOException("contexto invalido");
+      values.add(sample);
+    }
+    return values;
+  }
+
+  private void saveBattleMemory() {
+    if (!memoryLoaded || memorySaved) return;
+    try {
+      java.util.Set<String> names = new java.util.HashSet<String>(MEMORY_RECORDS.keySet());
+      names.addAll(NEURAL_MODELS.keySet()); names.addAll(observedEnemies);
+      java.util.List<MemoryRecord> records = new java.util.ArrayList<MemoryRecord>();
+      for (String name : names) {
+        if (name.isEmpty() || name.length() > 160) continue;
+        MemoryRecord old = MEMORY_RECORDS.get(name), record = new MemoryRecord(); record.name = name;
+        record.seen = MEMORY_SEEN.containsKey(name) ? MEMORY_SEEN.get(name) : old == null ? 0 : old.seen;
+        record.neural = NEURAL_MODELS.get(name);
+        if (record.neural == null) record.neural = old == null ? new TitanNeuralPair() : old.neural;
+        record.guns = _gun._virtualGuns.snapshotRatings(name);
+        if (record.guns.isEmpty() && old != null) record.guns = old.guns;
+        if (_move._moveDataManager.hasEnemy(name)) {
+          titan_move_MoveEnemy enemy = _move._moveDataManager.getEnemyData(name);
+          record.hits.addAll(enemy.memoryHits); record.visits.addAll(enemy.memoryVisits);
+          int shots = Math.min(128, enemy.raw1v1ShotsFired); double scale = shots / (double) Math.max(1, enemy.raw1v1ShotsFired);
+          record.shots = shots; record.timesHit = Math.min(shots, (int) Math.round(enemy.raw1v1ShotsHit * scale));
+          record.weightedHits = enemy.weighted1v1ShotsHit * scale;
+        } else if (old != null) { record.hits = old.hits; record.visits = old.visits; record.shots = old.shots; record.timesHit = old.timesHit; record.weightedHits = old.weightedHits; }
+        if (record.neural.realSamples > 0 || !record.hits.isEmpty() || !record.visits.isEmpty()) records.add(record);
+      }
+      java.util.Collections.sort(records, new java.util.Comparator<MemoryRecord>() {
+        public int compare(MemoryRecord a, MemoryRecord b) { int rank = Long.compare(b.seen, a.seen); return rank != 0 ? rank : a.name.compareTo(b.name); }
+      });
+      if (records.isEmpty()) return;
+      long next = memoryGeneration + 1; java.io.File file = getDataFile((next & 1) == 1 ? "memoria-a.dat" : "memoria-b.dat");
+      java.io.File diagnostic = getDataFile("diagnostico.csv");
+      long reserve = 4096 + Math.max(0, 48000 - diagnostic.length());
+      long budget = Math.min(MEMORY_LIMIT, file.length() + getDataQuotaAvailable() - reserve);
+      int low = 1, high = records.size(), retained = 0; byte[] data = null;
+      while (low <= high) {
+        int middle = low + (high - low) / 2;
+        byte[] candidate = encodeMemory(records.subList(0, middle), next);
+        if (candidate.length <= budget) { retained = middle; data = candidate; low = middle + 1; }
+        else high = middle - 1;
+      }
+      if (data == null) { out.println("TITAN_MEMORY skipped=quota"); return; }
+      records = new java.util.ArrayList<MemoryRecord>(records.subList(0, retained));
+      try (java.io.OutputStream output = new robocode.RobocodeFileOutputStream(file)) { output.write(data); }
+      memoryGeneration = next; memorySaved = true;
+      MEMORY_RECORDS.clear(); for (MemoryRecord record : records) MEMORY_RECORDS.put(record.name, record);
+      out.println("TITAN_MEMORY saved=" + records.size() + " generation=" + next + " bytes=" + data.length);
+    } catch (java.io.IOException | IllegalArgumentException e) { out.println("TITAN_MEMORY skipped=write"); }
+  }
+
+  private byte[] encodeMemory(java.util.List<MemoryRecord> records, long generation) throws java.io.IOException {
+    java.io.ByteArrayOutputStream bytes = new java.io.ByteArrayOutputStream();
+    java.io.DataOutputStream output = new java.io.DataOutputStream(bytes);
+    output.writeInt(MEMORY_MAGIC); output.writeInt(MEMORY_SCHEMA);
+    output.writeInt(TitanNeural.INPUTS); output.writeInt(TitanNeural.HIDDEN); output.writeInt(TitanNeural.OUTPUTS);
+    output.writeDouble(getBattleFieldWidth()); output.writeDouble(getBattleFieldHeight()); output.writeDouble(getGunCoolingRate());
+    output.writeLong(generation); output.writeInt(records.size());
+    for (MemoryRecord record : records) {
+      output.writeUTF(record.name); output.writeLong(record.seen); output.writeLong(record.neural.realSamples);
+      for (TitanNeural net : new TitanNeural[] {record.neural.slow, record.neural.fast})
+        for (double[][] matrix : new double[][][] {net.first, net.second})
+          for (double[] row : matrix) for (double value : row) {
+            float packed = (float) value;
+            if (!Float.isFinite(packed) || Math.abs(packed) > 10000) throw new java.io.IOException("peso invalido");
+            output.writeFloat(packed);
+          }
+      output.writeInt(record.guns.size());
+      for (java.util.Map.Entry<String, double[]> entry : record.guns.entrySet()) {
+        output.writeUTF(entry.getKey()); output.writeDouble(entry.getValue()[0]); output.writeInt((int) entry.getValue()[1]);
+      }
+      for (java.util.List<float[]> samples : java.util.Arrays.asList(record.hits, record.visits)) {
+        output.writeInt(samples.size()); for (float[] sample : samples) for (float value : sample) output.writeFloat(value);
+      }
+      output.writeInt(record.shots); output.writeInt(record.timesHit); output.writeDouble(record.weightedHits);
+    }
+    output.flush(); byte[] raw = bytes.toByteArray(); output.close();
+    java.io.ByteArrayOutputStream packed = new java.io.ByteArrayOutputStream(); packed.write(raw, 0, 56);
+    try (java.util.zip.GZIPOutputStream compressed = new java.util.zip.GZIPOutputStream(packed)) { compressed.write(raw, 56, raw.length - 56); }
+    java.util.zip.CRC32 crc = new java.util.zip.CRC32(); crc.update(packed.toByteArray());
+    java.io.DataOutputStream trailer = new java.io.DataOutputStream(packed); trailer.writeLong(crc.getValue()); trailer.close();
+    return packed.toByteArray();
   }
 
 }

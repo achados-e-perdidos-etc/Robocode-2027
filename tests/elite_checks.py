@@ -108,7 +108,12 @@ def main():
     data=json.loads((ROOT/'tests/elite-physics.json').read_text())
     with tempfile.TemporaryDirectory() as tmp:
         temp=Path(tmp);classes=temp/'classes';classes.mkdir()
-        probe=temp/'eliteprobe.java';probe.write_text(PROBE)
+        probe=temp/'eliteprobe.java'
+        probe_code=PROBE
+        if 'class titan_utils_BattleField' in a.source.read_text():
+            for before,after in [('voidious_','titan_'),('ags_utils_KdTree','titan_KdTree'),('ags_utils_','titan_estruturas_'),('DiamondWhoosh','Movimento'),('DiamondFist','Mira'),('DiamondEyes','Radar'),('DiamondColors','Cores')]:
+                probe_code=probe_code.replace(before,after)
+        probe.write_text(probe_code)
         fixture=temp/'physics.csv'
         with fixture.open('w') as f:csv.writer(f).writerows(data['cases'])
         compiler=['java','-jar',str(a.ecj),'-8','-nowarn'] if a.ecj else ['javac','--release','8']

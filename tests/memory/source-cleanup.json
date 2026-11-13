@@ -1,0 +1,7 @@
+{
+  "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+  "lexical_java_comments": 0,
+  "legacy_author_and_robot_identifiers_in_java": false,
+  "required_notices": "licenses/source-notices.txt",
+  "keeps_single_java": true
+}

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "fresh_process_battles": 4,
+  "actual_rounds": 6,
+  "learned_state_loaded_in_new_battle": true,
+  "one_corrupt_falls_back_to_prior_valid_snapshot": true,
+  "both_corrupt_cold_start_without_crash": true,
+  "all_memory_files_within_limit": true,
+  "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9"
+}
