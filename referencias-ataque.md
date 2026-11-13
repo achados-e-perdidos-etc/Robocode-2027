@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # As 25 técnicas de ataque no Titan Prime
 
 **Atualizacao 3.8:** uma mira reativa independente foi adotada apos diagnostico e confirmacao contra adversarios fortes. Veja [mira-reativa.md](mira-reativa.md), incluindo as falhas do motor, a recuperacao do par e os limites dos resultados. O grupo antigo de miras experimentais continua desligado.

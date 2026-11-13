@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Revisao de gustavoolyver/Titan-Robo
 
 **Etapa posterior:** as correcoes reproduziveis e as batalhas contra todos os sete robos estao em [recuperacao-e-tiro.md](recuperacao-e-tiro.md). A revisao abaixo descreve os commits originais, anteriores a correcao.

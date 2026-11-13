@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Recuperacao, tiro bloqueado e confronto com os robos do usuario
 
 O trabalho partiu do Titan Prime 3.9, SHA-256 `a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09`. Foram implementadas as duas candidatas indicadas, corrigidos os problemas de compilacao identificados e executadas batalhas com todos os sete robos autonomos das branches recebidas. A configuracao de uso permanece 3.9, pois a candidata nao demonstrou ganho.

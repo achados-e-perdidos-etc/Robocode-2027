@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Titan Prime 3.7 — implementação das lacunas ofensivas
 
 Todo o robô continua em `robots/equipe/titanprime.java`. Foram implementadas as sete lacunas da lista de 25 técnicas: comparação de sequências, previsão física, classificação de movimento, mira de reação ao tiro, exploração de padrões, finalização e seleção contextual de miras. Os itens 5 e 15 compartilham o mesmo algoritmo. A lista não representa 25 armas independentes.

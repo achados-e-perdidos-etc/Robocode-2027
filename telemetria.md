@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Telemetria do Titan Prime 3.6
 
 A versão 3.6 acrescenta observabilidade à estratégia da 3.5. Os contadores não entram na escolha de alvo, rota, mira ou potência. O retorno diagnóstico da associação de balas é usado somente nas métricas. Os pesos pré-treinados e as cores foram preservados.

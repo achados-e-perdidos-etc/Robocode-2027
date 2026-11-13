@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Avaliação da proposta TitanD
 
 O texto fornecido descreve um projeto modular com `HybridDefense.java`, mas não traz os arquivos ou links funcionais para o ZIP e o JAR mencionados. Esta avaliação se limita ao trecho de seleção de estratégias apresentado. Não é uma revisão do projeto completo nem comprova que ele compila ou vence batalhas.

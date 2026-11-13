@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Titan Prime 3.10: diagnostico persistente e espaco no duelo
 
 O fonte enviado pelo usuario foi identificado como o Prime 3.9 da main, com diferenca apenas em espaco em branco final. SHA-256 recebido: `68e8a44e8ff3cec522ea5fd3e334574edcfadbdedaa59740fda9aabdf36554c8`; baseline do repositorio: `a58850e29d83dde1715f8635294c7674d7874103b625cd521bf9e213bbe33f09`. A classe principal recebida tinha major 61 (Java 17). A nova compilacao de verificacao usa major 52 (Java 8), tambem compativel com Java 17.

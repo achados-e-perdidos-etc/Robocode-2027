@@ -52,11 +52,23 @@ def main():
         assert (data / 'memoria-a.dat').read_bytes() == objects[0].read_bytes()
         assert (data / 'memoria-b.dat').read_bytes() == objects[0].read_bytes()
         assert restored['opponents'] == metadata['opponents']
+        diagnostic = data / 'diagnostico.csv'
+        diagnostic.write_text('version,battle,round,rounds,won,energy,spent\n4.15,fixture,1,2,0,12,3\n')
+        assert archive.capture_diagnostics(data) == 1
+        assert archive.capture_diagnostics(data) == 0
+        diagnostic.write_text('version,battle,round,rounds,won,energy,spent\n4.15,fixture,1,2,1,12,3\n4.15,fixture,2,2,0,0,4\n')
+        assert archive.capture_diagnostics(data) == 2
+        diagnostic.write_text('version,battle,round,rounds,won,energy,spent\n4.15,newbattle,1,1,1,11,2\n')
+        assert archive.capture_diagnostics(data) == 1
+        assert archive.db.execute('SELECT count(*) FROM rounds').fetchone()[0] == 4
+        diagnostic.write_text('version,battle,round,rounds,won,energy,spent\n4.15,newbattle,1,1,1,11,')
+        assert archive.capture_diagnostics(data) == 0
         archive.close()
     report = dict(passed=True, schema=metadata['schema'], checkpoints_retained=40,
                   snapshots_in_robot_directory=2, restarted_deduplication=True,
                   partial_and_corrupt_files_ignored=True, all_archived_objects_valid=True,
                   archived_checkpoint_restored=True,
+                  round_history_survives_csv_rotation=True, late_victory_revision_preserved=True,
                   scope='Storage integrity; does not establish combat performance or capture every raw observation.')
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + '\n')

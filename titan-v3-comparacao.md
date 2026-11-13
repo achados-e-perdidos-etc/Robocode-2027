@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # TitanV3 original versus Titan Prime 3.8
 
 Foi testado o `TitanV3.jar` fornecido na pasta do Robocode, sem alterar suas classes. Hash SHA-256: `cc0a7ccdc8a481031a49bd95842c8971ba3f964a80c70bdddbdc67d7fb59fee4`. A classe principal declarada e `titan.TitanV3`, versao 3.0. O arquivo contem 54 classes compiladas, bytecode Java 8, e nenhuma fonte `.java`.

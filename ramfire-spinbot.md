@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Treinos contra RamFire e SpinBot
 
 > **Correção de metodologia:** este relatório histórico usou a API de posições como string. O diagnóstico posterior mostrou que ela não reproduziu os pares X/Y solicitados. O cenário descrito como “100 pixels” não teve essa distância confirmada, e a diferença de 4,77% não demonstra uma melhoria com largadas pareadas. Os resultados originais foram preservados. O teste foi refeito com a API corrigida na versão 3.3: **3/3 séries e 9/9 rounds contra RamFire a 100 pixels**, sem reposicionamento registrado. Veja [robos-de-exemplo.md](robos-de-exemplo.md) e [tests/contact-results.json](tests/contact-results.json).

@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Referências dos 20 estilos de defesa
 
 As referências foram conferidas em revisões específicas do GitHub. Esta tabela trata da defesa; o KNN de mira adotado na 3.5 está descrito em [referencias-ataque.md](referencias-ataque.md). A lista mistura controladores de movimento, modelos estatísticos e componentes geométricos que podem funcionar juntos. O nome de uma técnica num README não comprova uma implementação completa.

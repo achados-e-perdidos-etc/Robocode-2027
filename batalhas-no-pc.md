@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Batalhas no computador do usuario
 
 Resultados enviados pelo usuario em 9 de novembro de 2026. Sao tres placares de 30 rounds, totalizando 90 rounds de partidas. Nao sao novos testes no ambiente de simulacao remoto. O usuario posteriormente enviou o fonte instalado: ele coincide com a 3.9 da main, exceto pelo espaco em branco final. A classe principal recebida e Java 17 (major 61). A identificacao e as novas melhorias estao em [diagnostico-e-duelos.md](diagnostico-e-duelos.md).

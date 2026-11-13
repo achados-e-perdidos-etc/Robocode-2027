@@ -7,5 +7,7 @@
   "partial_and_corrupt_files_ignored": true,
   "all_archived_objects_valid": true,
   "archived_checkpoint_restored": true,
+  "round_history_survives_csv_rotation": true,
+  "late_victory_revision_preserved": true,
   "scope": "Storage integrity; does not establish combat performance or capture every raw observation."
 }

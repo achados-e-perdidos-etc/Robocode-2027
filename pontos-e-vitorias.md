@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Pontos e vitorias: escolhas de ataque e rotas curtas
 
 A base foi o Titan Prime 3.9, commit `f2249ba0b74d1a2d64df0fa125ecced343cb7d72`. A nova avaliacao considera pontos e vitorias. Uma posicao inicial favoravel ou uma unica gravacao nao define a versao de uso.

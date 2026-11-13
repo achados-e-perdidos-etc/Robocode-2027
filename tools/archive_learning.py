@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Archive Titan checkpoints outside Robocode's file quota, without a history cap."""
 import argparse
+import csv
 from datetime import datetime, timezone
 import hashlib
 import io
@@ -101,7 +102,12 @@ class Archive:
         self.db = sqlite3.connect(self.root / 'index.sqlite3')
         self.db.execute('''CREATE TABLE IF NOT EXISTS snapshots
             (sha256 TEXT PRIMARY KEY, captured_utc TEXT NOT NULL, metadata TEXT NOT NULL)''')
+        self.db.execute('''CREATE TABLE IF NOT EXISTS rounds
+            (battle TEXT NOT NULL, round INTEGER NOT NULL, sha256 TEXT NOT NULL,
+             captured_utc TEXT NOT NULL, record TEXT NOT NULL,
+             PRIMARY KEY (battle, round, sha256))''')
         self.db.commit()
+        self.last_diagnostic_sha = None
 
     def capture(self, path):
         with Path(path).open('rb') as stream:
@@ -137,6 +143,45 @@ class Archive:
 
     def close(self):
         self.db.close()
+
+    def capture_diagnostics(self, directory):
+        try:
+            with (Path(directory) / 'diagnostico.csv').open('rb') as stream:
+                data = stream.read(48001)
+        except (FileNotFoundError, PermissionError):
+            return 0
+        digest = hashlib.sha256(data).hexdigest()
+        if digest == self.last_diagnostic_sha or len(data) > 48000:
+            return 0
+        try:
+            reader = csv.DictReader(io.StringIO(data.decode('utf-8')))
+            required = {'version', 'battle', 'round', 'rounds', 'won', 'energy', 'spent'}
+            if not required.issubset(reader.fieldnames or []):
+                return 0
+            records = list(reader)
+            numeric = {'round', 'rounds', 'initial_opponents', 'ticks', 'won', 'energy', 'decisions',
+                       'shots', 'hits', 'spent', 'damage_nominal', 'received_nominal', 'bullet_collisions',
+                       'walls', 'skipped', 'edge_ticks', 'duel_ticks', 'duel_shots_resolved', 'duel_hits_resolved'}
+            for row in records:
+                if (None in row or any(value is None for value in row.values())
+                        or any(row[key] == '' for key in required)
+                        or not row['battle'] or row['won'] not in ('0', '1')
+                        or not 1 <= int(row['round']) <= int(row['rounds'])
+                        or not all(math.isfinite(float(row[key])) for key in numeric.intersection(row))):
+                    return 0
+        except (ValueError, UnicodeError, csv.Error):
+            return 0
+        added = 0
+        captured = datetime.now(timezone.utc).isoformat()
+        with self.db:
+            for row in records:
+                payload = json.dumps(row, ensure_ascii=True, sort_keys=True)
+                revision = hashlib.sha256(payload.encode()).hexdigest()
+                cursor = self.db.execute('INSERT OR IGNORE INTO rounds VALUES (?, ?, ?, ?, ?)',
+                                         (row['battle'], int(row['round']), revision, captured, payload))
+                added += cursor.rowcount
+        self.last_diagnostic_sha = digest
+        return added
 
     def restore(self, digest, directory):
         if not re.fullmatch('[0-9a-f]{64}', digest):
@@ -177,6 +222,9 @@ def main():
         while True:
             for checkpoint in archive.capture_directory(args.data_dir):
                 print(json.dumps(checkpoint, ensure_ascii=True), flush=True)
+            revisions = archive.capture_diagnostics(args.data_dir)
+            if revisions:
+                print(json.dumps(dict(type='diagnostics', new_revisions=revisions)), flush=True)
             if args.once:
                 break
             time.sleep(args.interval)

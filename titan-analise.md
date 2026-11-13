@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Titan analisado e ideia incorporada ao Nêmesis 3.2
 
 > **Nota de metodologia posterior:** os testes históricos que solicitavam posições por string não comprovaram as largadas planejadas. Os resultados observados foram preservados, mas a equivalência das posições entre versões não está demonstrada. A API e a verificação foram corrigidas; veja [robos-de-exemplo.md](robos-de-exemplo.md).

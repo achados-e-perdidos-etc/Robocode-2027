@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Ataque híbrido do Titan Prime 3.5
 
 O **Titan Prime 3.5** adota KNN por adversário e ondas adicionais de observação, integrados ao seletor de miras virtuais. Na confirmação adicional com posições novas, venceu **25/30 séries**, contra **23/30** da versão 3.4. Depois preservou **63/63 séries competitivas e 188/189 rounds** na bateria dos exemplos.

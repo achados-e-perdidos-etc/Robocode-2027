@@ -16,7 +16,7 @@ No Windows, na pasta do repositório, com o diretório de dados já criado:
 py -3 tools\archive_learning.py --data-dir "C:\robocode\robots\equipe\titanprime.data" --archive-dir "%USERPROFILE%\Documents\titan-historico"
 ```
 
-Mantenha esse terminal aberto durante os treinos. `Ctrl+C` encerra a captura. O arquivo `index.sqlite3` registra o conteúdo de cada checkpoint e os arquivos `.dat` são identificados por SHA256. Cópias repetidas não ocupam novos objetos; reiniciar o arquivador conserva o histórico anterior. Não há regra de exclusão por idade ou quantidade. O limite real é o espaço disponível no disco.
+Mantenha esse terminal aberto durante os treinos. `Ctrl+C` encerra a captura. O arquivo `index.sqlite3` registra os checkpoints e também conserva os registros observados no `diagnostico.csv`, incluindo revisões de vitória tardia. Assim, a rotação do CSV do jogo não apaga os rounds já capturados. Os arquivos `.dat` são identificados por SHA256. Cópias repetidas não ocupam novos objetos; reiniciar o arquivador conserva o histórico anterior. Não há regra de exclusão por idade ou quantidade. O limite real é o espaço disponível no disco.
 
 O arquivador verifica os arquivos a cada 0,2 segundo e ignora gravações ainda incompletas. Ele preserva os checkpoints que consegue observar; se estiver desligado ou não acompanhar a velocidade das gravações, pode perder versões intermediárias. Isso não é um registro de cada tiro nem um treinamento neural externo. O robô carrega suas duas cópias locais, não todo o arquivo externo.
 
@@ -33,3 +33,5 @@ Essa operação arquiva as cópias locais válidas antes de substituí-las. A ba
 Os [relatórios de memória](tests/memory/plan.json) identificam o SHA256 do fonte avaliado. Foram conferidos previsão neural após serialização, reconstrução do KNN defensivo, migração do formato anterior, nove adversários no mesmo arquivo, validação de limites e recuperação de arquivos corrompidos. Batalhas em processos separados verificam a recarga real. O arquivador foi verificado com 40 versões, reinício, duplicatas, corrupção e restauração.
 
 Esses testes verificam persistência e integridade. Eles não demonstram que todo aprendizado melhora o desempenho, nem que o Titan vence todos os rounds.
+
+Na [captura durante uma série real](tests/memory/archive-live.json), a ferramenta conservou 43 checkpoints e os 50 registros de rounds. O arquivo externo atingiu cerca de 665 KB, enquanto as duas cópias locais do robô somavam aproximadamente 27 KB. Esse teste usou uma candidata experimental 4.16, identificada no relatório; não é um resultado competitivo da 4.15.

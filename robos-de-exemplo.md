@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Titan Prime contra os exemplos do seu Robocode
 
 A versão **3.3** foi testada com os binários da instalação enviada, **Robocode 1.11.1**, no Java 21. O robô continua em um único arquivo: [robots/equipe/titanprime.java](robots/equipe/titanprime.java).

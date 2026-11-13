@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Cores por batalha e comemoração
 
 No Titan Prime 3.4, cada nova batalha sorteia uma paleta para corpo, canhão, radar, bala e varredura. A cor base fica guardada em memória estática e se mantém entre os rounds daquela batalha. Ao iniciar outra batalha, o Robocode carrega uma nova instância e faz outro sorteio.

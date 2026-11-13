@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Experimentos de defesa: retângulo e contexto
 
 Foram executadas **84 séries independentes de três rounds: 252 rounds**, no Robocode **1.11.1** enviado pelo usuário. A base foi o Titan Prime **3.3**. As alternativas não foram promovidas, pois não aumentaram o número de séries vencidas na avaliação reservada.

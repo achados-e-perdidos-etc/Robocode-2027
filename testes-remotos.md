@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Novas batalhas remotas do Titan Prime 3.7
 
 Esta bateria substitui os testes que nao puderam ser concluidos no computador do usuario. O Java do robo nao foi alterado nem treinado entre os cenarios. A versao de origem e o commit `59b0969d49371a11a6369a24a4d813cdb2d72de4`.

@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Diagnostico e mira reativa — primeiro par de melhorias
 
 O trabalho tem dois objetivos: medir o ataque, a exposicao a tiros e a energia contra Diamond; e construir uma mira que aprenda respostas observadas apos disparos reais. Defesa, radar, potencia dos tiros, finalizacao, cores e modelos neurais nao foram ajustados nesta etapa.

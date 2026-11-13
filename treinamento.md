@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Treino por gerações e redes neurais
 
 O pedido é combinar duas formas de aprendizado: uma rede neural que se adapta dentro dos rounds e versões do robô que competem por gerações. A referência enviada foi [Rede Neural aprendendo a jogar o jogo da cobrinha (SNAKE)](https://youtu.be/awz1ghokP3k), junto da playlist [Redes Neurais Artificiais em Python](https://www.youtube.com/playlist?list=PL-t7zzWJWPtygNTsgC_M8c9a-p5biCjho). Foi possível identificar os títulos e o tema; a transcrição completa do primeiro vídeo não ficou acessível. Não se afirma reproduzir o algoritmo exato desses vídeos.

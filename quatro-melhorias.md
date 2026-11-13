@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # Quatro melhorias finais — defesa, melee, energia e aprendizado
 
 Esta etapa completa os quatro itens posteriores ao diagnostico e a mira reativa: defesa estatistica por situacoes semelhantes; posicionamento contra varios inimigos; potencia baseada no retorno dos tiros; e confianca no aprendizado ao longo da batalha. A base de comparacao e o Titan Prime 3.8, SHA-256 `5c73b414f1bd1e9ac33b29e66a33fb0a0801fa9ffd9da7101a1467e7c5b0aa98`.

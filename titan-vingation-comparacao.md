@@ -1,3 +1,5 @@
+> Histórico das versões 3.x. O código atual 4.x usa outra base; veja [arquitetura.md](arquitetura.md) e [ciclo-elite.md](ciclo-elite.md).
+
 # TitanVingation original versus Titan Prime 3.8
 
 Foi avaliado o `titan-vingation.jar` recebido na pasta do Robocode. A classe e `titan.TitanVingation`, versao **1.7**, hash SHA-256 `742d901f78391a697ef70359c5ee591e4d0abc7cf81ffbed29a0220404d1d8bc`. O JAR nao inclui fontes Java. O projeto modular fornecido separadamente declara versao 1.2 em suas propriedades; ele nao foi recompilado como substituto do JAR 1.7.

@@ -1,4 +1,4 @@
-> Histórico da reconstrução inicial 4.0. A versão salva atualmente é a 4.8; consulte [status-dos-testes.md](status-dos-testes.md) para os resultados 49/50 e 48/50 e o fonte efetivamente publicado.
+> Histórico da reconstrução inicial 4.0. A versão de memória publicada é a 4.15; consulte [status-dos-testes.md](status-dos-testes.md) e [aprendizado.md](aprendizado.md). Os geradores e comandos deste relato reproduzem a versão histórica; não regeneram o fonte atual.
 
 # Reconstrução competitiva — Titan Prime 4.0
 

@@ -1,10 +1,10 @@
 {
   "passed": true,
-  "files_inspected": 270,
+  "files_inspected": 271,
   "checks": {
     "markdown": 38,
     "python": 46,
-    "json": 121,
+    "json": 122,
     "zip": 1,
     "battles": 12
   },
