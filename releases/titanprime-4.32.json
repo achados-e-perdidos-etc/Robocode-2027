@@ -1,0 +1,13 @@
+{
+  "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+  "jar_sha256": "35b51316e9edd8a86799948a040b9d7af7dd62edef4df24c9978b3ace5f6c23c",
+  "class_major": 52,
+  "classes": 115,
+  "version": "4.32-calibrated",
+  "compiled_artifact_origin": "Classes from the exact validated50-round Diamond battle, repackaged without source changes.",
+  "checkpoint": true,
+  "Diamond_wins": 50,
+  "Chimp_wins": 47,
+  "rounds_each": 50,
+  "full_goal_met": false
+}

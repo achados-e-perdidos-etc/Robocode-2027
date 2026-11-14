@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-11-14T13:25:09.453239+00:00",
+  "profiles": [
+    {
+      "name": "reserve",
+      "source_sha256": "88d96948ba31ad9356fb21b50e55aa2ea75a656a45d4cf930dbbec5eaa893f3a"
+    },
+    {
+      "name": "calibrated",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    }
+  ],
+  "base_source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+  "goal": "Same frozen source wins50/50originalDiamond and50/50originalChimp in separate fair battles, with point leads.",
+  "hypotheses": [
+    "Restore weak-shot cadence determined by gun cooling instead of44tick low-energy throttling, preserving bullet-shadow opportunities. This is a tested strategy change, not a correctness assertion.",
+    "When existing pressure evidence authorizes1.95, apply an energy/12 comeback floor after cubic scaling; retain energy and finisher limits.",
+    "Compare feedback specific to resolved strong shots; pooled fast-shot accuracy cannot automatically establish accuracy at slower high power."
+  ],
+  "screen_rounds": 10,
+  "screen_case_ids": [
+    67011,
+    67012,
+    67013,
+    67014
+  ],
+  "confirmation_rounds": 50,
+  "confirmation_case_ids": [
+    67021,
+    67022,
+    67023,
+    67024
+  ],
+  "opponents_original": true,
+  "reference_cpu_ns": 10030489,
+  "fresh_jvm_and_data": true,
+  "random_starts": true,
+  "rng_seeded": false,
+  "retain_all_losses": true,
+  "do_not_retry_valid_losses": true,
+  "automatic_publication": false
+}

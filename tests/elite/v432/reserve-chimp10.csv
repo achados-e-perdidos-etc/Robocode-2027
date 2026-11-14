@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.32-reserve,b74c67e7ca2792c8,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,483,1,70.59999999999994,483,37,8,33.65,22.099999999999998,13.0,2,0,0,208,483,26,1
+reserved-1,4.32-reserve,b74c67e7ca2792c8,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,640,1,35.57499999999995,640,52,10,33.52499999999999,18.400000000000002,45.0,2,0,0,535,640,36,3
+reserved-1,4.32-reserve,b74c67e7ca2792c8,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,795,1,43.40000000000029,795,70,7,6.999999999999991,2.8,52.0,2,0,0,383,795,45,4
+reserved-1,4.32-reserve,b74c67e7ca2792c8,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,728,1,52.200000000000266,728,64,11,6.399999999999993,4.3999999999999995,45.0,5,0,0,507,728,38,3
+reserved-1,4.32-reserve,b74c67e7ca2792c8,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,447,1,81.24999999999994,447,34,10,30.949999999999992,34.599999999999994,13.0,1,0,0,402,447,24,1
+reserved-1,4.32-reserve,b74c67e7ca2792c8,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,583,1,51.999999999999936,583,45,10,36.850000000000016,25.3,29.0,2,0,0,270,583,31,2
+reserved-1,4.32-reserve,b74c67e7ca2792c8,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,620,1,73.95000000000014,620,52,9,14.84999999999999,6.0,16.0,2,0,0,502,620,35,1
+reserved-1,4.32-reserve,b74c67e7ca2792c8,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,656,1,49.40000000000003,656,54,11,26.15,20.9,39.0,3,0,0,418,656,34,3
+reserved-1,4.32-reserve,b74c67e7ca2792c8,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,577,1,48.84999999999995,577,45,9,37.9,22.5,29.0,6,0,0,375,577,28,2
+reserved-1,4.32-reserve,b74c67e7ca2792c8,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,868,1,12.000000000000199,868,76,11,7.599999999999989,4.3999999999999995,84.0,2,0,0,560,868,51,6

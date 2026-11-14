@@ -1,4 +1,10 @@
-# Estado dos testes — Titan Prime4.31
+# Checkpoint atual — Titan Prime 4.32
+
+Salvo na main por solicitação do usuário: **50/50 contra Diamond**,3695a1807pontos; **47/50 contra ChimpazeComSarna**,4181a1913pontos. Fonte congelada63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737. Ambos os resultados são válidos, com os adversários originais e sem aprendizado importado.
+
+A meta completa ainda falta contra ChimpazeComSarna. A próxima comparação ajusta a defesa contra tiros fortes e ficará separada deste checkpoint. [Registros](tests/elite/v432/leia-me.md) e [JAR](releases/titanprime-4.32.jar).
+
+## Histórico da 4.31
 
 Melhoria Melee publicada: correção das origens de ondas alternativas, atualização de todas as distâncias e proteção da escolha da mira na transição1v1. A versão anterior falha nas regressões controladas; a4.31passa.
 

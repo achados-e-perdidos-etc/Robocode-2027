@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.32-calibrated,7fb7067beb73b694,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,554,1,65.39999999999992,554,44,9,31.349999999999984,15.600000000000001,16.0,2,0,0,175,554,29,1
+reserved-1,4.32-calibrated,7fb7067beb73b694,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,648,1,33.10232643907948,648,52,11,31.86885408767529,28.128240702339767,55.0,3,0,0,280,648,36,4
+reserved-1,4.32-calibrated,7fb7067beb73b694,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,518,1,75.90000000000003,518,41,9,26.62499999999999,22.2,13.0,1,0,0,457,518,29,1
+reserved-1,4.32-calibrated,7fb7067beb73b694,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,762,1,39.30000000000003,762,66,10,8.99999999999999,3.9999999999999996,55.0,7,0,0,468,762,39,4
+reserved-1,4.32-calibrated,7fb7067beb73b694,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,501,1,90.49999999999997,501,39,9,27.049999999999997,24.9,0.0,2,0,0,314,501,25,0
+reserved-1,4.32-calibrated,7fb7067beb73b694,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,746,1,39.700000000000195,746,65,11,8.899999999999988,4.3999999999999995,55.0,3,0,0,459,746,42,4
+reserved-1,4.32-calibrated,7fb7067beb73b694,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,710,1,30.944272383458078,710,58,11,30.055727616541997,11.6,48.0,5,0,0,356,710,37,3
+reserved-1,4.32-calibrated,7fb7067beb73b694,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,834,1,11.300000000000027,834,69,14,34.80000000000002,22.400000000000002,71.0,3,0,0,469,834,43,5
+reserved-1,4.32-calibrated,7fb7067beb73b694,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,631,1,43.54999999999997,631,51,12,30.349999999999987,20.799999999999994,42.0,3,0,0,343,631,34,3
+reserved-1,4.32-calibrated,7fb7067beb73b694,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,493,1,78.55,493,39,11,25.399999999999988,25.7,16.0,3,0,0,421,493,25,1

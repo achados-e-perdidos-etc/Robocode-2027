@@ -1,6 +1,6 @@
 {
-  "status": "melee_update_published",
-  "production_version": "4.31",
+  "status": "diamond50_checkpoint_saved_chimp_work_continues",
+  "production_version": "4.32-calibrated",
   "source_delivery_approved": true,
   "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
   "tests": [
@@ -145,70 +145,55 @@
     "pc_exports": 3,
     "regression_late_duel_guessfactor": true
   },
-  "qualification_in_progress": null,
+  "qualification_in_progress": {
+    "version": "4.33-dev",
+    "scope": "Selective high-power flattener; checkpoint4.32remains preserved.",
+    "completed": false,
+    "accepted": false
+  },
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
-  "current_source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+  "current_source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
   "current_reference_results": [
     {
-      "case": 66002,
-      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
-      "rounds": 10,
-      "wins": 4,
+      "case": 67024,
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "rounds": 50,
+      "wins": 50,
       "valid": true,
       "scores": [
         {
-          "robot": "voidious.Diamond 1.8.28",
-          "points": 2418,
-          "firsts": 6
-        },
-        {
           "robot": "equipe.titanprime*",
-          "points": 1770,
-          "firsts": 4
+          "points": 3695,
+          "firsts": 50
         },
         {
-          "robot": "titan.TitanV3 3.0",
-          "points": 1518,
-          "firsts": 0
-        },
-        {
-          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
-          "points": 423,
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1807,
           "firsts": 0
         }
       ],
-      "report": "tests/elite/v431/candidate10.json"
+      "report": "tests/elite/v432/calibrated-diamond50.json"
     },
     {
-      "case": 66003,
-      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
-      "rounds": 20,
-      "wins": 13,
+      "case": 67023,
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "rounds": 50,
+      "wins": 47,
       "valid": true,
       "scores": [
         {
           "robot": "equipe.titanprime*",
-          "points": 4442,
-          "firsts": 13
-        },
-        {
-          "robot": "voidious.Diamond 1.8.28",
-          "points": 4026,
-          "firsts": 6
-        },
-        {
-          "robot": "titan.TitanV3 3.0",
-          "points": 2671,
-          "firsts": 1
+          "points": 4181,
+          "firsts": 47
         },
         {
           "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
-          "points": 1510,
-          "firsts": 0
+          "points": 1913,
+          "firsts": 3
         }
       ],
-      "report": "tests/elite/v431/confirmation20.json"
+      "report": "tests/elite/v432/calibrated-chimp50.json"
     }
   ],
   "historical_development_environment": {
@@ -382,6 +367,15 @@
       "candidate_wins": 17,
       "candidate_rounds": 30,
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.32",
+      "path": "tests/elite/v432",
+      "selected_source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "Diamond_wins": 50,
+      "Chimp_wins": 47,
+      "rounds_each": 50,
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -418,7 +412,7 @@
       "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T13:11:57.435216+00:00",
+  "updated_utc": "2026-11-14T13:45:58.743619+00:00",
   "previous_production_4_15": {
     "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
     "reference_results": [
@@ -446,20 +440,20 @@
   },
   "release_ready": true,
   "release_selection": {
-    "scope": "Melee correctness and reliability fixes verified against production methods; publish after valid control, screen and independent confirmation, preserving unfavorable outcomes.",
-    "statistical_superiority_proven": false
+    "reason": "Explicit user instruction to save the Diamond50/50variant, then improve Chimp.",
+    "automatic": false
   },
-  "jar_sha256": "ea38e957d915590afb849e8cd43628c5b21912faa43b9bc1fe3c8ffe9e90a286",
+  "jar_sha256": "35b51316e9edd8a86799948a040b9d7af7dd62edef4df24c9978b3ace5f6c23c",
   "final_checks": {
-    "java": 17,
+    "reference_battle_java": 21,
     "classes": 115,
     "class_major": 52,
-    "physics": true,
-    "memory": true,
-    "melee_regressions": true,
-    "packaged_jar_smoke_java17": true
+    "production_power_regressions": true,
+    "packaged_from_validated_class_files": true,
+    "zip_integrity": true,
+    "java17_smoke_repeated": false
   },
-  "no_pending_training_batches": true,
+  "no_pending_training_batches": false,
   "jar_smoke_report": "tests/elite/v428/release-jar-smoke.json",
   "previous_production_4_28": {
     "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
@@ -505,5 +499,79 @@
         "report": "tests/elite/v428/combined-chimp50.json"
       }
     ]
+  },
+  "previous_production_4_31": {
+    "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+    "reference_results": [
+      {
+        "case": 66002,
+        "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+        "rounds": 10,
+        "wins": 4,
+        "valid": true,
+        "scores": [
+          {
+            "robot": "voidious.Diamond 1.8.28",
+            "points": 2418,
+            "firsts": 6
+          },
+          {
+            "robot": "equipe.titanprime*",
+            "points": 1770,
+            "firsts": 4
+          },
+          {
+            "robot": "titan.TitanV3 3.0",
+            "points": 1518,
+            "firsts": 0
+          },
+          {
+            "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+            "points": 423,
+            "firsts": 0
+          }
+        ],
+        "report": "tests/elite/v431/candidate10.json"
+      },
+      {
+        "case": 66003,
+        "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+        "rounds": 20,
+        "wins": 13,
+        "valid": true,
+        "scores": [
+          {
+            "robot": "equipe.titanprime*",
+            "points": 4442,
+            "firsts": 13
+          },
+          {
+            "robot": "voidious.Diamond 1.8.28",
+            "points": 4026,
+            "firsts": 6
+          },
+          {
+            "robot": "titan.TitanV3 3.0",
+            "points": 2671,
+            "firsts": 1
+          },
+          {
+            "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+            "points": 1510,
+            "firsts": 0
+          }
+        ],
+        "report": "tests/elite/v431/confirmation20.json"
+      }
+    ],
+    "final_checks": {
+      "java": 17,
+      "classes": 115,
+      "class_major": 52,
+      "physics": true,
+      "memory": true,
+      "melee_regressions": true,
+      "packaged_jar_smoke_java17": true
+    }
   }
 }

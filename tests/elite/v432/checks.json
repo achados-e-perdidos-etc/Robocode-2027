@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "sources": [
+    {
+      "name": "baseline",
+      "source": "/workspace/Robocode-2027/robots/equipe/titanprime.java",
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+      "compiled_java8": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: COME_BACK_CUBIC_BOTTLENECK E20 expected>=1.5 actual=0.1\n\tat equipe.duelpowerprobe.check(duelpowerprobe.java:42)\n\tat equipe.duelpowerprobe.controller(duelpowerprobe.java:98)\n\tat equipe.duelpowerprobe.main(duelpowerprobe.java:199)\n",
+      "expected_failure": "COME_BACK_CUBIC_BOTTLENECK"
+    },
+    {
+      "name": "reserve",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v432/reserve/equipe/titanprime.java",
+      "source_sha256": "88d96948ba31ad9356fb21b50e55aa2ea75a656a45d4cf930dbbec5eaa893f3a",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "PRODUCTION_CONTROLLER_PASS profile=reserve\nHELPER_GUARDS_PASS profile=reserve bound_fixtures=126\nSTRONG_EVENT_SETTLEMENT_PASS hit_miss_collision_once weak_excluded target_reset\n",
+      "stderr": ""
+    },
+    {
+      "name": "calibrated",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v432/calibrated/equipe/titanprime.java",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "PRODUCTION_CONTROLLER_PASS profile=calibrated\nHELPER_GUARDS_PASS profile=calibrated bound_fixtures=126\nSTRONG_EVENT_SETTLEMENT_PASS hit_miss_collision_once weak_excluded target_reset\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual production Mira.calculateBulletPower with real gun and movement enemy data; energy/finisher/cap guards; strong-shot feedback boundaries; production hit, miss, and collision settlement handlers with event-copy identity and target reset; Java 8 compilation. No battle engine; firing cadence and combat performance are not validated."
+}

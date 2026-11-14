@@ -1,15 +1,15 @@
-# Instalar e testar o Titan Prime 4.31
+# Instalar e testar o Titan Prime 4.32
 
 Use **Robocode clássico**. A classe para selecionar é `equipe.titanprime`. O robô é uma adaptação licenciada do Diamond aberto e não precisa do JAR do adversário para compilar ou funcionar. Para enfrentá-lo, instale o Diamond separadamente.
 
-Baixe o [JAR 4.31](releases/titanprime-4.31.jar) para importar pelo Robocode, ou compile o fonte conforme abaixo. A versão entregue é a4.31, com correções específicas para Melee. Veja os [resultados desta versão](tests/elite/v431/leia-me.md).
+Baixe o [JAR 4.32](releases/titanprime-4.32.jar) para importar pelo Robocode, ou compile o fonte conforme abaixo. A versão entregue é a 4.32-calibrated, salva após 50/50 contra Diamond e 47/50 contra ChimpazeComSarna. Veja os [resultados desta versão](tests/elite/v432/leia-me.md).
 
 Use Robocode **1.12.0** com Java **17**. Seu log mostrava a versão 1.11.1, com um problema conhecido no encerramento de robôs. Veja o [diagnóstico](diagnostico-java17.md). Instale a versão nova em uma pasta separada e preserve a anterior.
 
 ## Instalação rápida pelo JAR
 
-1. Feche o Robocode e copie [titanprime-4.31.jar](releases/titanprime-4.31.jar) para `C:\robocode\robots`.
-2. Abra o jogo e pressione **Ctrl+R** na lista de robôs. Selecione `equipe.titanprime 4.31`.
+1. Feche o Robocode e copie [titanprime-4.32.jar](releases/titanprime-4.32.jar) para `C:\robocode\robots`.
+2. Abra o jogo e pressione **Ctrl+R** na lista de robôs. Selecione `equipe.titanprime 4.32-calibrated`.
 3. Se uma compilação antiga aparecer com asterisco e esconder a versão nova, guarde o antigo `titanprime.java` e seus `titanprime*.class` em um backup fora de `robots`. Preserve a pasta de dados do aprendizado. Não é necessário compilar o JAR.
 
 ## Instalação no Windows

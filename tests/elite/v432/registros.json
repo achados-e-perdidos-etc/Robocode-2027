@@ -1,0 +1,40 @@
+{
+  "archive_sha256": "a27c5977f0462cc50ae75301b861e62ba2ae96c5df4a9bb60a1dc35b5687ea0b",
+  "logs": [
+    {
+      "path": "calibrated-chimp10-reserved-1.log",
+      "bytes": 47346,
+      "sha256": "bf819245802a2f189364bf600c03a4d4aeec9fa27aa1afadfd78967fd1a8c828"
+    },
+    {
+      "path": "calibrated-chimp50-reserved-1.log",
+      "bytes": 228094,
+      "sha256": "e4bb1839ee722d93b47482965a9484e48e9e1e3b73f542cae5aba4f0b5c0c232"
+    },
+    {
+      "path": "calibrated-diamond10-reserved-1.log",
+      "bytes": 34478,
+      "sha256": "b08365b724b2f18f755eed956a5de5df79d73252af53687233b9f8497f915ada"
+    },
+    {
+      "path": "calibrated-diamond50-reserved-1.log",
+      "bytes": 166436,
+      "sha256": "549378d96969efaa8df5889a3e596dbdbad9160b5a08f32021631cf6fcdf9160"
+    },
+    {
+      "path": "control-chimp10-reserved-1.log",
+      "bytes": 45528,
+      "sha256": "e75baea3ab7b4a08bea3bccb098013a27dec2e93da5da85d24ba53094eb739ef"
+    },
+    {
+      "path": "reserve-chimp10-reserved-1.log",
+      "bytes": 46328,
+      "sha256": "c548e699597219c7580b388b1caa776d2a57da62e66e3fe0e4d918f70b1369d8"
+    },
+    {
+      "path": "reserve-diamond10-reserved-1.log",
+      "bytes": 44743,
+      "sha256": "44eaa562feaf16a4de2e1c8c0c4b1a2453f23d8585c6a2cd674cf2d64b2eccd4"
+    }
+  ]
+}

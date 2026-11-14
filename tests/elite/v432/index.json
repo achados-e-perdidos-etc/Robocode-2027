@@ -1,0 +1,42 @@
+{
+  "scope": "Frozen calibrated source saved as4.32checkpoint by explicit user request. Valid50/50Diamond and47/50Chimp, with every other trial and invalid engine run retained. Further experiments separate.",
+  "cases": [
+    {
+      "case": "calibrated-chimp10",
+      "report": "calibrated-chimp10.json",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    },
+    {
+      "case": "calibrated-chimp50",
+      "report": "calibrated-chimp50.json",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    },
+    {
+      "case": "calibrated-diamond10",
+      "report": "calibrated-diamond10.json",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    },
+    {
+      "case": "calibrated-diamond50",
+      "report": "calibrated-diamond50.json",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    },
+    {
+      "case": "control-chimp10",
+      "report": "control-chimp10.json",
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a"
+    },
+    {
+      "case": "reserve-chimp10",
+      "report": "reserve-chimp10.json",
+      "source_sha256": "88d96948ba31ad9356fb21b50e55aa2ea75a656a45d4cf930dbbec5eaa893f3a"
+    },
+    {
+      "case": "reserve-diamond10",
+      "report": "reserve-diamond10.json",
+      "source_sha256": "88d96948ba31ad9356fb21b50e55aa2ea75a656a45d4cf930dbbec5eaa893f3a"
+    }
+  ],
+  "all_rounds_goal_met": false,
+  "published_checkpoint_source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+}

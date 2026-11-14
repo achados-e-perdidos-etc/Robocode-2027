@@ -11,7 +11,7 @@ public class titanprime extends robocode.AdvancedRobot {
   private static titan_gun_Mira _gun;
   protected static titan_gfx_Cores _gfx;
   private static final float BATTLE_HUE = new java.util.Random().nextFloat();
-  private static final String DIAGNOSTIC_VERSION = "4.31";
+  private static final String DIAGNOSTIC_VERSION = "4.32-calibrated";
   private static final String DIAGNOSTIC_BATTLE =
       Long.toHexString(new java.util.Random().nextLong());
   private final java.util.Set<String> observedEnemies = new java.util.TreeSet<String>();
@@ -22,6 +22,8 @@ public class titanprime extends robocode.AdvancedRobot {
   private boolean celebrating, roundReported;
   private int celebrationFrame;
   private int policyShots, policyHits, strongShots;
+  private int policyStrongResolved, policyStrongHits;
+  private final java.util.Set<robocode.Bullet> policyStrongBullets = new java.util.HashSet<robocode.Bullet>();
   private String policyTarget = "";
   private final java.util.Set<robocode.Bullet> policyBullets = new java.util.HashSet<robocode.Bullet>();
   private int bodyCollisions;
@@ -119,15 +121,11 @@ public class titanprime extends robocode.AdvancedRobot {
 
   @Override
   public robocode.Bullet setFireBullet(double power) {
-    if (getOthers() == 1 && getEnergy() < 18 && power <= .2 && _move != null) {
-      titan_move_MoveEnemy enemy = _move._moveDataManager.duelEnemy();
-      if (enemy != null && enemy.energy > 1 && enemy.distance > 160
-          && getTime() - lastRealShot < 44) return null;
-    }
     robocode.Bullet bullet = super.setFireBullet(power);
     if (bullet != null) lastRealShot = getTime();
     if (bullet != null && getOthers() == 1 && !roundReported) {
       policyShots++; policyBullets.add(bullet);
+      if (bullet.getPower() > .7000001) policyStrongBullets.add(bullet);
     }
     if (bullet != null && !roundReported) {
       shots++;
@@ -141,6 +139,7 @@ public class titanprime extends robocode.AdvancedRobot {
     if (observedEnemies.add(e.getName())) MEMORY_SEEN.put(e.getName(), memoryGeneration + 1);
     if (getOthers() == 1 && !e.getName().equals(policyTarget)) {
       policyTarget = e.getName(); policyShots = policyHits = 0; policyBullets.clear();
+      policyStrongResolved = policyStrongHits = 0; policyStrongBullets.clear();
     }
     observedPassiveDrain = energyBalance.observe(e.getTime(), getOthers(), e.getName(),
         getEnergy(), spent, receivedNominal, bulletBonuses, wallHits + bodyCollisions);
@@ -184,6 +183,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletHit(robocode.BulletHitEvent e) {
+    settleStrongBullet(e.getBullet(), e.getName().equals(policyTarget));
     if (policyBullets.remove(e.getBullet()) && e.getName().equals(policyTarget)) policyHits++;
 
     if (recordDiagnosticEvent(e.getTime())) { hits++; dealtNominal += robocode.Rules.getBulletDamage(e.getBullet().getPower()); bulletBonuses += robocode.Rules.getBulletHitBonus(e.getBullet().getPower()); }
@@ -201,12 +201,14 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletMissed(robocode.BulletMissedEvent e) {
+    settleStrongBullet(e.getBullet(), false);
     policyBullets.remove(e.getBullet());
 
     if (!_TC) _move.onBulletMissed(e);
   }
 
   public void onBulletHitBullet(robocode.BulletHitBulletEvent e) {
+    settleStrongBullet(e.getBullet(), false);
     policyBullets.remove(e.getBullet());
 
     if (recordDiagnosticEvent(e.getTime())) bulletCollisions++;
@@ -305,6 +307,13 @@ public class titanprime extends robocode.AdvancedRobot {
     roundFinished = true;
   }
 
+  private void settleStrongBullet(robocode.Bullet bullet, boolean hit) {
+    if (policyStrongBullets.remove(bullet)) {
+      policyStrongResolved++;
+      if (hit) policyStrongHits++;
+    }
+  }
+
   private boolean recordDiagnosticEvent(long tick) {
     return !roundReported || tick <= diagnosticTick;
   }
@@ -314,6 +323,8 @@ public class titanprime extends robocode.AdvancedRobot {
       out.println("TITAN_ENERGY passive_drain=" + energyBalance.totalDrain + " body_collisions=" + bodyCollisions);
       out.println("TITAN_FIRE_POLICY round=" + (getRoundNum() + 1)
           + " shots=" + policyShots + " hits=" + policyHits);
+      out.println("TITAN_POWER_ACCURACY round=" + (getRoundNum() + 1)
+          + " strong_resolved=" + policyStrongResolved + " strong_hits=" + policyStrongHits);
       out.println("TITAN_PROJECTILES round=" + (getRoundNum() + 1)
           + " retired_hits=" + _move._moveDataManager.retiredHits
           + " retired_misses=" + _move._moveDataManager.retiredMisses
@@ -2719,7 +2730,10 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
       double cap = gunData == null ? .1 : pressureFireCap(gunData.distance,
           _robot.getEnergy(), gunData.energy, firingEnemy == null ? 0 : firingEnemy.lastBulletPower,
           _robot.policyShots, _robot.policyHits, 450);
-      bulletPower = Math.min(bulletPower, cap);
+      bulletPower = comebackPower(bulletPower, cap, _robot.getEnergy(),
+          gunData == null ? 0 : gunData.energy);
+      bulletPower = Math.min(bulletPower, pressureAccuracyCap(cap,
+          _robot.policyStrongResolved, _robot.policyStrongHits));
     }
     return bulletPower;
   }
@@ -10275,6 +10289,26 @@ public static class titan_utils_geom_LineSeg {
       lastReceived = received; lastBonus = bonus; lastCollisions = collisions;
       return result;
     }
+  }
+
+  private static final boolean CALIBRATE_STRONG_SHOTS = true;
+
+  static double comebackPower(double current, double cap, double energy, double enemyEnergy) {
+    if (!Double.isFinite(current) || !Double.isFinite(cap) || !Double.isFinite(energy)
+        || !Double.isFinite(enemyEnergy) || energy < 0 || enemyEnergy < 0) return .1;
+    double selected = Math.min(current, cap);
+    if (cap > .7) selected = Math.max(selected, Math.min(cap, energy / 12));
+    selected = Math.min(selected, enemyEnergy / 4);
+    return Math.min(energy, Math.max(.1, selected));
+  }
+
+  static double pressureAccuracyCap(double cap, int resolved, int hits) {
+    if (!CALIBRATE_STRONG_SHOTS) return cap;
+    if (!Double.isFinite(cap)) return .1;
+    if (resolved < 0 || hits < 0 || hits > resolved) return Math.min(cap, .7);
+    if (cap > .7 && resolved >= 6 && (hits + 1.0) / (resolved + 8.0) < .18)
+      return .7;
+    return cap;
   }
 
   static double pressureFireCap(double distance, double energy, double enemyEnergy,
