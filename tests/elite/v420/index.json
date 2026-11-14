@@ -1,0 +1,210 @@
+{
+  "scope": "Completed experimental 4.20 trials; production main remains4.15. Different source hashes must never be pooled. A 50/50 series is not evidence of universal invincibility.",
+  "updated_utc": "2026-11-13T21:42:10.686787+00:00",
+  "cases": [
+    {
+      "label": "precision07-chimp50",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 44,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3573,
+              "firsts": 44
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 2473,
+              "firsts": 6
+            }
+          ],
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "label": "precision07-diamond50",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 50,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3666,
+              "firsts": 50
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1641,
+              "firsts": 0
+            }
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "label": "precision12-chimp50",
+      "source_sha256": "26bda47d96132a00ab605ea5333989bf3ba06a9e5b855f403f312f0c880257d5",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 42,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3608,
+              "firsts": 42
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 2899,
+              "firsts": 8
+            }
+          ],
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "label": "precision12-diamond50",
+      "source_sha256": "26bda47d96132a00ab605ea5333989bf3ba06a9e5b855f403f312f0c880257d5",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 50,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3705,
+              "firsts": 50
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1679,
+              "firsts": 0
+            }
+          ],
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "label": "precision07-warm50",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 48,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3516,
+              "firsts": 48
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 2033,
+              "firsts": 2
+            }
+          ],
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "label": "precision07-melee5",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 2,
+          "scores": [
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1176,
+              "firsts": 3
+            },
+            {
+              "robot": "equipe.titanprime*",
+              "points": 926,
+              "firsts": 2
+            },
+            {
+              "robot": "titan.TitanV3 3.0",
+              "points": 644,
+              "firsts": 0
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 381,
+              "firsts": 0
+            }
+          ],
+          "accepted": false
+        }
+      ]
+    },
+    {
+      "label": "precision07-additional100",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "results": [
+        {
+          "valid": true,
+          "conservative_wins": 49,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3622,
+              "firsts": 49
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1748,
+              "firsts": 1
+            }
+          ],
+          "accepted": false
+        },
+        {
+          "valid": true,
+          "conservative_wins": 48,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3531,
+              "firsts": 48
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1881,
+              "firsts": 2
+            }
+          ],
+          "accepted": false
+        }
+      ]
+    }
+  ],
+  "same_source_precision07_cold_diamond": {
+    "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+    "series_wins": [
+      50,
+      49,
+      48
+    ],
+    "series_rounds": [
+      50,
+      50,
+      50
+    ],
+    "total_wins": 147,
+    "total_rounds": 150,
+    "all_rounds_goal_met": false
+  }
+}

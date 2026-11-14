@@ -1,0 +1,6 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.20-dev,aaf65fc08918dede,1,5,3,review.main.chimpazecomsarna.ChimpazeComSarna 1|titan.TitanV3 3.0|voidious.Diamond 1.8.28,279,0,0.0,279,20,6,25.979999999999993,35.971999999999994,99.59400000000001,2,0,0,251,0,0,0
+reserved-1,4.20-dev,aaf65fc08918dede,2,5,3,review.main.chimpazecomsarna.ChimpazeComSarna 1|titan.TitanV3 3.0|voidious.Diamond 1.8.28,869,0,0.0,869,52,12,49.16000000000004,80.344,103.40400000000001,7,0,0,695,336,19,1
+reserved-1,4.20-dev,aaf65fc08918dede,3,5,3,review.main.chimpazecomsarna.ChimpazeComSarna 1|titan.TitanV3 3.0|voidious.Diamond 1.8.28,1499,0,0.0,1499,86,14,37.18100000000008,82.35200000000003,112.69499999999994,13,0,0,747,1225,82,5
+reserved-1,4.20-dev,aaf65fc08918dede,4,5,3,review.main.chimpazecomsarna.ChimpazeComSarna 1|titan.TitanV3 3.0|voidious.Diamond 1.8.28,1085,1,63.017000000000316,1085,88,11,65.06800000000003,52.36999999999999,4.0,10,0,0,971,620,36,1
+reserved-1,4.20-dev,aaf65fc08918dede,5,5,3,review.main.chimpazecomsarna.ChimpazeComSarna 1|titan.TitanV3 3.0|voidious.Diamond 1.8.28,983,1,92.63818181818216,983,79,16,59.2740000000001,99.34000000000003,8.6578181818182,4,0,0,939,601,37,2

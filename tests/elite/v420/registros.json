@@ -1,0 +1,46 @@
+{
+  "archive": "registros.zip",
+  "archive_sha256": "31fc792a5e20c98f8f63273fb64f180ab865e5b5e6638f3352b7bbb8086d7a0c",
+  "logs": [
+    {
+      "path": "precision07-additional100-reserved-1.log",
+      "sha256": "eaf76cac8f53252779b0bba0cb8bab50750e6679fb5b7c5d2abef1fc8d1fec08",
+      "bytes": 152358
+    },
+    {
+      "path": "precision07-additional100-reserved-2.log",
+      "sha256": "89a52010c309255023c26d6d60b2a0dd37c58c3838227577fe45ac7be1a32377",
+      "bytes": 154686
+    },
+    {
+      "path": "precision07-chimp50-reserved-1.log",
+      "sha256": "166086241aeade4aabfcd64e3320309ab5acae9bcb365995e79f3b581c9a1d86",
+      "bytes": 223921
+    },
+    {
+      "path": "precision07-diamond50-reserved-1.log",
+      "sha256": "59c829df6e99711faf38a0fd9570d3e2cb584eab784e8c69af04a070a80f5a7b",
+      "bytes": 171410
+    },
+    {
+      "path": "precision07-melee5-reserved-1.log",
+      "sha256": "e0f9d321cf7276bc5e64df9d8daea6a3d071c06d794449413857004fe30a0203",
+      "bytes": 20050
+    },
+    {
+      "path": "precision07-warm50-warm.log",
+      "sha256": "12f2df365fb12978e5e7ec3330067653cdf7439d894bfe1754de031c77884d73",
+      "bytes": 187022
+    },
+    {
+      "path": "precision12-chimp50-reserved-1.log",
+      "sha256": "8e22841090c91bff61e6ddfe5f1ff8ea7634631193f7a10b6b388596db238c04",
+      "bytes": 211019
+    },
+    {
+      "path": "precision12-diamond50-reserved-1.log",
+      "sha256": "189b0ff3b0e730e01f7f48ea47a4d5fb5855d89844b1cb28a2e097f1404daa43",
+      "bytes": 174422
+    }
+  ]
+}
