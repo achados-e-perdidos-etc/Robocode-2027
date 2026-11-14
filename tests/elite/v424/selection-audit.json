@@ -1,0 +1,19 @@
+{
+  "scope": "The queued selector process loaded before the heldout-inclusion patch and originally ranked pressure using its first cold50per opponent. All reserved defeats were retained separately. This audit includes them and verifies that the same source still wins the predeclared worst-opponent ranking. No source or running battle was changed.",
+  "original_quality": [
+    0.92,
+    0.6750041687510422
+  ],
+  "all_cold_diamond": {
+    "wins": 144,
+    "rounds": 150,
+    "points": 10545,
+    "opponent_points": 5791
+  },
+  "quality_including_reserved": [
+    0.92,
+    0.6455068560235063
+  ],
+  "selected_source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+  "selection_unchanged": true
+}

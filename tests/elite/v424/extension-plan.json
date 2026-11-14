@@ -1,0 +1,28 @@
+{
+  "source": {
+    "name": "confidence-power",
+    "source": "/workspace/robocode-user/perfection/confidence/confidence-power/equipe/titanprime.java",
+    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+    "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+  },
+  "reason": "Both4.24profiles tied on worst screen win fraction; the initial point-share tie-break selected global confidence. After its cold Chimp45/50 result, evaluate the distinct power-context profile in its first long confirmations. No valid loss is retried.",
+  "cold_cases": [
+    {
+      "opponent": "Diamond",
+      "rounds": 50,
+      "case_id": 64813
+    },
+    {
+      "opponent": "Chimp",
+      "rounds": 50,
+      "case_id": 64814
+    }
+  ],
+  "warm_rounds": 50,
+  "reserved_diamond_case_ids": [
+    64831,
+    64832
+  ],
+  "reserved_rule": "Only if all50cold Diamond rounds are won.",
+  "automatic_publication": false
+}

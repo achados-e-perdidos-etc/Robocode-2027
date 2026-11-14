@@ -1,0 +1,65 @@
+{
+  "archive_sha256": "9d9de0df720a35c95e035cf7d47301338f1d3077548aa102ed2e818d9914fd59",
+  "logs": [
+    {
+      "path": "confidence-chimp10-reserved-1.log",
+      "bytes": 45360,
+      "sha256": "dceb7b48d94984bed5e40d7f931564b6ba4e8b7f1ba1b160e5ee0f6d5dd629ef"
+    },
+    {
+      "path": "confidence-chimp50-reserved-1.log",
+      "bytes": 219975,
+      "sha256": "7cbecb2c715836afe968988daf927bfea3ff43e52b5e09a1f0c2922767540567"
+    },
+    {
+      "path": "confidence-diamond10-reserved-1.log",
+      "bytes": 33588,
+      "sha256": "c6a8177105ff392359db75493fbdd5675ad066b33240f601c8149bdbb45038dc"
+    },
+    {
+      "path": "confidence-diamond50-reserved-1.log",
+      "bytes": 159078,
+      "sha256": "9946aaa97d4bba22999703d39530ab41a3c3d8519a59a109120b043164589cf2"
+    },
+    {
+      "path": "confidence-power-chimp10-reserved-1.log",
+      "bytes": 44900,
+      "sha256": "5711ccc6789d8e0858cbe7ddce7030b73f277c43162a0fc1425f749a8cc4b413"
+    },
+    {
+      "path": "confidence-power-chimp50-reserved-1.log",
+      "bytes": 228433,
+      "sha256": "d6e81435178c31c70f5f7b02bf740b48421f2fec6268c0b9c2242e20915be3af"
+    },
+    {
+      "path": "confidence-power-diamond10-reserved-1.log",
+      "bytes": 35350,
+      "sha256": "61ed1c6715b3fd6da7a5cef2a633f61e6d9fba84974c603efca4ab1c860daf68"
+    },
+    {
+      "path": "confidence-power-diamond50-reserved-1.log",
+      "bytes": 145222,
+      "sha256": "774441b784a036490b57aaacfe15b8411fadfcb9069ca72d3297099c23430945"
+    },
+    {
+      "path": "confidence-power-warm50-warm.log",
+      "bytes": 182466,
+      "sha256": "e28f8284c93b58eb9406fc005efc632ce1f8d50c6d9b1269b72979bba09e5e60"
+    },
+    {
+      "path": "confidence-reserved100-reserved-1.log",
+      "bytes": 160784,
+      "sha256": "0316f28d077ccbe4aac62a05bb0ebdd5b585b5978a99a3dcd17a7a3586e2eb75"
+    },
+    {
+      "path": "confidence-reserved100-reserved-2.log",
+      "bytes": 150081,
+      "sha256": "5700bce55c09b17fddaecd67f368bb87f08abfe980dd1728bdfd1a1716c80ff7"
+    },
+    {
+      "path": "confidence-warm50-warm.log",
+      "bytes": 148935,
+      "sha256": "ebbaa8c6d53572ba0763421f0fba15ecb8499f75c1a3464e3b6d8f792d021623"
+    }
+  ]
+}

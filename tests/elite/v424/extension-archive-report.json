@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-14T03:54:27.396913+00:00",
+  "stopped_utc": "2026-11-14T04:17:23.254326+00:00",
+  "snapshots": 440,
+  "diagnostic_revisions": 443,
+  "distinct_rounds": 440,
+  "archive_bytes": 6810575,
+  "scope": "Read-only copies of own validated learning checkpoints and own diagnostics. Extends the existing archive across context-profile confirmations. Earlier states remain retained. No imported opponent private data. No fixed history count cap; limited by external disk."
+}

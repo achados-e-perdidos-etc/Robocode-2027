@@ -1,0 +1,61 @@
+{
+  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "cases": [
+    {
+      "case": "confidence-chimp10",
+      "report": "confidence-chimp10.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "case": "confidence-chimp50",
+      "report": "confidence-chimp50.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "case": "confidence-diamond10",
+      "report": "confidence-diamond10.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "case": "confidence-diamond50",
+      "report": "confidence-diamond50.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "case": "confidence-power-chimp10",
+      "report": "confidence-power-chimp10.json",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "case": "confidence-power-chimp50",
+      "report": "confidence-power-chimp50.json",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "case": "confidence-power-diamond10",
+      "report": "confidence-power-diamond10.json",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "case": "confidence-power-diamond50",
+      "report": "confidence-power-diamond50.json",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "case": "confidence-power-warm50",
+      "report": "confidence-power-warm50.json",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "case": "confidence-reserved100",
+      "report": "confidence-reserved100.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "case": "confidence-warm50",
+      "report": "confidence-warm50.json",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "profile": "old",
+    "passed": true,
+    "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+    "output": "OLD_NORMALIZED_SCORE=2.0 MARGIN=NaN\n",
+    "scope": "Controlled valid weighted-score fixture. Reproduces nonfinite confidence from treating a normalized score as a probability; does not establish that any observed loss was caused by it."
+  },
+  {
+    "profile": "confidence",
+    "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476",
+    "passed": true,
+    "output": "CONFIDENCE_OK matrix=328 context=false weighted_margin=200.0 listener_bookkeeping=true\n"
+  },
+  {
+    "profile": "confidence-power",
+    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+    "passed": true,
+    "output": "CONFIDENCE_OK matrix=328 context=true weighted_margin=200.0 listener_bookkeeping=true\n"
+  }
+]

@@ -93,7 +93,7 @@
     "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed.",
     "offline_training_scope": "Historical4.5 experiment; no new offline neural training is claimed by the4.20/4.21 movement and firepower comparisons.",
     "new_training": {
-      "status": "queued_after_confidence_extension",
+      "status": "collecting_6_independent_battles",
       "partition": "Entire independent battles for training versus model-selection validation; final field battles follow selection.",
       "offline_candidates": 4,
       "workers": 2,
@@ -138,14 +138,12 @@
     "regression_late_duel_guessfactor": true
   },
   "qualification_in_progress": {
-    "scope": "Experimental confidence models; no automatic source promotion.",
-    "version": "4.24-dev",
-    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
-    "cpu_constant_ns": 10030489,
+    "version": "4.25-train",
+    "scope": "Instrumented data collection, followed by offline neural prior selection and independent field tests. No new competitive result yet.",
     "published": false,
     "completed": false,
     "accepted": false,
-    "current_stage": "Second power-context profile long validation. Global profile completed with cold Diamond50/50,48/50,48/50; Chimp45/50, warm Diamond49/50. All valid losses retained."
+    "collector_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
   },
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
@@ -275,6 +273,33 @@
       "selected_Diamond_warm_wins": 49,
       "rounds_per_series": 50,
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.24",
+      "path": "tests/elite/v424",
+      "profiles": [
+        {
+          "name": "confidence",
+          "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476",
+          "cold_Diamond_series_wins": [
+            50,
+            48,
+            48
+          ],
+          "cold_Diamond_rounds": 150,
+          "cold_Chimp_wins": 45,
+          "warm_Diamond_wins": 49
+        },
+        {
+          "name": "confidence-power",
+          "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+          "cold_Diamond_wins": 49,
+          "cold_Chimp_wins": 46,
+          "warm_Diamond_wins": 49,
+          "rounds_per_series": 50
+        }
+      ],
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -304,7 +329,12 @@
       "snapshots": 290,
       "distinct_rounds": 290,
       "bytes": 4501081
+    },
+    "experimental_v424_archive": {
+      "snapshots": 440,
+      "distinct_rounds": 440,
+      "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T04:01:24.090047+00:00"
+  "updated_utc": "2026-11-14T04:18:09.682899+00:00"
 }

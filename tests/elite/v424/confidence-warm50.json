@@ -1,0 +1,61 @@
+{
+  "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476",
+  "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "cooling": 0.1,
+    "inactivity": 450,
+    "energy": 100
+  },
+  "config_sha256": {
+    "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+  },
+  "data_policy": "Predeclared warm start: fresh JVM with same own neural/defense snapshots from the completed cold50 series. Original opponent unchanged. Not a cold-start qualification.",
+  "expected_roster": [
+    "equipe.titanprime*",
+    "voidious.Diamond 1.8.28"
+  ],
+  "minimum_wins": 50,
+  "results": [
+    {
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true,
+        "actual_memory_reload": true,
+        "new_state_saved": true,
+        "diagnostic_complete": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3585,
+          "firsts": 49
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1862,
+          "firsts": 1
+        }
+      ],
+      "conservative_wins": 49,
+      "score_share": 0.6581604552964935,
+      "accepted": false,
+      "memory_loaded": [
+        [
+          "1",
+          "50"
+        ]
+      ]
+    }
+  ],
+  "complete": true,
+  "accepted": false
+}

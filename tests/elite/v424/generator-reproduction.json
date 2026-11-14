@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "profiles": [
+    {
+      "profile": "confidence",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476"
+    },
+    {
+      "profile": "confidence-power",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    }
+  ],
+  "scope": "Reconstructed exact generator snapshot reproduces both already-frozen4.24source hashes. Later impact-telemetry edits were not included in those sources."
+}

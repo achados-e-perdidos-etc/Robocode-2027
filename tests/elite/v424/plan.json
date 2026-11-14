@@ -1,0 +1,48 @@
+{
+  "profiles": [
+    {
+      "name": "confidence",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476",
+      "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "name": "confidence-power",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+      "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    }
+  ],
+  "hypotheses": [
+    "Normalized weighted hit scores can exceed1, so they cannot be inserted as binomial probabilities into sqrt(p*(1-p)/n). Use a finite lower-confidence distance based on raw counts and rescaled hit weights.",
+    "Compare global model activation against separate weak/medium/strong shot statistics once16 actual non-collision waves are resolved in that power group."
+  ],
+  "limitations": [
+    "The new power-group counters persist across rounds in RAM but are not serialized in schema2. Existing neural weights, defensive samples and global counters still reload. Do not claim that all new counters reload.",
+    "Rescaled Wilson lower confidence is an activation heuristic with variable hit weights; no exact statistical coverage claim."
+  ],
+  "screens": [
+    "Diamond10",
+    "Chimp10"
+  ],
+  "screen_case_ids": [
+    64801,
+    64802,
+    64803,
+    64804
+  ],
+  "screen_continuation_minimum_wins": 8,
+  "confirmation_case_ids": [
+    64811,
+    64812,
+    64813,
+    64814
+  ],
+  "reserved_diamond_case_ids": [
+    64821,
+    64822
+  ],
+  "confirmation_rule": "Select valid profile by worst-opponent screen wins then worst score share; once50cold rounds per opponent and warm50.",
+  "heldout_rule": "Additional100 Diamond only after all50cold Diamond wins; preserve any other defeats separately.",
+  "automatic_publication": false,
+  "do_not_retry_valid_losses": true,
+  "reference_cpu_constant_ns": 10030489
+}

@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.24-dev,7e632d6004f2e2ad,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,509,1,62.42499999999995,509,39,9,36.625,38.699999999999996,26.0,0,0,0,271,509,30,2
+reserved-1,4.24-dev,7e632d6004f2e2ad,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,640,1,29.919264436862168,640,50,9,43.374520177803994,31.78756922933237,48.0,1,0,0,441,640,34,3
+reserved-1,4.24-dev,7e632d6004f2e2ad,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,559,1,61.99999999999995,559,44,9,34.75,22.5,16.0,1,7,0,486,559,29,1
+reserved-1,4.24-dev,7e632d6004f2e2ad,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,400,1,82.19999999999996,400,31,12,23.9,54.0,29.0,3,0,0,187,400,20,2
+reserved-1,4.24-dev,7e632d6004f2e2ad,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,619,1,81.00000000000028,619,54,7,5.399999999999997,2.8,16.0,1,0,0,584,619,35,1
+reserved-1,4.24-dev,7e632d6004f2e2ad,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,691,1,44.17499999999998,691,58,11,20.94999999999998,11.600000000000001,45.0,2,0,0,369,691,38,3
+reserved-1,4.24-dev,7e632d6004f2e2ad,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,773,0,0.0,773,61,9,9.099999999999989,3.5999999999999996,94.00000000000004,3,0,0,546,773,43,6
+reserved-1,4.24-dev,7e632d6004f2e2ad,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,779,1,11.159760650000011,779,60,11,30.440239350000002,16.4,71.0,2,0,0,516,779,44,5
+reserved-1,4.24-dev,7e632d6004f2e2ad,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,686,1,50.700000000000095,686,58,12,15.399999999999988,12.000000000000002,45.0,5,0,0,512,686,35,3
+reserved-1,4.24-dev,7e632d6004f2e2ad,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,459,1,50.12479484129451,458,35,10,34.287282373072884,40.924154428734866,48.0,1,0,1,400,458,24,3

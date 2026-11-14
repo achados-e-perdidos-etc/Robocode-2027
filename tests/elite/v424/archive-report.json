@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-14T03:13:19.809721+00:00",
+  "stopped_utc": "2026-11-14T03:54:26.334737+00:00",
+  "snapshots": 290,
+  "diagnostic_revisions": 292,
+  "distinct_rounds": 290,
+  "archive_bytes": 4496057,
+  "scope": "Read-only copies of own validated learning checkpoints and own diagnostics. Started during first screening series; no claim to recover prior unseen intermediate states. No imported opponent private data. No fixed history count cap; limited by external disk."
+}
