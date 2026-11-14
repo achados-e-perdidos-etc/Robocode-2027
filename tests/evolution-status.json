@@ -93,12 +93,21 @@
     "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed.",
     "offline_training_scope": "Historical4.5 experiment; no new offline neural training is claimed by the4.20/4.21 movement and firepower comparisons.",
     "new_training": {
-      "status": "collecting_6_independent_battles",
-      "partition": "Entire independent battles for training versus model-selection validation; final field battles follow selection.",
+      "status": "completed_not_promoted",
+      "samples": 11619,
+      "training_samples": 7799,
+      "validation_samples": 3820,
+      "partition": "Entire independent battles; validation used for model selection; field battles independent.",
       "offline_candidates": 4,
       "workers": 2,
-      "no_concurrent_battle_engine": true,
-      "result_claimed": false
+      "baseline_balanced_cross_entropy": 4.05665213273025,
+      "selected_balanced_cross_entropy": 4.035938326719563,
+      "selected_source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+      "Diamond_cold_wins": 47,
+      "Chimp_cold_wins": 44,
+      "rounds_per_series": 50,
+      "all_rounds_goal_met": false,
+      "report": "tests/elite/v426"
     }
   },
   "remaining": [
@@ -138,12 +147,11 @@
     "regression_late_duel_guessfactor": true
   },
   "qualification_in_progress": {
-    "version": "4.25-train",
-    "scope": "Instrumented data collection, followed by offline neural prior selection and independent field tests. No new competitive result yet.",
-    "published": false,
+    "version": "4.28-dev",
+    "scope": "Signed angular-coordinate correction and strict pre-impact shadow deadline, separately and combined. Three frozen experimental profiles.",
     "completed": false,
     "accepted": false,
-    "collector_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    "published": false
   },
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
@@ -300,6 +308,11 @@
         }
       ],
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.25/4.26",
+      "path": "tests/elite/v426",
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -336,5 +349,5 @@
       "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T04:18:09.682899+00:00"
+  "updated_utc": "2026-11-14T05:18:39.907685+00:00"
 }

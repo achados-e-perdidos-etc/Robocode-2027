@@ -1,0 +1,145 @@
+{
+  "samples": 11619,
+  "training_samples": 7799,
+  "validation_samples": 3820,
+  "split": "Entire independent battles; no validation rows enter gradient training. Validation is used for model selection, not a final unbiased test.",
+  "baseline": {
+    "balanced": 4.05665213273025,
+    "by_opponent": {
+      "Chimp": 4.061079879050369,
+      "Diamond": 4.05222438641013
+    }
+  },
+  "candidates": [
+    {
+      "name": "fine-low",
+      "validation": {
+        "balanced": 4.04078161822333,
+        "by_opponent": {
+          "Chimp": 4.024262103637433,
+          "Diamond": 4.057301132809227
+        }
+      },
+      "path": "/workspace/robocode-user/perfection/neural-max/models/fine-low/weights.npz",
+      "relative_balanced_gain": 0.003912219728892108,
+      "eligible": false
+    },
+    {
+      "name": "fine-medium",
+      "validation": {
+        "balanced": 4.037732117373581,
+        "by_opponent": {
+          "Chimp": 4.019498855111658,
+          "Diamond": 4.055965379635505
+        }
+      },
+      "path": "/workspace/robocode-user/perfection/neural-max/models/fine-medium/weights.npz",
+      "relative_balanced_gain": 0.004663948186243605,
+      "eligible": false
+    },
+    {
+      "name": "fine-fast",
+      "validation": {
+        "balanced": 4.035938326719563,
+        "by_opponent": {
+          "Chimp": 4.018948114117749,
+          "Diamond": 4.052928539321378
+        }
+      },
+      "path": "/workspace/robocode-user/perfection/neural-max/models/fine-fast/weights.npz",
+      "relative_balanced_gain": 0.005106133169162197,
+      "eligible": true
+    },
+    {
+      "name": "restart",
+      "validation": {
+        "balanced": 4.0445582169732175,
+        "by_opponent": {
+          "Chimp": 4.023666088165418,
+          "Diamond": 4.065450345781017
+        }
+      },
+      "path": "/workspace/robocode-user/perfection/neural-max/models/restart/weights.npz",
+      "relative_balanced_gain": 0.002981255321217957,
+      "eligible": false
+    }
+  ],
+  "provenance": [
+    {
+      "case": "train-diamond-a",
+      "partition": "train",
+      "opponent": "Diamond",
+      "samples": 3520,
+      "actual_shots": 3549,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "51213158e18315632e763b7dc156227e7761bf7ff4561c7301ba54c73a0c70c2"
+    },
+    {
+      "case": "train-chimp-a",
+      "partition": "train",
+      "opponent": "Chimp",
+      "samples": 457,
+      "actual_shots": 475,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "06a12650e0ec668d1e8ef6d1acede8904d3b1561b5cd43a6c2a4d3e6d73384c5"
+    },
+    {
+      "case": "train-diamond-b",
+      "partition": "train",
+      "opponent": "Diamond",
+      "samples": 3347,
+      "actual_shots": 3384,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "b7a98c12c2f6519020aee86bb186041e3e50559afa85ad322cf06d849371c853"
+    },
+    {
+      "case": "train-chimp-b",
+      "partition": "train",
+      "opponent": "Chimp",
+      "samples": 475,
+      "actual_shots": 498,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "66b92e2370ad09bc5477b0b09a6da178e1c56f32f995ee637fa67c756f463602"
+    },
+    {
+      "case": "validation-diamond",
+      "partition": "validation",
+      "opponent": "Diamond",
+      "samples": 3356,
+      "actual_shots": 3396,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "ec747fca639c29538028e39d4becacac2dd173218eed3a66bd0965812736963c"
+    },
+    {
+      "case": "validation-chimp",
+      "partition": "validation",
+      "opponent": "Chimp",
+      "samples": 464,
+      "actual_shots": 485,
+      "duplicate_snapshot_lines": 0,
+      "log_sha256": "8f18e8c0d30eaa6b4aef1c271cc4241c27ae6e6e02cedc1f831883cd31b13db3"
+    }
+  ],
+  "numpy": "2.3.5",
+  "workers": 2,
+  "validation_used_for_selection": true,
+  "unbiased_final_test": false,
+  "new_source_created": true,
+  "dataset_sha256": "3d560293d52e4c22fc51ce008c4a07a21871b84115261edaae59cfd519847fed",
+  "selected": {
+    "name": "fine-fast",
+    "validation": {
+      "balanced": 4.035938326719563,
+      "by_opponent": {
+        "Chimp": 4.018948114117749,
+        "Diamond": 4.052928539321378
+      }
+    },
+    "path": "/workspace/robocode-user/perfection/neural-max/models/fine-fast/weights.npz",
+    "relative_balanced_gain": 0.005106133169162197,
+    "eligible": true,
+    "source": "/workspace/robocode-user/perfection/neural-max/tuned/equipe/titanprime.java",
+    "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+    "packed_sha256": "5ebc0fba4ad51028b977df6a7bc39d487a54edd710dae443ecb08d3d0c2e8f43"
+  }
+}

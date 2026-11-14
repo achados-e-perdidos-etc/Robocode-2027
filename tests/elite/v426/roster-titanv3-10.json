@@ -1,0 +1,57 @@
+{
+  "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+  "opponent_sha256": "cc0a7ccdc8a481031a49bd95842c8971ba3f964a80c70bdddbdc67d7fb59fee4",
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "cooling": 0.1,
+    "inactivity": 450,
+    "energy": 100
+  },
+  "config_sha256": {
+    "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+  },
+  "data_policy": "Fresh JVM per battle; prior data archived before next battle; no imported learning",
+  "expected_roster": [
+    "equipe.titanprime*",
+    "titan.TitanV3 3.0"
+  ],
+  "minimum_wins": 10,
+  "results": [
+    {
+      "key": "reserved-1",
+      "case_id": 65101,
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 798,
+          "firsts": 10
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 266,
+          "firsts": 0
+        }
+      ],
+      "conservative_wins": 10,
+      "score_share": 0.75,
+      "accepted": true,
+      "diagnostic_records": 10,
+      "diagnostic_wins": 10,
+      "diagnostic_complete": true
+    }
+  ],
+  "complete": true,
+  "accepted": true
+}

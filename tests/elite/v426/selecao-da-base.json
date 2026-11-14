@@ -1,0 +1,262 @@
+{
+  "selected": {
+    "name": "confidence-power",
+    "source": "/workspace/robocode-user/perfection/confidence/confidence-power/equipe/titanprime.java",
+    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+    "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+    "quality": [
+      0.92,
+      0.95,
+      0.6155169716877835
+    ],
+    "cold_results": {
+      "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+        "wins": 46,
+        "rounds": 50,
+        "points": 3935,
+        "other_points": 2458,
+        "cases": [
+          "confidence/confidence-power-chimp50:reserved-1"
+        ]
+      },
+      "voidious.Diamond 1.8.28": {
+        "wins": 49,
+        "rounds": 50,
+        "points": 3631,
+        "other_points": 1892,
+        "cases": [
+          "confidence/confidence-power-diamond50:reserved-1"
+        ]
+      }
+    }
+  },
+  "candidates": [
+    {
+      "name": "precision07",
+      "source": "/workspace/robocode-user/perfection/precision-power/precision07/equipe/titanprime.java",
+      "source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "maximum_precision_power": 0.7,
+      "base_sha256": "56dcd1a1d513a7c58c85ceade3b221d34bdeff2f7455411d39c287c11211be2d",
+      "quality": [
+        0.88,
+        0.9299999999999999,
+        0.5909692358584188
+      ],
+      "cold_results": {
+        "voidious.Diamond 1.8.28": {
+          "wins": 147,
+          "rounds": 150,
+          "points": 10819,
+          "other_points": 5270,
+          "cases": [
+            "precision-power/precision07-additional100:reserved-1",
+            "precision-power/precision07-additional100:reserved-2",
+            "precision-power/precision07-diamond50:reserved-1"
+          ]
+        },
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 44,
+          "rounds": 50,
+          "points": 3573,
+          "other_points": 2473,
+          "cases": [
+            "precision-power/precision07-chimp50:reserved-1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "precision12",
+      "source": "/workspace/robocode-user/perfection/precision-power/precision12/equipe/titanprime.java",
+      "source_sha256": "26bda47d96132a00ab605ea5333989bf3ba06a9e5b855f403f312f0c880257d5",
+      "maximum_precision_power": 1.2,
+      "base_sha256": "56dcd1a1d513a7c58c85ceade3b221d34bdeff2f7455411d39c287c11211be2d",
+      "quality": [
+        0.84,
+        0.9199999999999999,
+        0.5544797909943138
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 42,
+          "rounds": 50,
+          "points": 3608,
+          "other_points": 2899,
+          "cases": [
+            "precision-power/precision12-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 50,
+          "rounds": 50,
+          "points": 3705,
+          "other_points": 1679,
+          "cases": [
+            "precision-power/precision12-diamond50:reserved-1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "prior16-route",
+      "source": "/workspace/robocode-user/perfection/resilient/prior16-route/equipe/titanprime.java",
+      "source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "quality": [
+        0.86,
+        0.9099999999999999,
+        0.5612965340179717
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 43,
+          "rounds": 50,
+          "points": 3498,
+          "other_points": 2734,
+          "cases": [
+            "resilient/prior16-route-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 48,
+          "rounds": 50,
+          "points": 3529,
+          "other_points": 1883,
+          "cases": [
+            "resilient/prior16-route-diamond50:reserved-1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "integral-trajectory",
+      "source": "/workspace/robocode-user/perfection/integral/integral-trajectory/equipe/titanprime.java",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+      "base_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+      "quality": [
+        0.92,
+        0.92,
+        0.6056412985630655
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 46,
+          "rounds": 50,
+          "points": 3664,
+          "other_points": 2266,
+          "cases": [
+            "integral/integral-trajectory-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 46,
+          "rounds": 50,
+          "points": 3414,
+          "other_points": 2223,
+          "cases": [
+            "integral/integral-trajectory-diamond50:reserved-1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "pressure-medium",
+      "range": 450,
+      "source": "/workspace/robocode-user/perfection/pressure/pressure-medium/equipe/titanprime.java",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+      "quality": [
+        0.92,
+        0.94,
+        0.6455068560235063
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 46,
+          "rounds": 50,
+          "points": 4048,
+          "other_points": 1949,
+          "cases": [
+            "pressure/pressure-medium-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 144,
+          "rounds": 150,
+          "points": 10545,
+          "other_points": 5791,
+          "cases": [
+            "pressure/pressure-medium-diamond50:reserved-1",
+            "pressure/pressure-medium-reserved100:reserved-1",
+            "pressure/pressure-medium-reserved100:reserved-2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "confidence",
+      "source": "/workspace/robocode-user/perfection/confidence/confidence/equipe/titanprime.java",
+      "source_sha256": "14fcfcaf9b632dd52e871c581fbb270c859821f4d88a48e3e542c753c3be3476",
+      "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+      "quality": [
+        0.9,
+        0.9366666666666668,
+        0.6043027888446215
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 45,
+          "rounds": 50,
+          "points": 3792,
+          "other_points": 2483,
+          "cases": [
+            "confidence/confidence-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 146,
+          "rounds": 150,
+          "points": 10707,
+          "other_points": 5340,
+          "cases": [
+            "confidence/confidence-diamond50:reserved-1",
+            "confidence/confidence-reserved100:reserved-1",
+            "confidence/confidence-reserved100:reserved-2"
+          ]
+        }
+      }
+    },
+    {
+      "name": "confidence-power",
+      "source": "/workspace/robocode-user/perfection/confidence/confidence-power/equipe/titanprime.java",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+      "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+      "quality": [
+        0.92,
+        0.95,
+        0.6155169716877835
+      ],
+      "cold_results": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+          "wins": 46,
+          "rounds": 50,
+          "points": 3935,
+          "other_points": 2458,
+          "cases": [
+            "confidence/confidence-power-chimp50:reserved-1"
+          ]
+        },
+        "voidious.Diamond 1.8.28": {
+          "wins": 49,
+          "rounds": 50,
+          "points": 3631,
+          "other_points": 1892,
+          "cases": [
+            "confidence/confidence-power-diamond50:reserved-1"
+          ]
+        }
+      }
+    }
+  ],
+  "selection": "All completed valid cold50+ elite cases, including reserved series. Worst-opponent wins, balanced mean wins, then worst point share. No warm/cold pooling."
+}

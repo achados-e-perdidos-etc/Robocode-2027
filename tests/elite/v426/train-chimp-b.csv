@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.25-train,da0112317ff61e30,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,415,1,84.64999999999996,415,32,10,27.699999999999996,39.099999999999994,13.0,1,0,0,207,415,22,1
+reserved-1,4.25-train,da0112317ff61e30,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,526,1,32.699999999999974,526,41,13,34.249999999999986,56.5,68.0,2,0,0,243,526,29,5
+reserved-1,4.25-train,da0112317ff61e30,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,734,1,29.07312644700077,734,61,9,29.126873552999182,13.2,52.0,5,0,0,407,734,39,4
+reserved-1,4.25-train,da0112317ff61e30,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,734,1,24.079170289720892,732,60,12,36.18679473760734,21.854620036437623,55.0,6,0,2,400,732,36,4
+reserved-1,4.25-train,da0112317ff61e30,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,523,1,71.64999999999992,523,41,10,30.049999999999983,20.8,16.0,3,0,0,383,523,27,1
+reserved-1,4.25-train,da0112317ff61e30,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,642,1,60.99999999999991,642,51,9,38.000000000000014,15.600000000000001,13.0,6,0,0,356,642,30,1
+reserved-1,4.25-train,da0112317ff61e30,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,625,1,41.09999999999999,624,50,10,33.099999999999994,22.9,42.0,3,0,1,448,624,33,3
+reserved-1,4.25-train,da0112317ff61e30,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,533,0,0.0,533,43,10,29.181112385462644,23.88250174913543,90.0,3,0,0,437,533,28,5
+reserved-1,4.25-train,da0112317ff61e30,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,754,1,67.8250000000002,754,64,11,15.174999999999986,11.600000000000001,26.0,2,1,0,375,754,37,2
+reserved-1,4.25-train,da0112317ff61e30,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,642,1,96.60000000000024,639,55,10,8.499999999999996,6.3999999999999995,0.0,4,0,3,312,639,30,0

@@ -1,0 +1,136 @@
+{
+  "base_source": {
+    "name": "confidence-power",
+    "source": "/workspace/robocode-user/perfection/confidence/confidence-power/equipe/titanprime.java",
+    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+    "base_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+    "quality": [
+      0.92,
+      0.95,
+      0.6155169716877835
+    ],
+    "cold_results": {
+      "review.main.chimpazecomsarna.ChimpazeComSarna 1": {
+        "wins": 46,
+        "rounds": 50,
+        "points": 3935,
+        "other_points": 2458,
+        "cases": [
+          "confidence/confidence-power-chimp50:reserved-1"
+        ]
+      },
+      "voidious.Diamond 1.8.28": {
+        "wins": 49,
+        "rounds": 50,
+        "points": 3631,
+        "other_points": 1892,
+        "cases": [
+          "confidence/confidence-power-diamond50:reserved-1"
+        ]
+      }
+    }
+  },
+  "collector_source": "/workspace/robocode-user/perfection/neural-max/collector/equipe/titanprime.java",
+  "collector_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+  "data_rounds": 10,
+  "cases": [
+    {
+      "label": "train-diamond-a",
+      "opponent": "Diamond",
+      "case_id": 65001,
+      "partition": "train"
+    },
+    {
+      "label": "train-chimp-a",
+      "opponent": "Chimp",
+      "case_id": 65002,
+      "partition": "train"
+    },
+    {
+      "label": "train-diamond-b",
+      "opponent": "Diamond",
+      "case_id": 65003,
+      "partition": "train"
+    },
+    {
+      "label": "train-chimp-b",
+      "opponent": "Chimp",
+      "case_id": 65004,
+      "partition": "train"
+    },
+    {
+      "label": "validation-diamond",
+      "opponent": "Diamond",
+      "case_id": 65005,
+      "partition": "validation"
+    },
+    {
+      "label": "validation-chimp",
+      "opponent": "Chimp",
+      "case_id": 65006,
+      "partition": "validation"
+    }
+  ],
+  "split": "Entire independent battles; no validation rows enter gradient training. Validation is used for model selection, not a final unbiased test.",
+  "workers": 2,
+  "offline_candidates": [
+    {
+      "name": "fine-low",
+      "rate": 0.0003,
+      "penalty": 0.0001,
+      "epochs": 45,
+      "seed": 65011
+    },
+    {
+      "name": "fine-medium",
+      "rate": 0.001,
+      "penalty": 0.0002,
+      "epochs": 60,
+      "seed": 65012
+    },
+    {
+      "name": "fine-fast",
+      "rate": 0.002,
+      "penalty": 0.0005,
+      "epochs": 60,
+      "seed": 65013
+    },
+    {
+      "name": "restart",
+      "rate": 0.001,
+      "penalty": 0.0002,
+      "epochs": 65,
+      "seed": 65014,
+      "restart": true
+    }
+  ],
+  "validation_acceptance": {
+    "minimum_balanced_relative_gain": 0.005,
+    "maximum_opponent_relative_regression": 0.005
+  },
+  "field_rounds": 50,
+  "field_case_ids": [
+    65021,
+    65022
+  ],
+  "reserved_diamond_case_ids": [
+    65031,
+    65032
+  ],
+  "minimum_field_wins": 50,
+  "require_point_lead": true,
+  "do_not_retry_valid_losses": true,
+  "automatic_publication": false,
+  "profiles": [
+    {
+      "name": "collector",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "base_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    },
+    {
+      "name": "tuned",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+      "base_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895"
+    }
+  ]
+}

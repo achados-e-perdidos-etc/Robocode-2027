@@ -1,0 +1,65 @@
+{
+  "archive_sha256": "e0d49ebc4df0bb053925b902e57c6eac354f4bf3b3a339a86db7371ea4c7952d",
+  "logs": [
+    {
+      "path": "roster-melee10-reserved-1.log",
+      "bytes": 40860,
+      "sha256": "f11ad282b31ca6b5fbfe3c0c7792bee5b86d2c60944ded5aa39edbe5b7f8b919"
+    },
+    {
+      "path": "roster-titanv3-10-reserved-1.log",
+      "bytes": 21116,
+      "sha256": "adae57cd2666d657642f9ad8f0ab9daa41acd7f85495de5df7dc4aec1975e9b4"
+    },
+    {
+      "path": "roster-vingation-10-reserved-1.log",
+      "bytes": 22438,
+      "sha256": "1e23d3dece3ca25b3df164f102edbfb6f4a079d8d050b57b62dd5ee9f4ad3490"
+    },
+    {
+      "path": "train-chimp-a-reserved-1.log",
+      "bytes": 183317,
+      "sha256": "06a12650e0ec668d1e8ef6d1acede8904d3b1561b5cd43a6c2a4d3e6d73384c5"
+    },
+    {
+      "path": "train-chimp-b-reserved-1.log",
+      "bytes": 189856,
+      "sha256": "66b92e2370ad09bc5477b0b09a6da178e1c56f32f995ee637fa67c756f463602"
+    },
+    {
+      "path": "train-diamond-a-reserved-1.log",
+      "bytes": 1172311,
+      "sha256": "51213158e18315632e763b7dc156227e7761bf7ff4561c7301ba54c73a0c70c2"
+    },
+    {
+      "path": "train-diamond-b-reserved-1.log",
+      "bytes": 1116976,
+      "sha256": "b7a98c12c2f6519020aee86bb186041e3e50559afa85ad322cf06d849371c853"
+    },
+    {
+      "path": "tuned-chimp50-reserved-1.log",
+      "bytes": 215821,
+      "sha256": "8d4ea5d3a8d514aef8d5144b5586602860b3a483a60e6c543183a7211db35808"
+    },
+    {
+      "path": "tuned-diamond50-reserved-1.log",
+      "bytes": 162042,
+      "sha256": "78f0653ed5186399d2ec33b19ea6393715e34093b8601db33c6d174e5e3184eb"
+    },
+    {
+      "path": "tuned-warm50-warm.log",
+      "bytes": 154713,
+      "sha256": "b70dfbb28b42ce216f5c8d1de729d8cd8b2532312e9a8e94698c46806e7ee4df"
+    },
+    {
+      "path": "validation-chimp-reserved-1.log",
+      "bytes": 186726,
+      "sha256": "8f18e8c0d30eaa6b4aef1c271cc4241c27ae6e6e02cedc1f831883cd31b13db3"
+    },
+    {
+      "path": "validation-diamond-reserved-1.log",
+      "bytes": 1113304,
+      "sha256": "ec747fca639c29538028e39d4becacac2dd173218eed3a66bd0965812736963c"
+    }
+  ]
+}

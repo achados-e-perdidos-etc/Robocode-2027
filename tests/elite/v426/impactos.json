@@ -1,0 +1,138 @@
+{
+  "scope": "Own public hit events and previous planning telemetry, collected without altering movement decisions. These are associations, not proof of the cause of a defeat. A one-tick shadow discrepancy may involve event ordering or wave timing.",
+  "cases": [
+    {
+      "case": "train-diamond-a",
+      "partition": "train",
+      "opponent": "Diamond",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "51213158e18315632e763b7dc156227e7761bf7ff4561c7301ba54c73a0c70c2",
+      "summary": {
+        "impacts": 296,
+        "matched": 296,
+        "planned_wave_matches": 203,
+        "in_modeled_shadow": 2,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 0,
+        "choices": {
+          "CLOCKWISE": 112,
+          "COUNTER_CLOCKWISE": 117,
+          "STOP": 67
+        }
+      }
+    },
+    {
+      "case": "train-chimp-a",
+      "partition": "train",
+      "opponent": "Chimp",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "06a12650e0ec668d1e8ef6d1acede8904d3b1561b5cd43a6c2a4d3e6d73384c5",
+      "summary": {
+        "impacts": 25,
+        "matched": 25,
+        "planned_wave_matches": 17,
+        "in_modeled_shadow": 0,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 1,
+        "choices": {
+          "CLOCKWISE": 11,
+          "COUNTER_CLOCKWISE": 11,
+          "STOP": 3
+        }
+      }
+    },
+    {
+      "case": "train-diamond-b",
+      "partition": "train",
+      "opponent": "Diamond",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "b7a98c12c2f6519020aee86bb186041e3e50559afa85ad322cf06d849371c853",
+      "summary": {
+        "impacts": 278,
+        "matched": 278,
+        "planned_wave_matches": 198,
+        "in_modeled_shadow": 3,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 0,
+        "choices": {
+          "STOP": 62,
+          "CLOCKWISE": 110,
+          "COUNTER_CLOCKWISE": 106
+        }
+      }
+    },
+    {
+      "case": "train-chimp-b",
+      "partition": "train",
+      "opponent": "Chimp",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "66b92e2370ad09bc5477b0b09a6da178e1c56f32f995ee637fa67c756f463602",
+      "summary": {
+        "impacts": 27,
+        "matched": 27,
+        "planned_wave_matches": 21,
+        "in_modeled_shadow": 0,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 0,
+        "choices": {
+          "COUNTER_CLOCKWISE": 10,
+          "CLOCKWISE": 12,
+          "STOP": 5
+        }
+      }
+    },
+    {
+      "case": "validation-diamond",
+      "partition": "validation",
+      "opponent": "Diamond",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "ec747fca639c29538028e39d4becacac2dd173218eed3a66bd0965812736963c",
+      "summary": {
+        "impacts": 265,
+        "matched": 265,
+        "planned_wave_matches": 181,
+        "in_modeled_shadow": 9,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 0,
+        "choices": {
+          "STOP": 62,
+          "CLOCKWISE": 98,
+          "COUNTER_CLOCKWISE": 105
+        }
+      }
+    },
+    {
+      "case": "validation-chimp",
+      "partition": "validation",
+      "opponent": "Chimp",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+      "log_sha256": "8f18e8c0d30eaa6b4aef1c271cc4241c27ae6e6e02cedc1f831883cd31b13db3",
+      "summary": {
+        "impacts": 28,
+        "matched": 28,
+        "planned_wave_matches": 23,
+        "in_modeled_shadow": 0,
+        "shadow_union_without_valid_raw_interval": 0,
+        "future_shadow_one_tick": 0,
+        "future_shadow_more_than_one_tick": 0,
+        "plan_age_over_two": 0,
+        "choices": {
+          "COUNTER_CLOCKWISE": 13,
+          "CLOCKWISE": 11,
+          "STOP": 4
+        }
+      }
+    }
+  ],
+  "full_events": "Original TITAN_IMPACT lines are retained in registros.zip; this file summarizes them without duplicating all log contents."
+}

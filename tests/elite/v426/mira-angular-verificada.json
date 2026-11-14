@@ -1,0 +1,234 @@
+{
+  "passed": true,
+  "old_source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+  "experimental_source_sha256": "169b2bc459b3023572e112602262466f928fb765552c9a5653dbfa66fa5a5422",
+  "actual_java_gun_cases": 20,
+  "maximum_angular_error": 8.534839501805891e-16,
+  "cases": [
+    {
+      "kind": "positive-wall",
+      "positive": 0.1,
+      "negative": 0.6,
+      "sign": 1,
+      "bearing": 0,
+      "expected_offset_interval": [
+        0.04,
+        0.06
+      ],
+      "old_angle": 5.723185307179587,
+      "new_angle": 0.039999999999999994
+    },
+    {
+      "kind": "negative-wall",
+      "positive": 0.6,
+      "negative": 0.1,
+      "sign": 1,
+      "bearing": 0,
+      "expected_offset_interval": [
+        -0.06,
+        -0.04
+      ],
+      "old_angle": 0.5599999999999999,
+      "new_angle": 6.223185307179587
+    },
+    {
+      "kind": "symmetric",
+      "positive": 0.6082455789102096,
+      "negative": 0.6082455789102096,
+      "sign": 1,
+      "bearing": 0,
+      "expected": 5.715489433530057,
+      "old_angle": 5.715489433530057,
+      "new_angle": 5.715489433530057
+    },
+    {
+      "kind": "positive-zero",
+      "positive": 0,
+      "negative": 0.6,
+      "sign": 1,
+      "bearing": 0,
+      "expected": 0.0,
+      "old_angle": 5.723185307179587,
+      "new_angle": 0.0
+    },
+    {
+      "kind": "negative-zero",
+      "positive": 0.6,
+      "negative": 0,
+      "sign": 1,
+      "bearing": 0,
+      "expected": 0.0,
+      "old_angle": 0.5599999999999999,
+      "new_angle": 0.0
+    },
+    {
+      "kind": "positive-wall",
+      "positive": 0.1,
+      "negative": 0.6,
+      "sign": 1,
+      "bearing": 6.2731853071795864,
+      "expected_offset_interval": [
+        0.04,
+        0.06
+      ],
+      "old_angle": 5.713185307179587,
+      "new_angle": 0.03000000000000025
+    },
+    {
+      "kind": "negative-wall",
+      "positive": 0.6,
+      "negative": 0.1,
+      "sign": 1,
+      "bearing": 6.2731853071795864,
+      "expected_offset_interval": [
+        -0.06,
+        -0.04
+      ],
+      "old_angle": 0.5499999999999998,
+      "new_angle": 6.213185307179587
+    },
+    {
+      "kind": "symmetric",
+      "positive": 0.6082455789102096,
+      "negative": 0.6082455789102096,
+      "sign": 1,
+      "bearing": 6.2731853071795864,
+      "expected": 5.705489433530057,
+      "old_angle": 5.705489433530057,
+      "new_angle": 5.705489433530057
+    },
+    {
+      "kind": "positive-zero",
+      "positive": 0,
+      "negative": 0.6,
+      "sign": 1,
+      "bearing": 6.2731853071795864,
+      "expected": 6.2731853071795864,
+      "old_angle": 5.713185307179587,
+      "new_angle": 6.2731853071795864
+    },
+    {
+      "kind": "negative-zero",
+      "positive": 0.6,
+      "negative": 0,
+      "sign": 1,
+      "bearing": 6.2731853071795864,
+      "expected": 6.2731853071795864,
+      "old_angle": 0.5499999999999998,
+      "new_angle": 6.2731853071795864
+    },
+    {
+      "kind": "positive-wall",
+      "positive": 0.1,
+      "negative": 0.6,
+      "sign": -1,
+      "bearing": 0,
+      "expected_offset_interval": [
+        0.04,
+        0.06
+      ],
+      "old_angle": 0.5599999999999999,
+      "new_angle": 6.243185307179586
+    },
+    {
+      "kind": "negative-wall",
+      "positive": 0.6,
+      "negative": 0.1,
+      "sign": -1,
+      "bearing": 0,
+      "expected_offset_interval": [
+        -0.06,
+        -0.04
+      ],
+      "old_angle": 5.723185307179587,
+      "new_angle": 0.06
+    },
+    {
+      "kind": "symmetric",
+      "positive": 0.6082455789102096,
+      "negative": 0.6082455789102096,
+      "sign": -1,
+      "bearing": 0,
+      "expected": 0.567695873649529,
+      "old_angle": 0.567695873649529,
+      "new_angle": 0.567695873649529
+    },
+    {
+      "kind": "positive-zero",
+      "positive": 0,
+      "negative": 0.6,
+      "sign": -1,
+      "bearing": 0,
+      "expected": 0.0,
+      "old_angle": 0.5599999999999999,
+      "new_angle": 0.0
+    },
+    {
+      "kind": "negative-zero",
+      "positive": 0.6,
+      "negative": 0,
+      "sign": -1,
+      "bearing": 0,
+      "expected": 0.0,
+      "old_angle": 5.723185307179587,
+      "new_angle": 0.0
+    },
+    {
+      "kind": "positive-wall",
+      "positive": 0.1,
+      "negative": 0.6,
+      "sign": -1,
+      "bearing": 6.2731853071795864,
+      "expected_offset_interval": [
+        0.04,
+        0.06
+      ],
+      "old_angle": 0.5499999999999998,
+      "new_angle": 6.233185307179586
+    },
+    {
+      "kind": "negative-wall",
+      "positive": 0.6,
+      "negative": 0.1,
+      "sign": -1,
+      "bearing": 6.2731853071795864,
+      "expected_offset_interval": [
+        -0.06,
+        -0.04
+      ],
+      "old_angle": 5.713185307179587,
+      "new_angle": 0.04999999999999982
+    },
+    {
+      "kind": "symmetric",
+      "positive": 0.6082455789102096,
+      "negative": 0.6082455789102096,
+      "sign": -1,
+      "bearing": 6.2731853071795864,
+      "expected": 0.5576958736495294,
+      "old_angle": 0.5576958736495294,
+      "new_angle": 0.5576958736495294
+    },
+    {
+      "kind": "positive-zero",
+      "positive": 0,
+      "negative": 0.6,
+      "sign": -1,
+      "bearing": 6.2731853071795864,
+      "expected": 6.2731853071795864,
+      "old_angle": 0.5499999999999998,
+      "new_angle": 6.2731853071795864
+    },
+    {
+      "kind": "negative-zero",
+      "positive": 0.6,
+      "negative": 0,
+      "sign": -1,
+      "bearing": 6.2731853071795864,
+      "expected": 6.2731853071795864,
+      "old_angle": 5.713185307179587,
+      "new_angle": 6.2731853071795864
+    }
+  ],
+  "scope": "Actual Java neural gun with controlled softmax distributions. Confirms signed angular-coordinate behavior, reflection, wraparound and collapsed escape. Does not establish competitive improvement. Source not used in current field battles."
+}

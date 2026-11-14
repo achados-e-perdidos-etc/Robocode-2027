@@ -1,0 +1,70 @@
+{
+  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "cases": [
+    {
+      "case": "roster-melee10",
+      "report": "roster-melee10.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "roster-titanv3-10",
+      "report": "roster-titanv3-10.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "roster-vingation-10",
+      "report": "roster-vingation-10.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "train-chimp-a",
+      "report": "train-chimp-a.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    },
+    {
+      "case": "train-chimp-b",
+      "report": "train-chimp-b.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    },
+    {
+      "case": "train-diamond-a",
+      "report": "train-diamond-a.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    },
+    {
+      "case": "train-diamond-b",
+      "report": "train-diamond-b.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    },
+    {
+      "case": "tuned-chimp50",
+      "report": "tuned-chimp50.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "tuned-diamond50",
+      "report": "tuned-diamond50.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "tuned-warm50",
+      "report": "tuned-warm50.json",
+      "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5"
+    },
+    {
+      "case": "validation-chimp",
+      "report": "validation-chimp.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    },
+    {
+      "case": "validation-diamond",
+      "report": "validation-diamond.json",
+      "source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded"
+    }
+  ],
+  "all_rounds_goal_met": false,
+  "data_collection_source_sha256": "9c9549b42145ee820c32370fa937c53f588f0c66fe46ee52d0ec3a59096e7ded",
+  "field_source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+  "independent_data_battle_split": true,
+  "model_selection_validation_is_not_final_test": true
+}

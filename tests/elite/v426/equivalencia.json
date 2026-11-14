@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+  "packed_sha256": "5ebc0fba4ad51028b977df6a7bc39d487a54edd710dae443ecb08d3d0c2e8f43",
+  "vectors": 24,
+  "outputs": 61,
+  "maximum_java_numpy_probability_difference": 2.7755575615628914e-17,
+  "class_major": 52,
+  "scope": "Confirms the actual Java constructor loads the selected packed prior and predicts the same distribution as NumPy. Does not establish combat improvement."
+}

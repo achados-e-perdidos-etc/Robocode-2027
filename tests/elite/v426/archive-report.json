@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-14T04:17:24.354614+00:00",
+  "stopped_utc": "2026-11-14T04:44:32.237734+00:00",
+  "snapshots": 239,
+  "diagnostic_revisions": 240,
+  "distinct_rounds": 240,
+  "archive_bytes": 3804349,
+  "scope": "Read-only copies of own validated learning checkpoints and own diagnostics. Own learning states from instrumented data collection and subsequent frozen-model validation are retained with distinct source hashes. No imported opponent private data. No fixed history count cap; limited by external disk."
+}

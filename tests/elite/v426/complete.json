@@ -1,0 +1,9 @@
+{
+  "new_prior_selected": true,
+  "qualified": false,
+  "automatic_publication": false,
+  "all_prior_and_training_defeats_retained": true,
+  "selected_combat_source_sha256": "73811f23dbab8a1de3535659f7a5d09454374c0dc93fe9f113ca40a4e93948c5",
+  "validation_used_for_selection": true,
+  "field_validation_is_independent": true
+}
