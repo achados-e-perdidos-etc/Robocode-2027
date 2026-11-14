@@ -1,0 +1,30 @@
+{
+  "archive_sha256": "41a325bb35496ade2c571c737c081801752ff537e459e4c5f6b7116e91c4d32a",
+  "logs": [
+    {
+      "path": "combined-melee20-reserved-1.log",
+      "bytes": 84037,
+      "sha256": "905b0b2d52e85d3a73a6edbea5e16d4e854fa0d2b2680ef3d7d5d86b7ca75a68"
+    },
+    {
+      "path": "control-melee20-reserved-1.log",
+      "bytes": 82960,
+      "sha256": "66b8b022cd44c4aa6c6f58d2333d8e74cf9e25ff2466804a59739059b9895820"
+    },
+    {
+      "path": "geometry-melee20-reserved-1.log",
+      "bytes": 84245,
+      "sha256": "9517a1b399a431e4279e6e4719edea695649147775c0e918ac39778ef875eba9"
+    },
+    {
+      "path": "route-melee20-reserved-1.log",
+      "bytes": 85090,
+      "sha256": "0abdc1c5ad050835b225e1a9f349e2f7c6e0f9e14d3e199ba69d68e83c06b52b"
+    },
+    {
+      "path": "route-melee50-reserved-1.log",
+      "bytes": 197454,
+      "sha256": "8edb4508e4c3d8eaba0c970c865105c4d491e26c1a31ad6f967191c4b97f3951"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "geometry_and_route": [
+    {
+      "name": "old",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: destination_angle_must_match_actual_clipped_point\n\tat equipe.resilientprobe.check(resilientprobe.java:4)\n\tat equipe.resilientprobe.geometry(resilientprobe.java:24)\n\tat equipe.resilientprobe.main(resilientprobe.java:28)\n"
+    },
+    {
+      "name": "geometry",
+      "source_sha256": "6261fd36556d8220b9b8a133227da4a54c036d419a7ab4913c71ca43c9de6348",
+      "returncode": 0,
+      "stdout": "GEOMETRY_CANDIDATES=64 CLIPPED=47 RETAINED_DIRECTION=PASS\nMELEE_AVOIDS_CLOSE_APPROACH=false route=false endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+      "stderr": ""
+    },
+    {
+      "name": "route",
+      "source_sha256": "e3d67ce48769a90bf6fbc34aa70c23138b2060d097d536327d1772c19e782f87",
+      "returncode": 0,
+      "stdout": "MELEE_AVOIDS_CLOSE_APPROACH=true route=true endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+      "stderr": ""
+    },
+    {
+      "name": "combined",
+      "source_sha256": "e44415ec2587ca30d68c7601eb80b66287603ef631cb79459c3910868085a087",
+      "returncode": 0,
+      "stdout": "GEOMETRY_CANDIDATES=64 CLIPPED=47 RETAINED_DIRECTION=PASS\nMELEE_AVOIDS_CLOSE_APPROACH=true route=true endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+      "stderr": ""
+    }
+  ],
+  "physics": [
+    {
+      "passed": true,
+      "source_sha256": "6261fd36556d8220b9b8a133227da4a54c036d419a7ab4913c71ca43c9de6348",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    },
+    {
+      "passed": true,
+      "source_sha256": "e3d67ce48769a90bf6fbc34aa70c23138b2060d097d536327d1772c19e782f87",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    },
+    {
+      "passed": true,
+      "source_sha256": "e44415ec2587ca30d68c7601eb80b66287603ef631cb79459c3910868085a087",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    }
+  ],
+  "scope": "Actual Java direction invariants near a corner and at a retained destination; route variants also match100exhaustive64candidate comparisons. Combat validation remains separate."
+}

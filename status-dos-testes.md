@@ -1,4 +1,14 @@
-# Estado dos testes — Titan Prime 4.15
+# Estado final — Titan Prime 4.28
+
+A fonte publicada é a combinada SHA256 `0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce`, sem modificações posteriores aos testes. Diamond: 49/50 e 3620 contra 1811 pontos. ChimpazeComSarna: 48/50 e 4241 contra 2023. A recarga contra Diamond fez 49/50. TitanV3 e TitanVingation fizeram 10/10 cada. No cenário solo de três adversários fortes, foram 5/10 e menos pontos que Diamond; a limitação está preservada.
+
+A escolha final conservou a base com séries maiores. A candidata 4.30 fez 19/20 contra Diamond e 18/20 contra ChimpazeComSarna na confirmação rápida e não foi promovida. O novo prior neural, apesar da redução da perda de validação, fez 47/50 e 44/50 e foi rejeitado para entrega. A rota que fez 12/20 na triagem terminou 19/50 na confirmação; também não foi adotada.
+
+Compilação final: 115 classes, bytecode 52. Física: 157 trajetórias, 100 comparações KNN e recuperação limitada de paredes. O codec de memória passou em round-trip neural, reconstrução KNN, compatibilidade de esquema, contexto, CRC, truncamento e limites. As verificações finais usaram Temurin 17.0.21+9. [Metadados](releases/titanprime-4.28.json) e [relatório de entrega](tests/elite/v428/release-ready.json).
+
+A publicação foi solicitada pelo usuário para concluir esta etapa. Isso não transforma os resultados desfavoráveis em vitórias nem comprova a meta de vencer todos os rounds. Não há novas baterias extensas em fila.
+
+## Histórico da versão 4.15
 
 A 4.15 acrescenta gravação e recarga de modelos neurais, avaliações de miras e amostras defensivas, compressão com quantidade de perfis dependente da cota, duas cópias com checksum e histórico externo opcional. O Java único está sem comentários, com os avisos obrigatórios preservados nos arquivos de licença.
 

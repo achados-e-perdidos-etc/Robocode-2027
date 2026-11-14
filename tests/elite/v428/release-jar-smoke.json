@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "scope": "One-round installation smoke test of the final packaged JAR itself, on Temurin17.0.21+9 and Robocode1.12.0, versus original Diamond. Not a competitive qualification.",
+  "checks": {
+    "process_completed": true,
+    "engine_completed": true,
+    "exact_jar_roster": true,
+    "no_runtime_errors": true,
+    "round_completed": true,
+    "own_learning_saved": true
+  },
+  "scores": [
+    {
+      "robot": "equipe.titanprime 4.28-combined",
+      "points": 76,
+      "firsts": 1
+    },
+    {
+      "robot": "voidious.Diamond 1.8.28",
+      "points": 45,
+      "firsts": 0
+    }
+  ],
+  "errors": [],
+  "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "jar_sha256": "3e453f0611ea1cb3b276a1c3ea2985fc9385ee07df78606992cfefd370ef3798",
+  "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "config_sha256": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c",
+  "log_sha256": "715bae570cd205ca75655c62d0e4451bed56708594060d180a629eb3c4feb781"
+}

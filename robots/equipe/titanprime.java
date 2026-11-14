@@ -11,7 +11,7 @@ public class titanprime extends robocode.AdvancedRobot {
   private static titan_gun_Mira _gun;
   protected static titan_gfx_Cores _gfx;
   private static final float BATTLE_HUE = new java.util.Random().nextFloat();
-  private static final String DIAGNOSTIC_VERSION = "4.15";
+  private static final String DIAGNOSTIC_VERSION = "4.28-combined";
   private static final String DIAGNOSTIC_BATTLE =
       Long.toHexString(new java.util.Random().nextLong());
   private final java.util.Set<String> observedEnemies = new java.util.TreeSet<String>();
@@ -21,6 +21,12 @@ public class titanprime extends robocode.AdvancedRobot {
   private double spent, dealtNominal, receivedNominal, diagnosticEnergy;
   private boolean celebrating, roundReported;
   private int celebrationFrame;
+  private int policyShots, policyHits, strongShots;
+  private String policyTarget = "";
+  private final java.util.Set<robocode.Bullet> policyBullets = new java.util.HashSet<robocode.Bullet>();
+  private int bodyCollisions;
+  private double bulletBonuses, observedPassiveDrain;
+  private final EnergyBalance energyBalance = new EnergyBalance();
 
   private double _maxVelocity;
 
@@ -32,6 +38,7 @@ public class titanprime extends robocode.AdvancedRobot {
     try {
       titan_utils_ErrorLogger.init(this);
       initialOpponents = getOthers();
+      titan_utils_Wave.deadlineQueries = titan_utils_Wave.deadlineBuilds = titan_utils_Wave.deadlineFilteredIntervals = 0;
       initComponents();
       initColors();
 
@@ -119,15 +126,24 @@ public class titanprime extends robocode.AdvancedRobot {
     }
     robocode.Bullet bullet = super.setFireBullet(power);
     if (bullet != null) lastRealShot = getTime();
+    if (bullet != null && getOthers() == 1 && !roundReported) {
+      policyShots++; policyBullets.add(bullet);
+    }
     if (bullet != null && !roundReported) {
       shots++;
       spent += bullet.getPower();
+      if (bullet.getPower() > .7000001) strongShots++;
     }
     return bullet;
   }
 
   public void onScannedRobot(robocode.ScannedRobotEvent e) {
     if (observedEnemies.add(e.getName())) MEMORY_SEEN.put(e.getName(), memoryGeneration + 1);
+    if (getOthers() == 1 && !e.getName().equals(policyTarget)) {
+      policyTarget = e.getName(); policyShots = policyHits = 0; policyBullets.clear();
+    }
+    observedPassiveDrain = energyBalance.observe(e.getTime(), getOthers(), e.getName(),
+        getEnergy(), spent, receivedNominal, bulletBonuses, wallHits + bodyCollisions);
     try {
       _radar.onScannedRobot(e);
       if (!_TC) {
@@ -168,7 +184,9 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletHit(robocode.BulletHitEvent e) {
-    if (recordDiagnosticEvent(e.getTime())) { hits++; dealtNominal += robocode.Rules.getBulletDamage(e.getBullet().getPower()); }
+    if (policyBullets.remove(e.getBullet()) && e.getName().equals(policyTarget)) policyHits++;
+
+    if (recordDiagnosticEvent(e.getTime())) { hits++; dealtNominal += robocode.Rules.getBulletDamage(e.getBullet().getPower()); bulletBonuses += robocode.Rules.getBulletHitBonus(e.getBullet().getPower()); }
     try {
       if (!_TC) {
         _move.onBulletHit(e);
@@ -182,7 +200,15 @@ public class titanprime extends robocode.AdvancedRobot {
     if (roundReported && recordDiagnosticEvent(e.getTime())) saveDiagnostic();
   }
 
+  public void onBulletMissed(robocode.BulletMissedEvent e) {
+    policyBullets.remove(e.getBullet());
+
+    if (!_TC) _move.onBulletMissed(e);
+  }
+
   public void onBulletHitBullet(robocode.BulletHitBulletEvent e) {
+    policyBullets.remove(e.getBullet());
+
     if (recordDiagnosticEvent(e.getTime())) bulletCollisions++;
     try {
       if (!_TC) {
@@ -201,6 +227,10 @@ public class titanprime extends robocode.AdvancedRobot {
     if (recordDiagnosticEvent(e.getTime())) wallHits++;
     System.out.println("WARNING: I hit a wall (" + getTime() + ").");
     if (roundReported && recordDiagnosticEvent(e.getTime())) saveDiagnostic();
+  }
+
+  public void onHitRobot(robocode.HitRobotEvent e) {
+    if (recordDiagnosticEvent(e.getTime())) bodyCollisions++;
   }
 
   public void onWin(robocode.WinEvent e) {
@@ -281,6 +311,22 @@ public class titanprime extends robocode.AdvancedRobot {
 
   private void reportRound() {
     if (!roundReported) {
+      out.println("TITAN_ENERGY passive_drain=" + energyBalance.totalDrain + " body_collisions=" + bodyCollisions);
+      out.println("TITAN_FIRE_POLICY round=" + (getRoundNum() + 1)
+          + " shots=" + policyShots + " hits=" + policyHits);
+      out.println("TITAN_PROJECTILES round=" + (getRoundNum() + 1)
+          + " retired_hits=" + _move._moveDataManager.retiredHits
+          + " retired_misses=" + _move._moveDataManager.retiredMisses
+          + " retired_collisions=" + _move._moveDataManager.retiredCollisions);
+      out.println("TITAN_SHADOW_DEADLINE round=" + (getRoundNum() + 1)
+          + " queries=" + titan_utils_Wave.deadlineQueries
+          + " builds=" + titan_utils_Wave.deadlineBuilds
+          + " filtered_intervals=" + titan_utils_Wave.deadlineFilteredIntervals);
+      titan_move_MoveEnemy powerData = _move._moveDataManager.duelEnemy();
+      out.println("TITAN_CONFIDENCE round=" + (getRoundNum() + 1) + " strong_shots=" + strongShots
+          + (powerData == null ? "" : " power_shots=" + java.util.Arrays.toString(powerData.contextShots)
+              + " power_hits=" + java.util.Arrays.toString(powerData.contextHits)
+              + " context_queries=" + powerData.contextQueries + " rescued_queries=" + powerData.confidenceRescues));
       diagnosticTick = getTime();
       diagnosticEnergy = getEnergy();
       roundReported = true;
@@ -2668,7 +2714,13 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
       }
     }
 
-    if (is1v1() && !_tcMode) bulletPower = Math.min(bulletPower, 0.1);
+    if (is1v1() && !_tcMode) {
+      titan_move_MoveEnemy firingEnemy = _robot._move == null ? null : _robot._move._moveDataManager.duelEnemy();
+      double cap = gunData == null ? .1 : pressureFireCap(gunData.distance,
+          _robot.getEnergy(), gunData.energy, firingEnemy == null ? 0 : firingEnemy.lastBulletPower,
+          _robot.policyShots, _robot.policyHits, 450);
+      bulletPower = Math.min(bulletPower, cap);
+    }
     return bulletPower;
   }
 
@@ -2798,8 +2850,10 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
     robocode.Bullet bullet = _robot.setFireBullet(bulletPower);
     if (bullet != null) {
       for (titan_gun_FireListener listener : _fireListeners) {
-        listener.bulletFired(new titan_gun_FireListener.FiredBullet(_robot.getTime(), myLocation(),
-            _robot.getGunHeadingRadians(), (20 - (3 * bulletPower))));
+        titan_gun_FireListener.FiredBullet fired = new titan_gun_FireListener.FiredBullet(_robot.getTime(), myLocation(),
+            _robot.getGunHeadingRadians(), bullet.getVelocity());
+        fired.realBullet = bullet;
+        listener.bulletFired(fired);
       }
     }
 
@@ -2906,6 +2960,7 @@ public interface titan_gun_FireListener {
     public final double dx;
     public final double dy;
     public long deathTime;
+    public robocode.Bullet realBullet;
 
     public FiredBullet(long fireTime, java.awt.geom.Point2D.Double sourceLocation,
         double firingAngle, double bulletSpeed) {
@@ -4422,7 +4477,8 @@ public static class titan_move_Movimento implements titan_gfx_RoboPainter, titan
     if (is1v1() && _moveDataManager.duelEnemy() != null) {
       _moveDataManager.updateEnemyWaves(myLocation(), previousEnemyEnergy,
           botName, _robot.getRoundNum(), _robot.getTime(), _robot.getEnergy(),
-          _robot.getHeadingRadians(), _robot.getVelocity(), WAVES_TO_SURF);
+          _robot.getHeadingRadians(), _robot.getVelocity(), WAVES_TO_SURF,
+          _robot instanceof titanprime ? ((titanprime) _robot).observedPassiveDrain : 0);
     }
   }
 
@@ -4442,6 +4498,11 @@ public static class titan_move_Movimento implements titan_gfx_RoboPainter, titan
 
   public void onBulletHit(robocode.BulletHitEvent e) {
     _moveDataManager.onBulletHit(e);
+  }
+
+  public void onBulletMissed(robocode.BulletMissedEvent e) {
+    if (_moveDataManager.retireFiredBullet(e.getBullet(), e.getTime()))
+      { _moveDataManager.retiredMisses++; _moveDataManager.refreshBulletShadows(); }
   }
 
   public void onWin(robocode.WinEvent e) {
@@ -4772,6 +4833,7 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
   private double _lastNonZeroVelocity;
   private titan_utils_RobotStateLog _myStateLog;
   private java.util.List<titan_gun_FireListener.FiredBullet> _firedBullets;
+  private int retiredHits, retiredMisses, retiredCollisions;
 
   protected titan_move_MoveDataManager(int enemiesTotal, titan_utils_BattleField battleField,
       titan_utils_MovementPredictor predictor, java.util.Collection<titan_gfx_RoboGraphic> renderables,
@@ -4834,6 +4896,7 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
     _previousVelocity = _lastVelocity = _lastNonZeroVelocity = 0;
     _myStateLog.clear();
     _firedBullets.clear();
+    retiredHits = retiredMisses = retiredCollisions = 0;
   }
 
   public titan_move_MoveEnemy newEnemy(robocode.ScannedRobotEvent e, java.awt.geom.Point2D.Double enemyLocation,
@@ -4943,6 +5006,7 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
   }
 
   public void onBulletHit(robocode.BulletHitEvent e) {
+    if (retireFiredBullet(e.getBullet(), e.getTime())) { retiredHits++; refreshBulletShadows(); }
     String botName = e.getName();
     try {
       titan_move_MoveEnemy moveData = getEnemyData(botName);
@@ -4958,7 +5022,7 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
   public void updateEnemyWaves(java.awt.geom.Point2D.Double myLocation,
       double previousEnemyEnergy, String botName, int currentRound,
       long currentTime, double myEnergy, double myHeading, double myVelocity,
-      int wavesToSurf) {
+      int wavesToSurf, double passiveDrain) {
     titan_utils_RobotState myRobotState = titan_utils_RobotState.newBuilder()
         .setLocation(myLocation)
         .setHeading(myHeading)
@@ -4969,7 +5033,7 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
     titan_move_MoveEnemy moveData = getEnemyData(botName);
     boolean detectedEnemyBullet = false;
     double energyDrop =
-        previousEnemyEnergy - moveData.energy - moveData.wallHitDamage.max;
+        previousEnemyEnergy - moveData.energy - moveData.wallHitDamage.max - passiveDrain;
     if (energyDrop > 0.0999 && energyDrop < 3.0001
         && moveData.getGunHeat(currentTime) < 0.0001) {
       detectedEnemyBullet = true;
@@ -5036,22 +5100,24 @@ public static class titan_move_MoveDataManager extends titan_utils_EnemyDataMana
   }
 
   private void removeFiredBullet(robocode.BulletHitBulletEvent e) {
-    double closestDistanceSq = Double.POSITIVE_INFINITY;
-    titan_gun_FireListener.FiredBullet closestFiredBullet = null;
-    java.awt.geom.Point2D.Double bulletPoint =
-        new java.awt.geom.Point2D.Double(e.getBullet().getX(), e.getBullet().getY());
-    for (titan_gun_FireListener.FiredBullet firedBullet : _firedBullets) {
-      double thisDistanceSq =
-          firedBullet.position(e.getTime()).distanceSq(bulletPoint);
-      if (thisDistanceSq < closestDistanceSq) {
-        closestDistanceSq = thisDistanceSq;
-        closestFiredBullet = firedBullet;
+    if (retireFiredBullet(e.getBullet(), e.getTime())) retiredCollisions++;
+  }
+
+  boolean retireFiredBullet(robocode.Bullet bullet, long time) {
+    for (titan_gun_FireListener.FiredBullet fired : _firedBullets) {
+      if (fired.realBullet != null && fired.realBullet.equals(bullet)
+          && fired.realBullet.getName().equals(bullet.getName())) {
+        fired.deathTime = Math.min(fired.deathTime, time);
+        return true;
       }
     }
-    int bulletDistanceThreshold = 40;
-    if (closestFiredBullet != null
-        && closestDistanceSq < titan_utils_Matematica.square(bulletDistanceThreshold)) {
-      closestFiredBullet.deathTime = e.getTime();
+    return false;
+  }
+
+  void refreshBulletShadows() {
+    if (_duelEnemy != null) {
+      _duelEnemy.resetBulletShadows(_firedBullets);
+      _duelEnemy.clearNeighborCache();
     }
   }
 
@@ -5093,6 +5159,11 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
   public int raw1v1ShotsFired;
   public int raw1v1ShotsHit;
   public double weighted1v1ShotsHit;
+  final int[] contextShots = new int[3];
+  final int[] contextHits = new int[3];
+  final double[] contextWeightedHits = new double[3];
+  int contextQueries, confidenceRescues;
+
   final java.util.LinkedList<float[]> memoryHits = new java.util.LinkedList<float[]>();
   final java.util.LinkedList<float[]> memoryVisits = new java.util.LinkedList<float[]>();
   public int raw1v1ShotsFiredThisRound;
@@ -5144,6 +5215,7 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
     lastTimeClosest = Long.MIN_VALUE;
     lastBulletFireTime = 0;
     raw1v1ShotsFiredThisRound = 0;
+    contextQueries = 0; confidenceRescues = 0;
     raw1v1ShotsHitThisRound = 0;
     weighted1v1ShotsHitThisRound = 0;
     lastBulletPower = 0;
@@ -5349,10 +5421,7 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
       @Override
       public void onWave(titan_utils_Wave w) {
         if (w.firingWave) {
-          w.shadows.clear();
-          for (titan_gun_FireListener.FiredBullet bullet : firedBullets) {
-            setShadows(w, bullet);
-          }
+          w.rebuildBulletShadows();
         }
       }
     });
@@ -5371,7 +5440,7 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
 
   public void setShadows(titan_utils_Wave w, titan_gun_FireListener.FiredBullet bullet) {
     long startTime = Math.max(w.fireTime, bullet.fireTime);
-    if (!w.processedBulletHit()
+    if (!w.processedBulletHit() && startTime < bullet.deathTime
         && w.sourceLocation.distanceSq(bullet.position(startTime))
             > titan_utils_Matematica.square(w.distanceTraveled(startTime))) {
       long time = startTime;
@@ -5383,7 +5452,7 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
           addBulletShadows(w, bullet, time);
           break;
         }
-      } while (_battleField.rectangle.contains(bullet.position(time)));
+      } while (time < bullet.deathTime && _battleField.rectangle.contains(bullet.position(time)));
     }
   }
 
@@ -5400,12 +5469,12 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
 
     if (xPoints1[0] == null && xPoints2[0] == null) {
 
-      w.castShadow(bulletPoint1, bulletPoint2);
+      w.castShadow(bulletPoint1, bulletPoint2, b, time);
 
     } else if (xPoints1[0] != null) {
       if (xPoints2[0] != null) {
 
-        w.castShadow(xPoints2[0], xPoints1[0]);
+        w.castShadow(xPoints2[0], xPoints1[0], b, time);
       } else if (xPoints1[1] != null) {
 
         java.awt.geom.Point2D.Double intersect1, intersect2;
@@ -5417,15 +5486,15 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
           intersect1 = xPoints1[1];
           intersect2 = xPoints1[0];
         }
-        w.castShadow(bulletPoint1, intersect1);
-        w.castShadow(intersect2, bulletPoint2);
+        w.castShadow(bulletPoint1, intersect1, b, time);
+        w.castShadow(intersect2, bulletPoint2, b, time);
       } else {
 
-        w.castShadow(bulletPoint1, xPoints1[0]);
+        w.castShadow(bulletPoint1, xPoints1[0], b, time);
       }
     } else if (xPoints2[0] != null) {
 
-      w.castShadow(xPoints2[0], bulletPoint2);
+      w.castShadow(xPoints2[0], bulletPoint2, b, time);
     }
   }
 
@@ -5611,10 +5680,14 @@ public static class titan_move_MoveEnemy extends titan_utils_Enemy<titan_utils_T
           if (!w.bulletHitBullet) {
             raw1v1ShotsFired++;
             raw1v1ShotsFiredThisRound++;
+            int powerGroup = powerContext(w.bulletPower());
+            contextShots[powerGroup]++;
             if (w.hitByBullet) {
               double angularBotWidth = preciseIntersection.bandwidth * 2;
               double thisHit = (TYPICAL_ANGULAR_BOT_WIDTH / angularBotWidth)
                   * (w.escapeAngleRange() / TYPICAL_ESCAPE_RANGE);
+              contextHits[powerGroup]++;
+              contextWeightedHits[powerGroup] += thisHit;
               weighted1v1ShotsHit += thisHit;
               weighted1v1ShotsHitThisRound += thisHit;
               raw1v1ShotsHit++;
@@ -5927,11 +6000,20 @@ public static class titan_move_SurfMover {
     } while (!wavePassed);
 
     titan_utils_Wave.Intersection intersection = surfWave.preciseIntersection(dangerStates);
+    long firstPossibleHit = passedState.time;
+    for (titan_utils_RobotState state : dangerStates) firstPossibleHit = Math.min(firstPossibleHit, state.time);
+    java.util.List<titan_utils_Wave.BulletShadow> previousShadows = surfWave.forecastShadows;
+    surfWave.forecastShadows = surfWave.shadowsBefore(firstPossibleHit);
+    double danger;
+    try {
     double baseDangerScore =
-        normalizedEnemyHitRate(duelEnemy) * BASE_DANGER_FACTOR;
-    double danger = baseDangerScore + getDangerScore(
+        contextEnemyHitRate(duelEnemy, surfWave) * BASE_DANGER_FACTOR;
+    danger = baseDangerScore + getDangerScore(
         duelEnemy, surfWave, intersection, surfWaveIndex);
     danger *= surfWave.shadowFactor(intersection);
+    } finally {
+      surfWave.forecastShadows = previousShadows;
+    }
     danger *= robocode.Rules.getBulletDamage(surfWave.bulletPower());
     double currentDistanceToWaveSource =
         myRobotState.location.distance(surfWave.sourceLocation);
@@ -5944,7 +6026,8 @@ public static class titan_move_SurfMover {
     danger *= distancingDanger(startState.location, passedState.location,
         duelEnemy.lastScanState.location);
 
-    if (surfWaveIndex + 1 < numWavesToSurf && danger < cutoffDanger) {
+    if (surfWaveIndex + 1 < numWavesToSurf) {
+      if (danger >= cutoffDanger) return Double.POSITIVE_INFINITY;
       double nextCounterClockwiseDanger = checkDanger(myRobotState, duelEnemy,
           passedState, SurfOption.COUNTER_CLOCKWISE, predictClockwise,
           surfWaveIndex + 1, numWavesToSurf, cutoffDanger,
@@ -6043,8 +6126,8 @@ public static class titan_move_SurfMover {
     double totalDanger = 0;
     double totalScanWeight = 0;
     int enabledSize = 0;
-    double hitPercentage = normalizedEnemyHitPercentage(duelEnemy);
-    double marginOfError = hitPercentageMarginOfError(duelEnemy);
+    double hitPercentage = 100 * contextEnemyHitRate(duelEnemy, w);
+    double marginOfError = contextEnemyMargin(duelEnemy, w);
     for (titan_utils_KnnView<titan_utils_TimestampedGuessFactor> view : duelEnemy.views.values()) {
       if (view.enabled(hitPercentage, marginOfError)) {
         enabledSize += view.size();
@@ -6090,10 +6173,31 @@ public static class titan_move_SurfMover {
     return view.cachedNeighbors.get(surfWaveIndex);
   }
 
-  double normalizedEnemyHitRate(titan_move_MoveEnemy duelEnemy) {
-    return (duelEnemy == null || duelEnemy.raw1v1ShotsFired == 0)
-        ? 0 : (((double) duelEnemy.weighted1v1ShotsHit)
-            / duelEnemy.raw1v1ShotsFired);
+  private int contextGroup(titan_move_MoveEnemy enemy, titan_utils_Wave wave) {
+    if (!POWER_CONTEXT_DEFENSE || enemy == null || wave == null) return -1;
+    int group = powerContext(wave.bulletPower());
+    if (enemy.contextShots[group] < 16) return -1;
+    enemy.contextQueries++;
+    return group;
+  }
+
+  double contextEnemyHitRate(titan_move_MoveEnemy enemy, titan_utils_Wave wave) {
+    int group = contextGroup(enemy, wave);
+    double result = group < 0 ? normalizedEnemyHitRate(enemy)
+        : enemy.contextWeightedHits[group] / enemy.contextShots[group];
+    return Double.isFinite(result) && result >= 0 ? result : 0;
+  }
+
+  double contextEnemyMargin(titan_move_MoveEnemy enemy, titan_utils_Wave wave) {
+    int group = contextGroup(enemy, wave);
+    return group < 0 ? hitPercentageMarginOfError(enemy)
+        : weightedHitMargin(enemy.contextShots[group], enemy.contextHits[group], enemy.contextWeightedHits[group]);
+  }
+
+  double normalizedEnemyHitRate(titan_move_MoveEnemy enemy) {
+    if (enemy == null || enemy.raw1v1ShotsFired <= 0) return 0;
+    double value = enemy.weighted1v1ShotsHit / enemy.raw1v1ShotsFired;
+    return Double.isFinite(value) && value >= 0 ? value : 0;
   }
 
   double normalizedEnemyHitPercentage(titan_move_MoveEnemy duelEnemy) {
@@ -6106,14 +6210,11 @@ public static class titan_move_SurfMover {
             / duelEnemy.raw1v1ShotsFired) * 100.0);
   }
 
-  double hitPercentageMarginOfError(titan_move_MoveEnemy duelEnemy) {
-    if (duelEnemy == null) {
-      return 100;
-    } else {
-      double hitProbability = normalizedEnemyHitRate(duelEnemy);
-      return 100 *
-          titan_utils_Matematica.marginOfError(hitProbability, duelEnemy.raw1v1ShotsFired);
-    }
+  double hitPercentageMarginOfError(titan_move_MoveEnemy enemy) {
+    if (enemy != null && ((enemy.raw1v1ShotsFired == 0 && !enemy.memoryHits.isEmpty())
+        || (enemy.raw1v1ShotsFired > 0 && enemy.weighted1v1ShotsHit > enemy.raw1v1ShotsFired))) enemy.confidenceRescues++;
+    return enemy == null ? 100 : weightedHitMargin(enemy.raw1v1ShotsFired,
+        enemy.raw1v1ShotsHit, enemy.weighted1v1ShotsHit);
   }
 
   private static double defaultDanger(titan_utils_Wave w, titan_utils_Wave.Intersection intersection) {
@@ -6251,7 +6352,7 @@ public static class titan_move_SurfMover {
 
 public static class titan_move_formulas_FlattenerFormula extends titan_utils_DistanceFormula {
   public titan_move_formulas_FlattenerFormula() {
-    weights = new double[]{3, 4, 3, 5, 1, 4, 3, 3, 2, 2, 2};
+    weights = new double[]{3, 4, 3, 5, 1, 4, 3, 3, 2, 2, 2, 2};
   }
 
   @Override
@@ -6270,13 +6371,14 @@ public static class titan_move_formulas_FlattenerFormula extends titan_utils_Dis
       (w.targetDl8t / 64),
       (w.targetDl20t / 160),
       (w.targetDl40t / 320),
+      (w.bulletPower() / 3),
     };
   }
 }
 
 public static class titan_move_formulas_NormalFormula extends titan_utils_DistanceFormula {
   public titan_move_formulas_NormalFormula() {
-    weights = new double[]{4, 3, 3, 3, 2, 4, 1, 3, 2};
+    weights = new double[]{4, 3, 3, 3, 2, 4, 1, 3, 2, 2};
   }
 
   @Override
@@ -6291,7 +6393,8 @@ public static class titan_move_formulas_NormalFormula extends titan_utils_Distan
       (Math.min(1.0, w.targetWallDistance) / 1.0),
       (Math.min(1.0, w.targetRevWallDistance) / 1.0),
       (Math.min(1, w.targetVchangeTime / (w.targetDistance/w.bulletSpeed()))),
-      (w.targetDl8t / 64)
+      (w.targetDl8t / 64),
+      (w.bulletPower() / 3)
     };
   }
 }
@@ -8059,6 +8162,41 @@ public static class titan_utils_Wave implements Cloneable {
   public long lastBulletFiredTime;
 
   public java.util.List<BulletShadow> shadows;
+  private java.util.List<TrackedShadow> shadowHistory;
+  private java.util.List<BulletShadow> forecastShadows;
+  private final java.util.Map<Long, java.util.List<BulletShadow>> shadowDeadlineCache =
+      new java.util.HashMap<Long, java.util.List<BulletShadow>>();
+  public static long deadlineQueries, deadlineBuilds, deadlineFilteredIntervals;
+
+  public java.util.List<BulletShadow> shadowsBefore(long beforeTime) {
+    deadlineQueries++;
+    java.util.List<BulletShadow> cached = shadowDeadlineCache.get(beforeTime);
+    if (cached != null) return cached;
+    deadlineBuilds++;
+    java.util.List<BulletShadow> result = new java.util.ArrayList<BulletShadow>();
+    if (shadowHistory != null) for (TrackedShadow shadow : shadowHistory) {
+      if (shadow.crossing >= beforeTime) { deadlineFilteredIntervals++; continue; }
+      if (shadow.bullet == null || shadow.crossing < shadow.bullet.deathTime)
+        mergeShadowInto(result, shadow.min, shadow.max);
+    }
+    if (shadowDeadlineCache.size() >= 32) shadowDeadlineCache.clear();
+    shadowDeadlineCache.put(beforeTime, result);
+    return result;
+  }
+
+  private java.util.List<BulletShadow> comparisonShadows() {
+    return forecastShadows == null ? shadows : forecastShadows;
+  }
+
+
+  private static class TrackedShadow {
+    final double min, max;
+    final titan_gun_FireListener.FiredBullet bullet;
+    final long crossing;
+    TrackedShadow(double min, double max, titan_gun_FireListener.FiredBullet bullet, long crossing) {
+      this.min = min; this.max = max; this.bullet = bullet; this.crossing = crossing;
+    }
+  }
 
   protected Double _cachedPositiveEscapeAngle = null;
   protected Double _cachedNegativeEscapeAngle = null;
@@ -8410,7 +8548,7 @@ public static class titan_utils_Wave implements Cloneable {
   }
 
   public boolean shadowed(double firingAngle) {
-    for (BulletShadow shadow : shadows) {
+    for (BulletShadow shadow : comparisonShadows()) {
       firingAngle = titan_utils_Matematica.normalizeAngle(firingAngle, shadow.minAngle);
       if (firingAngle >= shadow.minAngle && firingAngle <= shadow.maxAngle) {
         return true;
@@ -8425,16 +8563,50 @@ public static class titan_utils_Wave implements Cloneable {
   }
 
   private void castShadow(double shadowAngle1, double shadowAngle2) {
-    shadowAngle1 = titan_utils_Matematica.normalizeAngle(shadowAngle1, absBearing);
-    shadowAngle2 = titan_utils_Matematica.normalizeAngle(shadowAngle2, shadowAngle1);
-    double min = Math.min(shadowAngle1, shadowAngle2);
-    double max = Math.max(shadowAngle1, shadowAngle2);
-    shadows.add(new BulletShadow(min, max));
+    castTrackedShadow(shadowAngle1, shadowAngle2, null, 0);
+  }
+
+  public void castShadow(java.awt.geom.Point2D.Double p1, java.awt.geom.Point2D.Double p2,
+      titan_gun_FireListener.FiredBullet bullet, long crossing) {
+    castTrackedShadow(titan_utils_Matematica.absoluteBearing(sourceLocation, p1),
+        titan_utils_Matematica.absoluteBearing(sourceLocation, p2), bullet, crossing);
+  }
+
+  private void castTrackedShadow(double angle1, double angle2,
+      titan_gun_FireListener.FiredBullet bullet, long crossing) {
+    angle1 = titan_utils_Matematica.normalizeAngle(angle1, absBearing);
+    angle2 = titan_utils_Matematica.normalizeAngle(angle2, angle1);
+    double min = Math.min(angle1, angle2), max = Math.max(angle1, angle2);
+    if (shadowHistory == null) shadowHistory = new java.util.ArrayList<TrackedShadow>();
+    shadowHistory.add(new TrackedShadow(min, max, bullet, crossing));
+    shadowDeadlineCache.clear();
+    mergeShadow(min, max);
+  }
+
+  public void rebuildBulletShadows() {
+    if (shadowHistory == null) return;
+    shadowDeadlineCache.clear();
+    shadows.clear();
+    java.util.Iterator<TrackedShadow> iterator = shadowHistory.iterator();
+    while (iterator.hasNext()) {
+      TrackedShadow shadow = iterator.next();
+      if (shadow.bullet == null || shadow.crossing < shadow.bullet.deathTime)
+        mergeShadow(shadow.min, shadow.max);
+      else iterator.remove();
+    }
+  }
+
+  private void mergeShadow(double min, double max) {
+    mergeShadowInto(shadows, min, max);
+  }
+
+  private static void mergeShadowInto(java.util.List<BulletShadow> target, double min, double max) {
+    target.add(new BulletShadow(min, max));
 
     java.util.Set<BulletShadow> deadShadows = new java.util.HashSet<BulletShadow>();
-    for (BulletShadow shadow1 : shadows) {
+    for (BulletShadow shadow1 : target) {
       if (!deadShadows.contains(shadow1)) {
-        for (BulletShadow shadow2 : shadows) {
+        for (BulletShadow shadow2 : target) {
           if (shadow1 != shadow2 && !deadShadows.contains(shadow2)
               && shadow1.overlaps(shadow2)) {
             shadow1.minAngle = Math.min(shadow1.minAngle,
@@ -8447,7 +8619,7 @@ public static class titan_utils_Wave implements Cloneable {
       }
     }
     for (BulletShadow deadShadow : deadShadows) {
-      shadows.remove(deadShadow);
+      target.remove(deadShadow);
     }
   }
 
@@ -8455,7 +8627,7 @@ public static class titan_utils_Wave implements Cloneable {
     double min = intersection.angle - intersection.bandwidth;
     double max = intersection.angle + intersection.bandwidth;
     double factor = 1;
-    for (BulletShadow shadow : shadows) {
+    for (BulletShadow shadow : comparisonShadows()) {
       double shadowMin = titan_utils_Matematica.normalizeAngle(shadow.minAngle, min);
       double shadowMax = titan_utils_Matematica.normalizeAngle(shadow.maxAngle, shadowMin);
       if (shadowMin <= min && shadowMax >= max) {
@@ -9760,6 +9932,26 @@ public static class titan_utils_geom_LineSeg {
     }
   }
 
+  private static int neuralAngularIndex(double[] probabilities, double positiveEscape,
+      double negativeEscape, double angularWidth) {
+    double[] offsets = new double[probabilities.length];
+    for (int i = 0; i < offsets.length; i++) {
+      double factor = i / 30.0 - 1;
+      offsets[i] = factor * (factor >= 0 ? positiveEscape : negativeEscape);
+    }
+    double best = -1;
+    int selected = 30;
+    for (int i = 0; i < offsets.length; i++) {
+      double score = 0;
+      for (int j = 0; j < offsets.length; j++) {
+        double delta = Math.abs(offsets[i] - offsets[j]) / angularWidth;
+        if (delta < 1) score += probabilities[j] * (1 - delta);
+      }
+      if (score > best) { best = score; selected = i; }
+    }
+    return selected;
+  }
+
   private static class TitanNeuralGun extends titan_gun_DuelGun<titan_utils_TimestampedFiringAngle> {
     final boolean recent;
     TitanNeuralGun(boolean recent) { this.recent = recent; }
@@ -9767,16 +9959,10 @@ public static class titan_utils_geom_LineSeg {
     protected double aimInternal(titan_utils_Wave w, boolean painting) {
       TitanNeuralPair pair = neuralFor(w.botName);
       double[] probabilities = (recent ? pair.fast : pair.slow).predict(neuralFeatures(w));
-      double best = -1; int index = 30;
-      double bandwidth = Math.max(.04, 18 / Math.max(36, w.targetDistance) / w.maxEscapeAngle());
-      for (int i = 0; i < probabilities.length; i++) {
-        double score = 0;
-        for (int j = 0; j < probabilities.length; j++) {
-          double delta = (i - j) / 30.0 / bandwidth;
-          if (Math.abs(delta) < 1) score += probabilities[j] * (1 - Math.abs(delta));
-        }
-        if (score > best) { best = score; index = i; }
-      }
+      double angularWidth = Math.max(.04 * w.maxEscapeAngle(),
+          18 / Math.max(36, w.targetDistance));
+      int index = neuralAngularIndex(probabilities, w.preciseEscapeAngle(true),
+          w.preciseEscapeAngle(false), angularWidth);
       double gf = index / 30.0 - 1;
       return robocode.util.Utils.normalAbsoluteAngle(w.absBearing
           + w.orbitDirection * gf * w.preciseEscapeAngle(gf >= 0));
@@ -9823,7 +10009,20 @@ public static class titan_utils_geom_LineSeg {
       if (!Float.isFinite(sample[i]) || Math.abs(sample[i]) > 1000000) return;
     }
     samples.addLast(sample);
-    while (samples.size() > 24) samples.removeFirst();
+    if (samples.size() > 24) {
+      int[] counts = new int[3];
+      for (float[] item : samples) counts[powerStratum(item[0])]++;
+      int largest = Math.max(counts[0], Math.max(counts[1], counts[2]));
+      java.util.Iterator<float[]> iterator = samples.iterator();
+      while (iterator.hasNext()) {
+        float[] item = iterator.next();
+        if (counts[powerStratum(item[0])] == largest) { iterator.remove(); break; }
+      }
+    }
+  }
+
+  private static int powerStratum(float power) {
+    return power < .3f ? 0 : power < 1.5f ? 1 : 2;
   }
 
   private static void restoreMoveMemory(titan_move_MoveEnemy enemy) {
@@ -10049,6 +10248,64 @@ public static class titan_utils_geom_LineSeg {
     java.util.zip.CRC32 crc = new java.util.zip.CRC32(); crc.update(packed.toByteArray());
     java.io.DataOutputStream trailer = new java.io.DataOutputStream(packed); trailer.writeLong(crc.getValue()); trailer.close();
     return packed.toByteArray();
+  }
+
+  static class EnergyBalance {
+    long lastTime = -1, streak;
+    String lastEnemy;
+    double lastEnergy, lastSpent, lastReceived, lastBonus, totalDrain;
+    int lastCollisions;
+    double observe(long time, int others, String enemy, double energy, double spent,
+        double received, double bonus, int collisions) {
+      if (time == lastTime) return 0;
+      long elapsed = time - lastTime;
+      double result = 0;
+      double residual = lastEnergy - energy - (spent - lastSpent)
+          - (received - lastReceived) + (bonus - lastBonus);
+      if (lastTime >= 0 && others == 1 && enemy.equals(lastEnemy) && elapsed > 0 && elapsed <= 4
+          && energy > .1 && collisions == lastCollisions && Math.abs(residual - .1 * elapsed) < .00001) {
+        streak += elapsed;
+        if (streak >= 3) { result = .1 * elapsed; totalDrain += result; }
+      } else streak = 0;
+      lastTime = time; lastEnemy = enemy; lastEnergy = energy; lastSpent = spent;
+      lastReceived = received; lastBonus = bonus; lastCollisions = collisions;
+      return result;
+    }
+  }
+
+  static double pressureFireCap(double distance, double energy, double enemyEnergy,
+      double enemyPower, int shots, int hits, double range) {
+    double baseline = precisionFireCap(distance, energy, shots, hits, .7);
+    if (!Double.isFinite(enemyEnergy) || !Double.isFinite(enemyPower)
+        || !Double.isFinite(range) || range < 100 || range > 525
+        || !Double.isFinite(distance) || !Double.isFinite(energy)
+        || distance < 0 || distance > range || energy < 8 || enemyEnergy <= 8
+        || enemyPower < 1.5 || enemyPower > 3 || shots < 20 || hits < 0 || hits > shots) return baseline;
+    double precision = (hits + 1.0) / (shots + 8.0);
+    return precision >= .21 ? 1.95 : baseline;
+  }
+
+  private static final boolean POWER_CONTEXT_DEFENSE = true;
+
+  static int powerContext(double power) { return power < .3 ? 0 : power < 1.5 ? 1 : 2; }
+
+  static double weightedHitMargin(int shots, int hits, double weightedHits) {
+    if (shots <= 0 || hits < 0 || hits > shots || !Double.isFinite(weightedHits) || weightedHits < 0) return 100;
+    double estimate = weightedHits / shots;
+    if (shots < 4 || hits == 0) return 100 * estimate;
+    double probability = hits / (double) shots, z = 1.96, z2 = z * z;
+    double lower = (probability + z2 / (2.0 * shots)
+        - z * Math.sqrt(probability * (1 - probability) / shots + z2 / (4.0 * shots * shots)))
+        / (1 + z2 / shots);
+    return 100 * Math.max(0, estimate - weightedHits / hits * Math.max(0, lower));
+  }
+
+  static double precisionFireCap(double distance, double energy, int shots, int hits, double maximum) {
+    if (!Double.isFinite(distance) || !Double.isFinite(energy) || distance < 0
+        || hits < 0 || hits > shots || !Double.isFinite(maximum) || maximum < .1 || maximum > 3) return .1;
+    double precision = (hits + 1.0) / (shots + 8.0);
+    if (distance >= 525 || energy < 25 || shots < 10 || precision < .18) return .1;
+    return maximum;
   }
 
 }

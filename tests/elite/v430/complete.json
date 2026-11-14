@@ -1,0 +1,11 @@
+{
+  "selected": "combined",
+  "fast_protocol": true,
+  "confirmation_rounds": 20,
+  "quick_confirmations_accepted": false,
+  "qualified": false,
+  "all_rounds_goal_met": false,
+  "larger_test_still_required": true,
+  "automatic_publication": false,
+  "retain_all_losses": true
+}

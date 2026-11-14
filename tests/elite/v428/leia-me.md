@@ -1,6 +1,6 @@
 # Validação experimental v428
 
-O código principal publicado continua na versão 4.15. As fontes experimentais são identificadas por SHA256 nos relatórios e não foram promovidas automaticamente.
+As três fontes deste estudo foram comparadas separadamente. A fonte combinada foi selecionada para a entrega final 4.28, por solicitação do usuário, mantendo exatamente o SHA256 avaliado; a promoção não foi automática.
 
 | Caso | Adversário(s) | Vitórias / rounds | Pontos Titan / maior adversário |
 |---|---|---:|---:|

@@ -1,0 +1,93 @@
+Loaded net.sf.robocode.api
+Loaded net.sf.robocode.core
+Loaded net.sf.robocode.battle
+Loaded net.sf.robocode.ui.editor
+Loaded net.sf.robocode.sound
+Loading plugins from /workspace/robocode-user/perfection/final-release/smoke/engine/libs
+Loaded net.sf.robocode.ui
+Loaded net.sf.robocode.repository
+Loaded net.sf.robocode.host
+Initializing version check date.
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by net.sf.robocode.host.security.RobocodeSecurityManager (file:/workspace/robocode-user/perfection/final-release/smoke/engine/libs/robocode.host-1.12.0.jar)
+WARNING: Please consider reporting this to the maintainers of net.sf.robocode.host.security.RobocodeSecurityManager
+WARNING: System::setSecurityManager will be removed in a future release
+VERSION	1.12.0
+POSITION_MODE	random_starts_recorded
+BEGIN	release-smoke
+START_POSITION	0	equipe.titanprime 4.28-combined	614.4231171663587	425.94800562020504	5.334672097210173
+START_POSITION	0	voidious.Diamond 1.8.28	543.2808154986942	344.29136084228685	0.35576936587237834
+ROSTER	equipe.titanprime 4.28-combined	equipe.titanprime 4.28-combined	0	-1	false	100.0	ACTIVE	614.4231171663587	425.94800562020504
+ROSTER	voidious.Diamond 1.8.28	voidious.Diamond 1.8.28	1	-1	false	100.0	ACTIVE	543.2808154986942	344.29136084228685
+[equipe.titanprime 4.28-combined] =========================
+[equipe.titanprime 4.28-combined] Round 1 of 1
+[equipe.titanprime 4.28-combined] =========================
+[equipe.titanprime 4.28-combined] TITAN_MEMORY loaded=0 generation=0
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 1 of 1
+[voidious.Diamond 1.8.28] =========================
+[equipe.titanprime 4.28-combined] Current gun: Perceptual Gun (0.0)
+[voidious.Diamond 1.8.28] Current gun: Perceptual Gun (0.0)
+[equipe.titanprime 4.28-combined] Disabling Perceptual Gun @ 24
+[equipe.titanprime 4.28-combined] Switching to Main Gun (0.0)
+[voidious.Diamond 1.8.28] Disabling Perceptual Gun @ 37
+[voidious.Diamond 1.8.28] Switching to Main Gun (0.0)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural General (12.36)
+[equipe.titanprime 4.28-combined] Switching to Main Gun (23.4)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (33.82)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural General (27.74)
+[equipe.titanprime 4.28-combined] Switching to Main Gun (22.49)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (22.53)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.76)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (22.08)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.49)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.42)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.4)
+[equipe.titanprime 4.28-combined] SYSTEM: titanprime 4.28-combined skipped turn 2132
+[equipe.titanprime 4.28-combined] WARNING: Turn skipped at: 2133
+[voidious.Diamond 1.8.28] Switching to Anti-Surfer Gun (20.39)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.13)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.06)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.04)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (20.89)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (20.95)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.66)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.5)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.41)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.63)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.69)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (21.67)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (21.77)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (22.1)
+[equipe.titanprime 4.28-combined] Switching to Anti-Surfer Gun (22.45)
+[equipe.titanprime 4.28-combined] Switching to Titan Neural Recent (22.6)
+[equipe.titanprime 4.28-combined] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 3
+[equipe.titanprime 4.28-combined] SYSTEM: equipe.titanprime 4.28-combined wins the round.
+[equipe.titanprime 4.28-combined] TITAN_ENERGY passive_drain=0.0 body_collisions=0
+[equipe.titanprime 4.28-combined] TITAN_FIRE_POLICY round=1 shots=359 hits=34
+[equipe.titanprime 4.28-combined] TITAN_PROJECTILES round=1 retired_hits=34 retired_misses=43 retired_collisions=44
+[equipe.titanprime 4.28-combined] TITAN_SHADOW_DEADLINE round=1 queries=38820 builds=3279 filtered_intervals=128
+[equipe.titanprime 4.28-combined] TITAN_CONFIDENCE round=1 strong_shots=0 power_shots=[240, 31, 26] power_hits=[23, 2, 3] context_queries=95409 rescued_queries=0
+[equipe.titanprime 4.28-combined] TITAN_DIAGNOSTIC version=4.28-combined round=0 shots=359 hits=34 walls=0 skipped=1
+[equipe.titanprime 4.28-combined] TITAN_MEMORY saved=1 generation=1 bytes=13640
+[equipe.titanprime 4.28-combined] Titan Prime venceu o round!
+[equipe.titanprime 4.28-combined] Virtual Gun ratings for voidious.Diamond 1.8.28:
+[equipe.titanprime 4.28-combined]   Main Gun: 20.39
+[equipe.titanprime 4.28-combined]   Anti-Surfer Gun: 22.19
+[equipe.titanprime 4.28-combined]   Titan Neural General: 21.3
+[equipe.titanprime 4.28-combined]   Titan Neural Recent: 22.56
+[equipe.titanprime 4.28-combined] Enemy normalized hit %: 7.9
+[equipe.titanprime 4.28-combined] Enemy raw hit %: 9.43
+[voidious.Diamond 1.8.28] Virtual Gun ratings for equipe.titanprime 4.28-combined:
+[voidious.Diamond 1.8.28]   Main Gun: 21.01
+[voidious.Diamond 1.8.28]   Anti-Surfer Gun: 21.5
+[voidious.Diamond 1.8.28] Enemy normalized hit %: 8.75
+[voidious.Diamond 1.8.28] Enemy raw hit %: 10.93
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+ROUND_TURNS	0	4142
+ROUND_SCORE	0	equipe.titanprime 4.28-combined	1
+ROUND_SCORE	0	voidious.Diamond 1.8.28	0
+RESULT	equipe.titanprime 4.28-combined	76	1
+RESULT	voidious.Diamond 1.8.28	45	0
+STATUS	complete
+END	release-smoke

@@ -1,0 +1,46 @@
+{
+  "scope": "Historical experiment, different source hashes kept separate. Neither candidate was adopted; the final production source is4.28combined, with its exact hashes and reports in ../v428.",
+  "cases": [
+    {
+      "case": "combined-chimp10",
+      "report": "combined-chimp10.json",
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791"
+    },
+    {
+      "case": "combined-diamond10",
+      "report": "combined-diamond10.json",
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791"
+    },
+    {
+      "case": "fast-combined-chimp20",
+      "report": "fast-combined-chimp20.json",
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791"
+    },
+    {
+      "case": "fast-combined-diamond20",
+      "report": "fast-combined-diamond20.json",
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791"
+    },
+    {
+      "case": "pressure18-chimp10",
+      "report": "pressure18-chimp10.json",
+      "source_sha256": "e5a634a9217c9423f19cd48199ff2b11ce9019d010b22891a3217be7c8977f88"
+    },
+    {
+      "case": "pressure18-diamond10",
+      "report": "pressure18-diamond10.json",
+      "source_sha256": "e5a634a9217c9423f19cd48199ff2b11ce9019d010b22891a3217be7c8977f88"
+    },
+    {
+      "case": "wall-chimp10",
+      "report": "wall-chimp10.json",
+      "source_sha256": "2ef931aa280fb65877e3c6cf03d85b66102a2a49b42fb25d217d2d4aa9e560a7"
+    },
+    {
+      "case": "wall-diamond10",
+      "report": "wall-diamond10.json",
+      "source_sha256": "2ef931aa280fb65877e3c6cf03d85b66102a2a49b42fb25d217d2d4aa9e560a7"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

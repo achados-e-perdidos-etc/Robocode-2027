@@ -1,0 +1,9 @@
+{
+  "changed_utc": "2026-11-14T12:44:40.513462+00:00",
+  "reason": "User explicitly requested faster work. Preserve original plan and all completed battles; finish the active10-round case, stop only its supervisor at the boundary, then use20-round cold confirmations instead of50cold+two50warm+50melee+100additional.",
+  "active_case_allowed_to_finish": "combined-diamond10",
+  "confirmation_rounds": 20,
+  "no_retries_of_valid_losses": true,
+  "no_robot_source_changes": true,
+  "automatic_publication": false
+}

@@ -1,6 +1,6 @@
 {
-  "status": "persistent_learning_published_elite_search_continues",
-  "production_version": "4.15",
+  "status": "final_release_published_by_user_request",
+  "production_version": "4.28",
   "source_delivery_approved": true,
   "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
   "tests": [
@@ -111,9 +111,8 @@
     }
   },
   "remaining": [
-    "Achieve all-round wins and point leads in new independent elite series.",
-    "Improve behavior against energetic opponents and validate solo melee combat.",
-    "Qualify a new source before replacing the published Java."
+    "Melee survival and points still trail Diamond in the recorded multi-opponent series.",
+    "All-round wins have not been achieved; later improvements should be evaluated in small focused cycles."
   ],
   "limits": [
     "Finite tests cannot prove a victory against every future strategy.",
@@ -146,36 +145,50 @@
     "pc_exports": 3,
     "regression_late_duel_guessfactor": true
   },
-  "qualification_in_progress": {
-    "version": "4.29-dev",
-    "scope": "Melee destination geometry and six-tick route exposure, independently and combined, with an independent20-round control and a50-round confirmation if eligible. Duel and gun code unchanged.",
-    "completed": false,
-    "accepted": false,
-    "published": false
-  },
+  "qualification_in_progress": null,
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
-  "current_source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+  "current_source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
   "current_reference_results": [
     {
-      "case": 64151,
-      "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+      "case": 65215,
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "rounds": 50,
+      "wins": 49,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3620,
+          "firsts": 49
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1811,
+          "firsts": 1
+        }
+      ],
+      "report": "tests/elite/v428/combined-diamond50.json"
+    },
+    {
+      "case": 65216,
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
       "rounds": 50,
       "wins": 48,
       "valid": true,
       "scores": [
         {
           "robot": "equipe.titanprime*",
-          "points": 3498,
+          "points": 4241,
           "firsts": 48
         },
         {
-          "robot": "voidious.Diamond 1.8.28",
-          "points": 1878,
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 2023,
           "firsts": 2
         }
       ],
-      "report": "tests/elite/v415/results.json"
+      "report": "tests/elite/v428/combined-chimp50.json"
     }
   ],
   "historical_development_environment": {
@@ -329,6 +342,19 @@
         2413
       ],
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.29",
+      "path": "tests/elite/v429",
+      "all_rounds_goal_met": false,
+      "not_adopted": true
+    },
+    {
+      "version": "4.30",
+      "path": "tests/elite/v430",
+      "all_rounds_goal_met": false,
+      "not_adopted": true,
+      "quick_confirmation_rounds": 20
     }
   ],
   "memory": {
@@ -365,9 +391,49 @@
       "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T12:36:39.469931+00:00",
-  "queued_next_comparison": {
-    "version": "4.30-dev",
-    "scope": "Correct current-power wall context, compare0.18/0.21pressure evidence, keep every defeat; fresh cold and warm duels plus50-round solo melee."
-  }
+  "updated_utc": "2026-11-14T12:54:36.087622+00:00",
+  "previous_production_4_15": {
+    "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+    "reference_results": [
+      {
+        "case": 64151,
+        "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+        "rounds": 50,
+        "wins": 48,
+        "valid": true,
+        "scores": [
+          {
+            "robot": "equipe.titanprime*",
+            "points": 3498,
+            "firsts": 48
+          },
+          {
+            "robot": "voidious.Diamond 1.8.28",
+            "points": 1878,
+            "firsts": 2
+          }
+        ],
+        "report": "tests/elite/v415/results.json"
+      }
+    ]
+  },
+  "release_ready": true,
+  "release_selection": {
+    "decided_utc": "2026-11-14T12:49:47.911720+00:00",
+    "authorization": "User requested a final major improvement, working code and publication to GitHub, superseding the earlier never-deliver-until-universal-wins condition.",
+    "selection": "Default to longer-tested4.28combined: Diamond49/50 and Chimp48/50. Adopt4.30combined only if both frozen20-round quick confirmations are valid, win20/20 and lead points. Do not attribute parent results to a new source.",
+    "no_more_batches_after_release": true
+  },
+  "jar_sha256": "3e453f0611ea1cb3b276a1c3ea2985fc9385ee07df78606992cfefd370ef3798",
+  "final_checks": {
+    "java": 17,
+    "classes": 115,
+    "class_major": 52,
+    "physics": true,
+    "memory": true,
+    "java_comments": 0,
+    "packaged_jar_smoke_java17": true
+  },
+  "no_pending_training_batches": true,
+  "jar_smoke_report": "tests/elite/v428/release-jar-smoke.json"
 }

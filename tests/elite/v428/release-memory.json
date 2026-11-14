@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "checks": [
+    "Neural prediction float32 equivalence",
+    "Defensive KNN rehydration",
+    "Fresh round counters",
+    "CRC, schema, context, size, truncation and nonfinite weights",
+    "Nine opponents without fixed count cap",
+    "Schema1 migration",
+    "Decompression allocation bound"
+  ],
+  "output": "MEMORY_CODEC_OK bytes=6142 maxPredictionDrift=3.6339577180743987E-12 restoredKNNViews=11\n"
+}

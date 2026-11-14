@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.30-combined,92bb7a6184f6259,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,742,1,36.692695264314125,742,62,11,23.70730473568582,6.8000000000000025,45.0,6,0,0,396,742,38,3
+reserved-1,4.30-combined,92bb7a6184f6259,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,466,1,57.84999999999999,466,35,10,33.599999999999994,48.39999999999999,45.0,0,0,0,351,466,26,3
+reserved-1,4.30-combined,92bb7a6184f6259,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,599,1,69.70000000000012,599,49,9,23.900000000000002,6.0,13.0,4,0,0,291,599,31,1
+reserved-1,4.30-combined,92bb7a6184f6259,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,550,1,67.85000000000008,550,43,7,32.650000000000006,21.4,13.0,7,0,0,327,550,26,1
+reserved-1,4.30-combined,92bb7a6184f6259,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,619,1,69.65000000000023,619,53,10,10.199999999999998,13.299999999999999,29.0,4,0,0,441,619,31,2
+reserved-1,4.30-combined,92bb7a6184f6259,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,482,1,73.9,482,37,8,29.45,21.799999999999997,16.0,0,0,0,404,482,27,1
+reserved-1,4.30-combined,92bb7a6184f6259,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,714,1,52.100000000000236,714,62,10,6.199999999999994,3.9999999999999996,45.0,6,0,0,481,714,35,3
+reserved-1,4.30-combined,92bb7a6184f6259,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,549,1,59.975000000000044,549,43,8,29.174999999999997,33.5,32.0,3,0,0,384,549,27,2
+reserved-1,4.30-combined,92bb7a6184f6259,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,750,1,37.15000000000001,750,62,11,26.25000000000002,6.8000000000000025,42.0,3,0,0,512,750,41,3
+reserved-1,4.30-combined,92bb7a6184f6259,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,558,1,61.77499999999997,558,42,10,41.27500000000001,20.5,13.0,3,0,0,309,558,30,1

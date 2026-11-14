@@ -1,0 +1,67 @@
+{
+  "ready": true,
+  "release_version": "4.28",
+  "diagnostic_version": "4.28-combined",
+  "selected_experimental_source": "/workspace/robocode-user/perfection/timely/combined/equipe/titanprime.java",
+  "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "jar_sha256": "3e453f0611ea1cb3b276a1c3ea2985fc9385ee07df78606992cfefd370ef3798",
+  "jar_path": "/workspace/Robocode-2027/releases/titanprime-4.28.jar",
+  "class_major": 52,
+  "classes": 115,
+  "java17_checks": true,
+  "java_comments": 0,
+  "exact_tested_source": true,
+  "all_future_wins_guaranteed": false,
+  "quick_source_adopted": false,
+  "previous_releases_preserved": true,
+  "selection_policy": {
+    "decided_utc": "2026-11-14T12:49:47.911720+00:00",
+    "authorization": "User requested a final major improvement, working code and publication to GitHub, superseding the earlier never-deliver-until-universal-wins condition.",
+    "selection": "Default to longer-tested4.28combined: Diamond49/50 and Chimp48/50. Adopt4.30combined only if both frozen20-round quick confirmations are valid, win20/20 and lead points. Do not attribute parent results to a new source.",
+    "no_more_batches_after_release": true
+  },
+  "quick_results": [
+    {
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791",
+      "results": [
+        {
+          "valid": true,
+          "wins": 19,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 1393,
+              "firsts": 19
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 873,
+              "firsts": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791",
+      "results": [
+        {
+          "valid": true,
+          "wins": 18,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 1682,
+              "firsts": 18
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 886,
+              "firsts": 2
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

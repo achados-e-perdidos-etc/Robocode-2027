@@ -1,0 +1,31 @@
+{
+  "scope": "Historical experiment, different source hashes kept separate. Neither candidate was adopted; the final production source is4.28combined, with its exact hashes and reports in ../v428.",
+  "cases": [
+    {
+      "case": "combined-melee20",
+      "report": "combined-melee20.json",
+      "source_sha256": "e44415ec2587ca30d68c7601eb80b66287603ef631cb79459c3910868085a087"
+    },
+    {
+      "case": "control-melee20",
+      "report": "control-melee20.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "geometry-melee20",
+      "report": "geometry-melee20.json",
+      "source_sha256": "6261fd36556d8220b9b8a133227da4a54c036d419a7ab4913c71ca43c9de6348"
+    },
+    {
+      "case": "route-melee20",
+      "report": "route-melee20.json",
+      "source_sha256": "e3d67ce48769a90bf6fbc34aa70c23138b2060d097d536327d1772c19e782f87"
+    },
+    {
+      "case": "route-melee50",
+      "report": "route-melee50.json",
+      "source_sha256": "e3d67ce48769a90bf6fbc34aa70c23138b2060d097d536327d1772c19e782f87"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

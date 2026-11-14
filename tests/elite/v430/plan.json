@@ -1,0 +1,55 @@
+{
+  "base": {
+    "source": "/workspace/robocode-user/perfection/timely/combined/equipe/titanprime.java",
+    "reason": "Keep stronger prior duel source; melee candidate has not yet established an improvement in its50-round confirmation."
+  },
+  "profiles": [
+    {
+      "name": "wall",
+      "source_sha256": "2ef931aa280fb65877e3c6cf03d85b66102a2a49b42fb25d217d2d4aa9e560a7",
+      "pressure_threshold": 0.21
+    },
+    {
+      "name": "pressure18",
+      "source_sha256": "e5a634a9217c9423f19cd48199ff2b11ce9019d010b22891a3217be7c8977f88",
+      "pressure_threshold": 0.18
+    },
+    {
+      "name": "combined",
+      "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791",
+      "pressure_threshold": 0.18
+    }
+  ],
+  "screen_case_ids": [
+    65601,
+    65602,
+    65603,
+    65604,
+    65605,
+    65606
+  ],
+  "screen_continuation_minimum_wins": 8,
+  "confirmation_case_ids": [
+    65611,
+    65612,
+    65613,
+    65614,
+    65615,
+    65616
+  ],
+  "reserved_diamond_case_ids": [
+    65621,
+    65622
+  ],
+  "warm_rounds_each_opponent": 50,
+  "melee_confirmation_case_id": 65631,
+  "melee_confirmation_rounds": 50,
+  "hypotheses": [
+    "Use the currently detected shot power for both wall-context features; prior controlled firing-wave fixture exposed previous-power contamination.",
+    "Compare a0.18 posterior precision guard against0.21 for existing1.95pressure cap, retaining close-range, enemy-power, observed-shot and energy guards. Parameter tuning is not treated as a correctness fix."
+  ],
+  "qualification": "All predeclared source-specific screens, cold duels, warm duels, solo melee and additional reserved Diamond cases must win every round and lead points. Valid losses are never retried.",
+  "automatic_publication": false,
+  "do_not_retry_valid_losses": true,
+  "reference_cpu_constant_ns": 10030489
+}

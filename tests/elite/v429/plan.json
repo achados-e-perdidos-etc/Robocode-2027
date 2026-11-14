@@ -1,0 +1,49 @@
+{
+  "profiles": [
+    {
+      "name": "control",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "name": "geometry",
+      "source_sha256": "6261fd36556d8220b9b8a133227da4a54c036d419a7ab4913c71ca43c9de6348",
+      "duel_and_gun_code_unchanged": true
+    },
+    {
+      "name": "route",
+      "source_sha256": "e3d67ce48769a90bf6fbc34aa70c23138b2060d097d536327d1772c19e782f87",
+      "duel_and_gun_code_unchanged": true
+    },
+    {
+      "name": "combined",
+      "source_sha256": "e44415ec2587ca30d68c7601eb80b66287603ef631cb79459c3910868085a087",
+      "duel_and_gun_code_unchanged": true
+    }
+  ],
+  "base_source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "hypotheses": [
+    "Use the actual angle to the clipped destination for risk and destination metadata; recompute the angle to an existing destination from the current position.",
+    "Evaluate bounded six-tick physical route exposure as well as endpoint risk. This route algorithm previously passed exhaustive checks but is not assumed better on the new base."
+  ],
+  "melee_screen_rounds": 20,
+  "melee_screen_case_ids": [
+    65401,
+    65402,
+    65403
+  ],
+  "confirmation_rounds": 50,
+  "duel_case_ids": [],
+  "melee_confirmation_case_id": 65413,
+  "reserved_diamond_case_ids": [
+    65421,
+    65422
+  ],
+  "selection": "Compare three20-round melee screens with an independent20-round control. Rank valid cases by win fraction then point share. A new profile continues to50fresh melee rounds only if it reaches8/20 and matches or exceeds control quality. All prior defeats remain recorded.",
+  "minimum_screen_wins": 8,
+  "automatic_publication": false,
+  "do_not_retry_valid_losses": true,
+  "require_point_lead": true,
+  "remaining_duel_issue": "Current-power wall-context feature correction has a unit regression in4.21 but is not folded into this melee-only comparison. This stage does not claim to fix the remaining duel defeats.",
+  "control_case_id": 65400,
+  "duel_validation_scope": "No new duel tests in this melee-only stage: all source outside MeleeMover and diagnostic version was verified identical. Historical combined Diamond49/50 and Chimp48/50 defeats remain unmet goals, not overwritten by retries."
+}

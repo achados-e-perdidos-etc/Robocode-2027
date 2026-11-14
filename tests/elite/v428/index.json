@@ -1,5 +1,5 @@
 {
-  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "scope": "Source-specific experimental comparisons, all defeats retained. Combined source was subsequently selected for the final4.28release, unchanged. Other profiles remain separate.",
   "cases": [
     {
       "case": "angular-chimp10",
@@ -62,5 +62,6 @@
       "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0"
     }
   ],
-  "all_rounds_goal_met": false
+  "all_rounds_goal_met": false,
+  "selected_production_source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
 }

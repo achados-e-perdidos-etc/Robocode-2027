@@ -1,0 +1,38 @@
+[
+  {
+    "profile": "before",
+    "passed": true,
+    "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+    "outputs": [
+      "WALL_CONTEXT_CORRECT=false actual=0.66 expected=0.33\n",
+      "PRESSURE_POWER_OK matrix=17640\n"
+    ]
+  },
+  {
+    "profile": "wall",
+    "passed": true,
+    "source_sha256": "2ef931aa280fb65877e3c6cf03d85b66102a2a49b42fb25d217d2d4aa9e560a7",
+    "outputs": [
+      "WALL_CONTEXT_CORRECT=true actual=0.33 expected=0.33\n",
+      "PRESSURE_POWER_OK matrix=17640\n"
+    ]
+  },
+  {
+    "profile": "pressure18",
+    "passed": true,
+    "source_sha256": "e5a634a9217c9423f19cd48199ff2b11ce9019d010b22891a3217be7c8977f88",
+    "outputs": [
+      "WALL_CONTEXT_CORRECT=false actual=0.66 expected=0.33\n",
+      "PRESSURE_POWER_OK matrix=17640\n"
+    ]
+  },
+  {
+    "profile": "combined",
+    "passed": true,
+    "source_sha256": "40a72a16542fc255adf8675e9286e69da5b6a1e91994550db484699243a1e791",
+    "outputs": [
+      "WALL_CONTEXT_CORRECT=true actual=0.33 expected=0.33\n",
+      "PRESSURE_POWER_OK matrix=17640\n"
+    ]
+  }
+]
