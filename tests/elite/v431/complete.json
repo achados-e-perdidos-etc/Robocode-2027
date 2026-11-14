@@ -1,0 +1,18 @@
+{
+  "qualified": false,
+  "all_rounds_goal_met": false,
+  "valid": true,
+  "candidate_wins": 17,
+  "candidate_rounds": 30,
+  "candidate_points": 6212,
+  "opponent_points": {
+    "voidious.Diamond 1.8.28": 6444,
+    "titan.TitanV3 3.0": 4189,
+    "review.main.chimpazecomsarna.ChimpazeComSarna 1": 1933
+  },
+  "control_wins": 5,
+  "control_rounds": 10,
+  "observed_win_rate_improved": true,
+  "automatic_publication": false,
+  "retain_all_losses": true
+}

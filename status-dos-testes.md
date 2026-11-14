@@ -1,4 +1,12 @@
-# Estado final — Titan Prime 4.28
+# Estado dos testes — Titan Prime4.31
+
+Melhoria Melee publicada: correção das origens de ondas alternativas, atualização de todas as distâncias e proteção da escolha da mira na transição1v1. A versão anterior falha nas regressões controladas; a4.31passa.
+
+Referência4.28:5/10 e1902pontos contra2287do Diamond. Nova4.31:4/10 e1770contra2418 na triagem;13/20 e4442contra4026 na confirmação. Total da candidata17/30 e6212contra6444. Resultados válidos, adversários originais, mesmo orçamento deCPU e largadas aleatórias. São amostras curtas e o total de pontos ainda ficou atrás do Diamond.
+
+[Regressões e resultados](tests/elite/v431/leia-me.md), [metadados doJAR](releases/titanprime-4.31.json). Verificações finais emJava17: física, KNN, memória e JAR empacotado num Melee completo de um round. Nenhuma nova bateria de testes está em fila.
+
+## Histórico da4.28
 
 A fonte publicada é a combinada SHA256 `0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce`, sem modificações posteriores aos testes. Diamond: 49/50 e 3620 contra 1811 pontos. ChimpazeComSarna: 48/50 e 4241 contra 2023. A recarga contra Diamond fez 49/50. TitanV3 e TitanVingation fizeram 10/10 cada. No cenário solo de três adversários fortes, foram 5/10 e menos pontos que Diamond; a limitação está preservada.
 

@@ -1,0 +1,87 @@
+Loaded net.sf.robocode.api
+Loaded net.sf.robocode.core
+Loaded net.sf.robocode.battle
+Loaded net.sf.robocode.ui.editor
+Loaded net.sf.robocode.sound
+Loading plugins from /workspace/robocode-user/perfection/melee-upgrade-v431/release/smoke/engine/libs
+Loaded net.sf.robocode.ui
+Loaded net.sf.robocode.repository
+Loaded net.sf.robocode.host
+Initializing version check date.
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by net.sf.robocode.host.security.RobocodeSecurityManager (file:/workspace/robocode-user/perfection/melee-upgrade-v431/release/smoke/engine/libs/robocode.host-1.12.0.jar)
+WARNING: Please consider reporting this to the maintainers of net.sf.robocode.host.security.RobocodeSecurityManager
+WARNING: System::setSecurityManager will be removed in a future release
+VERSION	1.12.0
+POSITION_MODE	random_starts_recorded
+BEGIN	release-smoke
+START_POSITION	0	equipe.titanprime 4.31	70.98816022136032	504.7430040973754	0.672793353726006
+START_POSITION	0	voidious.Diamond 1.8.28	667.5599929021444	147.5189541701536	2.519653615432275
+START_POSITION	0	review.main.chimpazecomsarna.ChimpazeComSarna 1	421.81608069688184	59.125317435109764	4.964390743261092
+START_POSITION	0	titan.TitanV3 3.0	386.8919631817799	141.8367714852777	5.647268053262695
+ROSTER	equipe.titanprime 4.31	equipe.titanprime 4.31	0	-1	false	100.0	ACTIVE	70.98816022136032	504.7430040973754
+ROSTER	voidious.Diamond 1.8.28	voidious.Diamond 1.8.28	1	-1	false	100.0	ACTIVE	667.5599929021444	147.5189541701536
+ROSTER	review.main.chimpazecomsarna.ChimpazeComSarna 1	review.main.chimpazecomsarna.ChimpazeComSarna 1	2	-1	false	100.0	ACTIVE	421.81608069688184	59.125317435109764
+ROSTER	titan.TitanV3 3.0	titan.TitanV3 3.0	3	-1	false	100.0	ACTIVE	386.8919631817799	141.8367714852777
+[equipe.titanprime 4.31] =========================
+[equipe.titanprime 4.31] Round 1 of 1
+[equipe.titanprime 4.31] =========================
+[equipe.titanprime 4.31] TITAN_MEMORY loaded=0 generation=0
+[voidious.Diamond 1.8.28] =========================
+[voidious.Diamond 1.8.28] Round 1 of 1
+[voidious.Diamond 1.8.28] =========================
+[review.main.chimpazecomsarna.ChimpazeComSarna 1] =========================
+[review.main.chimpazecomsarna.ChimpazeComSarna 1] Round 1 of 1
+[review.main.chimpazecomsarna.ChimpazeComSarna 1] =========================
+[titan.TitanV3 3.0] =========================
+[titan.TitanV3 3.0] Round 1 of 1
+[titan.TitanV3 3.0] =========================
+[titan.TitanV3 3.0] Titan: memoria ignorada em VirtualGuns.dat: null
+[titan.TitanV3 3.0] Titan: memoria ignorada em GuessFactorTargeting.dat: null
+[titan.TitanV3 3.0] Titan: memoria ignorada em SurfMovement.dat: null
+[review.main.chimpazecomsarna.ChimpazeComSarna 1]   [HIT-ME] t=83 d=136 flight=9 modelErr=0.0816 vel=8.0 pos=(38,432) wallMin=38 eVel=-8.0 firstDng=0.00 lastDng=0.00 detD=215
+[review.main.chimpazecomsarna.ChimpazeComSarna 1]   [HIT-ME] t=108 d=100 flight=6 modelErr=0.0831 vel=8.0 pos=(176,550) wallMin=50 eVel=-5.0 firstDng=0.00 lastDng=0.00 detD=156
+[equipe.titanprime 4.31] SYSTEM: Bonus for killing review.main.chimpazecomsarna.ChimpazeComSarna 1: 14
+[review.main.chimpazecomsarna.ChimpazeComSarna 1] SYSTEM: review.main.chimpazecomsarna.ChimpazeComSarna 1 has died
+[titan.TitanV3 3.0] SYSTEM: Bonus for killing voidious.Diamond 1.8.28: 22
+[voidious.Diamond 1.8.28] SYSTEM: voidious.Diamond 1.8.28 has died
+[equipe.titanprime 4.31] Current gun: Main Gun (0.0)
+[equipe.titanprime 4.31] Switching to Titan Neural General (60.75)
+[equipe.titanprime 4.31] Switching to Main Gun (62.29)
+[equipe.titanprime 4.31] Switching to Titan Neural Recent (35.4)
+[equipe.titanprime 4.31] Switching to Main Gun (35.67)
+[equipe.titanprime 4.31] Switching to Titan Neural Recent (43.94)
+[equipe.titanprime 4.31] Switching to Main Gun (27.71)
+[equipe.titanprime 4.31] Switching to Titan Neural Recent (29.55)
+[equipe.titanprime 4.31] Switching to Main Gun (29.92)
+[equipe.titanprime 4.31] SYSTEM: Bonus for killing titan.TitanV3 3.0: 7
+[equipe.titanprime 4.31] SYSTEM: equipe.titanprime 4.31 wins the round.
+[equipe.titanprime 4.31] TITAN_ENERGY passive_drain=0.0 body_collisions=0
+[equipe.titanprime 4.31] TITAN_FIRE_POLICY round=1 shots=69 hits=9
+[equipe.titanprime 4.31] TITAN_PROJECTILES round=1 retired_hits=20 retired_misses=6 retired_collisions=10
+[equipe.titanprime 4.31] TITAN_SHADOW_DEADLINE round=1 queries=6789 builds=611 filtered_intervals=21
+[equipe.titanprime 4.31] TITAN_CONFIDENCE round=1 strong_shots=21 power_shots=[2, 44, 0] power_hits=[0, 4, 0] context_queries=11232 rescued_queries=0
+[equipe.titanprime 4.31] TITAN_DIAGNOSTIC version=4.31 round=0 shots=89 hits=20 walls=0 skipped=0
+[equipe.titanprime 4.31] TITAN_MEMORY saved=1 generation=1 bytes=13131
+[equipe.titanprime 4.31] Titan Prime venceu o round!
+[equipe.titanprime 4.31] Virtual Gun ratings for titan.TitanV3 3.0:
+[equipe.titanprime 4.31]   Main Gun: 26.96
+[equipe.titanprime 4.31]   Anti-Surfer Gun: 21.53
+[equipe.titanprime 4.31]   Titan Neural General: 22.66
+[equipe.titanprime 4.31]   Titan Neural Recent: 24.32
+[equipe.titanprime 4.31] Enemy normalized hit %: 8.03
+[equipe.titanprime 4.31] Enemy raw hit %: 8.7
+[equipe.titanprime 4.31] SYSTEM: titanprime 4.31 skipped turn 1064
+[titan.TitanV3 3.0] SYSTEM: titan.TitanV3 3.0 has died
+[equipe.titanprime 4.31] WARNING: Turn skipped at: 1065
+ROUND_TURNS	0	1213
+ROUND_SCORE	0	equipe.titanprime 4.31	1
+ROUND_SCORE	0	voidious.Diamond 1.8.28	0
+ROUND_SCORE	0	review.main.chimpazecomsarna.ChimpazeComSarna 1	0
+ROUND_SCORE	0	titan.TitanV3 3.0	0
+RESULT	equipe.titanprime 4.31	312	1
+RESULT	titan.TitanV3 3.0	248	0
+RESULT	voidious.Diamond 1.8.28	137	0
+RESULT	review.main.chimpazecomsarna.ChimpazeComSarna 1	0	0
+STATUS	complete
+END	release-smoke

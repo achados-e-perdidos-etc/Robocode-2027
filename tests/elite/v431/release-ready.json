@@ -1,0 +1,10 @@
+{
+  "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+  "jar_sha256": "ea38e957d915590afb849e8cd43628c5b21912faa43b9bc1fe3c8ffe9e90a286",
+  "class_major": 52,
+  "classes": 115,
+  "version": "4.31",
+  "release_version": "4.31",
+  "diagnostic_version": "4.31",
+  "jar_path": "/workspace/Robocode-2027/releases/titanprime-4.31.jar"
+}

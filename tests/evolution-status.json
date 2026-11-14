@@ -1,6 +1,6 @@
 {
-  "status": "final_release_published_by_user_request",
-  "production_version": "4.28",
+  "status": "melee_update_published",
+  "production_version": "4.31",
   "source_delivery_approved": true,
   "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
   "tests": [
@@ -148,47 +148,67 @@
   "qualification_in_progress": null,
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
-  "current_source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "current_source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
   "current_reference_results": [
     {
-      "case": 65215,
-      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
-      "rounds": 50,
-      "wins": 49,
+      "case": 66002,
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+      "rounds": 10,
+      "wins": 4,
       "valid": true,
       "scores": [
-        {
-          "robot": "equipe.titanprime*",
-          "points": 3620,
-          "firsts": 49
-        },
         {
           "robot": "voidious.Diamond 1.8.28",
-          "points": 1811,
-          "firsts": 1
-        }
-      ],
-      "report": "tests/elite/v428/combined-diamond50.json"
-    },
-    {
-      "case": 65216,
-      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
-      "rounds": 50,
-      "wins": 48,
-      "valid": true,
-      "scores": [
+          "points": 2418,
+          "firsts": 6
+        },
         {
           "robot": "equipe.titanprime*",
-          "points": 4241,
-          "firsts": 48
+          "points": 1770,
+          "firsts": 4
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 1518,
+          "firsts": 0
         },
         {
           "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
-          "points": 2023,
-          "firsts": 2
+          "points": 423,
+          "firsts": 0
         }
       ],
-      "report": "tests/elite/v428/combined-chimp50.json"
+      "report": "tests/elite/v431/candidate10.json"
+    },
+    {
+      "case": 66003,
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+      "rounds": 20,
+      "wins": 13,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 4442,
+          "firsts": 13
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 4026,
+          "firsts": 6
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 2671,
+          "firsts": 1
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 1510,
+          "firsts": 0
+        }
+      ],
+      "report": "tests/elite/v431/confirmation20.json"
     }
   ],
   "historical_development_environment": {
@@ -355,6 +375,13 @@
       "all_rounds_goal_met": false,
       "not_adopted": true,
       "quick_confirmation_rounds": 20
+    },
+    {
+      "version": "4.31",
+      "path": "tests/elite/v431",
+      "candidate_wins": 17,
+      "candidate_rounds": 30,
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -391,7 +418,7 @@
       "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T12:54:36.087622+00:00",
+  "updated_utc": "2026-11-14T13:11:57.435216+00:00",
   "previous_production_4_15": {
     "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
     "reference_results": [
@@ -419,21 +446,64 @@
   },
   "release_ready": true,
   "release_selection": {
-    "decided_utc": "2026-11-14T12:49:47.911720+00:00",
-    "authorization": "User requested a final major improvement, working code and publication to GitHub, superseding the earlier never-deliver-until-universal-wins condition.",
-    "selection": "Default to longer-tested4.28combined: Diamond49/50 and Chimp48/50. Adopt4.30combined only if both frozen20-round quick confirmations are valid, win20/20 and lead points. Do not attribute parent results to a new source.",
-    "no_more_batches_after_release": true
+    "scope": "Melee correctness and reliability fixes verified against production methods; publish after valid control, screen and independent confirmation, preserving unfavorable outcomes.",
+    "statistical_superiority_proven": false
   },
-  "jar_sha256": "3e453f0611ea1cb3b276a1c3ea2985fc9385ee07df78606992cfefd370ef3798",
+  "jar_sha256": "ea38e957d915590afb849e8cd43628c5b21912faa43b9bc1fe3c8ffe9e90a286",
   "final_checks": {
     "java": 17,
     "classes": 115,
     "class_major": 52,
     "physics": true,
     "memory": true,
-    "java_comments": 0,
+    "melee_regressions": true,
     "packaged_jar_smoke_java17": true
   },
   "no_pending_training_batches": true,
-  "jar_smoke_report": "tests/elite/v428/release-jar-smoke.json"
+  "jar_smoke_report": "tests/elite/v428/release-jar-smoke.json",
+  "previous_production_4_28": {
+    "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+    "reference_results": [
+      {
+        "case": 65215,
+        "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+        "rounds": 50,
+        "wins": 49,
+        "valid": true,
+        "scores": [
+          {
+            "robot": "equipe.titanprime*",
+            "points": 3620,
+            "firsts": 49
+          },
+          {
+            "robot": "voidious.Diamond 1.8.28",
+            "points": 1811,
+            "firsts": 1
+          }
+        ],
+        "report": "tests/elite/v428/combined-diamond50.json"
+      },
+      {
+        "case": 65216,
+        "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+        "rounds": 50,
+        "wins": 48,
+        "valid": true,
+        "scores": [
+          {
+            "robot": "equipe.titanprime*",
+            "points": 4241,
+            "firsts": 48
+          },
+          {
+            "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+            "points": 2023,
+            "firsts": 2
+          }
+        ],
+        "report": "tests/elite/v428/combined-chimp50.json"
+      }
+    ]
+  }
 }

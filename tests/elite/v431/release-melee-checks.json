@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "sources": [
+    {
+      "name": "baseline",
+      "source": "/workspace/robocode-user/perfection/melee-upgrade-v431/baseline/equipe/titanprime.java",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "compiled_java8": true,
+      "probes": [
+        {
+          "probe": "projection",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Exception in thread \"main\" java.lang.AssertionError: alternate_source_heading_velocity_order: heading=0.0 velocity=-8.0 expected=Point2D.Double[240.0, 172.0] actual=Point2D.Double[240.0, 180.0]\n\tat equipe.meleeupgradeprobe.check(meleeupgradeprobe.java:23)\n\tat equipe.meleeupgradeprobe.projection(meleeupgradeprobe.java:61)\n\tat equipe.meleeupgradeprobe.main(meleeupgradeprobe.java:141)\n"
+        },
+        {
+          "probe": "distance_multi",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Exception in thread \"main\" java.lang.AssertionError: all_enemy_distance_refresh: middle expected=223.60679774997897 actual=999.0\n\tat equipe.meleeupgradeprobe.check(meleeupgradeprobe.java:23)\n\tat equipe.meleeupgradeprobe.distances(meleeupgradeprobe.java:89)\n\tat equipe.meleeupgradeprobe.main(meleeupgradeprobe.java:142)\n"
+        },
+        {
+          "probe": "distance_single",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Exception in thread \"main\" java.lang.AssertionError: single_enemy_distance_refresh: first expected=360.5551275463989 actual=999.0\n\tat equipe.meleeupgradeprobe.check(meleeupgradeprobe.java:23)\n\tat equipe.meleeupgradeprobe.distances(meleeupgradeprobe.java:89)\n\tat equipe.meleeupgradeprobe.main(meleeupgradeprobe.java:143)\n"
+        },
+        {
+          "probe": "transition",
+          "returncode": 1,
+          "stdout": "PURE_DUEL_PERCEPTUAL_FALLBACK_PASS samples=0\n",
+          "stderr": "Exception in thread \"main\" java.lang.AssertionError: early_melee_to_duel_must_select_nonnull_virtual_gun\n\tat equipe.meleeupgradeprobe.check(meleeupgradeprobe.java:23)\n\tat equipe.meleeupgradeprobe.transition(meleeupgradeprobe.java:129)\n\tat equipe.meleeupgradeprobe.main(meleeupgradeprobe.java:144)\n"
+        }
+      ]
+    },
+    {
+      "name": "candidate",
+      "source": "/workspace/robocode-user/perfection/melee-upgrade-v431/candidate/equipe/titanprime.java",
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+      "compiled_java8": true,
+      "probes": [
+        {
+          "probe": "projection",
+          "returncode": 0,
+          "stdout": "ALTERNATE_SOURCE_PROJECTION_PASS fixtures=20\n",
+          "stderr": ""
+        },
+        {
+          "probe": "distance_multi",
+          "returncode": 0,
+          "stdout": "ALL_ENEMY_DISTANCE_REFRESH_PASS positions=2\n",
+          "stderr": ""
+        },
+        {
+          "probe": "distance_single",
+          "returncode": 0,
+          "stdout": "SINGLE_ENEMY_DISTANCE_REFRESH_PASS positions=2\n",
+          "stderr": ""
+        },
+        {
+          "probe": "transition",
+          "returncode": 0,
+          "stdout": "PURE_DUEL_PERCEPTUAL_FALLBACK_PASS samples=0\nEARLY_MELEE_TO_DUEL_NONNULL_GUN_PASS samples=0\n",
+          "stderr": ""
+        }
+      ]
+    }
+  ],
+  "scope": "Actual production methods and Java8 compilation; combat validation remains separate."
+}

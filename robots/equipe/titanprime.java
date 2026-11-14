@@ -11,7 +11,7 @@ public class titanprime extends robocode.AdvancedRobot {
   private static titan_gun_Mira _gun;
   protected static titan_gfx_Cores _gfx;
   private static final float BATTLE_HUE = new java.util.Random().nextFloat();
-  private static final String DIAGNOSTIC_VERSION = "4.28-combined";
+  private static final String DIAGNOSTIC_VERSION = "4.31";
   private static final String DIAGNOSTIC_BATTLE =
       Long.toHexString(new java.util.Random().nextLong());
   private final java.util.Set<String> observedEnemies = new java.util.TreeSet<String>();
@@ -2726,7 +2726,7 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
 
   private void evaluateVirtualGuns(titan_gun_GunEnemy gunData) {
     int dataPoints = _gunDataManager.getDuelDataSize();
-    if (dataPoints < KNN_DATA_THRESHOLD) {
+    if (dataPoints < KNN_DATA_THRESHOLD && _perceptualGun != null) {
       _currentGun = _perceptualGun;
     } else {
       if (_perceptualGun != null) {
@@ -3175,8 +3175,8 @@ public static class titan_gun_GunDataManager extends titan_utils_EnemyDataManage
       if (altGunData.alive && !altGunData.botName.equals(targetName)) {
         java.awt.geom.Point2D.Double altNextLocation = _battleField.translateToField(
             _predictor.nextLocation(altGunData.lastScanState.location,
-                altGunData.lastScanState.velocity,
-                altGunData.lastScanState.heading));
+                altGunData.lastScanState.heading,
+                altGunData.lastScanState.velocity));
         gunData.newGunWave(altNextLocation, enemyNextLocation, currentRound,
             fireTime, _lastBulletFiredTime, bulletPower, altGunData.energy,
             gunHeat, enemiesAlive, accel, dl8t, dl20t, dl40t, true);
@@ -7114,6 +7114,11 @@ public abstract static class titan_utils_EnemyDataManager<T extends titan_utils_
   }
 
   protected void updateBotDistances(java.awt.geom.Point2D.Double myLocation) {
+    if (_enemiesTotal > 1) {
+      for (T enemyData : getAllEnemyData()) {
+        if (enemyData.alive) enemyData.distance = myLocation.distance(enemyData.lastScanState.location);
+      }
+    }
     if (_enemies.size() > 1) {
       String[] botNames = getBotNames();
       for (int x = 0; x < botNames.length; x++) {
@@ -7133,8 +7138,7 @@ public abstract static class titan_utils_EnemyDataManager<T extends titan_utils_
               enemyData1.removeDistanceSq(botNames[y]);
             }
           }
-          enemyData1.distance =
-              myLocation.distance(enemyData1.lastScanState.location);
+
         }
       }
     }

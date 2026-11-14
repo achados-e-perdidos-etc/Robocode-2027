@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "scope": "One-round installation smoke test of the final packaged JAR itself, on Temurin17.0.21+9 and Robocode1.12.0, versus original Diamond, ChimpazeComSarna and TitanV3 simultaneously. Not a competitive qualification.",
+  "checks": {
+    "process_completed": true,
+    "engine_completed": true,
+    "exact_jar_roster": true,
+    "no_runtime_errors": true,
+    "round_completed": true,
+    "own_learning_saved": true
+  },
+  "scores": [
+    {
+      "robot": "equipe.titanprime 4.31",
+      "points": 312,
+      "firsts": 1
+    },
+    {
+      "robot": "titan.TitanV3 3.0",
+      "points": 248,
+      "firsts": 0
+    },
+    {
+      "robot": "voidious.Diamond 1.8.28",
+      "points": 137,
+      "firsts": 0
+    },
+    {
+      "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+      "points": 0,
+      "firsts": 0
+    }
+  ],
+  "errors": [],
+  "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+  "jar_sha256": "ea38e957d915590afb849e8cd43628c5b21912faa43b9bc1fe3c8ffe9e90a286",
+  "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "config_sha256": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c",
+  "log_sha256": "fb7ff8824bd6490a23aa52db5b911a62fbd825cb949a087884547a2cdbad4fb8"
+}

@@ -1,0 +1,42 @@
+{
+  "started_utc": "2026-11-14T13:02:03.961184+00:00",
+  "base_source": "/workspace/Robocode-2027/robots/equipe/titanprime.java",
+  "base_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+  "profiles": [
+    {
+      "name": "candidate",
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a"
+    }
+  ],
+  "changes": [
+    "Correct heading/velocity order in alternate-source training-wave projection.",
+    "Refresh distance for every living opponent in battles that started with multiple enemies, independently of pairwise ordering and number of tracked entries.",
+    "Keep a nonnull virtual gun when a melee battle reaches1v1 before the perceptual fallback exists."
+  ],
+  "scope": "Pure1v1 initial battles keep existing control flow; alternate sources require another living opponent and distance refresh is gated by initial enemy count. The transition guard leaves initial1v1 perceptual fallback intact.",
+  "protocol": {
+    "opponents": [
+      "voidious.Diamond 1.8.28",
+      "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+      "titan.TitanV3 3.0"
+    ],
+    "solo": true,
+    "rounds": [
+      10,
+      10,
+      20
+    ],
+    "case_ids": [
+      66001,
+      66002,
+      66003
+    ],
+    "random_starts": true,
+    "rng_seeded": false,
+    "reference_cpu_ns": 10030489,
+    "no_concurrent_engines": true,
+    "do_not_retry_valid_losses": true
+  },
+  "qualification": "Correctness regressions must pass. Report control10, candidate10 and independent candidate20 separately, preserving any defeat. Do not claim significance from small random-start samples. No universal-win requirement.",
+  "publication": "Update main only after compilation and battle validation, preserve4.28artifact."
+}

@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "432cbeeda09790dd9c87d7a3a8ba52a889980610b9c58d96b0300c32d825327d",
+  "logs": [
+    {
+      "path": "candidate10-reserved-1.log",
+      "bytes": 45203,
+      "sha256": "a3b8351667b3916806637b21172605fc579bc17be026c3ac11fc81d06996b902"
+    },
+    {
+      "path": "confirmation20-reserved-1.log",
+      "bytes": 83878,
+      "sha256": "adadeff3b430b01883f42b2ee71ef32e3a5fa363e3f760d726660ec6788cc041"
+    },
+    {
+      "path": "control10-reserved-1.log",
+      "bytes": 43454,
+      "sha256": "5d69fdec4e0d55174fbe4a3c7ffbf16f12fadb7a7e51f12476fa35e074a63c19"
+    }
+  ]
+}
