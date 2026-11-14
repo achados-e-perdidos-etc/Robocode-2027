@@ -1,0 +1,20 @@
+[
+  {
+    "profile": "old",
+    "source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+    "passed": true,
+    "output": "UNSHADOWED_KERNEL_TAIL=0.0\n"
+  },
+  {
+    "profile": "integral",
+    "source_sha256": "f59f87cfc5d41f893750c52df3ac46e4c8c3aa3bf893689b39a48c2a544425d2",
+    "passed": true,
+    "output": "UNSHADOWED_KERNEL_TAIL=0.5303300858899106\nINTEGRAL_KERNEL_OK quadrature=250 coverage=25000 monotonic=250 wrap=true\n"
+  },
+  {
+    "profile": "integral-trajectory",
+    "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+    "passed": true,
+    "output": "UNSHADOWED_KERNEL_TAIL=0.5303300858899106\nINTEGRAL_KERNEL_OK quadrature=250 coverage=25000 monotonic=250 wrap=true\n"
+  }
+]

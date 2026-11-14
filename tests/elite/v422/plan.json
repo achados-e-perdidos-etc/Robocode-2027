@@ -1,0 +1,51 @@
+{
+  "profiles": [
+    {
+      "name": "integral",
+      "source_sha256": "f59f87cfc5d41f893750c52df3ac46e4c8c3aa3bf893689b39a48c2a544425d2",
+      "base_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5"
+    },
+    {
+      "name": "integral-trajectory",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+      "base_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5"
+    }
+  ],
+  "hypotheses": [
+    "Integrate Laplace danger kernels only over unshadowed physical impact intervals; do not delete unshadowed tails merely because the kernel center is shadowed.",
+    "Avoid discounting shadows twice; compare fixed motion footprint with continuing the actual simulated speed while the wave crosses the body."
+  ],
+  "screens": [
+    "Diamond10",
+    "Chimp10"
+  ],
+  "screen_case_ids": [
+    64601,
+    64602,
+    64603,
+    64604
+  ],
+  "confirmation_rounds": 50,
+  "confirmation_case_ids": [
+    64611,
+    64612,
+    64613,
+    64614
+  ],
+  "reserved_diamond_case_ids": [
+    64621,
+    64622
+  ],
+  "selection": [
+    "valid",
+    "worst opponent win fraction",
+    "worst score share"
+  ],
+  "same_reference_cpu_budget": true,
+  "fresh_data": true,
+  "automatic_publication": false,
+  "do_not_retry_valid_losses": true,
+  "confirmation_rule": "Select one profile before50rounds by predeclared worst-opponent screen win fraction, then worst score share; test selected profile once50rounds vs each opponent and warm50.",
+  "screen_continuation_minimum_wins": 8,
+  "heldout_rule": "Additional100 only if selected source wins all50cold Diamond rounds, while retaining any Chimp losses separately."
+}

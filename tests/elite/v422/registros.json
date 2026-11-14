@@ -1,0 +1,40 @@
+{
+  "archive_sha256": "0358938d387c77ad5d24b188ceebad91dee9d3d516a5f32bd8b5731775f32e38",
+  "logs": [
+    {
+      "path": "integral-chimp10-reserved-1.log",
+      "bytes": 45583,
+      "sha256": "0dee2c9db97e3312c37b98c5f903f3465c16dd6364032f0087b923985a23b53a"
+    },
+    {
+      "path": "integral-diamond10-reserved-1.log",
+      "bytes": 31178,
+      "sha256": "db8d23e0cde32254f34240c40fb67ee898bcdea2ab65d4921abeccb1e9e9cbb2"
+    },
+    {
+      "path": "integral-trajectory-chimp10-reserved-1.log",
+      "bytes": 48728,
+      "sha256": "a60b7256b65a049a5a81997da3d1c3df1ef9228af9077484030766a9b415b47b"
+    },
+    {
+      "path": "integral-trajectory-chimp50-reserved-1.log",
+      "bytes": 238330,
+      "sha256": "4a0ef8899a283d6a98036ad4c7441d94672179b6a05f41851a126d28e773f55c"
+    },
+    {
+      "path": "integral-trajectory-diamond10-reserved-1.log",
+      "bytes": 28728,
+      "sha256": "c348af0db0c0e3fbd0b97af24c7879ea6834b00635c05ff4d1d60b0b67637432"
+    },
+    {
+      "path": "integral-trajectory-diamond50-reserved-1.log",
+      "bytes": 153144,
+      "sha256": "05e106712bf49c04997d4894266915c0733c0116eca2df366aa716c794392aae"
+    },
+    {
+      "path": "integral-trajectory-warm50-warm.log",
+      "bytes": 143926,
+      "sha256": "ebc813b2ea0018304c12337a4837100270a62cd481ab13c86fe5e21b5ec28b7d"
+    }
+  ]
+}

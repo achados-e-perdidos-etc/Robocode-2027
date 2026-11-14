@@ -1,0 +1,41 @@
+{
+  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "cases": [
+    {
+      "case": "integral-chimp10",
+      "report": "integral-chimp10.json",
+      "source_sha256": "f59f87cfc5d41f893750c52df3ac46e4c8c3aa3bf893689b39a48c2a544425d2"
+    },
+    {
+      "case": "integral-diamond10",
+      "report": "integral-diamond10.json",
+      "source_sha256": "f59f87cfc5d41f893750c52df3ac46e4c8c3aa3bf893689b39a48c2a544425d2"
+    },
+    {
+      "case": "integral-trajectory-chimp10",
+      "report": "integral-trajectory-chimp10.json",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8"
+    },
+    {
+      "case": "integral-trajectory-chimp50",
+      "report": "integral-trajectory-chimp50.json",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8"
+    },
+    {
+      "case": "integral-trajectory-diamond10",
+      "report": "integral-trajectory-diamond10.json",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8"
+    },
+    {
+      "case": "integral-trajectory-diamond50",
+      "report": "integral-trajectory-diamond50.json",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8"
+    },
+    {
+      "case": "integral-trajectory-warm50",
+      "report": "integral-trajectory-warm50.json",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

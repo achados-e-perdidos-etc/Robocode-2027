@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.23-dev,4522e0c9e9dd7688,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,466,1,72.99999999999996,466,36,9,30.499999999999993,29.4,16.0,3,0,0,240,466,24,1
+reserved-1,4.23-dev,4522e0c9e9dd7688,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,784,1,30.50000000000019,784,67,11,12.09999999999999,4.3999999999999995,61.0,4,0,0,599,784,43,4
+reserved-1,4.23-dev,4522e0c9e9dd7688,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,836,1,29.50000000000029,836,73,5,7.29999999999999,2.0,65.0,4,0,0,387,836,47,5
+reserved-1,4.23-dev,4522e0c9e9dd7688,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,740,1,37.20000000000014,740,63,13,14.399999999999988,12.399999999999999,58.0,6,0,0,634,740,38,4
+reserved-1,4.23-dev,4522e0c9e9dd7688,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,559,1,91.90000000000006,559,46,10,15.59999999999999,8.8,0.0,1,0,0,363,559,31,0
+reserved-1,4.23-dev,4522e0c9e9dd7688,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,645,1,38.75901072201363,645,52,11,33.19098927798632,28.1,48.0,2,0,0,513,645,34,3
+reserved-1,4.23-dev,4522e0c9e9dd7688,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,662,0,0.0,645,41,11,35.6985217952407,46.4,87.0,4,0,0,460,645,35,6
+reserved-1,4.23-dev,4522e0c9e9dd7688,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,598,1,63.525000000000034,598,48,9,29.89999999999997,15.600000000000001,19.099999999999927,4,0,0,161,598,30,2
+reserved-1,4.23-dev,4522e0c9e9dd7688,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,633,0,0.0,633,50,9,9.199999999999998,3.5999999999999996,93.60000000000011,4,0,0,400,633,32,5
+reserved-1,4.23-dev,4522e0c9e9dd7688,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,676,1,77.30000000000021,676,58,8,12.399999999999986,3.1999999999999997,13.0,2,0,0,589,676,37,1

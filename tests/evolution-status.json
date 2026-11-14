@@ -91,7 +91,15 @@
     "physical_improvement_from_offline_weights_not_yet_proven": true,
     "weights_used_in_latest_completed_development_series": true,
     "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed.",
-    "offline_training_scope": "Historical4.5 experiment; no new offline neural training is claimed by the4.20/4.21 movement and firepower comparisons."
+    "offline_training_scope": "Historical4.5 experiment; no new offline neural training is claimed by the4.20/4.21 movement and firepower comparisons.",
+    "new_training": {
+      "status": "queued_after_confidence_extension",
+      "partition": "Entire independent battles for training versus model-selection validation; final field battles follow selection.",
+      "offline_candidates": 4,
+      "workers": 2,
+      "no_concurrent_battle_engine": true,
+      "result_claimed": false
+    }
   },
   "remaining": [
     "Achieve all-round wins and point leads in new independent elite series.",
@@ -130,13 +138,14 @@
     "regression_late_duel_guessfactor": true
   },
   "qualification_in_progress": {
-    "scope": "Experimental movement and energy-management variants; no automatic promotion of source.",
-    "version": "4.22-dev",
-    "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+    "scope": "Experimental confidence models; no automatic source promotion.",
+    "version": "4.24-dev",
+    "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
     "cpu_constant_ns": 10030489,
     "published": false,
     "completed": false,
-    "accepted": false
+    "accepted": false,
+    "current_stage": "Second power-context profile long validation. Global profile completed with cold Diamond50/50,48/50,48/50; Chimp45/50, warm Diamond49/50. All valid losses retained."
   },
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
@@ -245,6 +254,27 @@
       "selected_Chimp_wins": 43,
       "rounds_per_series": 50,
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.22",
+      "path": "tests/elite/v422",
+      "selected_source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+      "selected_Diamond_cold_wins": 46,
+      "selected_Chimp_wins": 46,
+      "selected_Diamond_warm_wins": 49,
+      "rounds_per_series": 50,
+      "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.23",
+      "path": "tests/elite/v423",
+      "selected_source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+      "same_source_cold_Diamond_wins": 144,
+      "same_source_cold_Diamond_rounds": 150,
+      "selected_Chimp_wins": 46,
+      "selected_Diamond_warm_wins": 49,
+      "rounds_per_series": 50,
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -264,6 +294,17 @@
       "distinct_rounds": 220,
       "bytes": 2934192
     },
-    "learning_continues_online": true
-  }
+    "learning_continues_online": true,
+    "experimental_v422_archive": {
+      "snapshots": 190,
+      "distinct_rounds": 190,
+      "bytes": 2957036
+    },
+    "experimental_v423_archive": {
+      "snapshots": 290,
+      "distinct_rounds": 290,
+      "bytes": 4501081
+    }
+  },
+  "updated_utc": "2026-11-14T04:01:24.090047+00:00"
 }

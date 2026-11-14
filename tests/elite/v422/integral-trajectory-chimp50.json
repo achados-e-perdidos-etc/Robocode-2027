@@ -1,0 +1,57 @@
+{
+  "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+  "opponent_sha256": "1f853b920b7fbabad023f78cf21c2599f0fcf3f9615f0e930ddf0f7a8c4cb4bc",
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "cooling": 0.1,
+    "inactivity": 450,
+    "energy": 100
+  },
+  "config_sha256": {
+    "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+  },
+  "data_policy": "Fresh JVM per battle; prior data archived before next battle; no imported learning",
+  "expected_roster": [
+    "equipe.titanprime*",
+    "review.main.chimpazecomsarna.ChimpazeComSarna 1"
+  ],
+  "minimum_wins": 50,
+  "results": [
+    {
+      "key": "reserved-1",
+      "case_id": 64614,
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3664,
+          "firsts": 46
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 2266,
+          "firsts": 4
+        }
+      ],
+      "conservative_wins": 46,
+      "score_share": 0.6178752107925801,
+      "accepted": false,
+      "diagnostic_records": 50,
+      "diagnostic_wins": 46,
+      "diagnostic_complete": true
+    }
+  ],
+  "complete": true,
+  "accepted": false
+}

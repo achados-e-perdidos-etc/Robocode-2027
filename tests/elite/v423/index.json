@@ -1,0 +1,46 @@
+{
+  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "cases": [
+    {
+      "case": "pressure-medium-chimp10",
+      "report": "pressure-medium-chimp10.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-medium-chimp50",
+      "report": "pressure-medium-chimp50.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-medium-diamond10",
+      "report": "pressure-medium-diamond10.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-medium-diamond50",
+      "report": "pressure-medium-diamond50.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-medium-reserved100",
+      "report": "pressure-medium-reserved100.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-medium-warm50",
+      "report": "pressure-medium-warm50.json",
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899"
+    },
+    {
+      "case": "pressure-near-chimp10",
+      "report": "pressure-near-chimp10.json",
+      "source_sha256": "eea459ccbadcff3fa2dcf514b66454275ede6de7446bfc93c1cdf210d500b1e9"
+    },
+    {
+      "case": "pressure-near-diamond10",
+      "report": "pressure-near-diamond10.json",
+      "source_sha256": "eea459ccbadcff3fa2dcf514b66454275ede6de7446bfc93c1cdf210d500b1e9"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

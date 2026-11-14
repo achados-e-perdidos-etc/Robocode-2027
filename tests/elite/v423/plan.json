@@ -1,0 +1,47 @@
+{
+  "profiles": [
+    {
+      "name": "pressure-near",
+      "range": 325,
+      "source_sha256": "eea459ccbadcff3fa2dcf514b66454275ede6de7446bfc93c1cdf210d500b1e9",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8"
+    },
+    {
+      "name": "pressure-medium",
+      "range": 450,
+      "source_sha256": "154dee07134f7997b3c68641db6ebd557f1f51bbac0c0870c143fa83c932c899",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8"
+    }
+  ],
+  "hypotheses": [
+    "In energetic close duels with measured actual-shot accuracy, allow the existing gun to select up to1.95 instead of globally limiting it to0.7 or0.1. Do not force a shot above the existing finisher and energy constraints.",
+    "Compare325vs450distance guards on the frozen4.20 baseline. Return to the stronger recorded baseline after4.22 cold Diamond regression46/50; do not silently combine unqualified movement changes."
+  ],
+  "screens": [
+    "Diamond10",
+    "Chimp10"
+  ],
+  "screen_case_ids": [
+    64701,
+    64702,
+    64703,
+    64704
+  ],
+  "screen_continuation_minimum_wins": 8,
+  "confirmation_case_ids": [
+    64711,
+    64712,
+    64713,
+    64714
+  ],
+  "confirmation_rule": "Select by valid, lowest opponent win fraction, then lowest score share. Run one50round confirmation per opponent and warm50; preserve every valid defeat.",
+  "reserved_diamond_case_ids": [
+    64721,
+    64722
+  ],
+  "heldout_rule": "Additional100 only if selected source wins all50cold Diamond rounds; Chimp defeats remain disqualifying for overall goal.",
+  "starts_after_integral_complete": true,
+  "automatic_publication": false,
+  "do_not_retry_valid_losses": true,
+  "reference_cpu_constant_ns": 10030489
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "Controlled planned-motion intersection geometry; original approximation brakes at first contact while the tested moving branch commands8. This verifies consistency for this path, not a battle-performance gain.",
+  "results": [
+    {
+      "case": "baseline",
+      "source_sha256": "f59f87cfc5d41f893750c52df3ac46e4c8c3aa3bf893689b39a48c2a544425d2",
+      "returncode": 1,
+      "stdout": "INTERSECTION_SPEEDS 8.0 6.0",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: Moving branch intersected using an uncommanded braking trajectory\n\tat equipe.trajectoryprobe.main(trajectoryprobe.java:25)\n"
+    },
+    {
+      "case": "trajectory",
+      "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
+      "returncode": 0,
+      "stdout": "INTERSECTION_SPEEDS 8.0 8.0 8.0 8.0 8.0 8.0 PATH_SPEED_CONSISTENT\n",
+      "stderr": ""
+    }
+  ]
+}
