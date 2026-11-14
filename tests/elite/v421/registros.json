@@ -1,0 +1,35 @@
+{
+  "archive_sha256": "5430097c6d826488a15f8a7cdc667539a10216796a90363ac67c6480c0c9df30",
+  "logs": [
+    {
+      "path": "prior16-diamond50-reserved-1.log",
+      "bytes": 161392,
+      "sha256": "9d28f44e7de84b857037f0a96fae7ebaed024ba11168e9ba88d4dd361a28766b"
+    },
+    {
+      "path": "prior16-melee10-reserved-1.log",
+      "bytes": 46001,
+      "sha256": "96c440a03476d9761c509186b4ce266309e4fa857cf3f3852c748dbf759f3a66"
+    },
+    {
+      "path": "prior16-route-chimp50-reserved-1.log",
+      "bytes": 227238,
+      "sha256": "09c7700af621a90940f5c7a65736451cfc21a678a4ffc647b64a5df1fabbcef7"
+    },
+    {
+      "path": "prior16-route-diamond50-reserved-1.log",
+      "bytes": 147089,
+      "sha256": "8b036cc4f5ab792f3481907ce01e683c76b698b7d80a3feade6ccd06402984bd"
+    },
+    {
+      "path": "prior16-route-melee10-reserved-1.log",
+      "bytes": 44277,
+      "sha256": "a2caf4d9b22b3e45afa323e11ac79240a6dffdebbf7445b6cf7f6e16fe279ee9"
+    },
+    {
+      "path": "prior16-route-warm50-warm.log",
+      "bytes": 146769,
+      "sha256": "757a2e2c692b6a42aaa3265c4823c4fc9ce4673e803160061aa6ecfebe7c942f"
+    }
+  ]
+}

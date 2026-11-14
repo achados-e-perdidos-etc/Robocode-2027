@@ -1,0 +1,41 @@
+{
+  "hypotheses": [
+    "Limit restored effective confidence to16 while retaining learned weights, ratios and samples; new battles can override stale opponent behavior.",
+    "Compute wall-context features with the detected current bullet power, not the previous shot power.",
+    "Compare endpoint-only melee control with a nonnegative six-tick physical route exposure cost and valid branch-and-bound pruning."
+  ],
+  "profiles": [
+    {
+      "name": "prior16",
+      "source_sha256": "fdef25e774230b1d1417e79f8d5203eca1bb574d82a2adb451cf4f4eb54bb182",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8"
+    },
+    {
+      "name": "prior16-route",
+      "source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+      "base_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8"
+    }
+  ],
+  "melee_screen_rounds": 10,
+  "melee_case_ids": [
+    64501,
+    64502
+  ],
+  "cold_diamond_rounds": 50,
+  "cold_diamond_case_ids": [
+    64511,
+    64512
+  ],
+  "warm_rounds": 50,
+  "chimp_rounds": 50,
+  "chimp_case_ids": [
+    64521,
+    64522
+  ],
+  "holdout_diamond_case_ids": [
+    64531,
+    64532
+  ],
+  "source_publication_automatic": false,
+  "retain_all_losses": true
+}

@@ -1,0 +1,69 @@
+{
+  "source_sha256": "fdef25e774230b1d1417e79f8d5203eca1bb574d82a2adb451cf4f4eb54bb182",
+  "opponent_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "rules": {
+    "width": 800,
+    "height": 600,
+    "cooling": 0.1,
+    "inactivity": 450,
+    "energy": 100
+  },
+  "config_sha256": {
+    "config/robocode.properties": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c"
+  },
+  "data_policy": "Fresh JVM per battle; prior data archived before next battle; no imported learning",
+  "expected_roster": [
+    "equipe.titanprime*",
+    "voidious.Diamond 1.8.28",
+    "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+    "titan.TitanV3 3.0"
+  ],
+  "minimum_wins": 10,
+  "results": [
+    {
+      "key": "reserved-1",
+      "case_id": 64501,
+      "valid": true,
+      "checks": {
+        "completed": true,
+        "no_engine_or_robot_error": true,
+        "exact_roster": true,
+        "independent_active_robots": true,
+        "exact_results": true,
+        "all_rounds": true,
+        "positions_verified": true
+      },
+      "errors": [],
+      "scores": [
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 2338,
+          "firsts": 4
+        },
+        {
+          "robot": "equipe.titanprime*",
+          "points": 2166,
+          "firsts": 6
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 1280,
+          "firsts": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 499,
+          "firsts": 0
+        }
+      ],
+      "conservative_wins": 6,
+      "score_share": 0.3447397739933153,
+      "accepted": false,
+      "diagnostic_records": 10,
+      "diagnostic_wins": 6,
+      "diagnostic_complete": true
+    }
+  ],
+  "complete": true,
+  "accepted": false
+}

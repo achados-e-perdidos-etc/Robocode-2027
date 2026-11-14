@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "old_source_sha256": "67b2cdc27f0d31537195ea3e5afc8bb974f3bbc9f3fa02c5e013ce5af10fe4c8",
+  "wall_context_bug_reproduced": true,
+  "output": "WALL_CONTEXT_CORRECT=false actual=0.66 expected=0.33\nMELEE_AVOIDS_CLOSE_APPROACH=false route=false endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+  "new_checks": "/workspace/robocode-user/perfection/resilient/checks.json"
+}

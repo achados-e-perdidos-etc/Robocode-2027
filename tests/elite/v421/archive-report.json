@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-13T21:38:30.384105+00:00",
+  "stopped_utc": "2026-11-13T22:01:05.774217+00:00",
+  "snapshots": 183,
+  "diagnostic_revisions": 220,
+  "distinct_rounds": 220,
+  "archive_bytes": 2934192,
+  "scope": "Read-only copies of own validated learning checkpoints and own diagnostics. Started after melee screens and during first cold50; earlier intermediate snapshots cannot be recovered. No imported opponent private data. No fixed history count cap; limited by external disk."
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "profile": "prior16",
+    "source_sha256": "fdef25e774230b1d1417e79f8d5203eca1bb574d82a2adb451cf4f4eb54bb182",
+    "passed": true,
+    "output": [
+      "WALL_CONTEXT_CORRECT=true actual=0.33 expected=0.33\nMELEE_AVOIDS_CLOSE_APPROACH=false route=false endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+      "MEMORY_CODEC_OK bytes=6142 maxPredictionDrift=3.6339577180743987E-12 restoredKNNViews=11\n"
+    ]
+  },
+  {
+    "profile": "prior16-route",
+    "source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+    "passed": true,
+    "output": [
+      "WALL_CONTEXT_CORRECT=true actual=0.33 expected=0.33\nMELEE_AVOIDS_CLOSE_APPROACH=true route=true endpoint_risks=2.5458076328572143E-4,3.126469064861952E-4\n",
+      "MEMORY_CODEC_OK bytes=6142 maxPredictionDrift=3.6339577180743987E-12 restoredKNNViews=11\n"
+    ]
+  }
+]

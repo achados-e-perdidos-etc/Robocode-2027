@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+  "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+  "captured_physics_cases": 157,
+  "knn_exhaustive_comparisons": 100,
+  "bounded_wall_fallback": true,
+  "unrankable_candidates_terminate": true,
+  "class_major": 52,
+  "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+  "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+}

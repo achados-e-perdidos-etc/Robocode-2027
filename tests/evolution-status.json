@@ -1,6 +1,6 @@
 {
-  "status": "checkpoint_saved_at_user_request",
-  "production_version": "4.8",
+  "status": "persistent_learning_published_elite_search_continues",
+  "production_version": "4.15",
   "source_delivery_approved": true,
   "goal": "All rounds won against Diamond with more points; evaluate every available opponent",
   "tests": [
@@ -72,8 +72,8 @@
   "environment": {
     "robocode": "1.12.0",
     "java": 21,
-    "cpu_constant_ns": 50000000,
-    "cpu_policy": "Same budget for both robots; these are development tests. A normal-budget release validation is pending.",
+    "cpu_constant_ns": 10030489,
+    "cpu_policy": "Shared reference budget for both robots in current elite validation; older development series use50ms and are labeled separately.",
     "random_starts": true,
     "rng_seeded": false
   },
@@ -90,12 +90,13 @@
     "best_validation_cross_entropy": 4.03252372595483,
     "physical_improvement_from_offline_weights_not_yet_proven": true,
     "weights_used_in_latest_completed_development_series": true,
-    "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed."
+    "interpretation": "Pretrained variant won50/50 in one development series. Starts differ from the controls, so no isolated causal effect is claimed.",
+    "offline_training_scope": "Historical4.5 experiment; no new offline neural training is claimed by the4.20/4.21 movement and firepower comparisons."
   },
   "remaining": [
-    "Complete the corrected source qualification at10.03ms shared reference CPU.",
-    "Repeat26autonomous duels,50Chimp and actualMelee transition.",
-    "Validate persistentCSV, colors and completeJAR on final source."
+    "Achieve all-round wins and point leads in new independent elite series.",
+    "Improve behavior against energetic opponents and validate solo melee combat.",
+    "Qualify a new source before replacing the published Java."
   ],
   "limits": [
     "Finite tests cannot prove a victory against every future strategy.",
@@ -129,27 +130,49 @@
     "regression_late_duel_guessfactor": true
   },
   "qualification_in_progress": {
-    "version": "4.8",
-    "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+    "scope": "Experimental movement and energy-management variants; no automatic promotion of source.",
+    "version": "4.22-dev",
+    "source_sha256": "28f67adbb4fffa79c890f5d04e0e13f524a70b002f8d3b9221c1475b6c0addc8",
     "cpu_constant_ns": 10030489,
-    "cpu_policy": "Reference budget for both participants; tournament calibration may differ",
-    "diamond_rounds": [
-      50,
-      50
-    ],
-    "functional_fixes_since_development": [
-      "Time-to-impact wave ordering",
-      "KNN cache wave identity",
-      "Terminal event diagnostic accounting"
-    ],
-    "published": true,
-    "completed": true,
+    "published": false,
+    "completed": false,
     "accepted": false
   },
   "performance_goal_met": false,
   "save_authorization": "User explicitly requested saving the version that won48/50 before further improvements.",
-  "current_source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+  "current_source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
   "current_reference_results": [
+    {
+      "case": 64151,
+      "source_sha256": "8e5c1b4503363cf3b1bd88ba7377111fca87c627326a26287dd5953ba57c98e9",
+      "rounds": 50,
+      "wins": 48,
+      "valid": true,
+      "scores": [
+        {
+          "robot": "equipe.titanprime*",
+          "points": 3498,
+          "firsts": 48
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 1878,
+          "firsts": 2
+        }
+      ],
+      "report": "tests/elite/v415/results.json"
+    }
+  ],
+  "historical_development_environment": {
+    "robocode": "1.12.0",
+    "java": 21,
+    "cpu_constant_ns": 50000000,
+    "cpu_policy": "Same budget for both robots; these are development tests. A normal-budget release validation is pending.",
+    "random_starts": true,
+    "rng_seeded": false
+  },
+  "tests_scope": "The tests array retains historical development results under the50ms environment recorded separately. These are not current production results.",
+  "historical_4_8_reference_results": [
     {
       "case": 54599,
       "rounds": 50,
@@ -186,5 +209,61 @@
         }
       ]
     }
-  ]
+  ],
+  "historical_4_8_qualification": {
+    "version": "4.8",
+    "source_sha256": "467d018c56a20bffcb224aa14ca8749f337e7a614d35388e3140fa88b9171460",
+    "cpu_constant_ns": 10030489,
+    "cpu_policy": "Reference budget for both participants; tournament calibration may differ",
+    "diamond_rounds": [
+      50,
+      50
+    ],
+    "functional_fixes_since_development": [
+      "Time-to-impact wave ordering",
+      "KNN cache wave identity",
+      "Terminal event diagnostic accounting"
+    ],
+    "published": true,
+    "completed": true,
+    "accepted": false
+  },
+  "completed_experimental_reports": [
+    {
+      "version": "4.20",
+      "path": "tests/elite/v420",
+      "same_source_cold_Diamond_wins": 147,
+      "same_source_cold_Diamond_rounds": 150,
+      "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.21",
+      "path": "tests/elite/v421",
+      "selected_source_sha256": "62ed7ab5a84a10ca79dcc8e1dbc10f21ded9ce8843e2dfdd2ebd908ba71967c5",
+      "selected_Diamond_cold_wins": 48,
+      "selected_Diamond_warm_wins": 49,
+      "selected_Chimp_wins": 43,
+      "rounds_per_series": 50,
+      "all_rounds_goal_met": false
+    }
+  ],
+  "memory": {
+    "published_schema": 2,
+    "compatibility_schema1": true,
+    "reloads_between_battles": true,
+    "slots": [
+      "memoria-a.dat",
+      "memoria-b.dat"
+    ],
+    "internal_quota_obeyed": true,
+    "external_archive": "tools/archive_learning.py",
+    "external_fixed_history_count_cap": false,
+    "external_storage_limit": "Available disk space",
+    "experimental_v421_archive": {
+      "snapshots": 183,
+      "distinct_rounds": 220,
+      "bytes": 2934192
+    },
+    "learning_continues_online": true
+  }
 }
