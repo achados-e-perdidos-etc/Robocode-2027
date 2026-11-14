@@ -147,8 +147,8 @@
     "regression_late_duel_guessfactor": true
   },
   "qualification_in_progress": {
-    "version": "4.28-dev",
-    "scope": "Signed angular-coordinate correction and strict pre-impact shadow deadline, separately and combined. Three frozen experimental profiles.",
+    "version": "4.29-dev",
+    "scope": "Melee destination geometry and six-tick route exposure, independently and combined, with an independent20-round control and a50-round confirmation if eligible. Duel and gun code unchanged.",
     "completed": false,
     "accepted": false,
     "published": false
@@ -313,6 +313,22 @@
       "version": "4.25/4.26",
       "path": "tests/elite/v426",
       "all_rounds_goal_met": false
+    },
+    {
+      "version": "4.28",
+      "path": "tests/elite/v428",
+      "selected_source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "Diamond_cold_wins": 49,
+      "Chimp_cold_wins": 48,
+      "Diamond_warm_wins": 49,
+      "rounds_per_duel": 50,
+      "Melee_wins": 5,
+      "Melee_rounds": 10,
+      "Melee_points": [
+        2025,
+        2413
+      ],
+      "all_rounds_goal_met": false
     }
   ],
   "memory": {
@@ -349,5 +365,9 @@
       "archive_bytes": 6810575
     }
   },
-  "updated_utc": "2026-11-14T05:18:39.907685+00:00"
+  "updated_utc": "2026-11-14T12:36:39.469931+00:00",
+  "queued_next_comparison": {
+    "version": "4.30-dev",
+    "scope": "Correct current-power wall context, compare0.18/0.21pressure evidence, keep every defeat; fresh cold and warm duels plus50-round solo melee."
+  }
 }

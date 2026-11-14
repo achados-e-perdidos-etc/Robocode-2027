@@ -1,0 +1,65 @@
+{
+  "archive_sha256": "45c464f4b5b15c4d93e93320cc1680f3886eb8400fb276c8661970ec4b4d73a9",
+  "logs": [
+    {
+      "path": "angular-chimp10-reserved-1.log",
+      "bytes": 46701,
+      "sha256": "cd5f3547a3a2bee8a2e567613110cfade77bdf858527859fadc2e4d3c7c53fb8"
+    },
+    {
+      "path": "angular-diamond10-reserved-1.log",
+      "bytes": 39534,
+      "sha256": "73914971627d4291e925e28061197fc11af3ed218160d88a736f73b39a07e63b"
+    },
+    {
+      "path": "combined-chimp10-reserved-1.log",
+      "bytes": 45230,
+      "sha256": "6173a2cc29750bc8089acb2310434812517b9de4c08f991c95ae7139afdcfde6"
+    },
+    {
+      "path": "combined-chimp50-reserved-1.log",
+      "bytes": 227960,
+      "sha256": "67b6daa4dfb02d03fcb30b29e7a7c5def916e0fbe18948067daa6cb552d236dc"
+    },
+    {
+      "path": "combined-diamond10-reserved-1.log",
+      "bytes": 38480,
+      "sha256": "58a7d5ac0fa98e6af6eec3a4612a3c4f7a88d580ef943fec635ed8e51669fa3f"
+    },
+    {
+      "path": "combined-diamond50-reserved-1.log",
+      "bytes": 168239,
+      "sha256": "bbcac4cc3404aba1bb39fe0eb5af5d946c8b4d13407c40abc3ea270bb3ba133b"
+    },
+    {
+      "path": "combined-melee10-reserved-1.log",
+      "bytes": 44953,
+      "sha256": "f4cc24e86af96e72267a04906e236d1879bc794cf70fe688b075f59c01e46253"
+    },
+    {
+      "path": "combined-titanv3-10-reserved-1.log",
+      "bytes": 22509,
+      "sha256": "f11002175f4f579346f067cff8591f7aa44d00a63acf8093a9c6ed2ba9c74b60"
+    },
+    {
+      "path": "combined-vingation-10-reserved-1.log",
+      "bytes": 25391,
+      "sha256": "9160748cedee24a01dfa42e4c1799cd9114a4fe54cb74145418d31f34d939146"
+    },
+    {
+      "path": "combined-warm50-warm.log",
+      "bytes": 159420,
+      "sha256": "adb6cce597fd2bf3479b688d51537a1020ab66e8c6232e5817c631b1985f4aa3"
+    },
+    {
+      "path": "deadline-chimp10-reserved-1.log",
+      "bytes": 46826,
+      "sha256": "7c5509183cf5d1db8a57a19af3d2244da9381f2cd2a0d2cc5c3afc2ba5205f22"
+    },
+    {
+      "path": "deadline-diamond10-reserved-1.log",
+      "bytes": 34206,
+      "sha256": "437da9e92335aaaabfd7e4b345cb95de95d1c265b955bc130ec9daa598e0bdea"
+    }
+  ]
+}

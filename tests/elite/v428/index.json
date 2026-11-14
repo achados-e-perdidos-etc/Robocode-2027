@@ -1,0 +1,66 @@
+{
+  "scope": "Experimental sources only. Main robot remains4.15. Different source hashes and cold/warm series are separate. All completed trials retained, including every defeat.",
+  "cases": [
+    {
+      "case": "angular-chimp10",
+      "report": "angular-chimp10.json",
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e"
+    },
+    {
+      "case": "angular-diamond10",
+      "report": "angular-diamond10.json",
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e"
+    },
+    {
+      "case": "combined-chimp10",
+      "report": "combined-chimp10.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-chimp50",
+      "report": "combined-chimp50.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-diamond10",
+      "report": "combined-diamond10.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-diamond50",
+      "report": "combined-diamond50.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-melee10",
+      "report": "combined-melee10.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-titanv3-10",
+      "report": "combined-titanv3-10.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-vingation-10",
+      "report": "combined-vingation-10.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "combined-warm50",
+      "report": "combined-warm50.json",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    },
+    {
+      "case": "deadline-chimp10",
+      "report": "deadline-chimp10.json",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0"
+    },
+    {
+      "case": "deadline-diamond10",
+      "report": "deadline-diamond10.json",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0"
+    }
+  ],
+  "all_rounds_goal_met": false
+}

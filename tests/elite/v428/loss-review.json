@@ -1,0 +1,585 @@
+{
+  "scope": "Completed4.28sources only; different source hashes remain separate.",
+  "cases": [
+    {
+      "case": "timely/angular-chimp10",
+      "stage": "competitive_field",
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 800,
+              "firsts": 10
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 356,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/angular-diamond10",
+      "stage": "competitive_field",
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 724,
+              "firsts": 10
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 374,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-chimp10",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 854,
+              "firsts": 10
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 286,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-chimp50",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 50,
+      "not_recorded_as_win": 2,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 48,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 4241,
+              "firsts": 48
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 2023,
+              "firsts": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-diamond10",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 740,
+              "firsts": 10
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 363,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-diamond50",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 50,
+      "not_recorded_as_win": 1,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 49,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3620,
+              "firsts": 49
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1811,
+              "firsts": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-melee10",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 5,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 5,
+          "scores": [
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 2413,
+              "firsts": 5
+            },
+            {
+              "robot": "equipe.titanprime*",
+              "points": 2025,
+              "firsts": 5
+            },
+            {
+              "robot": "titan.TitanV3 3.0",
+              "points": 1049,
+              "firsts": 0
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 727,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-titanv3-10",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 728,
+              "firsts": 10
+            },
+            {
+              "robot": "titan.TitanV3 3.0",
+              "points": 290,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-vingation-10",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 791,
+              "firsts": 10
+            },
+            {
+              "robot": "titan.TitanVingation 1.7",
+              "points": 356,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/combined-warm50",
+      "stage": "competitive_field",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "valid_rounds": 50,
+      "not_recorded_as_win": 1,
+      "official_results": [
+        {
+          "key": "warm",
+          "conservative_wins": 49,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 3600,
+              "firsts": 49
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 1875,
+              "firsts": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/deadline-chimp10",
+      "stage": "competitive_field",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 916,
+              "firsts": 10
+            },
+            {
+              "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+              "points": 400,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "case": "timely/deadline-diamond10",
+      "stage": "competitive_field",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0",
+      "valid_rounds": 10,
+      "not_recorded_as_win": 0,
+      "official_results": [
+        {
+          "key": "reserved-1",
+          "conservative_wins": 10,
+          "scores": [
+            {
+              "robot": "equipe.titanprime*",
+              "points": 729,
+              "firsts": 10
+            },
+            {
+              "robot": "voidious.Diamond 1.8.28",
+              "points": 426,
+              "firsts": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "not_recorded_as_win": [
+    {
+      "case": "timely/combined-chimp50",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 33,
+      "ticks": 527,
+      "hit_rate": 0.25,
+      "mean_shot_power": 0.9887499999999999,
+      "spent": 39.55,
+      "received_nominal": 64.0,
+      "dealt_nominal": 27.7,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.8916349809885932,
+      "resolved_enemy_shots": 27,
+      "resolved_enemy_hits": 4,
+      "confidence_telemetry": {
+        "strong_shots": 15,
+        "power_shots": [
+          2,
+          3,
+          1013
+        ],
+        "power_hits": [
+          0,
+          0,
+          73
+        ],
+        "context_queries": 12852,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-chimp50",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 45,
+      "ticks": 548,
+      "hit_rate": 0.2,
+      "mean_shot_power": 0.44557577812205507,
+      "spent": 17.823031124882203,
+      "received_nominal": 90.33324959614842,
+      "dealt_nominal": 10.47504096137417,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.916058394160584,
+      "resolved_enemy_shots": 31,
+      "resolved_enemy_hits": 6,
+      "confidence_telemetry": {
+        "strong_shots": 2,
+        "power_shots": [
+          5,
+          6,
+          1377
+        ],
+        "power_hits": [
+          0,
+          0,
+          107
+        ],
+        "context_queries": 13302,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-diamond50",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 27,
+      "ticks": 1920,
+      "hit_rate": 0.056179775280898875,
+      "mean_shot_power": 0.09999999999999983,
+      "spent": 8.899999999999984,
+      "received_nominal": 80.72072918922271,
+      "dealt_nominal": 2.0,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.6296875,
+      "resolved_enemy_shots": 145,
+      "resolved_enemy_hits": 14,
+      "confidence_telemetry": {
+        "strong_shots": 0,
+        "power_shots": [
+          5919,
+          1026,
+          685
+        ],
+        "power_hits": [
+          529,
+          84,
+          55
+        ],
+        "context_queries": 62154,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-melee10",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 4,
+      "ticks": 869,
+      "hit_rate": 0.11627906976744186,
+      "mean_shot_power": 1.2503488372093032,
+      "spent": 53.76500000000004,
+      "received_nominal": 68.26818013013188,
+      "dealt_nominal": 37.974,
+      "walls": 1,
+      "skipped": 0,
+      "edge_fraction": 0.6789413118527042,
+      "resolved_enemy_shots": 24,
+      "resolved_enemy_hits": 1,
+      "confidence_telemetry": {
+        "strong_shots": 35,
+        "power_shots": [
+          625,
+          55,
+          33
+        ],
+        "power_hits": [
+          46,
+          5,
+          1
+        ],
+        "context_queries": 9576,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-melee10",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 5,
+      "ticks": 2061,
+      "hit_rate": 0.10869565217391304,
+      "mean_shot_power": 0.38605072463768236,
+      "spent": 53.27500000000017,
+      "received_nominal": 73.40192136501304,
+      "dealt_nominal": 67.16000000000004,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.5473071324599709,
+      "resolved_enemy_shots": 131,
+      "resolved_enemy_hits": 14,
+      "confidence_telemetry": {
+        "strong_shots": 25,
+        "power_shots": [
+          707,
+          77,
+          60
+        ],
+        "power_hits": [
+          55,
+          10,
+          1
+        ],
+        "context_queries": 52704,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-melee10",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 6,
+      "ticks": 300,
+      "hit_rate": 0.3181818181818182,
+      "mean_shot_power": 1.2244766726534222,
+      "spent": 26.938486798375287,
+      "received_nominal": 97.30000000000004,
+      "dealt_nominal": 32.21840926166245,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 1.0,
+      "resolved_enemy_shots": 0,
+      "resolved_enemy_hits": 0,
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-melee10",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 7,
+      "ticks": 1407,
+      "hit_rate": 0.15625,
+      "mean_shot_power": 0.9754894111570261,
+      "spent": 62.43132231404967,
+      "received_nominal": 72.90895011949407,
+      "dealt_nominal": 51.95600000000001,
+      "walls": 1,
+      "skipped": 0,
+      "edge_fraction": 0.7505330490405118,
+      "resolved_enemy_shots": 67,
+      "resolved_enemy_hits": 11,
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-melee10",
+      "series": "reserved-1",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 8,
+      "ticks": 485,
+      "hit_rate": 0.16666666666666666,
+      "mean_shot_power": 1.2002554461699164,
+      "spent": 43.20919606211699,
+      "received_nominal": 81.00000000000001,
+      "dealt_nominal": 32.9965860255447,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.9896907216494846,
+      "resolved_enemy_shots": 0,
+      "resolved_enemy_hits": 0,
+      "confidence_telemetry": {
+        "strong_shots": 32,
+        "power_shots": [
+          774,
+          77,
+          60
+        ],
+        "power_hits": [
+          66,
+          10,
+          1
+        ],
+        "context_queries": 9,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    },
+    {
+      "case": "timely/combined-warm50",
+      "series": "warm",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "round": 42,
+      "ticks": 854,
+      "hit_rate": 0.046153846153846156,
+      "mean_shot_power": 0.0999999999999999,
+      "spent": 6.499999999999993,
+      "received_nominal": 96.10000000000016,
+      "dealt_nominal": 1.2000000000000002,
+      "walls": 0,
+      "skipped": 0,
+      "edge_fraction": 0.6311475409836066,
+      "resolved_enemy_shots": 50,
+      "resolved_enemy_hits": 9,
+      "confidence_telemetry": {
+        "strong_shots": 0,
+        "power_shots": [
+          9332,
+          1612,
+          1049
+        ],
+        "power_hits": [
+          849,
+          157,
+          78
+        ],
+        "context_queries": 24039,
+        "rescued_queries": 0
+      },
+      "stage": "competitive_field"
+    }
+  ],
+  "caution": "A missing WinEvent can be a tie. Nominal bullet damage can include terminal overkill. Counts and associations do not by themselves establish the cause of defeat."
+}

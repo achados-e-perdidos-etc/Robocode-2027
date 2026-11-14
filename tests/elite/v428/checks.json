@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "deadline_results": [
+    {
+      "name": "old",
+      "source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: same_tick_not_guaranteed shadow\n\tat equipe.deadlineprobe.check(deadlineprobe.java:4)\n\tat equipe.deadlineprobe.risk(deadlineprobe.java:10)\n\tat equipe.deadlineprobe.main(deadlineprobe.java:13)\n"
+    },
+    {
+      "name": "deadline",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0",
+      "returncode": 0,
+      "stdout": "DEADLINE_ASSERTIONS=27\n",
+      "stderr": ""
+    },
+    {
+      "name": "combined",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "returncode": 0,
+      "stdout": "DEADLINE_ASSERTIONS=27\n",
+      "stderr": ""
+    }
+  ],
+  "physics": [
+    {
+      "passed": true,
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    },
+    {
+      "passed": true,
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    },
+    {
+      "passed": true,
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce",
+      "api_sha256": "c9852e9fceebcc777d0d580da671eb2a4df32991c8ba8eddf0d5723f2b954351",
+      "captured_physics_cases": 157,
+      "knn_exhaustive_comparisons": 100,
+      "bounded_wall_fallback": true,
+      "unrankable_candidates_terminate": true,
+      "class_major": 52,
+      "output": "PHYSICS=157 KNN=100 BOUNDED_WALL_FALLBACK=2",
+      "reference": "https://github.com/Voidious/Diamond/blob/2d1c6a2b911cf077c5f13d2baa45da7d18d6babb/voidious/utils/MovementPredictorTest.java"
+    }
+  ],
+  "angular_actual_java_reference": "/workspace/robocode-user/perfection/neural-max/angular-research/checks.json",
+  "scope": "Actual wave shadow queries: strict deadline, cache invalidation, past crossings, interval overlap and wraparound. Old source fails same-tick protection fixture. Numerical correctness does not establish combat improvement."
+}

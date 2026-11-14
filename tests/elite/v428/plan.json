@@ -1,0 +1,64 @@
+{
+  "base_source_sha256": "816acd60f764b897cbe291631279ce8c934867a02ac112f458ee3278dda7a895",
+  "reason": "New neural prior improved model-selection loss but cold elite win counts were lower, so use stronger previous source. Test actual Java angular-coordinate correction and strict pre-impact bullet-shadow eligibility separately and together.",
+  "profiles": [
+    {
+      "name": "angular",
+      "source_sha256": "94a456ad1556274fb096e3e0325d5c965aab49ac86b0259df4bd1c3b162ba95e"
+    },
+    {
+      "name": "deadline",
+      "source_sha256": "24db053981a7db77145673353e586d99aa8000adbfb02054124a09ea87a0bcd0"
+    },
+    {
+      "name": "combined",
+      "source_sha256": "0c30d0aaba20ee8cc5ecb32c0279ec22a35497f60ca63593467d37124dc4f2ce"
+    }
+  ],
+  "screen_rounds": 10,
+  "screen_case_ids": [
+    65201,
+    65202,
+    65203,
+    65204,
+    65205,
+    65206
+  ],
+  "screen_continuation_minimum_wins": 8,
+  "confirmation_rounds": 50,
+  "confirmation_case_ids": [
+    65211,
+    65212,
+    65213,
+    65214,
+    65215,
+    65216
+  ],
+  "reserved_diamond_case_ids": [
+    65221,
+    65222
+  ],
+  "require_point_lead": true,
+  "do_not_retry_valid_losses": true,
+  "automatic_publication": false,
+  "shadow_deadline": "Only crossings strictly before the earliest predicted body intersection can remove danger. Same-tick protection is conservatively excluded. Conditional shadow unions are cached per wave, invalidated by casts and retirements, at most32deadlines.",
+  "source_research": [
+    "https://github.com/robo-code/robocode/blob/v1.12.0/robocode.battle/src/main/java/net/sf/robocode/battle/peer/BulletPeer.java",
+    "https://robowiki.net/wiki/BeepBoop/Understanding_BeepBoop"
+  ],
+  "observed_trace": {
+    "impacts": 919,
+    "shadowed_hits": 14,
+    "all_shadow_crossings_at_hit_tick": true,
+    "future_only_shadow_hits": 0
+  },
+  "limitations": "Finite sampled traces identify a model timing assumption, not the complete cause of all defeats. Conservative exclusion can remove some useful shielding and must be tested.",
+  "roster_case_ids": [
+    65301,
+    65302,
+    65303
+  ],
+  "roster_rounds": 10,
+  "selection_rule": "Both valid elite screens, worst win fraction at least0.8, then worst point share. All completed source-specific defeats retained; no automatic source promotion.",
+  "started_utc": "2026-11-14T05:17:03.374632+00:00"
+}
