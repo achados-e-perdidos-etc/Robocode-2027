@@ -1,4 +1,12 @@
-# Checkpoint atual — Titan Prime 4.32
+# Checkpoint atual — Titan Prime 4.38
+
+Salvo por solicitação do usuário: **50/50 contra ChimpazeComSarna**, 3.042 a503 pontos; **49/50 contra Diamond**, 3.637 a1.739. Ambas as séries são válidas, com a mesma fonte congelada, nova JVM, dados inicialmente vazios, largadas aleatórias e adversários originais. A meta estrita de vencer os50 rounds dos dois ainda falta contra Diamond.
+
+A derrota no round41 durou2.973 ticks:260 tiros,24 acertos, nenhuma colisão com parede e nenhum turno perdido. O resultado foi conservado. [Relatório completo](tests/elite/v438/leia-me.md) e [JAR](releases/titanprime-4.38.jar).
+
+As experiências anteriores4.33–4.37 também estão em `tests/elite`, incluindo testes inválidos e candidatas rejeitadas. A4.37 fez50/50 contra Chimpanzé e49/50 contra Diamond; a4.38 alterou somente o momento da abertura, preservando a interceptação. O checkpoint4.32 permanece disponível.
+
+# Histórico da 4.32
 
 Salvo na main por solicitação do usuário: **50/50 contra Diamond**,3695a1807pontos; **47/50 contra ChimpazeComSarna**,4181a1913pontos. Fonte congelada63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737. Ambos os resultados são válidos, com os adversários originais e sem aprendizado importado.
 

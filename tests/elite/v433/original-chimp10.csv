@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.33-original,c3cb3c47809b68da,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,444,1,78.77499999999995,444,34,9,30.274999999999984,36.3,16.0,2,0,0,295,444,23,1
+reserved-1,4.33-original,c3cb3c47809b68da,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,671,1,65.42500000000017,671,56,9,20.875000000000004,8.4,20.299999999999944,8,0,0,612,671,29,2
+reserved-1,4.33-original,c3cb3c47809b68da,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,550,1,63.37499999999994,550,43,8,37.12500000000001,15.2,13.0,4,0,0,389,550,28,1
+reserved-1,4.33-original,c3cb3c47809b68da,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,659,0,0.0,659,44,10,39.06254438948449,29.799999999999997,80.63745561051547,3,0,0,370,659,36,5
+reserved-1,4.33-original,c3cb3c47809b68da,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,553,1,57.02499999999994,553,43,10,34.525000000000006,36.699999999999996,32.0,3,0,0,223,553,26,2
+reserved-1,4.33-original,c3cb3c47809b68da,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,592,1,59.899999999999935,592,46,8,33.99999999999999,12.8,16.0,3,0,0,443,592,32,1
+reserved-1,4.33-original,c3cb3c47809b68da,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,701,1,29.350643791253766,701,59,12,21.64935620874637,14.400000000000002,61.0,6,0,0,466,701,35,4
+reserved-1,4.33-original,c3cb3c47809b68da,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,539,1,45.49999999999998,539,42,10,34.699999999999996,34.599999999999994,45.0,2,0,0,467,539,28,3
+reserved-1,4.33-original,c3cb3c47809b68da,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,577,1,70.4,577,47,10,25.299999999999994,11.2,13.0,2,0,0,399,577,30,1
+reserved-1,4.33-original,c3cb3c47809b68da,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,782,0,0.0,782,56,12,26.999999999999996,18.9,85.95000000000012,2,0,0,349,782,46,6

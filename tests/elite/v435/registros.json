@@ -1,0 +1,15 @@
+{
+  "archive_sha256": "68dd0b08d5684f13840cfa5ef35151d76711ed1277d6512e0ae826971ab48772",
+  "logs": [
+    {
+      "path": "owner-chimp50-reserved-1.log",
+      "bytes": 242374,
+      "sha256": "7697a55ab9acaa3178f96c21fc9169bdc431e60bacac44b49f82db64c9b45d12"
+    },
+    {
+      "path": "owner-diamond20-reserved-1.log",
+      "bytes": 66284,
+      "sha256": "ef7022d4f3690edeb4ee6f2b6a42af9162285bd79bcae199a332486f80ec28d3"
+    }
+  ]
+}

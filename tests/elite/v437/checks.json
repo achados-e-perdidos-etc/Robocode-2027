@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "status": "PASS",
+  "source": "/workspace/robocode-user/perfection/duel-perfect-v437/shield/equipe/titanprime.java",
+  "source_sha256": "fdaadd109058c0328195d63550d7e7a9fd993ceff44b2e0c768d90be687c9dc2",
+  "checker_sha256": "645d3d415c574240eee1439484b5ef0abec2c687a5973a84a820a7f8bcdc777b",
+  "solver_sha256": "860cfd6be6f79093daab8608d033e3f6f373f289a0de4e9f49f6ca1ed56fd2e1",
+  "trajectory_cases": 288,
+  "invalid_cases": 39,
+  "collision_ticks": [
+    10,
+    11,
+    13
+  ],
+  "integration_conditions": 40,
+  "opening_cases": 35,
+  "validation": "Actual compiled Java production opening API and solver; independent per-tick segment and box checks; pinned Python transcription also compared",
+  "java": {
+    "source_sha256": "fdaadd109058c0328195d63550d7e7a9fd993ceff44b2e0c768d90be687c9dc2",
+    "compiled_full_robot": true,
+    "compiled_java_target": "8",
+    "harness": "/workspace/robocode-user/perfection/duel-perfect-v437/shield/check-build/shieldprobe.java",
+    "production_method": "equipe.titanprime.BulletShield.solveShieldIntercept",
+    "valid_trajectories": 288,
+    "invalid_rejections": 39,
+    "opening_production_method": "equipe.titanprime.BulletShield.openingDecision",
+    "opening_harness": "/workspace/robocode-user/perfection/duel-perfect-v437/shield/check-build/openingprobe.java",
+    "opening_cases": 35,
+    "opening_case_groups": [
+      "before_first_shot",
+      "current_range_short",
+      "energy_threshold_accepted",
+      "energy_threshold_rejected",
+      "future_shot",
+      "nonfinite_2",
+      "nonfinite_3",
+      "nonfinite_4",
+      "nonfinite_5",
+      "range_threshold",
+      "shot_age_five",
+      "shot_age_four",
+      "shot_age_zero",
+      "shot_range_short",
+      "stationary_insufficient",
+      "stationary_three_ticks",
+      "stationary_unknown",
+      "strong_first_shot",
+      "timeout",
+      "weak_first_shot",
+      "weak_threshold"
+    ],
+    "collision_ticks": [
+      10,
+      11,
+      13
+    ],
+    "java_executed": true,
+    "engine_executed": false
+  },
+  "java_executed": true,
+  "engine_executed": false
+}

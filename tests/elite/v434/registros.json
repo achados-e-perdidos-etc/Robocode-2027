@@ -1,0 +1,15 @@
+{
+  "archive_sha256": "08c4210b2ffd8621807a1a7355f73ae3b99e3d558b42681aab1cd6bdf7f2d2de",
+  "logs": [
+    {
+      "path": "moderate07-chimp30-reserved-1.log",
+      "bytes": 137013,
+      "sha256": "121a59ef762607a50568f791250c742d4769da1b80f45660a20006ff6461fcce"
+    },
+    {
+      "path": "moderate10-chimp30-reserved-1.log",
+      "bytes": 140548,
+      "sha256": "0535ec1db1ec6284a308d833088381c52092e2bbf9b37f44feeff08fde5b164d"
+    }
+  ]
+}

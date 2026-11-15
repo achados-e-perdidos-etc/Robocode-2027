@@ -1,0 +1,10 @@
+{
+  "reason": "Chimp improvement required first. Selective flattening failed valid Chimp50 at46/50. Preserve in-flight Diamond50, omit weaker original profile long confirmations.",
+  "skipped": [
+    "original-chimp50",
+    "original-diamond50"
+  ],
+  "no_running_battle_interrupted": true,
+  "all_completed_results_retained": true,
+  "utc": "2026-11-14T14:00:29.738098+00:00"
+}

@@ -1,0 +1,36 @@
+{
+  "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+  "jar_sha256": "88671e0f96916c72a5d72ee375b9402b7356d7ebb143045fc73471b97641ba7f",
+  "version": "4.38-timed-opening",
+  "classes": 117,
+  "classfile_major": 52,
+  "classes_origin": "Exactalreadycompiledclasses fromvalidatedChimp50case67702",
+  "no_new_compilation": true,
+  "license_notices_preserved": true,
+  "reference_runtime": "Java21",
+  "chimp": [
+    50,
+    50
+  ],
+  "diamond_confirmation_pending": false,
+  "diamond": [
+    49,
+    50
+  ],
+  "points": {
+    "ChimpazeComSarna": [
+      3042,
+      503
+    ],
+    "Diamond": [
+      3637,
+      1739
+    ]
+  },
+  "both_competitive_cases_valid": true,
+  "all_rounds_goal_met": false,
+  "publication": "Explicit user request to save50Chimp/49Diamond version",
+  "release_checks": "tests/elite/v438/checks.json",
+  "java17_packaged_jar_smoke_passed": true,
+  "java17_smoke_report": "tests/elite/v438/jar-smoke.json"
+}

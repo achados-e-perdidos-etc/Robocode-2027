@@ -1,0 +1,33 @@
+{
+  "passed": true,
+  "sources": [
+    {
+      "name": "baseline",
+      "source": "/workspace/Robocode-2027/robots/equipe/titanprime.java",
+      "source_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "ACTUAL_VIEW_METADATA_PASS views=11 heavy=2 seeded_KD_trees=11 unchanged_comparisons=0\nPRODUCTION_DANGER_SAMPLING_PASS powers=0.1,1.49,1.5,3.0\nSURF_VIEW_PRODUCTION_CHECKS_PASS profile=baseline\n",
+      "stderr": ""
+    },
+    {
+      "name": "original",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v433/original/equipe/titanprime.java",
+      "source_sha256": "825727cd34098b2ab6ae4a3a777d693e009a241d16d3810a5e2aee16eac858da",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "ACTUAL_VIEW_METADATA_PASS views=11 heavy=2 seeded_KD_trees=11 unchanged_comparisons=864\nPRODUCTION_DANGER_SAMPLING_PASS powers=0.1,1.49,1.5,3.0\nSURF_VIEW_PRODUCTION_CHECKS_PASS profile=original\n",
+      "stderr": ""
+    },
+    {
+      "name": "comeback",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v433/comeback/equipe/titanprime.java",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "ACTUAL_VIEW_METADATA_PASS views=11 heavy=2 seeded_KD_trees=11 unchanged_comparisons=864\nPRODUCTION_DANGER_SAMPLING_PASS powers=0.1,1.49,1.5,3.0\nSURF_VIEW_PRODUCTION_CHECKS_PASS profile=comeback\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual MoveEnemy eleven-view metadata and seeded production KD trees; high-power threshold, confidence, size, visit, and hit-threshold guards; unchanged behavior across all nine other views; actual SurfMover.getDangerScore sample selection with controlled confidence inputs; Java 8 compilation. No battle engine or combat-performance claim."
+}

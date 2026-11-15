@@ -1,0 +1,16 @@
+{
+  "confirmed_shield_collisions": 195,
+  "diagnostic_lines": [
+    "[equipe.titanprime*] TITAN_SHIELD round=1 active_ticks=118 attempts=7 shots=6 collisions=1 received=3 aborted=true",
+    "[equipe.titanprime*] TITAN_SHIELD round=2 active_ticks=136 attempts=5 shots=5 collisions=2 received=3 aborted=true",
+    "[equipe.titanprime*] TITAN_SHIELD round=3 active_ticks=133 attempts=8 shots=6 collisions=3 received=3 aborted=true",
+    "[equipe.titanprime*] TITAN_SHIELD round=4 active_ticks=586 attempts=36 shots=36 collisions=32 received=1 aborted=false",
+    "[equipe.titanprime*] TITAN_SHIELD round=5 active_ticks=88 attempts=5 shots=5 collisions=2 received=3 aborted=true",
+    "[equipe.titanprime*] TITAN_SHIELD round=6 active_ticks=634 attempts=39 shots=39 collisions=34 received=2 aborted=false",
+    "[equipe.titanprime*] TITAN_SHIELD round=7 active_ticks=586 attempts=36 shots=36 collisions=36 received=1 aborted=false",
+    "[equipe.titanprime*] TITAN_SHIELD round=8 active_ticks=619 attempts=38 shots=38 collisions=36 received=2 aborted=false",
+    "[equipe.titanprime*] TITAN_SHIELD round=9 active_ticks=238 attempts=15 shots=13 collisions=13 received=3 aborted=true",
+    "[equipe.titanprime*] TITAN_SHIELD round=10 active_ticks=636 attempts=39 shots=39 collisions=36 received=2 aborted=false"
+  ],
+  "source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2"
+}

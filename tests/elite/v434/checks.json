@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "sources": [
+    {
+      "name": "baseline",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v432/calibrated/equipe/titanprime.java",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "compiled_java8": true,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Exception in thread \"main\" java.lang.AssertionError: MODERATE_PRESSURE_MISSING E20 expected>=.7 actual=0.1\n\tat equipe.moderatepowerprobe.check(moderatepowerprobe.java:42)\n\tat equipe.moderatepowerprobe.controller(moderatepowerprobe.java:119)\n\tat equipe.moderatepowerprobe.main(moderatepowerprobe.java:226)\n",
+      "expected_failure": "MODERATE_PRESSURE_MISSING"
+    },
+    {
+      "name": "moderate07",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v434/moderate07/equipe/titanprime.java",
+      "source_sha256": "5a2093cb4d7e2e93f02c3d8d6a84733fc0bbc590efd2899c09e2226a3b338f60",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "MODERATE_PRODUCTION_CONTROLLER_PASS profile=moderate07\nMODERATE_HELPER_GUARDS_PASS profile=moderate07 negative_guards=24 physical_matrix=20\n",
+      "stderr": ""
+    },
+    {
+      "name": "moderate10",
+      "source": "/workspace/robocode-user/perfection/duel-perfect-v434/moderate10/equipe/titanprime.java",
+      "source_sha256": "d11bda8c0e5c2b7860e0b5bffc71b8f3d7157e0792d177e7d599759cb32b6eb9",
+      "compiled_java8": true,
+      "returncode": 0,
+      "stdout": "MODERATE_PRODUCTION_CONTROLLER_PASS profile=moderate10\nMODERATE_HELPER_GUARDS_PASS profile=moderate10 negative_guards=24 physical_matrix=20\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual production Mira.calculateBulletPower through dummy robot and real enemy managers; 99% and9% incoming high-power contexts, exact eligibility boundaries, twenty-shot energy reserve and finisher bounds, null safety, original1.95 behavior, and strong-feedback ordering. Frozen hashes and Java8 compilation. No battle engine or combat claim."
+}

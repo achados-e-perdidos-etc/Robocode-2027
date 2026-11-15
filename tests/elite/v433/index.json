@@ -1,0 +1,48 @@
+{
+  "scope": "Experimental sources only; saved production checkpoint4.32-calibrated is separate. Invalid runs do not count as wins. All completed trials and defeats retained.",
+  "cases": [
+    {
+      "case": "comeback-chimp10",
+      "report": "comeback-chimp10.json",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "valid": true,
+      "accepted": true
+    },
+    {
+      "case": "comeback-chimp50",
+      "report": "comeback-chimp50.json",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "valid": true,
+      "accepted": false
+    },
+    {
+      "case": "comeback-diamond10",
+      "report": "comeback-diamond10.json",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "valid": true,
+      "accepted": true
+    },
+    {
+      "case": "comeback-diamond50",
+      "report": "comeback-diamond50.json",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "valid": false,
+      "accepted": false
+    },
+    {
+      "case": "original-chimp10",
+      "report": "original-chimp10.json",
+      "source_sha256": "825727cd34098b2ab6ae4a3a777d693e009a241d16d3810a5e2aee16eac858da",
+      "valid": true,
+      "accepted": false
+    },
+    {
+      "case": "original-diamond10",
+      "report": "original-diamond10.json",
+      "source_sha256": "825727cd34098b2ab6ae4a3a777d693e009a241d16d3810a5e2aee16eac858da",
+      "valid": true,
+      "accepted": false
+    }
+  ],
+  "all_rounds_goal_met": false
+}

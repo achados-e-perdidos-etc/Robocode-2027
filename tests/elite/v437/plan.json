@@ -1,0 +1,51 @@
+{
+  "profiles": [
+    {
+      "name": "shield",
+      "source_sha256": "fdaadd109058c0328195d63550d7e7a9fd993ceff44b2e0c768d90be687c9dc2"
+    }
+  ],
+  "base_source": "/workspace/robocode-user/perfection/duel-perfect-v436/shield/equipe/titanprime.java",
+  "base_source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2",
+  "diagnostic_version": "4.37-opening",
+  "hypothesis": "Holding still before the first enemy shot removes the moving-target transition that caused early received hits and shield aborts in v436. The first qualifying strong shot should already target a stationary anchor and be available for an immediate sidestep/intercept attempt.",
+  "prior_evidence": {
+    "v436_screen": "/workspace/robocode-user/perfection/duel-perfect-v436/shield-chimp10/reserved-1.log",
+    "confirmed_shield_collisions": 195,
+    "shield_shots": 223,
+    "interpretation": "Several rounds shielded32..36shots without aborting, while early transition rounds reached3received hits after few shield collisions. This motivates an opening-only change; it does not establish a probability of success."
+  },
+  "changes": [
+    "In battles that began as pure duels, hold position from tick0 and orient the body perpendicular to the first available scanned enemy position while waiting for the first true shot; release after35ticks if no shot is observed.",
+    "Track the actual stationarySince timestamp before shield activation, including the entire opening hold.",
+    "Classify the earliest true observed shot using a production openingDecision method. Activate on a finite power at least2.4, shot and current range at least275, own energy above35, shot age0..4, and at least3 stationary ticks before the shot.",
+    "On strong-shot activation, continue into the existing true-wave candidate handler in the same tick, allowing that first stationary-target shot to initiate the sidestep.",
+    "On a weak, short, otherwise ineligible first shot or timeout, return to normal movement and release normal gun firing on the following local tick. Preserve later true-wave eligibility; releasing the opening does not disable future shielding.",
+    "Suppress initial normal real shots while retaining gun data manager execution, virtual gun evaluation, normal aim updates, movement state tracking, and radar updates.",
+    "Add opening_ticks, activation_time, and first_received_time to the existing once-per-round TITAN_SHIELD diagnostic.",
+    "Retain the v436 side step, actual intercept solver, minimum60pixel intercept bound, phase selection, next-tick fire checks, projectile tracking, endgame exit, and three-hit abort. Retain v435 round-owner fix and memory format."
+  ],
+  "legality": {
+    "opponent_name_branches": false,
+    "hidden_bullet_angles": false,
+    "reflection": false,
+    "new_runtime_file_access": false,
+    "sources": "Public scans, own state and commands, energy-inferred true waves, and delivered bullet events. Incoming direction remains a generic stationary-headon hypothesis."
+  },
+  "checker": "/workspace/robocode-user/perfection/duel-perfect-v437/shield/check_shield.py",
+  "checks": {
+    "actual_full_robot_ecj_compile": true,
+    "actual_production_opening_cases": 35,
+    "actual_production_solver_trajectory_cases": 288,
+    "actual_production_solver_rejections": 39,
+    "independent_physics": "Validate actual Java intercept outputs using per-tick nonparallel segment intersections and independent robot-box clipping. No engine execution."
+  },
+  "confirmation_order": [
+    "Fresh original C10screen; advance only with at least9wins, scorelead, and confirmed shield-specific collisions.",
+    "Fresh original C50only after a qualifying C10; stop for review if C10orC50fails.",
+    "Fresh D50only after a qualifying C50, using the same frozen source hash."
+  ],
+  "fresh_jvm_and_data": true,
+  "case_ids_are_not_rng_seeds": true,
+  "automatic_publication": false
+}

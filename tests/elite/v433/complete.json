@@ -1,0 +1,8 @@
+{
+  "qualified": false,
+  "winner": null,
+  "goal": "50/50each against original Diamond and Chimp, same source, point leads.",
+  "automatic_publication": false,
+  "all_defeats_retained": true,
+  "sequence_amendment": "sequence-amendment.json"
+}

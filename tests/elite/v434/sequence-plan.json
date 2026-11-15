@@ -1,0 +1,19 @@
+{
+  "screens": "Fresh30rounds per profile against original Chimp. Only29/30plus pointlead valid screens advance.",
+  "confirmations": "Fresh50Chimp first, and only accepted50/50pluspointlead advances to fresh50Diamond using same source.",
+  "case_ids": [
+    67301,
+    67302,
+    67311,
+    67312,
+    67313,
+    67314
+  ],
+  "no_retry_of_valid_losses": true,
+  "same_cpu_constant_ns_both_robots": 10030489,
+  "random_starts": true,
+  "case_ids_are_not_rng_seeds": true,
+  "fresh_jvm_and_data": true,
+  "checkpoint_main": "1d87d3138ee57b9550de1d8923cedfb1c3189028",
+  "integration": "Each candidate starts from the exact saved Diamond50/50source; preserves all existing gun, energy and defense behavior outside the tested generic eligibility."
+}

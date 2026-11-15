@@ -1,0 +1,10 @@
+{
+  "archive_sha256": "a30e9b624707da55a54b20088baadccf16e6b8a40e29eabab18b97151b54df25",
+  "logs": [
+    {
+      "path": "shield-chimp10-reserved-1.log",
+      "bytes": 39870,
+      "sha256": "447ff199fa9d14c8688a5128b19abee76e023c7d08ceff7622084d74bf43a696"
+    }
+  ]
+}

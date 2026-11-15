@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "status": "PASS",
+  "source": "/workspace/robocode-user/perfection/duel-perfect-v436/shield/equipe/titanprime.java",
+  "source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2",
+  "checker_sha256": "93a0820f5103f1e0fa161304f299d297ba62d188c7eeb265b9e9a7f44cfb3201",
+  "solver_sha256": "860cfd6be6f79093daab8608d033e3f6f373f289a0de4e9f49f6ca1ed56fd2e1",
+  "trajectory_cases": 288,
+  "invalid_cases": 39,
+  "collision_ticks": [
+    10,
+    11,
+    13
+  ],
+  "integration_conditions": 25,
+  "validation": "Actual compiled Java production solver; independent per-tick segment and box checks; pinned Python transcription also compared",
+  "java": {
+    "source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2",
+    "compiled_full_robot": true,
+    "compiled_java_target": "8",
+    "harness": "/workspace/robocode-user/perfection/duel-perfect-v436/shield/check-build/shieldprobe.java",
+    "production_method": "equipe.titanprime.BulletShield.solveShieldIntercept",
+    "valid_trajectories": 288,
+    "invalid_rejections": 39,
+    "collision_ticks": [
+      10,
+      11,
+      13
+    ],
+    "java_executed": true,
+    "engine_executed": false
+  },
+  "java_executed": true,
+  "engine_executed": false
+}

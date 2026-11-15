@@ -1,0 +1,244 @@
+{
+  "passed": true,
+  "scope": "Sequential Java17runtime checks of the exact prepackaged v438117class JAR; not competitive qualification.",
+  "qualified_before_run": false,
+  "publication_authorized_by_user": "Save the version that won50Chimp and49Diamond",
+  "qualification_sha256": "2cac50576bfe74b3b5d566b889ffa3ce96ef1b3c5e1fd9b270783e550e8de0d0",
+  "source": "/workspace/robocode-user/perfection/duel-perfect-v438/shield/equipe/titanprime.java",
+  "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+  "jar": "/workspace/robocode-user/perfection/duel-perfect-v438/checkpoints/chimp50/titanprime-4.38.jar",
+  "jar_sha256": "88671e0f96916c72a5d72ee375b9402b7356d7ebb143045fc73471b97641ba7f",
+  "classes": 117,
+  "classfile_major": 52,
+  "version": "4.38-timed-opening",
+  "java": "/workspace/robocode-tools/jre17/jdk-17.0.21+9-jre/bin/java",
+  "java_version": "openjdk version \"17.0.21\" 2026-10-20\nOpenJDK Runtime Environment Temurin-17.0.21+9 (build 17.0.21+9)\nOpenJDK 64-Bit Server VM Temurin-17.0.21+9 (build 17.0.21+9, mixed mode, sharing)",
+  "no_compilation": true,
+  "fresh_engine_per_case": true,
+  "sequential": true,
+  "no_competitive_threshold": true,
+  "cases": [
+    {
+      "name": "chimp3",
+      "passed": true,
+      "rounds": 3,
+      "scope": "Runtime installation check only; no competitive win or point threshold.",
+      "checks": {
+        "process_completed": true,
+        "engine_completed": true,
+        "robocode_1_12_0": true,
+        "exact_jar_roster": true,
+        "exact_result_roster": true,
+        "all_rounds_completed": true,
+        "no_runtime_errors": true,
+        "own_learning_saved": true,
+        "owner_all_rounds": true,
+        "shield_diagnostic_all_rounds": true,
+        "shield_executed_in_duel": true,
+        "only_packaged_own_code": true,
+        "unchanged_packaged_jar": true,
+        "unchanged_frozen_source": true,
+        "same_reference_cpu": true
+      },
+      "scores": [
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 211,
+          "firsts": 1
+        },
+        {
+          "robot": "equipe.titanprime 4.38-timed-opening",
+          "points": 147,
+          "firsts": 2
+        }
+      ],
+      "errors": [],
+      "process_returncode": 0,
+      "timed_out": false,
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+      "jar_sha256": "88671e0f96916c72a5d72ee375b9402b7356d7ebb143045fc73471b97641ba7f",
+      "opponent_sha256": {
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": "1f853b920b7fbabad023f78cf21c2599f0fcf3f9615f0e930ddf0f7a8c4cb4bc"
+      },
+      "config_sha256": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c",
+      "cpu_constant_ns": 10030489,
+      "runner_sha256": "79d1721e912bceff039168b7e80b5e1053a439af8b33f1202f8e40b5dfd8777f",
+      "log": "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/chimp3/battle.log",
+      "log_sha256": "2a95214c6030ed01137017b47f3f01865a4b9e95aad4d9c1eb2dc4fa9afd7b6a",
+      "command": [
+        "/workspace/robocode-tools/jre17/jdk-17.0.21+9-jre/bin/java",
+        "-Xmx768m",
+        "-Djava.awt.headless=true",
+        "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED",
+        "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED",
+        "--add-opens=java.desktop/javax.swing.text=ALL-UNNAMED",
+        "--add-opens=java.desktop/sun.awt=ALL-UNNAMED",
+        "-cp",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/chimp3:/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/chimp3/engine/libs/*",
+        "eliterunner",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/chimp3/engine",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/chimp3/smoke.suite"
+      ],
+      "owner_records": [
+        {
+          "round": "1",
+          "movement": "true",
+          "surf": "true",
+          "max_velocity": "8.0"
+        },
+        {
+          "round": "2",
+          "movement": "true",
+          "surf": "true",
+          "max_velocity": "8.0"
+        },
+        {
+          "round": "3",
+          "movement": "true",
+          "surf": "true",
+          "max_velocity": "8.0"
+        }
+      ],
+      "shield_records": [
+        {
+          "round": "1",
+          "active_ticks": "587",
+          "attempts": "35",
+          "shots": "34",
+          "collisions": "34",
+          "received": "3",
+          "aborted": "true",
+          "warmup_ticks": "20",
+          "opening_ticks": "11",
+          "activation_time": "47",
+          "first_received_time": "73"
+        },
+        {
+          "round": "2",
+          "active_ticks": "241",
+          "attempts": "16",
+          "shots": "13",
+          "collisions": "13",
+          "received": "3",
+          "aborted": "true",
+          "warmup_ticks": "20",
+          "opening_ticks": "11",
+          "activation_time": "31",
+          "first_received_time": "251"
+        },
+        {
+          "round": "3",
+          "active_ticks": "525",
+          "attempts": "32",
+          "shots": "32",
+          "collisions": "32",
+          "received": "0",
+          "aborted": "false",
+          "warmup_ticks": "20",
+          "opening_ticks": "11",
+          "activation_time": "47",
+          "first_received_time": "-1"
+        }
+      ],
+      "confirmed_shield_collisions": 79
+    },
+    {
+      "name": "melee1",
+      "passed": true,
+      "rounds": 1,
+      "scope": "Runtime installation check only; no competitive win or point threshold.",
+      "checks": {
+        "process_completed": true,
+        "engine_completed": true,
+        "robocode_1_12_0": true,
+        "exact_jar_roster": true,
+        "exact_result_roster": true,
+        "all_rounds_completed": true,
+        "no_runtime_errors": true,
+        "own_learning_saved": true,
+        "owner_all_rounds": true,
+        "shield_diagnostic_all_rounds": true,
+        "shield_executed_in_duel": true,
+        "only_packaged_own_code": true,
+        "unchanged_packaged_jar": true,
+        "unchanged_frozen_source": true,
+        "same_reference_cpu": true
+      },
+      "scores": [
+        {
+          "robot": "equipe.titanprime 4.38-timed-opening",
+          "points": 310,
+          "firsts": 1
+        },
+        {
+          "robot": "titan.TitanV3 3.0",
+          "points": 213,
+          "firsts": 0
+        },
+        {
+          "robot": "review.main.chimpazecomsarna.ChimpazeComSarna 1",
+          "points": 92,
+          "firsts": 0
+        },
+        {
+          "robot": "voidious.Diamond 1.8.28",
+          "points": 20,
+          "firsts": 0
+        }
+      ],
+      "errors": [],
+      "process_returncode": 0,
+      "timed_out": false,
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+      "jar_sha256": "88671e0f96916c72a5d72ee375b9402b7356d7ebb143045fc73471b97641ba7f",
+      "opponent_sha256": {
+        "voidious.Diamond 1.8.28": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+        "review.main.chimpazecomsarna.ChimpazeComSarna 1": "1f853b920b7fbabad023f78cf21c2599f0fcf3f9615f0e930ddf0f7a8c4cb4bc",
+        "titan.TitanV3 3.0": "cc0a7ccdc8a481031a49bd95842c8971ba3f964a80c70bdddbdc67d7fb59fee4"
+      },
+      "config_sha256": "ceeccceb2c375fc216d8344fa2abc840d8c93e3bd0bcd43b7f8f9242fd696c6c",
+      "cpu_constant_ns": 10030489,
+      "runner_sha256": "79d1721e912bceff039168b7e80b5e1053a439af8b33f1202f8e40b5dfd8777f",
+      "log": "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/melee1/battle.log",
+      "log_sha256": "b90bd9e8b5532d56cff7840f5a1c9d5f9a4af27b6533cc90499d076400906412",
+      "command": [
+        "/workspace/robocode-tools/jre17/jdk-17.0.21+9-jre/bin/java",
+        "-Xmx768m",
+        "-Djava.awt.headless=true",
+        "--add-opens=java.base/sun.net.www.protocol.jar=ALL-UNNAMED",
+        "--add-opens=java.base/java.lang.reflect=ALL-UNNAMED",
+        "--add-opens=java.desktop/javax.swing.text=ALL-UNNAMED",
+        "--add-opens=java.desktop/sun.awt=ALL-UNNAMED",
+        "-cp",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/melee1:/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/melee1/engine/libs/*",
+        "eliterunner",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/melee1/engine",
+        "/workspace/robocode-user/perfection/duel-perfect-v438/jar-smoke/melee1/smoke.suite"
+      ],
+      "owner_records": [
+        {
+          "round": "1",
+          "movement": "true",
+          "surf": "true",
+          "max_velocity": "8.0"
+        }
+      ],
+      "shield_records": [
+        {
+          "round": "1",
+          "active_ticks": "0",
+          "attempts": "0",
+          "shots": "0",
+          "collisions": "0",
+          "received": "0",
+          "aborted": "false",
+          "warmup_ticks": "0",
+          "opening_ticks": "0",
+          "activation_time": "-1",
+          "first_received_time": "-1"
+        }
+      ],
+      "confirmed_shield_collisions": 0
+    }
+  ]
+}

@@ -1,22 +1,25 @@
-# Titan Prime 4.32 — checkpoint preservado
+# Titan Prime 4.38
 
-Variante salva por solicitação do usuário após vencer **50/50 contra o Diamond 1.8.28**. O código continua em um único [titanprime.java](robots/equipe/titanprime.java), classe `equipe.titanprime`, sem comentários no Java.
+Variante salva por solicitação do usuário. Um único [titanprime.java](robots/equipe/titanprime.java), classe `equipe.titanprime`, sem comentários no Java.
 
 | Adversário | Vitórias | Pontos Titan | Pontos adversário |
 | --- | ---: | ---: | ---: |
-| Diamond 1.8.28 | 50/50 | 3.695 | 1.807 |
-| ChimpazeComSarna | 47/50 | 4.181 | 1.913 |
+| ChimpazeComSarna | 50/50 | 3.042 | 503 |
+| Diamond 1.8.28 | 49/50 | 3.637 | 1.739 |
 
-As duas batalhas usaram exatamente a mesma fonte, sem aprendizado importado: Robocode 1.12.0, arena 800×600, orçamento de cerca de 10,03 ms por turno igual para os participantes e largadas aleatórias. Os adversários originais permaneceram inalterados. [Resultados, regras, hashes, logs e derrotas](tests/elite/v432/leia-me.md).
+As duas séries válidas usaram exatamente a mesma fonte, nova JVM, aprendizado inicialmente vazio, adversários originais, arena 800×600 e orçamento igual de cerca de 10,03 ms por turno. As largadas foram aleatórias. A meta de 50/50 contra ambos ainda não foi atingida: a derrota contra Diamond no round41 está preservada.
 
-A meta de 50/50 contra os dois ainda não foi atingida. A melhoria contra o ChimpazeComSarna continua em experiências separadas; este checkpoint será mantido.
+A variante mantém Wave Surfing, miras adaptativas e aprendizado persistente. Acrescenta interceptação de tiros fortes: estima ondas, desloca o robô lateralmente e calcula o cruzamento de um tiro leve com a trajetória estimada. Após três impactos, retorna à defesa normal. A abertura permite movimento durante o aquecimento inicial e prepara a parada antes do primeiro disparo. O controlador usa observações do combate, sem escolher estratégias pelo nome do adversário.
 
-A atualização restaura a cadência de tiros fracos em situações de pouca energia, aplica a potência de recuperação depois da redução cúbica e reduz tiros fortes quando seus próprios resultados observados são ruins. Os critérios são baseados nas observações do combate, não em nomes de adversários.
+Também corrige a referência do controlador de movimento entre rounds e inicializa a previsão de velocidade máxima em8, conforme a física do jogo. Cores e comemoração foram mantidas.
 
-- [JAR completo 4.32](releases/titanprime-4.32.jar) e [metadados](releases/titanprime-4.32.json), com todas as 115 classes internas e bytecode compatível com Java 8.
-- [Instalação](como-testar.md) e [aprendizado entre batalhas](aprendizado.md).
-- [4.31 preservada](releases/titanprime-4.31.jar), [4.28](releases/titanprime-4.28.jar) e [4.15](releases/titanprime-4.15.jar).
+- [JAR completo 4.38](releases/titanprime-4.38.jar), [metadados](releases/titanprime-4.38.json) e [instalação](como-testar.md).
+- [Resultados, hashes, logs e derrota](tests/elite/v438/leia-me.md).
+- [4.32 preservada](releases/titanprime-4.32.jar) e [seus resultados](tests/elite/v432/leia-me.md).
+- [Histórico completo](status-dos-testes.md) e [aprendizado entre batalhas](aprendizado.md).
 
-Fonte avaliada e publicada: SHA256 `63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737`. O JAR foi montado com as próprias classes compiladas usadas no teste de 50 rounds, sem alterar o código. Uma triagem da outra variante foi invalidada pelo motor e não foi creditada como vitória; ela permanece nos registros.
+O JAR contém117 classes, bytecode52, montadas com as próprias classes usadas nas duas séries de50 rounds. Fonte SHA256 `7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da`.
 
-O aprendizado persistente, as cores e a comemoração foram mantidos. A base usa Diamond, de Voidious, e KNN de Rednaxela; os [avisos obrigatórios](licenses/source-notices.txt) continuam no projeto e no JAR.
+A base usa Diamond, de Voidious, e KNN de Rednaxela; os [avisos obrigatórios](licenses/source-notices.txt) permanecem no projeto e no JAR.
+
+O JAR empacotado passou em Java17: duelo de3 rounds com o Chimpanzé e Melee de1 round com Diamond, Chimpanzé eTitanV3. Verificação de instalação, separada das séries competitivas.

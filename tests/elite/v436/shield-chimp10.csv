@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.36-shield,f852e8bb2a911cd0,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,748,0,0.0,747,61,12,12.099999999999985,7.199999999999999,93.79999999999991,5,0,1,663,747,39,5
+reserved-1,4.36-shield,f852e8bb2a911cd0,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,626,1,40.34999999999994,626,44,9,27.399999999999995,22.5,48.0,3,0,0,522,626,33,3
+reserved-1,4.36-shield,f852e8bb2a911cd0,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,722,1,42.5999999999999,722,57,10,12.69999999999999,3.9999999999999996,48.0,8,0,0,396,722,34,3
+reserved-1,4.36-shield,f852e8bb2a911cd0,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,681,1,74.33000000000015,681,43,1,10.269999999999994,0.4,16.0,32,0,0,20,681,5,1
+reserved-1,4.36-shield,f852e8bb2a911cd0,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,727,0,0.0,727,61,13,6.499999999999993,5.2,97.59999999999994,8,0,0,517,727,36,6
+reserved-1,4.36-shield,f852e8bb2a911cd0,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,685,1,58.700000000000045,685,42,2,10.199999999999996,0.8,32.0,34,0,0,22,685,6,2
+reserved-1,4.36-shield,f852e8bb2a911cd0,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,671,1,79.90000000000019,671,42,0,7.399999999999997,0.0,13.0,36,0,0,654,671,1,1
+reserved-1,4.36-shield,f852e8bb2a911cd0,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,714,1,68.90000000000023,714,45,1,5.6999999999999975,0.4,26.0,36,0,0,686,714,3,2
+reserved-1,4.36-shield,f852e8bb2a911cd0,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,630,0,0.0,630,47,8,9.49999999999999,3.1999999999999997,84.79999999999998,14,0,0,411,630,22,4
+reserved-1,4.36-shield,f852e8bb2a911cd0,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,687,1,57.30000000000004,687,42,0,10.999999999999996,0.0,32.0,36,0,0,0,687,4,2

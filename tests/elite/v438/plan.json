@@ -1,0 +1,56 @@
+{
+  "profiles": [
+    {
+      "name": "shield",
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    }
+  ],
+  "base_source": "/workspace/robocode-user/perfection/duel-perfect-v437/shield/equipe/titanprime.java",
+  "base_source_sha256": "fdaadd109058c0328195d63550d7e7a9fd993ceff44b2e0c768d90be687c9dc2",
+  "diagnostic_version": "4.38-timed-opening",
+  "hypothesis": "Use the initial period in which the standard initial gun heat prevents firing for normal positioning, then stop early enough for a stationary first possible incoming shot. This removes the unnecessary first20ticks of immobility while retaining stationary-headon shielding geometry.",
+  "changes": [
+    "When no first true shot has been observed, openingDecision returns NORMAL_WARMUP3 for local times below20, HOLD1 from20through34, and RELEASE0 at35or later.",
+    "During NORMAL_WARMUP, prepare returns after tracking real stationarity and increments warmupTicks; it leaves all normal movement commands produced by the movement manager intact.",
+    "Observed first shots are classified using the existing strong-shot, range, energy, age, and stationarity conditions before the no-shot warmup branch can apply.",
+    "Retain opening gun suppression, normal gun data/aim/radar updates, the three-tick stationary eligibility requirement, and same-tick strong-shot handling.",
+    "Add warmup_ticks to the existing per-round TITAN_SHIELD diagnostic.",
+    "Leave the actual intercept solver,60pixel minimum, sidestep, phase selection, firing checks, bullet accounting, endgame exit, three-hit abort, owner binding, and memory format unchanged."
+  ],
+  "mechanism": {
+    "initial_gun_heat": 3.0,
+    "standard_cooling_rate": 0.1,
+    "earliest_initial_fire_tick": 30,
+    "normal_positioning_ticks": "0..19",
+    "stop_command_begins": 20,
+    "maximum_deceleration_ticks_from_velocity8": 4,
+    "expected_zero_velocity_by": 24,
+    "stationary_scans_before_initial_fire": "At least two prior scans remain available before the standard first possible shot at30; existing stationarySince/fireTime guards remain authoritative."
+  },
+  "legality": {
+    "opponent_name_branches": false,
+    "hidden_bullet_angles": false,
+    "reflection": false,
+    "new_runtime_file_access": false,
+    "sources": "Standard Robocode initial gun heat and cooling mechanics, public scans, own state and commands, inferred true waves, and delivered bullet events only."
+  },
+  "checker": "/workspace/robocode-user/perfection/duel-perfect-v438/shield/check_shield.py",
+  "validation": {
+    "deferred_until_current_battle_completes": true,
+    "checker_execution_during_preparation": false,
+    "required": [
+      "Compile the complete frozen robot using ECJ, then invoke the actual production openingDecision API for normal warmup, hold, observed weak/strong shots, timeout, and existing guards.",
+      "Invoke the unchanged actual Java solveShieldIntercept for288valid trajectories and39rejections; validate returned trajectories with independent engine segment intersections and robot-box clipping.",
+      "Verify source integration and frozen source identity before root writes files-ready.json."
+    ]
+  },
+  "confirmation_order": [
+    "Finish the currently active v437D50without interruption, then run the deferred production checker for v438.",
+    "Fresh original C10screen; advance only with at least9wins, scorelead, and confirmed shield-specific collisions.",
+    "Fresh original C50only after a qualifying C10; stop for review if C10orC50fails.",
+    "Fresh D50only after a qualifying C50, using the same frozen source hash."
+  ],
+  "fresh_jvm_and_data": true,
+  "case_ids_are_not_rng_seeds": true,
+  "automatic_publication": false
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "Experimental sources only; see release metadata for saved production checkpoint. Invalid runs are excluded from win claims. Different sources and cold/warm series are separate. All trials and defeats retained.",
+  "cases": [
+    {
+      "case": "owner-chimp50",
+      "report": "owner-chimp50.json",
+      "source_sha256": "71935b6dfd3125d8a6869ef9d063e87dd23ec44eaf9bace04e3f62f5af835c7d",
+      "valid": true,
+      "accepted": false
+    },
+    {
+      "case": "owner-diamond20",
+      "report": "owner-diamond20.json",
+      "source_sha256": "71935b6dfd3125d8a6869ef9d063e87dd23ec44eaf9bace04e3f62f5af835c7d",
+      "valid": true,
+      "accepted": false
+    }
+  ],
+  "all_rounds_goal_met": false
+}

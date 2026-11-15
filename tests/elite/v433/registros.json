@@ -1,0 +1,35 @@
+{
+  "archive_sha256": "0da32f8b1a98039de62010f37868607ff3ac2ef0e2ab37eae58a6215436aadb7",
+  "logs": [
+    {
+      "path": "comeback-chimp10-reserved-1.log",
+      "bytes": 48518,
+      "sha256": "6346268614f8ac9c21e4250a682182623fee38608879396f326b2434b090e8b0"
+    },
+    {
+      "path": "comeback-chimp50-reserved-1.log",
+      "bytes": 242878,
+      "sha256": "ebab97eb0d4e9f151c9ef7b534b40004995444ac09113f4e00c8ed7318ebb6a1"
+    },
+    {
+      "path": "comeback-diamond10-reserved-1.log",
+      "bytes": 42526,
+      "sha256": "a5728e344b2d741d68972dbea25daebf5c4d3ed3f1a2a1eeb99da424aaca6f65"
+    },
+    {
+      "path": "comeback-diamond50-reserved-1.log",
+      "bytes": 171781,
+      "sha256": "3b0bdaaa6f130c50624fb9c2816239d50ff5a079c1058a42aed7b314fc1f509c"
+    },
+    {
+      "path": "original-chimp10-reserved-1.log",
+      "bytes": 46305,
+      "sha256": "06f4fbf7e35f212475bbd7f805228b07c847c464f194731a1617d924478362a4"
+    },
+    {
+      "path": "original-diamond10-reserved-1.log",
+      "bytes": 32894,
+      "sha256": "36b2ed23ecb06a6be249d1cedbae1c4f4c2b4ee963322cd9877b917ae83c71f4"
+    }
+  ]
+}

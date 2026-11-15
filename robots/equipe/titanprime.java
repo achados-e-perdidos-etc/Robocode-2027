@@ -11,7 +11,7 @@ public class titanprime extends robocode.AdvancedRobot {
   private static titan_gun_Mira _gun;
   protected static titan_gfx_Cores _gfx;
   private static final float BATTLE_HUE = new java.util.Random().nextFloat();
-  private static final String DIAGNOSTIC_VERSION = "4.32-calibrated";
+  private static final String DIAGNOSTIC_VERSION = "4.38-timed-opening";
   private static final String DIAGNOSTIC_BATTLE =
       Long.toHexString(new java.util.Random().nextLong());
   private final java.util.Set<String> observedEnemies = new java.util.TreeSet<String>();
@@ -29,8 +29,334 @@ public class titanprime extends robocode.AdvancedRobot {
   private int bodyCollisions;
   private double bulletBonuses, observedPassiveDrain;
   private final EnergyBalance energyBalance = new EnergyBalance();
+  private final BulletShield shield = new BulletShield(this);
 
-  private double _maxVelocity;
+  private void prepareShield() {
+    shield.prepare();
+  }
+
+  static final class BulletShield {
+    final titanprime robot;
+    final java.util.Set<robocode.Bullet> ownBullets = new java.util.HashSet<robocode.Bullet>();
+    boolean active, disabled, aborted;
+    boolean opening = true;
+    long activeTicks, attempts, shieldShots, collisions, received;
+    long warmupTicks, openingTicks, activationTime = -1, firstReceivedTime = -1, openingReleaseTime = -1;
+    long stationarySince = -1, handledFireTime = Long.MIN_VALUE;
+    java.awt.geom.Point2D.Double previousLocation, stepTarget;
+    double stepHeading;
+    int stepSign = 1;
+    titan_utils_Wave targetWave;
+    ShieldPlan pending;
+
+    BulletShield(titanprime robot) { this.robot = robot; }
+
+    double plannedPower() { return pending == null ? .1 : pending.power; }
+
+    boolean holdNormalFire() { return opening || robot.getTime() <= openingReleaseTime; }
+
+    void receivedHit() {
+      if (active) {
+        if (firstReceivedTime < 0) firstReceivedTime = robot.getTime();
+        if (++received >= 3) stop(true);
+      }
+    }
+
+    void stop(boolean failure) {
+      active = false;
+      disabled = true;
+      aborted |= failure;
+      pending = null;
+      targetWave = null;
+      stepTarget = null;
+      robot.setMaxVelocity(8);
+    }
+
+    void prepare() {
+      if (disabled || robot.initialOpponents != 1 || robot.getOthers() != 1) {
+        opening = false;
+        return;
+      }
+      long now = robot.getTime();
+      java.awt.geom.Point2D.Double p = new java.awt.geom.Point2D.Double(robot.getX(), robot.getY());
+      boolean stationary = Math.abs(robot.getVelocity()) < 1e-8
+          && (previousLocation == null || previousLocation.distanceSq(p) < 1e-12);
+      previousLocation = p;
+      if (stationary && stepTarget == null) {
+        if (stationarySince < 0) stationarySince = now;
+      } else stationarySince = -1;
+      titan_move_MoveEnemy enemy = _move._moveDataManager.duelEnemy();
+      if (opening) {
+        titan_utils_Wave firstShot = null;
+        if (enemy != null) {
+          for (titan_utils_Wave w : enemy._waveManager._waves) {
+            if (w.firingWave && !w.altWave && w.fireTime <= now
+                && (firstShot == null || w.fireTime < firstShot.fireTime)) firstShot = w;
+          }
+        }
+        int decision = firstShot == null
+            ? openingDecision(now, -1, 0, 0, 0, robot.getEnergy(), stationarySince)
+            : openingDecision(now, firstShot.fireTime, firstShot.bulletPower(),
+                firstShot.sourceLocation.distance(firstShot.targetLocation),
+                enemy.distance, robot.getEnergy(), stationarySince);
+        if (decision == 3) {
+          warmupTicks++;
+          return;
+        }
+        if (decision == 1) {
+          openingTicks++;
+          robot.setMaxVelocity(0);
+          robot.setAhead(0);
+          holdPerpendicular(enemy, p);
+          return;
+        }
+        opening = false;
+        openingReleaseTime = now;
+        if (decision == 2) {
+          active = true;
+          activationTime = now;
+        } else return;
+      }
+      if (enemy == null || enemy.lastScanState == null) return;
+      if (!active) {
+        if (robot.getEnergy() <= 35 || enemy.distance < 275
+            || enemy.lastScanState.time < now - 1) return;
+        boolean eligible = false;
+        for (titan_utils_Wave w : enemy._waveManager._waves) {
+          long age = now - w.fireTime;
+          if (w.firingWave && !w.altWave && !w.processedBulletHit()
+              && age >= 0 && age <= 4 && w.bulletPower() >= 2.4
+              && w.sourceLocation.distance(w.targetLocation) >= 275) {
+            eligible = true;
+            break;
+          }
+        }
+        if (!eligible) return;
+        active = true;
+        activationTime = now;
+      }
+      activeTicks++;
+      if (enemy.energy <= .2 && !hasLiveWave(enemy, p, now)) {
+        stop(false);
+        return;
+      }
+
+      if (stepTarget != null) {
+        double remaining = (stepTarget.x - p.x) * Math.sin(stepHeading)
+            + (stepTarget.y - p.y) * Math.cos(stepHeading);
+        robot.setTurnRightRadians(robocode.util.Utils.normalRelativeAngle(
+            stepHeading - robot.getHeadingRadians()));
+        robot.setMaxVelocity(2);
+        robot.setAhead(remaining);
+        if (stepTarget.distanceSq(p) < 1e-8 && Math.abs(robot.getVelocity()) < 1e-8) {
+          stepTarget = null;
+          stationarySince = now;
+          robot.setMaxVelocity(0);
+          robot.setAhead(0);
+        }
+        return;
+      }
+
+      robot.setMaxVelocity(0);
+      robot.setAhead(0);
+      holdPerpendicular(enemy, p);
+      if (targetWave != null || stationarySince < 0) return;
+
+      titan_utils_Wave candidate = null;
+      for (titan_utils_Wave w : enemy._waveManager._waves) {
+        long age = now - w.fireTime;
+        if (w.firingWave && !w.altWave && !w.processedBulletHit()
+            && w.fireTime > handledFireTime && age >= 0 && age <= 6
+            && w.fireTime >= stationarySince + 3 && Math.abs(w.targetVelocity) < .01
+            && (candidate == null || w.fireTime < candidate.fireTime)) candidate = w;
+      }
+      if (candidate == null) return;
+      double rayX = candidate.targetLocation.x - candidate.sourceLocation.x;
+      double rayY = candidate.targetLocation.y - candidate.sourceLocation.y;
+      double rayLength = Math.hypot(rayX, rayY);
+      if (!Double.isFinite(rayLength) || rayLength < 1e-9) return;
+      double heading = robot.getHeadingRadians();
+      java.awt.geom.Point2D.Double next = titan_utils_Matematica.project(p, heading, stepSign * 8);
+      double lateral = Math.abs((next.x - candidate.sourceLocation.x) * rayY / rayLength
+          - (next.y - candidate.sourceLocation.y) * rayX / rayLength);
+      if (lateral < 4 || next.x < 20 || next.y < 20
+          || next.x > robot.getBattleFieldWidth() - 20
+          || next.y > robot.getBattleFieldHeight() - 20) return;
+      targetWave = candidate;
+      handledFireTime = candidate.fireTime;
+      attempts++;
+      stepHeading = heading;
+      stepTarget = next;
+      robot.setTurnRightRadians(0);
+      robot.setMaxVelocity(2);
+      robot.setAhead(stepSign * 8);
+      stepSign = -stepSign;
+      stationarySince = -1;
+    }
+
+    void holdPerpendicular(titan_move_MoveEnemy enemy, java.awt.geom.Point2D.Double p) {
+      if (enemy == null || enemy.lastScanState == null) {
+        robot.setTurnRightRadians(0);
+        return;
+      }
+      double bearing = titan_utils_Matematica.absoluteBearing(p, enemy.lastScanState.location);
+      double perpendicular = bearing + Math.PI / 2;
+      double opposite = perpendicular + Math.PI;
+      if (Math.abs(robocode.util.Utils.normalRelativeAngle(opposite - robot.getHeadingRadians()))
+          < Math.abs(robocode.util.Utils.normalRelativeAngle(perpendicular - robot.getHeadingRadians()))) {
+        perpendicular = opposite;
+      }
+      robot.setTurnRightRadians(robocode.util.Utils.normalRelativeAngle(
+          perpendicular - robot.getHeadingRadians()));
+    }
+
+    static int openingDecision(long now, long fireTime, double power, double shotDistance,
+        double currentDistance, double ownEnergy, long stationarySince) {
+      if (fireTime < 0) return now < 20 ? 3 : now < 35 ? 1 : 0;
+      if (!Double.isFinite(power) || !Double.isFinite(shotDistance)
+          || !Double.isFinite(currentDistance) || !Double.isFinite(ownEnergy)) return 0;
+      long age = now - fireTime;
+      return age >= 0 && age <= 4 && power >= 2.4 && shotDistance >= 275
+          && currentDistance >= 275 && ownEnergy > 35 && stationarySince >= 0
+          && fireTime >= stationarySince + 3 ? 2 : 0;
+    }
+
+    boolean hasLiveWave(titan_move_MoveEnemy enemy, java.awt.geom.Point2D.Double p, long now) {
+      for (titan_utils_Wave w : enemy._waveManager._waves) {
+        if (w.firingWave && !w.altWave && !w.processedBulletHit()
+            && w.sourceLocation.distance(p) - w.distanceTraveled(now)
+                > -titan_utils_Wave.MAX_BOT_RADIUS - w.bulletSpeed()) return true;
+      }
+      return false;
+    }
+
+    void aimAndFire(titan_gun_Mira gun) {
+      long now = robot.getTime();
+      if (stepTarget != null || targetWave == null) {
+        titan_move_MoveEnemy enemy = _move._moveDataManager.duelEnemy();
+        if (enemy != null) {
+          double angle = titan_utils_Matematica.absoluteBearing(
+              new java.awt.geom.Point2D.Double(robot.getX(), robot.getY()), enemy.lastScanState.location);
+          robot.setTurnGunRightRadians(robocode.util.Utils.normalRelativeAngle(
+              angle - robot.getGunHeadingRadians()));
+        }
+        return;
+      }
+      if (targetWave.processedBulletHit()) { pending = null; targetWave = null; return; }
+      if (pending != null && pending.fireTime == now && robot.getGunHeat() == 0
+          && Math.abs(robocode.util.Utils.normalRelativeAngle(
+              pending.angle - robot.getGunHeadingRadians())) < 1e-9
+          && Math.hypot(robot.getX() - pending.x, robot.getY() - pending.y) < 1e-6
+          && Math.abs(robot.getVelocity()) < 1e-8 && robot.getEnergy() > pending.power) {
+        robocode.Bullet bullet = gun.setFireBulletLogged(pending.power);
+        if (bullet != null) {
+          ownBullets.add(bullet);
+          shieldShots++;
+          titan_gun_GunEnemy enemy = gun._gunDataManager.duelEnemy();
+          if (enemy != null) {
+            titan_utils_Wave firingWave = enemy._waveManager.getWaveByFireTime(now);
+            if (firingWave != null) firingWave.setBulletPower(pending.power);
+          }
+          gun._gunDataManager.markFiringWaves(now, true);
+          pending = null;
+          targetWave = null;
+          return;
+        }
+      }
+      pending = null;
+      if (robot.getGunHeat() > robot.getGunCoolingRate() + 1e-9) return;
+      double[] result = solveShieldIntercept(targetWave.sourceLocation.x,
+          targetWave.sourceLocation.y, targetWave.targetLocation.x,
+          targetWave.targetLocation.y, targetWave.bulletSpeed(),
+          now + 1 - targetWave.fireTime, robot.getX(), robot.getY(), .1);
+      if (result != null && phaseMargin(result[1]) < .15) {
+        for (int i = 1; i <= 40; i++) {
+          double[] alternative = solveShieldIntercept(targetWave.sourceLocation.x,
+              targetWave.sourceLocation.y, targetWave.targetLocation.x,
+              targetWave.targetLocation.y, targetWave.bulletSpeed(),
+              now + 1 - targetWave.fireTime, robot.getX(), robot.getY(), .1 + i * .01);
+          if (alternative != null && phaseMargin(alternative[1]) > phaseMargin(result[1])) {
+            result = alternative;
+          }
+        }
+      }
+      if (result == null) { targetWave = null; return; }
+      pending = new ShieldPlan(now + 1, robot.getX(), robot.getY(), result[0], result[4]);
+      robot.setTurnGunRightRadians(robocode.util.Utils.normalRelativeAngle(
+          pending.angle - robot.getGunHeadingRadians()));
+    }
+
+    static double phaseMargin(double time) {
+      double fraction = time - Math.floor(time);
+      return Math.min(fraction, 1 - fraction);
+    }
+
+    static double[] solveShieldIntercept(double sx, double sy, double ax, double ay,
+        double enemySpeed, double elapsed, double px, double py, double power) {
+      double[] inputs = {sx, sy, ax, ay, enemySpeed, elapsed, px, py, power};
+      for (double input : inputs) if (!Double.isFinite(input)) return null;
+      if (enemySpeed < 11 || enemySpeed > 19.7 || elapsed < 0 || power < .1 || power > .5) return null;
+      double length = Math.hypot(ax - sx, ay - sy);
+      if (length < 1e-9) return null;
+      double dx = (ax - sx) / length, dy = (ay - sy) / length;
+      double lateral = Math.abs((px - sx) * dy - (py - sy) * dx);
+      if (lateral < 4) return null;
+      double bx = sx + enemySpeed * elapsed * dx;
+      double by = sy + enemySpeed * elapsed * dy;
+      double qx = bx - px, qy = by - py;
+      double speed = 20 - 3 * power;
+      double a = enemySpeed * enemySpeed - speed * speed;
+      double b = 2 * enemySpeed * (qx * dx + qy * dy);
+      double c = qx * qx + qy * qy;
+      double time = Double.POSITIVE_INFINITY;
+      if (Math.abs(a) < 1e-9) {
+        if (b < 0) time = -c / b;
+      } else {
+        double discriminant = b * b - 4 * a * c;
+        if (discriminant < 0 || !Double.isFinite(discriminant)) return null;
+        double root = Math.sqrt(discriminant);
+        double first = (-b - root) / (2 * a), second = (-b + root) / (2 * a);
+        if (first > 0) time = first;
+        if (second > 0) time = Math.min(time, second);
+      }
+      if (!Double.isFinite(time) || time <= 0 || speed * time < 60) return null;
+      double entry = Double.NEGATIVE_INFINITY, exit = Double.POSITIVE_INFINITY;
+      double[] positions = {bx, by}, centers = {px, py};
+      double[] velocities = {enemySpeed * dx, enemySpeed * dy};
+      for (int axis = 0; axis < 2; axis++) {
+        if (Math.abs(velocities[axis]) < 1e-12) {
+          if (Math.abs(positions[axis] - centers[axis]) > 18) return null;
+        } else {
+          double first = (centers[axis] - 18 - positions[axis]) / velocities[axis];
+          double second = (centers[axis] + 18 - positions[axis]) / velocities[axis];
+          entry = Math.max(entry, Math.min(first, second));
+          exit = Math.min(exit, Math.max(first, second));
+        }
+      }
+      if (exit < Math.max(0, entry) || entry <= time + 1) return null;
+      double ix = bx + enemySpeed * time * dx, iy = by + enemySpeed * time * dy;
+      if (!Double.isFinite(ix) || !Double.isFinite(iy)) return null;
+      return new double[] {Math.atan2(ix - px, iy - py), time, ix, iy, power};
+    }
+
+    void report() {
+      robot.out.println("TITAN_SHIELD round=" + (robot.getRoundNum() + 1)
+          + " active_ticks=" + activeTicks + " attempts=" + attempts + " shots=" + shieldShots
+          + " collisions=" + collisions + " received=" + received + " aborted=" + aborted
+          + " warmup_ticks=" + warmupTicks + " opening_ticks=" + openingTicks + " activation_time=" + activationTime
+          + " first_received_time=" + firstReceivedTime);
+    }
+  }
+
+  static final class ShieldPlan {
+    final long fireTime;
+    final double x, y, angle, power;
+    ShieldPlan(long fireTime, double x, double y, double angle, double power) {
+      this.fireTime = fireTime; this.x = x; this.y = y; this.angle = angle; this.power = power;
+    }
+  }
+
+  private double _maxVelocity = robocode.Rules.MAX_VELOCITY;
 
   static {
     titan_utils_ErrorLogger.enabled = _LOG_ERRORS;
@@ -63,6 +389,7 @@ public class titanprime extends robocode.AdvancedRobot {
         _gfx.updatePaintProcessing();
         if (!_TC) {
           _move.execute();
+          prepareShield();
         }
         if (!_MC) {
           _gun.execute();
@@ -97,6 +424,10 @@ public class titanprime extends robocode.AdvancedRobot {
     _move.initRound(this);
     _gun.initRound(this);
     loadBattleMemory();
+    out.println("TITAN_ROUND_OWNER round=" + (getRoundNum() + 1)
+        + " movement=" + (_move.getRobot() == this)
+        + " surf=" + (_move._surfMover._robot == this)
+        + " max_velocity=" + getMaxVelocity());
   }
 
   private void initColors() {
@@ -171,6 +502,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onHitByBullet(robocode.HitByBulletEvent e) {
+    shield.receivedHit();
     if (recordDiagnosticEvent(e.getTime())) receivedNominal += robocode.Rules.getBulletDamage(e.getPower());
     try {
       if (!_TC) {
@@ -183,6 +515,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletHit(robocode.BulletHitEvent e) {
+    shield.ownBullets.remove(e.getBullet());
     settleStrongBullet(e.getBullet(), e.getName().equals(policyTarget));
     if (policyBullets.remove(e.getBullet()) && e.getName().equals(policyTarget)) policyHits++;
 
@@ -201,6 +534,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletMissed(robocode.BulletMissedEvent e) {
+    shield.ownBullets.remove(e.getBullet());
     settleStrongBullet(e.getBullet(), false);
     policyBullets.remove(e.getBullet());
 
@@ -208,6 +542,7 @@ public class titanprime extends robocode.AdvancedRobot {
   }
 
   public void onBulletHitBullet(robocode.BulletHitBulletEvent e) {
+    if (shield.ownBullets.remove(e.getBullet())) shield.collisions++;
     settleStrongBullet(e.getBullet(), false);
     policyBullets.remove(e.getBullet());
 
@@ -320,6 +655,7 @@ public class titanprime extends robocode.AdvancedRobot {
 
   private void reportRound() {
     if (!roundReported) {
+      shield.report();
       out.println("TITAN_ENERGY passive_drain=" + energyBalance.totalDrain + " body_collisions=" + bodyCollisions);
       out.println("TITAN_FIRE_POLICY round=" + (getRoundNum() + 1)
           + " shots=" + policyShots + " hits=" + policyHits);
@@ -2629,7 +2965,11 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
 
   private void aimAndFire(titan_gun_GunEnemy gunData) {
     if (gunData != null) {
-      fireIfGunTurned(_aimedBulletPower);
+      if (_robot.shield.active) {
+        _robot.shield.aimAndFire(this);
+        return;
+      }
+      if (!_robot.shield.holdNormalFire()) fireIfGunTurned(_aimedBulletPower);
 
       titan_utils_Wave aimWave = gunData.lastWaveFired;
       _aimedBulletPower = aimWave.bulletPower();
@@ -2670,6 +3010,7 @@ public static class titan_gun_Mira implements titan_gfx_RoboPainter {
   }
 
   double calculateBulletPower() {
+    if (_robot.shield.active) return _robot.shield.plannedPower();
     titan_gun_GunEnemy gunData = _gunDataManager.getClosestLivingBot(myLocation());
     double bulletPower = 3;
     if (gunData != null) {
@@ -4449,7 +4790,7 @@ public static class titan_move_Movimento implements titan_gfx_RoboPainter, titan
     _robot = robot;
     _moveDataManager.initRound();
     _meleeMover.initRound(robot, myLocation());
-    _surfMover.initRound();
+    _surfMover.initRound(robot);
     _renderables.clear();
   }
 
@@ -5796,7 +6137,8 @@ public static class titan_move_SurfMover {
     _distancer = new DistanceController();
   }
 
-  public void initRound() {
+  public void initRound(robocode.AdvancedRobot robot) {
+    _robot = robot;
     _lastSurfDestination = null;
     _stopDestination = null;
   }

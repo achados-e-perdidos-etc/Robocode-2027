@@ -1,0 +1,13 @@
+{
+  "scope": "Experimental sources only; see release metadata for saved production checkpoint. Invalid runs are excluded from win claims. Different sources and cold/warm series are separate. All trials and defeats retained.",
+  "cases": [
+    {
+      "case": "shield-chimp10",
+      "report": "shield-chimp10.json",
+      "source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2",
+      "valid": true,
+      "accepted": false
+    }
+  ],
+  "all_rounds_goal_met": false
+}

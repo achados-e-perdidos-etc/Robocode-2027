@@ -1,0 +1,11 @@
+case,version,battle,round,rounds,initial_opponents,observed_opponents,ticks,won,energy,decisions,shots,hits,spent,damage_nominal,received_nominal,bullet_collisions,walls,skipped,edge_ticks,duel_ticks,duel_shots_resolved,duel_hits_resolved
+reserved-1,4.33-comeback,90097cfa6691e69d,1,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,507,1,79.69999999999997,507,40,9,28.599999999999994,31.799999999999997,13.0,2,0,0,212,507,27,1
+reserved-1,4.33-comeback,90097cfa6691e69d,2,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,649,1,47.42500000000002,649,54,11,22.199999999999985,14.0,42.0,4,0,0,497,649,33,3
+reserved-1,4.33-comeback,90097cfa6691e69d,3,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,622,1,48.99999999999994,622,50,9,34.749999999999986,22.5,32.0,3,0,0,486,622,31,2
+reserved-1,4.33-comeback,90097cfa6691e69d,4,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,731,1,50.70000000000019,731,64,10,7.599999999999992,3.9999999999999996,45.0,2,0,0,652,731,41,3
+reserved-1,4.33-comeback,90097cfa6691e69d,5,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,714,1,51.80000000000017,714,62,11,9.799999999999995,4.3999999999999995,42.0,6,0,0,675,714,35,3
+reserved-1,4.33-comeback,90097cfa6691e69d,6,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,726,1,12.622632137345649,726,59,12,35.572159529320984,31.789583333333315,74.0,5,0,0,385,726,36,5
+reserved-1,4.33-comeback,90097cfa6691e69d,7,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,403,1,95.29999999999995,403,31,8,25.699999999999992,28.999999999999996,0.0,2,0,0,390,403,20,0
+reserved-1,4.33-comeback,90097cfa6691e69d,8,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,462,1,89.7500000000001,462,37,10,15.999999999999998,25.0,16.0,0,0,0,416,462,25,1
+reserved-1,4.33-comeback,90097cfa6691e69d,9,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,857,1,30.175000000000146,857,75,13,11.824999999999983,7.6,64.0,3,0,0,739,857,43,4
+reserved-1,4.33-comeback,90097cfa6691e69d,10,10,1,review.main.chimpazecomsarna.ChimpazeComSarna 1,567,1,95.05000000000015,567,48,9,11.324999999999998,6.0,0.0,3,0,0,453,567,29,0

@@ -1,0 +1,35 @@
+{
+  "profiles": [
+    {
+      "name": "moderate07",
+      "source_sha256": "5a2093cb4d7e2e93f02c3d8d6a84733fc0bbc590efd2899c09e2226a3b338f60",
+      "maximum": 0.7
+    },
+    {
+      "name": "moderate10",
+      "source_sha256": "d11bda8c0e5c2b7860e0b5bffc71b8f3d7157e0792d177e7d599759cb32b6eb9",
+      "maximum": 1.0
+    }
+  ],
+  "base_source": "/workspace/robocode-user/perfection/duel-perfect-v432/calibrated/equipe/titanprime.java",
+  "base_source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+  "hypothesis": "Against a sustained observed high-power opponent, supplement weak late shots with moderate pressure when actual pooled accuracy supports it, without promoting them to 1.95.",
+  "exact_changes": [
+    "Diagnostic version only otherwise identical to frozen 4.32-calibrated except the new helper and one final production call.",
+    "Add moderatePressurePower: require finite physical inputs, at least100 resolved incoming waves, at least70% high-power context, latest enemy power1.5..3, range0..525, own energy8..<35, enemy energy>8, at least20 fired shots, and smoothed pooled accuracy>=.16.",
+    "Raise only lower current power toward min(profile maximum, own energy/20, enemy energy/4), preserving any already higher current power.",
+    "Call after the existing pressureAccuracyCap and pass profile maximum through pressureAccuracyCap too, preserving the .7 brake after six poorly performing strong outcomes.",
+    "Keep original4.32pressure1.95 logic, strong tracking, movement, gun selection, and firing cadence unchanged."
+  ],
+  "screen_rounds": 30,
+  "screen_opponent": "original Chimp",
+  "screen_minimum_wins": 29,
+  "screen_requires_score_lead": true,
+  "confirmation_order": [
+    "fresh original Chimp50 only after screen qualifies",
+    "original Diamond50 only after Chimp50 is accepted"
+  ],
+  "confirmation_required_wins": 50,
+  "main_source_unchanged": true,
+  "automatic_publication": false
+}

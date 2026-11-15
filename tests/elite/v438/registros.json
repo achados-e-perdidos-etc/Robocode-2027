@@ -1,0 +1,20 @@
+{
+  "archive_sha256": "e2677af0f755e4b3eb0f5dfd052ecaf62eceff446478efbd502b7b16043a7182",
+  "logs": [
+    {
+      "path": "shield-chimp10-reserved-1.log",
+      "bytes": 36767,
+      "sha256": "d7267a326cf044318a8903062bbbbe3f90c7db1af4b7e17a0cc5ccefe9168e3b"
+    },
+    {
+      "path": "shield-chimp50-reserved-1.log",
+      "bytes": 160639,
+      "sha256": "b4565f30e5569387969a9824fcecef48f88174aefb624356e24f931af9dea673"
+    },
+    {
+      "path": "shield-diamond50-reserved-1.log",
+      "bytes": 198113,
+      "sha256": "38bfdbf79bf55e52a2fe14fb72dc7254982b18de7184eda5ab6ba9b4f7b61fe3"
+    }
+  ]
+}

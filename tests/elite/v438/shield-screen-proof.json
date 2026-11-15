@@ -1,0 +1,16 @@
+{
+  "confirmed_shield_collisions": 276,
+  "diagnostic_lines": [
+    "[equipe.titanprime*] TITAN_SHIELD round=1 active_ticks=86 attempts=6 shots=3 collisions=3 received=3 aborted=true warmup_ticks=20 opening_ticks=11 activation_time=31 first_received_time=90",
+    "[equipe.titanprime*] TITAN_SHIELD round=2 active_ticks=507 attempts=31 shots=31 collisions=31 received=0 aborted=false warmup_ticks=20 opening_ticks=11 activation_time=63 first_received_time=-1",
+    "[equipe.titanprime*] TITAN_SHIELD round=3 active_ticks=572 attempts=35 shots=35 collisions=35 received=1 aborted=false warmup_ticks=20 opening_ticks=11 activation_time=47 first_received_time=77",
+    "[equipe.titanprime*] TITAN_SHIELD round=4 active_ticks=540 attempts=34 shots=34 collisions=34 received=0 aborted=false warmup_ticks=20 opening_ticks=11 activation_time=31 first_received_time=-1",
+    "[equipe.titanprime*] TITAN_SHIELD round=5 active_ticks=54 attempts=3 shots=1 collisions=1 received=3 aborted=true warmup_ticks=20 opening_ticks=11 activation_time=47 first_received_time=83",
+    "[equipe.titanprime*] TITAN_SHIELD round=6 active_ticks=540 attempts=34 shots=34 collisions=34 received=0 aborted=false warmup_ticks=20 opening_ticks=11 activation_time=31 first_received_time=-1",
+    "[equipe.titanprime*] TITAN_SHIELD round=7 active_ticks=551 attempts=34 shots=31 collisions=31 received=3 aborted=true warmup_ticks=20 opening_ticks=11 activation_time=47 first_received_time=572",
+    "[equipe.titanprime*] TITAN_SHIELD round=8 active_ticks=605 attempts=39 shots=36 collisions=36 received=3 aborted=true warmup_ticks=20 opening_ticks=11 activation_time=31 first_received_time=359",
+    "[equipe.titanprime*] TITAN_SHIELD round=9 active_ticks=639 attempts=39 shots=39 collisions=39 received=2 aborted=false warmup_ticks=20 opening_ticks=11 activation_time=63 first_received_time=76",
+    "[equipe.titanprime*] TITAN_SHIELD round=10 active_ticks=569 attempts=36 shots=32 collisions=32 received=3 aborted=true warmup_ticks=20 opening_ticks=11 activation_time=63 first_received_time=380"
+  ],
+  "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+}

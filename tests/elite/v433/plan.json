@@ -1,0 +1,43 @@
+{
+  "started_utc": "2026-11-14T13:37:49.335136+00:00",
+  "profiles": [
+    {
+      "name": "original",
+      "source_sha256": "825727cd34098b2ab6ae4a3a777d693e009a241d16d3810a5e2aee16eac858da",
+      "base_sha256": "76f83838ab1c29867d1d5d23a5f66fda2ed3b135663fa24addd940c4cc63ae6a"
+    },
+    {
+      "name": "comeback",
+      "source_sha256": "5ea8028b52e2d8e57071bb91813351449e3d9b74c5fe7a3ccb7b973e4328486c",
+      "base_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737"
+    }
+  ],
+  "goal": "50/50originalDiamond and50/50originalChimp, same frozen source, separate fresh-data battles and point leads.",
+  "hypothesis": "Incoming strong-wave heavyweight visit flatteners were disabled at confidence-adjusted rates5.32..5.62in late calibrated losses. Enable at5.0onlyforpower>=1.5, keep5.9forweakwave and all other guards.",
+  "evidence_cases": [
+    "duel-perfect-v432/calibrated-chimp50:42",
+    "duel-perfect-v432/calibrated-chimp50:44",
+    "duel-perfect-v432/calibrated-chimp50:45"
+  ],
+  "screen_case_ids": [
+    67211,
+    67212,
+    67213,
+    67214
+  ],
+  "confirmation_case_ids": [
+    67221,
+    67222,
+    67223,
+    67224
+  ],
+  "screen_rounds": 10,
+  "confirmation_rounds": 50,
+  "reference_cpu_ns": 10030489,
+  "random_starts": true,
+  "rng_seeded": false,
+  "fresh_jvm_and_data": true,
+  "no_retry_of_valid_losses": true,
+  "automatic_publication": false,
+  "wait_for_previous": "duel-perfect-v432/complete.json"
+}

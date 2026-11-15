@@ -1,0 +1,30 @@
+{
+  "profiles": [
+    {
+      "name": "owner",
+      "source_sha256": "71935b6dfd3125d8a6869ef9d063e87dd23ec44eaf9bace04e3f62f5af835c7d"
+    }
+  ],
+  "base_source": "/workspace/robocode-user/perfection/duel-perfect-v432/calibrated/equipe/titanprime.java",
+  "base_source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+  "hypothesis": "SurfMover persists across rounds but retained first robot owner while gun/radar used the new owner; per-instance maxVelocity defaulted0instead ofphysical8. Rebind owner eachround and initialize tracker8.",
+  "changes": [
+    "Rebind SurfMover to current robot on real Movimento.initRound",
+    "Initialize own command velocity tracker to Rules.MAX_VELOCITY",
+    "One identity diagnostic perround",
+    "Preserve4.32calibrated gun, power, movementstatisticalmodels andmemory"
+  ],
+  "confirmation_order": [
+    "FreshChimp50",
+    "FreshDiamond50onlyifChimp50qualifies; otherwise20roundDiamondregression"
+  ],
+  "case_ids": [
+    67401,
+    67402
+  ],
+  "same_cpu_ns": 10030489,
+  "fresh_jvm_and_data": true,
+  "case_ids_are_not_rng_seeds": true,
+  "automatic_publication": false,
+  "started_utc": "2026-11-14T20:05:10.392892+00:00"
+}

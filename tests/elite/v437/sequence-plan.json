@@ -1,0 +1,12 @@
+{
+  "screen": "Fresh Chimp10, at least9 conservative wins plus pointlead and at least one confirmed shield-bullet collision.",
+  "confirmation": "Only qualified screen advances to freshChimp50; only acceptedChimp50advancesfreshDiamond50.",
+  "goal": "Same frozen single source must win50/50each plus pointlead against original independentlyactive foes.",
+  "reference_cpu_ns": 10030489,
+  "random_starts": true,
+  "case_ids_are_not_rng_seeds": true,
+  "fresh_jvm_and_data": true,
+  "no_retry_of_valid_losses": true,
+  "checkpoint_main": "1d87d3138ee57b9550de1d8923cedfb1c3189028",
+  "automatic_publication": false
+}

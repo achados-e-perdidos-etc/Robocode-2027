@@ -1,0 +1,16 @@
+{
+  "confirmed_shield_collisions": 340,
+  "diagnostic_lines": [
+    "[equipe.titanprime*] TITAN_SHIELD round=1 active_ticks=571 attempts=35 shots=35 collisions=35 received=1 aborted=false opening_ticks=31 activation_time=47 first_received_time=75",
+    "[equipe.titanprime*] TITAN_SHIELD round=2 active_ticks=556 attempts=34 shots=34 collisions=34 received=1 aborted=false opening_ticks=31 activation_time=63 first_received_time=87",
+    "[equipe.titanprime*] TITAN_SHIELD round=3 active_ticks=635 attempts=39 shots=39 collisions=38 received=2 aborted=false opening_ticks=31 activation_time=31 first_received_time=289",
+    "[equipe.titanprime*] TITAN_SHIELD round=4 active_ticks=526 attempts=32 shots=32 collisions=32 received=1 aborted=false opening_ticks=31 activation_time=79 first_received_time=104",
+    "[equipe.titanprime*] TITAN_SHIELD round=5 active_ticks=589 attempts=36 shots=36 collisions=36 received=2 aborted=false opening_ticks=31 activation_time=63 first_received_time=79",
+    "[equipe.titanprime*] TITAN_SHIELD round=6 active_ticks=539 attempts=33 shots=33 collisions=33 received=1 aborted=false opening_ticks=31 activation_time=63 first_received_time=95",
+    "[equipe.titanprime*] TITAN_SHIELD round=7 active_ticks=540 attempts=33 shots=33 collisions=33 received=1 aborted=false opening_ticks=31 activation_time=79 first_received_time=108",
+    "[equipe.titanprime*] TITAN_SHIELD round=8 active_ticks=540 attempts=33 shots=33 collisions=33 received=0 aborted=false opening_ticks=31 activation_time=111 first_received_time=-1",
+    "[equipe.titanprime*] TITAN_SHIELD round=9 active_ticks=511 attempts=31 shots=31 collisions=31 received=1 aborted=false opening_ticks=31 activation_time=95 first_received_time=122",
+    "[equipe.titanprime*] TITAN_SHIELD round=10 active_ticks=572 attempts=35 shots=35 collisions=35 received=1 aborted=false opening_ticks=31 activation_time=47 first_received_time=76"
+  ],
+  "source_sha256": "fdaadd109058c0328195d63550d7e7a9fd993ceff44b2e0c768d90be687c9dc2"
+}

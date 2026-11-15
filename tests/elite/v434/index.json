@@ -1,0 +1,20 @@
+{
+  "scope": "Experimental sources only; saved production checkpoint4.32-calibrated is separate. Invalid runs do not count as wins. All completed trials and defeats retained.",
+  "cases": [
+    {
+      "case": "moderate07-chimp30",
+      "report": "moderate07-chimp30.json",
+      "source_sha256": "5a2093cb4d7e2e93f02c3d8d6a84733fc0bbc590efd2899c09e2226a3b338f60",
+      "valid": true,
+      "accepted": false
+    },
+    {
+      "case": "moderate10-chimp30",
+      "report": "moderate10-chimp30.json",
+      "source_sha256": "d11bda8c0e5c2b7860e0b5bffc71b8f3d7157e0792d177e7d599759cb32b6eb9",
+      "valid": true,
+      "accepted": false
+    }
+  ],
+  "all_rounds_goal_met": false
+}

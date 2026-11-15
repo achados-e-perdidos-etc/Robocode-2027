@@ -1,0 +1,49 @@
+{
+  "profiles": [
+    {
+      "name": "shield",
+      "source_sha256": "62ba2fd7bde57a6aa4719f94b83d7cf8b14cfef8852dd7fdd1346bb4727cc0a2"
+    }
+  ],
+  "base_source": "/workspace/robocode-user/perfection/duel-perfect-v435/owner/equipe/titanprime.java",
+  "base_source_sha256": "71935b6dfd3125d8a6869ef9d063e87dd23ec44eaf9bace04e3f62f5af835c7d",
+  "diagnostic_version": "4.36-shield",
+  "hypothesis": "A generic duel shield can exploit a repeatedly inferred high-power shooter by stopping, stepping laterally after a shot, and firing a low-power bullet across the inferred headon ray before the incoming bullet reaches the robot.",
+  "changes": [
+    "Keep movement and gun data managers executing every tick; apply a round-local body override after normal movement and a shield-only branch before normal duel aiming.",
+    "Activate only in a battle that began as a duel, with own energy above35, fresh scan, current range at least275, and a true unprocessed firing wave age0..4, power at least2.4, and shot range at least275.",
+    "Require a new true wave whose fire time follows at least3 stationary ticks, target velocity below.01, and age at most6; deduplicate by fireTime.",
+    "Step alternating8pixels along the current body heading at maximum velocity2, with a prospective lateral offset at least4pixels from the old target ray and battlefield margin20.",
+    "After settling, reconstruct incoming direction from observed wave source to old stationary target, solve a continuous intercept, and plan firing for the next tick from the unchanged actual position.",
+    "Use power.1 first; only near a tick-boundary intercept consider powers.11.. .5 to improve the temporal phase margin. Require intercept distance at least60 and interception more than one full incoming tick before robot-box entry.",
+    "Fire only on the exact planned tick with cold gun, matching heading within1e-9 radians, matching position within1e-6pixels, and zero velocity; preserve logged projectile, shadow, and gun-wave tracking with actual bullet power.",
+    "Abort permanently for the round after3 received hits while active; return to ordinary movement and gun. Exit for the endgame when opponent energy is at most.2 and all true incoming waves have cleared the body.",
+    "Track actual shield bullets separately; print one TITAN_SHIELD line per round with active_ticks, attempts, shots, confirmed collisions, received hits, and aborted. No battle-memory format changes."
+  ],
+  "legality": {
+    "opponent_name_branches": false,
+    "hidden_bullet_angles": false,
+    "reflection": false,
+    "new_runtime_file_access": false,
+    "sources": "Public scans, own robot state and commands, existing energy-inferred movement waves, and public bullet events only. The incoming heading is a generic stationary-headon hypothesis, not an observed hidden bullet heading."
+  },
+  "engine_conventions": {
+    "incoming_wave_fire_time": "MoveDataManager sets fireTime=scanTime-1, source=enemy state(scanTime-1), target=own state(scanTime-2).",
+    "planning_elapsed": "When planning at local timeT for local firing atT+1, incoming elapsed=T+1-wave.fireTime; own outgoing distance is0at local fire time.",
+    "order": "Load and fire with current heading/position, update bullet segments, then cool/turn/move robots and scan.",
+    "bullet_collision": "Exact nonparallel zero-width segment intersection. Collinear overlap is not a valid shield. Robot-box collision is checked before bullet collision in the same tick."
+  },
+  "checker": "/workspace/robocode-user/perfection/duel-perfect-v436/shield/check_shield.py",
+  "confirmation_order": [
+    "Fresh original opponent C10screen; advance only with at least9wins, scorelead, and confirmed shield-specific bullet collisions.",
+    "Fresh original opponent C50only if C10qualifies; stop for review if C10orC50fails.",
+    "Fresh opponent D50only if C50qualifies, with the identical frozen source hash."
+  ],
+  "fresh_jvm_and_data": true,
+  "case_ids_are_not_rng_seeds": true,
+  "automatic_publication": false,
+  "limitations": [
+    "Shield accuracy depends on the observed shooter's future shots following the stationary-headon ray. Waves contain no exact hidden incoming heading.",
+    "Compile and production-method geometry checks cannot establish battle performance. The C10screen is a required feasibility measurement."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "sources": [
+    {
+      "name": "baseline",
+      "source_sha256": "63038a3583572531cfc4ffb73af685ff2c71445059ac684b86c5e91b46d62737",
+      "compiled_java8": true,
+      "stdout": "BASELINE_DEFECT_REPRODUCED first_owner_commands=1 current_owner_commands=0 current_default=0.0 predicted_velocity=4.0\n",
+      "stderr": ""
+    },
+    {
+      "name": "owner",
+      "source_sha256": "71935b6dfd3125d8a6869ef9d063e87dd23ec44eaf9bace04e3f62f5af835c7d",
+      "compiled_java8": true,
+      "stdout": "ACTUAL_MOVIMENTO_ROUND_REBIND_PASS rounds=3 stale_owner_commands=0\nACTUAL_PREDICTOR_DEFAULT_ACCELERATION_AND_STOP_PASS velocities=7,4\n",
+      "stderr": ""
+    }
+  ],
+  "scope": "Actual Movimento.initRound through real SurfMover.orbit for three robot instances; commands captured at API boundary, actual per-instance maxVelocity and MovementPredictor; baseline defect reproduction and corrected default acceleration/stop. No battle performance claim."
+}
