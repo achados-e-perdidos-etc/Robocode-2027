@@ -30,3 +30,7 @@ A [4.41-pc](variants/aprendizado-pc/leia-me.md) incorpora quatro perfis enviados
 
 
 [Comparação de 100 rounds entre a 4.38 e a 4.41-pc](tests/embedded-pc-memory/comparison-2026-11-21/leia-me.md): 49/50 versus 50/50 distribuídos entre quatro adversários; resultado preliminar, com ganho não uniforme. As duas versões permanecem disponíveis.
+
+## Identificação da variante
+
+A variante com aprendizado agora tem a identificação **Titan Prime 4.41**, sem o sufixo pc. [JAR identificado](releases/titanprime-v4-41.jar) e [Java identificado](variants/aprendizado-pc/equipe/titanprime_v4_41.java). O número também aparece no nome técnico `titanprime_v4_41` e no aviso inicial do console. [Instalação e pasta de aprendizado](variants/aprendizado-pc/leia-me.md). Os artefatos anteriores e o checkpoint 4.38 permanecem disponíveis.

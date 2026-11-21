@@ -1,0 +1,23 @@
+{
+  "display_name": "Titan Prime 4.41",
+  "robot_classname": "equipe.titanprime_v4_41",
+  "source_sha256": "52ae4635b7e1fc08c3b1dd8f1480910682761752e5f361aea521a967087e7422",
+  "previous_source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372",
+  "embedded_data_unchanged": true,
+  "combat_logic_unchanged": true,
+  "version": "4.41",
+  "jar_sha256": "edaa1a73d48bc5d53c6e80cbdfe70f0468c1771c70fe5d5d7f6b0eba785e96f8",
+  "classes": 117,
+  "classfile_major": 52,
+  "data_folder": "equipe/titanprime_v4_41.data",
+  "previous_data_folder": "equipe/titanprime.data",
+  "competitive_performance_retested": false,
+  "validation": {
+    "memory_checks_passed": 39,
+    "repository_name_check_passed": true,
+    "repository_name": "equipe.titanprime_v4_41",
+    "repository_version": "4.41",
+    "console_banner": "Titan Prime 4.41 | codigo carregado",
+    "new_battles_run": 0
+  }
+}

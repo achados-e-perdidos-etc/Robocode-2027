@@ -1,4 +1,16 @@
-# Titan Prime 4.41-pc — aprendizado embutido
+# Titan Prime 4.41 — aprendizado embutido
+
+## Nome com versão visível
+
+Use o [JAR Titan Prime 4.41](../../releases/titanprime-v4-41.jar) ou o [Java identificado](equipe/titanprime_v4_41.java). O nome técnico é `equipe.titanprime_v4_41`; o JAR traz a versão `4.41`. Ao iniciar, o console mostra `Titan Prime 4.41 | codigo carregado`. O nome não contém o sufixo pc.
+
+Ao copiar o fonte, mantenha o nome **titanprime_v4_41.java** em `robots/equipe`. Na compilação de desenvolvimento ele pode aparecer como `equipe.titanprime_v4_41*`; no JAR, selecione `equipe.titanprime_v4_41 4.41`. O número está no próprio nome técnico para identificar a troca nos dois formatos.
+
+Como o nome técnico mudou, a pasta de dados passa a ser `robots/equipe/titanprime_v4_41.data`. O aprendizado embutido é o mesmo. Para levar também atualizações recentes feitas no PC, feche o Robocode e copie o conteúdo de `robots/equipe/titanprime.data` para a nova pasta. Preserve os arquivos antigos como backup.
+
+A mudança é de identificação: o aprendizado e as regras de combate foram mantidos. O JAR foi reconhecido pelo Robocode 1.12.0 e as 39 verificações de memória passaram com a classe renomeada. As comparações abaixo continuam referentes à identificação anterior, sem um novo torneio para esta mudança de nome.
+
+## Versão anterior preservada
 
 Variante experimental baseada na 4.38 preservada. O único fonte do robô é [equipe/titanprime.java](equipe/titanprime.java). JAR pronto: [titanprime-4.41-pc.jar](../../releases/titanprime-4.41-pc.jar).
 

@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "source_sha256": "52ae4635b7e1fc08c3b1dd8f1480910682761752e5f361aea521a967087e7422",
+  "jar_sha256": "edaa1a73d48bc5d53c6e80cbdfe70f0468c1771c70fe5d5d7f6b0eba785e96f8",
+  "actual_registry_output": "Loaded net.sf.robocode.api\nLoaded net.sf.robocode.core\nLoaded net.sf.robocode.ui\nLoaded net.sf.robocode.sound\nLoaded net.sf.robocode.host\nLoading plugins from /workspace/titan-memory/versioned/final/name-smoke/engine/libs\nLoaded net.sf.robocode.repository\nLoaded net.sf.robocode.battle\nInitializing version check date.\nVERSIONED_ROBOT=equipe.titanprime_v4_41 VERSION=4.41 DESCRIPTION=Titan Prime 4.41. Aprendizado embutido. Single Java source.\n",
+  "actual_memory_output": "TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nEMBEDDED_MEMORY_PRODUCTION_PASS checks=39\n",
+  "combat_retested": false
+}
