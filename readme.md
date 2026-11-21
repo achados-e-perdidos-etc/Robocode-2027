@@ -36,3 +36,7 @@ A [4.41-pc](variants/aprendizado-pc/leia-me.md) incorpora quatro perfis enviados
 ## Identificação da variante
 
 A variante com aprendizado agora tem a identificação **Titan Prime 4.41**, sem o sufixo pc. [JAR identificado](releases/titanprime-v4-41.jar) e [Java identificado](variants/aprendizado-pc/equipe/titanprime_v4_41.java). O número também aparece no nome técnico `titanprime_v4_41` e no aviso inicial do console. [Instalação e pasta de aprendizado](variants/aprendizado-pc/leia-me.md). Os artefatos anteriores e o checkpoint 4.38 permanecem disponíveis.
+
+## Aprendizado atualizado e identificação
+
+O [titanprime4.41](robots/equipe/titanprime_v4_41.java) agora incorpora cinco perfis, usando a memória válida mais recente enviada pelo usuário (geração45). [JAR atual](releases/titanprime-v4-41.jar) e [análise do teste no PC](tests/embedded-pc-memory/pc-update-2026-11-21/leia-me.md). O nome técnico e a pasta de dados foram mantidos. A versão anterior de geração38 e o checkpoint4.38 continuam preservados; esta nova memória ainda não foi comparada em novas batalhas.

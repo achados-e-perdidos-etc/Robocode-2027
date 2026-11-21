@@ -1,8 +1,18 @@
-# Titan Prime 4.41 — aprendizado embutido
+# titanprime4.41 — aprendizado embutido
+
+## Memória atualizada em 21/11/2026
+
+O [Java principal](../../robots/equipe/titanprime_v4_41.java) e o [JAR atual](../../releases/titanprime-v4-41.jar) incorporam agora a geração **45** do arquivo `memoria-a.dat`, com **cinco perfis**. A geração 44 do slot B também é válida, mas é anterior. O novo perfil é `equipe.titanprime*`, com 8.392 amostras neurais; os quatro anteriores foram mantidos byte a byte. [Análise dos arquivos, placar e validação](../../tests/embedded-pc-memory/pc-update-2026-11-21/leia-me.md).
+
+A identificação ao iniciar é **titanprime4.41**. O identificador técnico continua `equipe.titanprime_v4_41`, para manter a mesma pasta `robots/equipe/titanprime_v4_41.data`. Não é necessário mover os dados novamente. Com a pasta vazia, a base embutida carrega 5 perfis na geração 45; com arquivos locais válidos, eles continuam tendo prioridade.
+
+O teste recebido foi contra outro Titan: 7/10 e 757 a 485 pontos. Não é uma nova série contra Diamond. O código com o snapshot 45 ainda não recebeu nova comparação competitiva. O [JAR anterior de geração 38](../../releases/checkpoints/titanprime-v4-41-geracao38.jar) e seu [fonte](../checkpoints/4.41-geracao38/equipe/titanprime_v4_41.java) ficam preservados.
+
+## Histórico da geração 38
 
 ## Nome com versão visível
 
-Use o [JAR Titan Prime 4.41](../../releases/titanprime-v4-41.jar) ou o [Java identificado](equipe/titanprime_v4_41.java). O nome técnico é `equipe.titanprime_v4_41`; o JAR traz a versão `4.41`. Ao iniciar, o console mostra `Titan Prime 4.41 | codigo carregado`. O nome não contém o sufixo pc.
+Use o [JAR Titan Prime 4.41](../../releases/titanprime-v4-41.jar) ou o [Java identificado](equipe/titanprime_v4_41.java). O nome técnico é `equipe.titanprime_v4_41`; o JAR traz a versão `4.41`. Ao iniciar, o console mostra `titanprime4.41 | codigo carregado`. O nome não contém o sufixo pc.
 
 Ao copiar o fonte, mantenha o nome **titanprime_v4_41.java** em `robots/equipe`. Na compilação de desenvolvimento ele pode aparecer como `equipe.titanprime_v4_41*`; no JAR, selecione `equipe.titanprime_v4_41 4.41`. O número está no próprio nome técnico para identificar a troca nos dois formatos.
 

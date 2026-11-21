@@ -1,0 +1,219 @@
+{
+  "file": "memoria-a.dat",
+  "sha256": "d545f26fbbe583b6a27ce7a203885fbc9b5545c66635d332af147559b43a4d67",
+  "bytes": 66615,
+  "valid_crc": true,
+  "schema": 2,
+  "arena": [
+    800.0,
+    600.0
+  ],
+  "cooling": 0.1,
+  "generation": 45,
+  "profiles": [
+    {
+      "name": "equipe.titanprime*",
+      "seen": 45,
+      "neural_samples": 8392,
+      "ratings": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 25.988376939604123,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 25.741061540858915,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 26.498191771075096,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 26.246749506740542,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 12
+    },
+    {
+      "name": "obrabo.OBraboBot*",
+      "seen": 38,
+      "neural_samples": 553,
+      "ratings": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 38.977445007563844,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 39.17039743339542,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 39.62816485336469,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 38.805344291534674,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 6
+    },
+    {
+      "name": "titan.TitanV2*",
+      "seen": 28,
+      "neural_samples": 1199,
+      "ratings": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.030013715527115,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 28.405262565747876,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 28.307533074464047,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 24.923365772618748,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 9
+    },
+    {
+      "name": "voidious.Diamond 1.8.28",
+      "seen": 18,
+      "neural_samples": 3362,
+      "ratings": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.005245259301415,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 25.80679362003007,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 26.067660264720374,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 26.155768064132335,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 12
+    },
+    {
+      "name": "campeao.ChimpazeComSarna*",
+      "seen": 8,
+      "neural_samples": 443,
+      "ratings": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.81375240624165,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 26.982005318650003,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 26.46000291364396,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 25.245667207229495,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 16
+    }
+  ],
+  "version": "4.41",
+  "display_name": "titanprime4.41",
+  "technical_name": "equipe.titanprime_v4_41",
+  "source_sha256": "86e824f7b59f0ea4bad6128750f15a781aa6bf50615eee0d6f5d2d36d4e8f1a8",
+  "previous_source_sha256": "52ae4635b7e1fc08c3b1dd8f1480910682761752e5f361aea521a967087e7422",
+  "chunks": 29,
+  "combat_logic_changed": false,
+  "data_folder_changed": false,
+  "new_battle_performance_measured": false,
+  "jar_sha256": "da7acb16b2eb2a5a7db48a3ece8e6d6ad59ae5bb68fb98a1898d0fd24bfaedf8",
+  "classes": 117,
+  "classfile_major": 52,
+  "validation": {
+    "production_memory_checks": 40,
+    "previous_codec_compatibility_checks": 3,
+    "output": "TITAN_MEMORY embedded=5 local=0 loaded=5 generation=45\nTITAN_MEMORY embedded=5 local=5 loaded=5 generation=45\nTITAN_MEMORY embedded=5 local=5 loaded=5 generation=45\nTITAN_MEMORY embedded=5 local=1 loaded=5 generation=45\nTITAN_MEMORY embedded=5 local=0 loaded=5 generation=45\nUPDATED_MEMORY_PRODUCTION_PASS checks=40\n",
+    "compatibility_output": "PREVIOUS_441_COMPATIBILITY_PASS checks=3\n",
+    "exact_packaged_jar_memory_checks_passed": true,
+    "repository_name_check_passed": true
+  },
+  "prior_four_profiles_byte_identical": {
+    "obrabo.OBraboBot*": true,
+    "titan.TitanV2*": true,
+    "voidious.Diamond 1.8.28": true,
+    "campeao.ChimpazeComSarna*": true
+  },
+  "user_battle": {
+    "source_version_reported": "4.41",
+    "source_build_hash_not_in_csv": true,
+    "opponent": "equipe.titanprime*",
+    "wins": 7,
+    "rounds": 10,
+    "points": [
+      757,
+      485
+    ],
+    "not_a_diamond_battle": true,
+    "new_updated_code_competitively_tested": false
+  }
+}
