@@ -1,0 +1,159 @@
+{
+  "base_version": "4.38",
+  "version": "4.41-pc",
+  "base_source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+  "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372",
+  "embedded_snapshot_sha256": "fde1e98bf8c52cf1e60a740489120ceca825f6ac15293373d1ad503b29eff2c5",
+  "generation": 38,
+  "profiles": [
+    {
+      "name": "obrabo.OBraboBot*",
+      "seen": 38,
+      "neural_samples": 553,
+      "gun_models": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 38.977445007563844,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 39.17039743339542,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 39.62816485336469,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 38.805344291534674,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 6
+    },
+    {
+      "name": "titan.TitanV2*",
+      "seen": 28,
+      "neural_samples": 1199,
+      "gun_models": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.030013715527115,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 28.405262565747876,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 28.307533074464047,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 24.923365772618748,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 9
+    },
+    {
+      "name": "voidious.Diamond 1.8.28",
+      "seen": 18,
+      "neural_samples": 3362,
+      "gun_models": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.005245259301415,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 25.80679362003007,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 26.067660264720374,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 26.155768064132335,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 12
+    },
+    {
+      "name": "campeao.ChimpazeComSarna*",
+      "seen": 8,
+      "neural_samples": 443,
+      "gun_models": [
+        {
+          "label": "Titan Neural Recent",
+          "hits": 26.81375240624165,
+          "shots": 128
+        },
+        {
+          "label": "Anti-Surfer Gun",
+          "hits": 26.982005318650003,
+          "shots": 128
+        },
+        {
+          "label": "Main Gun",
+          "hits": 26.46000291364396,
+          "shots": 128
+        },
+        {
+          "label": "Titan Neural General",
+          "hits": 25.245667207229495,
+          "shots": 128
+        }
+      ],
+      "defense_samples": [
+        24,
+        24
+      ],
+      "shots": 128,
+      "hits": 16
+    }
+  ],
+  "chunks": 24,
+  "snapshot_bytes": 53237,
+  "competitive_performance_revalidated": false,
+  "jar_sha256": "fabf30fed859435a13a2d803426f0522cd40ca7c6546a212297f7786f3e3357d",
+  "classes": 117,
+  "classfile_major": 52,
+  "compiler": "OpenJDK21javac source8target8; RobocodeAPI1.9.5.4",
+  "production_438_replaced": false,
+  "source_path": "variants/aprendizado-pc/equipe/titanprime.java",
+  "tests": {
+    "production_memory_checks": 39,
+    "base_438_codec_compatibility_checks": 3,
+    "runtime": "Java21",
+    "actual_battles_run": 0,
+    "output": "TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nEMBEDDED_MEMORY_PRODUCTION_PASS checks=39\n",
+    "base_output": "BASE_COMPATIBILITY_PASS checks=3\n"
+  }
+}

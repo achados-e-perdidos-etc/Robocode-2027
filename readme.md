@@ -23,3 +23,8 @@ O JAR contém117 classes, bytecode52, montadas com as próprias classes usadas n
 A base usa Diamond, de Voidious, e KNN de Rednaxela; os [avisos obrigatórios](licenses/source-notices.txt) permanecem no projeto e no JAR.
 
 O JAR empacotado passou em Java17: duelo de3 rounds com o Chimpanzé e Melee de1 round com Diamond, Chimpanzé eTitanV3. Verificação de instalação, separada das séries competitivas.
+
+## Variante com aprendizado do PC
+
+A [4.41-pc](variants/aprendizado-pc/leia-me.md) incorpora quatro perfis enviados pelo usuário dentro de um único Java e continua salvando atualizações locais. [JAR da variante](releases/titanprime-4.41-pc.jar). Validação de memória concluída; desempenho competitivo ainda não reavaliado. O código principal e o JAR 4.38 permanecem preservados.
+
