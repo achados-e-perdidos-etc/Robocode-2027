@@ -155,5 +155,26 @@
     "actual_battles_run": 0,
     "output": "TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=4 loaded=4 generation=38\nTITAN_MEMORY embedded=4 local=0 loaded=4 generation=38\nEMBEDDED_MEMORY_PRODUCTION_PASS checks=39\n",
     "base_output": "BASE_COMPATIBILITY_PASS checks=3\n"
+  },
+  "subsequent_comparison": {
+    "completed": true,
+    "date": "2026-11-21",
+    "report": "tests/embedded-pc-memory/comparison-2026-11-21/leia-me.md",
+    "case_count": 10,
+    "rounds_total": 100,
+    "rounds_per_version": 50,
+    "learned_wins": 50,
+    "base_wins": 49,
+    "diamond_learned": [
+      20,
+      20
+    ],
+    "diamond_base": [
+      19,
+      20
+    ],
+    "all_cases_valid": true,
+    "automatic_promotion": false,
+    "statistically_reliable_universal_improvement_proven": false
   }
 }

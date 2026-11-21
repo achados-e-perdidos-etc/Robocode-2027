@@ -12,7 +12,7 @@ Importe o JAR e selecione `equipe.titanprime 4.41-pc`. Caso prefira o fonte, cop
 
 Validação técnica: 39 verificações usando o código Java real, restauração das árvores KNN e avaliações das miras, corrupção, prioridades, limites e gravação/recarga; 3 verificações adicionais confirmaram que o codec da 4.38 lê um snapshot produzido pela variante. Compilação completa e integridade do JAR verificadas, bytecode 52. [Relatório](../../tests/embedded-pc-memory/validation.json).
 
-Ainda não foram executadas batalhas competitivas desta variante. Os resultados 50/50 e49/50 pertencem à4.38 e não são atribuídos a este aprendizado importado. Os limites de armazenamento dos arquivos locais continuam valendo.
+Comparação preliminar de 21/11/2026: a 4.41-pc venceu 50/50 rounds distribuídos entre quatro adversários; a 4.38 venceu 49/50. Contra Diamond foram 20/20 versus 19/20; os demais tiveram 10 rounds por versão. A participação de pontos melhorou contra Diamond, Chimpanzé e TitanV2, mas caiu contra OBraboBot. Amostras pequenas com largadas independentes não comprovam uma melhoria permanente. [Resultados completos](../../tests/embedded-pc-memory/comparison-2026-11-21/leia-me.md). O código principal 4.38 continua preservado.
 
 Para repetir as verificações com seu ZIP e a API do Robocode:
 

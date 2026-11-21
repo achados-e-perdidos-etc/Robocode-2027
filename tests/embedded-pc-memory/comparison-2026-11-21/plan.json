@@ -1,0 +1,88 @@
+{
+  "started_utc": "2026-11-21T16:06:01.827391+00:00",
+  "rounds_per_case": 10,
+  "cpu_constant_ns": 10030489,
+  "versions": {
+    "base": {
+      "source": "/workspace/titan-memory/base/titanprime.java",
+      "sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    },
+    "aprendido": {
+      "source": "/workspace/titan-memory/variant/equipe/titanprime.java",
+      "sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372"
+    }
+  },
+  "opponents": [
+    [
+      "diamond",
+      "voidious.Diamond 1.8.28",
+      false
+    ],
+    [
+      "chimp",
+      "campeao.ChimpazeComSarna*",
+      true
+    ],
+    [
+      "obrabo",
+      "obrabo.OBraboBot*",
+      true
+    ],
+    [
+      "titanv2",
+      "titan.TitanV2*",
+      true
+    ]
+  ],
+  "protocol": "Freshengine andJVM percase, ownlocalfiles empty. Onlylearnedvariantcontains embeddedfourprofiles. OriginalDiamondJar; others compiledfromcurrentuserrepo, correctdevelopmentnames, OBrabologsyntaxonlyrepair. Randomstartsperround unseeded; caseIDsnotRNGseeds. Oneengine atatime. Predeclared8cases; no reruns ofvalidlosses. Preliminarycomparison, notproof ofuniversalimprovement.",
+  "case_order": [
+    {
+      "opponent": "diamond",
+      "selector": "voidious.Diamond 1.8.28",
+      "development": false,
+      "version": "base"
+    },
+    {
+      "opponent": "diamond",
+      "selector": "voidious.Diamond 1.8.28",
+      "development": false,
+      "version": "aprendido"
+    },
+    {
+      "opponent": "chimp",
+      "selector": "campeao.ChimpazeComSarna*",
+      "development": true,
+      "version": "aprendido"
+    },
+    {
+      "opponent": "chimp",
+      "selector": "campeao.ChimpazeComSarna*",
+      "development": true,
+      "version": "base"
+    },
+    {
+      "opponent": "obrabo",
+      "selector": "obrabo.OBraboBot*",
+      "development": true,
+      "version": "base"
+    },
+    {
+      "opponent": "obrabo",
+      "selector": "obrabo.OBraboBot*",
+      "development": true,
+      "version": "aprendido"
+    },
+    {
+      "opponent": "titanv2",
+      "selector": "titan.TitanV2*",
+      "development": true,
+      "version": "aprendido"
+    },
+    {
+      "opponent": "titanv2",
+      "selector": "titan.TitanV2*",
+      "development": true,
+      "version": "base"
+    }
+  ]
+}

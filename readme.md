@@ -28,3 +28,5 @@ O JAR empacotado passou em Java17: duelo de3 rounds com o Chimpanzé e Melee de1
 
 A [4.41-pc](variants/aprendizado-pc/leia-me.md) incorpora quatro perfis enviados pelo usuário dentro de um único Java e continua salvando atualizações locais. [JAR da variante](releases/titanprime-4.41-pc.jar). Validação de memória concluída; desempenho competitivo ainda não reavaliado. O código principal e o JAR 4.38 permanecem preservados.
 
+
+[Comparação de 100 rounds entre a 4.38 e a 4.41-pc](tests/embedded-pc-memory/comparison-2026-11-21/leia-me.md): 49/50 versus 50/50 distribuídos entre quatro adversários; resultado preliminar, com ganho não uniforme. As duas versões permanecem disponíveis.

@@ -1,0 +1,361 @@
+{
+  "date": "2026-11-21",
+  "comparison_rounds": 100,
+  "all_cases_valid": true,
+  "cases": [
+    {
+      "opponent": "diamond",
+      "selector": "voidious.Diamond 1.8.28",
+      "development": false,
+      "version": "base",
+      "valid": true,
+      "wins": 9,
+      "rounds": 10,
+      "points": 673,
+      "opponent_points": 491,
+      "score_share": 0.5781786941580757,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0"
+      ],
+      "skipped": 1,
+      "walls": 1,
+      "mean_final_energy": 32.87245911651512,
+      "report": "/workspace/robocode-compare/results/diamond-base/results.json",
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    },
+    {
+      "opponent": "diamond",
+      "selector": "voidious.Diamond 1.8.28",
+      "development": false,
+      "version": "aprendido",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 744,
+      "opponent_points": 452,
+      "score_share": 0.6220735785953178,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38"
+      ],
+      "skipped": 2,
+      "walls": 6,
+      "mean_final_energy": 27.452828116355413,
+      "report": "/workspace/robocode-compare/results/diamond-aprendido/results.json",
+      "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372"
+    },
+    {
+      "opponent": "chimp",
+      "selector": "campeao.ChimpazeComSarna*",
+      "development": true,
+      "version": "aprendido",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 628,
+      "opponent_points": 77,
+      "score_share": 0.8907801418439716,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38"
+      ],
+      "skipped": 0,
+      "walls": 0,
+      "mean_final_energy": 86.25131878312878,
+      "report": "/workspace/robocode-compare/results/chimp-aprendido/results.json",
+      "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372"
+    },
+    {
+      "opponent": "chimp",
+      "selector": "campeao.ChimpazeComSarna*",
+      "development": true,
+      "version": "base",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 606,
+      "opponent_points": 77,
+      "score_share": 0.8872620790629575,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0"
+      ],
+      "skipped": 0,
+      "walls": 1,
+      "mean_final_energy": 85.77000000000015,
+      "report": "/workspace/robocode-compare/results/chimp-base/results.json",
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    },
+    {
+      "opponent": "obrabo",
+      "selector": "obrabo.OBraboBot*",
+      "development": true,
+      "version": "base",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 1247,
+      "opponent_points": 143,
+      "score_share": 0.8971223021582734,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0"
+      ],
+      "skipped": 0,
+      "walls": 1,
+      "mean_final_energy": 98.56921884040952,
+      "report": "/workspace/robocode-compare/results/obrabo-base/results.json",
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    },
+    {
+      "opponent": "obrabo",
+      "selector": "obrabo.OBraboBot*",
+      "development": true,
+      "version": "aprendido",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 1282,
+      "opponent_points": 200,
+      "score_share": 0.865047233468286,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38"
+      ],
+      "skipped": 1,
+      "walls": 0,
+      "mean_final_energy": 92.66319904386793,
+      "report": "/workspace/robocode-compare/results/obrabo-aprendido/results.json",
+      "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372"
+    },
+    {
+      "opponent": "titanv2",
+      "selector": "titan.TitanV2*",
+      "development": true,
+      "version": "aprendido",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 927,
+      "opponent_points": 301,
+      "score_share": 0.754885993485342,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38"
+      ],
+      "skipped": 1,
+      "walls": 0,
+      "mean_final_energy": 55.768750000000104,
+      "report": "/workspace/robocode-compare/results/titanv2-aprendido/results.json",
+      "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372"
+    },
+    {
+      "opponent": "titanv2",
+      "selector": "titan.TitanV2*",
+      "development": true,
+      "version": "base",
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 902,
+      "opponent_points": 323,
+      "score_share": 0.7363265306122448,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0"
+      ],
+      "skipped": 0,
+      "walls": 0,
+      "mean_final_energy": 46.38191593184056,
+      "report": "/workspace/robocode-compare/results/titanv2-base/results.json",
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da"
+    },
+    {
+      "opponent": "diamond",
+      "version": "aprendido",
+      "confirmation": true,
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 747,
+      "opponent_points": 303,
+      "score_share": 0.7114285714285714,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY embedded=4 local=0 loaded=4 generation=38"
+      ],
+      "skipped": 0,
+      "walls": 2,
+      "mean_final_energy": 43.72623682317625,
+      "source_sha256": "55ba1c01fc07dfaabd9520b94ffb9a6bdc662c296674976b479b695c27940372",
+      "report": "/workspace/robocode-compare/results/diamond-confirm-aprendido/results.json"
+    },
+    {
+      "opponent": "diamond",
+      "version": "base",
+      "confirmation": true,
+      "valid": true,
+      "wins": 10,
+      "rounds": 10,
+      "points": 734,
+      "opponent_points": 334,
+      "score_share": 0.6872659176029963,
+      "errors": [],
+      "initial_learning_lines": [
+        "[equipe.titanprime*] TITAN_MEMORY loaded=0 generation=0"
+      ],
+      "skipped": 1,
+      "walls": 2,
+      "mean_final_energy": 40.14315356818058,
+      "source_sha256": "7c402d76bed85fcf1c4068fcb77128db0a62e5c9040b682fe27fd0d66a3280da",
+      "report": "/workspace/robocode-compare/results/diamond-confirm-base/results.json"
+    }
+  ],
+  "by_opponent": [
+    {
+      "opponent": "diamond",
+      "base": {
+        "wins": 19,
+        "rounds": 20,
+        "points": 1407,
+        "opponent_points": 825,
+        "walls": 3,
+        "skipped": 2,
+        "score_share": 0.6303763440860215,
+        "mean_final_energy": 36.50780634234785
+      },
+      "aprendido": {
+        "wins": 20,
+        "rounds": 20,
+        "points": 1491,
+        "opponent_points": 755,
+        "walls": 8,
+        "skipped": 2,
+        "score_share": 0.6638468388245771,
+        "mean_final_energy": 35.589532469765835
+      },
+      "score_share_change_pp": 3.3470494738555567
+    },
+    {
+      "opponent": "chimp",
+      "base": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 606,
+        "opponent_points": 77,
+        "walls": 1,
+        "skipped": 0,
+        "score_share": 0.8872620790629575,
+        "mean_final_energy": 85.77000000000015
+      },
+      "aprendido": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 628,
+        "opponent_points": 77,
+        "walls": 0,
+        "skipped": 0,
+        "score_share": 0.8907801418439716,
+        "mean_final_energy": 86.25131878312878
+      },
+      "score_share_change_pp": 0.3518062781014075
+    },
+    {
+      "opponent": "obrabo",
+      "base": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 1247,
+        "opponent_points": 143,
+        "walls": 1,
+        "skipped": 0,
+        "score_share": 0.8971223021582734,
+        "mean_final_energy": 98.56921884040952
+      },
+      "aprendido": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 1282,
+        "opponent_points": 200,
+        "walls": 0,
+        "skipped": 1,
+        "score_share": 0.865047233468286,
+        "mean_final_energy": 92.66319904386793
+      },
+      "score_share_change_pp": -3.207506868998733
+    },
+    {
+      "opponent": "titanv2",
+      "base": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 902,
+        "opponent_points": 323,
+        "walls": 0,
+        "skipped": 0,
+        "score_share": 0.7363265306122448,
+        "mean_final_energy": 46.38191593184056
+      },
+      "aprendido": {
+        "wins": 10,
+        "rounds": 10,
+        "points": 927,
+        "opponent_points": 301,
+        "walls": 0,
+        "skipped": 1,
+        "score_share": 0.754885993485342,
+        "mean_final_energy": 55.768750000000104
+      },
+      "score_share_change_pp": 1.8559462873097177
+    }
+  ],
+  "base_wins": 49,
+  "learned_wins": 50,
+  "rounds_per_version": 50,
+  "interpretation": "Favorable preliminary signal: one extraDiamondwin, more ownpoints againstallfour, improvedscore share versusDiamond/Chimp/TitanV2butworseversusOBrabo. Smallindependent randomstart samples donotestablishastatisticallyreliableuniversalbenefit. Noautomaticpromotion.",
+  "production_438_changed": false,
+  "variant_441_changed": false,
+  "engine": "Robocode1.12.0",
+  "java": "21.0.13",
+  "compiler": "javac21source8target8",
+  "cpu_constant_ns": 10030489,
+  "original_diamond_sha256": "1ab39d66041eaf4edf5c073d8caa7c61ff5e783961adfad03914f14017d048ea",
+  "opponent_provenance": [
+    {
+      "name": "chimp",
+      "jar_sha256": "5279ec1fd72ee32ec267e383531e269a9d795483bdb1b96d90e86fcf15a2a6d2",
+      "development_installation": true,
+      "syntax_repair": false
+    },
+    {
+      "name": "obrabo",
+      "jar_sha256": "0d2038c5ce65e160d67415707b0f9e2ea740389842c3b866a5158b16fef708e7",
+      "development_installation": true,
+      "syntax_repair": true
+    },
+    {
+      "name": "titanv2",
+      "jar_sha256": "139f7115e4ad48937f5a9790109274d83b7dd6de100f0c9a4d8d9eef44a13452",
+      "development_installation": true,
+      "syntax_repair": false
+    }
+  ],
+  "code_source_urls": {
+    "chimp": "https://github.com/gustavoolyver/Titan-Robo/blob/main/Java.java",
+    "obrabo": "https://github.com/gustavoolyver/Titan-Robo/blob/main/OBraboBot.java",
+    "titanv2": "https://github.com/gustavoolyver/Titan-Robo/blob/main/TitanV2.java"
+  },
+  "training_profile_names": [
+    "voidious.Diamond 1.8.28",
+    "campeao.ChimpazeComSarna*",
+    "obrabo.OBraboBot*",
+    "titan.TitanV2*"
+  ],
+  "limits": [
+    "Starts randomizedindependently; no pairedidenticalpositions or PRNGseeding.",
+    "Thecurrentrepositorysources maydifferfromtheunversioneddevelopmentbinaries usedontheuserPC; onlythe recordednamescanbematched.",
+    "OBrabo sourcehada malformedmultiline loggingstring; onlyescapednewline corrected tocompile, samebinaryforbothversions.",
+    "Twoinstallationpilots excludedfromcomparison: missingUIinvalidDiamond1, validChimp1forenvironmentcheck. Bothrawresultsretained."
+  ]
+}

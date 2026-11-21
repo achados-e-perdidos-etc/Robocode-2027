@@ -1,0 +1,16 @@
+{
+  "started_utc": "2026-11-21T16:09:38.247743+00:00",
+  "reason": "InitialDiamond9/10vs10/10is toosmall to conclude benefit; one independent predeclared10roundconfirmation perversion. Reverseorder comparedtofirstpair. Keepallinitialresults.",
+  "case_order": [
+    "aprendido",
+    "base"
+  ],
+  "rounds_each": 10,
+  "case_ids": [
+    71201,
+    71202
+  ],
+  "fresh_jvm_and_data": true,
+  "random_starts": true,
+  "no_retry_of_valid_losses": true
+}
