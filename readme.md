@@ -1,3 +1,5 @@
+**Titan Prime 4.41:** o [Java identificado](robots/equipe/titanprime_v4_41.java) e suas [propriedades](robots/equipe/titanprime_v4_41.properties) estão em `robots/equipe`. Salve o fonte com o nome `titanprime_v4_41.java`. A versão 4.38 permanece preservada.
+
 # Titan Prime 4.38
 
 Variante salva por solicitação do usuário. Um único [titanprime.java](robots/equipe/titanprime.java), classe `equipe.titanprime`, sem comentários no Java.

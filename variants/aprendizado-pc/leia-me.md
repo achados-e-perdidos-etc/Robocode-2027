@@ -31,3 +31,5 @@ Para repetir as verificações com seu ZIP e a API do Robocode:
 ```sh
 python tests/embedded-pc-memory/check.py --api /caminho/robocode.jar --data-zip /caminho/titanprime.data.zip
 ```
+
+O mesmo Java identificado também está disponível na pasta principal: [robots/equipe/titanprime_v4_41.java](../../robots/equipe/titanprime_v4_41.java), acompanhado das [propriedades](../../robots/equipe/titanprime_v4_41.properties). As duas cópias têm exatamente o mesmo conteúdo.
